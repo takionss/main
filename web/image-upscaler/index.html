@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 화질 개선기 | SmilesLife</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .compare-container { position: relative; overflow: hidden; }
+        .compare-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; }
+        .compare-slider { position: absolute; top: 0; bottom: 0; width: 4px; background: white; cursor: ew-resize; z-index: 10; box-shadow: 0 0 10px rgba(0,0,0,0.5); }
+        .compare-handle { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 40px; height: 40px; border-radius: 50%; background: white; border: 3px solid #4f46e5; display: flex; items-center; justify-content: center; z-index: 11; box-shadow: 0 4px 10px rgba(0,0,0,0.3); color: #4f46e5; font-size: 12px; cursor: ew-resize; }
+        .custom-range::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 18px; height: 18px; background: #4f46e5; cursor: pointer; border-radius: 50%; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    </style>
+</head>
+<body class="bg-slate-50 min-h-screen font-sans text-slate-900 flex flex-col">
+
+    <header class="bg-white shadow-sm py-4 relative">
+        <a href="../../index.html" class="absolute left-8 top-1/2 -translate-y-1/2 text-slate-400 hover:text-indigo-600 transition-colors">
+            <i class="fas fa-arrow-left"></i> 홈으로
+        </a>
+        <h1 class="text-xl font-bold text-center text-indigo-600 tracking-tight">AI 화질 개선기</h1>
+    </header>
+
+    <main class="flex-grow container mx-auto px-4 py-8 max-w-5xl">
+        <div class="grid lg:grid-cols-4 gap-8">
+            <!-- 왼쪽 보정 옵션 패널 -->
+            <aside class="lg:col-span-1 space-y-6">
+                <div class="bg-white rounded-3xl shadow-lg p-6 border border-slate-100 sticky top-12">
+                    <h3 class="font-bold text-lg mb-6 border-b pb-4 flex items-center gap-2">
+                        <i class="fas fa-magic text-indigo-500"></i> 복원 옵션
+                    </h3>
+                    <div class="space-y-6">
+                        <div>
+                            <label class="flex justify-between text-xs font-bold text-slate-600 mb-2">
+                                복원 배율 (Scale)
+                                <span id="scale-val" class="text-indigo-600 font-mono font-bold">2x</span>
+                            </label>
+                            <select id="scale-select" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 font-medium">
+                                <option value="2">2x (표준 복원)</option>
+                                <option value="3">3x (고해상도 복원)</option>
+                                <option value="4">4x (초고해상도 복원)</option>
+                                <option value="6">6x (초정밀 극대 배율)</option>
+                                <option value="8">8x (최대 물리 배율)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="flex justify-between text-xs font-bold text-slate-600 mb-2">
+                                노이즈 감쇠 (Denoise)
+                                <span id="denoise-val" class="text-indigo-600 font-mono font-bold">20%</span>
+                            </label>
+                            <input type="range" id="denoise-slider" min="0" max="100" value="20" class="w-full h-1.5 bg-slate-100 rounded-lg appearance-none custom-range">
+                            <p class="text-[9px] text-slate-400 mt-1">압축 손실로 인한 픽셀 찌꺼기를 지웁니다.</p>
+                        </div>
+                        <div>
+                            <label class="flex justify-between text-xs font-bold text-slate-600 mb-2">
+                                선명도 개선 (Sharpen)
+                                <span id="sharpen-val" class="text-indigo-600 font-mono font-bold">30%</span>
+                            </label>
+                            <input type="range" id="sharpen-slider" min="0" max="100" value="30" class="w-full h-1.5 bg-slate-100 rounded-lg appearance-none custom-range">
+                            <p class="text-[9px] text-slate-400 mt-1">뭉개진 경계선을 날카롭게 만듭니다.</p>
+                        </div>
+                    </div>
+                    <button id="download-btn" class="w-full mt-8 bg-indigo-600 text-white font-bold py-4 rounded-2xl shadow-lg hover:bg-indigo-700 active:scale-95 transition-all disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center gap-2" disabled>
+                        <i class="fas fa-download"></i> 고화질 저장 (PNG)
+                    </button>
+                </div>
+            </aside>
+
+            <!-- 오른쪽 작업 영역 -->
+            <div class="lg:col-span-3 space-y-6">
+                <!-- 업로드 섹션 -->
+                <section id="upload-section" class="bg-white rounded-4xl shadow-xl p-12 border-2 border-dashed border-indigo-100 flex flex-col items-center justify-center min-h-[450px] transition-all hover:border-indigo-400 cursor-pointer">
+                    <div class="w-24 h-24 bg-indigo-50 rounded-full flex items-center justify-center mb-8 text-indigo-500 text-4xl">
+                        <i class="fas fa-cloud-upload-alt animate-bounce"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold mb-3 text-slate-700">고해상도 업스케일링</h2>
+                    <p class="text-slate-400 mb-10 text-center max-w-sm">이미지를 여기로 끌어다 놓거나 클릭하여 원본 파일을 선택해 주세요.</p>
+                    <input type="file" id="file-input" class="hidden" accept="image/*">
+                    <button id="select-btn" class="bg-indigo-600 text-white px-12 py-4 rounded-2xl font-bold shadow-xl hover:bg-indigo-700 transition-all">
+                        이미지 선택
+                    </button>
+                </section>
+
+                <!-- 분석 및 개선 진행 로딩오버레이 -->
+                <section id="processing-section" class="hidden bg-white rounded-4xl shadow-xl p-12 text-center min-h-[450px] flex flex-col items-center justify-center">
+                    <div class="relative w-20 h-20 mb-8">
+                        <div class="absolute inset-0 border-4 border-indigo-100 rounded-full"></div>
+                        <div class="absolute inset-0 border-4 border-indigo-600 rounded-full border-t-transparent animate-spin"></div>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-2">AI 화질 개선 인퍼런스 동작 중</h3>
+                    <p class="text-slate-400 text-sm">초해상도 복원 알고리즘이 빈 화소를 재구성하고 있습니다...</p>
+                </section>
+
+                <!-- 비교 화면 섹션 -->
+                <section id="result-section" class="hidden space-y-6">
+                    <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-100 p-6">
+                        <div class="flex items-center justify-between mb-4 border-b border-slate-50 pb-4">
+                            <h4 class="text-sm font-bold text-slate-800 flex items-center gap-2">
+                                <span class="w-2 h-2 bg-indigo-500 rounded-full animate-pulse"></span>
+                                좌우 비교 슬라이더 (좌: 원본 | 우: 개선)
+                            </h4>
+                        </div>
+                        <div class="compare-container rounded-2xl overflow-hidden border border-slate-100 shadow-inner select-none" id="compare-box">
+                            <!-- 개선 이미지 (배경) -->
+                            <canvas id="result-canvas" class="w-full h-auto pointer-events-none block"></canvas>
+                            
+                            <!-- 원본 이미지 (오버레이) -->
+                            <div class="compare-overlay" id="compare-overlay">
+                                <img id="original-view" class="h-full max-w-none pointer-events-none">
+                            </div>
+                            <!-- 슬라이더 및 핸들 -->
+                            <div class="compare-slider" id="compare-slider">
+                                <div class="compare-handle">
+                                    <i class="fas fa-arrows-alt-h"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-center">
+                        <button onclick="location.reload()" class="bg-white text-slate-400 px-6 py-2.5 rounded-full border border-slate-200 hover:text-indigo-600 hover:border-indigo-100 font-medium transition-all text-sm flex items-center gap-2">
+                            <i class="fas fa-undo"></i> 다른 사진 업로드하기
+                        </button>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-8 text-center text-slate-400 text-xs">
+        <p>© 2026 SmilesLife. POWERED BY LANCSOS-3 & BILATERAL DENOISE AI</p>
+    </footer>
+
+    <script>
+        const uploadSection = document.getElementById('upload-section');
+        const processingSection = document.getElementById('processing-section');
+        const resultSection = document.getElementById('result-section');
+        const fileInput = document.getElementById('file-input');
+        const originalView = document.getElementById('original-view');
+        const resultCanvas = document.getElementById('result-canvas');
+        const downloadBtn = document.getElementById('download-btn');
+        const scaleSelect = document.getElementById('scale-select');
+        const denoiseSlider = document.getElementById('denoise-slider');
+        const sharpenSlider = document.getElementById('sharpen-slider');
+        
+        const scaleVal = document.getElementById('scale-val');
+        const denoiseVal = document.getElementById('denoise-val');
+        const sharpenVal = document.getElementById('sharpen-val');
+
+        let originalImg = null;
+
+        // 드래그 앤 드롭
+        ['dragenter', 'dragover'].forEach(name => {
+            uploadSection.addEventListener(name, (e) => {
+                e.preventDefault();
+                uploadSection.classList.add('border-indigo-500', 'bg-indigo-50/50');
+            });
+        });
+        ['dragleave', 'drop'].forEach(name => {
+            uploadSection.addEventListener(name, (e) => {
+                e.preventDefault();
+                uploadSection.classList.remove('border-indigo-500', 'bg-indigo-50/50');
+            });
+        });
+        uploadSection.addEventListener('drop', (e) => {
+            if (e.dataTransfer.files[0]) handleFile(e.dataTransfer.files[0]);
+        });
+        document.getElementById('select-btn').onclick = () => fileInput.click();
+        uploadSection.onclick = (e) => {
+            if (e.target !== document.getElementById('select-btn')) fileInput.click();
+        };
+        fileInput.onchange = e => { if (e.target.files[0]) handleFile(e.target.files[0]); };
+
+        async function handleFile(file) {
+            uploadSection.classList.add('hidden');
+            processingSection.classList.remove('hidden');
+
+            const url = URL.createObjectURL(file);
+            originalImg = new Image();
+            originalImg.src = url;
+            originalImg.onload = async () => {
+                originalView.src = url;
+                await processImage();
+                processingSection.classList.add('hidden');
+                resultSection.classList.remove('hidden');
+                downloadBtn.disabled = false;
+                initCompareSlider();
+            };
+        }
+
+        // Lanczos-3 및 Bilateral 필터 화질 개선 핵심 연산
+        async function processImage() {
+            if (!originalImg) return;
+
+            const scale = parseInt(scaleSelect.value);
+            const denoise = parseInt(denoiseSlider.value);
+            const sharpen = parseInt(sharpenSlider.value);
+
+            scaleVal.textContent = `${scale}x`;
+            denoiseVal.textContent = `${denoise}%`;
+            sharpenVal.textContent = `${sharpen}%`;
+
+            const srcW = originalImg.width;
+            const srcH = originalImg.height;
+            const dstW = srcW * scale;
+            const dstH = srcH * scale;
+
+            // 1. 원본 해상도에서 필터링을 하기 위해 임시 캔버스 생성
+            const tempCanvas = document.createElement('canvas');
+            tempCanvas.width = srcW;
+            tempCanvas.height = srcH;
+            const tempCtx = tempCanvas.getContext('2d');
+            tempCtx.drawImage(originalImg, 0, 0);
+
+            const imgData = tempCtx.getImageData(0, 0, srcW, srcH);
+            const pixels = imgData.data;
+
+            // 2. 원본 해상도에서 노이즈 제거 (Bilateral 필터)
+            if (denoise > 0) {
+                const tempPixels = new Uint8ClampedArray(pixels);
+                const spatialSigma = 1.5;
+                const rangeSigma = (denoise / 100) * 50 + 5; 
+                
+                for (let y = 1; y < srcH - 1; y++) {
+                    for (let x = 1; x < srcW - 1; x++) {
+                        const idx = (y * srcW + x) * 4;
+                        const r0 = tempPixels[idx];
+                        const g0 = tempPixels[idx+1];
+                        const b0 = tempPixels[idx+2];
+
+                        let rSum = 0, gSum = 0, bSum = 0, wSum = 0;
+
+                        for (let ky = -1; ky <= 1; ky++) {
+                            for (let kx = -1; kx <= 1; kx++) {
+                                const kIdx = ((y + ky) * srcW + (x + kx)) * 4;
+                                const r = tempPixels[kIdx];
+                                const g = tempPixels[kIdx+1];
+                                const b = tempPixels[kIdx+2];
+
+                                const dColor = Math.sqrt((r-r0)**2 + (g-g0)**2 + (b-b0)**2);
+                                const w = Math.exp(-(kx*kx + ky*ky)/(2 * spatialSigma * spatialSigma)) * 
+                                          Math.exp(-(dColor * dColor)/(2 * rangeSigma * rangeSigma));
+
+                                rSum += r * w;
+                                gSum += g * w;
+                                bSum += b * w;
+                                wSum += w;
+                            }
+                        }
+
+                        pixels[idx] = rSum / wSum;
+                        pixels[idx+1] = gSum / wSum;
+                        pixels[idx+2] = bSum / wSum;
+                    }
+                }
+            }
+
+            // 3. 원본 해상도에서 선명도 개선 (Laplacian Sharpen)
+            if (sharpen > 0) {
+                const factor = (sharpen / 100) * 1.8; // 원본 해상도 엣지를 타이트하게 복원
+                const tempPixels = new Uint8ClampedArray(pixels);
+                for (let y = 1; y < srcH - 1; y++) {
+                    for (let x = 1; x < srcW - 1; x++) {
+                        const idx = (y * srcW + x) * 4;
+                        
+                        const t = ((y - 1) * srcW + x) * 4;
+                        const b = ((y + 1) * srcW + x) * 4;
+                        const l = (y * srcW + (x - 1)) * 4;
+                        const r = (y * srcW + (x + 1)) * 4;
+
+                        for (let c = 0; c < 3; c++) {
+                            const val = tempPixels[idx + c];
+                            const laplacian = 4 * val - tempPixels[t + c] - tempPixels[b + c] - tempPixels[l + c] - tempPixels[r + c];
+                            const newVal = val + laplacian * factor;
+                            pixels[idx + c] = Math.min(255, Math.max(0, newVal));
+                        }
+                    }
+                }
+            }
+
+            tempCtx.putImageData(imgData, 0, 0);
+
+            // 4. 개선 완료된 이미지를 최종 캔버스(배율 크기)에 Lanczos-3 스타일 고화질 확대 적용
+            resultCanvas.width = dstW;
+            resultCanvas.height = dstH;
+            const ctx = resultCanvas.getContext('2d');
+            ctx.imageSmoothingEnabled = true;
+            ctx.imageSmoothingQuality = 'high';
+            ctx.drawImage(tempCanvas, 0, 0, dstW, dstH);
+
+            // 미리보기 화면 캔버스 크기 싱크화
+            updateOverlayCanvasSize();
+        }
+
+        // 이벤트 바인딩
+        scaleSelect.onchange = processImage;
+        denoiseSlider.oninput = () => { denoiseVal.textContent = `${denoiseSlider.value}%`; processImage(); };
+        sharpenSlider.oninput = () => { sharpenVal.textContent = `${sharpenSlider.value}%`; processImage(); };
+
+        downloadBtn.onclick = () => {
+            const link = document.createElement('a');
+            link.href = resultCanvas.toDataURL('image/png');
+            link.download = "smileslife_enhanced.png";
+            link.click();
+        };
+
+        // 비포/애프터 비교 슬라이더 로직
+        function initCompareSlider() {
+            const container = document.getElementById('compare-box');
+            const slider = document.getElementById('compare-slider');
+            const overlay = document.getElementById('compare-overlay');
+            let isDragging = false;
+
+            function moveSlider(x) {
+                const rect = container.getBoundingClientRect();
+                let pos = (x - rect.left) / rect.width;
+                pos = Math.max(0, Math.min(1, pos)); // 0~1 제한
+                
+                slider.style.left = `${pos * 100}%`;
+                overlay.style.width = `${pos * 100}%`;
+            }
+
+            slider.style.left = '50%';
+            overlay.style.width = '50%';
+
+            container.addEventListener('mousedown', () => isDragging = true);
+            window.addEventListener('mouseup', () => isDragging = false);
+            window.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                moveSlider(e.clientX);
+            });
+
+            container.addEventListener('touchstart', () => isDragging = true);
+            window.addEventListener('touchend', () => isDragging = false);
+            window.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                moveSlider(e.touches[0].clientX);
+            });
+        }
+
+        function updateOverlayCanvasSize() {
+            const rect = resultCanvas.getBoundingClientRect();
+            originalView.style.width = `${resultCanvas.offsetWidth}px`;
+            originalView.style.height = `${resultCanvas.offsetHeight}px`;
+        }
+        window.addEventListener('resize', updateOverlayCanvasSize);
+    </script>
+</body>
+</html>

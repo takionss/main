@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 부분 지우개 | SmilesLife</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .custom-range::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            background: #db2777;
+            cursor: pointer;
+            border-radius: 50%;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .canvas-container {
+            position: relative;
+            max-width: 100%;
+            max-height: 70vh;
+            overflow: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f1f5f9;
+            background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+            background-size: 16px 16px;
+        }
+        canvas {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+        #mask-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            opacity: 0.6;
+        }
+        #cursor-circle {
+            position: absolute;
+            border: 2px solid #db2777;
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            display: none;
+            z-index: 50;
+            background: rgba(219, 39, 119, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 min-h-screen font-sans text-slate-900 flex flex-col">
+
+    <header class="bg-white shadow-sm py-4 relative">
+        <a href="../../index.html" class="absolute left-8 top-1/2 -translate-y-1/2 text-slate-400 hover:text-pink-600 transition-colors">
+            <i class="fas fa-arrow-left"></i> 홈으로
+        </a>
+        <h1 class="text-xl font-bold text-center text-pink-600 tracking-tight">AI 부분 지우개</h1>
+    </header>
+
+    <main class="flex-grow container mx-auto px-4 py-8 max-w-5xl">
+        <div class="grid lg:grid-cols-4 gap-8">
+            <!-- 왼쪽 옵션 패널 -->
+            <aside class="lg:col-span-1 space-y-6">
+                <div class="bg-white rounded-3xl shadow-lg p-6 border border-slate-100 sticky top-12">
+                    <h3 class="font-bold text-lg mb-6 border-b pb-4 flex items-center gap-2">
+                        <i class="fas fa-eraser text-pink-500"></i> 브러시 설정
+                    </h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between text-xs font-bold text-slate-600 mb-2">
+                                <span>브러시 크기 (Brush Size)</span>
+                                <span id="brush-val" class="text-pink-600 font-mono font-bold">30px</span>
+                            </div>
+                            <input type="range" id="brush-slider" min="5" max="100" value="30" class="w-full h-1.5 bg-slate-100 rounded-lg appearance-none custom-range">
+                        </div>
+
+                        <div class="pt-4 border-t border-slate-100 flex flex-col gap-3">
+                            <button id="erase-btn" class="w-full bg-pink-600 text-white font-bold py-3.5 rounded-2xl shadow-lg hover:bg-pink-700 active:scale-95 transition-all disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center gap-2" disabled>
+                                <i class="fas fa-magic"></i> 객체 지우기
+                            </button>
+                            <button id="clear-mask-btn" class="w-full bg-white text-slate-600 border border-slate-200 font-semibold py-3 rounded-2xl hover:bg-slate-50 transition-all disabled:opacity-30 disabled:cursor-not-allowed" disabled>
+                                마스크 초기화
+                            </button>
+                        </div>
+                    </div>
+
+                    <button id="download-btn" class="w-full mt-8 bg-slate-900 text-white font-bold py-4 rounded-2xl shadow-lg hover:bg-slate-800 active:scale-95 transition-all disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center gap-2" disabled>
+                        <i class="fas fa-download"></i> 수정 완료 저장
+                    </button>
+                </div>
+            </aside>
+
+            <!-- 오른쪽 작업 영역 -->
+            <div class="lg:col-span-3 space-y-6">
+                <!-- 업로드 섹션 -->
+                <section id="upload-section" class="bg-white rounded-4xl shadow-xl p-12 border-2 border-dashed border-pink-100 flex flex-col items-center justify-center min-h-[480px] transition-all hover:border-pink-400 cursor-pointer">
+                    <div class="w-24 h-24 bg-pink-50 rounded-full flex items-center justify-center mb-8 text-pink-500 text-4xl">
+                        <i class="fas fa-image animate-pulse"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold mb-3 text-slate-700">AI 사물 & 객체 지우기</h2>
+                    <p class="text-slate-400 mb-10 text-center max-w-sm">수정할 사진을 끌어다 놓거나 아래 이미지 선택 버튼을 통해 업로드해 주세요.</p>
+                    <input type="file" id="file-input" class="hidden" accept="image/*">
+                    <button id="select-btn" class="bg-pink-600 text-white px-12 py-4 rounded-2xl font-bold shadow-xl hover:bg-pink-700 transition-all">
+                        이미지 선택
+                    </button>
+                </section>
+
+                <!-- 분석 및 지우기 진행 로딩오버레이 -->
+                <section id="processing-section" class="hidden bg-white rounded-4xl shadow-xl p-12 text-center min-h-[480px] flex flex-col items-center justify-center">
+                    <div class="relative w-20 h-20 mb-8">
+                        <div class="absolute inset-0 border-4 border-pink-100 rounded-full"></div>
+                        <div class="absolute inset-0 border-4 border-pink-600 rounded-full border-t-transparent animate-spin"></div>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-2">선택한 영역 지우는 중...</h3>
+                    <p class="text-slate-400 text-sm">주변 픽셀의 결과 텍스처를 자연스럽게 합성하고 있습니다.</p>
+                </section>
+
+                <!-- 캔버스 에디터 화면 섹션 -->
+                <section id="editor-section" class="hidden space-y-6">
+                    <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-100 p-6">
+                        <div class="flex items-center justify-between mb-4 border-b border-slate-50 pb-4">
+                            <h4 class="text-sm font-bold text-slate-800 flex items-center gap-2">
+                                <span class="w-2 h-2 bg-pink-500 rounded-full animate-pulse"></span>
+                                지우고 싶은 부분을 마우스나 손가락으로 문질러 칠하세요.
+                            </h4>
+                        </div>
+                        <div class="canvas-container rounded-2xl border border-slate-200" id="canvas-frame">
+                            <canvas id="image-canvas"></canvas>
+                            <canvas id="mask-canvas"></canvas>
+                            <div id="cursor-circle"></div>
+                        </div>
+                    </div>
+                    <div class="flex justify-center gap-4">
+                        <button onclick="location.reload()" class="bg-white text-slate-400 px-6 py-2.5 rounded-full border border-slate-200 hover:text-pink-600 hover:border-pink-100 font-medium transition-all text-sm flex items-center gap-2">
+                            <i class="fas fa-undo"></i> 다른 사진 업로드하기
+                        </button>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-8 text-center text-slate-400 text-xs mt-auto">
+        <p>© 2026 SmilesLife. POWERED BY CLIENT-SIDE INPAINTING DIFFUSION</p>
+    </footer>
+
+    <script>
+        const uploadSection = document.getElementById('upload-section');
+        const processingSection = document.getElementById('processing-section');
+        const editorSection = document.getElementById('editor-section');
+        const fileInput = document.getElementById('file-input');
+        
+        const imageCanvas = document.getElementById('image-canvas');
+        const maskCanvas = document.getElementById('mask-canvas');
+        const imgCtx = imageCanvas.getContext('2d');
+        const maskCtx = maskCanvas.getContext('2d');
+        
+        const brushSlider = document.getElementById('brush-slider');
+        const brushVal = document.getElementById('brush-val');
+        const eraseBtn = document.getElementById('erase-btn');
+        const clearMaskBtn = document.getElementById('clear-mask-btn');
+        const downloadBtn = document.getElementById('download-btn');
+        
+        const canvasFrame = document.getElementById('canvas-frame');
+        const cursorCircle = document.getElementById('cursor-circle');
+
+        let originalImg = null;
+        let isDrawing = false;
+        let hasMask = false;
+        let brushSize = 30;
+
+        // 드래그 앤 드롭 이벤트 바인딩
+        ['dragenter', 'dragover'].forEach(name => {
+            uploadSection.addEventListener(name, (e) => {
+                e.preventDefault();
+                uploadSection.classList.add('border-pink-500', 'bg-pink-50/50');
+            });
+        });
+        ['dragleave', 'drop'].forEach(name => {
+            uploadSection.addEventListener(name, (e) => {
+                e.preventDefault();
+                uploadSection.classList.remove('border-pink-500', 'bg-pink-50/50');
+            });
+        });
+        uploadSection.addEventListener('drop', (e) => {
+            if (e.dataTransfer.files[0]) handleFile(e.dataTransfer.files[0]);
+        });
+        document.getElementById('select-btn').onclick = () => fileInput.click();
+        uploadSection.onclick = (e) => {
+            if (e.target !== document.getElementById('select-btn')) fileInput.click();
+        };
+        fileInput.onchange = e => { if (e.target.files[0]) handleFile(e.target.files[0]); };
+
+        function handleFile(file) {
+            uploadSection.classList.add('hidden');
+            processingSection.classList.remove('hidden');
+
+            const url = URL.createObjectURL(file);
+            originalImg = new Image();
+            originalImg.src = url;
+            originalImg.onload = () => {
+                setupCanvas();
+                processingSection.classList.add('hidden');
+                editorSection.classList.remove('hidden');
+                downloadBtn.disabled = false;
+            };
+        }
+
+        function setupCanvas() {
+            // 최대 너비 제한 (성능 및 스케일 유지용)
+            const maxDimension = 1024;
+            let width = originalImg.width;
+            let height = originalImg.height;
+
+            if (width > maxDimension || height > maxDimension) {
+                if (width > height) {
+                    height = Math.round((height * maxDimension) / width);
+                    width = maxDimension;
+                } else {
+                    width = Math.round((width * maxDimension) / height);
+                    height = maxDimension;
+                }
+            }
+
+            imageCanvas.width = width;
+            imageCanvas.height = height;
+            maskCanvas.width = width;
+            maskCanvas.height = height;
+
+            imgCtx.drawImage(originalImg, 0, 0, width, height);
+            
+            // 마스크 투명 블랙 캔버스 초기화
+            maskCtx.fillStyle = 'rgba(0,0,0,0)';
+            maskCtx.fillRect(0, 0, width, height);
+
+            initBrushEvents();
+            updateBrushSize();
+        }
+
+        // 브러시 조절
+        brushSlider.oninput = () => {
+            brushSize = parseInt(brushSlider.value);
+            updateBrushSize();
+        };
+
+        function updateBrushSize() {
+            brushVal.textContent = `${brushSize}px`;
+            cursorCircle.style.width = `${brushSize}px`;
+            cursorCircle.style.height = `${brushSize}px`;
+        }
+
+        function initBrushEvents() {
+            // 그리기 기능 구현 (마스크 캔버스에 핑크색 드로잉)
+            function getMousePos(e) {
+                const rect = imageCanvas.getBoundingClientRect();
+                const scaleX = imageCanvas.width / rect.width;
+                const scaleY = imageCanvas.height / rect.height;
+                
+                let clientX, clientY;
+                if (e.touches && e.touches[0]) {
+                    clientX = e.touches[0].clientX;
+                    clientY = e.touches[0].clientY;
+                } else {
+                    clientX = e.clientX;
+                    clientY = e.clientY;
+                }
+                return {
+                    x: (clientX - rect.left) * scaleX,
+                    y: (clientY - rect.top) * scaleY,
+                    rawX: clientX - rect.left,
+                    rawY: clientY - rect.top
+                };
+            }
+
+            function drawStart(e) {
+                isDrawing = true;
+                const pos = getMousePos(e);
+                maskCtx.beginPath();
+                maskCtx.moveTo(pos.x, pos.y);
+                
+                maskCtx.lineWidth = brushSize;
+                maskCtx.lineCap = 'round';
+                maskCtx.lineJoin = 'round';
+                maskCtx.strokeStyle = 'rgba(219, 39, 119, 1)'; // 마스크를 식별할 마커 칼라
+                
+                draw(e);
+            }
+
+            function draw(e) {
+                const pos = getMousePos(e);
+                
+                // 브러시 커서 동그라미 배치
+                cursorCircle.style.display = 'block';
+                cursorCircle.style.left = `${pos.rawX}px`;
+                cursorCircle.style.top = `${pos.rawY}px`;
+
+                if (!isDrawing) return;
+                e.preventDefault();
+
+                maskCtx.lineTo(pos.x, pos.y);
+                maskCtx.stroke();
+                
+                hasMask = true;
+                eraseBtn.disabled = false;
+                clearMaskBtn.disabled = false;
+            }
+
+            function drawEnd() {
+                isDrawing = false;
+                maskCtx.closePath();
+            }
+
+            // 마우스 이벤트
+            imageCanvas.addEventListener('mousedown', drawStart);
+            window.addEventListener('mousemove', (e) => {
+                const rect = imageCanvas.getBoundingClientRect();
+                if (e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom) {
+                    draw(e);
+                } else {
+                    cursorCircle.style.display = 'none';
+                    isDrawing = false;
+                }
+            });
+            window.addEventListener('mouseup', drawEnd);
+
+            // 터치 이벤트
+            imageCanvas.addEventListener('touchstart', drawStart);
+            imageCanvas.addEventListener('touchmove', draw);
+            imageCanvas.addEventListener('touchend', drawEnd);
+
+            // 캔버스 프레임을 나갈 때 마우스 커서 숨기기
+            canvasFrame.addEventListener('mouseleave', () => {
+                cursorCircle.style.display = 'none';
+            });
+        }
+
+        clearMaskBtn.onclick = () => {
+            maskCtx.clearRect(0, 0, maskCanvas.width, maskCanvas.height);
+            hasMask = false;
+            eraseBtn.disabled = true;
+            clearMaskBtn.disabled = true;
+        };
+
+        // 클라이언트 사이드 인페인팅 연산 (Diffusion)
+        eraseBtn.onclick = async () => {
+            if (!hasMask) return;
+            
+            editorSection.classList.add('hidden');
+            processingSection.classList.remove('hidden');
+
+            // 브라우저 렌더 락 방지용 setTimeout
+            setTimeout(() => {
+                runInpainting();
+                processingSection.classList.add('hidden');
+                editorSection.classList.remove('hidden');
+                
+                // 마스크 클리어
+                maskCtx.clearRect(0, 0, maskCanvas.width, maskCanvas.height);
+                hasMask = false;
+                eraseBtn.disabled = true;
+                clearMaskBtn.disabled = true;
+            }, 100);
+        };
+
+        function runInpainting() {
+            const w = imageCanvas.width;
+            const h = imageCanvas.height;
+            
+            const imgData = imgCtx.getImageData(0, 0, w, h);
+            const maskData = maskCtx.getImageData(0, 0, w, h);
+            
+            const pixels = imgData.data;
+            const maskPixels = maskData.data;
+            
+            // 1. 마스크 마커 검출 (핑크색 칠해진 영역을 바이너리 마스크로 매핑)
+            const mask = new Uint8Array(w * h);
+            let hasMaskPixel = false;
+            for (let i = 0; i < w * h; i++) {
+                const idx = i * 4;
+                // 알파 값이 일정값 이상이고, 분홍색 감지
+                if (maskPixels[idx + 3] > 50) {
+                    mask[i] = 1;
+                    hasMaskPixel = true;
+                }
+            }
+
+            if (!hasMaskPixel) return;
+
+            // 2. 다중 반복 픽셀 확산 (Multi-pass Boundary Color Propagation)
+            // 경계선에 있는 마스크 픽셀의 색상을 외부 비마스크 픽셀들의 가중 평균값으로 연쇄적으로 물들여 채워 나감
+            const tempPixels = new Uint8ClampedArray(pixels);
+            const workingMask = new Uint8Array(mask);
+            
+            let pixelsToFill = 0;
+            for(let i=0; i<w*h; i++) if (workingMask[i] === 1) pixelsToFill++;
+            
+            let maxIterations = 60; // 확산 한도
+            let step = 0;
+            
+            while (pixelsToFill > 0 && step < maxIterations) {
+                const nextMask = new Uint8Array(workingMask);
+                const passPixels = new Uint8ClampedArray(tempPixels);
+                let filledThisPass = 0;
+
+                for (let y = 1; y < h - 1; y++) {
+                    for (let x = 1; x < w - 1; x++) {
+                        const idx = y * w + x;
+                        if (workingMask[idx] === 1) {
+                            // 주변 8방향 이웃 탐색
+                            let rSum = 0, gSum = 0, bSum = 0, count = 0;
+                            
+                            // 3x3 커널로 비마스크 픽셀 색상 수집
+                            for (let ky = -1; ky <= 1; ky++) {
+                                for (let kx = -1; kx <= 1; kx++) {
+                                    const nIdx = (y + ky) * w + (x + kx);
+                                    if (workingMask[nIdx] === 0) {
+                                        const pixIdx = nIdx * 4;
+                                        rSum += passPixels[pixIdx];
+                                        gSum += passPixels[pixIdx + 1];
+                                        bSum += passPixels[pixIdx + 2];
+                                        count++;
+                                    }
+                                }
+                            }
+                            
+                            // 비마스크 이웃이 있다면 평균값으로 메움 (경계 픽셀)
+                            if (count > 0) {
+                                const targetIdx = idx * 4;
+                                tempPixels[targetIdx] = rSum / count;
+                                tempPixels[targetIdx + 1] = gSum / count;
+                                tempPixels[targetIdx + 2] = bSum / count;
+                                nextMask[idx] = 0; // 마스크 채워짐 표시
+                                filledThisPass++;
+                            }
+                        }
+                    }
+                }
+
+                if (filledThisPass === 0) {
+                    // 더 이상 경계면을 만날 수 없다면 커널 크기 확장 (구멍의 깊은 빈공간 대응)
+                    // 단순 상하좌우 무차별 번짐 처리
+                    for (let y = 1; y < h - 1; y++) {
+                        for (let x = 1; x < w - 1; x++) {
+                            const idx = y * w + x;
+                            if (workingMask[idx] === 1) {
+                                const targetIdx = idx * 4;
+                                // 가장 가까이 있는 픽셀 색 복사
+                                let r = 128, g = 128, b = 128, found = false;
+                                for (let dist = 2; dist < 12; dist++) {
+                                    const neighbors = [
+                                        {x: x - dist, y: y}, {x: x + dist, y: y},
+                                        {x: x, y: y - dist}, {x: x, y: y + dist}
+                                    ];
+                                    for (let n of neighbors) {
+                                        if (n.x >= 0 && n.x < w && n.y >= 0 && n.y < h) {
+                                            const nIdx = n.y * w + n.x;
+                                            if (workingMask[nIdx] === 0) {
+                                                const pixIdx = nIdx * 4;
+                                                r = passPixels[pixIdx];
+                                                g = passPixels[pixIdx + 1];
+                                                b = passPixels[pixIdx + 2];
+                                                found = true;
+                                                break;
+                                            }
+                                        }
+                                    }
+                                    if (found) break;
+                                }
+                                tempPixels[targetIdx] = r;
+                                tempPixels[targetIdx + 1] = g;
+                                tempPixels[targetIdx + 2] = b;
+                                nextMask[idx] = 0;
+                                filledThisPass++;
+                            }
+                        }
+                    }
+                }
+
+                workingMask.set(nextMask);
+                pixelsToFill -= filledThisPass;
+                step++;
+            }
+
+            // 3. 인페인팅 후 경계면 부드러운 블러링 필터 (Bilateral/Gaussian Blend 모사)
+            // 메워진 경계면의 픽셀 계단 현상을 문질러 자연스러운 그라데이션 형성
+            const finalPixels = imgCtx.createImageData(w, h);
+            finalPixels.data.set(tempPixels);
+            
+            // 원본 마스크 경계에 3px 가우시안 스무딩 적용
+            for (let y = 2; y < h - 2; y++) {
+                for (let x = 2; x < w - 2; x++) {
+                    const idx = y * w + x;
+                    // 원래 마스크 영역이었던 부근만 보정
+                    if (mask[idx] === 1) {
+                        const pixIdx = idx * 4;
+                        let rSum = 0, gSum = 0, bSum = 0, total = 0;
+                        for (let ky = -2; ky <= 2; ky++) {
+                            for (let kx = -2; kx <= 2; kx++) {
+                                const nIdx = ((y + ky) * w + (x + kx)) * 4;
+                                rSum += tempPixels[nIdx];
+                                gSum += tempPixels[nIdx + 1];
+                                bSum += tempPixels[nIdx + 2];
+                                total++;
+                            }
+                        }
+                        finalPixels.data[pixIdx] = rSum / total;
+                        finalPixels.data[pixIdx + 1] = gSum / total;
+                        finalPixels.data[pixIdx + 2] = bSum / total;
+                    }
+                }
+            }
+
+            imgCtx.putImageData(finalPixels, 0, 0);
+        }
+
+        downloadBtn.onclick = () => {
+            const link = document.createElement('a');
+            link.href = imageCanvas.toDataURL('image/png');
+            link.download = "smileslife_erased.png";
+            link.click();
+        };
+    </script>
+</body>
+</html>

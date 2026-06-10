@@ -48,12 +48,12 @@ function preventDefaults(e) {
     e.stopPropagation();
 }
 
-const dropZone = document.getElementById('timeline-grid');
+const dropZone = document.getElementById('drop-zone');
 ['dragenter', 'dragover'].forEach(eventName => {
-    dropZone.addEventListener(eventName, () => dropZone.classList.add('bg-indigo-50/50'), false);
+    dropZone.addEventListener(eventName, () => dropZone.classList.add('bg-indigo-50/30', 'border-2', 'border-dashed', 'border-indigo-400'), false);
 });
 ['dragleave', 'drop'].forEach(eventName => {
-    dropZone.addEventListener(eventName, () => dropZone.classList.remove('bg-indigo-50/50'), false);
+    dropZone.addEventListener(eventName, () => dropZone.classList.remove('bg-indigo-50/30', 'border-2', 'border-dashed', 'border-indigo-400'), false);
 });
 dropZone.addEventListener('drop', (e) => {
     handleFileUpload({ target: { files: e.dataTransfer.files } });

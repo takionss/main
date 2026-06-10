@@ -78,8 +78,51 @@
                     <a href="web/audio-converter/index.html" class="block w-full py-2 rounded-lg border border-green-600 text-green-600 font-bold hover:bg-green-600 hover:text-white transition text-center">바로가기</a>
                 </div>
 
+                <!-- 신규 AI 웹서비스 4종 -->
+                <div class="tab-content web w-full max-w-[300px] group p-8 rounded-3xl border border-gray-100 hover:border-blue-200 hover:shadow-2xl transition-all bg-white text-center">
+                    <div class="w-20 h-20 bg-indigo-50 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-indigo-600 transition-colors">
+                        <i class="fa-solid fa-expand-arrows-alt text-3xl text-indigo-600 group-hover:text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">AI 화질 개선기</h3>
+                    <p class="text-gray-500 text-sm mb-6">AI가 저해상도 이미지의 디테일을 살려 고화질로 복원합니다.</p>
+                    <a href="web/image-upscaler/index.html" class="block w-full py-2 rounded-lg border border-indigo-600 text-indigo-600 font-bold hover:bg-indigo-600 hover:text-white transition text-center">바로가기</a>
+                </div>
+
+                <div class="tab-content web w-full max-w-[300px] group p-8 rounded-3xl border border-gray-100 hover:border-blue-200 hover:shadow-2xl transition-all bg-white text-center">
+                    <div class="w-20 h-20 bg-pink-50 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-pink-600 transition-colors">
+                        <i class="fa-solid fa-eraser text-3xl text-pink-600 group-hover:text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">AI 부분 지우개</h3>
+                    <p class="text-gray-500 text-sm mb-6">사진에서 원치 않는 사물을 문질러 감쪽같이 지워줍니다.</p>
+                    <a href="web/object-eraser/index.html" class="block w-full py-2 rounded-lg border border-pink-600 text-pink-600 font-bold hover:bg-pink-600 hover:text-white transition text-center">바로가기</a>
+                </div>
+
+                <div class="tab-content web w-full max-w-[300px] group p-8 rounded-3xl border border-gray-100 hover:border-blue-200 hover:shadow-2xl transition-all bg-white text-center">
+                    <div class="w-20 h-20 bg-amber-50 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-amber-600 transition-colors">
+                        <i class="fa-solid fa-palette text-3xl text-amber-600 group-hover:text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">AI 만화 필터</h3>
+                    <p class="text-gray-500 text-sm mb-6">사진을 지브리 애니메이션이나 유화 예술품 스타일로 변환합니다.</p>
+                    <a href="web/anime-filter/index.html" class="block w-full py-2 rounded-lg border border-amber-600 text-amber-600 font-bold hover:bg-amber-600 hover:text-white transition text-center">바로가기</a>
+                </div>
+
+                <div class="tab-content web w-full max-w-[300px] group p-8 rounded-3xl border border-gray-100 hover:border-blue-200 hover:shadow-2xl transition-all bg-white text-center">
+                    <div class="w-20 h-20 bg-teal-50 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-teal-600 transition-colors">
+                        <i class="fa-solid fa-tags text-3xl text-teal-600 group-hover:text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">AI 이미지 태깅</h3>
+                    <p class="text-gray-500 text-sm mb-6">AI가 사진을 분석하여 알맞은 태그와 설명을 자동 생성합니다.</p>
+                    <a href="web/image-tagging/index.html" class="block w-full py-2 rounded-lg border border-teal-600 text-teal-600 font-bold hover:bg-teal-600 hover:text-white transition text-center">바로가기</a>
+                </div>
+
                 <!-- 프로그램 (Programs) -->
-                <div class="tab-content program hidden w-full max-w-[300px] group p-8 rounded-3xl border border-gray-100 hover:border-blue-200 hover:shadow-2xl transition-all bg-white text-center">
+                <div class="tab-content program hidden w-full max-w-[300px] group p-8 rounded-3xl border border-gray-100 hover:border-blue-200 hover:shadow-2xl transition-all bg-white text-center relative overflow-hidden">
+                    <!-- 준비중 오버레이 -->
+                    <div class="absolute inset-0 bg-white/85 backdrop-blur-[1.5px] flex flex-col items-center justify-center z-10">
+                        <div class="bg-blue-50 text-blue-600 px-4 py-2 rounded-full font-bold text-xs shadow-sm flex items-center gap-1.5 border border-blue-100">
+                            <i class="fas fa-tools animate-pulse"></i> 준비 중인 서비스
+                        </div>
+                    </div>
                     <div class="w-20 h-20 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-600 transition-colors">
                         <i class="fa-solid fa-file-zipper text-3xl text-blue-600 group-hover:text-white"></i>
                     </div>
@@ -88,7 +131,13 @@
                     <button class="w-full py-2 rounded-lg border border-blue-600 text-blue-600 font-bold hover:bg-blue-600 hover:text-white transition">다운로드</button>
                 </div>
 
-                <div class="tab-content program hidden w-full max-w-[300px] group p-8 rounded-3xl border border-gray-100 hover:border-blue-200 hover:shadow-2xl transition-all bg-white text-center">
+                <div class="tab-content program hidden w-full max-w-[300px] group p-8 rounded-3xl border border-gray-100 hover:border-blue-200 hover:shadow-2xl transition-all bg-white text-center relative overflow-hidden">
+                    <!-- 준비중 오버레이 -->
+                    <div class="absolute inset-0 bg-white/85 backdrop-blur-[1.5px] flex flex-col items-center justify-center z-10">
+                        <div class="bg-green-50 text-green-600 px-4 py-2 rounded-full font-bold text-xs shadow-sm flex items-center gap-1.5 border border-green-100">
+                            <i class="fas fa-tools animate-pulse"></i> 준비 중인 서비스
+                        </div>
+                    </div>
                     <div class="w-20 h-20 bg-green-50 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-green-600 transition-colors">
                         <i class="fa-solid fa-shield-virus text-3xl text-green-600 group-hover:text-white"></i>
                     </div>
@@ -97,7 +146,13 @@
                     <button class="w-full py-2 rounded-lg border border-green-600 text-green-600 font-bold hover:bg-green-600 hover:text-white transition">다운로드</button>
                 </div>
 
-                <div class="tab-content program hidden w-full max-w-[300px] group p-8 rounded-3xl border border-gray-100 hover:border-blue-200 hover:shadow-2xl transition-all bg-white text-center">
+                <div class="tab-content program hidden w-full max-w-[300px] group p-8 rounded-3xl border border-gray-100 hover:border-blue-200 hover:shadow-2xl transition-all bg-white text-center relative overflow-hidden">
+                    <!-- 준비중 오버레이 -->
+                    <div class="absolute inset-0 bg-white/85 backdrop-blur-[1.5px] flex flex-col items-center justify-center z-10">
+                        <div class="bg-orange-50 text-orange-600 px-4 py-2 rounded-full font-bold text-xs shadow-sm flex items-center gap-1.5 border border-orange-100">
+                            <i class="fas fa-tools animate-pulse"></i> 준비 중인 서비스
+                        </div>
+                    </div>
                     <div class="w-20 h-20 bg-orange-50 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-orange-600 transition-colors">
                         <i class="fa-solid fa-image text-3xl text-orange-600 group-hover:text-white"></i>
                     </div>
@@ -163,6 +218,11 @@
             activeBtn.classList.add('tab-active');
             activeBtn.classList.remove('text-gray-400');
         }
+
+        // 초기 시작 시 전체 탭 콘텐츠를 모두 노출
+        window.addEventListener('DOMContentLoaded', () => {
+            showTab('all');
+        });
     </script>
 
 </body>
