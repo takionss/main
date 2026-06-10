@@ -6,8 +6,8 @@
     <title>오디오 만능 변환기 | 쉽고 빠른 포맷 변환</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Cross-Origin Isolation (Required for ffmpeg.wasm on GitHub Pages) -->
-    <script src="https://cdn.jsdelivr.net/gh/gzuidhof/coi-serviceworker@latest/coi-serviceworker.min.js"></script>
+    <!-- Cross-Origin Isolation (Local version) -->
+    <script src="../../coi-serviceworker.js"></script>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
@@ -75,7 +75,6 @@
                             <option value="aac">AAC (Advanced Audio Coding)</option>
                             <option value="ogg">OGG (Ogg Vorbis Audio)</option>
                             <option value="m4a">M4A (Apple Audio)</option>
-                            <option value="flac">FLAC (Free Lossless Audio Codec)</option>
                         </select>
                     </div>
                     <div class="flex flex-col justify-end">

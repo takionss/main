@@ -51,9 +51,26 @@ fileInput.addEventListener('change', (e) => {
 
 function handleFile(file) {
     currentFile = file;
+    const extension = file.name.split('.').pop().toLowerCase();
     fileNameText.textContent = file.name;
-    fileInfoText.textContent = `${file.name.split('.').pop().toUpperCase()} • ${(file.size / (1024 * 1024)).toFixed(2)} MB`;
+    fileInfoText.textContent = `${extension.toUpperCase()} • ${(file.size / (1024 * 1024)).toFixed(2)} MB`;
     
+    // Dynamically update format list to hide original format
+    const options = formatSelect.querySelectorAll('option');
+    let firstVisible = null;
+    options.forEach(opt => {
+        // Simple mapping: if input is m4a, hide aac as well to avoid redundant conversion
+        const isSameFormat = opt.value === extension || (extension === 'm4a' && opt.value === 'aac') || (extension === 'aac' && opt.value === 'm4a');
+        
+        if (isSameFormat) {
+            opt.style.display = 'none';
+        } else {
+            opt.style.display = 'block';
+            if (!firstVisible) firstVisible = opt.value;
+        }
+    });
+    if (firstVisible) formatSelect.value = firstVisible;
+
     uploadContainer.classList.add('hidden');
     convertContainer.classList.remove('hidden');
     resultContainer.classList.add('hidden');
@@ -86,11 +103,10 @@ convertBtn.addEventListener('click', async () => {
             resultBlob = await encodeMp3(audioBuffer);
         } else if (targetFormat === 'wav') {
             resultBlob = await encodeWav(audioBuffer);
+        } else if (targetFormat === 'aac' || targetFormat === 'm4a' || targetFormat === 'ogg') {
+            resultBlob = await encodeNative(audioBuffer, targetFormat);
         } else {
-            // For other formats in this simplified pure JS version, 
-            // we'll default to WAV or show an alert. 
-            // Most users want MP3/WAV.
-            alert('현재 버전에서는 MP3와 WAV 변환만 지원합니다. 곧 다른 형식도 추가될 예정입니다!');
+            alert('이 형식은 곧 지원될 예정입니다!');
             throw new Error('Unsupported format');
         }
 
@@ -119,7 +135,6 @@ async function encodeMp3(audioBuffer) {
     const left = audioBuffer.getChannelData(0);
     const right = channels > 1 ? audioBuffer.getChannelData(1) : null;
 
-    // Convert Float32 to Int16
     const leftInt16 = floatTo16BitPCM(left);
     const rightInt16 = right ? floatTo16BitPCM(right) : null;
 
@@ -129,26 +144,18 @@ async function encodeMp3(audioBuffer) {
     for (let i = 0; i < leftInt16.length; i += sampleBlockSize) {
         const leftChunk = leftInt16.subarray(i, i + sampleBlockSize);
         let mp3buf;
-        
         if (channels === 2) {
             const rightChunk = rightInt16.subarray(i, i + sampleBlockSize);
             mp3buf = mp3encoder.encodeBuffer(leftChunk, rightChunk);
         } else {
             mp3buf = mp3encoder.encodeBuffer(leftChunk);
         }
-
         if (mp3buf.length > 0) mp3Data.push(mp3buf);
-        
-        // Update progress
         const currentBlock = Math.floor(i / sampleBlockSize);
-        if (currentBlock % 10 === 0) {
-            updateProgress(Math.round((currentBlock / totalBlocks) * 100));
-        }
+        if (currentBlock % 10 === 0) updateProgress(Math.round((currentBlock / totalBlocks) * 100));
     }
-
     const end = mp3encoder.flush();
     if (end.length > 0) mp3Data.push(end);
-
     return new Blob(mp3Data, { type: 'audio/mp3' });
 }
 
@@ -162,23 +169,17 @@ async function encodeWav(audioBuffer) {
         sampleRate = audioBuffer.sampleRate;
     let offset = 0, i, sample;
 
-    // Write WAV header
     setUint32(0x46464952); // "RIFF"
-    setUint32(length - 8); // file length - 8
+    setUint32(length - 8);
     setUint32(0x45564157); // "WAVE"
-    setUint32(0x20746d66); // "fmt " chunk
-    setUint32(16);         // length = 16
-    setUint16(1);          // PCM (uncompressed)
-    setUint16(numOfChan);
-    setUint32(sampleRate);
-    setUint32(sampleRate * 2 * numOfChan); // avg. bytes/sec
-    setUint16(numOfChan * 2); // block-align
-    setUint16(16);         // 16-bit
-    setUint32(0x61746164); // "data" - chunk
-    setUint32(length - offset - 4); // chunk length
+    setUint32(0x20746d66); // "fmt "
+    setUint32(16); setUint16(1); setUint16(numOfChan);
+    setUint32(sampleRate); setUint32(sampleRate * 2 * numOfChan);
+    setUint16(numOfChan * 2); setUint16(16);
+    setUint32(0x61746164); // "data"
+    setUint32(length - offset - 4);
 
     for (i = 0; i < numOfChan; i++) channels.push(audioBuffer.getChannelData(i));
-
     while (offset < length) {
         for (i = 0; i < numOfChan; i++) {
             sample = Math.max(-1, Math.min(1, channels[i][Math.floor((offset - 44) / (numOfChan * 2))]));
@@ -186,15 +187,44 @@ async function encodeWav(audioBuffer) {
             view.setInt16(offset, sample, true);
             offset += 2;
         }
-        if (Math.floor(offset / 1000) % 100 === 0) {
-            updateProgress(Math.round((offset / length) * 100));
-        }
+        if (Math.floor(offset / 1000) % 100 === 0) updateProgress(Math.round((offset / length) * 100));
     }
-
     return new Blob([buffer], { type: 'audio/wav' });
-
     function setUint16(data) { view.setUint16(offset, data, true); offset += 2; }
     function setUint32(data) { view.setUint32(offset, data, true); offset += 4; }
+}
+
+// Native Encoder (AAC, M4A, OGG) using MediaRecorder
+async function encodeNative(audioBuffer, format) {
+    return new Promise((resolve) => {
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const source = audioCtx.createBufferSource();
+        source.buffer = audioBuffer;
+        const destination = audioCtx.createMediaStreamDestination();
+        source.connect(destination);
+
+        let mimeType = 'audio/webm;codecs=opus'; // Default for OGG-like in browser
+        if (format === 'aac' || format === 'm4a') {
+            mimeType = MediaRecorder.isTypeSupported('audio/mp4') ? 'audio/mp4' : 'audio/webm;codecs=opus';
+        } else if (format === 'ogg') {
+            mimeType = MediaRecorder.isTypeSupported('audio/ogg') ? 'audio/ogg' : 'audio/webm;codecs=opus';
+        }
+
+        const recorder = new MediaRecorder(destination.stream, { mimeType });
+        const chunks = [];
+        recorder.ondataavailable = (e) => chunks.push(e.data);
+        recorder.onstop = () => resolve(new Blob(chunks, { type: mimeType }));
+
+        recorder.start();
+        source.start(0);
+        setTimeout(() => { recorder.stop(); source.stop(); }, audioBuffer.duration * 1000 + 100);
+        
+        let p = 0;
+        const interval = setInterval(() => {
+            p += 2; if (p > 98) clearInterval(interval);
+            updateProgress(p);
+        }, (audioBuffer.duration * 1000) / 50);
+    });
 }
 
 function floatTo16BitPCM(input) {
@@ -215,9 +245,10 @@ downloadBtn.addEventListener('click', () => {
     if (!resultBlob) return;
     const url = URL.createObjectURL(resultBlob);
     const a = document.createElement('a');
+    const ext = formatSelect.value;
     const originalNameNoExt = currentFile.name.split('.').slice(0, -1).join('.');
     a.href = url;
-    a.download = `${originalNameNoExt}.${formatSelect.value}`;
+    a.download = `${originalNameNoExt}.${ext}`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
