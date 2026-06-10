@@ -1,7 +1,7 @@
 # 사이트 기본 설정
 title: Smiles Life - 유틸리티 나라
 description: Smiles Life의 유틸, 게임 등 흥미로운 프로그램 소개 및 실행
-url: "https://takionss.github.io/main"
+url: "https://smileslife.co.kr"
 
 # 테마 설정 (여기서 디자인이 결정됩니다)
 theme: minima
