@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <script type="importmap">
+    { "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }
+  </script>
+  <script type="module" src="data.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>배틀 아레나 (Battle Arena) - 최후의 1인</title>
+  <style>
+    body { margin: 0; overflow: hidden; background-color: #070911; user-select: none; -webkit-user-select: none; touch-action: none; }
+    canvas { display: block; position: absolute; top:0; left:0; z-index: 1; }
+    
+    #ui-layer { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; font-family: 'Malgun Gothic', sans-serif; color: white; z-index: 10; }
+    #crosshair { position: absolute; top: 50%; left: 50%; width: 14px; height: 14px; border: 2px solid rgba(0, 255, 200, 0.8); border-radius: 50%; transform: translate(-50%, -50%); display: none; }
+    
+    /* 스코프 정조준(ADS) 연출 오버레이 */
+    #scope-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; display: none; z-index: 4; background: radial-gradient(circle at center, transparent 25%, rgba(0,0,0,0.95) 50%, black 100%); }
+    #scope-cross-v { position: absolute; top: 50%; left: 50%; width: 2px; height: 100%; background: rgba(0,0,0,0.7); transform: translate(-50%, -50%); }
+    #scope-cross-h { position: absolute; top: 50%; left: 50%; width: 100%; height: 2px; background: rgba(0,0,0,0.7); transform: translate(-50%, -50%); }
+    #scope-mag-text { position: absolute; bottom: 80px; left: 50%; transform: translateX(-50%); font-size: 24px; font-weight: bold; color: #00ffcc; text-shadow: 2px 2px 4px rgba(0,0,0,0.9); font-family: 'Malgun Gothic', sans-serif; text-align: center; }
+    
+    /* 적 머리 위 체력 게이지 컨테이너 */
+    #enemy-hp-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 2; }
+    .enemy-hp-bar-bg { position: absolute; width: 40px; height: 6px; background: rgba(0,0,0,0.8); border: 1px solid white; transform: translate(-50%, -50%); display: none; }
+    .enemy-hp-bar-fill { width: 100%; height: 100%; background: #ff3333; }
+
+    /* 상태창 및 무기 표기 */
+    #top-left-ui { position: absolute; top: 20px; left: 20px; display: none; flex-direction: column; gap: 10px; }
+    #minimap-container { width: 130px; height: 130px; border: 3px solid rgba(255,255,255,0.5); border-radius: 50%; overflow: hidden; background: rgba(0,0,0,0.6); position: relative; }
+    #status-board { font-size: 15px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.9); background: rgba(15,22,32,0.85); padding: 12px; border-radius: 8px; pointer-events: auto; border: 1px solid rgba(255,255,255,0.2); }
+    #equipped-info { color: #00ffcc; font-size: 16px; margin-bottom: 5px; }
+
+    /* 플레이어 체력 */
+    #player-hp-ui { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); width: 350px; text-align: center; display: none; }
+    #player-hp-text { font-size: 20px; font-weight: bold; margin-bottom: 5px; text-shadow: 2px 2px 5px black; }
+    #player-hp-bar-bg { width: 100%; height: 20px; background: rgba(0,0,0,0.7); border: 2px solid rgba(255,255,255,0.8); border-radius: 10px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+    #player-hp-bar-fill { width: 100%; height: 100%; background: linear-gradient(90deg, #ff0000, #ff5555); transition: width 0.15s ease-out; }
+
+    /* 우측 정보 패널 */
+    #match-info { position: absolute; top: 20px; right: 20px; font-size: 14px; font-weight: bold; text-shadow: 1px 1px 3px black; text-align: right; display: none; }
+    #zone-info { background: rgba(15,22,32,0.85); padding: 10px; border-radius: 8px; margin-bottom: 10px; border: 1px solid rgba(255,255,255,0.2); }
+    #kill-feed { display: flex; flex-direction: column; gap: 4px; align-items: flex-end; }
+    .kill-log { background: rgba(200,0,0,0.7); padding: 4px 10px; border-radius: 4px; animation: fadeOut 4s forwards; font-size: 13px; }
+    @keyframes fadeOut { 0% { opacity: 1; } 80% { opacity: 1; } 100% { opacity: 0; } }
+
+    #action-btn { position: absolute; bottom: 85px; left: 50%; transform: translateX(-50%); padding: 15px 45px; font-size: 22px; font-weight: bold; background: #ffeb3b; color: #000; border: none; border-radius: 35px; box-shadow: 0 4px 15px rgba(0,0,0,0.6); display: none; pointer-events: auto; cursor: pointer; z-index: 100; white-space: nowrap; justify-content: center; align-items: center; }
+    #notice-box { position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%); font-size: 20px; font-weight: bold; color: #ffeb3b; text-shadow: 2px 2px 5px black; background: rgba(0,0,0,0.8); padding: 12px 25px; border-radius: 30px; display: none; text-align: center; z-index: 90;}
+
+    #overlay { 
+      position: absolute; 
+      top: 0; left: 0; 
+      width: 100%; height: 100%; 
+      background: radial-gradient(circle at center, transparent 30%, rgba(10, 12, 18, 0.45) 60%, rgba(10, 12, 18, 0.9) 100%); 
+      display: block; 
+      box-sizing: border-box;
+      pointer-events: none; 
+      color: white; 
+      font-family: 'Malgun Gothic', sans-serif; 
+      z-index: 200; 
+    }
+    #title-container { 
+      position: absolute;
+      top: 2%; left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      pointer-events: auto;
+      width: 100%;
+    }
+    #main-title {
+      font-size: 44px;
+      font-weight: 900;
+      color: #ffffff;
+      letter-spacing: 4px;
+      text-shadow: 0 0 20px rgba(255,255,255,0.4);
+      margin: 0;
+      line-height: 1.1;
+    }
+    #sub-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: #ffb300;
+      letter-spacing: 2px;
+      text-shadow: 0 0 15px rgba(255,179,0,0.5);
+      margin-top: 4px;
+      margin-bottom: 0;
+    }
+    #instruction {
+      position: absolute;
+      top: 12%; left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      color: #e0e0e0;
+      font-size: 13px;
+      line-height: 1.5;
+      margin: 0;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+      font-weight: 500;
+      pointer-events: auto;
+      background: rgba(15, 22, 32, 0.7);
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-top: 2px solid #ffb300;
+      max-width: 440px;
+      backdrop-filter: blur(4px);
+    }
+    #audio-notice {
+      position: absolute;
+      bottom: 40px; left: 60px;
+      margin: 0;
+      color: #00ffcc;
+      font-size: 13px;
+      font-weight: bold;
+      animation: pulse 1.5s infinite;
+      background: rgba(0, 255, 200, 0.08);
+      border: 1px solid rgba(0, 255, 200, 0.25);
+      padding: 12px 16px;
+      border-radius: 6px;
+      box-sizing: border-box;
+      width: auto;
+      max-width: 350px;
+      text-align: left;
+      line-height: 1.4;
+      pointer-events: auto;
+    }
+    #lobby-btn-container {
+      position: absolute;
+      bottom: 12%;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      z-index: 250;
+      pointer-events: auto;
+    }
+    #settings-ui {
+      display: flex;
+      gap: 12px;
+    }
+    #settings-ui button {
+      background: rgba(15, 22, 32, 0.85);
+      color: #ffb300;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 13px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      transition: all 0.2s ease;
+      backdrop-filter: blur(4px);
+    }
+    #settings-ui button:hover {
+      transform: translateY(-1px);
+      border-color: #ffb300;
+      box-shadow: 0 6px 15px rgba(255, 179, 0, 0.25);
+    }
+    #start-btn { 
+      padding: 18px 85px; 
+      font-size: 26px; 
+      font-weight: bold; 
+      background: linear-gradient(135deg, #4caf50, #2e7d32); 
+      color: white; 
+      border: 1px solid rgba(255,255,255,0.4); 
+      border-radius: 8px; 
+      cursor: pointer; 
+      box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+      transition: all 0.2s ease;
+    }
+    #start-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 25px rgba(76, 175, 80, 0.6);
+    }
+
+    #mobile-ui { display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 5; }
+    #joystick-touch-zone { position: absolute; top: 0; left: 0; width: 50%; height: 100%; pointer-events: auto; }
+    #touch-look-zone { position: absolute; top: 0; right: 0; width: 50%; height: 100%; pointer-events: auto; }
+    #btn-attack { position: absolute; bottom: 50px; right: 50px; width: 85px; height: 85px; background: rgba(255,255,255,0.15); border: 3px solid rgba(255,255,255,0.7); border-radius: 50%; color: white; font-size: 16px; font-weight: bold; pointer-events: auto; display: flex; justify-content: center; align-items: center; }
+    #btn-aim { position: absolute; bottom: 150px; right: 60px; width: 65px; height: 65px; background: rgba(0,255,100,0.2); border: 2px solid rgba(255,255,255,0.5); border-radius: 50%; color: white; font-size: 14px; font-weight: bold; pointer-events: auto; display: flex; justify-content: center; align-items: center; }
+    #btn-tpp { position: absolute; bottom: 150px; left: 40px; width: 70px; height: 45px; background: rgba(255,255,255,0.2); border: 2px solid white; border-radius: 10px; color: white; font-size: 14px; font-weight: bold; pointer-events: auto; display: flex; justify-content: center; align-items: center; }
+    #joystick-container { position: absolute; width: 110px; height: 110px; background: rgba(255,255,255,0.1); border: 2px solid rgba(255,255,255,0.5); border-radius: 50%; display: none; pointer-events: none; z-index: 6; transform: translate(-50%, -50%); }
+    #joystick-stick { position: absolute; top: 50%; left: 50%; width: 45px; height: 45px; background: rgba(255,255,255,0.8); border-radius: 50%; transform: translate(-50%, -50%); }
+    #damage-indicator { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; display: none; z-index: 9; }
+    @keyframes dmgFade { 0% { opacity: 1; } 100% { opacity: 0; } }
+    #bluezone-overlay {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 80, 255, 0.12);
+      box-shadow: inset 0 0 120px rgba(0, 120, 255, 0.5);
+      pointer-events: none;
+      display: none;
+      z-index: 8;
+    }
+    @keyframes bluezonePulse {
+      0% { opacity: 0.6; }
+      50% { opacity: 1.0; }
+      100% { opacity: 0.6; }
+    }
+    
+    /* 인벤토리 UI */
+    #inventory-ui { display: none; position: absolute; left: 0; top: 0; bottom: 0; width: 100%; max-width: 450px; background: rgba(15, 15, 15, 0.95); border-right: 3px solid #ffb300; z-index: 105; color: white; font-family: 'Malgun Gothic', sans-serif; box-shadow: 5px 0 15px rgba(0,0,0,0.5); flex-direction: column; pointer-events: auto; }
+    .inv-section-title { margin-top: 0; border-bottom: 2px solid #333; padding-bottom: 5px; color: #ffb300; font-size: 15px; font-weight: bold; letter-spacing: 0.5px; }
+    .loot-item-row { display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.06); padding: 8px 12px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1); transition: all 0.2s; }
+    .loot-item-row:hover { background: rgba(255, 235, 59, 0.1); border-color: #ffb300; }
+    .loot-item-name { font-weight: 500; font-size: 13px; }
+    .loot-btn { padding: 4px 10px; font-size: 12px; font-weight: bold; background: #ffb300; color: black; border: none; border-radius: 3px; cursor: pointer; }
+    .loot-btn:hover { background: #ffd54f; }
+    .loot-btn.drop { background: #e53935; color: white; }
+    .loot-btn.drop:hover { background: #ef5350; }
+    
+    #loot-prompt { display: none; position: absolute; bottom: 140px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.85); color: #ffeb3b; padding: 10px 20px; border-radius: 20px; font-weight: bold; font-size: 14px; border: 1px solid #ffeb3b; pointer-events: none; z-index: 10; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+    
+    /* 투척 버튼 및 모바일 인벤토리 */
+    .throw-guide-container { display: flex; gap: 8px; margin-top: 5px; }
+    .throw-btn { padding: 6px 12px; background: rgba(255, 87, 34, 0.85); border: 1px solid #ff5722; border-radius: 4px; color: white; font-weight: bold; font-size: 11px; cursor: pointer; pointer-events: auto; }
+    .throw-btn:hover { background: #ff5722; }
+    
+    #btn-inventory { position: absolute; top: 68px; left: 170px; width: 80px; height: 35px; background: rgba(0,0,0,0.6); color: white; border: 1px solid #ffb300; border-radius: 5px; pointer-events: auto; font-weight: bold; font-size: 12px; display: flex; justify-content: center; align-items: center; }
+
+    #heal-progress-container { position: absolute; bottom: 20%; left: 50%; transform: translateX(-50%); width: 220px; height: 12px; background: rgba(0,0,0,0.7); border: 2px solid #ffeb3b; border-radius: 6px; display: none; z-index: 100; pointer-events: none; }
+    #heal-progress-bar { width: 0%; height: 100%; background: #ffeb3b; }
+    #heal-progress-text { position: absolute; top: -20px; left: 0; width: 100%; text-align: center; font-size: 13px; font-weight: bold; color: #ffeb3b; text-shadow: 1px 1px 2px black; }
+    #btn-reload { position: absolute; bottom: 50px; right: 150px; width: 65px; height: 65px; background: rgba(255,235,59,0.25); border: 2px solid rgba(255,255,255,0.6); border-radius: 50%; color: white; font-size: 14px; font-weight: bold; pointer-events: auto; display: flex; justify-content: center; align-items: center; }
+    
+    #btn-interact {
+      position: absolute;
+      bottom: 230px;
+      right: 150px;
+      width: 70px;
+      height: 70px;
+      background: rgba(255, 179, 0, 0.3);
+      border: 2px solid #ffb300;
+      border-radius: 50%;
+      color: white;
+      font-size: 13px;
+      font-weight: bold;
+      pointer-events: auto;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      z-index: 10;
+    }
+
+    @media (max-width: 900px) {
+      #minimap-container {
+        width: 90px !important;
+        height: 90px !important;
+      }
+      #minimap {
+        width: 90px !important;
+        height: 90px !important;
+      }
+      #status-board {
+        font-size: 11px !important;
+        padding: 6px !important;
+        max-width: 150px !important;
+      }
+      #equipped-info {
+        font-size: 12px !important;
+      }
+      #top-left-ui {
+        top: 10px !important;
+        left: 10px !important;
+        gap: 5px !important;
+      }
+      #match-info {
+        top: 10px !important;
+        right: 10px !important;
+        font-size: 11px !important;
+      }
+      #zone-info {
+        padding: 6px !important;
+      }
+      #player-hp-ui {
+        width: 220px !important;
+        bottom: 15px !important;
+      }
+      #player-hp-text {
+        font-size: 13px !important;
+        margin-bottom: 2px !important;
+      }
+      #player-hp-bar-bg {
+        height: 12px !important;
+      }
+      #notice-box {
+        font-size: 14px !important;
+        padding: 8px 16px !important;
+      }
+      #btn-inventory {
+        top: 10px !important;
+        left: 115px !important;
+        width: 70px !important;
+        height: 32px !important;
+        font-size: 11px !important;
+      }
+      #action-btn {
+        bottom: 230px !important;
+        right: 150px !important;
+        left: auto !important;
+        transform: none !important;
+        width: 70px !important;
+        height: 70px !important;
+        padding: 0 !important;
+        font-size: 11px !important;
+        font-weight: bold !important;
+        background: rgba(255, 179, 0, 0.4) !important;
+        border: 2px solid #ffb300 !important;
+        border-radius: 50% !important;
+        color: white !important;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.5) !important;
+        z-index: 100 !important;
+        white-space: normal !important;
+        justify-content: center !important;
+        align-items: center !important;
+        text-align: center !important;
+      }
+    }
+    
+    body.touch-device #action-btn {
+      bottom: 230px !important;
+      right: 150px !important;
+      left: auto !important;
+      transform: none !important;
+      width: 70px !important;
+      height: 70px !important;
+      padding: 0 !important;
+      font-size: 11px !important;
+      font-weight: bold !important;
+      background: rgba(255, 179, 0, 0.4) !important;
+      border: 2px solid #ffb300 !important;
+      border-radius: 50% !important;
+      color: white !important;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5) !important;
+      z-index: 100 !important;
+      white-space: normal !important;
+      justify-content: center !important;
+      align-items: center !important;
+      text-align: center !important;
+    }
+
+    /* 모바일 세로 화면 경고 오버레이 */
+    #portrait-warning {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: #111;
+      color: #ffeb3b;
+      z-index: 10000;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      font-family: sans-serif;
+      font-weight: bold;
+      font-size: 20px;
+      padding: 20px;
+    }
+    @keyframes loading-spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    @keyframes pulse {
+      0% { opacity: 0.6; }
+      50% { opacity: 1; }
+      100% { opacity: 0.6; }
+    }
+  </style>
+</head>
+<body>
+  <!-- 로딩 화면 추가 -->
+  <div id="loading-screen" style="
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: radial-gradient(circle, #151a2e 0%, #070911 100%);
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    z-index: 99999; transition: opacity 0.5s ease; color: white; font-family: sans-serif;
+  ">
+    <div style="
+      width: 60px; height: 60px;
+      border: 5px solid rgba(255,255,255,0.08);
+      border-top: 5px solid #ffeb3b;
+      border-radius: 50%;
+      animation: loading-spin 1s linear infinite;
+      box-shadow: 0 0 15px rgba(255, 235, 59, 0.4);
+    "></div>
+    <div style="margin-top: 24px; font-size: 20px; font-weight: bold; letter-spacing: 2px; color: #ffeb3b; text-shadow: 0 0 8px rgba(255,235,59,0.5);">BATTLE ARENA</div>
+    <div id="loading-text" style="margin-top: 10px; font-size: 14px; color: #aaa;">전장을 불러오는 중...</div>
+  </div>
+  
+  <div id="portrait-warning">
+    <div style="font-size: 50px; margin-bottom: 20px;">🔄</div>
+    <div>가로 화면으로 회전해 주세요</div>
+    <div style="font-size: 13px; color: #aaa; margin-top: 10px;">이 게임은 가로 화면에 최적화되어 있습니다.</div>
+  </div>
+
+  <div id="ui-layer">
+    <!-- 스코프 조준선 -->
+    <div id="scope-overlay">
+      <div id="scope-cross-v"></div>
+      <div id="scope-cross-h"></div>
+      <div id="scope-mag-text"></div>
+    </div>
+    
+    <div id="enemy-hp-container"></div>
+
+    <div id="top-left-ui">
+      <div id="minimap-container"><canvas id="minimap" width="130" height="130"></canvas></div>
+      <div id="status-board">
+        <div id="equipped-info">무기: 맨주먹<br>스코프: 없음</div>
+        <div style="font-size:12px; font-weight:normal; margin-top:4px;">우클릭: 정조준 (줌)</div>
+        <div style="font-size:12px; font-weight:normal; margin-top:2px;">단축키 [V]: 1인칭/3인칭</div>
+      </div>
+    </div>
+    
+    <div id="match-info">
+      <div id="zone-info">
+        <div style="color: #4caf50; font-size: 16px;" id="zone-text">자기장 대기중</div>
+        <div style="margin-top:4px;">축소까지: <span id="zone-timer">30</span>초</div>
+        <div style="margin-top:8px; color:#ffb300;">생존자: <span id="alive-count">50</span>명</div>
+        <div style="color:#ff3333; margin-top:2px;">나의 킬: <span id="kill-count">0</span></div>
+      </div>
+      <div id="kill-feed"></div>
+    </div>
+
+    <div id="player-hp-ui">
+      <div id="player-hp-text">HP: 100</div>
+      <div id="player-hp-bar-bg"><div id="player-hp-bar-fill"></div></div>
+    </div>
+
+    <div id="crosshair"></div>
+    <div id="notice-box"></div>
+
+    <!-- 비행기 좌석 전개도 UI -->
+    <div id="plane-seat-map" style="
+      position: absolute;
+      top: 20px;
+      left: 210px;
+      width: 140px;
+      height: 250px;
+      background: rgba(15, 22, 32, 0.85);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px;
+      box-sizing: border-box;
+      font-family: sans-serif;
+      color: white;
+      z-index: 150;
+      backdrop-filter: blur(4px);
+    ">
+      <div style="font-size: 11px; font-weight: bold; color: #ffeb3b; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; text-align: center;">탑승: <span id="plane-occupants-count">50</span>명</div>
+      <!-- Schematic Outline of Plane Interior -->
+      <div id="plane-schematic" style="
+        position: relative;
+        width: 80px;
+        height: 190px;
+        border: 2px solid rgba(255,255,255,0.4);
+        border-radius: 40px 40px 10px 10px;
+        background: rgba(255,255,255,0.05);
+      ">
+        <!-- Wings representation -->
+        <div style="position: absolute; top: 50px; left: -20px; width: 20px; height: 10px; border: 2px solid rgba(255,255,255,0.4); border-right: none; border-radius: 4px 0 0 4px; background: rgba(255,255,255,0.05);"></div>
+        <div style="position: absolute; top: 50px; right: -20px; width: 20px; height: 10px; border: 2px solid rgba(255,255,255,0.4); border-left: none; border-radius: 0 4px 4px 0; background: rgba(255,255,255,0.05);"></div>
+        <!-- Seats Container -->
+        <div id="seats-grid" style="
+          position: absolute;
+          top: 35px;
+          left: 10px;
+          width: 60px;
+          height: 140px;
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          grid-template-rows: repeat(13, 1fr);
+          gap: 2px;
+          align-items: center;
+          justify-items: center;
+        ">
+          <!-- Dots generated dynamically -->
+        </div>
+      </div>
+    </div>
+
+    <button id="action-btn">🪂 뛰어내리기</button>
+    <div id="loot-prompt">📦 주변에 아이템이 있습니다. [Tab] 키를 눌러 파밍하세요.</div>
+
+    <!-- 구급상자 사용 게이지 -->
+    <div id="heal-progress-container">
+      <div id="heal-progress-bar"></div>
+      <div id="heal-progress-text">구급상자 사용하는 중... 6.0s</div>
+    </div>
+
+    <!-- 인벤토리 및 파밍 레이아웃 -->
+    <div id="inventory-ui">
+      <div style="background: #1e1e1e; padding: 15px; border-bottom: 2px solid #ffb300; display: flex; justify-content: space-between; align-items: center;">
+        <h2 style="margin: 0; font-size: 18px; color: #ffb300; text-transform: uppercase; letter-spacing: 1px;">🎒 INVENTORY & LOOT</h2>
+        <span id="btn-close-inv" style="font-size: 13px; color: white; background: #e53935; padding: 4px 12px; border-radius: 3px; cursor: pointer; pointer-events: auto;">닫기 X</span>
+      </div>
+      <div style="flex: 1; display: flex; overflow: hidden; font-size: 13px;">
+        <!-- 주변 파밍 리스트 -->
+        <div style="flex: 1; border-right: 1px solid #333; display: flex; flex-direction: column; padding: 12px; overflow: hidden;">
+          <div class="inv-section-title">주변 아이템</div>
+          <div id="ground-loot-list" style="flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; padding-right: 4px;">
+            <!-- 동적 삽입 -->
+          </div>
+        </div>
+        <!-- 내 상태 / 가방 정보 -->
+        <div style="flex: 1; display: flex; flex-direction: column; padding: 12px; overflow: hidden;">
+          <div class="inv-section-title">내 캐릭터 장비</div>
+          <div style="flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; padding-right: 4px;">
+            <div style="background: rgba(255,255,255,0.04); padding: 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.08);">
+              <div style="font-weight: bold; color: #ffb300; font-size: 11px; margin-bottom: 4px;">주무기</div>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span id="inv-weapon-val">주먹</span>
+                <button class="loot-btn drop" id="inv-weapon-drop-btn" style="display:none;">버리기</button>
+              </div>
+            </div>
+            <div style="background: rgba(255,255,255,0.04); padding: 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.08);">
+              <div style="font-weight: bold; color: #ffb300; font-size: 11px; margin-bottom: 4px;">장착 스코프</div>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span id="inv-scope-val">기계식 조준기</span>
+                <button class="loot-btn drop" id="inv-scope-drop-btn" style="display:none;">버리기</button>
+              </div>
+            </div>
+            <div style="background: rgba(255,255,255,0.04); padding: 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.08);">
+              <div style="font-weight: bold; color: #ffb300; font-size: 11px; margin-bottom: 4px;">헬멧 (방어구)</div>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span id="inv-helmet-val">없음</span>
+                <button class="loot-btn drop" id="inv-helmet-drop-btn" style="display:none;">버리기</button>
+              </div>
+            </div>
+            <div style="background: rgba(255,255,255,0.04); padding: 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.08);">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span id="inv-bag-val">없음</span>
+                <button class="loot-btn drop" id="inv-bag-drop-btn" style="display:none;">버리기</button>
+              </div>
+            </div>
+            <div style="background: rgba(255,255,255,0.04); padding: 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.08);">
+              <div style="font-weight: bold; color: #ffb300; font-size: 11px; margin-bottom: 4px;">의료 키트 / 투척류</div>
+              <div style="display:flex; flex-direction:column; gap:6px;">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                  <span>구급상자: <span id="inv-firstaid-count">0</span>개</span>
+                  <div style="display:flex; gap:4px;">
+                    <button class="loot-btn use" id="inv-firstaid-use-btn" style="padding:2px 6px; background:#4caf50;">사용</button>
+                    <button class="loot-btn drop" id="inv-firstaid-drop-btn" style="padding:2px 6px;">버리기</button>
+                  </div>
+                </div>
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                  <span>수류탄: <span id="inv-grenade-count">0</span>개</span>
+                  <button class="loot-btn drop" id="inv-grenade-drop-btn" style="padding:2px 6px;">1개 버리기</button>
+                </div>
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                  <span>연막탄: <span id="inv-smoke-count">0</span>개</span>
+                  <button class="loot-btn drop" id="inv-smoke-drop-btn" style="padding:2px 6px;">1개 버리기</button>
+                </div>
+              </div>
+            </div>
+            <div style="background: rgba(255,255,255,0.04); padding: 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.08);">
+              <div style="font-weight: bold; color: #ffb300; font-size: 11px; margin-bottom: 4px;">보유 탄약</div>
+              <div style="display:flex; flex-direction:column; gap:4px; font-size:12px;">
+                <div style="display:flex; justify-content:space-between;"><span>9mm (권총):</span> <span id="inv-ammo-pistol" style="color:#00ffcc; font-weight:bold;">0</span></div>
+                <div style="display:flex; justify-content:space-between;"><span>12게이지 (샷건):</span> <span id="inv-ammo-shotgun" style="color:#00ffcc; font-weight:bold;">0</span></div>
+                <div style="display:flex; justify-content:space-between;"><span>5.56mm (돌격소총):</span> <span id="inv-ammo-rifle" style="color:#00ffcc; font-weight:bold;">0</span></div>
+                <div style="display:flex; justify-content:space-between;"><span>7.62mm (저격총):</span> <span id="inv-ammo-sniper" style="color:#00ffcc; font-weight:bold;">0</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 투척무기 단축키 및 모바일 버튼 -->
+    <div class="throw-guide-container" style="position: absolute; bottom: 85px; left: 50%; transform: translateX(-50%); pointer-events: auto; display: none; z-index: 12;" id="throw-shortcuts">
+      <button class="throw-btn" id="btn-throw-grenade">G: 수류탄 던지기 (0)</button>
+      <button class="throw-btn" id="btn-throw-smoke">H: 연막탄 던지기 (0)</button>
+    </div>
+  </div>
+
+  <div id="joystick-container"><div id="joystick-stick"></div></div>
+  <div id="damage-indicator"></div>
+  <div id="bluezone-overlay"></div>
+
+  <div id="mobile-ui">
+    <div id="joystick-touch-zone"></div>
+    <div id="touch-look-zone"></div>
+    <div id="btn-tpp">1인칭</div>
+    <div id="btn-aim">조준</div>
+    <div id="btn-attack">🔫 격발</div>
+    <div id="btn-reload">장전</div>
+    <div id="btn-inventory">🎒 가방</div>
+    <!-- 모바일 전용 자세 및 힐링 버튼 추가 -->
+    <div id="btn-crouch" style="position: absolute; bottom: 50px; right: 240px; width: 65px; height: 65px; background: rgba(255,255,255,0.2); border: 2px solid white; border-radius: 50%; color: white; font-size: 14px; font-weight: bold; pointer-events: auto; display: flex; justify-content: center; align-items: center;">C</div>
+    <div id="btn-prone" style="position: absolute; bottom: 50px; right: 320px; width: 65px; height: 65px; background: rgba(255,255,255,0.2); border: 2px solid white; border-radius: 50%; color: white; font-size: 14px; font-weight: bold; pointer-events: auto; display: flex; justify-content: center; align-items: center;">Z</div>
+    <div id="btn-heal" style="position: absolute; bottom: 150px; right: 150px; width: 65px; height: 65px; background: rgba(76,175,80,0.4); border: 2px solid #4caf50; border-radius: 50%; color: white; font-size: 14px; font-weight: bold; pointer-events: auto; display: none; justify-content: center; align-items: center;">💊</div>
+    <div id="btn-jump" style="position: absolute; bottom: 150px; right: 240px; width: 65px; height: 65px; background: rgba(255,255,255,0.2); border: 2px solid white; border-radius: 50%; color: white; font-size: 14px; font-weight: bold; pointer-events: auto; display: flex; justify-content: center; align-items: center;">점프</div>
+    <div id="btn-interact"></div>
+  </div>
+
+  <div id="victory-box" style="position: absolute; top: 35%; left: 50%; transform: translate(-50%, -50%); background: rgba(10, 15, 30, 0.93); border: 3px solid #ffeb3b; border-radius: 15px; padding: 30px; color: white; text-align: center; font-family: sans-serif; display: none; z-index: 100000; pointer-events: auto; box-shadow: 0 0 25px rgba(255, 235, 59, 0.5); width: 340px;">
+    <h2 style="color: #ffeb3b; margin: 0 0 12px 0; font-size: 24px; text-shadow: 0 0 8px rgba(255,235,59,0.5);">🏆 이겼닭! 오늘 저녁은 통닭이닭!</h2>
+    <p id="victory-stats" style="margin: 0 0 20px 0; font-size: 16px; line-height: 1.5; color: #ddd;"></p>
+    <div style="display: flex; justify-content: center; gap: 15px;">
+      <button id="victory-continue-btn" style="padding: 12px 22px; font-size: 14px; font-weight: bold; background: #2e7d32; color: white; border: none; border-radius: 20px; cursor: pointer; transition: background 0.2s;">계속 둘러보기</button>
+      <button id="victory-restart-btn" style="padding: 12px 22px; font-size: 14px; font-weight: bold; background: #ffb300; color: black; border: none; border-radius: 20px; cursor: pointer; transition: background 0.2s;">다시 도전하기</button>
+    </div>
+  </div>
+  <button id="victory-mini-btn" style="position: absolute; top: 15px; right: 15px; padding: 12px 24px; font-size: 14px; font-weight: bold; background: rgba(255, 179, 0, 0.9); color: black; border: 2px solid #ffeb3b; border-radius: 20px; cursor: pointer; display: none; z-index: 100000; pointer-events: auto; box-shadow: 0 0 10px rgba(0,0,0,0.5);">다시 도전하기</button>
+ 
+  <div id="overlay">
+    <div id="title-container">
+      <div id="main-title">배틀 아레나 (Battle Arena)</div>
+      <div id="sub-title">최후의 생존자</div>
+    </div>
+    
+    <p id="instruction">
+      🎯 50인의 숨막히는 생존 투쟁!<br>장비를 획득하고 끝까지 살아남아 승리의 통닭을 차지하십시오.
+    </p>
+
+    <div id="lobby-btn-container">
+      <div id="settings-ui">
+        <button id="btn-toggle-bgm">🎵 BGM: OFF</button>
+        <button id="btn-toggle-sfx">🔊 SFX: ON</button>
+      </div>
+      <button id="start-btn">매치 시작</button>
+    </div>
+    <div id="lobby-credits" style="
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.4);
+      font-family: sans-serif;
+      text-align: right;
+      line-height: 1.4;
+      pointer-events: auto;
+    ">
+      Powered by <a href="https://threejs.org/" target="_blank" style="color: rgba(255, 255, 255, 0.6); text-decoration: none; font-weight: bold; transition: color 0.2s;">Three.js</a> (MIT License)
+    </div>
+  </div>
+
+
+
+  
+  
+  
+</body>
+</html>
