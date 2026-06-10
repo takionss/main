@@ -207,25 +207,33 @@ async function generateGif() {
 
     isGenerating = true;
     showModal();
+    updateProgress(5); // Start immediately
     
     const delay = parseInt(delaySlider.value);
     const sizeMode = sizeSelect.value;
     
-    // Fix: Load worker via Blob to avoid CORS issues on GitHub Pages
+    // Improved Worker Loading: Fetch, convert to Blob, and use URL.createObjectURL
+    // This is the most reliable way for GitHub Pages CORS
     let workerUrl = 'https://cdn.jsdelivr.net/npm/gif.js@0.2.0/dist/gif.worker.js';
     try {
         const response = await fetch(workerUrl);
-        const blob = new Blob([await response.text()], { type: 'application/javascript' });
+        if (!response.ok) throw new Error('Network response was not ok');
+        const scriptText = await response.text();
+        const blob = new Blob([scriptText], { type: 'application/javascript' });
         workerUrl = URL.createObjectURL(blob);
+        console.log("Worker blob created successfully");
     } catch (e) {
-        console.error('Failed to create worker blob, falling back to CDN URL');
+        console.error('Failed to create worker blob:', e);
+        // Fallback to a different CDN if the first one fails
+        workerUrl = 'https://unpkg.com/gif.js@0.2.0/dist/gif.worker.js';
     }
 
     // Initialize GIF.js
     const gif = new GIF({
-        workers: 2,
+        workers: 4, // Increase workers for speed
         quality: 10,
-        workerScript: workerUrl
+        workerScript: workerUrl,
+        debug: true // Enable for console monitoring
     });
 
     const offCanvas = document.createElement('canvas');

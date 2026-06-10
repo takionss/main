@@ -1,9 +1,3 @@
-const { createFFmpeg, fetchFile } = FFmpeg;
-const ffmpeg = createFFmpeg({ 
-    log: true,
-    corePath: 'https://cdn.jsdelivr.net/npm/@ffmpeg/core@0.11.0/dist/ffmpeg-core.js'
-});
-
 // UI Elements
 const uploadContainer = document.getElementById('upload-container');
 const convertContainer = document.getElementById('convert-container');
@@ -25,7 +19,6 @@ const resultContainer = document.getElementById('result-container');
 const downloadBtn = document.getElementById('download-btn');
 
 let currentFile = null;
-let isFFmpegLoaded = false;
 let resultBlob = null;
 
 // Drag and Drop
@@ -57,10 +50,6 @@ fileInput.addEventListener('change', (e) => {
 });
 
 function handleFile(file) {
-    if (!file.type.startsWith('audio/') && !file.name.match(/\.(mp3|wav|ogg|aac|m4a|flac|wma)$/i)) {
-        alert('올바른 오디오 파일을 선택해 주세요.');
-        return;
-    }
     currentFile = file;
     fileNameText.textContent = file.name;
     fileInfoText.textContent = `${file.name.split('.').pop().toUpperCase()} • ${(file.size / (1024 * 1024)).toFixed(2)} MB`;
@@ -71,89 +60,155 @@ function handleFile(file) {
     progressContainer.classList.add('hidden');
 }
 
-async function loadFFmpeg() {
-    if (isFFmpegLoaded) return;
-    initOverlay.classList.remove('hidden');
-    statusText.textContent = '엔진 파일 다운로드 중... (약 30MB)';
-    
-    // Simulate initial loading progress since ffmpeg.load doesn't provide it
-    let loadProgress = 0;
-    const loadInterval = setInterval(() => {
-        loadProgress += Math.random() * 5;
-        if (loadProgress > 90) clearInterval(loadInterval);
-        updateProgress(Math.round(loadProgress));
-    }, 300);
-
-    try {
-        await ffmpeg.load();
-        clearInterval(loadInterval);
-        isFFmpegLoaded = true;
-        updateProgress(100);
-        statusText.textContent = '준비 완료!';
-    } catch (err) {
-        clearInterval(loadInterval);
-        console.error('FFmpeg Load Error:', err);
-        alert('변환 엔진 로딩 실패! 브라우저의 "설정 > 개인정보 및 보안 > 사이트 설정"에서 "공유 배열 버퍼(SharedArrayBuffer)"가 허용되어 있는지, 혹은 최신 브라우저인지 확인해 주세요.');
-    } finally {
-        setTimeout(() => initOverlay.classList.add('hidden'), 500);
-    }
-}
-
 convertBtn.addEventListener('click', async () => {
     if (!currentFile) return;
-    if (!isFFmpegLoaded) await loadFFmpeg();
-    if (!isFFmpegLoaded) return;
 
     const targetFormat = formatSelect.value;
-    const inputName = 'input_' + currentFile.name;
-    const outputName = `output.${targetFormat}`;
-
+    
     // UI Update
     convertBtn.disabled = true;
     convertBtn.classList.add('opacity-50', 'cursor-not-allowed');
     progressContainer.classList.remove('hidden');
     resultContainer.classList.add('hidden');
     updateProgress(0);
+    statusText.textContent = '파일 분석 중...';
 
     try {
-        // Write file to FS
-        ffmpeg.FS('writeFile', inputName, await fetchFile(currentFile));
-
-        // Track progress
-        ffmpeg.setProgress(({ ratio }) => {
-            updateProgress(Math.round(ratio * 100));
-        });
-
-        // Run conversion
-        // Note: -y to overwrite if exists
-        await ffmpeg.run('-i', inputName, outputName);
-
-        // Read result
-        const data = ffmpeg.FS('readFile', outputName);
-        resultBlob = new Blob([data.buffer], { type: `audio/${targetFormat}` });
+        const arrayBuffer = await currentFile.arrayBuffer();
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
         
+        statusText.textContent = '오디오 디코딩 중...';
+        const audioBuffer = await audioCtx.decodeAudioData(arrayBuffer);
+        
+        statusText.textContent = '인코딩 진행 중...';
+        
+        if (targetFormat === 'mp3') {
+            resultBlob = await encodeMp3(audioBuffer);
+        } else if (targetFormat === 'wav') {
+            resultBlob = await encodeWav(audioBuffer);
+        } else {
+            // For other formats in this simplified pure JS version, 
+            // we'll default to WAV or show an alert. 
+            // Most users want MP3/WAV.
+            alert('현재 버전에서는 MP3와 WAV 변환만 지원합니다. 곧 다른 형식도 추가될 예정입니다!');
+            throw new Error('Unsupported format');
+        }
+
         // Show download
         resultContainer.classList.remove('hidden');
         statusText.textContent = '변환 완료!';
         updateProgress(100);
 
-        // Cleanup FS
-        ffmpeg.FS('unlink', inputName);
-        ffmpeg.FS('unlink', outputName);
-
     } catch (err) {
         console.error('Conversion Error:', err);
-        alert('변환 중 오류가 발생했습니다. 다른 포맷을 시도해 보세요.');
+        alert('변환 중 오류가 발생했습니다. 파일 형식을 확인해 주세요.');
     } finally {
         convertBtn.disabled = false;
         convertBtn.classList.remove('opacity-50', 'cursor-not-allowed');
     }
 });
 
+// MP3 Encoder using lamejs
+async function encodeMp3(audioBuffer) {
+    const channels = audioBuffer.numberOfChannels;
+    const sampleRate = audioBuffer.sampleRate;
+    const kbps = 128;
+    const mp3encoder = new lamejs.Mp3Encoder(channels, sampleRate, kbps);
+    const mp3Data = [];
+
+    const left = audioBuffer.getChannelData(0);
+    const right = channels > 1 ? audioBuffer.getChannelData(1) : null;
+
+    // Convert Float32 to Int16
+    const leftInt16 = floatTo16BitPCM(left);
+    const rightInt16 = right ? floatTo16BitPCM(right) : null;
+
+    const sampleBlockSize = 1152;
+    const totalBlocks = Math.ceil(leftInt16.length / sampleBlockSize);
+
+    for (let i = 0; i < leftInt16.length; i += sampleBlockSize) {
+        const leftChunk = leftInt16.subarray(i, i + sampleBlockSize);
+        let mp3buf;
+        
+        if (channels === 2) {
+            const rightChunk = rightInt16.subarray(i, i + sampleBlockSize);
+            mp3buf = mp3encoder.encodeBuffer(leftChunk, rightChunk);
+        } else {
+            mp3buf = mp3encoder.encodeBuffer(leftChunk);
+        }
+
+        if (mp3buf.length > 0) mp3Data.push(mp3buf);
+        
+        // Update progress
+        const currentBlock = Math.floor(i / sampleBlockSize);
+        if (currentBlock % 10 === 0) {
+            updateProgress(Math.round((currentBlock / totalBlocks) * 100));
+        }
+    }
+
+    const end = mp3encoder.flush();
+    if (end.length > 0) mp3Data.push(end);
+
+    return new Blob(mp3Data, { type: 'audio/mp3' });
+}
+
+// Simple WAV Encoder
+async function encodeWav(audioBuffer) {
+    const numOfChan = audioBuffer.numberOfChannels,
+        length = audioBuffer.length * numOfChan * 2 + 44,
+        buffer = new ArrayBuffer(length),
+        view = new DataView(buffer),
+        channels = [],
+        sampleRate = audioBuffer.sampleRate;
+    let offset = 0, i, sample;
+
+    // Write WAV header
+    setUint32(0x46464952); // "RIFF"
+    setUint32(length - 8); // file length - 8
+    setUint32(0x45564157); // "WAVE"
+    setUint32(0x20746d66); // "fmt " chunk
+    setUint32(16);         // length = 16
+    setUint16(1);          // PCM (uncompressed)
+    setUint16(numOfChan);
+    setUint32(sampleRate);
+    setUint32(sampleRate * 2 * numOfChan); // avg. bytes/sec
+    setUint16(numOfChan * 2); // block-align
+    setUint16(16);         // 16-bit
+    setUint32(0x61746164); // "data" - chunk
+    setUint32(length - offset - 4); // chunk length
+
+    for (i = 0; i < numOfChan; i++) channels.push(audioBuffer.getChannelData(i));
+
+    while (offset < length) {
+        for (i = 0; i < numOfChan; i++) {
+            sample = Math.max(-1, Math.min(1, channels[i][Math.floor((offset - 44) / (numOfChan * 2))]));
+            sample = (sample < 0 ? sample * 0x8000 : sample * 0x7FFF);
+            view.setInt16(offset, sample, true);
+            offset += 2;
+        }
+        if (Math.floor(offset / 1000) % 100 === 0) {
+            updateProgress(Math.round((offset / length) * 100));
+        }
+    }
+
+    return new Blob([buffer], { type: 'audio/wav' });
+
+    function setUint16(data) { view.setUint16(offset, data, true); offset += 2; }
+    function setUint32(data) { view.setUint32(offset, data, true); offset += 4; }
+}
+
+function floatTo16BitPCM(input) {
+    const output = new Int16Array(input.length);
+    for (let i = 0; i < input.length; i++) {
+        const s = Math.max(-1, Math.min(1, input[i]));
+        output[i] = s < 0 ? s * 0x8000 : s * 0x7FFF;
+    }
+    return output;
+}
+
 function updateProgress(p) {
     progressBar.style.width = `${p}%`;
     progressVal.textContent = `${p}%`;
-    if (p < 100) statusText.textContent = '인코딩 진행 중...';
 }
 
 downloadBtn.addEventListener('click', () => {

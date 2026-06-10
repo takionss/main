@@ -11,6 +11,21 @@ const downloadBtn = document.getElementById('download-btn');
 let resultBlob = null;
 let originalFileName = "";
 
+// Dynamic Import to handle potential loading issues
+let imglyRemoveBackground = null;
+
+async function initLibrary() {
+    try {
+        const module = await import('https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.4.5/+esm');
+        imglyRemoveBackground = module.default;
+        console.log("Background removal library loaded.");
+    } catch (e) {
+        console.error("Failed to load background removal library:", e);
+    }
+}
+
+initLibrary();
+
 // Drag and Drop Events
 ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
     window.addEventListener(eventName, preventDefaults, false);
@@ -44,6 +59,18 @@ fileInput.addEventListener('change', (e) => {
 async function handleFiles(files) {
     if (!files || files.length === 0) return;
     
+    // Check for SharedArrayBuffer support (required for WASM)
+    if (!window.SharedArrayBuffer) {
+        alert('이 브라우저는 필요한 보안 기능(SharedArrayBuffer)을 지원하지 않거나 차단되었습니다. 최신 크롬 브라우저를 사용해 주시고, 깃허브 페이지의 보안 설정(COOP/COEP)이 적용될 때까지 잠시 기다려 주세요.');
+        return;
+    }
+
+    if (!imglyRemoveBackground) {
+        alert('라이브러리를 아직 불러오는 중입니다. 잠시 후 다시 시도해 주세요.');
+        await initLibrary();
+        return;
+    }
+
     const file = files[0];
     if (!file.type.startsWith('image/')) {
         alert('이미지 파일만 업로드 가능합니다.');
@@ -61,18 +88,14 @@ async function handleFiles(files) {
     reader.readAsDataURL(file);
 
     try {
-        // Update status text in UI (assuming you might want to add a status element, 
-        // but for now we'll change the progress bar behavior)
-        
-        // Use the bundle's global function
+        const statusElement = document.querySelector('#loading-section h2');
+        if (statusElement) statusElement.textContent = 'AI 모델 다운로드 중... (약 40MB)';
+
         const blob = await imglyRemoveBackground(file, {
-            progress: (p, status) => {
+            progress: (p) => {
                 const percent = Math.round(p * 100);
                 progressBar.style.width = `${percent}%`;
                 
-                // If there's a status available, we could show it. 
-                // imgly often has "fetching" or "processing" stages.
-                const statusElement = document.querySelector('#loading-section h2');
                 if (statusElement) {
                     if (p < 0.9) statusElement.textContent = 'AI 모델 다운로드 중... (약 40MB)';
                     else statusElement.textContent = '이미지 분석 및 배경 제거 중...';
@@ -88,7 +111,7 @@ async function handleFiles(files) {
         showSection('result');
     } catch (error) {
         console.error('Background removal failed:', error);
-        alert('배경 제거 중 오류가 발생했습니다. 브라우저가 최신 버전인지 확인해 주세요.');
+        alert('배경 제거 중 오류가 발생했습니다: ' + error.message);
         resetApp();
     }
 }
@@ -114,7 +137,7 @@ function resetApp() {
     showSection('upload');
 }
 
-// Expose resetApp to window because of onclick in HTML
+// Expose to window
 window.resetApp = resetApp;
 
 // Download Button

@@ -41,7 +41,8 @@
 
             <!-- Tab Buttons -->
             <div class="flex justify-center space-x-8 mb-12 border-b border-gray-100">
-                <button onclick="showTab('web')" id="btn-web" class="pb-4 px-4 font-bold text-lg transition-all tab-active">웹서비스</button>
+                <button onclick="showTab('all')" id="btn-all" class="pb-4 px-4 font-bold text-lg transition-all tab-active">전체</button>
+                <button onclick="showTab('web')" id="btn-web" class="pb-4 px-4 font-bold text-lg text-gray-400 hover:text-blue-600 transition-all">웹서비스</button>
                 <button onclick="showTab('program')" id="btn-program" class="pb-4 px-4 font-bold text-lg text-gray-400 hover:text-blue-600 transition-all">프로그램</button>
                 <button onclick="showTab('game')" id="btn-game" class="pb-4 px-4 font-bold text-lg text-gray-400 hover:text-blue-600 transition-all">게임</button>
             </div>
@@ -143,8 +144,12 @@
             contents.forEach(content => content.classList.add('hidden'));
 
             // 선택한 탭 콘텐츠 보이기
-            const selectedContents = document.querySelectorAll('.' + tabName);
-            selectedContents.forEach(content => content.classList.remove('hidden'));
+            if (tabName === 'all') {
+                contents.forEach(content => content.classList.remove('hidden'));
+            } else {
+                const selectedContents = document.querySelectorAll('.' + tabName);
+                selectedContents.forEach(content => content.classList.remove('hidden'));
+            }
 
             // 버튼 스타일 초기화
             const buttons = document.querySelectorAll('button[id^="btn-"]');
