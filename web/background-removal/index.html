@@ -5,10 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI 배경 제거기 | 스마트한 누끼 따기</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- 1. 보안 통행증 우선 로드 -->
-    <script src="../../coi-serviceworker.js"></script>
-    <!-- 2. AI 엔진 라이브러리 직접 로드 (전역 변수 방식) -->
-    <script src="https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.4.5/dist/bundle.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -22,68 +18,62 @@
             <h1 class="text-3xl font-bold text-indigo-600 flex items-center justify-center gap-2">
                 <i class="fas fa-magic"></i> AI 배경 제거기
             </h1>
-            <p class="text-slate-500 mt-2 text-sm md:text-base text-center">서버 전송 없는 100% 개인정보 보호 배경 제거 서비스</p>
+            <p class="text-slate-500 mt-2 text-sm">서버 전송 없이 브라우저에서 안전하게 배경을 제거하세요.</p>
         </div>
     </header>
 
-    <main class="flex-grow container mx-auto px-4 py-8 max-w-4xl">
+    <main class="flex-grow container mx-auto px-4 py-12 max-w-4xl">
         
-        <!-- 상태 안내 영역 -->
-        <div id="status-bar" class="mb-8 p-4 rounded-2xl bg-blue-50 border border-blue-100 text-blue-800 text-sm flex items-center justify-center gap-3 transition-all">
-            <div id="status-spinner" class="animate-spin w-4 h-4 border-2 border-blue-600 border-t-transparent rounded-full"></div>
-            <p id="status-text">AI 엔진을 불러오는 중입니다...</p>
-        </div>
-        
-        <section id="upload-section" class="bg-white rounded-3xl shadow-xl p-8 md:p-12 border-2 border-dashed border-indigo-100 hover:border-indigo-400 transition-all duration-300 opacity-50 pointer-events-none">
+        <section id="upload-section" class="bg-white rounded-3xl shadow-xl p-8 md:p-12 border-2 border-dashed border-indigo-200 hover:border-indigo-400 transition-all duration-300">
             <div id="drop-zone" class="flex flex-col items-center justify-center cursor-pointer py-10">
                 <div class="w-20 h-20 bg-indigo-50 rounded-full flex items-center justify-center mb-6 text-indigo-500 text-3xl">
                     <i class="fas fa-cloud-upload-alt"></i>
                 </div>
-                <h2 class="text-2xl font-semibold mb-2 text-center">이미지를 드래그하거나 클릭하세요</h2>
-                <p class="text-slate-400 mb-8 text-sm">엔진 로드가 완료되면 활성화됩니다.</p>
+                <h2 class="text-2xl font-semibold mb-2">이미지를 드래그하거나 클릭하세요</h2>
+                <p class="text-slate-400 mb-8 text-sm italic">PNG, JPG 지원 / 100% 무료</p>
                 <input type="file" id="file-input" class="hidden" accept="image/*">
-                <button id="select-btn" class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-xl font-medium transition-colors shadow-lg disabled:bg-slate-300" disabled>
+                <button onclick="document.getElementById('file-input').click()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-xl font-medium transition-colors shadow-lg">
                     이미지 선택하기
                 </button>
             </div>
         </section>
 
-        <!-- 로딩 애니메이션 (작업 중 표시) -->
-        <section id="loading-section" class="hidden bg-white rounded-3xl shadow-xl p-12 text-center animate-fade-in">
+        <!-- 로딩 상태 -->
+        <section id="loading-section" class="hidden bg-white rounded-3xl shadow-xl p-12 text-center">
             <div class="flex flex-col items-center">
                 <div class="relative w-24 h-24 mb-6">
-                    <div class="absolute inset-0 border-4 border-indigo-50 rounded-full"></div>
+                    <div class="absolute inset-0 border-4 border-indigo-100 rounded-full"></div>
                     <div class="absolute inset-0 border-4 border-indigo-600 rounded-full border-t-transparent animate-spin"></div>
                 </div>
-                <h2 class="text-2xl font-semibold mb-2">배경 지우는 중...</h2>
-                <p id="proc-msg" class="text-slate-500 text-sm">AI가 이미지를 분석하고 있습니다.</p>
+                <h2 id="loading-title" class="text-2xl font-semibold mb-2">AI 준비 중...</h2>
+                <p id="loading-msg" class="text-slate-500 text-sm">최초 실행 시 모델 다운로드(약 40MB)가 필요합니다.</p>
                 <div class="w-full max-w-xs bg-slate-100 h-2 rounded-full mt-8 overflow-hidden">
                     <div id="progress-bar" class="bg-indigo-600 h-full w-0 transition-all duration-300"></div>
                 </div>
             </div>
         </section>
 
-        <!-- 결과 표시 -->
+        <!-- 결과 창 -->
         <section id="result-section" class="hidden space-y-8 animate-fade-in">
             <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-white p-4 rounded-3xl shadow-lg">
-                    <h3 class="text-xs font-bold text-slate-400 mb-4 uppercase">Original</h3>
+                <div class="bg-white p-4 rounded-3xl shadow-lg border border-slate-50">
+                    <h3 class="text-sm font-bold text-slate-400 mb-4 uppercase">원본</h3>
                     <div class="aspect-square bg-slate-50 rounded-2xl overflow-hidden flex items-center justify-center">
                         <img id="original-preview" class="max-w-full max-h-full object-contain" src="">
                     </div>
                 </div>
                 <div class="bg-white p-4 rounded-3xl shadow-lg border-2 border-indigo-50">
-                    <h3 class="text-xs font-bold text-indigo-500 mb-4 uppercase">Transparent Result</h3>
-                    <div class="aspect-square checkerboard rounded-2xl overflow-hidden flex items-center justify-center">
+                    <h3 class="text-sm font-bold text-indigo-500 mb-4 uppercase">배경 제거 결과</h3>
+                    <div class="aspect-square checkerboard rounded-2xl overflow-hidden flex items-center justify-center shadow-inner">
                         <img id="result-preview" class="max-w-full max-h-full object-contain" src="">
                     </div>
                 </div>
             </div>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4 py-4">
-                <button id="download-btn" class="w-full sm:w-auto bg-green-500 hover:bg-green-600 text-white px-10 py-4 rounded-2xl font-bold shadow-lg flex items-center justify-center gap-2 text-lg">
+                <button id="download-btn" class="w-full sm:w-auto bg-green-500 hover:bg-green-600 text-white px-10 py-4 rounded-2xl font-bold transition-all shadow-lg flex items-center justify-center gap-2 text-lg">
                     <i class="fas fa-download"></i> PNG 다운로드
                 </button>
-                <button id="retry-btn" class="w-full sm:w-auto bg-slate-200 hover:bg-slate-300 text-slate-700 px-8 py-4 rounded-2xl font-medium flex items-center justify-center gap-2">
+                <button onclick="location.reload()" class="w-full sm:w-auto bg-slate-200 hover:bg-slate-300 text-slate-700 px-8 py-4 rounded-2xl font-medium transition-all flex items-center justify-center gap-2">
                     <i class="fas fa-redo"></i> 다시 하기
                 </button>
             </div>
@@ -91,10 +81,84 @@
     </main>
 
     <footer class="py-8 text-center text-slate-400 text-xs">
-        <p>© 2026 AI Utility Web. 브라우저 로컬 WASM 엔진을 사용하여 안전합니다.</p>
+        <p>© 2026 AI Utility Web. 브라우저 로컬 엔진을 사용합니다.</p>
     </footer>
 
-    <!-- 메인 로직 (모듈 아님, 일반 스크립트로 로드) -->
-    <script src="script.js"></script>
+    <!-- 자바스크립트 통합 로딩 -->
+    <script type="module">
+        import imglyRemoveBackground from 'https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.4.5/+esm';
+
+        const fileInput = document.getElementById('file-input');
+        const uploadSection = document.getElementById('upload-section');
+        const loadingSection = document.getElementById('loading-section');
+        const resultSection = document.getElementById('result-section');
+        const progressBar = document.getElementById('progress-bar');
+        const loadingTitle = document.getElementById('loading-title');
+        const loadingMsg = document.getElementById('loading-msg');
+        const originalPreview = document.getElementById('original-preview');
+        const resultPreview = document.getElementById('result-preview');
+        const downloadBtn = document.getElementById('download-btn');
+
+        let resultBlob = null;
+        let originalFileName = "";
+
+        // 드래그 앤 드롭 방지
+        window.addEventListener('dragover', e => e.preventDefault());
+        window.addEventListener('drop', e => e.preventDefault());
+
+        uploadSection.addEventListener('drop', e => {
+            e.preventDefault();
+            if (e.dataTransfer.files.length > 0) handleFiles(e.dataTransfer.files[0]);
+        });
+
+        fileInput.addEventListener('change', e => {
+            if (e.target.files.length > 0) handleFiles(e.target.files[0]);
+        });
+
+        async function handleFiles(file) {
+            if (!file.type.startsWith('image/')) return alert('이미지 파일만 가능합니다.');
+
+            originalFileName = file.name;
+            uploadSection.classList.add('hidden');
+            loadingSection.classList.remove('hidden');
+
+            const reader = new FileReader();
+            reader.onload = e => originalPreview.src = e.target.result;
+            reader.readAsDataURL(file);
+
+            try {
+                const blob = await imglyRemoveBackground(file, {
+                    progress: (p) => {
+                        const percent = Math.round(p * 100);
+                        progressBar.style.width = `${percent}%`;
+                        if (p < 0.9) {
+                            loadingTitle.textContent = "AI 모델 다운로드 중...";
+                            loadingMsg.textContent = `진행률: ${percent}% (최초 1회만 발생)`;
+                        } else {
+                            loadingTitle.textContent = "배경 제거 중...";
+                            loadingMsg.textContent = "거의 다 되었습니다!";
+                        }
+                    },
+                    model: 'medium'
+                });
+
+                resultBlob = blob;
+                resultPreview.src = URL.createObjectURL(blob);
+                loadingSection.classList.add('hidden');
+                resultSection.classList.remove('hidden');
+            } catch (error) {
+                alert('에러가 발생했습니다: ' + error.message);
+                location.reload();
+            }
+        }
+
+        downloadBtn.addEventListener('click', () => {
+            if (!resultBlob) return;
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(resultBlob);
+            a.download = originalFileName.replace(/\.[^/.]+$/, "") + "_nobg.png";
+            a.click();
+        });
+    </script>
 </body>
 </html>
