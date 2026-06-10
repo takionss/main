@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 배경 제거기 | 스마트한 누끼 따기</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Cross-Origin Isolation (Required for WASM on GitHub Pages) -->
+    <script src="https://cdn.jsdelivr.net/gh/gzuidhof/coi-serviceworker@latest/coi-serviceworker.min.js"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-50 min-h-screen flex flex-col font-sans text-slate-900">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm py-6 relative">
+        <a href="../../index.html" class="absolute left-8 top-1/2 -translate-y-1/2 text-slate-400 hover:text-indigo-600 transition-colors flex items-center gap-2 font-medium">
+            <i class="fas fa-home"></i> 홈으로
+        </a>
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-3xl font-bold text-indigo-600 flex items-center justify-center gap-2">
+                <i class="fas fa-magic"></i> AI 배경 제거기
+            </h1>
+            <p class="text-slate-500 mt-2">서버 전송 없이 브라우저에서 안전하고 빠르게 배경을 제거하세요.</p>
+        </div>
+    </header>
+
+    <main class="flex-grow container mx-auto px-4 py-12 max-w-4xl">
+        
+        <!-- Upload Section -->
+        <section id="upload-section" class="bg-white rounded-3xl shadow-xl p-8 md:p-12 border-2 border-dashed border-indigo-200 hover:border-indigo-400 transition-all duration-300">
+            <div id="drop-zone" class="flex flex-col items-center justify-center cursor-pointer py-10">
+                <div class="w-20 h-20 bg-indigo-50 rounded-full flex items-center justify-center mb-6 text-indigo-500 text-3xl">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                </div>
+                <h2 class="text-2xl font-semibold mb-2">이미지를 드래그하거나 클릭하세요</h2>
+                <p class="text-slate-400 mb-8">PNG, JPG, JPEG 형식 지원</p>
+                <input type="file" id="file-input" class="hidden" accept="image/*">
+                <button onclick="document.getElementById('file-input').click()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-xl font-medium transition-colors shadow-lg">
+                    이미지 선택하기
+                </button>
+            </div>
+        </section>
+
+        <!-- Loading Section -->
+        <section id="loading-section" class="hidden bg-white rounded-3xl shadow-xl p-12 text-center">
+            <div class="flex flex-col items-center">
+                <div class="relative w-24 h-24 mb-6">
+                    <div class="absolute inset-0 border-4 border-indigo-100 rounded-full"></div>
+                    <div class="absolute inset-0 border-4 border-indigo-600 rounded-full border-t-transparent animate-spin"></div>
+                </div>
+                <h2 class="text-2xl font-semibold mb-2">배경 제거 중...</h2>
+                <p class="text-slate-500">AI가 이미지를 분석하고 있습니다. 잠시만 기다려주세요.</p>
+                <div class="w-full max-w-xs bg-slate-100 h-2 rounded-full mt-8 overflow-hidden">
+                    <div id="progress-bar" class="bg-indigo-600 h-full w-0 transition-all duration-300"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Result Section -->
+        <section id="result-section" class="hidden space-y-8 animate-fade-in">
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Original Image -->
+                <div class="bg-white p-4 rounded-3xl shadow-lg">
+                    <h3 class="text-lg font-medium mb-4 flex items-center gap-2">
+                        <span class="w-2 h-2 bg-slate-300 rounded-full"></span> 원본 이미지
+                    </h3>
+                    <div class="aspect-square bg-slate-100 rounded-2xl overflow-hidden flex items-center justify-center border border-slate-100">
+                        <img id="original-preview" class="max-w-full max-h-full object-contain" src="" alt="Original">
+                    </div>
+                </div>
+                <!-- Result Image -->
+                <div class="bg-white p-4 rounded-3xl shadow-lg">
+                    <h3 class="text-lg font-medium mb-4 flex items-center gap-2 text-indigo-600">
+                        <span class="w-2 h-2 bg-indigo-500 rounded-full"></span> 배경 제거 완료
+                    </h3>
+                    <div class="aspect-square checkerboard rounded-2xl overflow-hidden flex items-center justify-center border border-slate-100">
+                        <img id="result-preview" class="max-w-full max-h-full object-contain" src="" alt="Result">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Result Actions -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 py-4">
+                <button id="download-btn" class="w-full sm:w-auto bg-green-500 hover:bg-green-600 text-white px-10 py-4 rounded-2xl font-bold transition-all shadow-lg flex items-center justify-center gap-2 text-lg">
+                    <i class="fas fa-download"></i> PNG 다운로드
+                </button>
+                <button onclick="resetApp()" class="w-full sm:w-auto bg-slate-200 hover:bg-slate-300 text-slate-700 px-8 py-4 rounded-2xl font-medium transition-all flex items-center justify-center gap-2">
+                    <i class="fas fa-redo"></i> 다시 하기
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 text-center text-slate-400 text-sm">
+        <p>© 2026 AI Utility Web. 모든 작업은 브라우저 로컬에서 안전하게 처리됩니다.</p>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
