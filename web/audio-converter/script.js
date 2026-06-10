@@ -1,5 +1,8 @@
 const { createFFmpeg, fetchFile } = FFmpeg;
-const ffmpeg = createFFmpeg({ log: true });
+const ffmpeg = createFFmpeg({ 
+    log: true,
+    corePath: 'https://cdn.jsdelivr.net/npm/@ffmpeg/core@0.11.0/dist/ffmpeg-core.js'
+});
 
 // UI Elements
 const uploadContainer = document.getElementById('upload-container');
@@ -27,6 +30,7 @@ let resultBlob = null;
 
 // Drag and Drop
 ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+    window.addEventListener(eventName, preventDefaults, false);
     dropZone.addEventListener(eventName, preventDefaults, false);
 });
 
@@ -70,14 +74,28 @@ function handleFile(file) {
 async function loadFFmpeg() {
     if (isFFmpegLoaded) return;
     initOverlay.classList.remove('hidden');
+    statusText.textContent = '엔진 파일 다운로드 중... (약 30MB)';
+    
+    // Simulate initial loading progress since ffmpeg.load doesn't provide it
+    let loadProgress = 0;
+    const loadInterval = setInterval(() => {
+        loadProgress += Math.random() * 5;
+        if (loadProgress > 90) clearInterval(loadInterval);
+        updateProgress(Math.round(loadProgress));
+    }, 300);
+
     try {
         await ffmpeg.load();
+        clearInterval(loadInterval);
         isFFmpegLoaded = true;
+        updateProgress(100);
+        statusText.textContent = '준비 완료!';
     } catch (err) {
+        clearInterval(loadInterval);
         console.error('FFmpeg Load Error:', err);
-        alert('변환 엔진을 불러오는 데 실패했습니다. 브라우저 보안 설정을 확인해 주세요.');
+        alert('변환 엔진 로딩 실패! 브라우저의 "설정 > 개인정보 및 보안 > 사이트 설정"에서 "공유 배열 버퍼(SharedArrayBuffer)"가 허용되어 있는지, 혹은 최신 브라우저인지 확인해 주세요.');
     } finally {
-        initOverlay.classList.add('hidden');
+        setTimeout(() => initOverlay.classList.add('hidden'), 500);
     }
 }
 

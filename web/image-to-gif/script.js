@@ -39,6 +39,33 @@ const sortable = new Sortable(timelineGrid, {
     }
 });
 
+// Drag and Drop Events
+const dropZone = document.getElementById('timeline-grid'); // Or another appropriate zone
+
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+    window.addEventListener(eventName, preventDefaults, false);
+    dropZone.addEventListener(eventName, preventDefaults, false);
+});
+
+function preventDefaults(e) {
+    e.preventDefault();
+    e.stopPropagation();
+}
+
+['dragenter', 'dragover'].forEach(eventName => {
+    dropZone.addEventListener(eventName, () => dropZone.classList.add('bg-indigo-50/50'), false);
+});
+
+['dragleave', 'drop'].forEach(eventName => {
+    dropZone.addEventListener(eventName, () => dropZone.classList.remove('bg-indigo-50/50'), false);
+});
+
+dropZone.addEventListener('drop', (e) => {
+    const dt = e.dataTransfer;
+    const files = dt.files;
+    handleFileUpload({ target: { files: files } });
+});
+
 // Event Listeners
 fileInput.addEventListener('change', handleFileUpload);
 delaySlider.addEventListener('input', (e) => {
@@ -184,11 +211,21 @@ async function generateGif() {
     const delay = parseInt(delaySlider.value);
     const sizeMode = sizeSelect.value;
     
+    // Fix: Load worker via Blob to avoid CORS issues on GitHub Pages
+    let workerUrl = 'https://cdn.jsdelivr.net/npm/gif.js@0.2.0/dist/gif.worker.js';
+    try {
+        const response = await fetch(workerUrl);
+        const blob = new Blob([await response.text()], { type: 'application/javascript' });
+        workerUrl = URL.createObjectURL(blob);
+    } catch (e) {
+        console.error('Failed to create worker blob, falling back to CDN URL');
+    }
+
     // Initialize GIF.js
     const gif = new GIF({
         workers: 2,
         quality: 10,
-        workerScript: 'https://cdn.jsdelivr.net/npm/gif.js@0.2.0/dist/gif.worker.js'
+        workerScript: workerUrl
     });
 
     const offCanvas = document.createElement('canvas');
@@ -221,11 +258,12 @@ async function generateGif() {
     }
 
     gif.on('progress', (p) => {
-        const progress = 30 + Math.round(p * 70); // Rendering is next 70%
+        const progress = 10 + Math.round(p * 90); // 10% was worker load, now 90% is rendering
         updateProgress(progress);
     });
 
     gif.on('finished', (blob) => {
+        updateProgress(100);
         resultBlob = blob;
         const url = URL.createObjectURL(blob);
         resultGifImg.src = url;

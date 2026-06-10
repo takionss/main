@@ -1,5 +1,3 @@
-import imglyRemoveBackground from 'https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.4.5/+esm';
-
 // UI Elements
 const uploadSection = document.getElementById('upload-section');
 const loadingSection = document.getElementById('loading-section');
@@ -15,6 +13,7 @@ let originalFileName = "";
 
 // Drag and Drop Events
 ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+    window.addEventListener(eventName, preventDefaults, false);
     uploadSection.addEventListener(eventName, preventDefaults, false);
 });
 
@@ -43,7 +42,7 @@ fileInput.addEventListener('change', (e) => {
 });
 
 async function handleFiles(files) {
-    if (files.length === 0) return;
+    if (!files || files.length === 0) return;
     
     const file = files[0];
     if (!file.type.startsWith('image/')) {
@@ -56,16 +55,28 @@ async function handleFiles(files) {
     
     // Display original preview
     const reader = new FileReader();
-    reader.onload = (e) => originalPreview.src = e.target.result;
+    reader.onload = (e) => {
+        originalPreview.src = e.target.result;
+    };
     reader.readAsDataURL(file);
 
     try {
-        // Core background removal logic
+        // Update status text in UI (assuming you might want to add a status element, 
+        // but for now we'll change the progress bar behavior)
+        
+        // Use the bundle's global function
         const blob = await imglyRemoveBackground(file, {
-            progress: (p) => {
-                // p is the progress from 0 to 1
+            progress: (p, status) => {
                 const percent = Math.round(p * 100);
                 progressBar.style.width = `${percent}%`;
+                
+                // If there's a status available, we could show it. 
+                // imgly often has "fetching" or "processing" stages.
+                const statusElement = document.querySelector('#loading-section h2');
+                if (statusElement) {
+                    if (p < 0.9) statusElement.textContent = 'AI 모델 다운로드 중... (약 40MB)';
+                    else statusElement.textContent = '이미지 분석 및 배경 제거 중...';
+                }
             },
             model: 'medium'
         });
