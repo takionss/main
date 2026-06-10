@@ -1,0 +1,16 @@
+---
+layout: null
+---
+[
+  {% assign old_posts = site.posts | where_exp: "item", "item.lang == nil" %}
+  {% assign new_ko_posts = site.posts | where: "lang", "ko" %}
+  {% assign ko_posts = old_posts | concat: new_ko_posts | sort: "date" | reverse %}
+  {% assign why_ko_posts = ko_posts | where_exp: "item", "item.categories contains 'why'" %}
+  {% for post in why_ko_posts %}
+    {
+      "title"    : "{{ post.title | escape }}",
+      "url"      : "{{ post.url | relative_url }}",
+      "date"     : "{{ post.date | date: '%Y-%m-%d' }}"
+    } {% unless forloop.last %},{% endunless %}
+  {% endfor %}
+]
