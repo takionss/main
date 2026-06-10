@@ -1,0 +1,77 @@
+---
+---
+@import "minima";
+
+/* 1. 전체 배경: 눈이 편안한 샌드 그레이 톤 */
+body {
+  background-color: #f8f9fa; 
+  color: #333;
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-font, sans-serif;
+}
+
+/* 2. 헤더: 상단에 고정된 느낌을 주는 슬림한 디자인 */
+.site-header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #eee;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+  position: relative; /* 추가: z-index가 동작하도록 설정 */
+  z-index: 1000;       /* 추가: 다른 컨텐츠보다 항상 위에 위치 */
+}
+
+.site-nav {
+  z-index: 1001;      /* 추가: 모바일 메뉴가 최상단에 뜨도록 보장 */
+}
+
+.site-title {
+  color: #005a87 !important; /* 지점장님의 신뢰감을 상징하는 딥 블루 */
+  font-weight: 800 !important;
+  letter-spacing: -1px;
+}
+
+/* 3. 메인 카드: 애드센스 광고와 가장 잘 어울리는 여백 처리 */
+.page-content .wrapper {
+  background-color: #ffffff;
+  padding: 50px 40px;
+  border-radius: 16px;
+  border: 1px solid #eaedf0;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+  margin-top: 40px;
+  margin-bottom: 60px;
+  max-width: 900px; /* 가독성을 위한 최적의 너비 */
+}
+
+/* 4. 글 목록 디자인: 촌스럽지 않은 깔끔한 리스트 */
+.post-list li {
+  border-bottom: 1px solid #f0f0f0;
+  padding: 25px 0;
+  transition: all 0.3s ease;
+}
+
+.post-list li:hover {
+  transform: translateX(5px); /* 살짝 움직이는 세련된 효과 */
+}
+
+.post-link {
+  font-size: 1.25rem !important;
+  color: #222 !important;
+  text-decoration: none !important;
+  font-weight: 700;
+}
+
+/* 5. 랜덤 추천 섹션: 광고처럼 보이지 않게 세련된 배경색 적용 */
+.random-posts {
+  background-color: #f0f7ff !important; /* 연한 블루톤으로 포인트 */
+  border-left: 5px solid #005a87;
+  border-radius: 0 12px 12px 0 !important;
+  padding: 25px !important;
+}
+
+/* 모바일 최적화 */
+@media screen and (max-width: 600px) {
+  .page-content .wrapper {
+    padding: 25px 20px;
+    margin-top: 0;
+    border-radius: 0; /* 모바일은 꽉 차게 */
+    border: none;
+  }
+}
