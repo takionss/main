@@ -8,150 +8,142 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         .checkerboard {
-            background-image: linear-gradient(45deg, #f0f0f0 25%, transparent 25%), linear-gradient(-45deg, #f0f0f0 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #f0f0f0 75%), linear-gradient(-45deg, transparent 75%, #f0f0f0 75%);
+            background-image: linear-gradient(45deg, #f8f8f8 25%, transparent 25%), linear-gradient(-45deg, #f8f8f8 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #f8f8f8 75%), linear-gradient(-45deg, transparent 75%, #f8f8f8 75%);
             background-size: 20px 20px;
             background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+            background-color: white;
         }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .animate-fade { animation: fadeIn 0.5s ease-in; }
     </style>
-    <script>
-        // 1. [강력 조치] 방해되는 모든 서비스 워커 강제 제거 및 초기화
-        async function clearServiceWorkers() {
-            if ('serviceWorker' in navigator) {
-                const registrations = await navigator.serviceWorker.getRegistrations();
-                if (registrations.length > 0) {
-                    for (let registration of registrations) {
-                        await registration.unregister();
-                    }
-                    console.log("Old Service Workers Cleared. Reloading...");
-                    window.location.reload(); // 깨끗한 상태로 다시 시작
-                }
-            }
-        }
-        clearServiceWorkers();
-
-        // 2. 드래그 앤 드롭 새 창 열림 방지 (즉시 실행)
-        window.addEventListener('dragover', e => e.preventDefault(), false);
-        window.addEventListener('drop', e => e.preventDefault(), false);
-    </script>
 </head>
-<body class="bg-slate-50 min-h-screen flex flex-col font-sans text-slate-900">
+<body class="bg-slate-50 min-h-screen font-sans text-slate-900">
 
     <header class="bg-white shadow-sm py-6 relative">
-        <a href="../../index.html" class="absolute left-8 top-1/2 -translate-y-1/2 text-slate-400 hover:text-indigo-600 transition-colors flex items-center gap-2">
+        <a href="../../index.html" class="absolute left-8 top-1/2 -translate-y-1/2 text-slate-400 hover:text-indigo-600 transition-colors">
             <i class="fas fa-home"></i> 홈으로
         </a>
-        <h1 class="text-2xl font-bold text-center text-indigo-600 tracking-tight">AI 배경 제거기</h1>
+        <h1 class="text-2xl font-extrabold text-center text-indigo-600">AI 배경 제거기</h1>
     </header>
 
-    <main class="flex-grow container mx-auto px-4 py-12 max-w-4xl">
-        <div id="init-loader" class="mb-8 p-6 rounded-3xl bg-white border border-indigo-50 shadow-sm flex flex-col items-center gap-4">
-            <div class="flex items-center gap-3 text-indigo-600 font-bold">
-                <div class="animate-spin w-5 h-5 border-2 border-current border-t-transparent rounded-full"></div>
-                <span>AI 엔진을 연결하는 중...</span>
+    <main class="container mx-auto px-4 py-12 max-w-4xl">
+        <!-- 엔진 로딩 안내 -->
+        <div id="setup-status" class="mb-8 p-6 rounded-3xl bg-indigo-600 text-white shadow-lg flex items-center justify-between animate-fade">
+            <div class="flex items-center gap-4">
+                <div class="animate-spin w-5 h-5 border-2 border-white border-t-transparent rounded-full"></div>
+                <div>
+                    <p class="font-bold text-lg">AI 엔진을 최적화하고 있습니다</p>
+                    <p class="text-indigo-100 text-xs">잠시 후 업로드 창이 활성화됩니다 (약 5~10초)</p>
+                </div>
             </div>
-            <p class="text-slate-400 text-xs text-center leading-relaxed">
-                인터넷 속도에 따라 최대 10초 정도 걸릴 수 있습니다.<br>
-                변화가 없다면 <b>새로고침(F5)</b>을 한 번 더 해주세요.
-            </p>
         </div>
 
-        <section id="upload-section" class="hidden bg-white rounded-3xl shadow-xl p-12 border-2 border-dashed border-indigo-100 flex flex-col items-center transition-all animate-fade-in">
-            <div class="w-20 h-20 bg-indigo-50 rounded-full flex items-center justify-center mb-6 text-indigo-500 text-3xl">
-                <i class="fas fa-cloud-upload-alt"></i>
+        <!-- 업로드 섹션 (처음엔 숨김) -->
+        <section id="upload-section" class="hidden bg-white rounded-3xl shadow-xl p-12 border-2 border-dashed border-indigo-100 flex flex-col items-center animate-fade">
+            <div class="w-24 h-24 bg-indigo-50 rounded-full flex items-center justify-center mb-8 text-indigo-500 text-4xl">
+                <i class="fas fa-image"></i>
             </div>
-            <h2 class="text-2xl font-bold mb-8 text-center text-slate-700">이미지를 여기로 끌어다 놓으세요</h2>
+            <h2 class="text-2xl font-bold mb-2">이미지를 선택해 주세요</h2>
+            <p class="text-slate-400 mb-10 text-center text-sm">드래그 앤 드롭 또는 버튼 클릭으로 업로드</p>
             <input type="file" id="file-input" class="hidden" accept="image/*">
-            <button id="select-btn" class="bg-indigo-600 text-white px-10 py-4 rounded-2xl font-bold shadow-lg hover:bg-indigo-700 transition-all active:scale-95">
-                이미지 선택하기
+            <button id="select-btn" class="bg-indigo-600 text-white px-12 py-4 rounded-2xl font-bold shadow-xl hover:bg-indigo-700 transition-all hover:scale-105 active:scale-95">
+                이미지 불러오기
             </button>
         </section>
 
-        <section id="processing-section" class="hidden bg-white rounded-3xl shadow-xl p-12 text-center">
-            <div class="animate-bounce text-5xl text-indigo-600 mb-8"><i class="fas fa-magic"></i></div>
-            <h2 id="proc-title" class="text-2xl font-bold mb-4">AI 마법을 부리는 중...</h2>
-            <p id="proc-msg" class="text-slate-400 text-sm mb-8 italic">처음 실행 시 AI 모델(약 40MB) 다운로드가 진행됩니다.</p>
+        <!-- 처리 중 섹션 -->
+        <section id="processing-section" class="hidden bg-white rounded-3xl shadow-xl p-12 text-center animate-fade">
+            <div class="w-20 h-20 mx-auto mb-8 relative">
+                <div class="absolute inset-0 border-4 border-indigo-100 rounded-full"></div>
+                <div class="absolute inset-0 border-4 border-indigo-600 rounded-full border-t-transparent animate-spin"></div>
+            </div>
+            <h2 class="text-2xl font-bold mb-4 text-slate-800">배경을 지우는 중입니다...</h2>
+            <p id="proc-msg" class="text-slate-500 text-sm mb-8">AI 모델을 불러오는 중 (최초 1회만 발생)</p>
             <div class="w-full max-w-sm mx-auto bg-slate-100 h-3 rounded-full overflow-hidden shadow-inner">
-                <div id="progress-bar" class="bg-gradient-to-r from-indigo-500 to-purple-500 h-full w-0 transition-all duration-300"></div>
+                <div id="progress-bar" class="bg-indigo-600 h-full w-0 transition-all duration-300"></div>
             </div>
         </section>
 
-        <section id="result-section" class="hidden space-y-8 animate-fade-in">
+        <!-- 결과 섹션 -->
+        <section id="result-section" class="hidden space-y-8 animate-fade">
             <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-white p-4 rounded-3xl shadow-lg border border-slate-50">
-                    <h3 class="text-xs font-bold text-slate-400 mb-4 uppercase tracking-widest text-center">Original</h3>
-                    <div class="aspect-square bg-slate-50 rounded-2xl overflow-hidden flex items-center justify-center">
-                        <img id="original-preview" class="max-w-full max-h-full object-contain">
-                    </div>
+                <div class="bg-white p-4 rounded-3xl shadow-md">
+                    <p class="text-xs font-bold text-slate-300 mb-3 uppercase tracking-tighter text-center">Original</p>
+                    <img id="original-preview" class="w-full h-auto rounded-2xl">
                 </div>
-                <div class="bg-white p-4 rounded-3xl shadow-lg border-2 border-indigo-100">
-                    <h3 class="text-xs font-bold text-indigo-500 mb-4 uppercase tracking-widest text-center">AI Result</h3>
-                    <div class="aspect-square checkerboard rounded-2xl overflow-hidden flex items-center justify-center shadow-inner">
-                        <img id="result-preview" class="max-w-full max-h-full object-contain">
+                <div class="bg-white p-4 rounded-3xl shadow-lg border-2 border-indigo-50">
+                    <p class="text-xs font-bold text-indigo-400 mb-3 uppercase tracking-tighter text-center">Background Removed</p>
+                    <div class="checkerboard rounded-2xl overflow-hidden shadow-inner">
+                        <img id="result-preview" class="w-full h-auto">
                     </div>
                 </div>
             </div>
             <div class="flex flex-col sm:flex-row justify-center gap-4 py-4">
-                <button id="download-btn" class="bg-green-500 text-white px-10 py-4 rounded-2xl font-bold shadow-xl hover:bg-green-600 transition-all">다운로드 (PNG)</button>
-                <button onclick="location.reload()" class="bg-slate-200 text-slate-700 px-8 py-4 rounded-2xl font-medium">다른 이미지 하기</button>
+                <button id="download-btn" class="bg-green-500 text-white px-10 py-4 rounded-2xl font-bold shadow-xl hover:bg-green-600 transition-all">무료 다운로드 (PNG)</button>
+                <button onclick="location.reload()" class="bg-slate-200 text-slate-700 px-8 py-4 rounded-2xl font-medium">다른 사진 하기</button>
             </div>
         </section>
     </main>
 
-    <script type="module">
-        // 가장 안정적인 ESM 방식으로 라이브러리 로드
-        import imglyRemoveBackground from 'https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.4.5/+esm';
+    <footer class="py-12 text-center text-slate-400 text-xs">
+        <p>© 2026 SmilesLife Utility. All processing happens in your browser.</p>
+    </footer>
 
-        const fileInput = document.getElementById('file-input');
-        const selectBtn = document.getElementById('select-btn');
+    <!-- 자바스크립트 모듈 (가장 확실한 경로 설정 포함) -->
+    <script type="module">
+        // 1. 최신 버전 라이브러리 로드
+        import imglyRemoveBackground from 'https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.7.0/+esm';
+
+        const setupStatus = document.getElementById('setup-status');
         const uploadSection = document.getElementById('upload-section');
         const processingSection = document.getElementById('processing-section');
         const resultSection = document.getElementById('result-section');
         const progressBar = document.getElementById('progress-bar');
-        const procTitle = document.getElementById('proc-title');
         const procMsg = document.getElementById('proc-msg');
-        const initLoader = document.getElementById('init-loader');
 
-        // 엔진 로드 체크 및 UI 전환
+        // 2. 엔진 파일(WASM/ONNX)을 찾을 수 있게 명시적으로 경로 지정 (핵심!)
+        const config = {
+            publicPath: 'https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.7.0/dist/',
+            fetchArgs: { mode: 'cors' },
+            progress: (p) => {
+                const percent = Math.round(p * 100);
+                progressBar.style.width = percent + '%';
+                if (p < 0.9) procMsg.textContent = `모델 다운로드 중... ${percent}%`;
+                else procMsg.textContent = `이미지 분석 중... 거의 다 되었습니다!`;
+            }
+        };
+
+        // 3. 엔진 준비 확인 루프
         if (imglyRemoveBackground) {
-            console.log("AI Engine Connected Successfully!");
-            initLoader.classList.add('hidden');
+            setupStatus.classList.add('hidden');
             uploadSection.classList.remove('hidden');
+            console.log("AI Engine Ready!");
         }
 
-        selectBtn.addEventListener('click', () => fileInput.click());
-
-        fileInput.addEventListener('change', e => {
-            if (e.target.files.length > 0) handleFiles(e.target.files[0]);
-        });
-
-        // 업로드 섹션 드롭 지원
-        uploadSection.addEventListener('drop', e => {
+        // 드래그 앤 드롭 및 클릭 이벤트
+        document.getElementById('select-btn').onclick = () => document.getElementById('file-input').click();
+        
+        window.ondragover = e => e.preventDefault();
+        window.ondrop = e => {
             e.preventDefault();
-            if (e.dataTransfer.files.length > 0) handleFiles(e.dataTransfer.files[0]);
-        });
+            if (e.dataTransfer.files.length > 0) handleFile(e.dataTransfer.files[0]);
+        };
 
-        async function handleFiles(file) {
-            if (!file.type.startsWith('image/')) return alert('이미지 파일만 선택해 주세요.');
+        document.getElementById('file-input').onchange = e => {
+            if (e.target.files.length > 0) handleFile(e.target.files[0]);
+        };
+
+        async function handleFile(file) {
+            if (!file.type.startsWith('image/')) return alert("이미지 파일만 가능합니다.");
 
             uploadSection.classList.add('hidden');
             processingSection.classList.remove('hidden');
             document.getElementById('original-preview').src = URL.createObjectURL(file);
 
             try {
-                const blob = await imglyRemoveBackground(file, {
-                    progress: (p) => {
-                        const percent = Math.round(p * 100);
-                        progressBar.style.width = percent + '%';
-                        if (p < 0.9) {
-                            procMsg.textContent = `AI 모델을 다운로드하고 있습니다... ${percent}%`;
-                        } else {
-                            procTitle.textContent = "배경 제거 작업 중...";
-                            procMsg.textContent = "거의 완료되었습니다! 조금만 더 기다려 주세요.";
-                        }
-                    },
-                    model: 'medium'
-                });
-
+                // 4. AI 실행
+                const blob = await imglyRemoveBackground(file, config);
+                
                 document.getElementById('result-preview').src = URL.createObjectURL(blob);
                 processingSection.classList.add('hidden');
                 resultSection.classList.remove('hidden');
@@ -159,12 +151,12 @@
                 document.getElementById('download-btn').onclick = () => {
                     const a = document.createElement('a');
                     a.href = URL.createObjectURL(blob);
-                    a.download = file.name.replace(/\.[^/.]+$/, "") + "_smileslife_nobg.png";
+                    a.download = "smileslife_no_bg.png";
                     a.click();
                 };
-            } catch (error) {
-                console.error(error);
-                alert("작업 중 오류가 발생했습니다: " + error.message + "\n다시 한번 시도해 주세요.");
+            } catch (err) {
+                console.error(err);
+                alert("오류 발생: " + err.message + "\n브라우저 사양 문제일 수 있습니다.");
                 location.reload();
             }
         }
