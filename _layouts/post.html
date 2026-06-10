@@ -1,0 +1,60 @@
+---
+layout: default
+---
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  {% assign lang = page.lang | default: "ko" %}
+
+  <header class="post-header" style="margin-bottom: 30px;">
+    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {{ page.date | date: "%Y-%m-%d" }}
+      </time>
+    </p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  <hr style="margin: 50px 0 30px 0; border: 0; border-top: 1px solid #eee;">
+
+  <div class="random-posts" style="background: #f4f8fa; padding: 25px; border-radius: 12px; border: 1px solid #eef2f4;">
+    <h3 style="margin-top: 0; color: #333; font-size: 1.15rem;">
+      {{ site.random_post_titles[lang] | default: "🎲 다른 흥미로운 이야기도 확인해 보세요!" }}
+    </h3>
+
+    <ul style="list-style: none; padding-left: 0; margin-bottom: 0;">
+      {% if lang == "ko" %}
+        {% assign all_posts = site.posts %}
+        {% assign filtered_posts = "" | split: "" %}
+        {% for p in all_posts %}
+          {% if p.lang == nil or p.lang == "ko" %}
+            {% assign filtered_posts = filtered_posts | push: p %}
+          {% endif %}
+        {% endfor %}
+      {% else %}
+        {% assign filtered_posts = site.posts | where: "lang", lang %}
+      {% endif %}
+
+      {% assign final_list = "" | split: "" %}
+      {% for p in filtered_posts %}
+        {% if p.url != page.url and p.categories contains "why" %}
+          {% assign final_list = final_list | push: p %}
+        {% endif %}
+      {% endfor %}
+
+      {% assign random_list = final_list | sample: 5 %}
+
+      {% for post in random_list %}
+        <li style="margin-bottom: 12px; line-height: 1.4;">
+          <a href="{{ post.url | relative_url }}" style="text-decoration: none; color: #005a87; font-weight: bold; display: block;">
+            • {{ post.title | escape }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+</article>
