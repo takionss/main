@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI 배경 제거기 (v2) | SmilesLife</title>
+    <title>AI 배경 제거기 (v2.1) | SmilesLife</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- 구글 Mediapipe 엔진 (보안 설정 필요 없음) -->
     <script src="https://cdn.jsdelivr.net/npm/@mediapipe/selfie_segmentation/selfie_segmentation.js" crossorigin="anonymous"></script>
     <style>
         .checkerboard {
@@ -19,59 +18,69 @@
 <body class="bg-slate-50 min-h-screen flex flex-col font-sans text-slate-900">
 
     <header class="bg-white shadow-sm py-6 relative">
-        <a href="../../index.html" class="absolute left-8 top-1/2 -translate-y-1/2 text-slate-400 hover:text-indigo-600 transition-colors">
+        <a href="../../index.html" class="absolute left-8 top-1/2 -translate-y-1/2 text-slate-400 hover:text-indigo-600 transition-colors flex items-center gap-2 font-medium">
             <i class="fas fa-home"></i> 홈으로
         </a>
-        <h1 class="text-2xl font-bold text-center text-indigo-600 tracking-tight">AI 배경 제거기 (v2)</h1>
+        <h1 class="text-2xl font-bold text-center text-indigo-600 tracking-tight">AI 배경 제거기</h1>
     </header>
 
-    <main class="flex-grow container mx-auto px-4 py-12 max-w-4xl">
-        <div id="loading-engine" class="mb-8 p-4 rounded-xl bg-blue-50 border border-blue-100 text-blue-800 text-sm text-center flex items-center justify-center gap-3">
+    <main class="flex-grow container mx-auto px-4 py-8 max-w-4xl">
+        <div id="loading-engine" class="mb-6 p-4 rounded-xl bg-blue-50 border border-blue-100 text-blue-800 text-sm text-center flex items-center justify-center gap-3">
             <div class="animate-spin w-4 h-4 border-2 border-current border-t-transparent rounded-full"></div>
-            <span>AI 엔진 로딩 중...</span>
+            <span>AI 고성능 엔진 로딩 중...</span>
         </div>
 
         <section id="upload-section" class="bg-white rounded-3xl shadow-xl p-12 border-2 border-dashed border-indigo-100 flex flex-col items-center">
-            <i class="fas fa-cloud-upload-alt text-6xl text-indigo-100 mb-6"></i>
-            <h2 class="text-xl font-bold mb-8 text-slate-700">이미지를 드래그하거나 선택하세요</h2>
+            <i class="fas fa-magic text-5xl text-indigo-200 mb-6"></i>
+            <h2 class="text-xl font-bold mb-8 text-slate-700">이미지를 선택하여 배경을 제거하세요</h2>
             <input type="file" id="file-input" class="hidden" accept="image/*">
             <button id="select-btn" class="bg-indigo-600 text-white px-10 py-4 rounded-2xl font-bold shadow-lg hover:bg-indigo-700 active:scale-95 transition-all">
-                이미지 선택하기
+                사진 불러오기
             </button>
         </section>
 
-        <section id="processing-section" class="hidden bg-white rounded-3xl shadow-xl p-12 text-center animate-pulse">
-            <div class="text-5xl text-indigo-600 mb-6"><i class="fas fa-magic"></i></div>
-            <h2 class="text-2xl font-bold mb-2">배경 제거 중...</h2>
-            <p class="text-slate-400 text-sm">잠시만 기다려 주세요.</p>
+        <section id="processing-section" class="hidden bg-white rounded-3xl shadow-xl p-12 text-center animate-pulse border border-indigo-50">
+            <div class="text-5xl text-indigo-600 mb-6"><i class="fas fa-wand-sparkles"></i></div>
+            <h2 class="text-2xl font-bold mb-2">정교하게 배경을 깎고 있습니다...</h2>
+            <p class="text-slate-400 text-sm italic">약 1~3초 정도 소요됩니다.</p>
         </section>
 
-        <section id="result-section" class="hidden space-y-8">
-            <div class="grid md:grid-cols-2 gap-8 text-center">
-                <div class="bg-white p-4 rounded-3xl shadow">
-                    <p class="text-xs font-bold text-slate-400 mb-3 uppercase">Original</p>
-                    <canvas id="original-canvas" class="w-full h-auto rounded-xl"></canvas>
+        <section id="result-section" class="hidden space-y-8 animate-fade-in">
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white p-2 rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+                    <p class="text-[10px] font-bold text-slate-300 mb-2 uppercase text-center">Original Photo</p>
+                    <canvas id="original-canvas" class="w-full h-auto rounded-lg"></canvas>
                 </div>
-                <div class="bg-white p-4 rounded-3xl shadow-lg border-2 border-indigo-50">
-                    <p class="text-xs font-bold text-indigo-500 mb-3 uppercase">AI Result</p>
-                    <div class="checkerboard rounded-xl overflow-hidden">
+                <div class="bg-white p-2 rounded-2xl shadow-xl border-2 border-indigo-50 overflow-hidden">
+                    <p class="text-[10px] font-bold text-indigo-400 mb-2 uppercase text-center">AI Polished Result</p>
+                    <div class="checkerboard rounded-lg overflow-hidden">
                         <canvas id="result-canvas" class="w-full h-auto"></canvas>
                     </div>
                 </div>
             </div>
-            <div class="flex justify-center gap-4 py-4">
-                <button id="download-btn" class="bg-green-500 text-white px-10 py-4 rounded-2xl font-bold shadow-xl hover:bg-green-600 transition-all">다운로드 (PNG)</button>
-                <button onclick="location.reload()" class="bg-slate-200 text-slate-700 px-8 py-4 rounded-2xl font-medium transition-all">다시 하기</button>
+            <div class="flex flex-col sm:flex-row justify-center gap-4 py-4">
+                <button id="download-btn" class="bg-indigo-600 text-white px-12 py-4 rounded-2xl font-bold shadow-xl hover:bg-indigo-700 transition-all flex items-center justify-center gap-2">
+                    <i class="fas fa-download"></i> 투명 배경으로 저장
+                </button>
+                <button onclick="location.reload()" class="bg-slate-200 text-slate-700 px-8 py-4 rounded-2xl font-medium">다른 사진 하기</button>
             </div>
         </section>
     </main>
+
+    <footer class="py-8 text-center text-slate-400 text-xs">
+        <p>© 2026 SmilesLife. Google Mediapipe AI 기술을 탑재하여 더욱 강력해졌습니다.</p>
+    </footer>
 
     <script>
         const selfieSegmentation = new SelfieSegmentation({
             locateFile: (file) => `https://cdn.jsdelivr.net/npm/@mediapipe/selfie_segmentation/${file}`
         });
 
-        selfieSegmentation.setOptions({ modelSelection: 1 });
+        // 모델 옵션 최적화 (1번 모델이 더 정교함)
+        selfieSegmentation.setOptions({ 
+            modelSelection: 1,
+            selfieMode: false
+        });
 
         const loadingEngine = document.getElementById('loading-engine');
         const uploadSection = document.getElementById('upload-section');
@@ -81,12 +90,8 @@
         const resultCanvas = document.getElementById('result-canvas');
         const originalCanvas = document.getElementById('original-canvas');
 
-        let originalImage = null;
-
-        // 엔진 초기화 성공 시
         selfieSegmentation.initialize().then(() => {
             loadingEngine.classList.add('hidden');
-            console.log("Mediapipe Ready!");
         });
 
         document.getElementById('select-btn').onclick = () => fileInput.click();
@@ -110,9 +115,8 @@
             const img = new Image();
             img.src = URL.createObjectURL(file);
             await img.decode();
-            originalImage = img;
-
-            // 실행
+            
+            // AI 실행
             await selfieSegmentation.send({image: img});
         }
 
@@ -128,21 +132,41 @@
             resultCanvas.height = height;
             const ctx = resultCanvas.getContext('2d');
 
-            // 1. 마스크 그리기
-            ctx.clearRect(0, 0, width, height);
-            ctx.drawImage(results.segmentationMask, 0, 0, width, height);
+            // --- 보정 알고리즘 적용 ---
+            
+            // 1. 임시 캔버스에 마스크를 그림 (Sharpening 효과를 위해)
+            const maskCanvas = document.createElement('canvas');
+            maskCanvas.width = width;
+            maskCanvas.height = height;
+            const mCtx = maskCanvas.getContext('2d');
+            
+            // 마스크 대비(Contrast) 조절: 회색 지점(모호한 경계)을 인물로 강하게 끌어당김
+            mCtx.filter = 'contrast(300%) brightness(120%)';
+            mCtx.drawImage(results.segmentationMask, 0, 0, width, height);
 
-            // 2. 합성 (기존 이미지와 마스크를 겹쳐서 배경 제거)
+            // 2. 최종 결과물 그리기
+            ctx.clearRect(0, 0, width, height);
+            
+            // 보정된 마스크를 배경으로 먼저 깔기
+            ctx.drawImage(maskCanvas, 0, 0, width, height);
+
+            // 3. 합성 (이미지와 마스크를 겹쳐서 인물만 남김)
+            // 'source-in' 연산을 수행하여 마스크가 있는 부분만 인물을 남김
             ctx.globalCompositeOperation = 'source-in';
             ctx.drawImage(results.image, 0, 0, width, height);
             
+            // 4. 테두리 부드럽게 (한 번 더 덮어쓰기 하여 투명도 보강)
+            ctx.globalAlpha = 0.4;
+            ctx.drawImage(results.image, 0, 0, width, height);
+            ctx.globalAlpha = 1.0;
+
             processingSection.classList.add('hidden');
             resultSection.classList.remove('hidden');
 
             document.getElementById('download-btn').onclick = () => {
                 const a = document.createElement('a');
                 a.href = resultCanvas.toDataURL('image/png');
-                a.download = "no_bg.png";
+                a.download = "smileslife_bg_removed.png";
                 a.click();
             };
         });
