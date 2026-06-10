@@ -1,0 +1,13 @@
+<footer class="site-footer h-card" style="padding: 40px 0; border-top: 1px solid #eaeaea; margin-top: 60px; background-color: #fdfdfd;">
+  <div class="wrapper" style="text-align: center;">
+    
+    {% assign lang = page.lang | default: "ko" %}
+    
+    <h2 class="footer-heading" style="margin-bottom: 10px; font-size: 1.2rem; color: #333; font-weight: bold;">{{ site.titles[page.lang] | default: site.titles[lang] | default: site.title }}</h2>
+    
+    <p style="color: #666; font-size: 0.95rem; margin: 0; max-width: 100%; line-height: 1.6;">
+      {{ site.descriptions[lang] | default: site.description }}
+    </p>
+
+  </div>
+</footer>
