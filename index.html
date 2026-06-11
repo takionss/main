@@ -11,25 +11,41 @@
             background: url('https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2560&auto=format&fit=crop') center/cover no-repeat;
         }
 
-        /* 부팅 화면 */
+        /* 1. 모바일 반응형 텍스트를 적용한 부팅 화면 */
         #boot-screen {
             position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
             background: #111; color: #fff; z-index: 9999;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
-            cursor: pointer;
+            cursor: pointer; padding: 20px; text-align: center;
         }
-        
-        /* 종료/재시작 애니메이션용 오버레이 (서서히 어두워짐) */
+        #boot-screen h1 { font-size: clamp(2rem, 6vw, 3rem); font-weight: 400; margin-bottom: 15px; word-break: keep-all; }
+        #boot-screen p { font-size: clamp(1rem, 4vw, 1.2rem); color: #888; animation: pulse 2s infinite; word-break: keep-all; }
+
+        /* 2. 윈도우 11 스타일 로그인(로딩) 화면 추가 */
+        #login-screen {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background: url('https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2560&auto=format&fit=crop') center/cover no-repeat;
+            box-shadow: inset 0 0 0 2000px rgba(0,0,0,0.5); /* 배경을 어둡게 눌러줌 */
+            display: none; flex-direction: column; justify-content: center; align-items: center;
+            z-index: 9998; color: #fff;
+        }
+        .user-profile {
+            width: 150px; height: 150px; border-radius: 50%; background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px); display: flex; justify-content: center; align-items: center;
+            margin-bottom: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .user-profile img { width: 70px; height: 70px; opacity: 0.9; }
+        #login-screen h2 { font-size: 1.8rem; font-weight: 400; margin-bottom: 30px; letter-spacing: 1px; }
+
         #transition-screen {
             position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
             background: #000; color: #fff; z-index: 10000;
             display: none; flex-direction: column; justify-content: center; align-items: center;
-            opacity: 0; transition: opacity 2s ease-in-out; /* 2초 동안 서서히 투명도 변경 */
+            opacity: 0; transition: opacity 2s ease-in-out; 
         }
         #transition-screen.fade-in { opacity: 1; }
         #transition-screen h2 { font-weight: 300; font-size: 1.8rem; letter-spacing: 2px; margin-bottom: 20px; }
         
-        /* 로딩 스피너 (윈도우 로딩 느낌) */
         .spinner {
             width: 40px; height: 40px; border: 4px solid rgba(255,255,255,0.1);
             border-left-color: #0078D4; border-radius: 50%;
@@ -37,21 +53,19 @@
         }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-        /* 최종 안전 종료 화면 */
         #shutdown-screen {
             position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
             background: #000; color: #fff; z-index: 10001;
             display: none; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; padding: 20px;
         }
-        #shutdown-screen h1 { font-size: 2rem; margin-bottom: 10px; font-weight: normal; }
-        #shutdown-screen p { color: #888; }
+        #shutdown-screen h1 { font-size: clamp(1.5rem, 5vw, 2rem); margin-bottom: 10px; font-weight: normal; word-break: keep-all; }
+        #shutdown-screen p { color: #888; font-size: clamp(1rem, 3vw, 1.2rem); }
 
         .custom-logo-lg { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 30px; width: 60px; height: 60px; }
         .custom-logo-lg div { border-radius: 6px; width: 100%; height: 100%; }
         .c-1 { background: #FF5722; } .c-2 { background: #4CAF50; } .c-3 { background: #FFC107; } .c-4 { background: #E91E63; }
 
-        #boot-screen h1 { font-size: 2rem; font-weight: 400; margin-bottom: 10px; }
-        #boot-screen p { font-size: 1rem; color: #888; animation: pulse 2s infinite; }
         @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
 
         #desktop {
@@ -102,6 +116,379 @@
             width: 44px; height: 44px; background: transparent; border: none; border-radius: 6px; cursor: pointer; 
             display: flex; justify-content: center; align-items: center; transition: 0.2s;
         }
+        #start-btn:hover { background: rgba(255,255,255,0.5); }
+        
+        .custom-logo-sm { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; width: 22px; height: 22px; }
+        .custom-logo-sm div { border-radius: 3px; width: 100%; height: 100%; }
+
+        #taskbar-apps { display: flex; gap: 5px; margin-left: 5px; height: 100%; align-items: center; overflow-x: auto; overflow-y: hidden; }
+        .taskbar-app { 
+            display: flex; align-items: center; gap: 8px; height: 36px; padding: 0 10px;
+            background: rgba(255, 255, 255, 0.6); border-radius: 4px; border-bottom: 3px solid #E91E63; 
+            font-size: 13px; color: #333; cursor: pointer; white-space: nowrap;
+        }
+        .taskbar-app img { width: 20px; height: 20px; border-radius: 4px; object-fit: cover; }
+
+        #start-menu { 
+            position: absolute; bottom: 60px; left: 10px; width: 260px; 
+            background: rgba(243, 243, 243, 0.95); backdrop-filter: blur(20px);
+            border: 1px solid rgba(0,0,0,0.1); border-radius: 12px; display: none; flex-direction: column; z-index: 99; 
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15); padding: 10px;
+        }
+        .start-menu-title { font-size: 14px; font-weight: bold; margin: 5px 10px 15px 10px; color: #333; }
+        
+        .start-menu-item-direct {
+            padding: 10px 15px; cursor: pointer; border-radius: 6px;
+            display: flex; align-items: center; gap: 12px; font-size: 14px; color: #333; font-weight: 500;
+        }
+        .start-menu-item-direct:hover { background: rgba(0,0,0,0.05); }
+        .menu-icon-xs { width: 24px; height: 24px; border-radius: 4px; object-fit: cover; }
+
+        .start-menu-group {
+            position: relative; padding: 12px 15px; cursor: pointer; border-radius: 6px;
+            display: flex; justify-content: space-between; align-items: center; font-size: 14px; color: #333; font-weight: 500;
+        }
+        .start-menu-group:hover { background: rgba(0,0,0,0.05); }
+        .start-menu-group::after { content: '▶'; font-size: 10px; color: #888; } 
+
+        .sub-menu {
+            position: absolute; left: 100%; bottom: 0; margin-left: 5px; width: max-content; min-width: 200px;
+            background: rgba(243, 243, 243, 0.95); backdrop-filter: blur(20px);
+            border: 1px solid rgba(0,0,0,0.1); border-radius: 12px; display: none; flex-direction: column;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15); padding: 15px; z-index: 100; cursor: default;
+        }
+        .start-menu-group:hover .sub-menu { display: flex; } 
+
+        .sub-menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+        .start-menu-item { display: flex; flex-direction: column; align-items: center; cursor: pointer; padding: 10px 5px; border-radius: 5px; transition: 0.2s; font-size: 12px; color: #333; text-align: center; word-break: keep-all; }
+        .start-menu-item:hover { background: rgba(255,255,255,0.8); }
+        .menu-icon-sm { width: 36px; height: 36px; margin-bottom: 8px; border-radius: 6px; object-fit: cover; }
+
+        .divider { height: 1px; background: rgba(0,0,0,0.1); margin: 10px 5px; }
+
+        #power-popup {
+            position: absolute; bottom: 55px; left: 10px; width: 140px;
+            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px);
+            border: 1px solid rgba(0,0,0,0.1); border-radius: 8px;
+            display: none; flex-direction: column; z-index: 101;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2); padding: 5px;
+        }
+        .power-option {
+            padding: 10px 15px; cursor: pointer; border-radius: 5px; font-size: 13px; color: #333;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .power-option:hover { background: rgba(0,0,0,0.05); }
+
+        #start-menu-bottom {
+            margin-top: 5px; padding: 10px 15px 5px 15px; border-top: 1px solid rgba(0,0,0,0.1);
+            display: flex; justify-content: flex-end; align-items: center;
+        }
+        #start-menu-power {
+            display: flex; align-items: center; justify-content: center; width: 36px; height: 36px;
+            cursor: pointer; border-radius: 6px; transition: 0.2s;
+        }
+        #start-menu-power:hover { background: rgba(0, 0, 0, 0.1); }
+        #start-menu-power img { width: 20px; height: 20px; opacity: 0.8; }
+    </style>
+</head>
+<body>
+
+    <div id="boot-screen" onclick="startSystem()">
+        <div class="custom-logo-lg">
+            <div class="c-1"></div><div class="c-2"></div><div class="c-3"></div><div class="c-4"></div>
+        </div>
+        <h1>SmilesLife Web OS</h1>
+        <p>화면을 클릭하면 전체화면으로 시작합니다</p>
+    </div>
+
+    <div id="login-screen">
+        <div class="user-profile">
+            <img src="https://cdn-icons-png.flaticon.com/512/1144/1144760.png" alt="User">
+        </div>
+        <h2>환영합니다</h2>
+        <div class="spinner"></div>
+    </div>
+
+    <div id="transition-screen">
+        <h2 id="transition-text">시스템 종료 중...</h2>
+        <div class="spinner"></div>
+    </div>
+
+    <div id="shutdown-screen">
+        <h1>시스템이 안전하게 종료되었습니다.</h1>
+        <p>이제 브라우저 창을 닫으셔도 됩니다.</p>
+    </div>
+
+    <div id="desktop"></div>
+    
+    <div id="start-menu">
+        <div class="start-menu-title">프로그램 목록</div>
+        <div id="start-menu-list"></div>
+        
+        <div id="power-popup">
+            <div class="power-option" onclick="shutdownAnimation()">
+                <img src="https://cdn-icons-png.flaticon.com/512/3596/3596144.png" style="width:16px;" alt="종료"> 시스템 종료
+            </div>
+            <div class="power-option" onclick="restartAnimation()">
+                <img src="https://cdn-icons-png.flaticon.com/512/338/338221.png" style="width:16px;" alt="재시작"> 다시 시작
+            </div>
+        </div>
+
+        <div id="start-menu-bottom">
+            <div id="start-menu-power" onclick="togglePowerMenu(event)">
+                <img src="https://cdn-icons-png.flaticon.com/512/3596/3596144.png" alt="전원">
+            </div>
+        </div>
+    </div>
+
+    <div id="app-window" class="window" style="display: none;">
+        <div class="window-header">
+            <span id="window-title">프로그램</span>
+            <button class="close-btn" onclick="closeWindow()">✕</button>
+        </div>
+        <div class="window-body">
+            <iframe id="window-iframe" src=""></iframe>
+            <div id="window-folder"></div>
+        </div>
+    </div>
+
+    <div id="taskbar">
+        <button id="start-btn" onclick="toggleStartMenu(event)">
+            <div class="custom-logo-sm">
+                <div class="c-1"></div><div class="c-2"></div><div class="c-3"></div><div class="c-4"></div>
+            </div>
+        </button>
+        <div id="taskbar-apps"></div>
+    </div>
+
+    <script>
+        const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/1RRpkarZGReZMb243IsGNQfP1Urzs5Fh24uWRbfkwVdM/export?format=csv&gid=0';
+        let siteDataList = []; 
+
+        function startSystem() {
+            const docElm = document.documentElement;
+            if (docElm.requestFullscreen) { docElm.requestFullscreen(); }
+            else if (docElm.webkitRequestFullscreen) { docElm.webkitRequestFullscreen(); }
+            
+            document.getElementById('boot-screen').style.display = 'none';
+            
+            // 데이터 로드 지연을 가리기 위한 환영 화면 표시
+            const loginScreen = document.getElementById('login-screen');
+            loginScreen.style.display = 'flex';
+            
+            // 시각적인 윈도우 부팅 효과를 위해 최소 1초 대기 후 로딩
+            setTimeout(() => {
+                loadMenuData();
+            }, 1000);
+        }
+
+        function togglePowerMenu(event) {
+            event.stopPropagation();
+            const powerPopup = document.getElementById('power-popup');
+            powerPopup.style.display = powerPopup.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        function shutdownAnimation() {
+            closeStartMenu();
+            const transScreen = document.getElementById('transition-screen');
+            document.getElementById('transition-text').innerText = "시스템 종료 중...";
+            transScreen.style.display = 'flex';
+            
+            setTimeout(() => { transScreen.classList.add('fade-in'); }, 50);
+            
+            setTimeout(() => {
+                transScreen.style.display = 'none';
+                document.getElementById('shutdown-screen').style.display = 'flex';
+                if (document.fullscreenElement) { document.exitFullscreen(); } 
+                else if (document.webkitFullscreenElement) { document.webkitExitFullscreen(); }
+                window.close(); 
+            }, 2500);
+        }
+
+        function restartAnimation() {
+            closeStartMenu();
+            const transScreen = document.getElementById('transition-screen');
+            document.getElementById('transition-text').innerText = "다시 시작 중...";
+            transScreen.style.display = 'flex';
+            
+            setTimeout(() => { transScreen.classList.add('fade-in'); }, 50);
+            
+            setTimeout(() => {
+                location.reload();
+            }, 2500);
+        }
+
+        async function loadMenuData() {
+            try {
+                const response = await fetch(SHEET_CSV_URL);
+                const data = await response.text();
+                
+                const rows = data.split(/\r?\n/).slice(1);
+                const desktop = document.getElementById('desktop');
+                const startMenuList = document.getElementById('start-menu-list');
+                const defaultIcon = 'https://cdn-icons-png.flaticon.com/512/732/732225.png';
+                const folderIconImg = 'https://cdn-icons-png.flaticon.com/512/716/716784.png'; 
+
+                const mySiteFolder = document.createElement('div');
+                mySiteFolder.className = 'icon';
+                mySiteFolder.innerHTML = `<img src="${folderIconImg}" class="icon-img" alt="폴더"><div>내사이트</div>`;
+                mySiteFolder.ondblclick = () => {
+                    openFolder('내사이트', folderIconImg);
+                    closeStartMenu();
+                };
+                desktop.appendChild(mySiteFolder);
+
+                let defaultGroup = []; 
+                let otherGroups = {}; 
+
+                rows.forEach(row => {
+                    if (!row.trim()) return;
+                    
+                    const columns = row.split(',').map(col => col.replace(/^"|"$/g, '').trim());
+                    if(columns.length < 3) return;
+
+                    const name = columns[0] || '';
+                    const groupName = columns[1] || ''; 
+                    const url = columns[2] || '';
+                    const iconUrl = (columns[3] && columns[3] !== '') ? columns[3] : defaultIcon;
+
+                    siteDataList.push({ name, url, iconUrl });
+
+                    const icon = document.createElement('div');
+                    icon.className = 'icon';
+                    icon.innerHTML = `<img src="${iconUrl}" class="icon-img" alt="icon"><div>${name}</div>`;
+                    icon.ondblclick = () => { 
+                        openWindow(name, url, iconUrl);
+                        closeStartMenu();
+                    };
+                    desktop.appendChild(icon);
+
+                    if (groupName === '' || groupName === '기본 프로그램') {
+                        defaultGroup.push({ name, url, iconUrl });
+                    } else {
+                        if (!otherGroups[groupName]) otherGroups[groupName] = [];
+                        otherGroups[groupName].push({ name, url, iconUrl });
+                    }
+                });
+
+                if (defaultGroup.length > 0) {
+                    defaultGroup.forEach(item => {
+                        const menuItem = document.createElement('div');
+                        menuItem.className = 'start-menu-item-direct';
+                        menuItem.innerHTML = `<img src="${item.iconUrl}" class="menu-icon-xs" alt="icon"><span>${item.name}</span>`;
+                        menuItem.onclick = (e) => {
+                            e.stopPropagation();
+                            openWindow(item.name, item.url, item.iconUrl);
+                            closeStartMenu();
+                        };
+                        startMenuList.appendChild(menuItem);
+                    });
+
+                    if (Object.keys(otherGroups).length > 0) {
+                        const divider = document.createElement('div');
+                        divider.className = 'divider';
+                        startMenuList.appendChild(divider);
+                    }
+                }
+
+                for (const [grp, items] of Object.entries(otherGroups)) {
+                    const groupEl = document.createElement('div');
+                    groupEl.className = 'start-menu-group';
+                    groupEl.innerText = grp;
+
+                    const subMenu = document.createElement('div');
+                    subMenu.className = 'sub-menu';
+                    
+                    const subMenuGrid = document.createElement('div');
+                    subMenuGrid.className = 'sub-menu-grid';
+
+                    items.forEach(item => {
+                        const menuItem = document.createElement('div');
+                        menuItem.className = 'start-menu-item';
+                        menuItem.innerHTML = `<img src="${item.iconUrl}" class="menu-icon-sm" alt="icon"><span>${item.name}</span>`;
+                        menuItem.onclick = (e) => {
+                            e.stopPropagation(); 
+                            openWindow(item.name, item.url, item.iconUrl);
+                            closeStartMenu();
+                        };
+                        subMenuGrid.appendChild(menuItem);
+                    });
+
+                    subMenu.appendChild(subMenuGrid);
+                    groupEl.appendChild(subMenu);
+                    startMenuList.appendChild(groupEl);
+                }
+
+                // 데이터 로드와 화면 구성이 모두 끝나면 환영 화면 숨기기
+                document.getElementById('login-screen').style.display = 'none';
+
+            } catch (error) {
+                console.error('데이터 로드 실패:', error);
+                document.getElementById('login-screen').style.display = 'none'; // 에러 발생 시에도 화면은 열어줌
+            }
+        }
+
+        function toggleStartMenu(event) {
+            event.stopPropagation();
+            const menu = document.getElementById('start-menu');
+            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+            document.getElementById('power-popup').style.display = 'none'; 
+        }
+
+        function closeStartMenu() { 
+            document.getElementById('start-menu').style.display = 'none'; 
+            document.getElementById('power-popup').style.display = 'none';
+        }
+        document.body.addEventListener('click', closeStartMenu);
+
+        function addTaskbarApp(title, iconUrl) {
+            const taskbarApps = document.getElementById('taskbar-apps');
+            taskbarApps.innerHTML = `<div class="taskbar-app"><img src="${iconUrl}" alt="icon"><span>${title}</span></div>`;
+        }
+
+        function openWindow(title, url, iconUrl) {
+            const win = document.getElementById('app-window');
+            document.getElementById('window-title').innerText = title;
+            document.getElementById('window-folder').style.display = 'none';
+            
+            const iframe = document.getElementById('window-iframe');
+            iframe.style.display = 'block';
+            iframe.src = url;
+            win.style.display = 'flex';
+            
+            addTaskbarApp(title, iconUrl);
+        }
+
+        function openFolder(title, iconUrl) {
+            const win = document.getElementById('app-window');
+            document.getElementById('window-title').innerText = title;
+            document.getElementById('window-iframe').style.display = 'none';
+            document.getElementById('window-iframe').src = '';
+            
+            const folder = document.getElementById('window-folder');
+            folder.style.display = 'flex';
+            folder.innerHTML = '';
+            
+            siteDataList.forEach(site => {
+                const icon = document.createElement('div');
+                icon.className = 'folder-icon';
+                icon.innerHTML = `<img src="${site.iconUrl}" alt="icon"><div>${site.name}</div>`;
+                icon.ondblclick = () => { openWindow(site.name, site.url, site.iconUrl); };
+                folder.appendChild(icon);
+            });
+
+            win.style.display = 'flex';
+            addTaskbarApp(title, iconUrl);
+        }
+
+        function closeWindow() {
+            document.getElementById('app-window').style.display = 'none';
+            document.getElementById('window-iframe').src = '';
+            document.getElementById('taskbar-apps').innerHTML = '';
+        }
+    </script>
+</body>
+</html>
         #start-btn:hover { background: rgba(255,255,255,0.5); }
         
         .custom-logo-sm { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; width: 22px; height: 22px; }
