@@ -11,6 +11,7 @@
             background: url('https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2560&auto=format&fit=crop') center/cover no-repeat;
         }
 
+        /* 부팅 화면 */
         #boot-screen {
             position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
             background: #111; color: #fff; z-index: 9999;
@@ -18,9 +19,28 @@
             cursor: pointer;
         }
         
-        #shutdown-screen {
+        /* 종료/재시작 애니메이션용 오버레이 (서서히 어두워짐) */
+        #transition-screen {
             position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
             background: #000; color: #fff; z-index: 10000;
+            display: none; flex-direction: column; justify-content: center; align-items: center;
+            opacity: 0; transition: opacity 2s ease-in-out; /* 2초 동안 서서히 투명도 변경 */
+        }
+        #transition-screen.fade-in { opacity: 1; }
+        #transition-screen h2 { font-weight: 300; font-size: 1.8rem; letter-spacing: 2px; margin-bottom: 20px; }
+        
+        /* 로딩 스피너 (윈도우 로딩 느낌) */
+        .spinner {
+            width: 40px; height: 40px; border: 4px solid rgba(255,255,255,0.1);
+            border-left-color: #0078D4; border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        /* 최종 안전 종료 화면 */
+        #shutdown-screen {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background: #000; color: #fff; z-index: 10001;
             display: none; flex-direction: column; justify-content: center; align-items: center;
         }
         #shutdown-screen h1 { font-size: 2rem; margin-bottom: 10px; font-weight: normal; }
@@ -63,7 +83,6 @@
         .close-btn { background: transparent; border: none; width: 40px; height: 100%; cursor: pointer; font-size: 16px; color: #333; transition: 0.2s; }
         .close-btn:hover { background: #e81123; color: white; }
         
-        /* 창 내부 여백 및 둥근 테두리 수정 완료 */
         .window-body { flex: 1; position: relative; background: #f3f3f3; padding: 15px; }
         .window-body iframe { width: 100%; height: 100%; border: 1px solid rgba(0,0,0,0.1); border-radius: 8px; display: block; background: #fff; }
         
@@ -96,14 +115,24 @@
         }
         .taskbar-app img { width: 20px; height: 20px; border-radius: 4px; object-fit: cover; }
 
+        /* 시작 메뉴 */
         #start-menu { 
-            position: absolute; bottom: 60px; left: 10px; width: 250px; 
+            position: absolute; bottom: 60px; left: 10px; width: 260px; 
             background: rgba(243, 243, 243, 0.95); backdrop-filter: blur(20px);
             border: 1px solid rgba(0,0,0,0.1); border-radius: 12px; display: none; flex-direction: column; z-index: 99; 
             box-shadow: 0 5px 20px rgba(0,0,0,0.15); padding: 10px;
         }
         .start-menu-title { font-size: 14px; font-weight: bold; margin: 5px 10px 15px 10px; color: #333; }
         
+        /* 기본 프로그램 리스트 (최상단 직관적 메뉴) */
+        .start-menu-item-direct {
+            padding: 10px 15px; cursor: pointer; border-radius: 6px;
+            display: flex; align-items: center; gap: 12px; font-size: 14px; color: #333; font-weight: 500;
+        }
+        .start-menu-item-direct:hover { background: rgba(0,0,0,0.05); }
+        .menu-icon-xs { width: 24px; height: 24px; border-radius: 4px; object-fit: cover; }
+
+        /* 그룹별 접이식 서브 메뉴 */
         .start-menu-group {
             position: relative; padding: 12px 15px; cursor: pointer; border-radius: 6px;
             display: flex; justify-content: space-between; align-items: center; font-size: 14px; color: #333; font-weight: 500;
@@ -124,14 +153,34 @@
         .start-menu-item:hover { background: rgba(255,255,255,0.8); }
         .menu-icon-sm { width: 36px; height: 36px; margin-bottom: 8px; border-radius: 6px; object-fit: cover; }
 
-        /* 사이트 종료 버튼 스타일 */
-        #start-menu-power {
-            margin-top: 10px; padding: 12px 15px; border-top: 1px solid rgba(0,0,0,0.1);
-            display: flex; align-items: center; gap: 10px; cursor: pointer; border-radius: 6px;
-            font-size: 14px; font-weight: bold; color: #d32f2f; transition: 0.2s;
+        /* 구분선 */
+        .divider { height: 1px; background: rgba(0,0,0,0.1); margin: 10px 5px; }
+
+        /* 전원 옵션 팝업 */
+        #power-popup {
+            position: absolute; bottom: 55px; left: 10px; width: 140px;
+            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px);
+            border: 1px solid rgba(0,0,0,0.1); border-radius: 8px;
+            display: none; flex-direction: column; z-index: 101;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2); padding: 5px;
         }
-        #start-menu-power:hover { background: rgba(211, 47, 47, 0.1); }
-        #start-menu-power img { width: 18px; height: 18px; }
+        .power-option {
+            padding: 10px 15px; cursor: pointer; border-radius: 5px; font-size: 13px; color: #333;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .power-option:hover { background: rgba(0,0,0,0.05); }
+
+        /* 시작 메뉴 하단 전원 버튼 구역 */
+        #start-menu-bottom {
+            margin-top: 5px; padding: 10px 15px 5px 15px; border-top: 1px solid rgba(0,0,0,0.1);
+            display: flex; justify-content: flex-end; align-items: center;
+        }
+        #start-menu-power {
+            display: flex; align-items: center; justify-content: center; width: 36px; height: 36px;
+            cursor: pointer; border-radius: 6px; transition: 0.2s;
+        }
+        #start-menu-power:hover { background: rgba(0, 0, 0, 0.1); }
+        #start-menu-power img { width: 20px; height: 20px; opacity: 0.8; }
     </style>
 </head>
 <body>
@@ -144,18 +193,39 @@
         <p>화면을 클릭하여 시작하세요</p>
     </div>
 
+    <!-- 종료/재시작 트랜지션 화면 -->
+    <div id="transition-screen">
+        <h2 id="transition-text">시스템 종료 중...</h2>
+        <div class="spinner"></div>
+    </div>
+
     <div id="shutdown-screen">
         <h1>시스템이 안전하게 종료되었습니다.</h1>
-        <p>이제 브라우저 탭을 닫으셔도 됩니다.</p>
+        <p>이제 브라우저 창을 닫으셔도 됩니다.</p>
     </div>
 
     <div id="desktop"></div>
     
+    <!-- 시작 메뉴 -->
     <div id="start-menu">
         <div class="start-menu-title">프로그램 목록</div>
-        <div id="start-menu-list"></div> <div id="start-menu-power" onclick="shutdownSystem()">
-            <img src="https://cdn-icons-png.flaticon.com/512/3596/3596144.png" alt="종료">
-            <span>사이트 종료</span>
+        <div id="start-menu-list"></div>
+        
+        <!-- 전원 팝업 메뉴 -->
+        <div id="power-popup">
+            <div class="power-option" onclick="shutdownAnimation()">
+                <img src="https://cdn-icons-png.flaticon.com/512/3596/3596144.png" style="width:16px;"> 시스템 종료
+            </div>
+            <div class="power-option" onclick="restartAnimation()">
+                <img src="https://cdn-icons-png.flaticon.com/512/338/338221.png" style="width:16px;"> 다시 시작
+            </div>
+        </div>
+
+        <div id="start-menu-bottom">
+            <!-- 하단 우측 전원 버튼 -->
+            <div id="start-menu-power" onclick="togglePowerMenu(event)">
+                <img src="https://cdn-icons-png.flaticon.com/512/3596/3596144.png" alt="전원">
+            </div>
         </div>
     </div>
 
@@ -191,20 +261,47 @@
             loadMenuData();
         }
 
-        // 시스템 종료 함수
-        function shutdownSystem() {
-            // 전체화면 해제
-            if (document.fullscreenElement) {
-                document.exitFullscreen();
-            } else if (document.webkitFullscreenElement) {
-                document.webkitExitFullscreen();
-            }
+        // 전원 메뉴 토글
+        function togglePowerMenu(event) {
+            event.stopPropagation();
+            const powerPopup = document.getElementById('power-popup');
+            powerPopup.style.display = powerPopup.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        // 시스템 종료 애니메이션
+        function shutdownAnimation() {
+            closeStartMenu();
+            const transScreen = document.getElementById('transition-screen');
+            document.getElementById('transition-text').innerText = "시스템 종료 중...";
+            transScreen.style.display = 'flex';
             
-            // 까만 종료 화면 띄우기
-            document.getElementById('shutdown-screen').style.display = 'flex';
+            // 서서히 어두워지는 효과 (Fade-in opacity)
+            setTimeout(() => { transScreen.classList.add('fade-in'); }, 50);
             
-            // 창 닫기 시도
-            window.close();
+            // 2.5초 후 완전히 종료된 화면 띄우기
+            setTimeout(() => {
+                transScreen.style.display = 'none';
+                document.getElementById('shutdown-screen').style.display = 'flex';
+                // 전체화면 해제
+                if (document.fullscreenElement) { document.exitFullscreen(); } 
+                else if (document.webkitFullscreenElement) { document.webkitExitFullscreen(); }
+                window.close(); // 브라우저 창 닫기 시도
+            }, 2500);
+        }
+
+        // 다시 시작 애니메이션
+        function restartAnimation() {
+            closeStartMenu();
+            const transScreen = document.getElementById('transition-screen');
+            document.getElementById('transition-text').innerText = "다시 시작 중...";
+            transScreen.style.display = 'flex';
+            
+            setTimeout(() => { transScreen.classList.add('fade-in'); }, 50);
+            
+            // 2.5초 후 사이트 새로고침 (리셋)
+            setTimeout(() => {
+                location.reload();
+            }, 2500);
         }
 
         async function loadMenuData() {
@@ -227,7 +324,8 @@
                 };
                 desktop.appendChild(mySiteFolder);
 
-                let groups = {}; 
+                let defaultGroup = []; // 그룹 없는 기본 프로그램
+                let otherGroups = {}; // 그룹 지정된 프로그램
 
                 rows.forEach(row => {
                     if (!row.trim()) return;
@@ -236,12 +334,13 @@
                     if(columns.length < 3) return;
 
                     const name = columns[0] || '';
-                    const groupName = columns[1] || '기본 프로그램'; 
+                    const groupName = columns[1] || ''; 
                     const url = columns[2] || '';
                     const iconUrl = (columns[3] && columns[3] !== '') ? columns[3] : defaultIcon;
 
                     siteDataList.push({ name, url, iconUrl });
 
+                    // 바탕화면 아이콘 추가
                     const icon = document.createElement('div');
                     icon.className = 'icon';
                     icon.innerHTML = `<img src="${iconUrl}" class="icon-img" alt="icon"><div>${name}</div>`;
@@ -251,13 +350,39 @@
                     };
                     desktop.appendChild(icon);
 
-                    if (!groups[groupName]) {
-                        groups[groupName] = [];
+                    // 그룹 분류
+                    if (groupName === '' || groupName === '기본 프로그램') {
+                        defaultGroup.push({ name, url, iconUrl });
+                    } else {
+                        if (!otherGroups[groupName]) otherGroups[groupName] = [];
+                        otherGroups[groupName].push({ name, url, iconUrl });
                     }
-                    groups[groupName].push({ name, url, iconUrl });
                 });
 
-                for (const [grp, items] of Object.entries(groups)) {
+                // 1. 기본 프로그램(그룹 없음)을 최상단에 개별 목록으로 바로 표시
+                if (defaultGroup.length > 0) {
+                    defaultGroup.forEach(item => {
+                        const menuItem = document.createElement('div');
+                        menuItem.className = 'start-menu-item-direct';
+                        menuItem.innerHTML = `<img src="${item.iconUrl}" class="menu-icon-xs" alt="icon"><span>${item.name}</span>`;
+                        menuItem.onclick = (e) => {
+                            e.stopPropagation();
+                            openWindow(item.name, item.url, item.iconUrl);
+                            closeStartMenu();
+                        };
+                        startMenuList.appendChild(menuItem);
+                    });
+
+                    // 아래 서브 그룹들과 구분 짓는 얇은 가로선 추가
+                    if (Object.keys(otherGroups).length > 0) {
+                        const divider = document.createElement('div');
+                        divider.className = 'divider';
+                        startMenuList.appendChild(divider);
+                    }
+                }
+
+                // 2. 그룹 설정이 된 프로그램들은 옆으로 열리는 가지 메뉴로 표시
+                for (const [grp, items] of Object.entries(otherGroups)) {
                     const groupEl = document.createElement('div');
                     groupEl.className = 'start-menu-group';
                     groupEl.innerText = grp;
@@ -294,9 +419,14 @@
             event.stopPropagation();
             const menu = document.getElementById('start-menu');
             menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+            document.getElementById('power-popup').style.display = 'none'; // 시작메뉴 켤 때 전원팝업 숨김
         }
 
-        function closeStartMenu() { document.getElementById('start-menu').style.display = 'none'; }
+        // 바탕화면 누르면 시작메뉴 및 전원팝업 모두 닫기
+        function closeStartMenu() { 
+            document.getElementById('start-menu').style.display = 'none'; 
+            document.getElementById('power-popup').style.display = 'none';
+        }
         document.body.addEventListener('click', closeStartMenu);
 
         function addTaskbarApp(title, iconUrl) {
