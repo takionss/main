@@ -682,9 +682,19 @@
             win.id = winId;
             win.style.zIndex = topZIndex;
 
+            const isMinesweeper = title === '지뢰찾기';
+            if (isMinesweeper) {
+                win.style.width = '360px';
+                win.style.height = '530px';
+            }
+
             const offset = (Object.keys(openWindows).length * 25) % 150;
-            win.style.left = `calc(50% - 400px + ${offset}px)`;
-            win.style.top = `calc(50% - 300px + ${offset}px)`;
+            win.style.left = `calc(50% - ${isMinesweeper ? 180 : 400}px + ${offset}px)`;
+            win.style.top = `calc(50% - ${isMinesweeper ? 265 : 300}px + ${offset}px)`;
+
+            const maxBtnHtml = isMinesweeper
+                ? `<button class="win-btn max-btn" style="opacity: 0.3; cursor: not-allowed;" disabled>${MAXIMIZE_SVG}</button>`
+                : `<button class="win-btn max-btn" onclick="toggleMaximizeWindow('${winId}', event)">${MAXIMIZE_SVG}</button>`;
 
             win.innerHTML = `
                 <div class="window-header" onmousedown="startDrag('${winId}', event)" ontouchstart="startDrag('${winId}', event)">
@@ -694,7 +704,7 @@
                     </div>
                     <div class="window-controls">
                         <button class="win-btn" onclick="minimizeWindow('${winId}', event)">${MINIMIZE_SVG}</button>
-                        <button class="win-btn max-btn" onclick="toggleMaximizeWindow('${winId}', event)">${MAXIMIZE_SVG}</button>
+                        ${maxBtnHtml}
                         <button class="win-btn close-btn" onclick="closeWindow('${winId}', event)">${CLOSE_SVG}</button>
                     </div>
                 </div>
@@ -1017,6 +1027,16 @@
             
             contextMenu.style.left = `${x}px`;
             contextMenu.style.top = `${y}px`;
+        window.addEventListener('message', (event) => {
+            if (event.data && event.data.type === 'resize-window') {
+                const { title, width, height } = event.data;
+                const winId = getWindowIdByTitle(title);
+                const win = document.getElementById(winId);
+                if (win && !win.classList.contains('maximized')) {
+                    win.style.width = `${width}px`;
+                    win.style.height = `${height}px`;
+                }
+            }
         });
 
     </script>

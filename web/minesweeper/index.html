@@ -98,15 +98,7 @@
             gap: 2px;
         }
 
-        .board.medium {
-            gap: 1.5px;
-        }
 
-        .board.medium .cell {
-            width: 24px;
-            height: 24px;
-            font-size: 13px;
-        }
 
         .cell {
             width: 30px;
@@ -196,15 +188,28 @@
                 cols = 9;
                 minesCount = 10;
                 document.getElementById('btn-easy').classList.add('active');
-                boardEl.classList.remove('medium');
             } else {
                 rows = 16;
                 cols = 16;
                 minesCount = 40;
                 document.getElementById('btn-medium').classList.add('active');
-                boardEl.classList.add('medium');
             }
             initGame();
+        }
+
+        function requestResize() {
+            const gridWidth = cols * 30 + (cols - 1) * 2;
+            const gridHeight = rows * 30 + (rows - 1) * 2;
+            
+            const targetWidth = gridWidth + 40 + 30;
+            const targetHeight = gridHeight + 40 + 120 + 40 + 30;
+
+            window.parent.postMessage({
+                type: 'resize-window',
+                title: '지뢰찾기',
+                width: targetWidth,
+                height: targetHeight
+            }, '*');
         }
 
         function initGame() {
@@ -220,9 +225,10 @@
             board = [];
             mines = [];
 
-            const cellSize = cols === 16 ? '24px' : '30px';
-            boardEl.style.gridTemplateColumns = `repeat(${cols}, ${cellSize})`;
+            boardEl.style.gridTemplateColumns = `repeat(${cols}, 30px)`;
             boardEl.innerHTML = '';
+            
+            requestResize();
 
             for (let r = 0; r < rows; r++) {
                 board[r] = [];
