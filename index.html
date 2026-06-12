@@ -282,7 +282,11 @@
         <div id="start-menu-list"></div>
         
         <div id="power-popup">
-            <div class="power-option" onclick="shutdownAnimation()">
+            <div class="power-option" onclick="showSystemInfo()">
+                <img src="https://cdn-icons-png.flaticon.com/512/665/665049.png" style="width:16px;" alt="정보"> 시스템 정보
+            </div>
+            
+            <div style="height: 1px; background: rgba(0,0,0,0.1); margin: 5px 10px;"></div> <div class="power-option" onclick="shutdownAnimation()">
                 <img src="https://cdn-icons-png.flaticon.com/512/3596/3596144.png" style="width:16px;" alt="종료"> 시스템 종료
             </div>
             <div class="power-option" onclick="restartAnimation()">
