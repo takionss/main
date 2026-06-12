@@ -676,19 +676,32 @@
                     targetData = { name: '내사이트', url: '시스템 폴더 (내부 파일 모음)', iconUrl: targetIcon.querySelector('img').src };
                 }
 
-                // 속성 위에 시스템 정보 추가
-                contextMenu.innerHTML = `
+                // 🌟 기본 메뉴 구성 (열기)
+                let menuHtml = `
                     <div class="context-menu-item" id="ctx-open">
                         <img src="https://cdn-icons-png.flaticon.com/512/2089/2089141.png" style="width:16px;"> 열기
                     </div>
                     <div class="context-divider"></div>
+                `;
+
+                // 🌟 클릭한 아이콘이 '내사이트'일 때만 시스템 정보 메뉴 끼워넣기
+                if (iconName === '내사이트') {
+                    menuHtml += `
                     <div class="context-menu-item" onclick="showSystemInfo()">
                         <img src="https://cdn-icons-png.flaticon.com/512/665/665049.png" style="width:16px;"> 시스템 정보
                     </div>
+                    `;
+                }
+
+                // 🌟 기본 메뉴 구성 (속성)
+                menuHtml += `
                     <div class="context-menu-item" onclick="showProperties('${targetData.name}', '${targetData.url}', '${targetData.iconUrl}')">
                         <img src="https://cdn-icons-png.flaticon.com/512/2096/2096144.png" style="width:16px;"> 속성
                     </div>
                 `;
+
+                contextMenu.innerHTML = menuHtml;
+
                 document.getElementById('ctx-open').onclick = () => {
                     if (currentContextTarget.ondblclick) currentContextTarget.ondblclick();
                 };
@@ -702,7 +715,6 @@
                     </div>
                 `;
             } else if (targetTaskbar) {
-                // 작업표시줄 우클릭 시 시스템 정보 보기 추가
                 contextMenu.innerHTML = `
                     <div class="context-menu-item" onclick="showSystemInfo()">
                         <img src="https://cdn-icons-png.flaticon.com/512/665/665049.png" style="width:16px;"> 시스템 정보
