@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>디지털 컬러 측정기</title>
+    <style>
+        :root {
+            --bg-color: #f5f6fa;
+            --card-bg: #ffffff;
+            --text-color: #2f3640;
+            --border-color: rgba(0,0,0,0.08);
+            --accent-color: #0078D4;
+            --accent-hover: #005a9e;
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-color);
+            color: var(--text-color);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .meter-container {
+            width: 360px;
+            background: var(--card-bg);
+            border-radius: 14px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .preview-box {
+            height: 120px;
+            background: #0078D4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            transition: background 0.1s;
+        }
+
+        .eyedropper-btn {
+            background: #ffffff;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 13px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+
+        .eyedropper-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .title {
+            font-size: 15px;
+            font-weight: bold;
+            color: var(--text-color);
+        }
+
+        .color-values {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .value-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #f8f9fa;
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+        }
+
+        .value-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #718093;
+            width: 40px;
+        }
+
+        .value-text {
+            font-family: monospace;
+            font-size: 13px;
+            font-weight: bold;
+            flex: 1;
+            text-align: right;
+            margin-right: 10px;
+        }
+
+        .copy-btn {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            color: var(--accent-color);
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .copy-btn:hover {
+            text-decoration: underline;
+        }
+
+        .sliders {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 5px;
+        }
+
+        .slider-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .slider-label {
+            font-size: 11px;
+            font-weight: 600;
+            width: 15px;
+        }
+
+        input[type="range"] {
+            flex: 1;
+            height: 4px;
+            outline: none;
+            background: #dcdde1;
+            border-radius: 2px;
+            -webkit-appearance: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            cursor: pointer;
+        }
+
+        .slider-val {
+            font-family: monospace;
+            font-size: 11px;
+            width: 25px;
+            text-align: right;
+        }
+
+        .history {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 15px;
+        }
+
+        .history-list {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .history-item {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 1.5px solid #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+            transition: transform 0.1s;
+        }
+
+        .history-item:hover {
+            transform: scale(1.15);
+        }
+
+        .unsupported {
+            display: none;
+            color: #d63031;
+            font-size: 11px;
+            text-align: center;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="meter-container">
+        <div class="preview-box" id="preview-box">
+            <button class="eyedropper-btn" onclick="openEyeDropper()">
+                🔍 색상 추출하기
+            </button>
+        </div>
+        <div class="content">
+            <div class="title">디지털 컬러 측정기</div>
+            <div class="unsupported" id="unsupported-msg">
+                * 이 브라우저는 외부 화면 색상 추출 API를 지원하지 않습니다. 아래 슬라이더를 이용해 주세요.
+            </div>
+
+            <div class="color-values">
+                <div class="value-row">
+                    <span class="value-label">HEX</span>
+                    <span class="value-text" id="val-hex">#0078D4</span>
+                    <button class="copy-btn" onclick="copyText('val-hex')">복사</button>
+                </div>
+                <div class="value-row">
+                    <span class="value-label">RGB</span>
+                    <span class="value-text" id="val-rgb">rgb(0, 120, 212)</span>
+                    <button class="copy-btn" onclick="copyText('val-rgb')">복사</button>
+                </div>
+                <div class="value-row">
+                    <span class="value-label">HSL</span>
+                    <span class="value-text" id="val-hsl">hsl(206, 100%, 42%)</span>
+                    <button class="copy-btn" onclick="copyText('val-hsl')">복사</button>
+                </div>
+            </div>
+
+            <div class="sliders">
+                <div class="slider-group">
+                    <span class="slider-label" style="color:#d63031;">R</span>
+                    <input type="range" id="slide-r" min="0" max="255" value="0" oninput="onSliderChange()">
+                    <span class="slider-val" id="lbl-r">0</span>
+                </div>
+                <div class="slider-group">
+                    <span class="slider-label" style="color:#27ae60;">G</span>
+                    <input type="range" id="slide-g" min="0" max="255" value="120" oninput="onSliderChange()">
+                    <span class="slider-val" id="lbl-g">120</span>
+                </div>
+                <div class="slider-group">
+                    <span class="slider-label" style="color:#2980b9;">B</span>
+                    <input type="range" id="slide-b" min="0" max="255" value="212" oninput="onSliderChange()">
+                    <span class="slider-val" id="lbl-b">212</span>
+                </div>
+            </div>
+
+            <div class="history">
+                <div class="title" style="font-size:12px;">최근 선택한 색상</div>
+                <div class="history-list" id="history-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let r = 0, g = 120, b = 212;
+        let historyColors = ['#0078D4', '#E91E63', '#FFC107', '#4CAF50', '#FF5722'];
+
+        const previewBox = document.getElementById('preview-box');
+        const valHex = document.getElementById('val-hex');
+        const valRgb = document.getElementById('val-rgb');
+        const valHsl = document.getElementById('val-hsl');
+
+        const slideR = document.getElementById('slide-r');
+        const slideG = document.getElementById('slide-g');
+        const slideB = document.getElementById('slide-b');
+
+        const lblR = document.getElementById('lbl-r');
+        const lblG = document.getElementById('lbl-g');
+        const lblB = document.getElementById('lbl-b');
+        const historyList = document.getElementById('history-list');
+
+        window.onload = () => {
+            if (!window.EyeDropper) {
+                document.getElementById('unsupported-msg').style.display = 'block';
+            }
+            updateColor();
+            renderHistory();
+        };
+
+        async function openEyeDropper() {
+            if (!window.EyeDropper) {
+                alert('사용하시는 브라우저가 화면 색상 스포이트(EyeDropper) API를 지원하지 않습니다.');
+                return;
+            }
+
+            const eyeDropper = new EyeDropper();
+            try {
+                const result = await eyeDropper.open();
+                const hex = result.sRGBHex;
+                setFromHex(hex);
+                addHistory(hex);
+            } catch (err) {
+                console.log('스포이트 닫힘/취소');
+            }
+        }
+
+        function setFromHex(hex) {
+            // Hex to RGB
+            const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+            const fullHex = hex.replace(shorthandRegex, (m, r, g, b) => r + r + g + g + b + b);
+            const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(fullHex);
+            if (result) {
+                r = parseInt(result[1], 16);
+                g = parseInt(result[2], 16);
+                b = parseInt(result[3], 16);
+                
+                slideR.value = r;
+                slideG.value = g;
+                slideB.value = b;
+
+                updateColor();
+            }
+        }
+
+        function onSliderChange() {
+            r = parseInt(slideR.value);
+            g = parseInt(slideG.value);
+            b = parseInt(slideB.value);
+            updateColor();
+        }
+
+        function updateColor() {
+            lblR.innerText = r;
+            lblG.innerText = g;
+            lblB.innerText = b;
+
+            const rgbString = `rgb(${r}, ${g}, ${b})`;
+            const hexString = rgbToHex(r, g, b);
+            const hslString = rgbToHsl(r, g, b);
+
+            previewBox.style.background = rgbString;
+            valHex.innerText = hexString.toUpperCase();
+            valRgb.innerText = rgbString;
+            valHsl.innerText = hslString;
+        }
+
+        function rgbToHex(r, g, b) {
+            return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+        }
+
+        function rgbToHsl(r, g, b) {
+            r /= 255; g /= 255; b /= 255;
+            const max = Math.max(r, g, b), min = Math.min(r, g, b);
+            let h, s, l = (max + min) / 2;
+
+            if (max === min) {
+                h = s = 0; // achromatic
+            } else {
+                const d = max - min;
+                s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+                switch (max) {
+                    case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+                    case g: h = (b - r) / d + 2; break;
+                    case b: h = (r - g) / d + 4; break;
+                }
+                h /= 6;
+            }
+
+            return `hsl(${Math.round(h * 360)}, ${Math.round(s * 100)}%, ${Math.round(l * 100)}%)`;
+        }
+
+        function copyText(id) {
+            const text = document.getElementById(id).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                alert('클립보드에 복사되었습니다: ' + text);
+            });
+        }
+
+        function addHistory(hex) {
+            if (!historyColors.includes(hex)) {
+                historyColors.unshift(hex);
+                if (historyColors.length > 10) historyColors.pop();
+                renderHistory();
+            }
+        }
+
+        function renderHistory() {
+            historyList.innerHTML = '';
+            historyColors.forEach(hex => {
+                const item = document.createElement('div');
+                item.className = 'history-item';
+                item.style.background = hex;
+                item.onclick = () => {
+                    setFromHex(hex);
+                };
+                historyList.appendChild(item);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>인터넷 브라우저</title>
+    <style>
+        :root {
+            --bg-color: #f1f2f6;
+            --bar-bg: #ffffff;
+            --border-color: rgba(0,0,0,0.08);
+            --text-color: #2f3640;
+            --accent-color: #0078D4;
+            --accent-hover: #005a9e;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-color);
+            color: var(--text-color);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .browser-bar {
+            background: var(--bar-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 8px 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 5px;
+        }
+
+        .nav-btn {
+            background: transparent;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-color);
+            transition: background 0.15s;
+        }
+
+        .nav-btn:hover {
+            background: rgba(0,0,0,0.06);
+        }
+
+        .address-bar-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            background: #f1f2f6;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 0 10px;
+            height: 36px;
+        }
+
+        .address-bar-container:focus-within {
+            border-color: var(--accent-color);
+            background: #ffffff;
+            box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.15);
+        }
+
+        .address-bar {
+            width: 100%;
+            background: transparent;
+            border: none;
+            outline: none;
+            font-size: 14px;
+            color: var(--text-color);
+            font-family: inherit;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 5px;
+        }
+
+        .btn {
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 0 15px;
+            height: 36px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            transition: background 0.15s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn:hover {
+            background: var(--accent-hover);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+        }
+
+        .btn-outline:hover {
+            background: rgba(0,0,0,0.05);
+        }
+
+        .warning-banner {
+            background: #ffeaa7;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding: 6px 15px;
+            font-size: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #d35400;
+            font-weight: 500;
+        }
+
+        .warning-banner button {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            color: #d35400;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        .browser-content {
+            flex: 1;
+            position: relative;
+            background: #ffffff;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: #ffffff;
+        }
+
+        .home-screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            z-index: 5;
+            overflow-y: auto;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .search-box {
+            width: 100%;
+            max-width: 500px;
+            display: flex;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 12px 18px;
+            border: 1.5px solid var(--border-color);
+            border-radius: 24px;
+            font-size: 15px;
+            outline: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            transition: all 0.2s;
+        }
+
+        .search-input:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 4px 15px rgba(0, 120, 212, 0.1);
+        }
+
+        .bookmarks {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .bookmark-card {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 15px 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+
+        .bookmark-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+            border-color: var(--accent-color);
+        }
+
+        .bookmark-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: #f1f2f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        .bookmark-title {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="browser-bar">
+        <div class="nav-buttons">
+            <button class="nav-btn" onclick="goHome()" title="홈으로">🏠</button>
+            <button class="nav-btn" onclick="reloadFrame()" title="새로고침">🔄</button>
+        </div>
+        <div class="address-bar-container">
+            <input type="text" class="address-bar" id="address-input" placeholder="URL 입력 또는 구글 검색어 입력" onkeydown="handleAddressKey(event)">
+        </div>
+        <div class="action-buttons">
+            <button class="btn" onclick="navigate()">이동</button>
+            <button class="btn btn-outline" onclick="openExternal()" title="새 탭으로 열기">↗️ 새 탭</button>
+        </div>
+    </div>
+
+    <div class="warning-banner" id="warning-banner">
+        <span>⚠️ 일부 사이트(네이버, 다음, 구글 등)는 보안상 화면에 뜨지 않을 수 있습니다. 그럴 경우 우측 상단의 <b>[↗️ 새 탭]</b> 버튼을 누르면 정상적으로 열립니다.</span>
+        <button onclick="closeWarning()">✕</button>
+    </div>
+
+    <div class="browser-content">
+        <div class="home-screen" id="home-screen">
+            <div class="logo">🌐 Smiles Browser</div>
+            
+            <div class="search-box">
+                <input type="text" class="search-input" id="home-search" placeholder="구글 검색 또는 주소 입력" onkeydown="handleHomeSearch(event)">
+                <button class="btn" style="border-radius:24px; padding:0 24px;" onclick="executeHomeSearch()">검색</button>
+            </div>
+
+            <div class="bookmarks">
+                <div class="bookmark-card" onclick="loadUrl('https://naver.com')">
+                    <div class="bookmark-icon" style="background:#2db400; color:white;">N</div>
+                    <span class="bookmark-title">네이버</span>
+                </div>
+                <div class="bookmark-card" onclick="loadUrl('https://google.com')">
+                    <div class="bookmark-icon" style="background:#ea4335; color:white;">G</div>
+                    <span class="bookmark-title">구글</span>
+                </div>
+                <div class="bookmark-card" onclick="loadUrl('https://daum.net')">
+                    <div class="bookmark-icon" style="background:#fae100; color:#381e1e;">D</div>
+                    <span class="bookmark-title">다음</span>
+                </div>
+                <div class="bookmark-card" onclick="loadUrl('https://namu.wiki')">
+                    <div class="bookmark-icon" style="background:#00a495; color:white;">W</div>
+                    <span class="bookmark-title">나무위키</span>
+                </div>
+            </div>
+        </div>
+
+        <iframe id="browser-iframe" src="" style="display: none;"></iframe>
+    </div>
+
+    <script>
+        const iframe = document.getElementById('browser-iframe');
+        const homeScreen = document.getElementById('home-screen');
+        const addressInput = document.getElementById('address-input');
+        const homeSearch = document.getElementById('home-search');
+        const warningBanner = document.getElementById('warning-banner');
+
+        function loadUrl(url) {
+            let targetUrl = url;
+            if (!targetUrl.startsWith('http://') && !targetUrl.startsWith('https://')) {
+                targetUrl = 'https://' + targetUrl;
+            }
+
+            addressInput.value = targetUrl;
+            iframe.src = targetUrl;
+            homeScreen.style.display = 'none';
+            iframe.style.display = 'block';
+        }
+
+        function navigate() {
+            const val = addressInput.value.trim();
+            if (!val) return;
+
+            if (isUrl(val)) {
+                loadUrl(val);
+            } else {
+                // Search Google in new tab
+                window.open(`https://www.google.com/search?q=${encodeURIComponent(val)}`, '_blank');
+            }
+        }
+
+        function handleAddressKey(e) {
+            if (e.key === 'Enter') navigate();
+        }
+
+        function handleHomeSearch(e) {
+            if (e.key === 'Enter') executeHomeSearch();
+        }
+
+        function executeHomeSearch() {
+            const val = homeSearch.value.trim();
+            if (!val) return;
+
+            if (isUrl(val)) {
+                loadUrl(val);
+            } else {
+                window.open(`https://www.google.com/search?q=${encodeURIComponent(val)}`, '_blank');
+            }
+        }
+
+        function isUrl(str) {
+            // Simple URL pattern check
+            const pattern = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/i;
+            return pattern.test(str);
+        }
+
+        function goHome() {
+            iframe.src = '';
+            iframe.style.display = 'none';
+            homeScreen.style.display = 'flex';
+            addressInput.value = '';
+            homeSearch.value = '';
+        }
+
+        function reloadFrame() {
+            if (iframe.style.display === 'block') {
+                iframe.src = iframe.src;
+            }
+        }
+
+        function openExternal() {
+            const val = addressInput.value.trim();
+            if (val) {
+                window.open(val, '_blank');
+            }
+        }
+
+        function closeWarning() {
+            warningBanner.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
