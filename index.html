@@ -1238,6 +1238,60 @@
             event.preventDefault();
         }
 
+        function findNearestEmptySpace(targetLeft, targetTop, excludeIconName) {
+            const gridX = 100;
+            const gridY = 110;
+            const startX = 20;
+            const startY = 20;
+            
+            const desktop = document.getElementById('desktop');
+            const icons = desktop.querySelectorAll('.icon');
+            const desktopHeight = desktop.clientHeight || window.innerHeight - 48;
+            const desktopWidth = desktop.clientWidth || window.innerWidth;
+            
+            const maxRows = Math.floor((desktopHeight - 20) / gridY) || 1;
+            
+            const occupied = [];
+            icons.forEach(icon => {
+                const iconName = icon.querySelector('div').innerText.trim();
+                if (iconName !== excludeIconName) {
+                    const left = parseFloat(icon.style.left);
+                    const top = parseFloat(icon.style.top);
+                    if (!isNaN(left) && !isNaN(top)) {
+                        occupied.push({ left, top });
+                    }
+                }
+            });
+
+            function isOccupied(left, top) {
+                return occupied.some(pos => Math.abs(pos.left - left) < 5 && Math.abs(pos.top - top) < 5);
+            }
+
+            if (!isOccupied(targetLeft, targetTop)) {
+                return { left: targetLeft, top: targetTop };
+            }
+
+            let col = 0;
+            let row = 0;
+            let guard = 0;
+            while (guard < 200) {
+                const checkLeft = col * gridX + startX;
+                const checkTop = row * gridY + startY;
+                
+                if (!isOccupied(checkLeft, checkTop)) {
+                    return { left: checkLeft, top: checkTop };
+                }
+
+                row++;
+                if (row >= maxRows) {
+                    row = 0;
+                    col++;
+                }
+                guard++;
+            }
+            return { left: targetLeft, top: targetTop };
+        }
+
         function endDragIcon() {
             if (activeDragIcon) {
                 const gridX = 100; 
@@ -1257,11 +1311,13 @@
                 if (snappedTop < 20) snappedTop = 20;
                 if (snappedTop > maxTop) snappedTop = Math.floor((maxTop - 20) / gridY) * gridY + 20;
                 
-                activeDragIcon.style.left = `${snappedLeft}px`;
-                activeDragIcon.style.top = `${snappedTop}px`;
-                
                 const iconName = activeDragIcon.querySelector('div').innerText.trim();
-                localStorage.setItem(`icon-pos-${iconName}`, JSON.stringify({ left: snappedLeft, top: snappedTop }));
+                const finalPos = findNearestEmptySpace(snappedLeft, snappedTop, iconName);
+                
+                activeDragIcon.style.left = `${finalPos.left}px`;
+                activeDragIcon.style.top = `${finalPos.top}px`;
+                
+                localStorage.setItem(`icon-pos-${iconName}`, JSON.stringify({ left: finalPos.left, top: finalPos.top }));
             }
             activeDragIcon = null;
             document.removeEventListener('mousemove', dragMoveIcon);
@@ -1282,17 +1338,20 @@
             
             let row = 0;
             let col = 0;
+            const occupied = [];
             
             icons.forEach(icon => {
                 icon.style.position = 'absolute';
                 const iconName = icon.querySelector('div').innerText.trim();
                 const savedPos = localStorage.getItem(`icon-pos-${iconName}`);
                 
+                let assignedLeft, assignedTop;
+                
                 if (savedPos) {
                     try {
                         const { left, top } = JSON.parse(savedPos);
-                        icon.style.left = `${left}px`;
-                        icon.style.top = `${top}px`;
+                        assignedLeft = left;
+                        assignedTop = top;
                     } catch (e) {
                         setDefaultPosition();
                     }
@@ -1300,17 +1359,44 @@
                     setDefaultPosition();
                 }
                 
+                if (isPosOccupied(assignedLeft, assignedTop)) {
+                    let checkCol = 0;
+                    let checkRow = 0;
+                    let found = false;
+                    while (!found) {
+                        const checkLeft = checkCol * gridX + 20;
+                        const checkTop = checkRow * gridY + 20;
+                        if (!isPosOccupied(checkLeft, checkTop)) {
+                            assignedLeft = checkLeft;
+                            assignedTop = checkTop;
+                            found = true;
+                        } else {
+                            checkRow++;
+                            if (checkRow >= maxRows) {
+                                checkRow = 0;
+                                checkCol++;
+                            }
+                        }
+                    }
+                }
+                
+                icon.style.left = `${assignedLeft}px`;
+                icon.style.top = `${assignedTop}px`;
+                occupied.push({ left: assignedLeft, top: assignedTop });
+                
                 function setDefaultPosition() {
-                    const left = col * gridX + 20; 
-                    const top = row * gridY + 20;
-                    icon.style.left = `${left}px`;
-                    icon.style.top = `${top}px`;
+                    assignedLeft = col * gridX + 20; 
+                    assignedTop = row * gridY + 20;
                     
                     row++;
                     if (row >= maxRows) {
                         row = 0;
                         col++;
                     }
+                }
+                
+                function isPosOccupied(l, t) {
+                    return occupied.some(pos => Math.abs(pos.left - l) < 5 && Math.abs(pos.top - t) < 5);
                 }
                 
                 icon.addEventListener('mousedown', (e) => {
