@@ -345,6 +345,16 @@
         function onInput() {
             const typed = inputField.value;
 
+            if (typed.length === 0) {
+                activeTimer = false;
+                startTime = null;
+                correctKeystrokes = 0;
+                totalKeystrokes = 0;
+                updateAccuracy();
+                updateCPM();
+                return;
+            }
+
             if (!activeTimer && typed.length > 0) {
                 startTime = new Date();
                 activeTimer = true;
