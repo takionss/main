@@ -259,7 +259,7 @@
 
     <div id="login-screen">
         <div class="user-profile">
-            <img src="https://cdn-icons-png.flaticon.com/512/1144/1144760.png" alt="User">
+            <img src="images/user.png" alt="User">
         </div>
         <h2>환영합니다</h2>
         <div class="spinner"></div>
@@ -283,20 +283,20 @@
         
         <div id="power-popup">
             <div class="power-option" onclick="showSystemInfo()">
-                <img src="https://cdn-icons-png.flaticon.com/512/665/665049.png" style="width:16px;" alt="정보"> 시스템 정보
+                <img src="images/system.png" style="width:16px;" alt="정보"> 시스템 정보
             </div>
             
             <div style="height: 1px; background: rgba(0,0,0,0.1); margin: 5px 10px;"></div> <div class="power-option" onclick="shutdownAnimation()">
-                <img src="https://cdn-icons-png.flaticon.com/512/3596/3596144.png" style="width:16px;" alt="종료"> 시스템 종료
+                <img src="images/poweroff.png" style="width:16px;" alt="종료"> 시스템 종료
             </div>
             <div class="power-option" onclick="restartAnimation()">
-                <img src="https://cdn-icons-png.flaticon.com/512/338/338221.png" style="width:16px;" alt="재시작"> 다시 시작
+                <img src="images/reset.png" style="width:16px;" alt="재시작"> 다시 시작
             </div>
         </div>
 
         <div id="start-menu-bottom">
             <div id="start-menu-power" onclick="togglePowerMenu(event)">
-                <img src="https://cdn-icons-png.flaticon.com/512/3596/3596144.png" alt="전원">
+                <img src="images/power.png" alt="전원">
             </div>
         </div>
     </div>
@@ -683,7 +683,7 @@
                 // 🌟 기본 메뉴 구성 (열기)
                 let menuHtml = `
                     <div class="context-menu-item" id="ctx-open">
-                        <img src="https://cdn-icons-png.flaticon.com/512/2089/2089141.png" style="width:16px;"> 열기
+                        <img src="images/play.png" style="width:16px;"> 열기
                     </div>
                     <div class="context-divider"></div>
                 `;
@@ -692,7 +692,7 @@
                 if (iconName === '내사이트') {
                     menuHtml += `
                     <div class="context-menu-item" onclick="showSystemInfo()">
-                        <img src="https://cdn-icons-png.flaticon.com/512/665/665049.png" style="width:16px;"> 시스템 정보
+                        <img src="images/system.png" style="width:16px;"> 시스템 정보
                     </div>
                     `;
                 }
@@ -700,7 +700,7 @@
                 // 🌟 기본 메뉴 구성 (속성)
                 menuHtml += `
                     <div class="context-menu-item" onclick="showProperties('${targetData.name}', '${targetData.url}', '${targetData.iconUrl}')">
-                        <img src="https://cdn-icons-png.flaticon.com/512/2096/2096144.png" style="width:16px;"> 속성
+                        <img src="images/info.png" style="width:16px;"> 속성
                     </div>
                 `;
 
@@ -712,27 +712,27 @@
             } else if (targetStartBtn) {
                 contextMenu.innerHTML = `
                     <div class="context-menu-item" onclick="shutdownAnimation()">
-                        <img src="https://cdn-icons-png.flaticon.com/512/3596/3596144.png" style="width:16px;"> 시스템 종료
+                        <img src="images/poweroff.png" style="width:16px;"> 시스템 종료
                     </div>
                     <div class="context-menu-item" onclick="restartAnimation()">
-                        <img src="https://cdn-icons-png.flaticon.com/512/338/338221.png" style="width:16px;"> 다시 시작
+                        <img src="images/reset.png" style="width:16px;"> 다시 시작
                     </div>
                 `;
             } else if (targetTaskbar) {
                 contextMenu.innerHTML = `
                     <div class="context-menu-item" onclick="showSystemInfo()">
-                        <img src="https://cdn-icons-png.flaticon.com/512/665/665049.png" style="width:16px;"> 시스템 정보
+                        <img src="images/system.png" style="width:16px;"> 시스템 정보
                     </div>
                 `;
             } else {
                 // 바탕화면 빈 곳 우클릭 시
                 contextMenu.innerHTML = `
                     <div class="context-menu-item" onclick="location.reload()">
-                        <img src="https://cdn-icons-png.flaticon.com/512/338/338221.png" style="width:16px;"> 새로 고침
+                        <img src="images/change.png" style="width:16px;"> 새로 고침
                     </div>
                     <div class="context-divider"></div>
                     <div class="context-menu-item" onclick="showSystemInfo()">
-                        <img src="https://cdn-icons-png.flaticon.com/512/665/665049.png" style="width:16px;"> 시스템 정보
+                        <img src="images/system.png" style="width:16px;"> 시스템 정보
                     </div>
                     <div class="context-divider"></div>
                     <div class="context-menu-item" onclick="toggleStartMenu(new Event('click'))">프로그램 목록 열기</div>
