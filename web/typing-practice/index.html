@@ -400,18 +400,19 @@
         function onKeyDown(e) {
             const typed = inputField.value;
 
-            if (currentMode === 'word' && (e.key === ' ' || e.key === 'Enter')) {
+            if (e.key === 'Enter') {
                 e.preventDefault();
                 if (typed.trim() === currentTarget) {
                     submitTarget();
                 } else {
                     flashError();
                 }
-            } else if (currentMode === 'sentence' && e.key === 'Enter') {
-                e.preventDefault();
+            } else if (e.key === ' ') {
                 if (typed.trim() === currentTarget) {
+                    e.preventDefault();
                     submitTarget();
-                } else {
+                } else if (currentMode === 'word') {
+                    e.preventDefault();
                     flashError();
                 }
             }
