@@ -394,6 +394,11 @@
         let windowCounter = 0;
         let topZIndex = 10;
 
+        const MINIMIZE_SVG = `<svg width="10" height="1" viewBox="0 0 10 1"><rect width="10" height="1" fill="currentColor"/></svg>`;
+        const MAXIMIZE_SVG = `<svg width="10" height="10" viewBox="0 0 10 10"><rect x="0.5" y="0.5" width="9" height="9" fill="none" stroke="currentColor" stroke-width="1"/></svg>`;
+        const RESTORE_SVG = `<svg width="10" height="10" viewBox="0 0 10 10"><path d="M2.5,1.5 L8.5,1.5 L8.5,7.5 M1.5,3.5 L7.5,3.5 L7.5,9.5 L1.5,9.5 Z" fill="none" stroke="currentColor" stroke-width="1"/></svg>`;
+        const CLOSE_SVG = `<svg width="10" height="10" viewBox="0 0 10 10"><path d="M1,1 L9,9 M9,1 L1,9" stroke="currentColor" stroke-width="1.2"/></svg>`;
+
         function startSystem() {
             document.getElementById('boot-screen').style.display = 'none';
             const loginScreen = document.getElementById('login-screen');
@@ -644,6 +649,10 @@
             if (win) {
                 const isMax = win.classList.toggle('maximized');
                 openWindows[winId].maximized = isMax;
+                const maxBtn = win.querySelector('.max-btn');
+                if (maxBtn) {
+                    maxBtn.innerHTML = isMax ? RESTORE_SVG : MAXIMIZE_SVG;
+                }
             }
         }
 
@@ -683,9 +692,9 @@
                         <span>${title}</span>
                     </div>
                     <div class="window-controls">
-                        <button class="win-btn" onclick="minimizeWindow('${winId}', event)">—</button>
-                        <button class="win-btn" onclick="toggleMaximizeWindow('${winId}', event)">▢</button>
-                        <button class="win-btn close-btn" onclick="closeWindow('${winId}', event)">✕</button>
+                        <button class="win-btn" onclick="minimizeWindow('${winId}', event)">\${MINIMIZE_SVG}</button>
+                        <button class="win-btn max-btn" onclick="toggleMaximizeWindow('${winId}', event)">\${MAXIMIZE_SVG}</button>
+                        <button class="win-btn close-btn" onclick="closeWindow('${winId}', event)">\${CLOSE_SVG}</button>
                     </div>
                 </div>
                 <div class="window-body">
@@ -738,9 +747,9 @@
                         <span>${title}</span>
                     </div>
                     <div class="window-controls">
-                        <button class="win-btn" onclick="minimizeWindow('${winId}', event)">—</button>
-                        <button class="win-btn" onclick="toggleMaximizeWindow('${winId}', event)">▢</button>
-                        <button class="win-btn close-btn" onclick="closeWindow('${winId}', event)">✕</button>
+                        <button class="win-btn" onclick="minimizeWindow('${winId}', event)">\${MINIMIZE_SVG}</button>
+                        <button class="win-btn max-btn" onclick="toggleMaximizeWindow('${winId}', event)">\${MAXIMIZE_SVG}</button>
+                        <button class="win-btn close-btn" onclick="closeWindow('${winId}', event)">\${CLOSE_SVG}</button>
                     </div>
                 </div>
                 <div class="window-body">
