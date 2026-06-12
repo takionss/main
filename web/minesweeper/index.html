@@ -25,8 +25,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
+            overflow: auto;
             user-select: none;
+            padding: 10px;
         }
 
         .game-container {
@@ -95,6 +96,16 @@
             border-radius: 8px;
             display: grid;
             gap: 2px;
+        }
+
+        .board.medium {
+            gap: 1.5px;
+        }
+
+        .board.medium .cell {
+            width: 24px;
+            height: 24px;
+            font-size: 13px;
         }
 
         .cell {
@@ -185,11 +196,13 @@
                 cols = 9;
                 minesCount = 10;
                 document.getElementById('btn-easy').classList.add('active');
+                boardEl.classList.remove('medium');
             } else {
                 rows = 16;
                 cols = 16;
                 minesCount = 40;
                 document.getElementById('btn-medium').classList.add('active');
+                boardEl.classList.add('medium');
             }
             initGame();
         }
@@ -207,7 +220,8 @@
             board = [];
             mines = [];
 
-            boardEl.style.gridTemplateColumns = `repeat(${cols}, 30px)`;
+            const cellSize = cols === 16 ? '24px' : '30px';
+            boardEl.style.gridTemplateColumns = `repeat(${cols}, ${cellSize})`;
             boardEl.innerHTML = '';
 
             for (let r = 0; r < rows; r++) {
