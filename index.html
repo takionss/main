@@ -1027,6 +1027,8 @@
             
             contextMenu.style.left = `${x}px`;
             contextMenu.style.top = `${y}px`;
+        });
+
         window.addEventListener('message', (event) => {
             if (event.data && event.data.type === 'resize-window') {
                 const { title, width, height } = event.data;
