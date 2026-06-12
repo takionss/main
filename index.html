@@ -197,7 +197,7 @@
         #start-menu-power:hover { background: rgba(0, 0, 0, 0.1); }
         #start-menu-power img { width: 20px; height: 20px; opacity: 0.8; }
 
-        /* 🌟 커스텀 우클릭 컨텍스트 메뉴 스타일 */
+        /* 커스텀 우클릭 컨텍스트 메뉴 스타일 */
         #context-menu {
             position: absolute; z-index: 10002; width: 220px;
             background: rgba(243, 243, 243, 0.95); backdrop-filter: blur(20px);
@@ -211,6 +211,20 @@
         }
         .context-menu-item:hover { background: rgba(0,0,0,0.05); }
         .context-divider { height: 1px; background: rgba(0,0,0,0.1); margin: 5px 0; }
+
+        /* 🌟 속성 및 시스템 정보 팝업창 디자인 */
+        .info-modal {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 320px; background: #fff; border: 1px solid rgba(0,0,0,0.2); border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25); z-index: 10005; display: none; flex-direction: column;
+        }
+        .modal-header {
+            background: #f3f3f3; padding: 10px 15px; display: flex; justify-content: space-between; align-items: center;
+            font-size: 14px; font-weight: 600; border-radius: 8px 8px 0 0; border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+        .modal-header button { border: none; background: transparent; cursor: pointer; font-size: 16px; color: #555; }
+        .modal-header button:hover { color: #e81123; }
+        .modal-body { padding: 20px; font-size: 13px; color: #333; line-height: 1.6; }
 
         @media (max-width: 600px), (max-height: 500px) {
             #start-menu { 
@@ -314,6 +328,46 @@
 
     <div id="context-menu"></div>
 
+    <div id="sysinfo-popup" class="info-modal" onclick="event.stopPropagation()">
+        <div class="modal-header">
+            <span>시스템 정보</span>
+            <button onclick="closeModal('sysinfo-popup')">✕</button>
+        </div>
+        <div class="modal-body" style="text-align: center;">
+            <div class="custom-logo-lg" style="margin: 0 auto 15px auto;">
+                <div class="c-1"></div><div class="c-2"></div><div class="c-3"></div><div class="c-4"></div>
+            </div>
+            <h3 style="margin-bottom: 5px; font-size: 18px;">SmilesLife Web OS</h3>
+            <p style="color: #666; margin-bottom: 20px;">Version 1.0 (Web Edition)</p>
+            
+            <div style="text-align: left; background: #f9f9f9; padding: 15px; border-radius: 6px; border: 1px solid #eee;">
+                <strong>개발자:</strong> takion<br>
+                <strong>연락처:</strong> realyain@gmail.com<br><br>
+                <span style="font-size: 11px; color: #888;">
+                    * Icons made by authors from www.flaticon.com
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div id="properties-popup" class="info-modal" onclick="event.stopPropagation()">
+        <div class="modal-header">
+            <span>속성</span>
+            <button onclick="closeModal('properties-popup')">✕</button>
+        </div>
+        <div class="modal-body">
+            <div style="display: flex; align-items: center; gap: 15px; padding-bottom: 15px; border-bottom: 1px solid #eee; margin-bottom: 15px;">
+                <img id="prop-icon" src="" style="width: 40px; height: 40px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                <h3 id="prop-title" style="margin: 0; font-size: 16px;">프로그램명</h3>
+            </div>
+            <div>
+                <strong>항목 형식:</strong> 웹사이트 바로가기<br><br>
+                <strong>연결된 대상 (URL):</strong><br>
+                <span id="prop-url" style="color: #0078D4; word-break: break-all; display: block; margin-top: 5px;"></span>
+            </div>
+        </div>
+    </div>
+
     <script>
         const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/1RRpkarZGReZMb243IsGNQfP1Urzs5Fh24uWRbfkwVdM/export?format=csv&gid=0';
         let siteDataList = []; 
@@ -335,7 +389,6 @@
             setTimeout(() => { loadMenuData(); }, 1500);
         }
 
-        // 🌟 클릭 시 우클릭 메뉴도 함께 닫히도록 수정
         function closeAllMenus() { 
             const startMenu = document.getElementById('start-menu');
             const powerPopup = document.getElementById('power-popup');
@@ -364,6 +417,26 @@
                 document.getElementById('start-menu').style.display = 'flex';
                 powerPopup.style.display = 'flex';
             }
+        }
+
+        // 🌟 팝업 닫기 함수
+        function closeModal(id) {
+            document.getElementById(id).style.display = 'none';
+        }
+
+        // 🌟 시스템 정보 열기 함수
+        function showSystemInfo() {
+            closeAllMenus();
+            document.getElementById('sysinfo-popup').style.display = 'flex';
+        }
+
+        // 🌟 속성 창 열기 함수
+        function showProperties(name, url, icon) {
+            closeAllMenus();
+            document.getElementById('prop-icon').src = icon;
+            document.getElementById('prop-title').innerText = name;
+            document.getElementById('prop-url').innerText = url;
+            document.getElementById('properties-popup').style.display = 'flex';
         }
 
         function shutdownAnimation() {
@@ -576,39 +649,50 @@
         setInterval(updateClock, 1000);
         updateClock(); 
 
-        // 🌟 커스텀 우클릭 메뉴 구현 로직
         const contextMenu = document.getElementById('context-menu');
-        let currentContextTarget = null; // 클릭한 아이콘 기억하기
+        let currentContextTarget = null; 
 
         document.addEventListener('contextmenu', function(e) {
-            e.preventDefault(); // 원래 뜨는 브라우저 메뉴 막기
+            e.preventDefault(); 
             
             let x = e.pageX;
             let y = e.pageY;
             
-            contextMenu.innerHTML = ''; // 메뉴 안의 내용 비우기
+            contextMenu.innerHTML = ''; 
             
-            // 내가 우클릭한 대상이 무엇인지 파악
             const targetIcon = e.target.closest('.icon') || e.target.closest('.folder-icon');
             const targetStartBtn = e.target.closest('#start-btn');
             const targetTaskbar = e.target.closest('#taskbar');
             
             if (targetIcon) {
-                // 1. 바탕화면 아이콘 위에서 우클릭했을 때
                 currentContextTarget = targetIcon;
+                
+                // 어떤 아이콘을 클릭했는지 이름 찾아오기
+                const iconName = targetIcon.lastElementChild.innerText.trim();
+                let targetData = siteDataList.find(s => s.name === iconName);
+                
+                // '내사이트' 폴더인 경우 예외 처리
+                if (!targetData && iconName === '내사이트') {
+                    targetData = { name: '내사이트', url: '시스템 폴더 (내부 파일 모음)', iconUrl: targetIcon.querySelector('img').src };
+                }
+
+                // 속성 위에 시스템 정보 추가
                 contextMenu.innerHTML = `
                     <div class="context-menu-item" id="ctx-open">
                         <img src="https://cdn-icons-png.flaticon.com/512/2089/2089141.png" style="width:16px;"> 열기
                     </div>
                     <div class="context-divider"></div>
-                    <div class="context-menu-item" onclick="alert('아이콘 속성 기능은 준비 중입니다.')">속성</div>
+                    <div class="context-menu-item" onclick="showSystemInfo()">
+                        <img src="https://cdn-icons-png.flaticon.com/512/665/665049.png" style="width:16px;"> 시스템 정보
+                    </div>
+                    <div class="context-menu-item" onclick="showProperties('${targetData.name}', '${targetData.url}', '${targetData.iconUrl}')">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2096/2096144.png" style="width:16px;"> 속성
+                    </div>
                 `;
-                // '열기' 누르면 더블클릭한 것과 똑같이 실행되게 연결
                 document.getElementById('ctx-open').onclick = () => {
                     if (currentContextTarget.ondblclick) currentContextTarget.ondblclick();
                 };
             } else if (targetStartBtn) {
-                // 2. 시작 버튼 위에서 우클릭했을 때
                 contextMenu.innerHTML = `
                     <div class="context-menu-item" onclick="shutdownAnimation()">
                         <img src="https://cdn-icons-png.flaticon.com/512/3596/3596144.png" style="width:16px;"> 시스템 종료
@@ -618,15 +702,21 @@
                     </div>
                 `;
             } else if (targetTaskbar) {
-                // 3. 작업표시줄 빈 공간에서 우클릭했을 때
+                // 작업표시줄 우클릭 시 시스템 정보 보기 추가
                 contextMenu.innerHTML = `
-                    <div class="context-menu-item" onclick="alert('작업 표시줄 설정 메뉴입니다.')">작업 표시줄 설정</div>
+                    <div class="context-menu-item" onclick="showSystemInfo()">
+                        <img src="https://cdn-icons-png.flaticon.com/512/665/665049.png" style="width:16px;"> 시스템 정보
+                    </div>
                 `;
             } else {
-                // 4. 그냥 허공(바탕화면)에 우클릭했을 때
+                // 바탕화면 빈 곳 우클릭 시
                 contextMenu.innerHTML = `
                     <div class="context-menu-item" onclick="location.reload()">
                         <img src="https://cdn-icons-png.flaticon.com/512/338/338221.png" style="width:16px;"> 새로 고침
+                    </div>
+                    <div class="context-divider"></div>
+                    <div class="context-menu-item" onclick="showSystemInfo()">
+                        <img src="https://cdn-icons-png.flaticon.com/512/665/665049.png" style="width:16px;"> 시스템 정보
                     </div>
                     <div class="context-divider"></div>
                     <div class="context-menu-item" onclick="toggleStartMenu(new Event('click'))">프로그램 목록 열기</div>
@@ -636,7 +726,6 @@
             
             contextMenu.style.display = 'flex';
             
-            // 메뉴가 화면 오른쪽이나 아래쪽 밖으로 잘리지 않게 방지
             const menuWidth = contextMenu.offsetWidth;
             const menuHeight = contextMenu.offsetHeight;
             
