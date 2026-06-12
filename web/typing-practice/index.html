@@ -247,6 +247,9 @@
         let startTime = null;
         let totalKeystrokes = 0;
         let correctKeystrokes = 0;
+        let cumulativeTime = 0;
+        let cumulativeKeystrokes = 0;
+        let cumulativeTotalKeystrokes = 0;
         let maxCpm = 0;
         let activeTimer = false;
 
@@ -316,6 +319,9 @@
             activeTimer = false;
             totalKeystrokes = 0;
             correctKeystrokes = 0;
+            cumulativeTime = 0;
+            cumulativeKeystrokes = 0;
+            cumulativeTotalKeystrokes = 0;
             cpmVal.innerText = '0';
             accuracyVal.innerText = '100%';
             updateUILabels();
@@ -347,9 +353,7 @@
 
             // Real-time Keystrokes counting (approximate Korean typing stroke calculation)
             let typedStrokes = countStrokes(typed);
-            let targetSegment = currentTarget.substring(0, typed.length);
-            let targetStrokes = countStrokes(targetSegment);
-
+            
             // Calculate accuracy
             let correctCount = 0;
             for (let i = 0; i < typed.length; i++) {
@@ -369,6 +373,28 @@
             }
 
             updateAccuracy();
+            updateCPM();
+        }
+
+        function submitTarget() {
+            if (activeTimer && startTime) {
+                cumulativeTime += (new Date() - startTime) / 1000;
+            }
+            cumulativeKeystrokes += correctKeystrokes;
+            cumulativeTotalKeystrokes += totalKeystrokes;
+
+            // Reset target specific variables & stop timer for resting state
+            activeTimer = false;
+            startTime = null;
+            correctKeystrokes = 0;
+            totalKeystrokes = 0;
+
+            nextTarget();
+        }
+
+        function flashError() {
+            targetTextEl.style.color = '#d63031';
+            setTimeout(() => { targetTextEl.style.color = 'inherit'; }, 300);
         }
 
         function onKeyDown(e) {
@@ -377,19 +403,36 @@
             if (currentMode === 'word' && (e.key === ' ' || e.key === 'Enter')) {
                 e.preventDefault();
                 if (typed.trim() === currentTarget) {
-                    nextTarget();
+                    submitTarget();
                 } else {
-                    // Flash red to indicate wrong spelling
-                    targetTextEl.style.color = '#d63031';
-                    setTimeout(() => { targetTextEl.style.color = 'inherit'; }, 300);
+                    flashError();
                 }
             } else if (currentMode === 'sentence' && e.key === 'Enter') {
                 e.preventDefault();
                 if (typed.trim() === currentTarget) {
-                    nextTarget();
+                    submitTarget();
                 } else {
-                    targetTextEl.style.color = '#d63031';
-                    setTimeout(() => { targetTextEl.style.color = 'inherit'; }, 300);
+                    flashError();
+                }
+            }
+        }
+
+        function updateCPM() {
+            let currentActiveTime = 0;
+            if (activeTimer && startTime) {
+                currentActiveTime = (new Date() - startTime) / 1000;
+            }
+            
+            const totalTime = cumulativeTime + currentActiveTime;
+            const totalKeys = cumulativeKeystrokes + correctKeystrokes;
+            
+            if (totalTime > 0.5) {
+                const currentCpm = Math.round((totalKeys / totalTime) * 60);
+                cpmVal.innerText = currentCpm;
+
+                if (currentCpm > maxCpm && totalTime > 3) {
+                    maxCpm = currentCpm;
+                    maxCpmVal.innerText = maxCpm;
                 }
             }
         }
@@ -402,27 +445,19 @@
                     clearInterval(interval);
                     return;
                 }
-
-                const elapsed = (new Date() - startTime) / 1000; // in seconds
-                if (elapsed > 1) {
-                    // CPM calculation
-                    const currentCpm = Math.round((correctKeystrokes / elapsed) * 60);
-                    cpmVal.innerText = currentCpm;
-
-                    if (currentCpm > maxCpm && elapsed > 3) {
-                        maxCpm = currentCpm;
-                        maxCpmVal.innerText = maxCpm;
-                    }
-                }
-            }, 500);
+                updateCPM();
+            }, 200);
         }
 
         function updateAccuracy() {
-            if (totalKeystrokes === 0) {
+            const totalKeys = cumulativeTotalKeystrokes + totalKeystrokes;
+            const correctKeys = cumulativeKeystrokes + correctKeystrokes;
+            
+            if (totalKeys === 0) {
                 accuracyVal.innerText = '100%';
                 return;
             }
-            const acc = Math.round((correctKeystrokes / totalKeystrokes) * 100);
+            const acc = Math.round((correctKeys / totalKeys) * 100);
             accuracyVal.innerText = `${acc}%`;
         }
 
