@@ -787,6 +787,7 @@
                 const isFocused = winEl && parseInt(winEl.style.zIndex) === topZIndex && !app.minimized;
                 
                 btn.className = 'taskbar-app' + (isFocused ? ' active' : '');
+                btn.setAttribute('data-win-id', winId);
                 btn.innerHTML = `<img src="${app.iconUrl}" alt="icon"><span>${app.title}</span>`;
                 btn.onclick = (e) => {
                     e.stopPropagation();
@@ -914,6 +915,7 @@
             
             const targetIcon = e.target.closest('.icon') || e.target.closest('.folder-icon');
             const targetStartBtn = e.target.closest('#start-btn');
+            const targetTaskbarApp = e.target.closest('.taskbar-app');
             const targetTaskbar = e.target.closest('#taskbar');
             
             if (targetIcon) {
@@ -964,6 +966,13 @@
                     </div>
                     <div class="context-menu-item" onclick="restartAnimation()">
                         <img src="images/reset.png" style="width:16px;"> 다시 시작
+                    </div>
+                `;
+            } else if (targetTaskbarApp) {
+                const winId = targetTaskbarApp.getAttribute('data-win-id');
+                contextMenu.innerHTML = `
+                    <div class="context-menu-item" onclick="closeWindow('${winId}', event)">
+                        <img src="images/poweroff.png" style="width:16px; filter: invert(0.2);"> 창 닫기
                     </div>
                 `;
             } else if (targetTaskbar) {
