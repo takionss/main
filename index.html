@@ -1244,17 +1244,17 @@
                 let currentLeft = parseFloat(activeDragIcon.style.left);
                 let currentTop = parseFloat(activeDragIcon.style.top);
                 
-                let snappedLeft = Math.round(currentLeft / gridX) * gridX;
-                let snappedTop = Math.round(currentTop / gridY) * gridY;
+                let snappedLeft = Math.round((currentLeft - 20) / gridX) * gridX + 20;
+                let snappedTop = Math.round((currentTop - 20) / gridY) * gridY + 20;
                 
                 const desktopRect = document.getElementById('desktop').getBoundingClientRect();
                 const maxLeft = desktopRect.width - activeDragIcon.offsetWidth;
                 const maxTop = desktopRect.height - activeDragIcon.offsetHeight;
                 
-                if (snappedLeft < 0) snappedLeft = 0;
-                if (snappedLeft > maxLeft) snappedLeft = Math.floor(maxLeft / gridX) * gridX;
-                if (snappedTop < 0) snappedTop = 0;
-                if (snappedTop > maxTop) snappedTop = Math.floor(maxTop / gridY) * gridY;
+                if (snappedLeft < 20) snappedLeft = 20;
+                if (snappedLeft > maxLeft) snappedLeft = Math.floor((maxLeft - 20) / gridX) * gridX + 20;
+                if (snappedTop < 20) snappedTop = 20;
+                if (snappedTop > maxTop) snappedTop = Math.floor((maxTop - 20) / gridY) * gridY + 20;
                 
                 activeDragIcon.style.left = `${snappedLeft}px`;
                 activeDragIcon.style.top = `${snappedTop}px`;
