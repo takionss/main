@@ -163,7 +163,7 @@
             border: 1px solid rgba(0,0,0,0.1); border-radius: 12px; display: none; flex-direction: column;
             box-shadow: 0 5px 20px rgba(0,0,0,0.15); padding: 15px; z-index: 100; cursor: default;
         }
-        .start-menu-group:hover .sub-menu { display: flex; } 
+        /* .start-menu-group:hover .sub-menu { display: flex; } */
 
         .sub-menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
         .start-menu-item { display: flex; flex-direction: column; align-items: center; cursor: pointer; padding: 10px 5px; border-radius: 5px; transition: 0.2s; font-size: 12px; color: #333; text-align: center; word-break: keep-all; }
@@ -196,14 +196,21 @@
         #start-menu-power:hover { background: rgba(0, 0, 0, 0.1); }
         #start-menu-power img { width: 20px; height: 20px; opacity: 0.8; }
         
-        /* 모바일 세로 화면 대응 (화면 폭 600px 이하일 때만 작동) */
+
+        /* 🌟 모바일 세로 화면 대응 스타일 업그레이드 */
         @media (max-width: 600px) {
             #start-menu { width: calc(100vw - 20px); left: 10px; }
             .start-menu-group { flex-wrap: wrap; }
-            .start-menu-group::after { transform: rotate(90deg); transition: 0.2s; }
+            
+            /* 메뉴가 열렸을 때 화살표 각도 변경 효과 추가 */
+            .start-menu-group.active::after { transform: rotate(90deg); }
+            .start-menu-group::after { transition: transform 0.2s; }
+            
+            /* 모바일에서는 아래로 밀려 내려오는 아코디언 배치 */
             .sub-menu {
-                position: relative; left: 0; width: 100%; min-width: 100%; 
-                margin-left: 0; margin-top: 15px; 
+                position: relative !important; left: 0 !important; bottom: auto !important;
+                width: 100% !important; min-width: 100% !important; 
+                margin-left: 0 !important; margin-top: 10px; 
                 background: rgba(0,0,0,0.05); box-shadow: none; border: none;
             }
         }
@@ -416,6 +423,7 @@
                     }
                 }
 
+                // 2. 그룹 설정이 된 프로그램들은 터치/클릭 시 열리는 가지 메뉴로 표시
                 for (const [grp, items] of Object.entries(otherGroups)) {
                     const groupEl = document.createElement('div');
                     groupEl.className = 'start-menu-group';
@@ -432,7 +440,7 @@
                         menuItem.className = 'start-menu-item';
                         menuItem.innerHTML = `<img src="${item.iconUrl}" class="menu-icon-sm" alt="icon"><span>${item.name}</span>`;
                         menuItem.onclick = (e) => {
-                            e.stopPropagation(); 
+                            e.stopPropagation(); // 이벤트를 상위로 전파하지 않음 (서브메뉴 안에서 클릭 보호)
                             openWindow(item.name, item.url, item.iconUrl);
                             closeStartMenu();
                         };
@@ -441,6 +449,25 @@
 
                     subMenu.appendChild(subMenuGrid);
                     groupEl.appendChild(subMenu);
+
+                    // 🌟 [핵심 수정] 마우스 호버 대신 터치/클릭 이벤트로 서브메뉴 고정 토글
+                    groupEl.onclick = (e) => {
+                        e.stopPropagation(); // 바탕화면 클릭 이벤트 등으로 창이 바로 닫히는 현상 방지
+                        
+                        // 현재 클릭한 메뉴 외에 다른 열려있는 서브 메뉴들은 모두 닫기
+                        document.querySelectorAll('.sub-menu').forEach(menu => {
+                            if (menu !== subMenu) menu.style.display = 'none';
+                        });
+                        document.querySelectorAll('.start-menu-group').forEach(el => {
+                            if (el !== groupEl) el.classList.remove('active');
+                        });
+
+                        // 토글 상태 변경 (열려있으면 닫고, 닫혀있으면 열기)
+                        const isVisible = subMenu.style.display === 'flex';
+                        subMenu.style.display = isVisible ? 'none' : 'flex';
+                        groupEl.classList.toggle('active', !isVisible);
+                    };
+
                     startMenuList.appendChild(groupEl);
                 }
 
