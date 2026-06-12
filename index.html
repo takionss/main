@@ -664,6 +664,7 @@
                 delete openWindows[winId];
                 updateTaskbar();
             }
+            closeAllMenus();
         }
 
         function openWindow(title, url, iconUrl) {
@@ -692,9 +693,9 @@
                         <span>${title}</span>
                     </div>
                     <div class="window-controls">
-                        <button class="win-btn" onclick="minimizeWindow('${winId}', event)">\${MINIMIZE_SVG}</button>
-                        <button class="win-btn max-btn" onclick="toggleMaximizeWindow('${winId}', event)">\${MAXIMIZE_SVG}</button>
-                        <button class="win-btn close-btn" onclick="closeWindow('${winId}', event)">\${CLOSE_SVG}</button>
+                        <button class="win-btn" onclick="minimizeWindow('${winId}', event)">${MINIMIZE_SVG}</button>
+                        <button class="win-btn max-btn" onclick="toggleMaximizeWindow('${winId}', event)">${MAXIMIZE_SVG}</button>
+                        <button class="win-btn close-btn" onclick="closeWindow('${winId}', event)">${CLOSE_SVG}</button>
                     </div>
                 </div>
                 <div class="window-body">
@@ -747,9 +748,9 @@
                         <span>${title}</span>
                     </div>
                     <div class="window-controls">
-                        <button class="win-btn" onclick="minimizeWindow('${winId}', event)">\${MINIMIZE_SVG}</button>
-                        <button class="win-btn max-btn" onclick="toggleMaximizeWindow('${winId}', event)">\${MAXIMIZE_SVG}</button>
-                        <button class="win-btn close-btn" onclick="closeWindow('${winId}', event)">\${CLOSE_SVG}</button>
+                        <button class="win-btn" onclick="minimizeWindow('${winId}', event)">${MINIMIZE_SVG}</button>
+                        <button class="win-btn max-btn" onclick="toggleMaximizeWindow('${winId}', event)">${MAXIMIZE_SVG}</button>
+                        <button class="win-btn close-btn" onclick="closeWindow('${winId}', event)">${CLOSE_SVG}</button>
                     </div>
                 </div>
                 <div class="window-body">
