@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>한글 타자연습</title>
+    <title>타자연습</title>
     <style>
         :root {
             --bg-color: #f5f6fa;
@@ -168,24 +168,30 @@
 
     <div class="typing-container">
         <div class="header">
-            <span class="title">⌨️ 한글 타자연습</span>
-            <div class="mode-selector">
-                <button class="btn active" id="mode-word" onclick="setMode('word')">단어 연습</button>
-                <button class="btn" id="mode-sentence" onclick="setMode('sentence')">문장 연습</button>
+            <span class="title">⌨️ 타자연습</span>
+            <div style="display: flex; gap: 10px;">
+                <div class="mode-selector">
+                    <button class="btn active" id="lang-ko" onclick="setLanguage('ko')">한글</button>
+                    <button class="btn" id="lang-en" onclick="setLanguage('en')">English</button>
+                </div>
+                <div class="mode-selector">
+                    <button class="btn active" id="mode-word" onclick="setMode('word')">단어 연습</button>
+                    <button class="btn" id="mode-sentence" onclick="setMode('sentence')">문장 연습</button>
+                </div>
             </div>
         </div>
 
         <div class="dashboard">
             <div class="dash-item">
-                <span class="dash-label">현재 타수</span>
+                <span class="dash-label" id="label-cpm">현재 타수</span>
                 <span class="dash-val" id="cpm-val">0</span>
             </div>
             <div class="dash-item">
-                <span class="dash-label">최고 타수</span>
+                <span class="dash-label" id="label-max-cpm">최고 타수</span>
                 <span class="dash-val" id="max-cpm-val">0</span>
             </div>
             <div class="dash-item">
-                <span class="dash-label">정확도</span>
+                <span class="dash-label" id="label-accuracy">정확도</span>
                 <span class="dash-val" id="accuracy-val">100%</span>
             </div>
         </div>
@@ -207,6 +213,14 @@
             "봄날", "여름", "행복", "사랑", "우정", "희망", "바람", "음악", "영화", "도서관"
         ];
 
+        const wordDbEn = [
+            "apple", "banana", "computer", "internet", "keyboard", "mouse", "monitor", "ocean",
+            "bicycle", "tiger", "elephant", "rabbit", "squirrel", "school", "pencil", "desk",
+            "smartphone", "program", "autumn", "winter", "spring", "summer", "happiness", "love",
+            "friendship", "hope", "wind", "music", "movie", "library", "coffee", "window", "universe",
+            "galaxy", "system", "nature", "science", "history", "future", "dream"
+        ];
+
         const sentenceDb = [
             "동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세.",
             "별 하나에 추억과 별 하나에 사랑과 별 하나에 쓸쓸함과 별 하나에 동경과",
@@ -217,6 +231,17 @@
             "실패는 성공을 향해 나아가는 과정에서 거쳐야 하는 정거장일 뿐이다."
         ];
 
+        const sentenceDbEn = [
+            "The quick brown fox jumps over the lazy dog.",
+            "To be or not to be, that is the question.",
+            "Practice makes perfect, so keep typing every day.",
+            "Life is what happens when you're busy making other plans.",
+            "Believe you can and you're halfway there.",
+            "Success is not final, failure is not fatal: it is the courage to continue that counts.",
+            "In the end, we only regret the chances we didn't take."
+        ];
+
+        let currentLang = 'ko';
         let currentMode = 'word';
         let currentTarget = '';
         let startTime = null;
@@ -231,6 +256,47 @@
         const maxCpmVal = document.getElementById('max-cpm-val');
         const accuracyVal = document.getElementById('accuracy-val');
 
+        function updateUILabels() {
+            const isKo = currentLang === 'ko';
+            document.getElementById('label-cpm').innerText = isKo ? '현재 타수' : 'Speed (CPM)';
+            document.getElementById('label-max-cpm').innerText = isKo ? '최고 타수' : 'Best (CPM)';
+            document.getElementById('label-accuracy').innerText = isKo ? '정확도' : 'Accuracy';
+            
+            const inputEl = document.getElementById('input-field');
+            if (inputEl) {
+                inputEl.placeholder = isKo ? '여기에 입력하세요...' : 'Type here...';
+            }
+
+            document.getElementById('mode-word').innerText = isKo ? '단어 연습' : 'Words';
+            document.getElementById('mode-sentence').innerText = isKo ? '문장 연습' : 'Sentences';
+
+            const hintEl = document.querySelector('.keyboard-hint');
+            if (hintEl) {
+                if (currentMode === 'word') {
+                    hintEl.innerText = isKo 
+                        ? "단어는 공백(Space) 또는 엔터(Enter) 입력 시 넘어갑니다." 
+                        : "Words change when you press Space or Enter.";
+                } else {
+                    hintEl.innerText = isKo 
+                        ? "문장은 엔터(Enter) 입력 시 다음 문장으로 넘어갑니다." 
+                        : "Sentences change when you press Enter.";
+                }
+            }
+        }
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.getElementById('lang-ko').classList.remove('active');
+            document.getElementById('lang-en').classList.remove('active');
+            
+            if (lang === 'ko') {
+                document.getElementById('lang-ko').classList.add('active');
+            } else {
+                document.getElementById('lang-en').classList.add('active');
+            }
+            resetPractice();
+        }
+
         function setMode(mode) {
             currentMode = mode;
             document.getElementById('mode-word').classList.remove('active');
@@ -238,10 +304,8 @@
             
             if (mode === 'word') {
                 document.getElementById('mode-word').classList.add('active');
-                document.querySelector('.keyboard-hint').innerText = "단어는 공백(Space) 또는 엔터(Enter) 입력 시 넘어갑니다.";
             } else {
                 document.getElementById('mode-sentence').classList.add('active');
-                document.querySelector('.keyboard-hint').innerText = "문장은 엔터(Enter) 입력 시 다음 문장으로 넘어갑니다.";
             }
             resetPractice();
         }
@@ -254,11 +318,14 @@
             correctKeystrokes = 0;
             cpmVal.innerText = '0';
             accuracyVal.innerText = '100%';
+            updateUILabels();
             nextTarget();
         }
 
         function nextTarget() {
-            const db = currentMode === 'word' ? wordDb : sentenceDb;
+            const db = currentLang === 'ko' 
+                ? (currentMode === 'word' ? wordDb : sentenceDb)
+                : (currentMode === 'word' ? wordDbEn : sentenceDbEn);
             let next;
             do {
                 next = db[Math.floor(Math.random() * db.length)];
