@@ -80,8 +80,8 @@
 
         .dashboard {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
             background: #f8f9fa;
             padding: 15px;
             border-radius: 8px;
@@ -187,6 +187,10 @@
                 <span class="dash-val" id="cpm-val">0</span>
             </div>
             <div class="dash-item">
+                <span class="dash-label" id="label-avg-cpm">평균 타수</span>
+                <span class="dash-val" id="avg-cpm-val">0</span>
+            </div>
+            <div class="dash-item">
                 <span class="dash-label" id="label-max-cpm">최고 타수</span>
                 <span class="dash-val" id="max-cpm-val">0</span>
             </div>
@@ -262,6 +266,7 @@
         function updateUILabels() {
             const isKo = currentLang === 'ko';
             document.getElementById('label-cpm').innerText = isKo ? '현재 타수' : 'Speed (CPM)';
+            document.getElementById('label-avg-cpm').innerText = isKo ? '평균 타수' : 'Average (CPM)';
             document.getElementById('label-max-cpm').innerText = isKo ? '최고 타수' : 'Best (CPM)';
             document.getElementById('label-accuracy').innerText = isKo ? '정확도' : 'Accuracy';
             
@@ -323,6 +328,9 @@
             cumulativeKeystrokes = 0;
             cumulativeTotalKeystrokes = 0;
             cpmVal.innerText = '0';
+            document.getElementById('avg-cpm-val').innerText = '0';
+            maxCpm = 0;
+            maxCpmVal.innerText = '0';
             accuracyVal.innerText = '100%';
             updateUILabels();
             nextTarget();
@@ -434,18 +442,25 @@
                 currentActiveTime = (new Date() - startTime) / 1000;
             }
             
-            const totalTime = cumulativeTime + currentActiveTime;
-            const totalKeys = cumulativeKeystrokes + correctKeystrokes;
-            
-            if (totalTime > 0.5) {
-                const currentCpm = Math.round((totalKeys / totalTime) * 60);
-                cpmVal.innerText = currentCpm;
-
-                if (currentCpm > maxCpm && totalTime > 3) {
-                    maxCpm = currentCpm;
-                    maxCpmVal.innerText = maxCpm;
-                }
+            // 1. 현재 타수 (실시간 현재 문장/단어 입력 속도)
+            let currentCpm = 0;
+            if (currentActiveTime > 0.3 && correctKeystrokes > 0) {
+                currentCpm = Math.round((correctKeystrokes / currentActiveTime) * 60);
             }
+            cpmVal.innerText = currentCpm;
+
+            // 2. 최고 타수 (역대 순간 최고 속도)
+            if (currentCpm > maxCpm) {
+                maxCpm = currentCpm;
+                maxCpmVal.innerText = maxCpm;
+            }
+
+            // 3. 평균 타수 (완료된 전체 타자의 평균 속도)
+            let avgCpm = 0;
+            if (cumulativeTime > 0) {
+                avgCpm = Math.round((cumulativeKeystrokes / cumulativeTime) * 60);
+            }
+            document.getElementById('avg-cpm-val').innerText = avgCpm;
         }
 
         function startCalculations() {
