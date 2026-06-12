@@ -195,6 +195,19 @@
         }
         #start-menu-power:hover { background: rgba(0, 0, 0, 0.1); }
         #start-menu-power img { width: 20px; height: 20px; opacity: 0.8; }
+        
+        /* 모바일 세로 화면 대응 (화면 폭 600px 이하일 때만 작동) */
+        @media (max-width: 600px) {
+            #start-menu { width: calc(100vw - 20px); left: 10px; }
+            .start-menu-group { flex-wrap: wrap; }
+            .start-menu-group::after { transform: rotate(90deg); transition: 0.2s; }
+            .sub-menu {
+                position: relative; left: 0; width: 100%; min-width: 100%; 
+                margin-left: 0; margin-top: 15px; 
+                background: rgba(0,0,0,0.05); box-shadow: none; border: none;
+            }
+        }
+
     </style>
 </head>
 <body>
