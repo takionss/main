@@ -114,7 +114,7 @@
         .win-btn:hover { background: rgba(0,0,0,0.08); }
         .win-btn.close-btn:hover { background: #e81123; color: white; }
         
-        .window-body { flex: 1; position: relative; background: #f3f3f3; padding: 15px; height: calc(100% - 40px); }
+        .window-body { flex: 1; position: relative; background: #f3f3f3; padding: 15px; height: calc(100% - 40px); overflow: hidden; }
         .window-body iframe { width: 100%; height: 100%; border: 1px solid rgba(0,0,0,0.1); border-radius: 8px; display: block; background: #fff; }
         
         .window-folder { 
@@ -684,13 +684,13 @@
 
             const isMinesweeper = title === '지뢰찾기';
             if (isMinesweeper) {
-                win.style.width = '360px';
-                win.style.height = '530px';
+                win.style.width = '376px';
+                win.style.height = '526px';
             }
 
             const offset = (Object.keys(openWindows).length * 25) % 150;
-            win.style.left = `calc(50% - ${isMinesweeper ? 180 : 400}px + ${offset}px)`;
-            win.style.top = `calc(50% - ${isMinesweeper ? 265 : 300}px + ${offset}px)`;
+            win.style.left = `calc(50% - ${isMinesweeper ? 188 : 400}px + ${offset}px)`;
+            win.style.top = `calc(50% - ${isMinesweeper ? 263 : 300}px + ${offset}px)`;
 
             const maxBtnHtml = isMinesweeper
                 ? `<button class="win-btn max-btn" style="opacity: 0.3; cursor: not-allowed;" disabled>${MAXIMIZE_SVG}</button>`
@@ -709,7 +709,7 @@
                     </div>
                 </div>
                 <div class="window-body">
-                    <iframe class="window-iframe" src="${url}" style="width: 100%; height: 100%; border: 1px solid rgba(0,0,0,0.1); border-radius: 8px; display: block; background: #fff;"></iframe>
+                    <iframe class="window-iframe" src="${url}" ${isMinesweeper ? 'scrolling="no"' : ''} style="width: 100%; height: 100%; border: 1px solid rgba(0,0,0,0.1); border-radius: 8px; display: block; background: #fff; ${isMinesweeper ? 'overflow: hidden;' : ''}"></iframe>
                 </div>
             `;
 
