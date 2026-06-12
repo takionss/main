@@ -1061,6 +1061,7 @@
                 `;
             } else {
                 // 바탕화면 빈 곳 우클릭 시
+                const isFullscreen = !!(document.fullscreenElement || document.webkitFullscreenElement);
                 contextMenu.innerHTML = `
                     <div class="context-menu-item" onclick="resetToDefaults()">
                         <img src="images/change.png" style="width:16px;"> 기본값 복원
@@ -1075,7 +1076,7 @@
                     </div>
                     <div class="context-divider"></div>
                     <div class="context-menu-item" onclick="toggleStartMenu(event)">프로그램 목록 열기</div>
-                    <div class="context-menu-item" onclick="toggleFullscreen()">전체 화면 모드</div>
+                    ${!isFullscreen ? `<div class="context-menu-item" onclick="toggleFullscreen()">전체 화면 모드</div>` : ''}
                 `;
             }
             
