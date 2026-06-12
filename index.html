@@ -1046,8 +1046,8 @@
             } else {
                 // 바탕화면 빈 곳 우클릭 시
                 contextMenu.innerHTML = `
-                    <div class="context-menu-item" onclick="location.reload()">
-                        <img src="images/change.png" style="width:16px;"> 새로 고침
+                    <div class="context-menu-item" onclick="resetToDefaults()">
+                        <img src="images/change.png" style="width:16px;"> 기본값 복원
                     </div>
                     <div class="context-divider"></div>
                     <div class="context-menu-item" onclick="showWallpaperSettings()">
@@ -1305,6 +1305,23 @@
                     startDragIcon(icon, e);
                 });
             });
+        }
+
+        function resetToDefaults() {
+            if (confirm("바탕화면 배경과 아이콘 위치를 처음 상태로 복원하시겠습니까?")) {
+                localStorage.removeItem('desktop-wallpaper');
+                
+                const keysToRemove = [];
+                for (let i = 0; i < localStorage.length; i++) {
+                    const key = localStorage.key(i);
+                    if (key && key.startsWith('icon-pos-')) {
+                        keysToRemove.push(key);
+                    }
+                }
+                keysToRemove.forEach(key => localStorage.removeItem(key));
+                
+                location.reload();
+            }
         }
 
         // 초기 배경 화면 적용
