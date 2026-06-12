@@ -297,7 +297,7 @@
 
         <div id="taskbar-right">
             <div class="tray-icons">
-                <img id="network-icon" src="https://cdn-icons-png.flaticon.com/512/159/159078.png" alt="인터넷 연결 상태">
+                <img id="network-icon" src="https://cdn-icons-png.flaticon.com/512/1008/1008064.png" alt="네트워크 연결됨">
             </div>
             <div class="taskbar-clock">
                 <span id="clock-time">00:00</span>
@@ -568,9 +568,11 @@
             const icon = document.getElementById('network-icon');
             if(!icon) return;
             if (navigator.onLine) {
-                icon.src = "https://cdn-icons-png.flaticon.com/512/159/159078.png"; 
+                // 랜선 연결된 모니터 아이콘
+                icon.src = "https://cdn-icons-png.flaticon.com/512/1008/1008064.png"; 
             } else {
-                icon.src = "https://cdn-icons-png.flaticon.com/512/159/159076.png"; 
+                // 인터넷 끊김 (엑스표 쳐진 모니터) 아이콘
+                icon.src = "https://cdn-icons-png.flaticon.com/512/1008/1008103.png"; 
             }
         }
         window.addEventListener('online', updateNetworkStatus);
