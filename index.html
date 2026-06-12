@@ -765,6 +765,10 @@
                 ? `<button class="win-btn max-btn" style="opacity: 0.3; cursor: not-allowed;" disabled>${MAXIMIZE_SVG}</button>`
                 : `<button class="win-btn max-btn" onclick="toggleMaximizeWindow('${winId}', event)">${MAXIMIZE_SVG}</button>`;
 
+            // 캐시 방지(Cache-busting) 파라미터 적용
+            const cacheBuster = `v=${Date.now()}`;
+            const cleanUrl = url.includes('?') ? `${url}&${cacheBuster}` : `${url}?${cacheBuster}`;
+
             win.innerHTML = `
                 <div class="window-header" onmousedown="startDrag('${winId}', event)" ontouchstart="startDrag('${winId}', event)">
                     <div class="window-header-left">
@@ -778,7 +782,7 @@
                     </div>
                 </div>
                 <div class="window-body">
-                    <iframe class="window-iframe" src="${url}" ${isMinesweeper ? 'scrolling="no"' : ''} style="width: 100%; height: 100%; border: 1px solid rgba(0,0,0,0.1); border-radius: 8px; display: block; background: #fff; ${isMinesweeper ? 'overflow: hidden;' : ''}"></iframe>
+                    <iframe class="window-iframe" src="${cleanUrl}" ${isMinesweeper ? 'scrolling="no"' : ''} style="width: 100%; height: 100%; border: 1px solid rgba(0,0,0,0.1); border-radius: 8px; display: block; background: #fff; ${isMinesweeper ? 'overflow: hidden;' : ''}"></iframe>
                 </div>
             `;
 
