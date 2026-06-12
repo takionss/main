@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>한글 타자연습</title>
+    <style>
+        :root {
+            --bg-color: #f5f6fa;
+            --card-bg: #ffffff;
+            --text-color: #2f3640;
+            --border-color: rgba(0,0,0,0.08);
+            --accent-color: #0078D4;
+            --accent-hover: #005a9e;
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-color);
+            color: var(--text-color);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .typing-container {
+            width: 550px;
+            background: var(--card-bg);
+            border-radius: 14px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 12px;
+        }
+
+        .title {
+            font-size: 18px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .mode-selector {
+            display: flex;
+            gap: 5px;
+        }
+
+        .btn {
+            background: #f1f2f6;
+            border: 1px solid #ced6e0;
+            padding: 5px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: bold;
+            transition: all 0.2s;
+        }
+
+        .btn.active {
+            background: var(--accent-color);
+            color: white;
+            border-color: var(--accent-color);
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .dash-item {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .dash-label {
+            font-size: 12px;
+            color: #718093;
+            font-weight: 600;
+        }
+
+        .dash-val {
+            font-size: 20px;
+            font-weight: bold;
+            font-family: monospace;
+            color: var(--accent-color);
+        }
+
+        .typing-area {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .target-text-box {
+            background: #f1f2f6;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            min-height: 52px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            word-break: break-all;
+        }
+
+        .user-input-box {
+            position: relative;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 12px 15px;
+            font-size: 16px;
+            border: 1.5px solid var(--border-color);
+            border-radius: 8px;
+            outline: none;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        .input-field:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.1);
+        }
+
+        .keyboard-hint {
+            font-size: 11px;
+            color: #718093;
+            text-align: right;
+            margin-top: 5px;
+        }
+
+        .result-overlay {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            background: #f5f6fa;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="typing-container">
+        <div class="header">
+            <span class="title">⌨️ 한글 타자연습</span>
+            <div class="mode-selector">
+                <button class="btn active" id="mode-word" onclick="setMode('word')">단어 연습</button>
+                <button class="btn" id="mode-sentence" onclick="setMode('sentence')">문장 연습</button>
+            </div>
+        </div>
+
+        <div class="dashboard">
+            <div class="dash-item">
+                <span class="dash-label">현재 타수</span>
+                <span class="dash-val" id="cpm-val">0</span>
+            </div>
+            <div class="dash-item">
+                <span class="dash-label">최고 타수</span>
+                <span class="dash-val" id="max-cpm-val">0</span>
+            </div>
+            <div class="dash-item">
+                <span class="dash-label">정확도</span>
+                <span class="dash-val" id="accuracy-val">100%</span>
+            </div>
+        </div>
+
+        <div class="typing-area">
+            <div class="target-text-box" id="target-text">시작하려면 입력창을 클릭하고 입력을 시작하세요.</div>
+            <div class="user-input-box">
+                <input type="text" class="input-field" id="input-field" placeholder="여기에 입력하세요..." autocomplete="off" oninput="onInput()" onkeydown="onKeyDown(event)">
+            </div>
+            <div class="keyboard-hint">단어는 공백(Space) 또는 엔터(Enter) 입력 시 넘어갑니다.</div>
+        </div>
+    </div>
+
+    <script>
+        const wordDb = [
+            "사과", "하늘", "컴퓨터", "대한민국", "인터넷", "바다", "모니터", "마우스", "키보드",
+            "자전거", "우체국", "강아지", "고양이", "호랑이", "코끼리", "토끼", "다람쥐", "학교",
+            "나무", "태양", "달빛", "구름", "연필", "책상", "스마트폰", "프로그램", "가을", "겨울",
+            "봄날", "여름", "행복", "사랑", "우정", "희망", "바람", "음악", "영화", "도서관"
+        ];
+
+        const sentenceDb = [
+            "동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세.",
+            "별 하나에 추억과 별 하나에 사랑과 별 하나에 쓸쓸함과 별 하나에 동경과",
+            "나 하늘로 돌아가리라 새벽빛 와 닿으면 스러지는 이슬 더불어 손에 손 잡고",
+            "강나루 건너서 밀밭 길을 구름에 달 가듯이 가는 나그네",
+            "아름다운 이 땅에 금수강산에 단군할아버지가 터 잡으시고",
+            "우리는 모두 인생의 여행자이며 우리가 걷는 길은 매일 새로워진다.",
+            "실패는 성공을 향해 나아가는 과정에서 거쳐야 하는 정거장일 뿐이다."
+        ];
+
+        let currentMode = 'word';
+        let currentTarget = '';
+        let startTime = null;
+        let totalKeystrokes = 0;
+        let correctKeystrokes = 0;
+        let maxCpm = 0;
+        let activeTimer = false;
+
+        const targetTextEl = document.getElementById('target-text');
+        const inputField = document.getElementById('input-field');
+        const cpmVal = document.getElementById('cpm-val');
+        const maxCpmVal = document.getElementById('max-cpm-val');
+        const accuracyVal = document.getElementById('accuracy-val');
+
+        function setMode(mode) {
+            currentMode = mode;
+            document.getElementById('mode-word').classList.remove('active');
+            document.getElementById('mode-sentence').classList.remove('active');
+            
+            if (mode === 'word') {
+                document.getElementById('mode-word').classList.add('active');
+                document.querySelector('.keyboard-hint').innerText = "단어는 공백(Space) 또는 엔터(Enter) 입력 시 넘어갑니다.";
+            } else {
+                document.getElementById('mode-sentence').classList.add('active');
+                document.querySelector('.keyboard-hint').innerText = "문장은 엔터(Enter) 입력 시 다음 문장으로 넘어갑니다.";
+            }
+            resetPractice();
+        }
+
+        function resetPractice() {
+            inputField.value = '';
+            startTime = null;
+            activeTimer = false;
+            totalKeystrokes = 0;
+            correctKeystrokes = 0;
+            cpmVal.innerText = '0';
+            accuracyVal.innerText = '100%';
+            nextTarget();
+        }
+
+        function nextTarget() {
+            const db = currentMode === 'word' ? wordDb : sentenceDb;
+            let next;
+            do {
+                next = db[Math.floor(Math.random() * db.length)];
+            } while (next === currentTarget);
+            
+            currentTarget = next;
+            targetTextEl.innerText = currentTarget;
+            inputField.value = '';
+        }
+
+        function onInput() {
+            const typed = inputField.value;
+
+            if (!activeTimer && typed.length > 0) {
+                startTime = new Date();
+                activeTimer = true;
+                startCalculations();
+            }
+
+            // Real-time Keystrokes counting (approximate Korean typing stroke calculation)
+            let typedStrokes = countStrokes(typed);
+            let targetSegment = currentTarget.substring(0, typed.length);
+            let targetStrokes = countStrokes(targetSegment);
+
+            // Calculate accuracy
+            let correctCount = 0;
+            for (let i = 0; i < typed.length; i++) {
+                if (typed[i] === currentTarget[i]) {
+                    correctCount += countStrokes(typed[i]);
+                }
+            }
+
+            correctKeystrokes = correctCount;
+            totalKeystrokes = typedStrokes;
+
+            // Highlight typing correctness
+            if (currentTarget.startsWith(typed)) {
+                targetTextEl.style.color = 'inherit';
+            } else {
+                targetTextEl.style.color = '#d63031'; // Red if typo
+            }
+
+            updateAccuracy();
+        }
+
+        function onKeyDown(e) {
+            const typed = inputField.value;
+
+            if (currentMode === 'word' && (e.key === ' ' || e.key === 'Enter')) {
+                e.preventDefault();
+                if (typed.trim() === currentTarget) {
+                    nextTarget();
+                } else {
+                    // Flash red to indicate wrong spelling
+                    targetTextEl.style.color = '#d63031';
+                    setTimeout(() => { targetTextEl.style.color = 'inherit'; }, 300);
+                }
+            } else if (currentMode === 'sentence' && e.key === 'Enter') {
+                e.preventDefault();
+                if (typed.trim() === currentTarget) {
+                    nextTarget();
+                } else {
+                    targetTextEl.style.color = '#d63031';
+                    setTimeout(() => { targetTextEl.style.color = 'inherit'; }, 300);
+                }
+            }
+        }
+
+        function startCalculations() {
+            if (!activeTimer) return;
+
+            const interval = setInterval(() => {
+                if (!activeTimer) {
+                    clearInterval(interval);
+                    return;
+                }
+
+                const elapsed = (new Date() - startTime) / 1000; // in seconds
+                if (elapsed > 1) {
+                    // CPM calculation
+                    const currentCpm = Math.round((correctKeystrokes / elapsed) * 60);
+                    cpmVal.innerText = currentCpm;
+
+                    if (currentCpm > maxCpm && elapsed > 3) {
+                        maxCpm = currentCpm;
+                        maxCpmVal.innerText = maxCpm;
+                    }
+                }
+            }, 500);
+        }
+
+        function updateAccuracy() {
+            if (totalKeystrokes === 0) {
+                accuracyVal.innerText = '100%';
+                return;
+            }
+            const acc = Math.round((correctKeystrokes / totalKeystrokes) * 100);
+            accuracyVal.innerText = `${acc}%`;
+        }
+
+        // Simple approximate stroke calculator for Korean characters (Jaso counting)
+        function countStrokes(str) {
+            let strokes = 0;
+            for (let i = 0; i < str.length; i++) {
+                const code = str.charCodeAt(i);
+                if (code >= 0xAC00 && code <= 0xD7A3) { // Hangul Syllable
+                    const offset = code - 0xAC00;
+                    const choice = offset % 28; // Jongseong
+                    const joong = Math.floor((offset % 588) / 28); // Jungseong
+                    const cho = Math.floor(offset / 588); // Choseong
+
+                    // Add 1 stroke for Choseong, 1 for Jungseong, and 1 for Jongseong if present
+                    strokes += 2 + (choice > 0 ? 1 : 0);
+                } else {
+                    strokes += 1;
+                }
+            }
+            return strokes;
+        }
+
+        window.onload = resetPractice;
+    </script>
+</body>
+</html>

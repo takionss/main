@@ -1032,7 +1032,17 @@
         window.addEventListener('message', (event) => {
             if (event.data && event.data.type === 'resize-window') {
                 const { title, width, height } = event.data;
-                const winId = getWindowIdByTitle(title);
+                let winId = getWindowIdByTitle(title);
+                if (!winId) {
+                    winId = Object.keys(openWindows).find(id => {
+                        const winEl = document.getElementById(id);
+                        if (winEl) {
+                            const iframe = winEl.querySelector('iframe');
+                            return iframe && iframe.src.includes('minesweeper');
+                        }
+                        return false;
+                    });
+                }
                 const win = document.getElementById(winId);
                 if (win && !win.classList.contains('maximized')) {
                     win.style.width = `${width}px`;
