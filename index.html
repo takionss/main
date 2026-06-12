@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-select=none">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>SmilesLife Web OS</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -12,26 +12,23 @@
             background: url('https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2560&auto=format&fit=crop') center/cover no-repeat;
         }
 
-        /* 🌟 [핵심 수정] 모바일에서도 시원하게 보이도록 글씨 크기 고정 및 고대비 색상 적용 */
         #boot-screen {
             position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
             background: #111; color: #fff; z-index: 9999;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             cursor: pointer; padding: 30px; text-align: center;
         }
-        #boot-screen h1 { font-size: 28px; font-weight: bold; margin-bottom: 20px; color: #fff; }
+        #boot-screen h1 { font-size: 32px; font-weight: bold; margin-bottom: 20px; color: #fff; }
         #boot-screen p { font-size: 18px; color: #0078D4; font-weight: bold; animation: pulse 2s infinite; line-height: 1.5; }
 
-        /* 🌟 진짜 윈도우 11 스타일 로그인/환영합니다 로딩 화면 */
         #login-screen {
             position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
             background: url('https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2560&auto=format&fit=crop') center/cover no-repeat;
-            box-shadow: inset 0 0 0 2000px rgba(0,0,0,0.4); /* 배경 어둡게 흐리기 */
+            box-shadow: inset 0 0 0 2000px rgba(0,0,0,0.4); 
             backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
             display: none; flex-direction: column; justify-content: center; align-items: center;
-            z-index: 9998; color: #fff;
+            z-index: 9998; color: #fff; text-align: center;
         }
-        /* 윈도우 11 특유의 둥근 프로필 사진 공간 */
         .user-profile {
             width: 120px; height: 120px; border-radius: 50%; background: rgba(255,255,255,0.2);
             display: flex; justify-content: center; align-items: center;
@@ -41,7 +38,6 @@
         .user-profile img { width: 60px; height: 60px; filter: invert(1); opacity: 0.8; }
         #login-screen h2 { font-size: 24px; font-weight: 400; margin-bottom: 25px; letter-spacing: 1px; }
 
-        /* 종료/재시작 애니메이션용 */
         #transition-screen {
             position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
             background: #000; color: #fff; z-index: 10000;
@@ -51,7 +47,6 @@
         #transition-screen.fade-in { opacity: 1; }
         #transition-screen h2 { font-weight: 300; font-size: 24px; letter-spacing: 1px; margin-bottom: 25px; }
         
-        /* 윈도우 11 스타일 점들이 도는 로딩 애니메이션 */
         .spinner {
             width: 36px; height: 36px; border: 4px solid rgba(255,255,255,0.2);
             border-left-color: #0078D4; border-radius: 50%;
@@ -115,12 +110,25 @@
         #taskbar { 
             width: 100vw; height: 48px; background: rgba(243, 243, 243, 0.85); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
             border-top: 1px solid rgba(255,255,255,0.5); position: absolute; bottom: 0; left: 0; 
-            display: flex; justify-content: flex-start; align-items: center; padding: 0 10px; gap: 10px; z-index: 100;
+            display: flex; justify-content: space-between; align-items: center; padding: 0 10px; z-index: 100;
+        }
+        #taskbar-left { display: flex; align-items: center; gap: 10px; height: 100%; flex: 1; overflow: hidden; }
+        #taskbar-right { display: flex; align-items: center; gap: 5px; color: #333; font-size: 12px; }
+
+        .tray-icons {
+            display: flex; gap: 10px; align-items: center;
+            padding: 5px 8px; border-radius: 4px;
+        }
+        .tray-icons img { width: 16px; height: 16px; opacity: 0.8; }
+        
+        .taskbar-clock {
+            display: flex; flex-direction: column; align-items: flex-end; 
+            padding: 2px 8px; border-radius: 4px; line-height: 1.3;
         }
         
         #start-btn { 
             width: 44px; height: 44px; background: transparent; border: none; border-radius: 6px; cursor: pointer; 
-            display: flex; justify-content: center; align-items: center; transition: 0.2s;
+            display: flex; justify-content: center; align-items: center; transition: 0.2s; flex-shrink: 0;
         }
         #start-btn:hover { background: rgba(255,255,255,0.5); }
         
@@ -163,7 +171,6 @@
             border: 1px solid rgba(0,0,0,0.1); border-radius: 12px; display: none; flex-direction: column;
             box-shadow: 0 5px 20px rgba(0,0,0,0.15); padding: 15px; z-index: 100; cursor: default;
         }
-        /* .start-menu-group:hover .sub-menu { display: flex; } */
 
         .sub-menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
         .start-menu-item { display: flex; flex-direction: column; align-items: center; cursor: pointer; padding: 10px 5px; border-radius: 5px; transition: 0.2s; font-size: 12px; color: #333; text-align: center; word-break: keep-all; }
@@ -195,18 +202,12 @@
         }
         #start-menu-power:hover { background: rgba(0, 0, 0, 0.1); }
         #start-menu-power img { width: 20px; height: 20px; opacity: 0.8; }
-        
 
-
-        /* 스마트폰 세로화면(폭 600px 이하) 또는 가로화면(높이 500px 이하) 모두 아코디언 적용 및 스크롤 추가 */
         @media (max-width: 600px), (max-height: 500px) {
             #start-menu { 
                 width: calc(100vw - 20px); left: 10px; 
-                max-height: calc(100vh - 80px); /* 화면 높이에 맞춰 메뉴창 크기 제한 */
-                overflow-y: auto; /* 메뉴가 길어지면 스크롤 생성 */
+                max-height: calc(100vh - 80px); overflow-y: auto;
             }
-            
-            /* 모바일 메뉴용 깔끔한 스크롤바 디자인 */
             #start-menu::-webkit-scrollbar { width: 6px; }
             #start-menu::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.2); border-radius: 3px; }
 
@@ -221,41 +222,6 @@
                 background: rgba(0,0,0,0.05); box-shadow: none; border: none;
             }
         }
-
-
-        /* --- 작업표시줄 우측 시계 및 트레이 아이콘 스타일 --- */
-        #taskbar { justify-content: space-between; } /* 좌우 양끝으로 배치 */
-        #taskbar-left { display: flex; align-items: center; gap: 10px; height: 100%; flex: 1; overflow: hidden; }
-        
-        #taskbar-right {
-            display: flex; align-items: center; gap: 10px; padding-right: 5px; 
-            color: #333; font-size: 12px;
-        }
-        .tray-icons {
-            display: flex; gap: 10px; align-items: center; cursor: pointer; 
-            padding: 5px 8px; border-radius: 4px; transition: 0.2s;
-        }
-        .tray-icons:hover { background: rgba(255,255,255,0.5); }
-        .tray-icons img { width: 16px; height: 16px; opacity: 0.8; }
-        
-        .taskbar-clock {
-            display: flex; flex-direction: column; align-items: flex-end; cursor: pointer; 
-            padding: 2px 8px; border-radius: 4px; line-height: 1.3; transition: 0.2s;
-        }
-        .taskbar-clock:hover { background: rgba(255,255,255,0.5); }
-
-        /* 볼륨 제어 팝업 (디자인용) */
-        #tray-popup {
-            position: absolute; bottom: 55px; right: 10px; width: 300px;
-            background: rgba(243, 243, 243, 0.95); backdrop-filter: blur(20px);
-            border: 1px solid rgba(0,0,0,0.1); border-radius: 12px; display: none;
-            padding: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.15); z-index: 101; cursor: default;
-        }
-        .volume-slider-container { display: flex; align-items: center; gap: 15px; margin-top: 10px; }
-        .volume-slider-container img { width: 20px; height: 20px; opacity: 0.7; }
-        .volume-slider-container input[type=range] { flex: 1; cursor: pointer; }
-        
-
     </style>
 </head>
 <body>
@@ -273,7 +239,8 @@
             <img src="https://cdn-icons-png.flaticon.com/512/1144/1144760.png" alt="User">
         </div>
         <h2>환영합니다</h2>
-        <div class="spinner"></div> </div>
+        <div class="spinner"></div>
+    </div>
 
     <div id="transition-screen">
         <h2 id="transition-text">시스템 종료 중...</h2>
@@ -329,9 +296,8 @@
         </div>
 
         <div id="taskbar-right">
-            <div class="tray-icons" onclick="toggleTrayPopup(event)">
-                <img id="network-icon" src="https://cdn-icons-png.flaticon.com/512/159/159078.png" alt="인터넷">
-                <img src="https://cdn-icons-png.flaticon.com/512/727/727269.png" alt="볼륨">
+            <div class="tray-icons">
+                <img id="network-icon" src="https://cdn-icons-png.flaticon.com/512/159/159078.png" alt="인터넷 연결 상태">
             </div>
             <div class="taskbar-clock">
                 <span id="clock-time">00:00</span>
@@ -340,59 +306,61 @@
         </div>
     </div>
 
-    <div id="tray-popup" onclick="event.stopPropagation()">
-        <div style="font-size:14px; font-weight:bold; color:#333;">볼륨 설정</div>
-        <div class="volume-slider-container">
-            <img src="https://cdn-icons-png.flaticon.com/512/727/727269.png" alt="볼륨">
-            <input type="range" min="0" max="100" value="50">
-        </div>
-        <div style="font-size:11px; color:#888; margin-top:15px; line-height:1.4;">
-            ※ 브라우저 보안 정책상 다른 웹사이트의 소리는 직접 제어할 수 없습니다. (디자인 시뮬레이션용)
-        </div>
-    </div>
-
     <script>
         const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/1RRpkarZGReZMb243IsGNQfP1Urzs5Fh24uWRbfkwVdM/export?format=csv&gid=0';
         let siteDataList = []; 
 
-        // 🌟 [핵심 수정] 시스템 실행 안전 로직
         function startSystem() {
-            // 전체화면 기능 실행 도중 에러가 나더라도 무조건 차단 없이 다음 화면으로 넘어가게 안전장치(try-catch) 적용
-            try {
-                const docElm = document.documentElement;
-                if (docElm.requestFullscreen) { docElm.requestFullscreen(); }
-                else if (docElm.webkitRequestFullscreen) { docElm.webkitRequestFullscreen(); }
-            } catch (err) {
-                console.log("모바일 환경 혹은 브라우저 제약으로 전체화면 전환이 생략되었습니다.");
-            }
-            
-            // 안내 화면 즉시 숨기기
             document.getElementById('boot-screen').style.display = 'none';
-            
-            // 윈도우 11 스타일 '환영합니다' 로그인 로딩창 띄우기
             const loginScreen = document.getElementById('login-screen');
             loginScreen.style.display = 'flex';
             
-            // 시각적인 부팅 감성을 위해 1.5초간 '환영합니다' 창을 강제 유지하며 백그라운드에서 구글 시트 파싱
-            setTimeout(() => {
-                loadMenuData();
-            }, 1500);
+            try {
+                const docElm = document.documentElement;
+                if (docElm.requestFullscreen) { 
+                    const req = docElm.requestFullscreen();
+                    if (req && req.catch) req.catch(() => {});
+                }
+                else if (docElm.webkitRequestFullscreen) { docElm.webkitRequestFullscreen(); }
+            } catch (err) {}
+
+            setTimeout(() => { loadMenuData(); }, 1500);
+        }
+
+        function closeAllMenus() { 
+            const startMenu = document.getElementById('start-menu');
+            const powerPopup = document.getElementById('power-popup');
+            if (startMenu) startMenu.style.display = 'none'; 
+            if (powerPopup) powerPopup.style.display = 'none';
+        }
+        document.body.addEventListener('click', closeAllMenus);
+
+        function toggleStartMenu(event) {
+            event.stopPropagation();
+            const menu = document.getElementById('start-menu');
+            const isMenuOpen = menu.style.display === 'flex';
+            closeAllMenus();
+            if (!isMenuOpen) menu.style.display = 'flex';
         }
 
         function togglePowerMenu(event) {
             event.stopPropagation();
             const powerPopup = document.getElementById('power-popup');
-            powerPopup.style.display = powerPopup.style.display === 'flex' ? 'none' : 'flex';
+            const isOpen = powerPopup.style.display === 'flex';
+            closeAllMenus();
+            if (!isOpen) {
+                document.getElementById('start-menu').style.display = 'flex';
+                powerPopup.style.display = 'flex';
+            }
         }
 
         function shutdownAnimation() {
-            closeStartMenu();
+            closeAllMenus();
             const transScreen = document.getElementById('transition-screen');
             document.getElementById('transition-text').innerText = "시스템 종료 중...";
             transScreen.style.display = 'flex';
             
             setTimeout(() => { transScreen.classList.add('fade-in'); }, 50);
-            
             setTimeout(() => {
                 transScreen.style.display = 'none';
                 document.getElementById('shutdown-screen').style.display = 'flex';
@@ -403,16 +371,13 @@
         }
 
         function restartAnimation() {
-            closeStartMenu();
+            closeAllMenus();
             const transScreen = document.getElementById('transition-screen');
             document.getElementById('transition-text').innerText = "다시 시작 중...";
             transScreen.style.display = 'flex';
             
             setTimeout(() => { transScreen.classList.add('fade-in'); }, 50);
-            
-            setTimeout(() => {
-                location.reload();
-            }, 2500);
+            setTimeout(() => { location.reload(); }, 2500);
         }
 
         async function loadMenuData() {
@@ -431,7 +396,7 @@
                 mySiteFolder.innerHTML = `<img src="${folderIconImg}" class="icon-img" alt="폴더"><div>내사이트</div>`;
                 mySiteFolder.ondblclick = () => {
                     openFolder('내사이트', folderIconImg);
-                    closeStartMenu();
+                    closeAllMenus();
                 };
                 desktop.appendChild(mySiteFolder);
 
@@ -440,7 +405,6 @@
 
                 rows.forEach(row => {
                     if (!row.trim()) return;
-                    
                     const columns = row.split(',').map(col => col.replace(/^"|"$/g, '').trim());
                     if(columns.length < 3) return;
 
@@ -456,7 +420,7 @@
                     icon.innerHTML = `<img src="${iconUrl}" class="icon-img" alt="icon"><div>${name}</div>`;
                     icon.ondblclick = () => { 
                         openWindow(name, url, iconUrl);
-                        closeStartMenu();
+                        closeAllMenus();
                     };
                     desktop.appendChild(icon);
 
@@ -476,11 +440,10 @@
                         menuItem.onclick = (e) => {
                             e.stopPropagation();
                             openWindow(item.name, item.url, item.iconUrl);
-                            closeStartMenu();
+                            closeAllMenus();
                         };
                         startMenuList.appendChild(menuItem);
                     });
-
                     if (Object.keys(otherGroups).length > 0) {
                         const divider = document.createElement('div');
                         divider.className = 'divider';
@@ -488,7 +451,6 @@
                     }
                 }
 
-                // 2. 그룹 설정이 된 프로그램들은 터치/클릭 시 열리는 가지 메뉴로 표시
                 for (const [grp, items] of Object.entries(otherGroups)) {
                     const groupEl = document.createElement('div');
                     groupEl.className = 'start-menu-group';
@@ -496,7 +458,6 @@
 
                     const subMenu = document.createElement('div');
                     subMenu.className = 'sub-menu';
-                    
                     const subMenuGrid = document.createElement('div');
                     subMenuGrid.className = 'sub-menu-grid';
 
@@ -505,9 +466,9 @@
                         menuItem.className = 'start-menu-item';
                         menuItem.innerHTML = `<img src="${item.iconUrl}" class="menu-icon-sm" alt="icon"><span>${item.name}</span>`;
                         menuItem.onclick = (e) => {
-                            e.stopPropagation(); // 이벤트를 상위로 전파하지 않음 (서브메뉴 안에서 클릭 보호)
+                            e.stopPropagation(); 
                             openWindow(item.name, item.url, item.iconUrl);
-                            closeStartMenu();
+                            closeAllMenus();
                         };
                         subMenuGrid.appendChild(menuItem);
                     });
@@ -515,19 +476,14 @@
                     subMenu.appendChild(subMenuGrid);
                     groupEl.appendChild(subMenu);
 
-                    // 🌟 [핵심 수정] 마우스 호버 대신 터치/클릭 이벤트로 서브메뉴 고정 토글
                     groupEl.onclick = (e) => {
-                        e.stopPropagation(); // 바탕화면 클릭 이벤트 등으로 창이 바로 닫히는 현상 방지
-                        
-                        // 현재 클릭한 메뉴 외에 다른 열려있는 서브 메뉴들은 모두 닫기
+                        e.stopPropagation();
                         document.querySelectorAll('.sub-menu').forEach(menu => {
                             if (menu !== subMenu) menu.style.display = 'none';
                         });
                         document.querySelectorAll('.start-menu-group').forEach(el => {
                             if (el !== groupEl) el.classList.remove('active');
                         });
-
-                        // 토글 상태 변경 (열려있으면 닫고, 닫혀있으면 열기)
                         const isVisible = subMenu.style.display === 'flex';
                         subMenu.style.display = isVisible ? 'none' : 'flex';
                         groupEl.classList.toggle('active', !isVisible);
@@ -536,7 +492,6 @@
                     startMenuList.appendChild(groupEl);
                 }
 
-                // 🌟 모든 데이터 로드가 완료되면 '환영합니다' 화면 숨기기
                 document.getElementById('login-screen').style.display = 'none';
 
             } catch (error) {
@@ -545,62 +500,6 @@
             }
         }
 
-        function toggleStartMenu(event) {
-            event.stopPropagation();
-            const menu = document.getElementById('start-menu');
-            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
-            document.getElementById('power-popup').style.display = 'none'; 
-        }
-
-// 🌟 1. 기존 메뉴 닫기 대신 새롭게 교체된 전체 닫기 기능
-        function closeAllMenus() { 
-            document.getElementById('start-menu').style.display = 'none'; 
-            document.getElementById('power-popup').style.display = 'none';
-            const trayPopup = document.getElementById('tray-popup');
-            if(trayPopup) trayPopup.style.display = 'none';
-        }
-        document.body.addEventListener('click', closeAllMenus);
-
-        // 🌟 2. 새롭게 추가된 트레이, 시계, 네트워크 기능들
-        function toggleTrayPopup(event) {
-            event.stopPropagation();
-            closeAllMenus();
-            const trayPopup = document.getElementById('tray-popup');
-            trayPopup.style.display = trayPopup.style.display === 'block' ? 'none' : 'block';
-        }
-
-        function updateClock() {
-            const now = new Date();
-            let hours = now.getHours();
-            const ampm = hours >= 12 ? '오후' : '오전';
-            hours = hours % 12 || 12; 
-            const minutes = now.getMinutes().toString().padStart(2, '0');
-            const year = now.getFullYear();
-            const month = String(now.getMonth() + 1).padStart(2, '0');
-            const day = String(now.getDate()).padStart(2, '0');
-
-            const clockTime = document.getElementById('clock-time');
-            const clockDate = document.getElementById('clock-date');
-            if(clockTime) clockTime.innerText = `${ampm} ${hours}:${minutes}`;
-            if(clockDate) clockDate.innerText = `${year}-${month}-${day}`;
-        }
-        setInterval(updateClock, 1000);
-        updateClock(); 
-
-        function updateNetworkStatus() {
-            const icon = document.getElementById('network-icon');
-            if(!icon) return;
-            if (navigator.onLine) {
-                icon.src = "https://cdn-icons-png.flaticon.com/512/159/159078.png"; 
-            } else {
-                icon.src = "https://cdn-icons-png.flaticon.com/512/159/159076.png"; 
-            }
-        }
-        window.addEventListener('online', updateNetworkStatus);
-        window.addEventListener('offline', updateNetworkStatus);
-        updateNetworkStatus(); 
-
-        // 🌟 3. 절대 지우면 안 되는 기존 핵심 기능들 (그대로 유지)
         function addTaskbarApp(title, iconUrl) {
             const taskbarApps = document.getElementById('taskbar-apps');
             taskbarApps.innerHTML = `<div class="taskbar-app"><img src="${iconUrl}" alt="icon"><span>${title}</span></div>`;
@@ -647,7 +546,36 @@
             document.getElementById('taskbar-apps').innerHTML = '';
         }
 
-        
+        function updateClock() {
+            const now = new Date();
+            let hours = now.getHours();
+            const ampm = hours >= 12 ? '오후' : '오전';
+            hours = hours % 12 || 12; 
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+
+            const clockTime = document.getElementById('clock-time');
+            const clockDate = document.getElementById('clock-date');
+            if(clockTime) clockTime.innerText = `${ampm} ${hours}:${minutes}`;
+            if(clockDate) clockDate.innerText = `${year}-${month}-${day}`;
+        }
+        setInterval(updateClock, 1000);
+        updateClock(); 
+
+        function updateNetworkStatus() {
+            const icon = document.getElementById('network-icon');
+            if(!icon) return;
+            if (navigator.onLine) {
+                icon.src = "https://cdn-icons-png.flaticon.com/512/159/159078.png"; 
+            } else {
+                icon.src = "https://cdn-icons-png.flaticon.com/512/159/159076.png"; 
+            }
+        }
+        window.addEventListener('online', updateNetworkStatus);
+        window.addEventListener('offline', updateNetworkStatus);
+        updateNetworkStatus(); 
     </script>
 </body>
 </html>
