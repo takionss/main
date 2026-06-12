@@ -71,16 +71,11 @@
 
         #desktop {
             width: 100vw; height: calc(100vh - 48px); padding: 20px;
-            position: relative;
-            overflow: hidden;
+            display: flex; flex-direction: column; flex-wrap: wrap;
+            align-content: flex-start; gap: 15px;
         }
 
-        .icon { 
-            width: 80px; text-align: center; cursor: pointer; color: white; text-shadow: 0 1px 3px rgba(0,0,0,0.8); 
-            position: absolute;
-            user-select: none;
-        }
-        .icon * { pointer-events: none; }
+        .icon { width: 80px; text-align: center; cursor: pointer; color: white; text-shadow: 0 1px 3px rgba(0,0,0,0.8); }
         .icon:hover { background: rgba(255,255,255,0.1); border-radius: 5px; }
         .icon-img { width: 45px; height: 45px; margin: 5px auto; border-radius: 8px; object-fit: cover; display: block; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
 
@@ -392,41 +387,6 @@
         </div>
     </div>
 
-    <!-- 배경 화면 설정 팝업 -->
-    <div id="wallpaper-popup" class="info-modal" onclick="event.stopPropagation()" style="width: 420px; max-width: 90vw;">
-        <div class="modal-header">
-            <span>배경 화면 설정</span>
-            <button onclick="closeModal('wallpaper-popup')">✕</button>
-        </div>
-        <div class="modal-body" style="max-height: 70vh; overflow-y: auto;">
-            <h4 style="margin-bottom: 10px;">배경 이미지 선택</h4>
-            <div class="wallpaper-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px;">
-                <div class="wallpaper-item" onclick="setWallpaper('img1')" style="aspect-ratio: 16/9; background: url('https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=240&auto=format&fit=crop') center/cover; border-radius: 6px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s;"></div>
-                <div class="wallpaper-item" onclick="setWallpaper('img2')" style="aspect-ratio: 16/9; background: url('https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?q=80&w=240&auto=format&fit=crop') center/cover; border-radius: 6px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s;"></div>
-                <div class="wallpaper-item" onclick="setWallpaper('img3')" style="aspect-ratio: 16/9; background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=240&auto=format&fit=crop') center/cover; border-radius: 6px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s;"></div>
-                <div class="wallpaper-item" onclick="setWallpaper('img4')" style="aspect-ratio: 16/9; background: url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=240&auto=format&fit=crop') center/cover; border-radius: 6px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s;"></div>
-                <div class="wallpaper-item" onclick="setWallpaper('img5')" style="aspect-ratio: 16/9; background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=240&auto=format&fit=crop') center/cover; border-radius: 6px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s;"></div>
-                <div class="wallpaper-item" onclick="setWallpaper('img6')" style="aspect-ratio: 16/9; background: url('https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=240&auto=format&fit=crop') center/cover; border-radius: 6px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s;"></div>
-            </div>
-            
-            <h4 style="margin-bottom: 10px;">단색 선택</h4>
-            <div class="color-grid" style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin-bottom: 20px;">
-                <div class="color-item" onclick="setWallpaper('color', '#3c6382')" style="aspect-ratio: 1; background: #3c6382; border-radius: 6px; cursor: pointer; border: 2px solid transparent;"></div>
-                <div class="color-item" onclick="setWallpaper('color', '#079992')" style="aspect-ratio: 1; background: #079992; border-radius: 6px; cursor: pointer; border: 2px solid transparent;"></div>
-                <div class="color-item" onclick="setWallpaper('color', '#0a3d62')" style="aspect-ratio: 1; background: #0a3d62; border-radius: 6px; cursor: pointer; border: 2px solid transparent;"></div>
-                <div class="color-item" onclick="setWallpaper('color', '#38ada9')" style="aspect-ratio: 1; background: #38ada9; border-radius: 6px; cursor: pointer; border: 2px solid transparent;"></div>
-                <div class="color-item" onclick="setWallpaper('color', '#2c3e50')" style="aspect-ratio: 1; background: #2c3e50; border-radius: 6px; cursor: pointer; border: 2px solid transparent;"></div>
-                <div class="color-item" onclick="setWallpaper('color', '#1e272e')" style="aspect-ratio: 1; background: #1e272e; border-radius: 6px; cursor: pointer; border: 2px solid transparent;"></div>
-            </div>
-            
-            <h4 style="margin-bottom: 10px;">사용자 지정 색상</h4>
-            <div style="display: flex; gap: 10px; align-items: center;">
-                <input type="color" id="custom-color-picker" onchange="setWallpaper('color', this.value)" style="width: 50px; height: 35px; border: 1px solid #ddd; border-radius: 4px; cursor: pointer;">
-                <span style="font-size: 13px; color: #666;">원하는 단색을 직접 선택해 보세요.</span>
-            </div>
-        </div>
-    </div>
-
     <script>
         const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/1RRpkarZGReZMb243IsGNQfP1Urzs5Fh24uWRbfkwVdM/export?format=csv&gid=0';
         let siteDataList = []; 
@@ -648,12 +608,10 @@
                 }
 
                 document.getElementById('login-screen').style.display = 'none';
-                arrangeIcons();
 
             } catch (error) {
                 console.error('데이터 로드 실패:', error);
                 document.getElementById('login-screen').style.display = 'none'; 
-                arrangeIcons();
             }
         }
 
@@ -1050,10 +1008,6 @@
                         <img src="images/change.png" style="width:16px;"> 새로 고침
                     </div>
                     <div class="context-divider"></div>
-                    <div class="context-menu-item" onclick="showWallpaperSettings()">
-                        <img src="images/image.png" style="width:16px;"> 개인 설정 (배경 화면)
-                    </div>
-                    <div class="context-divider"></div>
                     <div class="context-menu-item" onclick="showSystemInfo()">
                         <img src="images/system.png" style="width:16px;"> 시스템 정보
                     </div>
@@ -1096,219 +1050,6 @@
                 }
             }
         });
-
-        // ==========================================
-        // 🌟 배경 화면 (Wallpaper) 관리 및 단색 선택 기능
-        // ==========================================
-        const wallpaperUrls = {
-            'img1': 'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2560&auto=format&fit=crop',
-            'img2': 'https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?q=80&w=2560&auto=format&fit=crop',
-            'img3': 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2560&auto=format&fit=crop',
-            'img4': 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=2560&auto=format&fit=crop',
-            'img5': 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2560&auto=format&fit=crop',
-            'img6': 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=2560&auto=format&fit=crop'
-        };
-
-        function setWallpaper(type, value) {
-            if (type === 'color') {
-                document.body.style.background = value;
-                localStorage.setItem('desktop-wallpaper', JSON.stringify({ type: 'color', value: value }));
-            } else {
-                const url = wallpaperUrls[type];
-                document.body.style.background = `url('${url}') center/cover no-repeat`;
-                localStorage.setItem('desktop-wallpaper', JSON.stringify({ type: 'image', value: type }));
-            }
-            highlightActiveWallpaper();
-        }
-
-        function loadWallpaper() {
-            const saved = localStorage.getItem('desktop-wallpaper');
-            if (saved) {
-                try {
-                    const { type, value } = JSON.parse(saved);
-                    if (type === 'color') {
-                        document.body.style.background = value;
-                        document.getElementById('custom-color-picker').value = value;
-                    } else {
-                        const url = wallpaperUrls[value] || wallpaperUrls['img1'];
-                        document.body.style.background = `url('${url}') center/cover no-repeat`;
-                    }
-                } catch (e) {
-                    setWallpaper('img1');
-                }
-            } else {
-                document.body.style.background = `url('${wallpaperUrls['img1']}') center/cover no-repeat`;
-            }
-            highlightActiveWallpaper();
-        }
-
-        function highlightActiveWallpaper() {
-            const saved = localStorage.getItem('desktop-wallpaper');
-            let currentType = 'image';
-            let currentValue = 'img1';
-            if (saved) {
-                try {
-                    const parsed = JSON.parse(saved);
-                    currentType = parsed.type;
-                    currentValue = parsed.value;
-                } catch(e) {}
-            }
-            
-            document.querySelectorAll('.wallpaper-item').forEach((item, idx) => {
-                const imgKey = 'img' + (idx + 1);
-                if (currentType === 'image' && currentValue === imgKey) {
-                    item.style.borderColor = '#0078D4';
-                } else {
-                    item.style.borderColor = 'transparent';
-                }
-            });
-        }
-
-        function showWallpaperSettings() {
-            closeAllMenus();
-            document.getElementById('wallpaper-popup').style.display = 'flex';
-        }
-
-        // ==========================================
-        // 🌟 바탕화면 아이콘 드래그 이동 및 그리드 정렬 (Persistence)
-        // ==========================================
-        let activeDragIcon = null;
-        let iconDragOffsetX = 0;
-        let iconDragOffsetY = 0;
-
-        function startDragIcon(iconEl, event) {
-            if (event.type === 'mousedown' && event.button !== 0) return;
-            
-            activeDragIcon = iconEl;
-            
-            const clientX = event.type.startsWith('touch') ? event.touches[0].clientX : event.clientX;
-            const clientY = event.type.startsWith('touch') ? event.touches[0].clientY : event.clientY;
-            
-            const rect = iconEl.getBoundingClientRect();
-            iconDragOffsetX = clientX - rect.left;
-            iconDragOffsetY = clientY - rect.top;
-            
-            document.addEventListener('mousemove', dragMoveIcon);
-            document.addEventListener('mouseup', endDragIcon);
-            document.addEventListener('touchmove', dragMoveIcon, { passive: false });
-            document.addEventListener('touchend', endDragIcon);
-            
-            event.stopPropagation();
-        }
-
-        function dragMoveIcon(event) {
-            if (!activeDragIcon) return;
-            
-            const clientX = event.type.startsWith('touch') ? event.touches[0].clientX : event.clientX;
-            const clientY = event.type.startsWith('touch') ? event.touches[0].clientY : event.clientY;
-            
-            const desktopRect = document.getElementById('desktop').getBoundingClientRect();
-            
-            let newLeft = clientX - desktopRect.left - iconDragOffsetX;
-            let newTop = clientY - desktopRect.top - iconDragOffsetY;
-            
-            const maxLeft = desktopRect.width - activeDragIcon.offsetWidth;
-            const maxTop = desktopRect.height - activeDragIcon.offsetHeight;
-            
-            if (newLeft < 0) newLeft = 0;
-            if (newLeft > maxLeft) newLeft = maxLeft;
-            if (newTop < 0) newTop = 0;
-            if (newTop > maxTop) newTop = maxTop;
-            
-            activeDragIcon.style.left = `${newLeft}px`;
-            activeDragIcon.style.top = `${newTop}px`;
-            
-            event.preventDefault();
-        }
-
-        function endDragIcon() {
-            if (activeDragIcon) {
-                const gridX = 95; 
-                const gridY = 95; 
-                let currentLeft = parseFloat(activeDragIcon.style.left);
-                let currentTop = parseFloat(activeDragIcon.style.top);
-                
-                let snappedLeft = Math.round(currentLeft / gridX) * gridX;
-                let snappedTop = Math.round(currentTop / gridY) * gridY;
-                
-                const desktopRect = document.getElementById('desktop').getBoundingClientRect();
-                const maxLeft = desktopRect.width - activeDragIcon.offsetWidth;
-                const maxTop = desktopRect.height - activeDragIcon.offsetHeight;
-                
-                if (snappedLeft < 0) snappedLeft = 0;
-                if (snappedLeft > maxLeft) snappedLeft = Math.floor(maxLeft / gridX) * gridX;
-                if (snappedTop < 0) snappedTop = 0;
-                if (snappedTop > maxTop) snappedTop = Math.floor(maxTop / gridY) * gridY;
-                
-                activeDragIcon.style.left = `${snappedLeft}px`;
-                activeDragIcon.style.top = `${snappedTop}px`;
-                
-                const iconName = activeDragIcon.querySelector('div').innerText.trim();
-                localStorage.setItem(`icon-pos-${iconName}`, JSON.stringify({ left: snappedLeft, top: snappedTop }));
-            }
-            activeDragIcon = null;
-            document.removeEventListener('mousemove', dragMoveIcon);
-            document.removeEventListener('mouseup', endDragIcon);
-            document.removeEventListener('touchmove', dragMoveIcon);
-            document.removeEventListener('touchend', endDragIcon);
-        }
-
-        function arrangeIcons() {
-            const desktop = document.getElementById('desktop');
-            const icons = desktop.querySelectorAll('.icon');
-            if (icons.length === 0) return;
-
-            const gridX = 95; 
-            const gridY = 95; 
-            const desktopHeight = desktop.clientHeight || window.innerHeight - 48;
-            const maxRows = Math.floor((desktopHeight - 20) / gridY) || 1;
-            
-            let row = 0;
-            let col = 0;
-            
-            icons.forEach(icon => {
-                icon.style.position = 'absolute';
-                const iconName = icon.querySelector('div').innerText.trim();
-                const savedPos = localStorage.getItem(`icon-pos-${iconName}`);
-                
-                if (savedPos) {
-                    try {
-                        const { left, top } = JSON.parse(savedPos);
-                        icon.style.left = `${left}px`;
-                        icon.style.top = `${top}px`;
-                    } catch (e) {
-                        setDefaultPosition();
-                    }
-                } else {
-                    setDefaultPosition();
-                }
-                
-                function setDefaultPosition() {
-                    const left = col * gridX + 20; 
-                    const top = row * gridY + 20;
-                    icon.style.left = `${left}px`;
-                    icon.style.top = `${top}px`;
-                    
-                    row++;
-                    if (row >= maxRows) {
-                        row = 0;
-                        col++;
-                    }
-                }
-                
-                icon.addEventListener('mousedown', (e) => {
-                    if (e.detail === 1) {
-                        startDragIcon(icon, e);
-                    }
-                });
-                icon.addEventListener('touchstart', (e) => {
-                    startDragIcon(icon, e);
-                });
-            });
-        }
-
-        // 초기 배경 화면 적용
-        loadWallpaper();
 
     </script>
 </body>
