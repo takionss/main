@@ -435,13 +435,7 @@
         </div>
         <div class="modal-body" style="max-height: 70vh; overflow-y: auto;">
             <h4 style="margin-bottom: 10px;">배경 이미지 선택</h4>
-            <div class="wallpaper-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px;">
-                <div class="wallpaper-item" onclick="setWallpaper('img1')" style="aspect-ratio: 16/9; background: url('https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=240&auto=format&fit=crop') center/cover; border-radius: 6px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s;"></div>
-                <div class="wallpaper-item" onclick="setWallpaper('img2')" style="aspect-ratio: 16/9; background: url('https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?q=80&w=240&auto=format&fit=crop') center/cover; border-radius: 6px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s;"></div>
-                <div class="wallpaper-item" onclick="setWallpaper('img3')" style="aspect-ratio: 16/9; background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=240&auto=format&fit=crop') center/cover; border-radius: 6px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s;"></div>
-                <div class="wallpaper-item" onclick="setWallpaper('img4')" style="aspect-ratio: 16/9; background: url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=240&auto=format&fit=crop') center/cover; border-radius: 6px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s;"></div>
-                <div class="wallpaper-item" onclick="setWallpaper('img5')" style="aspect-ratio: 16/9; background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=240&auto=format&fit=crop') center/cover; border-radius: 6px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s;"></div>
-                <div class="wallpaper-item" onclick="setWallpaper('img6')" style="aspect-ratio: 16/9; background: url('https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=240&auto=format&fit=crop') center/cover; border-radius: 6px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s;"></div>
+            <div class="wallpaper-grid" id="wallpaper-grid-container" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px; max-height: 240px; overflow-y: auto; padding-right: 5px;">
             </div>
             
             <h4 style="margin-bottom: 10px;">단색 선택</h4>
@@ -573,6 +567,17 @@
                 const data = await response.text();
                 
                 const rows = data.split(/\r?\n/).slice(1);
+                
+                const hasWallpapers = rows.some(row => {
+                    const columns = row.split(',').map(col => col.replace(/^"|"$/g, '').trim());
+                    return columns[1] === '배경화면';
+                });
+                if (hasWallpapers) {
+                    for (const key in wallpaperUrls) {
+                        delete wallpaperUrls[key];
+                    }
+                }
+
                 const desktop = document.getElementById('desktop');
                 const startMenuList = document.getElementById('start-menu-list');
                 desktop.innerHTML = '';
@@ -602,6 +607,11 @@
                     const groupName = columns[1] || ''; 
                     const url = columns[2] || '';
                     const iconUrl = (columns[3] && columns[3] !== '') ? columns[3] : defaultIcon;
+
+                    if (groupName === '배경화면') {
+                        wallpaperUrls[name] = iconUrl;
+                        return;
+                    }
 
                     siteDataList.push({ name, url, iconUrl });
 
@@ -682,6 +692,8 @@
                     startMenuList.appendChild(groupEl);
                 }
 
+                loadWallpaper();
+                renderWallpaperGrid();
                 document.getElementById('login-screen').style.display = 'none';
                 arrangeIcons();
 
@@ -1181,15 +1193,21 @@
                 document.body.style.background = value;
                 localStorage.setItem('desktop-wallpaper', JSON.stringify({ type: 'color', value: value }));
             } else {
-                const url = wallpaperUrls[type];
-                document.body.style.background = `url('${url}') center/cover no-repeat`;
-                localStorage.setItem('desktop-wallpaper', JSON.stringify({ type: 'image', value: type }));
+                const url = wallpaperUrls[value];
+                if (url) {
+                    document.body.style.background = `url('${url}') center/cover no-repeat`;
+                    localStorage.setItem('desktop-wallpaper', JSON.stringify({ type: 'image', value: value }));
+                }
             }
             highlightActiveWallpaper();
         }
 
         function loadWallpaper() {
             const saved = localStorage.getItem('desktop-wallpaper');
+            const keys = Object.keys(wallpaperUrls);
+            const defaultKey = keys.length > 0 ? keys[0] : 'img1';
+            const defaultUrl = wallpaperUrls[defaultKey] || 'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2560&auto=format&fit=crop';
+
             if (saved) {
                 try {
                     const { type, value } = JSON.parse(saved);
@@ -1197,14 +1215,14 @@
                         document.body.style.background = value;
                         document.getElementById('custom-color-picker').value = value;
                     } else {
-                        const url = wallpaperUrls[value] || wallpaperUrls['img1'];
+                        const url = wallpaperUrls[value] || defaultUrl;
                         document.body.style.background = `url('${url}') center/cover no-repeat`;
                     }
                 } catch (e) {
-                    setWallpaper('img1');
+                    document.body.style.background = `url('${defaultUrl}') center/cover no-repeat`;
                 }
             } else {
-                document.body.style.background = `url('${wallpaperUrls['img1']}') center/cover no-repeat`;
+                document.body.style.background = `url('${defaultUrl}') center/cover no-repeat`;
             }
             highlightActiveWallpaper();
         }
@@ -1212,7 +1230,10 @@
         function highlightActiveWallpaper() {
             const saved = localStorage.getItem('desktop-wallpaper');
             let currentType = 'image';
-            let currentValue = 'img1';
+            
+            const keys = Object.keys(wallpaperUrls);
+            let currentValue = keys.length > 0 ? keys[0] : 'img1';
+
             if (saved) {
                 try {
                     const parsed = JSON.parse(saved);
@@ -1221,9 +1242,9 @@
                 } catch(e) {}
             }
             
-            document.querySelectorAll('.wallpaper-item').forEach((item, idx) => {
-                const imgKey = 'img' + (idx + 1);
-                if (currentType === 'image' && currentValue === imgKey) {
+            document.querySelectorAll('.wallpaper-item').forEach(item => {
+                const key = item.getAttribute('data-wallpaper-key');
+                if (currentType === 'image' && currentValue === key) {
                     item.style.borderColor = '#0078D4';
                 } else {
                     item.style.borderColor = 'transparent';
@@ -1231,8 +1252,33 @@
             });
         }
 
+        function renderWallpaperGrid() {
+            const container = document.getElementById('wallpaper-grid-container');
+            if (!container) return;
+            container.innerHTML = '';
+            
+            Object.keys(wallpaperUrls).forEach(key => {
+                const url = wallpaperUrls[key];
+                const item = document.createElement('div');
+                item.className = 'wallpaper-item';
+                item.setAttribute('data-wallpaper-key', key);
+                item.onclick = () => setWallpaper('image', key);
+                item.style.aspectRatio = '16/9';
+                const previewUrl = url.includes('unsplash.com') ? url.replace('w=2560', 'w=240') : url;
+                item.style.background = `url('${previewUrl}') center/cover`;
+                item.style.borderRadius = '6px';
+                item.style.cursor = 'pointer';
+                item.style.border = '2px solid transparent';
+                item.style.transition = 'border-color 0.2s';
+                
+                container.appendChild(item);
+            });
+            highlightActiveWallpaper();
+        }
+
         function showWallpaperSettings() {
             closeAllMenus();
+            renderWallpaperGrid();
             document.getElementById('wallpaper-popup').style.display = 'flex';
         }
 
