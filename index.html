@@ -300,6 +300,14 @@
                 margin-left: 0 !important; margin-top: 10px; 
                 background: rgba(0,0,0,0.05); box-shadow: none; border: none;
             }
+            .icon {
+                width: 75px !important;
+                font-size: 11px !important;
+            }
+            .icon-img {
+                width: 36px !important;
+                height: 36px !important;
+            }
         }
     </style>
 </head>
@@ -1280,50 +1288,50 @@
             event.preventDefault();
         }
 
-        function findNearestEmptySpace(targetLeft, targetTop, excludeIconName) {
-            const gridX = 100;
-            const gridY = 110;
-            const startX = 20;
-            const startY = 20;
-            
+        function getGridSize() {
+            const isMobile = window.innerWidth < 600;
+            return {
+                gridX: isMobile ? 80 : 100,
+                gridY: isMobile ? 90 : 110
+            };
+        }
+
+        function findNearestEmptySpace(targetCol, targetRow, excludeIconName) {
             const desktop = document.getElementById('desktop');
             const icons = desktop.querySelectorAll('.icon');
+            const { gridY } = getGridSize();
             const desktopHeight = desktop.clientHeight || window.innerHeight - 48;
-            const desktopWidth = desktop.clientWidth || window.innerWidth;
-            
             const maxRows = Math.floor((desktopHeight - 20) / gridY) || 1;
             
             const occupied = [];
             icons.forEach(icon => {
                 const iconName = icon.querySelector('div').innerText.trim();
                 if (iconName !== excludeIconName) {
-                    const left = parseFloat(icon.style.left);
-                    const top = parseFloat(icon.style.top);
-                    if (!isNaN(left) && !isNaN(top)) {
-                        occupied.push({ left, top });
+                    const savedPos = localStorage.getItem(`icon-pos-${iconName}`);
+                    if (savedPos) {
+                        try {
+                            const { col, row } = JSON.parse(savedPos);
+                            occupied.push({ col, row });
+                        } catch(e) {}
                     }
                 }
             });
 
-            function isOccupied(left, top) {
-                return occupied.some(pos => Math.abs(pos.left - left) < 5 && Math.abs(pos.top - top) < 5);
+            function isOccupied(c, r) {
+                return occupied.some(pos => pos.col === c && pos.row === r);
             }
 
-            if (!isOccupied(targetLeft, targetTop)) {
-                return { left: targetLeft, top: targetTop };
+            if (!isOccupied(targetCol, targetRow) && targetRow < maxRows) {
+                return { col: targetCol, row: targetRow };
             }
 
             let col = 0;
             let row = 0;
             let guard = 0;
             while (guard < 200) {
-                const checkLeft = col * gridX + startX;
-                const checkTop = row * gridY + startY;
-                
-                if (!isOccupied(checkLeft, checkTop)) {
-                    return { left: checkLeft, top: checkTop };
+                if (!isOccupied(col, row)) {
+                    return { col, row };
                 }
-
                 row++;
                 if (row >= maxRows) {
                     row = 0;
@@ -1331,35 +1339,32 @@
                 }
                 guard++;
             }
-            return { left: targetLeft, top: targetTop };
+            return { col: targetCol, row: targetRow };
         }
 
         function endDragIcon() {
             if (activeDragIcon) {
-                const gridX = 100; 
-                const gridY = 110; 
+                const { gridX, gridY } = getGridSize();
                 let currentLeft = parseFloat(activeDragIcon.style.left);
                 let currentTop = parseFloat(activeDragIcon.style.top);
                 
-                let snappedLeft = Math.round((currentLeft - 20) / gridX) * gridX + 20;
-                let snappedTop = Math.round((currentTop - 20) / gridY) * gridY + 20;
+                let col = Math.round((currentLeft - 20) / gridX);
+                let row = Math.round((currentTop - 20) / gridY);
+                if (col < 0) col = 0;
+                if (row < 0) row = 0;
                 
-                const desktopRect = document.getElementById('desktop').getBoundingClientRect();
-                const maxLeft = desktopRect.width - activeDragIcon.offsetWidth;
-                const maxTop = desktopRect.height - activeDragIcon.offsetHeight;
-                
-                if (snappedLeft < 20) snappedLeft = 20;
-                if (snappedLeft > maxLeft) snappedLeft = Math.floor((maxLeft - 20) / gridX) * gridX + 20;
-                if (snappedTop < 20) snappedTop = 20;
-                if (snappedTop > maxTop) snappedTop = Math.floor((maxTop - 20) / gridY) * gridY + 20;
+                const desktop = document.getElementById('desktop');
+                const desktopHeight = desktop.clientHeight || window.innerHeight - 48;
+                const maxRows = Math.floor((desktopHeight - 20) / gridY) || 1;
+                if (row >= maxRows) row = maxRows - 1;
                 
                 const iconName = activeDragIcon.querySelector('div').innerText.trim();
-                const finalPos = findNearestEmptySpace(snappedLeft, snappedTop, iconName);
+                const finalGrid = findNearestEmptySpace(col, row, iconName);
                 
-                activeDragIcon.style.left = `${finalPos.left}px`;
-                activeDragIcon.style.top = `${finalPos.top}px`;
+                activeDragIcon.style.left = `${finalGrid.col * gridX + 20}px`;
+                activeDragIcon.style.top = `${finalGrid.row * gridY + 20}px`;
                 
-                localStorage.setItem(`icon-pos-${iconName}`, JSON.stringify({ left: finalPos.left, top: finalPos.top }));
+                localStorage.setItem(`icon-pos-${iconName}`, JSON.stringify({ col: finalGrid.col, row: finalGrid.row }));
             }
             activeDragIcon = null;
             document.removeEventListener('mousemove', dragMoveIcon);
@@ -1373,13 +1378,12 @@
             const icons = desktop.querySelectorAll('.icon');
             if (icons.length === 0) return;
 
-            const gridX = 100; 
-            const gridY = 110; 
+            const { gridX, gridY } = getGridSize();
             const desktopHeight = desktop.clientHeight || window.innerHeight - 48;
             const maxRows = Math.floor((desktopHeight - 20) / gridY) || 1;
             
-            let row = 0;
-            let col = 0;
+            let defaultRow = 0;
+            let defaultCol = 0;
             const occupied = [];
             
             icons.forEach(icon => {
@@ -1387,13 +1391,17 @@
                 const iconName = icon.querySelector('div').innerText.trim();
                 const savedPos = localStorage.getItem(`icon-pos-${iconName}`);
                 
-                let assignedLeft, assignedTop;
+                let assignedCol, assignedRow;
                 
                 if (savedPos) {
                     try {
-                        const { left, top } = JSON.parse(savedPos);
-                        assignedLeft = left;
-                        assignedTop = top;
+                        const { col, row } = JSON.parse(savedPos);
+                        assignedCol = col;
+                        assignedRow = row;
+                        
+                        if (assignedRow >= maxRows) {
+                            assignedRow = maxRows - 1;
+                        }
                     } catch (e) {
                         setDefaultPosition();
                     }
@@ -1401,16 +1409,14 @@
                     setDefaultPosition();
                 }
                 
-                if (isPosOccupied(assignedLeft, assignedTop)) {
+                if (isPosOccupied(assignedCol, assignedRow)) {
                     let checkCol = 0;
                     let checkRow = 0;
                     let found = false;
                     while (!found) {
-                        const checkLeft = checkCol * gridX + 20;
-                        const checkTop = checkRow * gridY + 20;
-                        if (!isPosOccupied(checkLeft, checkTop)) {
-                            assignedLeft = checkLeft;
-                            assignedTop = checkTop;
+                        if (!isPosOccupied(checkCol, checkRow) && checkRow < maxRows) {
+                            assignedCol = checkCol;
+                            assignedRow = checkRow;
                             found = true;
                         } else {
                             checkRow++;
@@ -1422,33 +1428,36 @@
                     }
                 }
                 
-                icon.style.left = `${assignedLeft}px`;
-                icon.style.top = `${assignedTop}px`;
-                occupied.push({ left: assignedLeft, top: assignedTop });
+                icon.style.left = `${assignedCol * gridX + 20}px`;
+                icon.style.top = `${assignedRow * gridY + 20}px`;
+                occupied.push({ col: assignedCol, row: assignedRow });
                 
                 function setDefaultPosition() {
-                    assignedLeft = col * gridX + 20; 
-                    assignedTop = row * gridY + 20;
+                    assignedCol = defaultCol; 
+                    assignedRow = defaultRow;
                     
-                    row++;
-                    if (row >= maxRows) {
-                        row = 0;
-                        col++;
+                    defaultRow++;
+                    if (defaultRow >= maxRows) {
+                        defaultRow = 0;
+                        defaultCol++;
                     }
                 }
                 
-                function isPosOccupied(l, t) {
-                    return occupied.some(pos => Math.abs(pos.left - l) < 5 && Math.abs(pos.top - t) < 5);
+                function isPosOccupied(c, r) {
+                    return occupied.some(pos => pos.col === c && pos.row === r);
                 }
                 
-                icon.addEventListener('mousedown', (e) => {
-                    if (e.detail === 1) {
+                if (!icon.dataset.listenersAttached) {
+                    icon.addEventListener('mousedown', (e) => {
+                        if (e.detail === 1) {
+                            startDragIcon(icon, e);
+                        }
+                    });
+                    icon.addEventListener('touchstart', (e) => {
                         startDragIcon(icon, e);
-                    }
-                });
-                icon.addEventListener('touchstart', (e) => {
-                    startDragIcon(icon, e);
-                });
+                    });
+                    icon.dataset.listenersAttached = 'true';
+                }
             });
         }
 
@@ -1471,6 +1480,26 @@
 
         // 초기 배경 화면 적용
         loadWallpaper();
+
+        function handleScreenResize() {
+            arrangeIcons();
+            const desktopWidth = window.innerWidth;
+            const desktopHeight = window.innerHeight - 48;
+            Object.keys(openWindows).forEach(winId => {
+                const win = document.getElementById(winId);
+                if (win && !openWindows[winId].maximized) {
+                    const actualWidth = win.offsetWidth;
+                    const actualHeight = win.offsetHeight;
+                    let left = parseFloat(win.style.left) || 0;
+                    let top = parseFloat(win.style.top) || 0;
+                    left = Math.max(0, Math.min(desktopWidth - actualWidth, left));
+                    top = Math.max(0, Math.min(desktopHeight - actualHeight, top));
+                    win.style.left = `${left}px`;
+                    win.style.top = `${top}px`;
+                }
+            });
+        }
+        window.addEventListener('resize', handleScreenResize);
 
     </script>
 </body>
