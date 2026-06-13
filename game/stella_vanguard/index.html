@@ -228,8 +228,21 @@ const a0_0x270b5e=a0_0x1751;(function(_0x45fa24,_0x1da194){const _0x1f8929=a0_0x
         
         window.addEventListener('resize', () => { adjustCameraFOV(); });
         applyI18n();
+
+        // 클릭 시 전체화면 복구 스크립트
+        document.addEventListener('click', () => {
+            if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+                const overlay = document.getElementById('overlay');
+                if (overlay && overlay.style.display === 'none') {
+                    const docEl = document.documentElement;
+                    if (docEl.requestFullscreen) {
+                        docEl.requestFullscreen().catch(err => console.log(err));
+                    } else if (docEl.webkitRequestFullscreen) {
+                        docEl.webkitRequestFullscreen();
+                    }
+                }
+            }
+        });
     </script>
-</body>
-</html>script>
 </body>
 </html>
