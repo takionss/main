@@ -496,6 +496,23 @@
         }
         document.body.addEventListener('click', closeAllMenus);
 
+        // 바탕화면 빈 영역 클릭 시 전체화면 복원 기능
+        document.getElementById('desktop').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('desktop')) {
+                const isFullscreen = !!(document.fullscreenElement || document.webkitFullscreenElement);
+                if (!isFullscreen) {
+                    try {
+                        const docElm = document.documentElement;
+                        if (docElm.requestFullscreen) {
+                            docElm.requestFullscreen().catch(() => {});
+                        } else if (docElm.webkitRequestFullscreen) {
+                            docElm.webkitRequestFullscreen();
+                        }
+                    } catch (err) {}
+                }
+            }
+        });
+
         function toggleStartMenu(event) {
             event.stopPropagation();
             const menu = document.getElementById('start-menu');
