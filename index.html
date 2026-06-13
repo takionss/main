@@ -791,7 +791,7 @@
             const isMinesweeper = title === '지뢰찾기';
             if (isMinesweeper) {
                 win.style.width = '376px';
-                win.style.height = '526px';
+                win.style.height = '670px';
             }
 
             const offset = (Object.keys(openWindows).length * 25) % 150;
@@ -817,7 +817,7 @@
                     </div>
                 </div>
                 <div class="window-body">
-                    <iframe class="window-iframe" src="${cleanUrl}" ${isMinesweeper ? 'scrolling="no"' : ''} style="width: 100%; height: 100%; border: 1px solid rgba(0,0,0,0.1); border-radius: 8px; display: block; background: #fff; ${isMinesweeper ? 'overflow: hidden;' : ''}"></iframe>
+                    <iframe class="window-iframe" src="${cleanUrl}" style="width: 100%; height: 100%; border: 1px solid rgba(0,0,0,0.1); border-radius: 8px; display: block; background: #fff;"></iframe>
                 </div>
             `;
 
