@@ -23,9 +23,11 @@
             color: var(--text-color);
             min-height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             overflow: auto;
+            padding: 20px 0;
         }
 
         .typing-container {
@@ -162,7 +164,45 @@
             border-radius: 8px;
             font-weight: bold;
         }
+        
+        /* Google Auto Ads Optimization Space styling */
+        .adsense-auto-wrapper {
+            width: 100%;
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #ffffff;
+            border-radius: 14px;
+            border: 1px dashed rgba(0, 0, 0, 0.08);
+            padding: 16px;
+            margin: 20px auto 0 auto;
+            max-width: 550px;
+            box-sizing: border-box;
+            clear: both;
+        }
+        .adsense-title {
+            font-size: 10px;
+            color: #718093;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            display: block;
+        }
+        .adsense-content {
+            width: 100%;
+            min-height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .adsense-placeholder {
+            font-size: 12px;
+            color: #718093;
+        }
     </style>
+    <script src="../../adsense-loader.js"></script>
 </head>
 <body>
 
@@ -206,6 +246,14 @@
                 <input type="text" class="input-field" id="input-field" placeholder="여기에 입력하세요..." autocomplete="off" oninput="onInput()" onkeydown="onKeyDown(event)">
             </div>
             <div class="keyboard-hint">단어는 공백(Space) 또는 엔터(Enter) 입력 시 넘어갑니다.</div>
+        </div>
+    </div>
+
+    <!-- Google Auto Ads Optimization Space -->
+    <div class="adsense-auto-wrapper">
+        <span class="adsense-title">Sponsored Advertisement</span>
+        <div class="adsense-content">
+            <p class="adsense-placeholder">광고 영역 (Google Adsense Space)</p>
         </div>
     </div>
 

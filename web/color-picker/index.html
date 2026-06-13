@@ -21,11 +21,13 @@
             font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg-color);
             color: var(--text-color);
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
+            overflow: auto;
+            padding: 20px 0;
         }
 
         .meter-container {
@@ -205,7 +207,45 @@
             text-align: center;
             margin-top: 5px;
         }
+        
+        /* Google Auto Ads Optimization Space styling */
+        .adsense-auto-wrapper {
+            width: 100%;
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #ffffff;
+            border-radius: 14px;
+            border: 1px dashed rgba(0, 0, 0, 0.08);
+            padding: 16px;
+            margin: 20px auto 0 auto;
+            max-width: 360px;
+            box-sizing: border-box;
+            clear: both;
+        }
+        .adsense-title {
+            font-size: 10px;
+            color: #718093;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            display: block;
+        }
+        .adsense-content {
+            width: 100%;
+            min-height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .adsense-placeholder {
+            font-size: 12px;
+            color: #718093;
+        }
     </style>
+    <script src="../../adsense-loader.js"></script>
 </head>
 <body>
 
@@ -261,6 +301,14 @@
                 <div class="title" style="font-size:12px;">최근 선택한 색상</div>
                 <div class="history-list" id="history-list"></div>
             </div>
+        </div>
+    </div>
+
+    <!-- Google Auto Ads Optimization Space -->
+    <div class="adsense-auto-wrapper">
+        <span class="adsense-title">Sponsored Advertisement</span>
+        <div class="adsense-content">
+            <p class="adsense-placeholder">광고 영역 (Google Adsense Space)</p>
         </div>
     </div>
 
