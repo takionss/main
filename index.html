@@ -758,8 +758,6 @@
             }
 
             const offset = (Object.keys(openWindows).length * 25) % 150;
-            win.style.left = `calc(50% - ${isMinesweeper ? 188 : 400}px + ${offset}px)`;
-            win.style.top = `calc(50% - ${isMinesweeper ? 263 : 300}px + ${offset}px)`;
 
             const maxBtnHtml = isMinesweeper
                 ? `<button class="win-btn max-btn" style="opacity: 0.3; cursor: not-allowed;" disabled>${MAXIMIZE_SVG}</button>`
@@ -792,6 +790,20 @@
 
             document.body.appendChild(win);
 
+            const actualWidth = win.offsetWidth;
+            const actualHeight = win.offsetHeight;
+            const desktopWidth = window.innerWidth;
+            const desktopHeight = window.innerHeight - 48;
+
+            let leftPos = (desktopWidth - actualWidth) / 2 + offset;
+            let topPos = (desktopHeight - actualHeight) / 2 + offset;
+
+            leftPos = Math.max(0, Math.min(desktopWidth - actualWidth, leftPos));
+            topPos = Math.max(0, Math.min(desktopHeight - actualHeight, topPos));
+
+            win.style.left = `${leftPos}px`;
+            win.style.top = `${topPos}px`;
+
             openWindows[winId] = {
                 id: winId,
                 title: title,
@@ -821,8 +833,6 @@
             win.style.zIndex = topZIndex;
 
             const offset = (Object.keys(openWindows).length * 25) % 150;
-            win.style.left = `calc(50% - 400px + ${offset}px)`;
-            win.style.top = `calc(50% - 300px + ${offset}px)`;
 
             win.innerHTML = `
                 <div class="window-header" onmousedown="startDrag('${winId}', event)" ontouchstart="startDrag('${winId}', event)">
@@ -855,6 +865,20 @@
                 icon.ondblclick = () => { openWindow(site.name, site.url, site.iconUrl); };
                 folderContainer.appendChild(icon);
             });
+
+            const actualWidth = win.offsetWidth;
+            const actualHeight = win.offsetHeight;
+            const desktopWidth = window.innerWidth;
+            const desktopHeight = window.innerHeight - 48;
+
+            let leftPos = (desktopWidth - actualWidth) / 2 + offset;
+            let topPos = (desktopHeight - actualHeight) / 2 + offset;
+
+            leftPos = Math.max(0, Math.min(desktopWidth - actualWidth, leftPos));
+            topPos = Math.max(0, Math.min(desktopHeight - actualHeight, topPos));
+
+            win.style.left = `${leftPos}px`;
+            win.style.top = `${topPos}px`;
 
             openWindows[winId] = {
                 id: winId,
@@ -901,6 +925,9 @@
         let dragOffsetY = 0;
 
         function startDrag(winId, event) {
+            if (event.target.closest('.window-controls') || event.target.closest('.win-btn')) {
+                return;
+            }
             const win = document.getElementById(winId);
             if (!win || win.classList.contains('maximized')) return;
             
