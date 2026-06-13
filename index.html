@@ -1345,7 +1345,7 @@
         function findNearestEmptySpace(targetCol, targetRow, excludeIconName) {
             const desktop = document.getElementById('desktop');
             const icons = desktop.querySelectorAll('.icon');
-            const { gridX, gridY } = getGridSize();
+            const { gridY } = getGridSize();
             const desktopHeight = desktop.clientHeight || window.innerHeight - 48;
             const maxRows = Math.floor((desktopHeight - 20) / gridY) || 1;
             
@@ -1353,18 +1353,10 @@
             icons.forEach(icon => {
                 const iconName = icon.querySelector('div').innerText.trim();
                 if (iconName !== excludeIconName) {
-                    const savedPos = localStorage.getItem(`icon-pos-${iconName}`);
-                    if (savedPos) {
-                        try {
-                            const parsed = JSON.parse(savedPos);
-                            if (parsed.col !== undefined && parsed.row !== undefined) {
-                                occupied.push({ col: parsed.col, row: parsed.row });
-                            } else if (parsed.left !== undefined && parsed.top !== undefined) {
-                                const c = Math.round((parsed.left - 20) / gridX);
-                                const r = Math.round((parsed.top - 20) / gridY);
-                                occupied.push({ col: c, row: r });
-                            }
-                        } catch(e) {}
+                    const c = parseInt(icon.getAttribute('data-col'));
+                    const r = parseInt(icon.getAttribute('data-row'));
+                    if (!isNaN(c) && !isNaN(r)) {
+                        occupied.push({ col: c, row: r });
                     }
                 }
             });
@@ -1415,6 +1407,8 @@
                 
                 activeDragIcon.style.left = `${finalGrid.col * gridX + 20}px`;
                 activeDragIcon.style.top = `${finalGrid.row * gridY + 20}px`;
+                activeDragIcon.setAttribute('data-col', finalGrid.col);
+                activeDragIcon.setAttribute('data-row', finalGrid.row);
                 
                 localStorage.setItem(`icon-pos-${iconName}`, JSON.stringify({ col: finalGrid.col, row: finalGrid.row }));
             }
@@ -1493,6 +1487,8 @@
                 
                 icon.style.left = `${assignedCol * gridX + 20}px`;
                 icon.style.top = `${assignedRow * gridY + 20}px`;
+                icon.setAttribute('data-col', assignedCol);
+                icon.setAttribute('data-row', assignedRow);
                 occupied.push({ col: assignedCol, row: assignedRow });
                 
                 function setDefaultPosition() {
