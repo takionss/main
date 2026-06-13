@@ -1299,7 +1299,7 @@
         function findNearestEmptySpace(targetCol, targetRow, excludeIconName) {
             const desktop = document.getElementById('desktop');
             const icons = desktop.querySelectorAll('.icon');
-            const { gridY } = getGridSize();
+            const { gridX, gridY } = getGridSize();
             const desktopHeight = desktop.clientHeight || window.innerHeight - 48;
             const maxRows = Math.floor((desktopHeight - 20) / gridY) || 1;
             
@@ -1310,8 +1310,14 @@
                     const savedPos = localStorage.getItem(`icon-pos-${iconName}`);
                     if (savedPos) {
                         try {
-                            const { col, row } = JSON.parse(savedPos);
-                            occupied.push({ col, row });
+                            const parsed = JSON.parse(savedPos);
+                            if (parsed.col !== undefined && parsed.row !== undefined) {
+                                occupied.push({ col: parsed.col, row: parsed.row });
+                            } else if (parsed.left !== undefined && parsed.top !== undefined) {
+                                const c = Math.round((parsed.left - 20) / gridX);
+                                const r = Math.round((parsed.top - 20) / gridY);
+                                occupied.push({ col: c, row: r });
+                            }
                         } catch(e) {}
                     }
                 }
@@ -1395,9 +1401,16 @@
                 
                 if (savedPos) {
                     try {
-                        const { col, row } = JSON.parse(savedPos);
-                        assignedCol = col;
-                        assignedRow = row;
+                        const parsed = JSON.parse(savedPos);
+                        if (parsed.col !== undefined && parsed.row !== undefined) {
+                            assignedCol = parsed.col;
+                            assignedRow = parsed.row;
+                        } else if (parsed.left !== undefined && parsed.top !== undefined) {
+                            assignedCol = Math.round((parsed.left - 20) / gridX);
+                            assignedRow = Math.round((parsed.top - 20) / gridY);
+                        } else {
+                            setDefaultPosition();
+                        }
                         
                         if (assignedRow >= maxRows) {
                             assignedRow = maxRows - 1;
@@ -1406,6 +1419,10 @@
                         setDefaultPosition();
                     }
                 } else {
+                    setDefaultPosition();
+                }
+
+                if (assignedCol === undefined || isNaN(assignedCol) || assignedRow === undefined || isNaN(assignedRow)) {
                     setDefaultPosition();
                 }
                 
