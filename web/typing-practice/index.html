@@ -31,7 +31,8 @@
         }
 
         .typing-container {
-            width: 550px;
+            width: 100%;
+            max-width: 550px;
             background: var(--card-bg);
             border-radius: 14px;
             box-shadow: var(--shadow);
@@ -164,8 +165,47 @@
             border-radius: 8px;
             font-weight: bold;
         }
-        
-        
+
+        /* 모바일 반응형 디자인 */
+        @media (max-width: 600px) {
+            body {
+                padding: 15px 10px;
+            }
+            .typing-container {
+                padding: 15px;
+                gap: 15px;
+            }
+            .header {
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+                padding-bottom: 12px;
+            }
+            .title {
+                font-size: 16px;
+            }
+            .dashboard {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 8px !important;
+                padding: 10px !important;
+            }
+            .dash-val {
+                font-size: 16px !important;
+            }
+            .target-text-box {
+                font-size: 14px !important;
+                padding: 10px !important;
+                min-height: 44px !important;
+            }
+            .input-field {
+                padding: 10px !important;
+                font-size: 14px !important;
+            }
+            .keyboard-hint {
+                font-size: 10px !important;
+                text-align: center !important;
+            }
+        }
     </style>
     <script src="../../adsense-loader.js"></script>
 </head>

@@ -101,6 +101,47 @@
             0% { opacity: 0; transform: scale(0.5); }
             100% { opacity: 1; transform: scale(1); }
         }
+
+        /* 모바일 최적화 반응형 레이아웃 */
+        @media (max-width: 500px) {
+            h1 { font-size: 1.6em; margin-bottom: 20px; }
+            .card-container {
+                gap: 8px;
+                flex-wrap: nowrap !important;
+            }
+            .card {
+                width: 95px;
+                height: 165px;
+            }
+            .card-front {
+                font-size: 1.5em;
+            }
+            button {
+                font-size: 1em;
+                padding: 12px 24px;
+            }
+            #result-text {
+                font-size: 0.85em !important;
+                padding: 15px !important;
+                min-width: 100% !important;
+                box-sizing: border-box;
+            }
+            .ball-container {
+                gap: 5px;
+                flex-wrap: nowrap !important;
+                justify-content: flex-start;
+            }
+            .game-label {
+                width: 52px;
+                font-size: 0.8em;
+                margin-right: 2px;
+            }
+            .ball {
+                width: 28px;
+                height: 28px;
+                font-size: 0.9em;
+            }
+        }
     </style>
 </head>
 <body>
