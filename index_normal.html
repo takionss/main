@@ -521,7 +521,7 @@
                 const csvText = await response.text();
                 const rows = csvText.split(/\r?\n/).slice(1); // 헤더 스킵
 
-                const defaultIcon = 'images/folder.png';
+                const defaultIcon = 'images/world.png';
                 groupedData = {};
 
                 rows.forEach(row => {
