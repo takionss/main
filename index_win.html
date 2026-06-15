@@ -173,6 +173,15 @@
             background: rgba(255, 255, 255, 0.6); border-radius: 4px; border-bottom: 3px solid #E91E63; 
             font-size: 13px; color: #333; cursor: pointer; white-space: nowrap;
             transition: all 0.2s;
+            width: 120px; /* 고정너비 지정 */
+            box-sizing: border-box;
+        }
+        .taskbar-app span {
+            flex: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            text-align: left;
         }
         .taskbar-app:hover { background: rgba(255, 255, 255, 0.85); }
         .taskbar-app.active {
@@ -181,7 +190,7 @@
             font-weight: bold;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
-        .taskbar-app img { width: 20px; height: 20px; border-radius: 4px; object-fit: cover; }
+        .taskbar-app img { width: 20px; height: 20px; border-radius: 4px; object-fit: cover; flex-shrink: 0; }
 
         #start-menu { 
             position: absolute; bottom: 60px; left: 10px; width: 260px; 
