@@ -560,7 +560,19 @@
             transScreen.style.display = 'flex';
             
             setTimeout(() => { transScreen.classList.add('fade-in'); }, 50);
-            setTimeout(() => { location.reload(); }, 2500);
+            setTimeout(() => {
+                // 소프트 재부팅 실행 (브라우저 새로고침을 하지 않아 전체화면이 깨지지 않고 완벽히 유지됨)
+                document.querySelectorAll('.window').forEach(w => w.remove());
+                openWindows = {};
+                windowCounter = 0;
+                updateTaskbar();
+                
+                transScreen.style.display = 'none';
+                transScreen.classList.remove('fade-in');
+                
+                // 시스템 시작
+                startSystem();
+            }, 2500);
         }
 
         async function loadMenuData() {
