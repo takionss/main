@@ -619,6 +619,7 @@
                 let defaultGroup = []; 
                 let otherGroups = {}; 
 
+                let hasKnowledgeTrend = false;
                 rows.forEach(row => {
                     if (!row.trim()) return;
                     const columns = row.split(',').map(col => col.replace(/^"|"$/g, '').trim());
@@ -634,16 +635,21 @@
                         return;
                     }
 
-                    siteDataList.push({ name, url, iconUrl });
+                    siteDataList.push({ name, url, iconUrl, group: groupName });
 
-                    const icon = document.createElement('div');
-                    icon.className = 'icon';
-                    icon.innerHTML = `<img src="${iconUrl}" class="icon-img" alt="icon"><div>${name}</div>`;
-                    icon.ondblclick = () => { 
-                        openWindow(name, url, iconUrl);
-                        closeAllMenus();
-                    };
-                    desktop.appendChild(icon);
+                    // '지식 & 트렌드' 그룹은 바탕화면에 개별 아이콘 대신 단일 폴더로 합쳐 표시
+                    if (groupName === '지식 & 트렌드') {
+                        hasKnowledgeTrend = true;
+                    } else {
+                        const icon = document.createElement('div');
+                        icon.className = 'icon';
+                        icon.innerHTML = `<img src="${iconUrl}" class="icon-img" alt="icon"><div>${name}</div>`;
+                        icon.ondblclick = () => { 
+                            openWindow(name, url, iconUrl);
+                            closeAllMenus();
+                        };
+                        desktop.appendChild(icon);
+                    }
 
                     if (groupName === '' || groupName === '기본 프로그램') {
                         defaultGroup.push({ name, url, iconUrl });
@@ -652,6 +658,19 @@
                         otherGroups[groupName].push({ name, url, iconUrl });
                     }
                 });
+
+                // '지식 & 트렌드' 폴더 바탕화면 생성
+                if (hasKnowledgeTrend) {
+                    const ktFolder = document.createElement('div');
+                    ktFolder.className = 'icon';
+                    const folderIcon = 'images/folder.png';
+                    ktFolder.innerHTML = `<img src="${folderIcon}" class="icon-img" alt="폴더"><div>지식 & 트렌드</div>`;
+                    ktFolder.ondblclick = () => {
+                        openFolder('지식 & 트렌드', folderIcon, '지식 & 트렌드');
+                        closeAllMenus();
+                    };
+                    desktop.appendChild(ktFolder);
+                }
 
                 if (defaultGroup.length > 0) {
                     defaultGroup.forEach(item => {
@@ -858,7 +877,7 @@
             updateTaskbar();
         }
 
-        function openFolder(title, iconUrl) {
+        function openFolder(title, iconUrl, filterGroup = null) {
             const existingId = getWindowIdByTitle(title);
             if (existingId) {
                 focusWindow(existingId);
@@ -899,7 +918,13 @@
             document.body.appendChild(win);
 
             const folderContainer = win.querySelector('.window-folder');
-            siteDataList.forEach(site => {
+            
+            // filterGroup이 제공되면 해당 그룹만 노출, 그렇지 않으면 '지식 & 트렌드'를 제외한 모든 프로그램 노출 (내사이트 폴더 대응)
+            const targetItems = filterGroup 
+                ? siteDataList.filter(site => site.group === filterGroup)
+                : siteDataList.filter(site => site.group !== '지식 & 트렌드');
+
+            targetItems.forEach(site => {
                 const icon = document.createElement('div');
                 icon.className = 'folder-icon';
                 icon.innerHTML = `<img src="${site.iconUrl}" alt="icon"><div>${site.name}</div>`;
