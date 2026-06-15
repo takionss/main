@@ -111,21 +111,21 @@
             background: var(--accent-blue);
             color: white;
             border: none;
-            padding: 10px 20px;
+            width: 40px;
+            height: 40px;
             border-radius: 12px;
-            font-size: 0.9rem;
-            font-weight: 600;
+            font-size: 1.1rem;
             cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 8px;
+            justify-content: center;
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             box-shadow: 0 4px 15px rgba(0, 120, 212, 0.3);
         }
 
         .btn-mode-switch:hover {
             background: var(--accent-blue-hover);
-            transform: translateY(-2px);
+            transform: scale(1.05);
             box-shadow: 0 6px 20px rgba(0, 120, 212, 0.5);
         }
 
@@ -356,10 +356,34 @@
             width: 100%;
         }
 
-        /* 반응형 모바일 디자인 */
+        /* 모바일 햄버거 메뉴 버튼 기본 숨김 */
+        #menu-toggle-btn {
+            display: none;
+        }
+
+        /* 반응형 모바일 디자인 (태블릿 & 모바일 공통) */
         @media (max-width: 900px) {
+            #menu-toggle-btn {
+                display: flex;
+                margin-right: 10px;
+            }
             aside {
-                display: none !important;
+                position: fixed;
+                top: 70px;
+                bottom: 0;
+                left: -240px; /* 기본적으로 화면 왼쪽 밖에 숨김 */
+                width: var(--sidebar-width);
+                background: rgba(11, 15, 25, 0.95) !important;
+                backdrop-filter: blur(25px);
+                -webkit-backdrop-filter: blur(25px);
+                border-right: 1px solid var(--glass-border);
+                z-index: 1000 !important;
+                transition: left 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+                display: block !important; /* JS inline block 방지하고 클래스로 제어 */
+            }
+            aside.active {
+                left: 0 !important;
+                box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
             }
             main {
                 margin-left: 0 !important;
@@ -369,6 +393,53 @@
                 padding: 0 20px;
             }
         }
+
+        /* 초소형 모바일 기기 반응형 (카드 3열 배치 및 최적화) */
+        @media (max-width: 600px) {
+            .cards-grid {
+                grid-template-columns: repeat(3, 1fr) !important;
+                gap: 8px !important;
+            }
+            .item-card {
+                padding: 12px 6px !important;
+                border-radius: 12px !important;
+            }
+            .item-icon {
+                width: 44px !important;
+                height: 44px !important;
+                border-radius: 10px !important;
+                margin-bottom: 6px !important;
+            }
+            .item-name {
+                font-size: 0.75rem !important;
+                margin-bottom: 0px !important;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                width: 100%;
+            }
+            .item-desc {
+                display: none !important; /* 가독성을 위해 설명글 제거 */
+            }
+            .category-title {
+                font-size: 1.3rem !important;
+            }
+        }
+
+        /* 사이드바 오픈 시 배경 어둡게 처리용 오버레이 */
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            top: 70px;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(3px);
+            -webkit-backdrop-filter: blur(3px);
+            z-index: 999;
+        }
+        .sidebar-overlay.active {
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -376,20 +447,27 @@
     <!-- 최상단 헤더 -->
     <header>
         <div class="header-left">
+            <!-- 모바일용 메뉴 토글 버튼 -->
+            <button id="menu-toggle-btn" class="btn-control" onclick="toggleSidebar()" title="메뉴 열기">
+                <i class="fa-solid fa-bars"></i>
+            </button>
             <div class="logo-box">
                 <div class="c-1"></div><div class="c-2"></div><div class="c-3"></div><div class="c-4"></div>
             </div>
-            <span class="logo-text">SmilesLife Portal</span>
+            <span class="logo-text">SmilesLife</span>
         </div>
         <div class="header-right">
-            <button class="btn-mode-switch" onclick="switchToDesktop()">
-                <i class="fa-solid fa-desktop"></i> 윈도우 모드로 변경
+            <button class="btn-mode-switch" onclick="switchToDesktop()" title="윈도우 모드로 변경">
+                <i class="fa-solid fa-desktop"></i>
             </button>
             <button class="btn-control" onclick="resetPreferences()" title="선택 모드 초기화">
                 <i class="fa-solid fa-rotate-left"></i>
             </button>
         </div>
     </header>
+
+    <!-- 모바일 사이드바 배경 어둡게 하는 오버레이 -->
+    <div id="sidebar-overlay" class="sidebar-overlay" onclick="closeSidebar()"></div>
 
     <!-- 메인 컨테이너 -->
     <div class="main-container">
@@ -521,6 +599,7 @@
                     if (targetEl) {
                         targetEl.scrollIntoView({ behavior: 'smooth' });
                     }
+                    closeSidebar(); // 모바일 환경에서 메뉴 클릭 시 자동으로 서랍 접기
                 };
                 menuContainer.appendChild(li);
 
@@ -558,6 +637,23 @@
             document.getElementById('loading-view').style.display = 'none';
             document.getElementById('sidebar').style.display = 'block';
             document.getElementById('portal-content').style.display = 'flex';
+        }
+
+        // 모바일 사이드바 제어 함수
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebar-overlay');
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+
+        function closeSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebar-overlay');
+            if (sidebar.classList.contains('active')) {
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+            }
         }
 
         window.addEventListener('DOMContentLoaded', loadPortalData);
