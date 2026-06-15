@@ -855,7 +855,7 @@
             win.innerHTML = `
                 <div class="window-header" onmousedown="startDrag('${winId}', event)" ontouchstart="startDrag('${winId}', event)">
                     <div class="window-header-left">
-                        <img src="${iconUrl}" style="width:18px; height:18px; object-fit:cover; margin-right:8px; border-radius:4px;">
+                        <img src="${iconUrl}" ondblclick="closeWindow('${winId}', event)" style="width:18px; height:18px; object-fit:cover; margin-right:8px; border-radius:4px; cursor:pointer;" title="더블 클릭 시 닫기">
                         <span>${title}</span>
                     </div>
                     <div class="window-controls">
@@ -922,7 +922,7 @@
             win.innerHTML = `
                 <div class="window-header" onmousedown="startDrag('${winId}', event)" ontouchstart="startDrag('${winId}', event)">
                     <div class="window-header-left">
-                        <img src="${iconUrl}" style="width:18px; height:18px; object-fit:cover; margin-right:8px; border-radius:4px;">
+                        <img src="${iconUrl}" ondblclick="closeWindow('${winId}', event)" style="width:18px; height:18px; object-fit:cover; margin-right:8px; border-radius:4px; cursor:pointer;" title="더블 클릭 시 닫기">
                         <span>${title}</span>
                     </div>
                     <div class="window-controls">
