@@ -194,19 +194,13 @@
 
         #start-menu { 
             position: absolute; bottom: 60px; left: 10px; width: 260px; 
-            max-height: 550px;
             background: rgba(255, 255, 255, 0.65); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
             border: 1px solid rgba(255,255,255,0.3); border-radius: 12px; display: none; flex-direction: column; z-index: 99; 
             box-shadow: 0 8px 32px rgba(0,0,0,0.15); padding: 10px;
-            overflow: hidden; /* 메뉴 전체 스크롤 방지 */
         }
         #start-menu-list {
-            flex: 1;
-            overflow-y: auto;
             margin-bottom: 5px;
         }
-        #start-menu-list::-webkit-scrollbar { width: 4px; }
-        #start-menu-list::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); border-radius: 2px; }
 
         .start-menu-title { font-size: 14px; font-weight: bold; margin: 5px 10px 15px 10px; color: #333; }
         
@@ -239,10 +233,10 @@
         .divider { height: 1px; background: rgba(0,0,0,0.1); margin: 10px 5px; }
 
         #power-popup {
-            position: absolute; bottom: 55px; right: 10px; width: 140px; /* left에서 right로 위치 수정하여 전원버튼 위로 배치 */
+            position: absolute; bottom: 110px; left: 125px; width: 140px; /* 외부 배치 조치: 시작메뉴 바깥 부모 영역에 배치 */
             background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px);
             border: 1px solid rgba(0,0,0,0.1); border-radius: 8px;
-            display: none; flex-direction: column; z-index: 101;
+            display: none; flex-direction: column; z-index: 10001; /* 다른 레이어보다 위에 오도록 높은 z-index */
             box-shadow: 0 5px 15px rgba(0,0,0,0.2); padding: 5px;
         }
         .power-option {
@@ -294,7 +288,15 @@
         @media (max-width: 600px), (max-height: 500px) {
             #start-menu { 
                 width: calc(100vw - 20px); left: 10px; 
-                max-height: calc(100vh - 80px); overflow: hidden; /* 전체 스크롤 방지 */
+                max-height: calc(100vh - 80px); overflow-y: auto; /* 모바일 세로스크롤 활성화 */
+            }
+            #start-menu::-webkit-scrollbar { width: 6px; }
+            #start-menu::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.2); border-radius: 3px; }
+
+            #power-popup {
+                bottom: 115px !important;
+                right: 20px !important;
+                left: auto !important;
             }
 
             .start-menu-group { flex-wrap: wrap; }
@@ -344,27 +346,27 @@
         <div class="start-menu-title">프로그램 목록</div>
         <div id="start-menu-list"></div>
         
-        <div id="power-popup">
-            <div class="power-option" onclick="showSystemInfo()">
-                <img src="images/system.png" style="width:16px;" alt="정보"> 시스템 정보
-            </div>
-            
-            <div style="height: 1px; background: rgba(0,0,0,0.1); margin: 5px 10px;"></div> <div class="power-option" onclick="shutdownAnimation()">
-                <img src="images/poweroff.png" style="width:16px;" alt="종료"> 시스템 종료
-            </div>
-            <div class="power-option" onclick="restartAnimation()">
-                <img src="images/reset.png" style="width:16px;" alt="재시작"> 다시 시작
-            </div>
-            <div style="height: 1px; background: rgba(0,0,0,0.1); margin: 5px 10px;"></div>
-            <div class="power-option" onclick="goToModeSelection()">
-                <img src="images/change.png" style="width:16px;" alt="모드변경"> 접속 모드 변경
-            </div>
-        </div>
-
         <div id="start-menu-bottom">
             <div id="start-menu-power" onclick="togglePowerMenu(event)">
                 <img src="images/power.png" alt="전원">
             </div>
+        </div>
+    </div>
+
+    <div id="power-popup">
+        <div class="power-option" onclick="showSystemInfo()">
+            <img src="images/system.png" style="width:16px;" alt="정보"> 시스템 정보
+        </div>
+        
+        <div style="height: 1px; background: rgba(0,0,0,0.1); margin: 5px 10px;"></div> <div class="power-option" onclick="shutdownAnimation()">
+            <img src="images/poweroff.png" style="width:16px;" alt="종료"> 시스템 종료
+        </div>
+        <div class="power-option" onclick="restartAnimation()">
+            <img src="images/reset.png" style="width:16px;" alt="재시작"> 다시 시작
+        </div>
+        <div style="height: 1px; background: rgba(0,0,0,0.1); margin: 5px 10px;"></div>
+        <div class="power-option" onclick="goToModeSelection()">
+            <img src="images/change.png" style="width:16px;" alt="모드변경"> 접속 모드 변경
         </div>
     </div>
 
