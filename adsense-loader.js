@@ -8,10 +8,10 @@
         document.head.appendChild(script);
     } else {
         console.log("AdSense loading blocked: running inside an iframe (Windows Mode).");
-        // Hide ad containers to clean up the layout in Windows Mode
+        // DOM에서 광고 삽입 영역 태그를 완전히 제거하여 구글 오인 가능성을 원천 차단
         window.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.adsbygoogle, .adsense-container').forEach(el => {
-                el.style.display = 'none';
+                el.remove();
             });
         });
     }
