@@ -375,6 +375,10 @@
                     }
                 } catch (err) {}
                 
+                // 부모 페이지의 스크롤바가 우측에 노출되는 현상 방지
+                document.documentElement.style.overflow = 'hidden';
+                document.body.style.overflow = 'hidden';
+                
                 setTimeout(() => {
                     // 주소창 URL을 index_win.html로 변경 (새로고침 시 해당 주소로 유지되도록 처리)
                     try {
