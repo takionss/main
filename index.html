@@ -337,7 +337,7 @@
             <div class="card card-win" onclick="selectMode('win')">
                 <div class="card-icon">💻</div>
                 <h2>윈도우 모드</h2>
-                <p>실제 컴퓨터 바탕화면처럼 여러 창을 띄우고 동시에 작업할 수 있습니다.<br><span style="font-weight: 600; color: #3b82f6;">※ 선택 시 브라우저가 전체 화면 모드로 전환됩니다. (PC 권장)</span></p>
+                <p>실제 컴퓨터 바탕화면처럼 여러 창을 띄우고 동시에 작업할 수 있습니다.<br><span style="font-weight: 600; color: #3b82f6;">※ 선택 시 브라우저가 전체 화면 모드로 전환됩니다.</span></p>
             </div>
         </div>
 
@@ -365,7 +365,7 @@
             }
             
             if (mode === 'win') {
-                // 전체화면 요청 후 이동 (사용자 클릭 동작 context가 살아있을 때 실행)
+                // 전체화면 요청 후 iframe 생성으로 페이지 전환 처리 (화면 꺼짐 및 전체화면 해제 차단)
                 try {
                     const docElm = document.documentElement;
                     if (docElm.requestFullscreen) {
@@ -376,8 +376,23 @@
                 } catch (err) {}
                 
                 setTimeout(() => {
-                    window.location.href = 'index_win.html';
-                }, 150); // 전체화면 처리 안정화를 위해 약간의 지연 후 페이지 이동
+                    // 주소창 URL을 index_win.html로 변경 (새로고침 시 해당 주소로 유지되도록 처리)
+                    try {
+                        window.history.replaceState({}, '', 'index_win.html');
+                    } catch (e) {}
+
+                    const iframe = document.createElement('iframe');
+                    iframe.src = 'index_win.html';
+                    iframe.style.position = 'fixed';
+                    iframe.style.top = '0';
+                    iframe.style.left = '0';
+                    iframe.style.width = '100vw';
+                    iframe.style.height = '100vh';
+                    iframe.style.border = 'none';
+                    iframe.style.zIndex = '999999';
+                    iframe.setAttribute('allow', 'fullscreen');
+                    document.body.appendChild(iframe);
+                }, 150);
             } else {
                 window.location.href = 'index_normal.html';
             }

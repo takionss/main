@@ -1593,7 +1593,11 @@
 
         function goToModeSelection() {
             closeAllMenus();
-            window.location.href = 'index.html?select=true';
+            if (window.self !== window.top) {
+                window.top.location.href = 'index.html?select=true';
+            } else {
+                window.location.href = 'index.html?select=true';
+            }
         }
 
         // 사용자의 첫 번째 클릭 시 전체화면 시도 (브라우저 정책 대응)
