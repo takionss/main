@@ -327,6 +327,7 @@
             -webkit-box-orient: vertical;
             overflow: hidden;
             word-break: keep-all;
+            text-wrap: balance;
         }
 
         /* 로딩 스피너 */
@@ -550,7 +551,7 @@
                     else if (name.includes("화질")) desc = "흐릿한 사진을 선명하게 고화질 업스케일";
                     else if (name.includes("지우개")) desc = "AI 사진 속 원치 않는 사물 및 텍스트 제거";
                     else if (name.includes("필터")) desc = "사진을 만화/웹툰 애니메이션 스타일로 변환";
-                    else if (name.includes("태깅") || name.includes("AI분석")) desc = "AI 기반 이미지 사물 분석 및 텍스트 추출";
+                    else if (name.includes("태깅") || name.includes("AI분석") || (name.includes("이미지") && name.includes("분석"))) desc = "AI 이미지 분석 사물 인식 및 태그 추천 문구 생성";
                     else if (name.includes("타자")) desc = "타이핑 연습을 위한 한글/영문 타자기";
                     else if (name.includes("지뢰")) desc = "웹브라우저로 바로 즐기는 클래식 지뢰찾기";
                     else if (name.includes("메모")) desc = "작성 내용이 자동 보관되는 간편 웹 메모장";
