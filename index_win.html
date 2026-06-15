@@ -1,0 +1,1594 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SmilesLife Web OS</title>
+    
+    <!-- 카카오톡 등 SNS 공유용 오픈 그래프(OG) 메타 태그 -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="SmilesLife Web OS">
+    <meta property="og:description" content="웹 브라우저에서 만나는 나만의 SmilesLife 개인 웹 운영체제">
+    <meta property="og:image" content="https://smileslife.co.kr/images/desktop.png">
+    <meta property="og:url" content="https://smileslife.co.kr">
+    
+    <!-- 브라우저 탭 및 메신저 공유용 파비콘(Favicon) 설정 -->
+    <link rel="icon" href="https://smileslife.co.kr/images/desktop.png" type="image/png">
+    <link rel="shortcut icon" href="https://smileslife.co.kr/images/desktop.png" type="image/png">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif; 
+            overflow: hidden; user-select: none; 
+            background: url('https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2560&auto=format&fit=crop') center/cover no-repeat;
+        }
+
+        #boot-screen {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background: #111; color: #fff; z-index: 9999;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            cursor: pointer; padding: 30px; text-align: center;
+        }
+        #boot-screen h1 { font-size: 32px; font-weight: bold; margin-bottom: 20px; color: #fff; }
+        #boot-screen p { font-size: 18px; color: #0078D4; font-weight: bold; animation: pulse 2s infinite; line-height: 1.5; }
+
+        #login-screen {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background: rgba(15, 23, 42, 0.45); /* 반투명 어두운 배경 */
+            box-shadow: inset 0 0 0 2000px rgba(0,0,0,0.1); 
+            backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); /* 고급스러운 블러 필터 */
+            display: none; flex-direction: column; justify-content: center; align-items: center;
+            z-index: 9998; color: #fff; text-align: center;
+        }
+        .user-profile {
+            width: 120px; height: 120px; border-radius: 50%; background: rgba(255,255,255,0.2);
+            display: flex; justify-content: center; align-items: center;
+            margin-bottom: 20px; box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        .user-profile img { width: 60px; height: 60px; filter: invert(1); opacity: 0.8; }
+        #login-screen h2 { font-size: 24px; font-weight: 400; margin-bottom: 25px; letter-spacing: 1px; }
+
+        #transition-screen {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background: #000; color: #fff; z-index: 10000;
+            display: none; flex-direction: column; justify-content: center; align-items: center;
+            opacity: 0; transition: opacity 1.5s ease-in-out; 
+        }
+        #transition-screen.fade-in { opacity: 1; }
+        #transition-screen h2 { font-weight: 300; font-size: 24px; letter-spacing: 1px; margin-bottom: 25px; }
+        
+        .spinner {
+            width: 36px; height: 36px; border: 4px solid rgba(255,255,255,0.2);
+            border-left-color: #0078D4; border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        #shutdown-screen {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background: #000; color: #fff; z-index: 10001;
+            display: none; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; padding: 20px;
+        }
+        #shutdown-screen h1 { font-size: 24px; margin-bottom: 10px; font-weight: normal; }
+        #shutdown-screen p { color: #888; font-size: 16px; }
+
+        .custom-logo-lg { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 30px; width: 60px; height: 60px; }
+        .custom-logo-lg div { border-radius: 6px; width: 100%; height: 100%; }
+        .c-1 { background: #FF5722; } .c-2 { background: #4CAF50; } .c-3 { background: #FFC107; } .c-4 { background: #E91E63; }
+
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+        #desktop {
+            width: 100vw; height: calc(100vh - 48px); padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .icon { 
+            width: 90px; text-align: center; cursor: pointer; color: white; text-shadow: 0 1px 3px rgba(0,0,0,0.8); 
+            position: absolute;
+            user-select: none;
+            font-size: 12px;
+            line-height: 1.2;
+            padding: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .icon * { pointer-events: none; }
+        .icon div {
+            margin-top: 5px;
+            width: 100%;
+            word-wrap: break-word;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .icon:hover { background: rgba(255,255,255,0.1); border-radius: 6px; }
+        .icon-img { width: 45px; height: 45px; margin: 5px auto; border-radius: 8px; object-fit: cover; display: block; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+
+        .folder-icon { width: 80px; text-align: center; cursor: pointer; color: #333; font-size: 14px; }
+        .folder-icon:hover { background: rgba(0,0,0,0.05); border-radius: 5px; }
+        .folder-icon img { width: 45px; height: 45px; margin: 5px auto; border-radius: 8px; object-fit: cover; display: block; }
+
+        .window { 
+            position: absolute; 
+            width: 800px; height: 600px; max-width: 95vw; max-height: calc(100vh - 80px); 
+            background: #ffffff; border: 1px solid rgba(0,0,0,0.15); border-radius: 8px; 
+            display: flex; flex-direction: column; z-index: 10; box-shadow: 0 10px 30px rgba(0,0,0,0.25); overflow: hidden;
+        }
+        .window.maximized {
+            top: 0 !important; left: 0 !important;
+            width: 100vw !important; height: calc(100vh - 48px) !important;
+            max-width: 100vw !important; max-height: calc(100vh - 48px) !important;
+            border-radius: 0;
+            transform: none !important;
+        }
+        
+        .window-header { 
+            background: #f3f3f3; color: #333; padding: 0 15px; height: 40px;
+            display: flex; justify-content: space-between; align-items: center; 
+            cursor: move; font-size: 14px; font-weight: 600;
+            user-select: none;
+        }
+        .window-header-left { display: flex; align-items: center; }
+        .window-controls { display: flex; align-items: center; height: 100%; margin-right: -15px; }
+        
+        .win-btn { 
+            background: transparent; border: none; width: 46px; height: 40px; 
+            cursor: pointer; font-size: 12px; color: #333; transition: background 0.1s; 
+            display: flex; justify-content: center; align-items: center;
+        }
+        .win-btn:hover { background: rgba(0,0,0,0.08); }
+        .win-btn.close-btn:hover { background: #e81123; color: white; }
+        
+        .window-body { flex: 1; position: relative; background: #f3f3f3; padding: 15px; height: calc(100% - 40px); overflow: hidden; }
+        .window-body iframe { width: 100%; height: 100%; border: 1px solid rgba(0,0,0,0.1); border-radius: 8px; display: block; background: #fff; }
+        
+        .window-folder { 
+            width: 100%; height: 100%; 
+            padding: 20px; display: flex; gap: 20px; flex-wrap: wrap; 
+            overflow-y: auto; background: #f9f9f9; align-content: flex-start; border-radius: 0 0 8px 8px;
+        }
+
+        #taskbar { 
+            width: 100vw; height: 48px; background: rgba(255, 255, 255, 0.45); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
+            border-top: 1px solid rgba(255,255,255,0.4); position: absolute; bottom: 0; left: 0; 
+            display: flex; justify-content: space-between; align-items: center; padding: 0 10px; z-index: 100;
+        }
+        #taskbar-left { display: flex; align-items: center; gap: 10px; height: 100%; flex: 1; overflow: hidden; }
+        #taskbar-right { display: flex; align-items: center; gap: 5px; color: #333; font-size: 12px; }
+
+        .taskbar-clock {
+            display: flex; flex-direction: column; align-items: flex-end; 
+            padding: 2px 8px; border-radius: 4px; line-height: 1.3;
+        }
+        
+        #start-btn { 
+            width: 44px; height: 44px; background: transparent; border: none; border-radius: 6px; cursor: pointer; 
+            display: flex; justify-content: center; align-items: center; transition: 0.2s; flex-shrink: 0;
+        }
+        #start-btn:hover { background: rgba(255,255,255,0.5); }
+        
+        .custom-logo-sm { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; width: 22px; height: 22px; }
+        .custom-logo-sm div { border-radius: 3px; width: 100%; height: 100%; }
+
+        #taskbar-apps { display: flex; gap: 5px; margin-left: 5px; height: 100%; align-items: center; overflow-x: auto; overflow-y: hidden; }
+        .taskbar-app { 
+            display: flex; align-items: center; gap: 8px; height: 36px; padding: 0 10px;
+            background: rgba(255, 255, 255, 0.6); border-radius: 4px; border-bottom: 3px solid #E91E63; 
+            font-size: 13px; color: #333; cursor: pointer; white-space: nowrap;
+            transition: all 0.2s;
+        }
+        .taskbar-app:hover { background: rgba(255, 255, 255, 0.85); }
+        .taskbar-app.active {
+            background: rgba(255, 255, 255, 0.95);
+            border-bottom: 3px solid #0078D4;
+            font-weight: bold;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .taskbar-app img { width: 20px; height: 20px; border-radius: 4px; object-fit: cover; }
+
+        #start-menu { 
+            position: absolute; bottom: 60px; left: 10px; width: 260px; 
+            background: rgba(255, 255, 255, 0.65); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(255,255,255,0.3); border-radius: 12px; display: none; flex-direction: column; z-index: 99; 
+            box-shadow: 0 8px 32px rgba(0,0,0,0.15); padding: 10px;
+        }
+        .start-menu-title { font-size: 14px; font-weight: bold; margin: 5px 10px 15px 10px; color: #333; }
+        
+        .start-menu-item-direct {
+            padding: 10px 15px; cursor: pointer; border-radius: 6px;
+            display: flex; align-items: center; gap: 12px; font-size: 14px; color: #333; font-weight: 500;
+        }
+        .start-menu-item-direct:hover { background: rgba(0,0,0,0.05); }
+        .menu-icon-xs { width: 24px; height: 24px; border-radius: 4px; object-fit: cover; }
+
+        .start-menu-group {
+            position: relative; padding: 12px 15px; cursor: pointer; border-radius: 6px;
+            display: flex; justify-content: space-between; align-items: center; font-size: 14px; color: #333; font-weight: 500;
+        }
+        .start-menu-group:hover { background: rgba(0,0,0,0.05); }
+        .start-menu-group::after { content: '▶'; font-size: 10px; color: #888; } 
+
+        .sub-menu {
+            position: absolute; left: 100%; bottom: 0; margin-left: 5px; width: max-content; min-width: 200px;
+            background: rgba(243, 243, 243, 0.95); backdrop-filter: blur(20px);
+            border: 1px solid rgba(0,0,0,0.1); border-radius: 12px; display: none; flex-direction: column;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15); padding: 15px; z-index: 100; cursor: default;
+        }
+
+        .sub-menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+        .start-menu-item { display: flex; flex-direction: column; align-items: center; cursor: pointer; padding: 10px 5px; border-radius: 5px; transition: 0.2s; font-size: 12px; color: #333; text-align: center; word-break: keep-all; }
+        .start-menu-item:hover { background: rgba(255,255,255,0.8); }
+        .menu-icon-sm { width: 36px; height: 36px; margin-bottom: 8px; border-radius: 6px; object-fit: cover; }
+
+        .divider { height: 1px; background: rgba(0,0,0,0.1); margin: 10px 5px; }
+
+        #power-popup {
+            position: absolute; bottom: 55px; left: 10px; width: 140px;
+            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px);
+            border: 1px solid rgba(0,0,0,0.1); border-radius: 8px;
+            display: none; flex-direction: column; z-index: 101;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2); padding: 5px;
+        }
+        .power-option {
+            padding: 10px 15px; cursor: pointer; border-radius: 5px; font-size: 13px; color: #333;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .power-option:hover { background: rgba(0,0,0,0.05); }
+
+        #start-menu-bottom {
+            margin-top: 5px; padding: 10px 15px 5px 15px; border-top: 1px solid rgba(0,0,0,0.1);
+            display: flex; justify-content: flex-end; align-items: center;
+        }
+        #start-menu-power {
+            display: flex; align-items: center; justify-content: center; width: 36px; height: 36px;
+            cursor: pointer; border-radius: 6px; transition: 0.2s;
+        }
+        #start-menu-power:hover { background: rgba(0, 0, 0, 0.1); }
+        #start-menu-power img { width: 20px; height: 20px; opacity: 0.8; }
+
+        /* 커스텀 우클릭 컨텍스트 메뉴 스타일 */
+        #context-menu {
+            position: absolute; z-index: 10002; width: 220px;
+            background: rgba(243, 243, 243, 0.95); backdrop-filter: blur(20px);
+            border: 1px solid rgba(0,0,0,0.1); border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2); padding: 5px;
+            display: none; flex-direction: column;
+        }
+        .context-menu-item {
+            padding: 10px 15px; font-size: 13px; color: #333; cursor: pointer;
+            border-radius: 5px; display: flex; align-items: center; gap: 10px;
+        }
+        .context-menu-item:hover { background: rgba(0,0,0,0.05); }
+        .context-divider { height: 1px; background: rgba(0,0,0,0.1); margin: 5px 0; }
+
+        /* 🌟 속성 및 시스템 정보 팝업창 디자인 */
+        .info-modal {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 320px; background: #fff; border: 1px solid rgba(0,0,0,0.2); border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25); z-index: 10005; display: none; flex-direction: column;
+        }
+        .modal-header {
+            background: #f3f3f3; padding: 10px 15px; display: flex; justify-content: space-between; align-items: center;
+            font-size: 14px; font-weight: 600; border-radius: 8px 8px 0 0; border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+        .modal-header button { border: none; background: transparent; cursor: pointer; font-size: 16px; color: #555; }
+        .modal-header button:hover { color: #e81123; }
+        .modal-body { padding: 20px; font-size: 13px; color: #333; line-height: 1.6; }
+
+        @media (max-width: 600px), (max-height: 500px) {
+            #start-menu { 
+                width: calc(100vw - 20px); left: 10px; 
+                max-height: calc(100vh - 80px); overflow-y: auto;
+            }
+            #start-menu::-webkit-scrollbar { width: 6px; }
+            #start-menu::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.2); border-radius: 3px; }
+
+            .start-menu-group { flex-wrap: wrap; }
+            .start-menu-group.active::after { transform: rotate(90deg); }
+            .start-menu-group::after { transition: transform 0.2s; }
+            
+            .sub-menu {
+                position: relative !important; left: 0 !important; bottom: auto !important;
+                width: 100% !important; min-width: 100% !important; 
+                margin-left: 0 !important; margin-top: 10px; 
+                background: rgba(0,0,0,0.05); box-shadow: none; border: none;
+            }
+            .icon {
+                width: 75px !important;
+                font-size: 11px !important;
+            }
+            .icon-img {
+                width: 36px !important;
+                height: 36px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="boot-screen" onclick="startSystem()">
+        <div class="custom-logo-lg">
+            <div class="c-1"></div><div class="c-2"></div><div class="c-3"></div><div class="c-4"></div>
+        </div>
+        <h1>SmilesLife Web OS</h1>
+        <p>화면을 클릭하면 전체화면으로 시작합니다</p>
+    </div>
+
+    <div id="login-screen">
+        <div class="user-profile">
+            <img src="images/user.png" alt="User">
+        </div>
+        <h2>환영합니다</h2>
+        <div class="spinner"></div>
+    </div>
+
+    <div id="transition-screen">
+        <h2 id="transition-text">시스템 종료 중...</h2>
+        <div class="spinner"></div>
+    </div>
+
+    <div id="shutdown-screen">
+        <h1>시스템이 안전하게 종료되었습니다.</h1>
+        <p>이제 브라우저 창을 닫으셔도 됩니다.</p>
+    </div>
+
+    <div id="desktop"></div>
+    
+    <div id="start-menu">
+        <div class="start-menu-title">프로그램 목록</div>
+        <div id="start-menu-list"></div>
+        
+        <div id="power-popup">
+            <div class="power-option" onclick="showSystemInfo()">
+                <img src="images/system.png" style="width:16px;" alt="정보"> 시스템 정보
+            </div>
+            
+            <div style="height: 1px; background: rgba(0,0,0,0.1); margin: 5px 10px;"></div> <div class="power-option" onclick="shutdownAnimation()">
+                <img src="images/poweroff.png" style="width:16px;" alt="종료"> 시스템 종료
+            </div>
+            <div class="power-option" onclick="restartAnimation()">
+                <img src="images/reset.png" style="width:16px;" alt="재시작"> 다시 시작
+            </div>
+            <div style="height: 1px; background: rgba(0,0,0,0.1); margin: 5px 10px;"></div>
+            <div class="power-option" onclick="goToModeSelection()">
+                <img src="images/change.png" style="width:16px;" alt="모드변경"> 접속 모드 변경
+            </div>
+        </div>
+
+        <div id="start-menu-bottom">
+            <div id="start-menu-power" onclick="togglePowerMenu(event)">
+                <img src="images/power.png" alt="전원">
+            </div>
+        </div>
+    </div>
+
+
+
+    <div id="taskbar">
+        <div id="taskbar-left">
+            <button id="start-btn" onclick="toggleStartMenu(event)">
+                <div class="custom-logo-sm">
+                    <div class="c-1"></div><div class="c-2"></div><div class="c-3"></div><div class="c-4"></div>
+                </div>
+            </button>
+            <div id="taskbar-apps"></div>
+        </div>
+
+        <div id="taskbar-right">
+            <div class="taskbar-clock">
+                <span id="clock-time">00:00</span>
+                <span id="clock-date">0000-00-00</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="context-menu"></div>
+
+    <div id="sysinfo-popup" class="info-modal" onclick="event.stopPropagation()">
+        <div class="modal-header">
+            <span>시스템 정보</span>
+            <button onclick="closeModal('sysinfo-popup')">✕</button>
+        </div>
+        <div class="modal-body" style="text-align: center;">
+            <div class="custom-logo-lg" style="margin: 0 auto 15px auto;">
+                <div class="c-1"></div><div class="c-2"></div><div class="c-3"></div><div class="c-4"></div>
+            </div>
+            <h3 style="margin-bottom: 5px; font-size: 18px;">SmilesLife Web OS</h3>
+            <p style="color: #666; margin-bottom: 20px;">Version 1.0 (Web Edition)</p>
+            
+            <div style="text-align: left; background: #f9f9f9; padding: 15px; border-radius: 6px; border: 1px solid #eee;">
+                <strong>개발자:</strong> takion<br>
+                <strong>연락처:</strong> realyain@gmail.com<br><br>
+                <span style="font-size: 11px; color: #888;">
+                    * Icons made by authors from www.flaticon.com
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div id="properties-popup" class="info-modal" onclick="event.stopPropagation()">
+        <div class="modal-header">
+            <span>속성</span>
+            <button onclick="closeModal('properties-popup')">✕</button>
+        </div>
+        <div class="modal-body">
+            <div style="display: flex; align-items: center; gap: 15px; padding-bottom: 15px; border-bottom: 1px solid #eee; margin-bottom: 15px;">
+                <img id="prop-icon" src="" style="width: 40px; height: 40px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                <h3 id="prop-title" style="margin: 0; font-size: 16px;">프로그램명</h3>
+            </div>
+            <div>
+                <strong>항목 형식:</strong> 웹사이트 바로가기<br><br>
+                <strong>연결된 대상 (URL):</strong><br>
+                <span id="prop-url" style="color: #0078D4; word-break: break-all; display: block; margin-top: 5px;"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 배경 화면 설정 팝업 -->
+    <div id="wallpaper-popup" class="info-modal" onclick="event.stopPropagation()" style="width: 420px; max-width: 90vw;">
+        <div class="modal-header">
+            <span>배경 화면 설정</span>
+            <button onclick="closeModal('wallpaper-popup')">✕</button>
+        </div>
+        <div class="modal-body" style="max-height: 70vh; overflow-y: auto;">
+            <h4 style="margin-bottom: 10px;">배경 이미지 선택</h4>
+            <div class="wallpaper-grid" id="wallpaper-grid-container" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px; max-height: 155px; overflow-y: auto; padding-right: 5px;">
+            </div>
+            
+            <h4 style="margin-bottom: 10px;">단색 선택</h4>
+            <div class="color-grid" style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin-bottom: 20px;">
+                <div class="color-item" onclick="setWallpaper('color', '#3c6382')" style="aspect-ratio: 1; background: #3c6382; border-radius: 6px; cursor: pointer; border: 2px solid transparent;"></div>
+                <div class="color-item" onclick="setWallpaper('color', '#079992')" style="aspect-ratio: 1; background: #079992; border-radius: 6px; cursor: pointer; border: 2px solid transparent;"></div>
+                <div class="color-item" onclick="setWallpaper('color', '#0a3d62')" style="aspect-ratio: 1; background: #0a3d62; border-radius: 6px; cursor: pointer; border: 2px solid transparent;"></div>
+                <div class="color-item" onclick="setWallpaper('color', '#38ada9')" style="aspect-ratio: 1; background: #38ada9; border-radius: 6px; cursor: pointer; border: 2px solid transparent;"></div>
+                <div class="color-item" onclick="setWallpaper('color', '#2c3e50')" style="aspect-ratio: 1; background: #2c3e50; border-radius: 6px; cursor: pointer; border: 2px solid transparent;"></div>
+                <div class="color-item" onclick="setWallpaper('color', '#1e272e')" style="aspect-ratio: 1; background: #1e272e; border-radius: 6px; cursor: pointer; border: 2px solid transparent;"></div>
+            </div>
+            
+            <h4 style="margin-bottom: 10px;">사용자 지정 색상</h4>
+            <div style="display: flex; gap: 10px; align-items: center;">
+                <input type="color" id="custom-color-picker" onchange="setWallpaper('color', this.value)" style="width: 50px; height: 35px; border: 1px solid #ddd; border-radius: 4px; cursor: pointer;">
+                <span style="font-size: 13px; color: #666;">원하는 단색을 직접 선택해 보세요.</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/1RRpkarZGReZMb243IsGNQfP1Urzs5Fh24uWRbfkwVdM/export?format=csv&gid=0';
+        let siteDataList = []; 
+        let openWindows = {}; 
+        let windowCounter = 0;
+        let topZIndex = 10;
+
+        const MINIMIZE_SVG = `<svg width="10" height="1" viewBox="0 0 10 1"><rect width="10" height="1" fill="currentColor"/></svg>`;
+        const MAXIMIZE_SVG = `<svg width="10" height="10" viewBox="0 0 10 10"><rect x="0.5" y="0.5" width="9" height="9" fill="none" stroke="currentColor" stroke-width="1"/></svg>`;
+        const RESTORE_SVG = `<svg width="10" height="10" viewBox="0 0 10 10"><path d="M2.5,1.5 L8.5,1.5 L8.5,7.5 M1.5,3.5 L7.5,3.5 L7.5,9.5 L1.5,9.5 Z" fill="none" stroke="currentColor" stroke-width="1"/></svg>`;
+        const CLOSE_SVG = `<svg width="10" height="10" viewBox="0 0 10 10"><path d="M1,1 L9,9 M9,1 L1,9" stroke="currentColor" stroke-width="1.2"/></svg>`;
+
+        function startSystem() {
+            document.getElementById('boot-screen').style.display = 'none';
+            const loginScreen = document.getElementById('login-screen');
+            loginScreen.style.display = 'flex';
+            
+            try {
+                const docElm = document.documentElement;
+                if (docElm.requestFullscreen) { 
+                    const req = docElm.requestFullscreen();
+                    if (req && req.catch) req.catch(() => {});
+                }
+                else if (docElm.webkitRequestFullscreen) { docElm.webkitRequestFullscreen(); }
+            } catch (err) {}
+
+            setTimeout(() => { loadMenuData(); }, 1500);
+        }
+
+        function closeAllMenus() { 
+            const startMenu = document.getElementById('start-menu');
+            const powerPopup = document.getElementById('power-popup');
+            const contextMenu = document.getElementById('context-menu');
+            
+            if (startMenu) startMenu.style.display = 'none'; 
+            if (powerPopup) powerPopup.style.display = 'none';
+            if (contextMenu) contextMenu.style.display = 'none';
+        }
+        document.body.addEventListener('click', closeAllMenus);
+
+        // 바탕화면 빈 영역 클릭 시 전체화면 복원 기능
+        document.getElementById('desktop').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('desktop')) {
+                const isFullscreen = !!(document.fullscreenElement || document.webkitFullscreenElement);
+                if (!isFullscreen) {
+                    try {
+                        const docElm = document.documentElement;
+                        if (docElm.requestFullscreen) {
+                            docElm.requestFullscreen().catch(() => {});
+                        } else if (docElm.webkitRequestFullscreen) {
+                            docElm.webkitRequestFullscreen();
+                        }
+                    } catch (err) {}
+                }
+            }
+        });
+
+        function toggleStartMenu(event) {
+            event.stopPropagation();
+            const menu = document.getElementById('start-menu');
+            const isMenuOpen = menu.style.display === 'flex';
+            closeAllMenus();
+            if (!isMenuOpen) menu.style.display = 'flex';
+        }
+
+        function togglePowerMenu(event) {
+            event.stopPropagation();
+            const powerPopup = document.getElementById('power-popup');
+            const isOpen = powerPopup.style.display === 'flex';
+            closeAllMenus();
+            if (!isOpen) {
+                document.getElementById('start-menu').style.display = 'flex';
+                powerPopup.style.display = 'flex';
+            }
+        }
+
+        // 🌟 팝업 닫기 함수
+        function closeModal(id) {
+            document.getElementById(id).style.display = 'none';
+        }
+
+        // 🌟 시스템 정보 열기 함수
+        function showSystemInfo() {
+            closeAllMenus();
+            document.getElementById('sysinfo-popup').style.display = 'flex';
+        }
+
+        // 🌟 속성 창 열기 함수
+        function showProperties(name, url, icon) {
+            closeAllMenus();
+            document.getElementById('prop-icon').src = icon;
+            document.getElementById('prop-title').innerText = name;
+            document.getElementById('prop-url').innerText = url;
+            document.getElementById('properties-popup').style.display = 'flex';
+        }
+
+        function shutdownAnimation() {
+            closeAllMenus();
+            const transScreen = document.getElementById('transition-screen');
+            document.getElementById('transition-text').innerText = "시스템 종료 중...";
+            transScreen.style.display = 'flex';
+            
+            setTimeout(() => { transScreen.classList.add('fade-in'); }, 50);
+            setTimeout(() => {
+                transScreen.style.display = 'none';
+                document.getElementById('shutdown-screen').style.display = 'flex';
+                if (document.fullscreenElement) { document.exitFullscreen(); } 
+                else if (document.webkitFullscreenElement) { document.webkitExitFullscreen(); }
+                window.close(); 
+            }, 2500);
+        }
+
+        function restartAnimation() {
+            closeAllMenus();
+            const transScreen = document.getElementById('transition-screen');
+            document.getElementById('transition-text').innerText = "다시 시작 중...";
+            transScreen.style.display = 'flex';
+            
+            setTimeout(() => { transScreen.classList.add('fade-in'); }, 50);
+            setTimeout(() => { location.reload(); }, 2500);
+        }
+
+        async function loadMenuData() {
+            try {
+                const response = await fetch(SHEET_CSV_URL);
+                const data = await response.text();
+                
+                const rows = data.split(/\r?\n/).slice(1);
+                
+                const hasWallpapers = rows.some(row => {
+                    const columns = row.split(',').map(col => col.replace(/^"|"$/g, '').trim());
+                    return columns[1] === '배경화면';
+                });
+                if (hasWallpapers) {
+                    for (const key in wallpaperUrls) {
+                        delete wallpaperUrls[key];
+                    }
+                }
+
+                const desktop = document.getElementById('desktop');
+                const startMenuList = document.getElementById('start-menu-list');
+                desktop.innerHTML = '';
+                startMenuList.innerHTML = '';
+                siteDataList = [];
+                const defaultIcon = 'images/folder.png';
+                const folderIconImg = 'images/desktop.png'; 
+
+                const mySiteFolder = document.createElement('div');
+                mySiteFolder.className = 'icon';
+                mySiteFolder.innerHTML = `<img src="${folderIconImg}" class="icon-img" alt="폴더"><div>내사이트</div>`;
+                mySiteFolder.ondblclick = () => {
+                    openFolder('내사이트', folderIconImg);
+                    closeAllMenus();
+                };
+                desktop.appendChild(mySiteFolder);
+
+                let defaultGroup = []; 
+                let otherGroups = {}; 
+
+                rows.forEach(row => {
+                    if (!row.trim()) return;
+                    const columns = row.split(',').map(col => col.replace(/^"|"$/g, '').trim());
+                    if(columns.length < 3) return;
+
+                    const name = columns[0] || '';
+                    const groupName = columns[1] || ''; 
+                    const url = columns[2] || '';
+                    const iconUrl = (columns[3] && columns[3] !== '') ? columns[3] : defaultIcon;
+
+                    if (groupName === '배경화면') {
+                        wallpaperUrls[name] = iconUrl;
+                        return;
+                    }
+
+                    siteDataList.push({ name, url, iconUrl });
+
+                    const icon = document.createElement('div');
+                    icon.className = 'icon';
+                    icon.innerHTML = `<img src="${iconUrl}" class="icon-img" alt="icon"><div>${name}</div>`;
+                    icon.ondblclick = () => { 
+                        openWindow(name, url, iconUrl);
+                        closeAllMenus();
+                    };
+                    desktop.appendChild(icon);
+
+                    if (groupName === '' || groupName === '기본 프로그램') {
+                        defaultGroup.push({ name, url, iconUrl });
+                    } else {
+                        if (!otherGroups[groupName]) otherGroups[groupName] = [];
+                        otherGroups[groupName].push({ name, url, iconUrl });
+                    }
+                });
+
+                if (defaultGroup.length > 0) {
+                    defaultGroup.forEach(item => {
+                        const menuItem = document.createElement('div');
+                        menuItem.className = 'start-menu-item-direct';
+                        menuItem.innerHTML = `<img src="${item.iconUrl}" class="menu-icon-xs" alt="icon"><span>${item.name}</span>`;
+                        menuItem.onclick = (e) => {
+                            e.stopPropagation();
+                            openWindow(item.name, item.url, item.iconUrl);
+                            closeAllMenus();
+                        };
+                        startMenuList.appendChild(menuItem);
+                    });
+                    if (Object.keys(otherGroups).length > 0) {
+                        const divider = document.createElement('div');
+                        divider.className = 'divider';
+                        startMenuList.appendChild(divider);
+                    }
+                }
+
+                for (const [grp, items] of Object.entries(otherGroups)) {
+                    const groupEl = document.createElement('div');
+                    groupEl.className = 'start-menu-group';
+                    groupEl.innerText = grp;
+
+                    const subMenu = document.createElement('div');
+                    subMenu.className = 'sub-menu';
+                    const subMenuGrid = document.createElement('div');
+                    subMenuGrid.className = 'sub-menu-grid';
+
+                    items.forEach(item => {
+                        const menuItem = document.createElement('div');
+                        menuItem.className = 'start-menu-item';
+                        menuItem.innerHTML = `<img src="${item.iconUrl}" class="menu-icon-sm" alt="icon"><span>${item.name}</span>`;
+                        menuItem.onclick = (e) => {
+                            e.stopPropagation(); 
+                            openWindow(item.name, item.url, item.iconUrl);
+                            closeAllMenus();
+                        };
+                        subMenuGrid.appendChild(menuItem);
+                    });
+
+                    subMenu.appendChild(subMenuGrid);
+                    groupEl.appendChild(subMenu);
+
+                    groupEl.onclick = (e) => {
+                        e.stopPropagation();
+                        document.querySelectorAll('.sub-menu').forEach(menu => {
+                            if (menu !== subMenu) menu.style.display = 'none';
+                        });
+                        document.querySelectorAll('.start-menu-group').forEach(el => {
+                            if (el !== groupEl) el.classList.remove('active');
+                        });
+                        const isVisible = subMenu.style.display === 'flex';
+                        subMenu.style.display = isVisible ? 'none' : 'flex';
+                        groupEl.classList.toggle('active', !isVisible);
+                    };
+
+                    startMenuList.appendChild(groupEl);
+                }
+
+                loadWallpaper();
+                renderWallpaperGrid();
+                document.getElementById('login-screen').style.display = 'none';
+                arrangeIcons();
+
+            } catch (error) {
+                console.error('데이터 로드 실패:', error);
+                document.getElementById('login-screen').style.display = 'none'; 
+                arrangeIcons();
+            }
+        }
+
+        function getWindowIdByTitle(title) {
+            return Object.keys(openWindows).find(id => openWindows[id].title === title);
+        }
+
+        function focusWindow(winId) {
+            const win = document.getElementById(winId);
+            if (!win) return;
+            topZIndex++;
+            win.style.zIndex = topZIndex;
+            
+            if (openWindows[winId].minimized) {
+                win.style.display = 'flex';
+                openWindows[winId].minimized = false;
+            }
+            
+            updateTaskbar();
+        }
+
+        function minimizeWindow(winId, event) {
+            if (event) event.stopPropagation();
+            const win = document.getElementById(winId);
+            if (win) {
+                win.style.display = 'none';
+                openWindows[winId].minimized = true;
+                updateTaskbar();
+            }
+        }
+
+        function toggleMaximizeWindow(winId, event) {
+            if (event) event.stopPropagation();
+            const win = document.getElementById(winId);
+            if (win) {
+                const isMax = win.classList.toggle('maximized');
+                openWindows[winId].maximized = isMax;
+                const maxBtn = win.querySelector('.max-btn');
+                if (maxBtn) {
+                    maxBtn.innerHTML = isMax ? RESTORE_SVG : MAXIMIZE_SVG;
+                }
+            }
+        }
+
+        function closeWindow(winId, event) {
+            if (event) event.stopPropagation();
+            const win = document.getElementById(winId);
+            if (win) {
+                win.remove();
+                delete openWindows[winId];
+                updateTaskbar();
+            }
+            closeAllMenus();
+        }
+
+        function openWindow(title, url, iconUrl) {
+            const existingId = getWindowIdByTitle(title);
+            if (existingId) {
+                focusWindow(existingId);
+                return;
+            }
+
+            const winId = 'win-' + (++windowCounter);
+            topZIndex++;
+
+            const win = document.createElement('div');
+            win.className = 'window';
+            win.id = winId;
+            win.style.zIndex = topZIndex;
+
+            const isMinesweeper = title === '지뢰찾기';
+            if (isMinesweeper) {
+                win.style.width = '376px';
+                win.style.height = '670px';
+            }
+
+            const offset = (Object.keys(openWindows).length * 25) % 150;
+
+            const maxBtnHtml = isMinesweeper
+                ? `<button class="win-btn max-btn" style="opacity: 0.3; cursor: not-allowed;" disabled>${MAXIMIZE_SVG}</button>`
+                : `<button class="win-btn max-btn" onclick="toggleMaximizeWindow('${winId}', event)">${MAXIMIZE_SVG}</button>`;
+
+            // 캐시 방지(Cache-busting) 파라미터 적용
+            const cacheBuster = `v=${Date.now()}`;
+            const cleanUrl = url.includes('?') ? `${url}&${cacheBuster}` : `${url}?${cacheBuster}`;
+
+            win.innerHTML = `
+                <div class="window-header" onmousedown="startDrag('${winId}', event)" ontouchstart="startDrag('${winId}', event)">
+                    <div class="window-header-left">
+                        <img src="${iconUrl}" style="width:18px; height:18px; object-fit:cover; margin-right:8px; border-radius:4px;">
+                        <span>${title}</span>
+                    </div>
+                    <div class="window-controls">
+                        <button class="win-btn" onclick="minimizeWindow('${winId}', event)">${MINIMIZE_SVG}</button>
+                        ${maxBtnHtml}
+                        <button class="win-btn close-btn" onclick="closeWindow('${winId}', event)">${CLOSE_SVG}</button>
+                    </div>
+                </div>
+                <div class="window-body">
+                    <iframe class="window-iframe" src="${cleanUrl}" style="width: 100%; height: 100%; border: 1px solid rgba(0,0,0,0.1); border-radius: 8px; display: block; background: #fff;"></iframe>
+                </div>
+            `;
+
+            win.addEventListener('mousedown', () => {
+                focusWindow(winId);
+            });
+
+            document.body.appendChild(win);
+
+            const actualWidth = win.offsetWidth;
+            const actualHeight = win.offsetHeight;
+            const desktopWidth = window.innerWidth;
+            const desktopHeight = window.innerHeight - 48;
+
+            let leftPos = (desktopWidth - actualWidth) / 2 + offset;
+            let topPos = (desktopHeight - actualHeight) / 2 + offset;
+
+            leftPos = Math.max(0, Math.min(desktopWidth - actualWidth, leftPos));
+            topPos = Math.max(0, Math.min(desktopHeight - actualHeight, topPos));
+
+            win.style.left = `${leftPos}px`;
+            win.style.top = `${topPos}px`;
+
+            openWindows[winId] = {
+                id: winId,
+                title: title,
+                url: url,
+                iconUrl: iconUrl,
+                minimized: false,
+                maximized: false,
+                isFolder: false
+            };
+
+            updateTaskbar();
+        }
+
+        function openFolder(title, iconUrl) {
+            const existingId = getWindowIdByTitle(title);
+            if (existingId) {
+                focusWindow(existingId);
+                return;
+            }
+
+            const winId = 'win-' + (++windowCounter);
+            topZIndex++;
+
+            const win = document.createElement('div');
+            win.className = 'window';
+            win.id = winId;
+            win.style.zIndex = topZIndex;
+
+            const offset = (Object.keys(openWindows).length * 25) % 150;
+
+            win.innerHTML = `
+                <div class="window-header" onmousedown="startDrag('${winId}', event)" ontouchstart="startDrag('${winId}', event)">
+                    <div class="window-header-left">
+                        <img src="${iconUrl}" style="width:18px; height:18px; object-fit:cover; margin-right:8px; border-radius:4px;">
+                        <span>${title}</span>
+                    </div>
+                    <div class="window-controls">
+                        <button class="win-btn" onclick="minimizeWindow('${winId}', event)">${MINIMIZE_SVG}</button>
+                        <button class="win-btn max-btn" onclick="toggleMaximizeWindow('${winId}', event)">${MAXIMIZE_SVG}</button>
+                        <button class="win-btn close-btn" onclick="closeWindow('${winId}', event)">${CLOSE_SVG}</button>
+                    </div>
+                </div>
+                <div class="window-body">
+                    <div class="window-folder"></div>
+                </div>
+            `;
+
+            win.addEventListener('mousedown', () => {
+                focusWindow(winId);
+            });
+
+            document.body.appendChild(win);
+
+            const folderContainer = win.querySelector('.window-folder');
+            siteDataList.forEach(site => {
+                const icon = document.createElement('div');
+                icon.className = 'folder-icon';
+                icon.innerHTML = `<img src="${site.iconUrl}" alt="icon"><div>${site.name}</div>`;
+                icon.ondblclick = () => { openWindow(site.name, site.url, site.iconUrl); };
+                folderContainer.appendChild(icon);
+            });
+
+            const actualWidth = win.offsetWidth;
+            const actualHeight = win.offsetHeight;
+            const desktopWidth = window.innerWidth;
+            const desktopHeight = window.innerHeight - 48;
+
+            let leftPos = (desktopWidth - actualWidth) / 2 + offset;
+            let topPos = (desktopHeight - actualHeight) / 2 + offset;
+
+            leftPos = Math.max(0, Math.min(desktopWidth - actualWidth, leftPos));
+            topPos = Math.max(0, Math.min(desktopHeight - actualHeight, topPos));
+
+            win.style.left = `${leftPos}px`;
+            win.style.top = `${topPos}px`;
+
+            openWindows[winId] = {
+                id: winId,
+                title: title,
+                iconUrl: iconUrl,
+                minimized: false,
+                maximized: false,
+                isFolder: true
+            };
+
+            updateTaskbar();
+        }
+
+        function updateTaskbar() {
+            const taskbarApps = document.getElementById('taskbar-apps');
+            taskbarApps.innerHTML = '';
+
+            Object.keys(openWindows).forEach(winId => {
+                const app = openWindows[winId];
+                const btn = document.createElement('div');
+                
+                const winEl = document.getElementById(winId);
+                const isFocused = winEl && parseInt(winEl.style.zIndex) === topZIndex && !app.minimized;
+                
+                btn.className = 'taskbar-app' + (isFocused ? ' active' : '');
+                btn.setAttribute('data-win-id', winId);
+                btn.innerHTML = `<img src="${app.iconUrl}" alt="icon"><span>${app.title}</span>`;
+                btn.onclick = (e) => {
+                    e.stopPropagation();
+                    if (app.minimized) {
+                        focusWindow(winId);
+                    } else if (isFocused) {
+                        minimizeWindow(winId);
+                    } else {
+                        focusWindow(winId);
+                    }
+                };
+                taskbarApps.appendChild(btn);
+            });
+        }
+
+        let activeDragWin = null;
+        let dragOffsetX = 0;
+        let dragOffsetY = 0;
+
+        function startDrag(winId, event) {
+            if (event.target.closest('.window-controls') || event.target.closest('.win-btn')) {
+                return;
+            }
+            const win = document.getElementById(winId);
+            if (!win || win.classList.contains('maximized')) return;
+            
+            focusWindow(winId);
+            activeDragWin = win;
+            
+            const clientX = event.type.startsWith('touch') ? event.touches[0].clientX : event.clientX;
+            const clientY = event.type.startsWith('touch') ? event.touches[0].clientY : event.clientY;
+            
+            const rect = win.getBoundingClientRect();
+            dragOffsetX = clientX - rect.left;
+            dragOffsetY = clientY - rect.top;
+            
+            document.addEventListener('mousemove', dragMove);
+            document.addEventListener('mouseup', endDrag);
+            document.addEventListener('touchmove', dragMove, { passive: false });
+            document.addEventListener('touchend', endDrag);
+            
+            event.preventDefault();
+        }
+
+        function dragMove(event) {
+            if (!activeDragWin) return;
+            
+            const clientX = event.type.startsWith('touch') ? event.touches[0].clientX : event.clientX;
+            const clientY = event.type.startsWith('touch') ? event.touches[0].clientY : event.clientY;
+            
+            let newLeft = clientX - dragOffsetX;
+            let newTop = clientY - dragOffsetY;
+            
+            const minHeaderVisible = 100;
+            if (newLeft < -activeDragWin.offsetWidth + minHeaderVisible) {
+                newLeft = -activeDragWin.offsetWidth + minHeaderVisible;
+            }
+            if (newLeft > window.innerWidth - minHeaderVisible) {
+                newLeft = window.innerWidth - minHeaderVisible;
+            }
+            if (newTop < 0) {
+                newTop = 0;
+            }
+            if (newTop > window.innerHeight - 48 - 40) {
+                newTop = window.innerHeight - 48 - 40;
+            }
+            
+            activeDragWin.style.left = `${newLeft}px`;
+            activeDragWin.style.top = `${newTop}px`;
+            activeDragWin.style.transform = 'none';
+        }
+
+        function endDrag() {
+            activeDragWin = null;
+            document.removeEventListener('mousemove', dragMove);
+            document.removeEventListener('mouseup', endDrag);
+            document.removeEventListener('touchmove', dragMove);
+            document.removeEventListener('touchend', endDrag);
+        }
+
+        function toggleFullscreen() {
+            try {
+                if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+                    const docElm = document.documentElement;
+                    if (docElm.requestFullscreen) { 
+                        docElm.requestFullscreen().catch(() => {});
+                    } else if (docElm.webkitRequestFullscreen) {
+                        docElm.webkitRequestFullscreen();
+                    }
+                } else {
+                    if (document.exitFullscreen) {
+                        document.exitFullscreen().catch(() => {});
+                    } else if (document.webkitExitFullscreen) {
+                        document.webkitExitFullscreen();
+                    }
+                }
+            } catch (err) {}
+        }
+
+        function updateClock() {
+            const now = new Date();
+            let hours = now.getHours();
+            const ampm = hours >= 12 ? '오후' : '오전';
+            hours = hours % 12 || 12; 
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+
+            const clockTime = document.getElementById('clock-time');
+            const clockDate = document.getElementById('clock-date');
+            if(clockTime) clockTime.innerText = `${ampm} ${hours}:${minutes}`;
+            if(clockDate) clockDate.innerText = `${year}-${month}-${day}`;
+        }
+        setInterval(updateClock, 1000);
+        updateClock(); 
+
+        const contextMenu = document.getElementById('context-menu');
+        let currentContextTarget = null; 
+
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault(); 
+            
+            let x = e.pageX;
+            let y = e.pageY;
+            
+            contextMenu.innerHTML = ''; 
+            
+            const targetIcon = e.target.closest('.icon') || e.target.closest('.folder-icon');
+            const targetStartBtn = e.target.closest('#start-btn');
+            const targetTaskbarApp = e.target.closest('.taskbar-app');
+            const targetTaskbar = e.target.closest('#taskbar');
+            
+            if (targetIcon) {
+                currentContextTarget = targetIcon;
+                
+                // 어떤 아이콘을 클릭했는지 이름 찾아오기
+                const iconName = targetIcon.lastElementChild.innerText.trim();
+                let targetData = siteDataList.find(s => s.name === iconName);
+                
+                // '내사이트' 폴더인 경우 예외 처리
+                if (!targetData && iconName === '내사이트') {
+                    targetData = { name: '내사이트', url: '시스템 폴더 (내부 파일 모음)', iconUrl: targetIcon.querySelector('img').src };
+                }
+
+                // 🌟 기본 메뉴 구성 (열기)
+                let menuHtml = `
+                    <div class="context-menu-item" id="ctx-open">
+                        <img src="images/play.png" style="width:16px;"> 열기
+                    </div>
+                    <div class="context-divider"></div>
+                `;
+
+                // 🌟 클릭한 아이콘이 '내사이트'일 때만 시스템 정보 메뉴 끼워넣기
+                if (iconName === '내사이트') {
+                    menuHtml += `
+                    <div class="context-menu-item" onclick="showSystemInfo()">
+                        <img src="images/system.png" style="width:16px;"> 시스템 정보
+                    </div>
+                    `;
+                }
+
+                // 🌟 기본 메뉴 구성 (속성)
+                menuHtml += `
+                    <div class="context-menu-item" onclick="showProperties('${targetData.name}', '${targetData.url}', '${targetData.iconUrl}')">
+                        <img src="images/info.png" style="width:16px;"> 속성
+                    </div>
+                `;
+
+                contextMenu.innerHTML = menuHtml;
+
+                document.getElementById('ctx-open').onclick = () => {
+                    if (currentContextTarget.ondblclick) currentContextTarget.ondblclick();
+                };
+            } else if (targetStartBtn) {
+                contextMenu.innerHTML = `
+                    <div class="context-menu-item" onclick="shutdownAnimation()">
+                        <img src="images/poweroff.png" style="width:16px;"> 시스템 종료
+                    </div>
+                    <div class="context-menu-item" onclick="restartAnimation()">
+                        <img src="images/reset.png" style="width:16px;"> 다시 시작
+                    </div>
+                `;
+            } else if (targetTaskbarApp) {
+                const winId = targetTaskbarApp.getAttribute('data-win-id');
+                contextMenu.innerHTML = `
+                    <div class="context-menu-item" onclick="closeWindow('${winId}', event)">
+                        <img src="images/poweroff.png" style="width:16px; filter: invert(0.2);"> 창 닫기
+                    </div>
+                `;
+            } else if (targetTaskbar) {
+                contextMenu.innerHTML = `
+                    <div class="context-menu-item" onclick="showSystemInfo()">
+                        <img src="images/system.png" style="width:16px;"> 시스템 정보
+                    </div>
+                `;
+            } else {
+                // 바탕화면 빈 곳 우클릭 시
+                const isFullscreen = !!(document.fullscreenElement || document.webkitFullscreenElement);
+                contextMenu.innerHTML = `
+                    <div class="context-menu-item" onclick="resetToDefaults()">
+                        <img src="images/change.png" style="width:16px;"> 기본값 복원
+                    </div>
+                    <div class="context-divider"></div>
+                    <div class="context-menu-item" onclick="showWallpaperSettings()">
+                        <img src="images/background.png" style="width:16px;"> 개인 설정 (배경 화면)
+                    </div>
+                    <div class="context-divider"></div>
+                    <div class="context-menu-item" onclick="showSystemInfo()">
+                        <img src="images/system.png" style="width:16px;"> 시스템 정보
+                    </div>
+                    <div class="context-divider"></div>
+                    <div class="context-menu-item" onclick="goToModeSelection()">
+                        <img src="images/reset.png" style="width:16px;"> 접속 모드 선택으로 이동
+                    </div>
+                    <div class="context-divider"></div>
+                    <div class="context-menu-item" onclick="toggleStartMenu(event)">프로그램 목록 열기</div>
+                    ${!isFullscreen ? `<div class="context-menu-item" onclick="toggleFullscreen()">전체 화면 모드</div>` : ''}
+                `;
+            }
+            
+            contextMenu.style.display = 'flex';
+            
+            const menuWidth = contextMenu.offsetWidth;
+            const menuHeight = contextMenu.offsetHeight;
+            
+            if (x + menuWidth > window.innerWidth) x = window.innerWidth - menuWidth;
+            if (y + menuHeight > window.innerHeight) y = window.innerHeight - menuHeight;
+            
+            contextMenu.style.left = `${x}px`;
+            contextMenu.style.top = `${y}px`;
+        });
+
+        window.addEventListener('message', (event) => {
+            if (event.data && event.data.type === 'resize-window') {
+                const { title, width, height } = event.data;
+                let winId = getWindowIdByTitle(title);
+                if (!winId) {
+                    winId = Object.keys(openWindows).find(id => {
+                        const winEl = document.getElementById(id);
+                        if (winEl) {
+                            const iframe = winEl.querySelector('iframe');
+                            return iframe && iframe.src.includes('minesweeper');
+                        }
+                        return false;
+                    });
+                }
+                const win = document.getElementById(winId);
+                if (win && !win.classList.contains('maximized')) {
+                    win.style.width = `${width}px`;
+                    win.style.height = `${height}px`;
+                }
+            }
+        });
+
+        // ==========================================
+        // 🌟 배경 화면 (Wallpaper) 관리 및 단색 선택 기능
+        // ==========================================
+        const wallpaperUrls = {
+            'img1': 'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2560&auto=format&fit=crop',
+            'img2': 'https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?q=80&w=2560&auto=format&fit=crop',
+            'img3': 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2560&auto=format&fit=crop',
+            'img4': 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=2560&auto=format&fit=crop',
+            'img5': 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2560&auto=format&fit=crop',
+            'img6': 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=2560&auto=format&fit=crop'
+        };
+
+        function setWallpaper(type, value) {
+            if (type === 'color') {
+                document.body.style.background = value;
+                localStorage.setItem('desktop-wallpaper', JSON.stringify({ type: 'color', value: value }));
+            } else {
+                const url = wallpaperUrls[value];
+                if (url) {
+                    document.body.style.background = `url('${url}') center/cover no-repeat`;
+                    localStorage.setItem('desktop-wallpaper', JSON.stringify({ type: 'image', value: value }));
+                }
+            }
+            highlightActiveWallpaper();
+        }
+
+        function loadWallpaper() {
+            const saved = localStorage.getItem('desktop-wallpaper');
+            const keys = Object.keys(wallpaperUrls);
+            const defaultKey = keys.length > 0 ? keys[0] : 'img1';
+            const defaultUrl = wallpaperUrls[defaultKey] || 'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2560&auto=format&fit=crop';
+
+            if (saved) {
+                try {
+                    const { type, value } = JSON.parse(saved);
+                    if (type === 'color') {
+                        document.body.style.background = value;
+                        document.getElementById('custom-color-picker').value = value;
+                    } else {
+                        const url = wallpaperUrls[value] || defaultUrl;
+                        document.body.style.background = `url('${url}') center/cover no-repeat`;
+                    }
+                } catch (e) {
+                    document.body.style.background = `url('${defaultUrl}') center/cover no-repeat`;
+                }
+            } else {
+                document.body.style.background = `url('${defaultUrl}') center/cover no-repeat`;
+            }
+            highlightActiveWallpaper();
+        }
+
+        function highlightActiveWallpaper() {
+            const saved = localStorage.getItem('desktop-wallpaper');
+            let currentType = 'image';
+            
+            const keys = Object.keys(wallpaperUrls);
+            let currentValue = keys.length > 0 ? keys[0] : 'img1';
+
+            if (saved) {
+                try {
+                    const parsed = JSON.parse(saved);
+                    currentType = parsed.type;
+                    currentValue = parsed.value;
+                } catch(e) {}
+            }
+            
+            document.querySelectorAll('.wallpaper-item').forEach(item => {
+                const key = item.getAttribute('data-wallpaper-key');
+                if (currentType === 'image' && currentValue === key) {
+                    item.style.borderColor = '#0078D4';
+                } else {
+                    item.style.borderColor = 'transparent';
+                }
+            });
+        }
+
+        function renderWallpaperGrid() {
+            const container = document.getElementById('wallpaper-grid-container');
+            if (!container) return;
+            container.innerHTML = '';
+            
+            Object.keys(wallpaperUrls).forEach(key => {
+                const url = wallpaperUrls[key];
+                const item = document.createElement('div');
+                item.className = 'wallpaper-item';
+                item.setAttribute('data-wallpaper-key', key);
+                item.onclick = () => setWallpaper('image', key);
+                item.style.aspectRatio = '16/9';
+                const previewUrl = url.includes('unsplash.com') ? url.replace('w=2560', 'w=240') : url;
+                item.style.background = `url('${previewUrl}') center/cover`;
+                item.style.borderRadius = '6px';
+                item.style.cursor = 'pointer';
+                item.style.border = '2px solid transparent';
+                item.style.transition = 'border-color 0.2s';
+                
+                container.appendChild(item);
+            });
+            highlightActiveWallpaper();
+        }
+
+        function showWallpaperSettings() {
+            closeAllMenus();
+            renderWallpaperGrid();
+            document.getElementById('wallpaper-popup').style.display = 'flex';
+        }
+
+        // ==========================================
+        // 🌟 바탕화면 아이콘 드래그 이동 및 그리드 정렬 (Persistence)
+        // ==========================================
+        let activeDragIcon = null;
+        let iconDragOffsetX = 0;
+        let iconDragOffsetY = 0;
+
+        function startDragIcon(iconEl, event) {
+            if (event.type === 'mousedown' && event.button !== 0) return;
+            
+            activeDragIcon = iconEl;
+            
+            const clientX = event.type.startsWith('touch') ? event.touches[0].clientX : event.clientX;
+            const clientY = event.type.startsWith('touch') ? event.touches[0].clientY : event.clientY;
+            
+            const rect = iconEl.getBoundingClientRect();
+            iconDragOffsetX = clientX - rect.left;
+            iconDragOffsetY = clientY - rect.top;
+            
+            document.addEventListener('mousemove', dragMoveIcon);
+            document.addEventListener('mouseup', endDragIcon);
+            document.addEventListener('touchmove', dragMoveIcon, { passive: false });
+            document.addEventListener('touchend', endDragIcon);
+            
+            event.stopPropagation();
+        }
+
+        function dragMoveIcon(event) {
+            if (!activeDragIcon) return;
+            
+            const clientX = event.type.startsWith('touch') ? event.touches[0].clientX : event.clientX;
+            const clientY = event.type.startsWith('touch') ? event.touches[0].clientY : event.clientY;
+            
+            const desktopRect = document.getElementById('desktop').getBoundingClientRect();
+            
+            let newLeft = clientX - desktopRect.left - iconDragOffsetX;
+            let newTop = clientY - desktopRect.top - iconDragOffsetY;
+            
+            const maxLeft = desktopRect.width - activeDragIcon.offsetWidth;
+            const maxTop = desktopRect.height - activeDragIcon.offsetHeight;
+            
+            if (newLeft < 0) newLeft = 0;
+            if (newLeft > maxLeft) newLeft = maxLeft;
+            if (newTop < 0) newTop = 0;
+            if (newTop > maxTop) newTop = maxTop;
+            
+            activeDragIcon.style.left = `${newLeft}px`;
+            activeDragIcon.style.top = `${newTop}px`;
+            
+            event.preventDefault();
+        }
+
+        function getGridSize() {
+            const isMobile = window.innerWidth < 600;
+            return {
+                gridX: isMobile ? 80 : 100,
+                gridY: isMobile ? 90 : 110
+            };
+        }
+
+        function findNearestEmptySpace(targetCol, targetRow, excludeIconName) {
+            const desktop = document.getElementById('desktop');
+            const icons = desktop.querySelectorAll('.icon');
+            const { gridY } = getGridSize();
+            const desktopHeight = desktop.clientHeight || window.innerHeight - 48;
+            const maxRows = Math.floor((desktopHeight - 20) / gridY) || 1;
+            
+            const occupied = [];
+            icons.forEach(icon => {
+                const iconName = icon.querySelector('div').innerText.trim();
+                if (iconName !== excludeIconName) {
+                    const c = parseInt(icon.getAttribute('data-col'));
+                    const r = parseInt(icon.getAttribute('data-row'));
+                    if (!isNaN(c) && !isNaN(r)) {
+                        occupied.push({ col: c, row: r });
+                    }
+                }
+            });
+
+            function isOccupied(c, r) {
+                return occupied.some(pos => pos.col === c && pos.row === r);
+            }
+
+            if (!isOccupied(targetCol, targetRow) && targetRow < maxRows) {
+                return { col: targetCol, row: targetRow };
+            }
+
+            let col = 0;
+            let row = 0;
+            let guard = 0;
+            while (guard < 200) {
+                if (!isOccupied(col, row)) {
+                    return { col, row };
+                }
+                row++;
+                if (row >= maxRows) {
+                    row = 0;
+                    col++;
+                }
+                guard++;
+            }
+            return { col: targetCol, row: targetRow };
+        }
+
+        function endDragIcon() {
+            if (activeDragIcon) {
+                const { gridX, gridY } = getGridSize();
+                let currentLeft = parseFloat(activeDragIcon.style.left);
+                let currentTop = parseFloat(activeDragIcon.style.top);
+                
+                let col = Math.round((currentLeft - 20) / gridX);
+                let row = Math.round((currentTop - 20) / gridY);
+                if (col < 0) col = 0;
+                if (row < 0) row = 0;
+                
+                const desktop = document.getElementById('desktop');
+                const desktopHeight = desktop.clientHeight || window.innerHeight - 48;
+                const maxRows = Math.floor((desktopHeight - 20) / gridY) || 1;
+                if (row >= maxRows) row = maxRows - 1;
+                
+                const iconName = activeDragIcon.querySelector('div').innerText.trim();
+                const finalGrid = findNearestEmptySpace(col, row, iconName);
+                
+                activeDragIcon.style.left = `${finalGrid.col * gridX + 20}px`;
+                activeDragIcon.style.top = `${finalGrid.row * gridY + 20}px`;
+                activeDragIcon.setAttribute('data-col', finalGrid.col);
+                activeDragIcon.setAttribute('data-row', finalGrid.row);
+                
+                localStorage.setItem(`icon-pos-${iconName}`, JSON.stringify({ col: finalGrid.col, row: finalGrid.row }));
+            }
+            activeDragIcon = null;
+            document.removeEventListener('mousemove', dragMoveIcon);
+            document.removeEventListener('mouseup', endDragIcon);
+            document.removeEventListener('touchmove', dragMoveIcon);
+            document.removeEventListener('touchend', endDragIcon);
+        }
+
+        function arrangeIcons() {
+            const desktop = document.getElementById('desktop');
+            const icons = desktop.querySelectorAll('.icon');
+            if (icons.length === 0) return;
+
+            const { gridX, gridY } = getGridSize();
+            const desktopHeight = desktop.clientHeight || window.innerHeight - 48;
+            const maxRows = Math.floor((desktopHeight - 20) / gridY) || 1;
+            
+            let defaultRow = 0;
+            let defaultCol = 0;
+            const occupied = [];
+            
+            icons.forEach(icon => {
+                icon.style.position = 'absolute';
+                const iconName = icon.querySelector('div').innerText.trim();
+                const savedPos = localStorage.getItem(`icon-pos-${iconName}`);
+                
+                let assignedCol, assignedRow;
+                
+                if (savedPos) {
+                    try {
+                        const parsed = JSON.parse(savedPos);
+                        if (parsed.col !== undefined && parsed.row !== undefined) {
+                            assignedCol = parsed.col;
+                            assignedRow = parsed.row;
+                        } else if (parsed.left !== undefined && parsed.top !== undefined) {
+                            assignedCol = Math.round((parsed.left - 20) / gridX);
+                            assignedRow = Math.round((parsed.top - 20) / gridY);
+                        } else {
+                            setDefaultPosition();
+                        }
+                        
+                        if (assignedRow >= maxRows) {
+                            assignedRow = maxRows - 1;
+                        }
+                    } catch (e) {
+                        setDefaultPosition();
+                    }
+                } else {
+                    setDefaultPosition();
+                }
+
+                if (assignedCol === undefined || isNaN(assignedCol) || assignedRow === undefined || isNaN(assignedRow)) {
+                    setDefaultPosition();
+                }
+                
+                if (isPosOccupied(assignedCol, assignedRow)) {
+                    let checkCol = 0;
+                    let checkRow = 0;
+                    let found = false;
+                    while (!found) {
+                        if (!isPosOccupied(checkCol, checkRow) && checkRow < maxRows) {
+                            assignedCol = checkCol;
+                            assignedRow = checkRow;
+                            found = true;
+                        } else {
+                            checkRow++;
+                            if (checkRow >= maxRows) {
+                                checkRow = 0;
+                                checkCol++;
+                            }
+                        }
+                    }
+                }
+                
+                icon.style.left = `${assignedCol * gridX + 20}px`;
+                icon.style.top = `${assignedRow * gridY + 20}px`;
+                icon.setAttribute('data-col', assignedCol);
+                icon.setAttribute('data-row', assignedRow);
+                occupied.push({ col: assignedCol, row: assignedRow });
+                
+                function setDefaultPosition() {
+                    assignedCol = defaultCol; 
+                    assignedRow = defaultRow;
+                    
+                    defaultRow++;
+                    if (defaultRow >= maxRows) {
+                        defaultRow = 0;
+                        defaultCol++;
+                    }
+                }
+                
+                function isPosOccupied(c, r) {
+                    return occupied.some(pos => pos.col === c && pos.row === r);
+                }
+                
+                if (!icon.dataset.listenersAttached) {
+                    icon.addEventListener('mousedown', (e) => {
+                        if (e.detail === 1) {
+                            startDragIcon(icon, e);
+                        }
+                    });
+                    icon.addEventListener('touchstart', (e) => {
+                        startDragIcon(icon, e);
+                    });
+                    icon.dataset.listenersAttached = 'true';
+                }
+            });
+        }
+
+        function resetToDefaults() {
+            if (confirm("바탕화면 배경과 아이콘 위치를 처음 상태로 복원하시겠습니까?")) {
+                localStorage.removeItem('desktop-wallpaper');
+                
+                const keysToRemove = [];
+                for (let i = 0; i < localStorage.length; i++) {
+                    const key = localStorage.key(i);
+                    if (key && key.startsWith('icon-pos-')) {
+                        keysToRemove.push(key);
+                    }
+                }
+                keysToRemove.forEach(key => localStorage.removeItem(key));
+                
+                location.reload();
+            }
+        }
+
+        // 초기 배경 화면 적용
+        loadWallpaper();
+
+        function handleScreenResize() {
+            arrangeIcons();
+            const desktopWidth = window.innerWidth;
+            const desktopHeight = window.innerHeight - 48;
+            Object.keys(openWindows).forEach(winId => {
+                const win = document.getElementById(winId);
+                if (win && !openWindows[winId].maximized) {
+                    const actualWidth = win.offsetWidth;
+                    const actualHeight = win.offsetHeight;
+                    let left = parseFloat(win.style.left) || 0;
+                    let top = parseFloat(win.style.top) || 0;
+                    left = Math.max(0, Math.min(desktopWidth - actualWidth, left));
+                    top = Math.max(0, Math.min(desktopHeight - actualHeight, top));
+                    win.style.left = `${left}px`;
+                    win.style.top = `${top}px`;
+                }
+            });
+        }
+        window.addEventListener('resize', handleScreenResize);
+
+        function goToModeSelection() {
+            closeAllMenus();
+            window.location.href = 'index.html?select=true';
+        }
+    </script>
+</body>
+</html>

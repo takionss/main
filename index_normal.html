@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmilesLife Portal - 웹 포털 모드</title>
+    
+    <!-- SNS 공유용 메타 태그 -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="SmilesLife 포털 웹 모드">
+    <meta property="og:description" content="종합 웹 도구와 다양한 게임을 카테고리별로 정렬하여 빠르게 실행할 수 있습니다.">
+    <meta property="og:image" content="https://smileslife.co.kr/images/desktop.png">
+    
+    <link rel="icon" href="https://smileslife.co.kr/images/desktop.png" type="image/png">
+    
+    <!-- 구글 폰트 및 아이콘 라이브러리 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- 구글 애드센스 로더 -->
+    <script src="adsense-loader.js"></script>
+
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --bg-gradient: linear-gradient(135deg, #0b0f19 0%, #111827 50%, #1e1b4b 100%);
+            --text-primary: #ffffff;
+            --text-secondary: #9ca3af;
+            --accent-blue: #0078D4;
+            --accent-blue-hover: #005a9e;
+            --glass-bg: rgba(255, 255, 255, 0.02);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --glass-hover-bg: rgba(255, 255, 255, 0.05);
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            --sidebar-width: 240px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Outfit', 'Noto Sans KR', sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 아크릴 유리 효과 헤더 */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background: rgba(11, 15, 25, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+            z-index: 100;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4px;
+            width: 32px;
+            height: 32px;
+        }
+        .logo-box div {
+            border-radius: 3px;
+        }
+        .c-1 { background: #FF5722; }
+        .c-2 { background: #4CAF50; }
+        .c-3 { background: #FFC107; }
+        .c-4 { background: #E91E63; }
+
+        .logo-text {
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: -0.3px;
+            background: linear-gradient(to right, #ffffff, #93c5fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .btn-mode-switch {
+            background: var(--accent-blue);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 4px 15px rgba(0, 120, 212, 0.3);
+        }
+
+        .btn-mode-switch:hover {
+            background: var(--accent-blue-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 120, 212, 0.5);
+        }
+
+        .btn-control {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+        .btn-control:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        /* 메인 레이아웃 */
+        .main-container {
+            display: flex;
+            margin-top: 70px;
+            flex: 1;
+            width: 100%;
+        }
+
+        /* 사이드바 메뉴 */
+        aside {
+            width: var(--sidebar-width);
+            background: rgba(11, 15, 25, 0.3);
+            border-right: 1px solid var(--glass-border);
+            padding: 30px 20px;
+            position: fixed;
+            top: 70px;
+            bottom: 0;
+            left: 0;
+            overflow-y: auto;
+            z-index: 90;
+        }
+
+        .sidebar-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .sidebar-menu {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+
+        .menu-item:hover, .menu-item.active {
+            background: var(--glass-hover-bg);
+            color: var(--text-primary);
+        }
+
+        .menu-item.active {
+            border-left: 3px solid var(--accent-blue);
+            background: rgba(255, 255, 255, 0.04);
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+
+        /* 콘텐츠 영역 */
+        main {
+            margin-left: var(--sidebar-width);
+            flex: 1;
+            padding: 40px;
+            min-height: calc(100vh - 70px);
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+
+        .category-section {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            scroll-margin-top: 100px;
+        }
+
+        .category-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        .category-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--accent-blue);
+            border-radius: 2px;
+        }
+
+        /* 그리드 및 카드 디자인 */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .item-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 25px 20px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .item-card::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: 20px;
+            padding: 1px;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.01));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            transition: all 0.3s;
+        }
+
+        .item-card:hover {
+            transform: translateY(-5px);
+            background: var(--glass-hover-bg);
+            border-color: rgba(255, 255, 255, 0.15);
+            box-shadow: var(--card-shadow);
+        }
+
+        .item-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            object-fit: cover;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s;
+        }
+
+        .item-card:hover .item-icon {
+            transform: scale(1.08);
+            box-shadow: 0 8px 20px rgba(0, 120, 212, 0.2);
+        }
+
+        .item-name {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            letter-spacing: -0.2px;
+        }
+
+        .item-desc {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            word-break: keep-all;
+        }
+
+        /* 로딩 스피너 */
+        .loading-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+            gap: 20px;
+            min-height: 50vh;
+        }
+
+        .spinner {
+            width: 48px;
+            height: 48px;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-left-color: var(--accent-blue);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        /* 하단 광고 컨테이너 */
+        .adsense-container {
+            flex-shrink: 0;
+            width: 100%;
+        }
+
+        /* 반응형 모바일 디자인 */
+        @media (max-width: 900px) {
+            aside {
+                display: none;
+            }
+            main {
+                margin-left: 0;
+                padding: 20px;
+            }
+            header {
+                padding: 0 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 최상단 헤더 -->
+    <header>
+        <div class="header-left">
+            <div class="logo-box">
+                <div class="c-1"></div><div class="c-2"></div><div class="c-3"></div><div class="c-4"></div>
+            </div>
+            <span class="logo-text">SmilesLife Portal</span>
+        </div>
+        <div class="header-right">
+            <button class="btn-mode-switch" onclick="switchToDesktop()">
+                <i class="fa-solid fa-desktop"></i> 데스크톱 모드로 변경
+            </button>
+            <button class="btn-control" onclick="resetPreferences()" title="선택 모드 초기화">
+                <i class="fa-solid fa-rotate-left"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- 메인 컨테이너 -->
+    <div class="main-container">
+        <!-- 왼쪽 사이드바 -->
+        <aside id="sidebar" style="display: none;">
+            <h3 class="sidebar-title">Categories</h3>
+            <ul class="sidebar-menu" id="category-menu">
+                <!-- 사이드바 메뉴 항목이 동적으로 삽입됩니다. -->
+            </ul>
+        </aside>
+
+        <!-- 오른쪽 메인 콘텐츠 -->
+        <main id="main-content">
+            <div class="loading-container" id="loading-view">
+                <div class="spinner"></div>
+                <p style="color: var(--text-secondary); font-size: 0.95rem;">포털 서비스 구성 정보를 로드하고 있습니다...</p>
+            </div>
+            
+            <!-- 도구 카드가 그룹별로 동적 렌더링될 영역 -->
+            <div id="portal-content" style="display: none; flex-direction: column; gap: 50px;"></div>
+
+            <!-- Google Auto Ads Optimization Space (완전 투명 광고 가이드) -->
+            <div class="adsense-container" style="clear: both; margin: 40px auto 0 auto; width: 100%; max-width: 970px; min-height: 50px;"></div>
+        </main>
+    </div>
+
+    <script>
+        const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/1RRpkarZGReZMb243IsGNQfP1Urzs5Fh24uWRbfkwVdM/export?format=csv&gid=0';
+        let groupedData = {};
+
+        function switchToDesktop() {
+            // 강제로 가상 데스크톱 모드로 넘어가되, 사용자가 원하면 항상 진입 설정을 체크한 것처럼 보장할 수도 있습니다.
+            window.location.href = 'index_win.html';
+        }
+
+        function resetPreferences() {
+            localStorage.removeItem('smileslife-preferred-mode');
+            window.location.href = 'index.html?select=true';
+        }
+
+        async function loadPortalData() {
+            try {
+                const response = await fetch(SHEET_CSV_URL);
+                const csvText = await response.text();
+                const rows = csvText.split(/\r?\n/).slice(1); // 헤더 스킵
+
+                const defaultIcon = 'images/folder.png';
+                groupedData = {};
+
+                rows.forEach(row => {
+                    if (!row.trim()) return;
+                    const columns = row.split(',').map(col => col.replace(/^"|"$/g, '').trim());
+                    if (columns.length < 3) return;
+
+                    const name = columns[0] || '';
+                    const groupName = columns[1] || '기타';
+                    const url = columns[2] || '';
+                    const iconUrl = (columns[3] && columns[3] !== '') ? columns[3] : defaultIcon;
+
+                    // 배경화면은 바탕화면 전용이므로 포털 메뉴에서는 노출하지 않습니다.
+                    if (groupName === '배경화면') {
+                        return;
+                    }
+
+                    if (!groupedData[groupName]) {
+                        groupedData[groupName] = [];
+                    }
+
+                    // 각 도구별 간단한 어울리는 설명 매핑 (UI 미관 목적)
+                    let desc = "SmilesLife의 전용 프로그램 서비스입니다.";
+                    if (name.includes("배경제거")) desc = "AI 모델이 물체의 윤곽을 따서 배경을 투명하게 만들어 줍니다.";
+                    else if (name.includes("오디오")) desc = "음악이나 녹음본을 MP3, WAV, OGG 형식 등으로 자유롭게 변환합니다.";
+                    else if (name.includes("GIF")) desc = "여러 장의 이미지 프레임을 합쳐 하나의 움짤(GIF) 파일로 제작합니다.";
+                    else if (name.includes("화질")) desc = "저해상도 이미지의 픽셀을 정밀 분석해 고선명 고품질 이미지로 변환합니다.";
+                    else if (name.includes("지우개")) desc = "사진 속에 원치 않는 객체나 텍스트를 AI 연산으로 흔적 없이 지워줍니다.";
+                    else if (name.includes("필터")) desc = "사진을 감각적인 애니메이션이나 수채화 스타일의 만화 형태로 필터링합니다.";
+                    else if (name.includes("태깅") || name.includes("AI분석")) desc = "컴퓨터 비전 기술을 활용해 이미지 내부 정보를 정밀 파악합니다.";
+                    else if (name.includes("타자")) desc = "한글 및 영문 타이핑 속도와 정확도를 늘려주는 타자 훈련 시스템입니다.";
+                    else if (name.includes("지뢰")) desc = "정교한 클래식 지뢰찾기를 모바일과 웹에서 가볍게 즐겨보세요.";
+                    else if (name.includes("메모")) desc = "작성한 글이나 아이디어가 브라우저 내에 자동 세이브되는 텍스트 노트입니다.";
+                    else if (name.includes("배틀")) desc = "50인의 치열한 서바이벌 배틀 아레나 최후의 생존에 도전하세요.";
+                    else if (name.includes("스텔라")) desc = "우주 공간에서 펼쳐지는 슈팅 액션 스텔라 뱅가드 은하 전쟁 게임입니다.";
+                    else if (name.includes("컬러")) desc = "화면 내부의 임의의 색상을 스포이트 툴로 정밀 분석하여 추출해 줍니다.";
+
+                    groupedData[groupName].push({ name, url, iconUrl, desc });
+                });
+
+                renderPortal();
+            } catch (error) {
+                console.error("데이터 로드 중 오류 발생:", error);
+                document.getElementById('loading-view').innerHTML = `<p style="color: #ff5555;"><i class="fa-solid fa-triangle-exclamation"></i> 포털 정보를 가져올 수 없습니다. 구글 시트 링크 또는 네트워크 연결을 확인하세요.</p>`;
+            }
+        }
+
+        function renderPortal() {
+            const menuContainer = document.getElementById('category-menu');
+            const contentContainer = document.getElementById('portal-content');
+            
+            menuContainer.innerHTML = '';
+            contentContainer.innerHTML = '';
+
+            const groups = Object.keys(groupedData);
+
+            if (groups.length === 0) {
+                document.getElementById('loading-view').innerHTML = '<p>등록된 서비스가 없습니다.</p>';
+                return;
+            }
+
+            // 사이드바 카테고리 구성 및 메인 그리드 구성
+            groups.forEach((group, index) => {
+                const safeId = `group-${index}`;
+
+                // 1. 사이드바 메뉴 추가
+                const li = document.createElement('li');
+                li.className = 'menu-item' + (index === 0 ? ' active' : '');
+                li.innerHTML = `<i class="fa-solid fa-folder-open"></i> <span>${group}</span>`;
+                li.onclick = () => {
+                    document.querySelectorAll('.menu-item').forEach(item => item.classList.remove('active'));
+                    li.classList.add('active');
+                    
+                    // 스무스 스크롤
+                    const targetEl = document.getElementById(safeId);
+                    if (targetEl) {
+                        targetEl.scrollIntoView({ behavior: 'smooth' });
+                    }
+                };
+                menuContainer.appendChild(li);
+
+                // 2. 메인 콘텐츠 섹션 구성
+                const section = document.createElement('section');
+                section.className = 'category-section';
+                section.id = safeId;
+
+                const categoryTitle = document.createElement('h2');
+                categoryTitle.className = 'category-title';
+                categoryTitle.innerHTML = `<i class="fa-regular fa-star text-blue-500"></i> ${group}`;
+                section.appendChild(categoryTitle);
+
+                const cardsGrid = document.createElement('div');
+                cardsGrid.className = 'cards-grid';
+
+                groupedData[group].forEach(item => {
+                    const card = document.createElement('a');
+                    card.className = 'item-card';
+                    card.href = item.url;
+                    card.target = '_blank'; // 새 탭에서 열어 가벼운 서비스 유지
+                    card.innerHTML = `
+                        <img src="${item.iconUrl}" class="item-icon" alt="${item.name}">
+                        <div class="item-name">${item.name}</div>
+                        <div class="item-desc">${item.desc}</div>
+                    `;
+                    cardsGrid.appendChild(card);
+                });
+
+                section.appendChild(cardsGrid);
+                contentContainer.appendChild(section);
+            });
+
+            // 로딩 오버레이 끄고 사이드바와 포털 뷰 켜기
+            document.getElementById('loading-view').style.display = 'none';
+            document.getElementById('sidebar').style.display = 'block';
+            document.getElementById('portal-content').style.display = 'flex';
+        }
+
+        window.addEventListener('DOMContentLoaded', loadPortalData);
+    </script>
+</body>
+</html>
