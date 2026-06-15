@@ -219,16 +219,21 @@
         .start-menu-group::after { content: '▶'; font-size: 10px; color: #888; } 
 
         .sub-menu {
-            position: absolute; left: 100%; bottom: 0; margin-left: 5px; width: max-content; min-width: 200px;
+            position: absolute; left: 100%; bottom: 0; margin-left: 5px; width: 220px; /* 고정 너비로 변경 */
             background: rgba(243, 243, 243, 0.95); backdrop-filter: blur(20px);
             border: 1px solid rgba(0,0,0,0.1); border-radius: 12px; display: none; flex-direction: column;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.15); padding: 15px; z-index: 100; cursor: default;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15); padding: 8px; z-index: 100; cursor: default;
         }
 
-        .sub-menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
-        .start-menu-item { display: flex; flex-direction: column; align-items: center; cursor: pointer; padding: 10px 5px; border-radius: 5px; transition: 0.2s; font-size: 12px; color: #333; text-align: center; word-break: keep-all; }
-        .start-menu-item:hover { background: rgba(255,255,255,0.8); }
-        .menu-icon-sm { width: 36px; height: 36px; margin-bottom: 8px; border-radius: 6px; object-fit: cover; }
+        .sub-menu-grid { display: flex; flex-direction: column; gap: 4px; } /* 세로 리스트형으로 구조 수정 */
+        .start-menu-item { 
+            display: flex; flex-direction: row; align-items: center; cursor: pointer; 
+            padding: 8px 12px; border-radius: 6px; transition: 0.2s; 
+            font-size: 13px; color: #333; text-align: left; word-break: keep-all; 
+            width: 100%; box-sizing: border-box;
+        }
+        .start-menu-item:hover { background: rgba(0,0,0,0.05); }
+        .menu-icon-sm { width: 20px; height: 20px; margin-right: 10px; margin-bottom: 0; border-radius: 4px; object-fit: cover; }
 
         .divider { height: 1px; background: rgba(0,0,0,0.1); margin: 10px 5px; }
 
