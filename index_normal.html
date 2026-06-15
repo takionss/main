@@ -542,21 +542,28 @@
                         groupedData[groupName] = [];
                     }
 
-                    // 각 도구별 간단한 어울리는 설명 매핑 (UI 미관 목적)
-                    let desc = "SmilesLife의 전용 프로그램 서비스입니다.";
-                    if (name.includes("배경제거")) desc = "AI 모델이 물체의 윤곽을 따서 배경을 투명하게 만들어 줍니다.";
-                    else if (name.includes("오디오")) desc = "음악이나 녹음본을 MP3, WAV, OGG 형식 등으로 자유롭게 변환합니다.";
-                    else if (name.includes("GIF")) desc = "여러 장의 이미지 프레임을 합쳐 하나의 움짤(GIF) 파일로 제작합니다.";
-                    else if (name.includes("화질")) desc = "저해상도 이미지의 픽셀을 정밀 분석해 고선명 고품질 이미지로 변환합니다.";
-                    else if (name.includes("지우개")) desc = "사진 속에 원치 않는 객체나 텍스트를 AI 연산으로 흔적 없이 지워줍니다.";
-                    else if (name.includes("필터")) desc = "사진을 감각적인 애니메이션이나 수채화 스타일의 만화 형태로 필터링합니다.";
-                    else if (name.includes("태깅") || name.includes("AI분석")) desc = "컴퓨터 비전 기술을 활용해 이미지 내부 정보를 정밀 파악합니다.";
-                    else if (name.includes("타자")) desc = "한글 및 영문 타이핑 속도와 정확도를 늘려주는 타자 훈련 시스템입니다.";
-                    else if (name.includes("지뢰")) desc = "정교한 클래식 지뢰찾기를 모바일과 웹에서 가볍게 즐겨보세요.";
-                    else if (name.includes("메모")) desc = "작성한 글이나 아이디어가 브라우저 내에 자동 세이브되는 텍스트 노트입니다.";
-                    else if (name.includes("배틀")) desc = "50인의 치열한 서바이벌 배틀 아레나 최후의 생존에 도전하세요.";
-                    else if (name.includes("스텔라")) desc = "우주 공간에서 펼쳐지는 슈팅 액션 스텔라 뱅가드 은하 전쟁 게임입니다.";
-                    else if (name.includes("컬러")) desc = "화면 내부의 임의의 색상을 스포이트 툴로 정밀 분석하여 추출해 줍니다.";
+                    // 각 도구별 간단한 어울리는 설명 매핑 (UI 미관 및 검색최적화 목적)
+                    let desc = "SmilesLife에서 제공하는 엄선된 라이프스타일 유틸리티 및 웹 서비스입니다.";
+                    if (name.includes("배경제거")) desc = "AI 모델이 복잡한 물체의 윤곽을 정밀하게 따서 배경을 투명하게 만들어 줍니다.";
+                    else if (name.includes("오디오")) desc = "다양한 오디오/음악 파일을 MP3, WAV, OGG 형식 등으로 쉽고 빠르게 포맷 변환합니다.";
+                    else if (name.includes("GIF")) desc = "여러 장의 동영상 프레임이나 이미지를 합쳐 부드러운 움짤(GIF)로 제작합니다.";
+                    else if (name.includes("화질")) desc = "저해상도 이미지의 흐릿한 픽셀을 정밀 분석하여 깨끗한 초고화질 이미지로 업스케일합니다.";
+                    else if (name.includes("지우개")) desc = "사진 속에 불필요하게 촬영된 인물, 차량, 글씨 등을 AI로 감쪽같이 제거해 줍니다.";
+                    else if (name.includes("필터")) desc = "내 사진을 원클릭으로 감각적인 3D 애니메이션이나 손그림 웹툰 스타일로 필터링합니다.";
+                    else if (name.includes("태깅") || name.includes("AI분석")) desc = "최신 컴퓨터 비전 기술을 통해 이미지 속 사물과 텍스트 정보를 자동으로 추출해 줍니다.";
+                    else if (name.includes("타자")) desc = "정밀한 타수 측정 기능과 함께 한글/영문 타이핑 속도 향상을 위한 타자 연습 시스템입니다.";
+                    else if (name.includes("지뢰")) desc = "추억의 클래식 지뢰찾기를 다운로드 없이 모바일과 웹 브라우저에서 편리하게 즐겨보세요.";
+                    else if (name.includes("메모")) desc = "간단한 아이디어나 할 일을 적어두면 브라우저 스토리지에 자동 저장되는 개인 메모장입니다.";
+                    else if (name.includes("배틀")) desc = "실시간 매칭을 통해 50인의 플레이어들과 벌이는 박진감 넘치는 데스매치 서바이벌 아레나 게임입니다.";
+                    else if (name.includes("스텔라")) desc = "광활한 우주를 탐험하며 쏟아지는 행성과 적들을 물리치는 종스크롤 슈팅 스타파이터 게임입니다.";
+                    else if (name.includes("컬러")) desc = "화면 상의 임의의 픽셀 색상을 스포이트 툴로 찍어 정확한 HEX 및 RGB 컬러 코드를 추출해 줍니다.";
+                    else if (name.includes("타로") || name.includes("운세")) desc = "오늘의 타로 카드 운세 점치기부터 상황별 상세 조언을 들을 수 있는 상담 도구입니다.";
+                    else if (name.includes("계산기")) desc = "기본적인 사칙연산은 물론 공학용 수식과 이자 계산 등도 원활히 제공하는 다기능 계산기입니다.";
+                    else if (name.includes("스톱워치") || name.includes("타이머")) desc = "운동, 공부, 요리 시간 등을 정밀하게 측정하고 알림을 주는 모던 웹 타이머 도구입니다.";
+                    else if (name.includes("날씨")) desc = "실시간 GPS 위치 정보를 파악하여 현재 기온과 미세먼지 수치, 주간 날씨 정보를 제공합니다.";
+                    else if (name.includes("달력") || name.includes("캘린더")) desc = "연도별 공휴일 및 중요한 기념일 정보를 쉽고 깨끗하게 확인하고 관리할 수 있는 일정표입니다.";
+                    else if (name.includes("드로잉") || name.includes("그림판")) desc = "웹 브라우저 캔버스 위에서 자유로운 브러시 도구를 사용하여 스케치나 메모를 할 수 있는 그림판입니다.";
+                    else if (name.includes("번역")) desc = "파파고/구글 수준의 AI 다국어 엔진을 연동하여 다양한 외국어 텍스트를 정밀 통역해 줍니다.";
 
                     groupedData[groupName].push({ name, url, iconUrl, desc });
                 });
