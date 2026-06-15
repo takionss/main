@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔮 프리미엄 타로 로또 예측기</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+        
+        body {
+            background-color: #0b0c10;
+            color: #66fcf1;
+            font-family: 'Gowun Dodum', sans-serif;
+            text-align: center;
+            margin: 0; 
+            padding: 20px;
+            overflow-x: hidden;
+        }
+        h1 { text-shadow: 0 0 10px #45a29e; font-size: 2.2em; margin-bottom: 30px; }
+        
+        .card-container {
+            display: flex; justify-content: center; gap: 20px; margin-bottom: 30px;
+            perspective: 1000px;
+            flex-wrap: wrap;
+        }
+        .card {
+            width: 150px; height: 260px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 1.2s cubic-bezier(0.4, 0.2, 0.2, 1);
+        }
+        .card.flipped { transform: rotateY(180deg); }
+        
+        .card-face {
+            position: absolute; width: 100%; height: 100%;
+            backface-visibility: hidden; 
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(102, 252, 241, 0.2);
+        }
+        .card-front {
+            background: linear-gradient(135deg, #1f2833 0%, #0b0c10 100%);
+            border: 2px solid #45a29e;
+            display: flex; align-items: center; justify-content: center;
+            color: #45a29e; font-size: 2em;
+        }
+        .card-back {
+            transform: rotateY(180deg);
+            background-size: cover;
+            background-position: center;
+            border: 2px solid #c5c6c7;
+        }
+        
+        button {
+            background: transparent; color: #66fcf1;
+            border: 2px solid #66fcf1; padding: 15px 30px;
+            font-size: 1.2em; border-radius: 30px; cursor: pointer;
+            transition: 0.3s;
+            font-family: 'Gowun Dodum', sans-serif;
+            box-shadow: 0 0 10px rgba(102, 252, 241, 0.3);
+            margin-bottom: 20px;
+        }
+        button:hover {
+            background: #66fcf1; color: #0b0c10;
+            box-shadow: 0 0 20px rgba(102, 252, 241, 0.8);
+        }
+        button:disabled { border-color: #45a29e; color: #45a29e; cursor: not-allowed; background: transparent; box-shadow: none; }
+        
+        #result-text {
+            font-size: 1.1em; line-height: 1.8; color: #c5c6c7;
+            display: inline-block; background: #1f2833; padding: 25px;
+            border-radius: 10px; min-width: 350px; max-width: 600px;
+            border: 1px solid #45a29e;
+            margin: 0 auto;
+        }
+        .text-left { text-align: left; }
+        .text-center { text-align: center; }
+        .highlight { color: #f1c40f; font-weight: bold; }
+        .wish-text { color: #ff7272; font-size: 1.1em; } /* 염원을 담은 붉은빛 텍스트 */
+        
+        /* 🎱 실제 로또 공 3D 스타일 적용 */
+        .ball-container { display: flex; align-items: center; margin-top: 10px; gap: 8px; flex-wrap: wrap; }
+        .game-label { font-weight: bold; color: #66fcf1; margin-right: 5px; width: 85px; }
+        .ball {
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            display: inline-flex; align-items: center; justify-content: center;
+            font-weight: 900; font-size: 1.1em;
+            color: #fff; text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+            box-shadow: inset -5px -5px 10px rgba(0,0,0,0.4), inset 3px 3px 8px rgba(255,255,255,0.7), 2px 2px 5px rgba(0,0,0,0.5);
+            animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            opacity: 0; transform: scale(0);
+        }
+        
+        .ball-yellow { background: #fbc400; color: #333; text-shadow: none; }
+        .ball-blue   { background: #69c8f2; }
+        .ball-red    { background: #ff7272; }
+        .ball-gray   { background: #aaaaaa; }
+        .ball-green  { background: #b0d840; }
+
+        @keyframes popIn {
+            0% { opacity: 0; transform: scale(0.5); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🔮 운명의 타로 로또 예측기</h1>
+    
+    <div class="card-container">
+        <div class="card" id="card0"><div class="card-face card-front">✨</div><div class="card-face card-back" id="img0"></div></div>
+        <div class="card" id="card1"><div class="card-face card-front">✨</div><div class="card-face card-back" id="img1"></div></div>
+        <div class="card" id="card2"><div class="card-face card-front">✨</div><div class="card-face card-back" id="img2"></div></div>
+    </div>
+    
+    <button id="drawBtn" onclick="drawCards()">운명의 카드 셔플</button>
+    <br>
+    
+    <!-- 초기 안내 문구를 가운데 정렬과 강조 텍스트로 수정 -->
+    <div id="result-text" class="text-center">
+        <br>눈을 감고 <span class="highlight">로또 1등이 되어야만 하는 간절한 이유</span>를 떠올려보세요.<br>
+        당신의 염원이 최고조에 달했을 때, 버튼을 눌러주세요.<br><br>
+    </div>
+
+    <script>
+        const BASE_URL = "https://sacred-texts.com/tarot/pkt/img/";
+        const tarotDeck = [];
+        
+        const majors = [
+            { name: "바보", meaning: "새로운 시작과 무한한 가능성" },
+            { name: "마법사", meaning: "창조력과 강한 의지" },
+            { name: "여사제", meaning: "직관과 숨겨진 지혜" },
+            { name: "여황제", meaning: "풍요로움과 따뜻한 에너지" },
+            { name: "황제", meaning: "안정과 강력한 리더십" },
+            { name: "교황", meaning: "믿음과 정신적 가르침" },
+            { name: "연인", meaning: "조화로운 결합과 긍정적 선택" },
+            { name: "전차", meaning: "거침없는 추진력과 승리" },
+            { name: "힘", meaning: "부드러운 카리스마와 인내" },
+            { name: "은둔자", meaning: "깊은 통찰력과 깨달음" },
+            { name: "운명의 수레바퀴", meaning: "운명적인 전환점과 뜻밖의 행운" },
+            { name: "정의", meaning: "공정한 판단과 완벽한 균형" },
+            { name: "매달린 사람", meaning: "새로운 관점과 헌신" },
+            { name: "죽음", meaning: "극적인 변화와 새로운 부활" },
+            { name: "절제", meaning: "조화와 순조로운 흐름" },
+            { name: "악마", meaning: "치명적인 매력과 숨은 욕망" },
+            { name: "탑", meaning: "갑작스러운 변화와 낡은 것의 해방" },
+            { name: "별", meaning: "희망과 밝게 빛나는 미래" },
+            { name: "달", meaning: "직감과 내면의 무의식" },
+            { name: "태양", meaning: "눈부신 성공과 긍정적 에너지" },
+            { name: "심판", meaning: "운명적 부활과 결정적인 보상" },
+            { name: "세계", meaning: "완벽한 성취와 해피엔딩" }
+        ];
+        
+        majors.forEach((card, i) => {
+            let numStr = i < 10 ? '0' + i : i.toString();
+            tarotDeck.push({ name: card.name + " (메이저)", url: `${BASE_URL}ar${numStr}.jpg`, type: "메이저", meaning: card.meaning });
+        });
+
+        const suits = { 
+            "wa": { name: "지팡이", meaning: "열정과 행동력이 상승하여 빠른 결과를 가져옵니다." },
+            "cu": { name: "컵", meaning: "감정과 직관이 풍부해져 뜻밖의 행운을 끌어당깁니다." },
+            "sw": { name: "검", meaning: "날카로운 판단력으로 행운의 숫자를 꿰뚫어 봅니다." },
+            "pe": { name: "펜타클", meaning: "물질적인 풍요와 금전운이 매우 강하게 깃들어 있습니다." }
+        };
+        const ranks = { "ac": "에이스", "02": "2", "03": "3", "04": "4", "05": "5", "06": "6", "07": "7", "08": "8", "09": "9", "10": "10", "pa": "시종", "kn": "기사", "qu": "여왕", "ki": "왕" };
+        
+        for (let s in suits) {
+            for (let r in ranks) {
+                tarotDeck.push({ name: `${suits[s].name} ${ranks[r]}`, url: `${BASE_URL}${s}${r}.jpg`, type: suits[s].name, meaning: suits[s].meaning });
+            }
+        }
+
+        function getWeightedRandom(weights) {
+            let sum = weights.reduce((a, b) => a + b, 0);
+            let rand = Math.random() * sum;
+            for (let i = 0; i < weights.length; i++) {
+                if (rand < weights[i]) return i + 1;
+                rand -= weights[i];
+            }
+            return 45;
+        }
+
+        function getBallColor(num) {
+            if (num <= 10) return "ball-yellow";
+            if (num <= 20) return "ball-blue";
+            if (num <= 30) return "ball-red";
+            if (num <= 40) return "ball-gray";
+            return "ball-green";
+        }
+
+        async function drawCards() {
+            const btn = document.getElementById('drawBtn');
+            const resultBox = document.getElementById('result-text');
+            btn.disabled = true;
+            btn.innerText = "당신의 간절함을 카드에 담는 중... 🌀"; // 버튼 텍스트 변경
+            
+            for(let i=0; i<3; i++) {
+                document.getElementById(`card${i}`).classList.remove('flipped');
+            }
+            
+            // 로딩 메시지 변경
+            resultBox.className = "text-center wish-text";
+            resultBox.innerHTML = "<br>강렬한 염원이 타로 카드에 스며들고 있습니다...<br><br>";
+            
+            await new Promise(r => setTimeout(r, 1500)); // 몰입을 위해 로딩 시간을 살짝 늘림
+
+            let shuffled = [...tarotDeck].sort(() => 0.5 - Math.random());
+            let chosenCards = shuffled.slice(0, 3);
+            
+            for(let i=0; i<3; i++) {
+                document.getElementById(`img${i}`).style.backgroundImage = `url(${chosenCards[i].url})`;
+                document.getElementById(`card${i}`).classList.add('flipped');
+                await new Promise(r => setTimeout(r, 800));
+            }
+            
+            let weights = new Array(45).fill(1.0);
+            chosenCards.forEach(card => {
+                if (card.type === "지팡이") for (let i = 0; i < 10; i++) weights[i] += 1.5;
+                else if (card.type === "컵") for (let i = 10; i < 20; i++) weights[i] += 1.5;
+                else if (card.type === "검") for (let i = 20; i < 30; i++) weights[i] += 1.5;
+                else if (card.type === "펜타클") for (let i = 30; i < 40; i++) weights[i] += 1.5;
+                else {
+                    let luckyZone = Math.floor(Math.random() * 4) * 10;
+                    for (let i = luckyZone; i < Math.min(luckyZone + 10, 45); i++) weights[i] += 2.0;
+                }
+            });
+
+            let lottoGames = [];
+            for (let g = 0; g < 5; g++) {
+                let predicted = new Set();
+                while (predicted.size < 6) {
+                    predicted.add(getWeightedRandom(weights));
+                }
+                lottoGames.push(Array.from(predicted).sort((a, b) => a - b));
+            }
+            
+            let introText = `✨ [운명의 계시]<br>`;
+            chosenCards.forEach(c => {
+                introText += `- ${c.name} : ${c.meaning}<br>`;
+            });
+            introText += `<br>당신의 간절한 염원과 위 카드의 기운을 듬뿍 담은<br><span class='highlight'>이번 회차 1등 예측 번호입니다!</span><br>`;
+            introText += `<hr style='border: 1px dashed #45a29e; margin: 15px 0;'>`;
+
+            let ballsHTML = `<div>`;
+            lottoGames.forEach((nums, idx) => {
+                let gameNum = (idx + 1).toString().padStart(2, '0');
+                ballsHTML += `<div class="ball-container"><div class="game-label">게임 ${gameNum}</div>`;
+                nums.forEach((num, ballIdx) => {
+                    let delay = (ballIdx * 0.1) + "s";
+                    ballsHTML += `<div class="ball ${getBallColor(num)}" style="animation-delay: ${delay}">${num}</div>`;
+                });
+                ballsHTML += `</div>`;
+            });
+            ballsHTML += `</div>`;
+            
+            resultBox.className = "text-left"; // 결과 출력 시 다시 왼쪽 정렬
+            resultBox.innerHTML = "";
+            let charIndex = 0;
+            let isTag = false;
+            let currentHTML = "";
+
+            function typeWriter() {
+                if(charIndex < introText.length) {
+                    let char = introText.charAt(charIndex);
+                    currentHTML += char;
+                    if(char === '<') isTag = true;
+                    if(char === '>') isTag = false;
+                    
+                    resultBox.innerHTML = currentHTML;
+                    charIndex++;
+                    
+                    if(isTag) {
+                        typeWriter();
+                    } else {
+                        setTimeout(typeWriter, 20);
+                    }
+                } else {
+                    resultBox.innerHTML += ballsHTML;
+                    btn.disabled = false;
+                    btn.innerText = "새로운 염원으로 다시 뽑기"; // 완료 후 버튼 텍스트 변경
+                }
+            }
+            typeWriter();
+        }
+    </script>
+</body>
+</html>
