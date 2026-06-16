@@ -149,6 +149,28 @@
             transform: scale(1.05);
         }
 
+        .lang-select {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 12px;
+            cursor: pointer;
+            outline: none;
+            font-size: 0.85rem;
+            font-family: inherit;
+            transition: all 0.2s;
+            margin-right: 5px;
+        }
+        .lang-select:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        .lang-select option {
+            background: #0b0f19;
+            color: white;
+        }
+
         /* 메인 레이아웃 */
         .main-container {
             display: flex;
@@ -437,6 +459,13 @@
             </a>
         </div>
         <div class="header-right">
+            <select class="lang-select" onchange="changeLanguage(this.value)">
+                <option value="ko">한국어</option>
+                <option value="en">English</option>
+                <option value="es">Español</option>
+                <option value="ja">日本語</option>
+                <option value="zh-TW">繁體中文</option>
+            </select>
             <button class="btn-mode-switch" onclick="switchToDesktop()" title="Cambiar al modo Windows">
                 <i class="fa-solid fa-desktop"></i>
             </button>
@@ -671,6 +700,14 @@
             closeSidebar();
         }
 
+        function changeLanguage(val) {
+            if (val === 'ko') {
+                window.location.href = '/index_normal.html';
+            } else {
+                window.location.href = '/' + val + '/index_normal.html';
+            }
+        }
+
         // 모바일 사이드바 제어 함수
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar');
@@ -687,6 +724,11 @@
                 overlay.classList.remove('active');
             }
         }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const select = document.querySelector('.lang-select');
+            if (select) select.value = pageLang;
+        });
     </script>
 </body>
 </html>

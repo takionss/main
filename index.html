@@ -318,9 +318,46 @@
                 font-size: 2.2rem;
             }
         }
+
+        .lang-select-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+        .lang-select {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 12px;
+            cursor: pointer;
+            outline: none;
+            font-size: 0.85rem;
+            font-family: inherit;
+            transition: all 0.2s;
+        }
+        .lang-select:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        .lang-select option {
+            background: #0b0f19;
+            color: white;
+        }
     </style>
 </head>
 <body>
+
+    <div class="lang-select-container">
+        <select class="lang-select" onchange="changeLanguage(this.value)">
+            <option value="ko">한국어</option>
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="ja">日本語</option>
+            <option value="zh-TW">繁體中文</option>
+        </select>
+    </div>
 
     <div class="glow-sphere sphere-1"></div>
     <div class="glow-sphere sphere-2"></div>
@@ -332,7 +369,7 @@
                 😊
             </div>
             <h1>SmilesLife</h1>
-            <p>작업 환경에 최적화된 접속 모드를 선택해 주세요.</p>
+            <p id="header-subtitle">작업 환경에 최적화된 접속 모드를 선택해 주세요.</p>
         </div>
 
         <!-- 카드 구성 -->
@@ -340,8 +377,8 @@
             <!-- 1. 일반 모드 -->
             <div class="card card-normal" onclick="selectMode('normal')">
                 <div class="card-icon">💻</div>
-                <h2>일반 모드</h2>
-                <p>모든 서비스와 게임을 한눈에 볼 수 있는 깔끔한 카드 리스트 형식입니다. 모바일과 PC 환경 구분 없이 빠르고 간편하게 실행할 수 있습니다.</p>
+                <h2 id="normal-title">일반 모드</h2>
+                <p id="normal-desc">모든 서비스와 게임을 한눈에 볼 수 있는 깔끔한 카드 리스트 형식입니다. 모바일과 PC 환경 구분 없이 빠르고 간편하게 실행할 수 있습니다.</p>
             </div>
 
             <!-- 2. 윈도우 모드 -->
@@ -354,15 +391,15 @@
                         <div style="background: #E91E63; border-radius: 2px;"></div>
                     </div>
                 </div>
-                <h2>윈도우 모드</h2>
-                <p>실제 컴퓨터 바탕화면처럼 여러 창을 띄우고 동시에 작업할 수 있습니다.<br><span style="font-weight: 600; color: #3b82f6;">※ 선택 시 브라우저가 전체 화면 모드로 전환됩니다.</span></p>
+                <h2 id="win-title">윈도우 모드</h2>
+                <p id="win-desc">실제 컴퓨터 바탕화면처럼 여러 창을 띄우고 동시에 작업할 수 있습니다.<br><span style="font-weight: 600; color: #3b82f6;">※ 선택 시 브라우저가 전체 화면 모드로 전환됩니다.</span></p>
             </div>
         </div>
 
         <!-- 옵션 설정 -->
         <label class="preference-box" for="remember-preference">
             <input type="checkbox" id="remember-preference">
-            <span>선택한 접속 모드 기억하기 (이후 자동 접속)</span>
+            <span id="remember-text">선택한 접속 모드 기억하기 (이후 자동 접속)</span>
         </label>
 
         <!-- 저작권 -->
@@ -373,6 +410,54 @@
     </div>
 
     <script>
+        const DICTIONARY = {
+            'ko': {
+                't_title': 'SmilesLife - 접속 모드 선택',
+                'header-subtitle': '작업 환경에 최적화된 접속 모드를 선택해 주세요.',
+                'normal-title': '일반 모드',
+                'normal-desc': '모든 서비스와 게임을 한눈에 볼 수 있는 깔끔한 카드 리스트 형식입니다. 모바일과 PC 환경 구분 없이 빠르고 간편하게 실행할 수 있습니다.',
+                'win-title': '윈도우 모드',
+                'win-desc': '실제 컴퓨터 바탕화면처럼 여러 창을 띄우고 동시에 작업할 수 있습니다.<br><span style="font-weight: 600; color: #3b82f6;">※ 선택 시 브라우저가 전체 화면 모드로 전환됩니다.</span>',
+                'remember-text': '선택한 접속 모드 기억하기 (이후 자동 접속)'
+            },
+            'en': {
+                't_title': 'SmilesLife - Choose Access Mode',
+                'header-subtitle': 'Please choose the access mode optimized for your workspace.',
+                'normal-title': 'Normal Mode',
+                'normal-desc': 'A clean card list format displaying all services and games at a glance. Run them quickly and easily on both mobile and PC.',
+                'win-title': 'Windows Mode',
+                'win-desc': 'Open multiple windows and multitask just like a real computer desktop.<br><span style="font-weight: 600; color: #3b82f6;">※ Browser switches to full-screen mode upon selection.</span>',
+                'remember-text': 'Remember my choice (automatic access next time)'
+            },
+            'es': {
+                't_title': 'SmilesLife - Seleccionar Modo de Acceso',
+                'header-subtitle': 'Por favor, elija el modo de acceso optimizado para su espacio de trabajo.',
+                'normal-title': 'Modo Normal',
+                'normal-desc': 'Un formato de lista de tarjetas limpio que muestra todos los servicios y juegos de un vistazo. Ejecútelos rápida y fácilmente tanto en móviles como en PC.',
+                'win-title': 'Modo Windows',
+                'win-desc': 'Abra múltiples ventanas y realice múltiples tareas como en un escritorio de computadora real.<br><span style="font-weight: 600; color: #3b82f6;">※ El navegador cambia al modo de pantalla completa al seleccionarlo.</span>',
+                'remember-text': 'Recordar mi elección (acceso automático la próxima vez)'
+            },
+            'ja': {
+                't_title': 'SmilesLife - 接続モードの選択',
+                'header-subtitle': '作業環境に最適化された接続モードを選択してください。',
+                'normal-title': 'ノーマルモード',
+                'normal-desc': 'すべてのサービスやゲームを一覧できるクリーンなカードリスト形式です。モバイルとPC環境を問わず、迅速かつ簡単に実行できます。',
+                'win-title': 'ウィンドウモード',
+                'win-desc': '実際のコンピュータのデスクトップのように、複数のウィンドウを開いて同時に作業できます。<br><span style="font-weight: 600; color: #3b82f6;">※ 選択すると、ブラウザが全画面表示モードに切り替わります。</span>',
+                'remember-text': '選択した接続モードを記憶する（次回から自動接続）'
+            },
+            'zh-TW': {
+                't_title': 'SmilesLife - 選擇存取模式',
+                'header-subtitle': '請選擇適合您工作環境의 存取模式。',
+                'normal-title': '一般模式',
+                'normal-desc': '乾淨的卡片列表格式，所有服務與遊戲一目了然。在手機與電腦上皆可快速且輕鬆地執行。',
+                'win-title': 'Windows 模式',
+                'win-desc': '像真實的電腦桌面一樣，打開多個視窗並同時進行多工處理。<br><span style="font-weight: 600; color: #3b82f6;">※ 選擇後瀏覽器將切換為全螢幕模式。</span>',
+                'remember-text': '記住我選擇的模式（下次自動登入）'
+            }
+        };
+
         function getLanguagePrefix() {
             const userLang = (navigator.language || navigator.userLanguage).toLowerCase();
             if (userLang.startsWith('en')) return 'en';
@@ -382,9 +467,25 @@
             return 'ko';
         }
 
+        function applyLanguage(lang) {
+            const trans = DICTIONARY[lang] || DICTIONARY['ko'];
+            document.title = trans['t_title'];
+            document.getElementById('header-subtitle').innerHTML = trans['header-subtitle'];
+            document.getElementById('normal-title').innerHTML = trans['normal-title'];
+            document.getElementById('normal-desc').innerHTML = trans['normal-desc'];
+            document.getElementById('win-title').innerHTML = trans['win-title'];
+            document.getElementById('win-desc').innerHTML = trans['win-desc'];
+            document.getElementById('remember-text').innerHTML = trans['remember-text'];
+        }
+
+        function changeLanguage(lang) {
+            applyLanguage(lang);
+        }
+
         function selectMode(mode) {
             const rememberCheckbox = document.getElementById('remember-preference');
-            const lang = getLanguagePrefix();
+            const selectEl = document.querySelector('.lang-select');
+            const lang = selectEl ? selectEl.value : getLanguagePrefix();
             
             if (rememberCheckbox && rememberCheckbox.checked) {
                 localStorage.setItem('smileslife-preferred-mode', mode);
@@ -393,7 +494,6 @@
             }
             
             if (mode === 'win') {
-                // 전체화면 요청 후 iframe 생성으로 페이지 전환 처리 (화면 꺼짐 및 전체화면 해제 차단)
                 try {
                     const docElm = document.documentElement;
                     if (docElm.requestFullscreen) {
@@ -403,12 +503,10 @@
                     }
                 } catch (err) {}
                 
-                // 부모 페이지의 스크롤바가 우측에 노출되는 현상 방지
                 document.documentElement.style.overflow = 'hidden';
                 document.body.style.overflow = 'hidden';
                 
                 setTimeout(() => {
-                    // 주소창 URL을 index_win.html로 변경 (새로고침 시 해당 주소로 유지되도록 처리)
                     try {
                         window.history.replaceState({}, '', 'index_win.html?lang=' + lang);
                     } catch (e) {}
@@ -430,12 +528,19 @@
             }
         }
         
-        // 이전에 선택을 저장했었다면 체크박스를 활성화해 둡니다.
         window.addEventListener('DOMContentLoaded', () => {
             const preferredMode = localStorage.getItem('smileslife-preferred-mode');
             if (preferredMode) {
                 document.getElementById('remember-preference').checked = true;
             }
+            
+            // Auto-detect and pre-select language dropdown
+            const defaultLang = getLanguagePrefix();
+            const selectEl = document.querySelector('.lang-select');
+            if (selectEl) {
+                selectEl.value = defaultLang;
+            }
+            applyLanguage(defaultLang);
         });
     </script>
 </body>
