@@ -185,736 +185,644 @@
   ],
   "en": [
     {
-      "name": "웹서비스",
+      "name": "Web service",
       "items": [
         {
-          "name": "이미지 배경제거",
+          "name": "Image background removal",
           "url": "web/background-removal/index.html",
           "icon": "images/generative-image.png",
-          "desc": "AI 기반 이미지 배경 제거 및 누끼 따기"
+          "desc": "AI-based image background removal and cutout"
         },
         {
-          "name": "GIF 변환기",
+          "name": "GIF converter",
           "url": "web/image-to-gif/index.html",
           "icon": "images/gif-file.png",
-          "desc": "이미지를 합쳐 움직이는 GIF 움짤 제작"
+          "desc": "Creating animated GIFs by combining images"
         },
         {
-          "name": "오디오 변환기",
+          "name": "Audio converter",
           "url": "web/audio-converter/index.html",
           "icon": "images/volume-adjustment.png",
-          "desc": "음악 및 오디오 파일 형식 상호 변환기"
+          "desc": "Music and Audio File Format Interconverter"
         },
         {
-          "name": "이미지 화질 개선",
+          "name": "Image quality improvement",
           "url": "web/image-upscaler/index.html",
           "icon": "images/scale.png",
-          "desc": "흐릿한 사진을 선명하게 고화질 업스케일"
+          "desc": "High-definition upscaling blurry photos to make them sharp"
         },
         {
-          "name": "이미지 AI 지우개",
+          "name": "Image AI Eraser",
           "url": "web/object-eraser/index.html",
           "icon": "images/eraser.png",
-          "desc": "AI 사진 속 원치 않는 사물 및 텍스트 제거"
+          "desc": "AI removes unwanted objects and text from photos"
         },
         {
-          "name": "이미지 변환 필터",
+          "name": "Image conversion filter",
           "url": "web/anime-filter/index.html",
           "icon": "images/comic-book.png",
-          "desc": "사진을 만화/웹툰 애니메이션 스타일로 변환"
+          "desc": "Convert photos to cartoon/webtoon animation style"
         },
         {
-          "name": "이미지 AI 분석",
+          "name": "Image AI Analysis",
           "url": "web/image-tagging/index.html",
           "icon": "images/image.png",
-          "desc": "AI 이미지 분석 사물 인식 및 태그 추천 문구 생성"
+          "desc": "AI Image Analysis, Object Recognition, and Tag Recommendation Phrase Generation"
         },
         {
-          "name": "컬러 측정기",
+          "name": "Color meter",
           "url": "web/color-picker/index.html",
           "icon": "images/color.png",
-          "desc": "화면 상의 정확한 색상 코드 스포이트 추출"
+          "desc": "Extract accurate color codes from the screen using the eyedropper tool"
         }
       ]
     },
     {
-      "name": "게임",
+      "name": "game",
       "items": [
         {
-          "name": "배틀 아레나",
+          "name": "Battle Arena",
           "url": "game/battle_arena/index.html",
           "icon": "images/battle.png",
-          "desc": "50인 서바이벌 배틀 아레나 액션 게임"
+          "desc": "50-Player Survival Battle Arena Action Game"
         },
         {
-          "name": "스텔라 뱅가드",
+          "name": "Stella Vanguard",
           "url": "game/stella_vanguard/index.html",
           "icon": "images/digital.png",
-          "desc": "종스크롤 우주선 비행 슈팅 액션 게임"
+          "desc": "Side-scrolling spaceship flight shooting action game"
         },
         {
-          "name": "타로또",
+          "name": "Tarot",
           "url": "web/lotto_tarot/index.html",
           "icon": "images/lottery.png",
-          "desc": "오늘의 타로 운세 리딩 및 인공지능 고민 상담"
+          "desc": "Today's Tarot Fortune Reading and AI Counseling"
         },
         {
-          "name": "지뢰찾기",
+          "name": "Minesweeper",
           "url": "web/minesweeper/index.html",
           "icon": "images/bomb.png",
-          "desc": "웹브라우저로 바로 즐기는 클래식 지뢰찾기"
+          "desc": "Classic Minesweeper Play Directly in Your Web Browser"
         },
         {
-          "name": "타자연습",
+          "name": "Typing practice",
           "url": "web/typing-practice/index.html",
           "icon": "images/typing.png",
-          "desc": "타이핑 연습을 위한 한글/영문 타자기"
+          "desc": "Korean/English Typewriter for Typing Practice"
         }
       ]
     },
     {
-      "name": "기타",
+      "name": "Knowledge & Trends",
       "items": [
         {
-          "name": "문의하기",
-          "url": "https://forms.gle/iGqkmrB7YYptoUgQA",
-          "icon": "images/board.png",
-          "desc": "제휴/ 오류 등 문의 등록"
-        },
-        {
-          "name": "메모장",
-          "url": "web/notepad/index.html",
-          "icon": "images/notepad.png",
-          "desc": "작성 내용이 자동 보관되는 간편 웹 메모장"
-        },
-        {
-          "name": "보험 상담",
-          "url": "https://consult.smileslife.co.kr/",
-          "icon": "images/health.png",
-          "desc": "전문가가 무료로 제안하는 내 맞춤형 보험 분석"
-        }
-      ]
-    },
-    {
-      "name": "지식 & 트렌드",
-      "items": [
-        {
-          "name": "AI 트렌드 포털",
+          "name": "AI Trend Portal",
           "url": "https://ai.smileslife.co.kr/",
           "icon": "images/icon_ai.png",
-          "desc": "최신 AI 기술 동향 및 인공지능 트렌드 정보"
+          "desc": "Latest AI Technology Trends and Artificial Intelligence Trend Information"
         },
         {
-          "name": "비즈니스 인사이트",
+          "name": "Business Insights",
           "url": "https://business.smileslife.co.kr/",
           "icon": "images/icon_business.png",
-          "desc": "성공적인 비즈니스 전략 및 창업 마케팅 가이드"
+          "desc": "Successful Business Strategy and Startup Marketing Guide"
         },
         {
-          "name": "크립토 가이드",
+          "name": "Crypto Guide",
           "url": "https://crypto.smileslife.co.kr/",
           "icon": "images/icon_crypto.png",
-          "desc": "가상자산 시장 분석 및 블록체인 트렌드 동향"
+          "desc": "Virtual Asset Market Analysis and Blockchain Trends"
         },
         {
-          "name": "호기심 천국 포털",
+          "name": "Curiosity Heaven Portal",
           "url": "https://curiosity.smileslife.co.kr/",
           "icon": "images/icon_curiosity.png",
-          "desc": "세상의 흥미로운 지식과 미스터리 호기심 탐구"
+          "desc": "Exploring the world's interesting knowledge, mysteries, and curiosity"
         },
         {
-          "name": "스마트 금융 정보",
+          "name": "Smart Financial Information",
           "url": "https://finance.smileslife.co.kr/",
           "icon": "images/icon_finance.png",
-          "desc": "합리적인 자산 관리 및 효율적인 금융 정보 포털"
+          "desc": "Rational asset management and efficient financial information portal"
         },
         {
-          "name": "파이어족 자산설계",
+          "name": "FIRE community asset planning",
           "url": "https://fire.smileslife.co.kr/",
           "icon": "images/icon_fire.png",
-          "desc": "경제적 자유를 준비하는 파이어족 자산 설계 팁"
+          "desc": "Asset Planning Tips for the FIRE Community Preparing for Financial Freedom"
         },
         {
-          "name": "자동화 패시브 인컴",
+          "name": "Automation Passive Income",
           "url": "https://passive.smileslife.co.kr/",
           "icon": "images/icon_passive.png",
-          "desc": "자동화 수익 기획 및 패시브 인컴 파이프라인 구축"
+          "desc": "Automated Revenue Planning and Building a Passive Income Pipeline"
         },
         {
-          "name": "파이썬 자동화 코딩",
+          "name": "Python automation coding",
           "url": "https://python.smileslife.co.kr/",
           "icon": "images/icon_python.png",
-          "desc": "파이썬 프로그래밍 기초 핵심과 자동화 코딩 학습"
+          "desc": "Learning Python Programming Basics and Automated Coding"
         },
         {
-          "name": "리스크 관리 정보",
+          "name": "Risk Management Information",
           "url": "https://risk.smileslife.co.kr/",
           "icon": "images/icon_risk.png",
-          "desc": "자산 리스크 관리 및 안전한 금융 위험 요인 분석"
+          "desc": "Asset Risk Management and Safe Financial Risk Factor Analysis"
         },
         {
-          "name": "SEO 최적화 가이드",
+          "name": "SEO Optimization Guide",
           "url": "https://seo.smileslife.co.kr/",
           "icon": "images/icon_seo.png",
-          "desc": "검색엔진 최적화 노하우 및 웹사이트 상위 노출 팁"
+          "desc": "Search Engine Optimization Know-how and Tips for Top Website Rankings"
         },
         {
-          "name": "주식 투자 인사이트",
+          "name": "Stock Investment Insights",
           "url": "https://stock.smileslife.co.kr/",
           "icon": "images/icon_stock.png",
-          "desc": "국내외 주식 시장 시황 분석 및 주식 투자 전략"
+          "desc": "Analysis of Domestic and International Stock Market Conditions and Stock Investment Strategies"
         }
       ]
     }
   ],
   "es": [
     {
-      "name": "웹서비스",
+      "name": "Servicio web",
       "items": [
         {
-          "name": "이미지 배경제거",
+          "name": "eliminación del fondo de la imagen",
           "url": "web/background-removal/index.html",
           "icon": "images/generative-image.png",
-          "desc": "AI 기반 이미지 배경 제거 및 누끼 따기"
+          "desc": "Eliminación y recorte de fondo de imágenes mediante inteligencia artificial."
         },
         {
-          "name": "GIF 변환기",
+          "name": "convertidor de GIF",
           "url": "web/image-to-gif/index.html",
           "icon": "images/gif-file.png",
-          "desc": "이미지를 합쳐 움직이는 GIF 움짤 제작"
+          "desc": "Creación de GIF animados mediante la combinación de imágenes."
         },
         {
-          "name": "오디오 변환기",
+          "name": "convertidor de audio",
           "url": "web/audio-converter/index.html",
           "icon": "images/volume-adjustment.png",
-          "desc": "음악 및 오디오 파일 형식 상호 변환기"
+          "desc": "Convertidor de formatos de archivos de música y audio"
         },
         {
-          "name": "이미지 화질 개선",
+          "name": "mejora de la calidad de la imagen",
           "url": "web/image-upscaler/index.html",
           "icon": "images/scale.png",
-          "desc": "흐릿한 사진을 선명하게 고화질 업스케일"
+          "desc": "Mejora de la resolución de fotos borrosas a alta definición para convertirlas en imágenes nítidas."
         },
         {
-          "name": "이미지 AI 지우개",
+          "name": "Borrador de imágenes con IA",
           "url": "web/object-eraser/index.html",
           "icon": "images/eraser.png",
-          "desc": "AI 사진 속 원치 않는 사물 및 텍스트 제거"
+          "desc": "La IA elimina objetos y texto no deseados de las fotos."
         },
         {
-          "name": "이미지 변환 필터",
+          "name": "Filtro de conversión de imagen",
           "url": "web/anime-filter/index.html",
           "icon": "images/comic-book.png",
-          "desc": "사진을 만화/웹툰 애니메이션 스타일로 변환"
+          "desc": "Convierte fotos a estilo de animación de dibujos animados/webtoon."
         },
         {
-          "name": "이미지 AI 분석",
+          "name": "Análisis de imágenes mediante IA",
           "url": "web/image-tagging/index.html",
           "icon": "images/image.png",
-          "desc": "AI 이미지 분석 사물 인식 및 태그 추천 문구 생성"
+          "desc": "Análisis de imágenes mediante IA, reconocimiento de objetos y generación de frases para la recomendación de etiquetas."
         },
         {
-          "name": "컬러 측정기",
+          "name": "Medidor de color",
           "url": "web/color-picker/index.html",
           "icon": "images/color.png",
-          "desc": "화면 상의 정확한 색상 코드 스포이트 추출"
+          "desc": "Extraiga códigos de color precisos de la pantalla utilizando la herramienta cuentagotas."
         }
       ]
     },
     {
-      "name": "게임",
+      "name": "juego",
       "items": [
         {
-          "name": "배틀 아레나",
+          "name": "Arena de batalla",
           "url": "game/battle_arena/index.html",
           "icon": "images/battle.png",
-          "desc": "50인 서바이벌 배틀 아레나 액션 게임"
+          "desc": "Juego de acción y batalla de supervivencia para 50 jugadores"
         },
         {
-          "name": "스텔라 뱅가드",
+          "name": "Stella Vanguard",
           "url": "game/stella_vanguard/index.html",
           "icon": "images/digital.png",
-          "desc": "종스크롤 우주선 비행 슈팅 액션 게임"
+          "desc": "Juego de acción y disparos de naves espaciales con desplazamiento lateral"
         },
         {
-          "name": "타로또",
+          "name": "Tarot",
           "url": "web/lotto_tarot/index.html",
           "icon": "images/lottery.png",
-          "desc": "오늘의 타로 운세 리딩 및 인공지능 고민 상담"
+          "desc": "Lectura de tarot y asesoramiento con IA para hoy"
         },
         {
-          "name": "지뢰찾기",
+          "name": "Dragaminas",
           "url": "web/minesweeper/index.html",
           "icon": "images/bomb.png",
-          "desc": "웹브라우저로 바로 즐기는 클래식 지뢰찾기"
+          "desc": "Juega al clásico Buscaminas directamente en tu navegador web."
         },
         {
-          "name": "타자연습",
+          "name": "Práctica de mecanografía",
           "url": "web/typing-practice/index.html",
           "icon": "images/typing.png",
-          "desc": "타이핑 연습을 위한 한글/영문 타자기"
+          "desc": "Máquina de escribir coreana/inglesa para practicar mecanografía"
         }
       ]
     },
     {
-      "name": "기타",
+      "name": "Conocimiento y tendencias",
       "items": [
         {
-          "name": "문의하기",
-          "url": "https://forms.gle/iGqkmrB7YYptoUgQA",
-          "icon": "images/board.png",
-          "desc": "제휴/ 오류 등 문의 등록"
-        },
-        {
-          "name": "메모장",
-          "url": "web/notepad/index.html",
-          "icon": "images/notepad.png",
-          "desc": "작성 내용이 자동 보관되는 간편 웹 메모장"
-        },
-        {
-          "name": "보험 상담",
-          "url": "https://consult.smileslife.co.kr/",
-          "icon": "images/health.png",
-          "desc": "전문가가 무료로 제안하는 내 맞춤형 보험 분석"
-        }
-      ]
-    },
-    {
-      "name": "지식 & 트렌드",
-      "items": [
-        {
-          "name": "AI 트렌드 포털",
+          "name": "Portal de tendencias de IA",
           "url": "https://ai.smileslife.co.kr/",
           "icon": "images/icon_ai.png",
-          "desc": "최신 AI 기술 동향 및 인공지능 트렌드 정보"
+          "desc": "Últimas tendencias en tecnología de IA e información sobre tendencias en inteligencia artificial."
         },
         {
-          "name": "비즈니스 인사이트",
+          "name": "Perspectivas empresariales",
           "url": "https://business.smileslife.co.kr/",
           "icon": "images/icon_business.png",
-          "desc": "성공적인 비즈니스 전략 및 창업 마케팅 가이드"
+          "desc": "Guía de estrategia empresarial exitosa y marketing para startups"
         },
         {
-          "name": "크립토 가이드",
+          "name": "Guía de criptomonedas",
           "url": "https://crypto.smileslife.co.kr/",
           "icon": "images/icon_crypto.png",
-          "desc": "가상자산 시장 분석 및 블록체인 트렌드 동향"
+          "desc": "Análisis del mercado de activos virtuales y tendencias de blockchain"
         },
         {
-          "name": "호기심 천국 포털",
+          "name": "Portal del Cielo de la Curiosidad",
           "url": "https://curiosity.smileslife.co.kr/",
           "icon": "images/icon_curiosity.png",
-          "desc": "세상의 흥미로운 지식과 미스터리 호기심 탐구"
+          "desc": "Explorando el conocimiento interesante, los misterios y la curiosidad del mundo."
         },
         {
-          "name": "스마트 금융 정보",
+          "name": "Información financiera inteligente",
           "url": "https://finance.smileslife.co.kr/",
           "icon": "images/icon_finance.png",
-          "desc": "합리적인 자산 관리 및 효율적인 금융 정보 포털"
+          "desc": "Gestión racional de activos y portal de información financiera eficiente"
         },
         {
-          "name": "파이어족 자산설계",
+          "name": "Planificación de activos comunitarios FIRE",
           "url": "https://fire.smileslife.co.kr/",
           "icon": "images/icon_fire.png",
-          "desc": "경제적 자유를 준비하는 파이어족 자산 설계 팁"
+          "desc": "Consejos de planificación patrimonial para la comunidad FIRE: Preparándose para la libertad financiera"
         },
         {
-          "name": "자동화 패시브 인컴",
+          "name": "Ingresos pasivos por automatización",
           "url": "https://passive.smileslife.co.kr/",
           "icon": "images/icon_passive.png",
-          "desc": "자동화 수익 기획 및 패시브 인컴 파이프라인 구축"
+          "desc": "Planificación automatizada de ingresos y creación de un flujo de ingresos pasivos."
         },
         {
-          "name": "파이썬 자동화 코딩",
+          "name": "codificación de automatización en Python",
           "url": "https://python.smileslife.co.kr/",
           "icon": "images/icon_python.png",
-          "desc": "파이썬 프로그래밍 기초 핵심과 자동화 코딩 학습"
+          "desc": "Aprender los fundamentos de la programación en Python y la codificación automatizada."
         },
         {
-          "name": "리스크 관리 정보",
+          "name": "Información sobre gestión de riesgos",
           "url": "https://risk.smileslife.co.kr/",
           "icon": "images/icon_risk.png",
-          "desc": "자산 리스크 관리 및 안전한 금융 위험 요인 분석"
+          "desc": "Gestión del riesgo de activos y análisis de factores de riesgo financiero seguro"
         },
         {
-          "name": "SEO 최적화 가이드",
+          "name": "Guía de optimización SEO",
           "url": "https://seo.smileslife.co.kr/",
           "icon": "images/icon_seo.png",
-          "desc": "검색엔진 최적화 노하우 및 웹사이트 상위 노출 팁"
+          "desc": "Conocimientos y consejos sobre optimización para motores de búsqueda (SEO) para lograr los primeros puestos en los rankings de sitios web."
         },
         {
-          "name": "주식 투자 인사이트",
+          "name": "Perspectivas sobre la inversión en bolsa",
           "url": "https://stock.smileslife.co.kr/",
           "icon": "images/icon_stock.png",
-          "desc": "국내외 주식 시장 시황 분석 및 주식 투자 전략"
+          "desc": "Análisis de las condiciones del mercado bursátil nacional e internacional y de las estrategias de inversión en acciones."
         }
       ]
     }
   ],
   "ja": [
     {
-      "name": "웹서비스",
+      "name": "Webサービス",
       "items": [
         {
-          "name": "이미지 배경제거",
+          "name": "画像の背景を削除",
           "url": "web/background-removal/index.html",
           "icon": "images/generative-image.png",
-          "desc": "AI 기반 이미지 배경 제거 및 누끼 따기"
+          "desc": "AIベースの画像の背景を削除して拾う"
         },
         {
-          "name": "GIF 변환기",
+          "name": "GIFコンバーター",
           "url": "web/image-to-gif/index.html",
           "icon": "images/gif-file.png",
-          "desc": "이미지를 합쳐 움직이는 GIF 움짤 제작"
+          "desc": "画像を合わせて動かすGIFウムチャル制作"
         },
         {
-          "name": "오디오 변환기",
+          "name": "オーディオコンバータ",
           "url": "web/audio-converter/index.html",
           "icon": "images/volume-adjustment.png",
-          "desc": "음악 및 오디오 파일 형식 상호 변환기"
+          "desc": "音楽とオーディオファイル形式のインターコンバータ"
         },
         {
-          "name": "이미지 화질 개선",
+          "name": "画像画質の改善",
           "url": "web/image-upscaler/index.html",
           "icon": "images/scale.png",
-          "desc": "흐릿한 사진을 선명하게 고화질 업스케일"
+          "desc": "ぼやけた写真を鮮明に高精細アップスケール"
         },
         {
-          "name": "이미지 AI 지우개",
+          "name": "イメージAI消しゴム",
           "url": "web/object-eraser/index.html",
           "icon": "images/eraser.png",
-          "desc": "AI 사진 속 원치 않는 사물 및 텍스트 제거"
+          "desc": "AI写真の中で不要なものやテキストを削除する"
         },
         {
-          "name": "이미지 변환 필터",
+          "name": "画像変換フィルタ",
           "url": "web/anime-filter/index.html",
           "icon": "images/comic-book.png",
-          "desc": "사진을 만화/웹툰 애니메이션 스타일로 변환"
+          "desc": "写真を漫画/ウェブトゥーンアニメスタイルに変換"
         },
         {
-          "name": "이미지 AI 분석",
+          "name": "イメージAI分析",
           "url": "web/image-tagging/index.html",
           "icon": "images/image.png",
-          "desc": "AI 이미지 분석 사물 인식 및 태그 추천 문구 생성"
+          "desc": "AI画像解析物体認識とタグ推薦フレーズの生成"
         },
         {
-          "name": "컬러 측정기",
+          "name": "カラーメーター",
           "url": "web/color-picker/index.html",
           "icon": "images/color.png",
-          "desc": "화면 상의 정확한 색상 코드 스포이트 추출"
+          "desc": "画面上の正確なカラーコードスポイトの抽出"
         }
       ]
     },
     {
-      "name": "게임",
+      "name": "ゲーム",
       "items": [
         {
-          "name": "배틀 아레나",
+          "name": "バトルアリーナ",
           "url": "game/battle_arena/index.html",
           "icon": "images/battle.png",
-          "desc": "50인 서바이벌 배틀 아레나 액션 게임"
+          "desc": "50人サバイバルバトルアリーナアクションゲーム"
         },
         {
-          "name": "스텔라 뱅가드",
+          "name": "ステラ・ヴァンガード",
           "url": "game/stella_vanguard/index.html",
           "icon": "images/digital.png",
-          "desc": "종스크롤 우주선 비행 슈팅 액션 게임"
+          "desc": "鐘スクロール宇宙船飛行シューティングアクションゲーム"
         },
         {
-          "name": "타로또",
+          "name": "タロト",
           "url": "web/lotto_tarot/index.html",
           "icon": "images/lottery.png",
-          "desc": "오늘의 타로 운세 리딩 및 인공지능 고민 상담"
+          "desc": "今日の太郎占いリーディングと人工知能の悩み相談"
         },
         {
-          "name": "지뢰찾기",
+          "name": "地雷を探す",
           "url": "web/minesweeper/index.html",
           "icon": "images/bomb.png",
-          "desc": "웹브라우저로 바로 즐기는 클래식 지뢰찾기"
+          "desc": "Webブラウザですぐに楽しむクラシック地雷を探す"
         },
         {
-          "name": "타자연습",
+          "name": "打者練習",
           "url": "web/typing-practice/index.html",
           "icon": "images/typing.png",
-          "desc": "타이핑 연습을 위한 한글/영문 타자기"
+          "desc": "タイピング練習のためのハングル/英語タイプライター"
         }
       ]
     },
     {
-      "name": "기타",
+      "name": "知識＆トレンド",
       "items": [
         {
-          "name": "문의하기",
-          "url": "https://forms.gle/iGqkmrB7YYptoUgQA",
-          "icon": "images/board.png",
-          "desc": "제휴/ 오류 등 문의 등록"
-        },
-        {
-          "name": "메모장",
-          "url": "web/notepad/index.html",
-          "icon": "images/notepad.png",
-          "desc": "작성 내용이 자동 보관되는 간편 웹 메모장"
-        },
-        {
-          "name": "보험 상담",
-          "url": "https://consult.smileslife.co.kr/",
-          "icon": "images/health.png",
-          "desc": "전문가가 무료로 제안하는 내 맞춤형 보험 분석"
-        }
-      ]
-    },
-    {
-      "name": "지식 & 트렌드",
-      "items": [
-        {
-          "name": "AI 트렌드 포털",
+          "name": "AIトレンドポータル",
           "url": "https://ai.smileslife.co.kr/",
           "icon": "images/icon_ai.png",
-          "desc": "최신 AI 기술 동향 및 인공지능 트렌드 정보"
+          "desc": "最新のAI技術動向と人工知能トレンド情報"
         },
         {
-          "name": "비즈니스 인사이트",
+          "name": "ビジネスインサイト",
           "url": "https://business.smileslife.co.kr/",
           "icon": "images/icon_business.png",
-          "desc": "성공적인 비즈니스 전략 및 창업 마케팅 가이드"
+          "desc": "成功したビジネス戦略と創業マーケティングガイド"
         },
         {
-          "name": "크립토 가이드",
+          "name": "クリプトガイド",
           "url": "https://crypto.smileslife.co.kr/",
           "icon": "images/icon_crypto.png",
-          "desc": "가상자산 시장 분석 및 블록체인 트렌드 동향"
+          "desc": "仮想資産市場分析とブロックチェーントレンド動向"
         },
         {
-          "name": "호기심 천국 포털",
+          "name": "好奇心天国ポータル",
           "url": "https://curiosity.smileslife.co.kr/",
           "icon": "images/icon_curiosity.png",
-          "desc": "세상의 흥미로운 지식과 미스터리 호기심 탐구"
+          "desc": "世界の興味深い知識と謎の好奇心を探る"
         },
         {
-          "name": "스마트 금융 정보",
+          "name": "スマート金融情報",
           "url": "https://finance.smileslife.co.kr/",
           "icon": "images/icon_finance.png",
-          "desc": "합리적인 자산 관리 및 효율적인 금융 정보 포털"
+          "desc": "合理的な資産管理と効率的な金融情報ポータル"
         },
         {
-          "name": "파이어족 자산설계",
+          "name": "ファイア族資産設計",
           "url": "https://fire.smileslife.co.kr/",
           "icon": "images/icon_fire.png",
-          "desc": "경제적 자유를 준비하는 파이어족 자산 설계 팁"
+          "desc": "経済的自由を準備するファイア族資産設計のヒント"
         },
         {
-          "name": "자동화 패시브 인컴",
+          "name": "オートメーションパッシブインカム",
           "url": "https://passive.smileslife.co.kr/",
           "icon": "images/icon_passive.png",
-          "desc": "자동화 수익 기획 및 패시브 인컴 파이프라인 구축"
+          "desc": "自動化収益計画とパッシブインカムパイプラインの構築"
         },
         {
-          "name": "파이썬 자동화 코딩",
+          "name": "Pythonオートメーションコーディング",
           "url": "https://python.smileslife.co.kr/",
           "icon": "images/icon_python.png",
-          "desc": "파이썬 프로그래밍 기초 핵심과 자동화 코딩 학습"
+          "desc": "Pythonプログラミングの基礎コアと自動化コーディング学習"
         },
         {
-          "name": "리스크 관리 정보",
+          "name": "リスク管理情報",
           "url": "https://risk.smileslife.co.kr/",
           "icon": "images/icon_risk.png",
-          "desc": "자산 리스크 관리 및 안전한 금융 위험 요인 분석"
+          "desc": "資産リスク管理と安全な金融リスク要因の分析"
         },
         {
-          "name": "SEO 최적화 가이드",
+          "name": "SEO最適化ガイド",
           "url": "https://seo.smileslife.co.kr/",
           "icon": "images/icon_seo.png",
-          "desc": "검색엔진 최적화 노하우 및 웹사이트 상위 노출 팁"
+          "desc": "検索エンジン最適化ノウハウとウェブサイトのトップインプレッションのヒント"
         },
         {
-          "name": "주식 투자 인사이트",
+          "name": "株式投資インサイト",
           "url": "https://stock.smileslife.co.kr/",
           "icon": "images/icon_stock.png",
-          "desc": "국내외 주식 시장 시황 분석 및 주식 투자 전략"
+          "desc": "国内外の株式市場市場分析と株式投資戦略"
         }
       ]
     }
   ],
   "zh-TW": [
     {
-      "name": "웹서비스",
+      "name": "網路服務",
       "items": [
         {
-          "name": "이미지 배경제거",
+          "name": "圖片背景移除",
           "url": "web/background-removal/index.html",
           "icon": "images/generative-image.png",
-          "desc": "AI 기반 이미지 배경 제거 및 누끼 따기"
+          "desc": "基於人工智慧的圖像背景去除和摳圖"
         },
         {
-          "name": "GIF 변환기",
+          "name": "GIF轉換器",
           "url": "web/image-to-gif/index.html",
           "icon": "images/gif-file.png",
-          "desc": "이미지를 합쳐 움직이는 GIF 움짤 제작"
+          "desc": "透過組合圖像創建動畫 GIF"
         },
         {
-          "name": "오디오 변환기",
+          "name": "音訊轉換器",
           "url": "web/audio-converter/index.html",
           "icon": "images/volume-adjustment.png",
-          "desc": "음악 및 오디오 파일 형식 상호 변환기"
+          "desc": "音樂和音訊檔案格式轉換器"
         },
         {
-          "name": "이미지 화질 개선",
+          "name": "影像品質提升",
           "url": "web/image-upscaler/index.html",
           "icon": "images/scale.png",
-          "desc": "흐릿한 사진을 선명하게 고화질 업스케일"
+          "desc": "高清放大模糊照片，使其清晰。"
         },
         {
-          "name": "이미지 AI 지우개",
+          "name": "影像AI橡皮擦",
           "url": "web/object-eraser/index.html",
           "icon": "images/eraser.png",
-          "desc": "AI 사진 속 원치 않는 사물 및 텍스트 제거"
+          "desc": "AI技術可從照片中移除不需要的物體和文字"
         },
         {
-          "name": "이미지 변환 필터",
+          "name": "影像轉換濾鏡",
           "url": "web/anime-filter/index.html",
           "icon": "images/comic-book.png",
-          "desc": "사진을 만화/웹툰 애니메이션 스타일로 변환"
+          "desc": "將照片轉換為卡通/網路漫畫動畫風格"
         },
         {
-          "name": "이미지 AI 분석",
+          "name": "影像人工智慧分析",
           "url": "web/image-tagging/index.html",
           "icon": "images/image.png",
-          "desc": "AI 이미지 분석 사물 인식 및 태그 추천 문구 생성"
+          "desc": "AI影像分析、物件辨識、標籤推薦和短語生成"
         },
         {
-          "name": "컬러 측정기",
+          "name": "色度計",
           "url": "web/color-picker/index.html",
           "icon": "images/color.png",
-          "desc": "화면 상의 정확한 색상 코드 스포이트 추출"
+          "desc": "使用吸管工具從螢幕中提取準確的顏色代碼"
         }
       ]
     },
     {
-      "name": "게임",
+      "name": "遊戲",
       "items": [
         {
-          "name": "배틀 아레나",
+          "name": "戰鬥競技場",
           "url": "game/battle_arena/index.html",
           "icon": "images/battle.png",
-          "desc": "50인 서바이벌 배틀 아레나 액션 게임"
+          "desc": "50人生存戰鬥競技場動作遊戲"
         },
         {
-          "name": "스텔라 뱅가드",
+          "name": "星之先鋒",
           "url": "game/stella_vanguard/index.html",
           "icon": "images/digital.png",
-          "desc": "종스크롤 우주선 비행 슈팅 액션 게임"
+          "desc": "橫版捲軸太空船飛行射擊動作遊戲"
         },
         {
-          "name": "타로또",
+          "name": "塔羅牌",
           "url": "web/lotto_tarot/index.html",
           "icon": "images/lottery.png",
-          "desc": "오늘의 타로 운세 리딩 및 인공지능 고민 상담"
+          "desc": "今日塔羅牌占卜與人工智慧諮詢"
         },
         {
-          "name": "지뢰찾기",
+          "name": "掃雷",
           "url": "web/minesweeper/index.html",
           "icon": "images/bomb.png",
-          "desc": "웹브라우저로 바로 즐기는 클래식 지뢰찾기"
+          "desc": "直接在網頁瀏覽器中暢玩經典掃雷遊戲"
         },
         {
-          "name": "타자연습",
+          "name": "打字練習",
           "url": "web/typing-practice/index.html",
           "icon": "images/typing.png",
-          "desc": "타이핑 연습을 위한 한글/영문 타자기"
+          "desc": "韓英雙語打字機，用於打字練習"
         }
       ]
     },
     {
-      "name": "기타",
+      "name": "知識與趨勢",
       "items": [
         {
-          "name": "문의하기",
-          "url": "https://forms.gle/iGqkmrB7YYptoUgQA",
-          "icon": "images/board.png",
-          "desc": "제휴/ 오류 등 문의 등록"
-        },
-        {
-          "name": "메모장",
-          "url": "web/notepad/index.html",
-          "icon": "images/notepad.png",
-          "desc": "작성 내용이 자동 보관되는 간편 웹 메모장"
-        },
-        {
-          "name": "보험 상담",
-          "url": "https://consult.smileslife.co.kr/",
-          "icon": "images/health.png",
-          "desc": "전문가가 무료로 제안하는 내 맞춤형 보험 분석"
-        }
-      ]
-    },
-    {
-      "name": "지식 & 트렌드",
-      "items": [
-        {
-          "name": "AI 트렌드 포털",
+          "name": "人工智慧趨勢門戶",
           "url": "https://ai.smileslife.co.kr/",
           "icon": "images/icon_ai.png",
-          "desc": "최신 AI 기술 동향 및 인공지능 트렌드 정보"
+          "desc": "最新人工智慧技術趨勢和人工智慧趨勢訊息"
         },
         {
-          "name": "비즈니스 인사이트",
+          "name": "商業洞察",
           "url": "https://business.smileslife.co.kr/",
           "icon": "images/icon_business.png",
-          "desc": "성공적인 비즈니스 전략 및 창업 마케팅 가이드"
+          "desc": "成功商業策略與創業行銷指南"
         },
         {
-          "name": "크립토 가이드",
+          "name": "加密指南",
           "url": "https://crypto.smileslife.co.kr/",
           "icon": "images/icon_crypto.png",
-          "desc": "가상자산 시장 분석 및 블록체인 트렌드 동향"
+          "desc": "虛擬資產市場分析及區塊鏈趨勢"
         },
         {
-          "name": "호기심 천국 포털",
+          "name": "好奇天堂之門",
           "url": "https://curiosity.smileslife.co.kr/",
           "icon": "images/icon_curiosity.png",
-          "desc": "세상의 흥미로운 지식과 미스터리 호기심 탐구"
+          "desc": "探索世界各地有趣的知識、謎團和奇聞異事"
         },
         {
-          "name": "스마트 금융 정보",
+          "name": "智慧金融資訊",
           "url": "https://finance.smileslife.co.kr/",
           "icon": "images/icon_finance.png",
-          "desc": "합리적인 자산 관리 및 효율적인 금융 정보 포털"
+          "desc": "合理的資產管理和高效的財務資訊門戶"
         },
         {
-          "name": "파이어족 자산설계",
+          "name": "消防社區資產規劃",
           "url": "https://fire.smileslife.co.kr/",
           "icon": "images/icon_fire.png",
-          "desc": "경제적 자유를 준비하는 파이어족 자산 설계 팁"
+          "desc": "為FIRE社群提供的資產規劃技巧，幫助您實現財務自由"
         },
         {
-          "name": "자동화 패시브 인컴",
+          "name": "自動化被動收入",
           "url": "https://passive.smileslife.co.kr/",
           "icon": "images/icon_passive.png",
-          "desc": "자동화 수익 기획 및 패시브 인컴 파이프라인 구축"
+          "desc": "自動化收入規劃與建立被動收入管道"
         },
         {
-          "name": "파이썬 자동화 코딩",
+          "name": "Python自動化編碼",
           "url": "https://python.smileslife.co.kr/",
           "icon": "images/icon_python.png",
-          "desc": "파이썬 프로그래밍 기초 핵심과 자동화 코딩 학습"
+          "desc": "學習Python程式設計基礎與自動化編碼"
         },
         {
-          "name": "리스크 관리 정보",
+          "name": "風險管理訊息",
           "url": "https://risk.smileslife.co.kr/",
           "icon": "images/icon_risk.png",
-          "desc": "자산 리스크 관리 및 안전한 금융 위험 요인 분석"
+          "desc": "資產風險管理與安全金融風險因素分析"
         },
         {
-          "name": "SEO 최적화 가이드",
+          "name": "SEO優化指南",
           "url": "https://seo.smileslife.co.kr/",
           "icon": "images/icon_seo.png",
-          "desc": "검색엔진 최적화 노하우 및 웹사이트 상위 노출 팁"
+          "desc": "搜尋引擎優化技巧與秘訣，幫助您提升網站排名"
         },
         {
-          "name": "주식 투자 인사이트",
+          "name": "股票投資洞察",
           "url": "https://stock.smileslife.co.kr/",
           "icon": "images/icon_stock.png",
-          "desc": "국내외 주식 시장 시황 분석 및 주식 투자 전략"
+          "desc": "國內外股市狀況及股票投資策略分析"
         }
       ]
     }

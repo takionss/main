@@ -456,16 +456,13 @@
             <h3 class="sidebar-title">Categories</h3>
             <ul class="sidebar-menu" id="category-menu">
                                 <li class="menu-item active" onclick="scrollToGroup('group-0', this)">
-                    <i class="fa-solid fa-folder-open"></i> <span>웹서비스</span>
+                    <i class="fa-solid fa-folder-open"></i> <span>Web service</span>
                 </li>
                 <li class="menu-item" onclick="scrollToGroup('group-1', this)">
-                    <i class="fa-solid fa-folder-open"></i> <span>게임</span>
+                    <i class="fa-solid fa-folder-open"></i> <span>game</span>
                 </li>
                 <li class="menu-item" onclick="scrollToGroup('group-2', this)">
-                    <i class="fa-solid fa-folder-open"></i> <span>기타</span>
-                </li>
-                <li class="menu-item" onclick="scrollToGroup('group-3', this)">
-                    <i class="fa-solid fa-folder-open"></i> <span>지식 & 트렌드</span>
+                    <i class="fa-solid fa-folder-open"></i> <span>Knowledge & Trends</span>
                 </li>
 
             </ul>
@@ -476,157 +473,137 @@
             <!-- 도구 카드가 그룹별로 동적 렌더링될 영역 -->
             <div id="portal-content" style="display: flex; flex-direction: column; gap: 50px;">
                                 <section class="category-section" id="group-0">
-                    <h2 class="category-title"><i class="fa-regular fa-star text-blue-500"></i> 웹서비스</h2>
+                    <h2 class="category-title"><i class="fa-regular fa-star text-blue-500"></i> Web service</h2>
                     <div class="cards-grid">
                         <a class="item-card" href="/web/background-removal/index.html" target="_blank">
-                            <img src="/images/generative-image.png" class="item-icon" alt="이미지 배경제거">
-                            <div class="item-name">이미지 배경제거</div>
-                            <div class="item-desc">AI 기반 이미지 배경 제거 및 누끼 따기</div>
+                            <img src="/images/generative-image.png" class="item-icon" alt="Image background removal">
+                            <div class="item-name">Image background removal</div>
+                            <div class="item-desc">AI-based image background removal and cutout</div>
                         </a>
                         <a class="item-card" href="/web/image-to-gif/index.html" target="_blank">
-                            <img src="/images/gif-file.png" class="item-icon" alt="GIF 변환기">
-                            <div class="item-name">GIF 변환기</div>
-                            <div class="item-desc">이미지를 합쳐 움직이는 GIF 움짤 제작</div>
+                            <img src="/images/gif-file.png" class="item-icon" alt="GIF converter">
+                            <div class="item-name">GIF converter</div>
+                            <div class="item-desc">Creating animated GIFs by combining images</div>
                         </a>
                         <a class="item-card" href="/web/audio-converter/index.html" target="_blank">
-                            <img src="/images/volume-adjustment.png" class="item-icon" alt="오디오 변환기">
-                            <div class="item-name">오디오 변환기</div>
-                            <div class="item-desc">음악 및 오디오 파일 형식 상호 변환기</div>
+                            <img src="/images/volume-adjustment.png" class="item-icon" alt="Audio converter">
+                            <div class="item-name">Audio converter</div>
+                            <div class="item-desc">Music and Audio File Format Interconverter</div>
                         </a>
                         <a class="item-card" href="/web/image-upscaler/index.html" target="_blank">
-                            <img src="/images/scale.png" class="item-icon" alt="이미지 화질 개선">
-                            <div class="item-name">이미지 화질 개선</div>
-                            <div class="item-desc">흐릿한 사진을 선명하게 고화질 업스케일</div>
+                            <img src="/images/scale.png" class="item-icon" alt="Image quality improvement">
+                            <div class="item-name">Image quality improvement</div>
+                            <div class="item-desc">High-definition upscaling blurry photos to make them sharp</div>
                         </a>
                         <a class="item-card" href="/web/object-eraser/index.html" target="_blank">
-                            <img src="/images/eraser.png" class="item-icon" alt="이미지 AI 지우개">
-                            <div class="item-name">이미지 AI 지우개</div>
-                            <div class="item-desc">AI 사진 속 원치 않는 사물 및 텍스트 제거</div>
+                            <img src="/images/eraser.png" class="item-icon" alt="Image AI Eraser">
+                            <div class="item-name">Image AI Eraser</div>
+                            <div class="item-desc">AI removes unwanted objects and text from photos</div>
                         </a>
                         <a class="item-card" href="/web/anime-filter/index.html" target="_blank">
-                            <img src="/images/comic-book.png" class="item-icon" alt="이미지 변환 필터">
-                            <div class="item-name">이미지 변환 필터</div>
-                            <div class="item-desc">사진을 만화/웹툰 애니메이션 스타일로 변환</div>
+                            <img src="/images/comic-book.png" class="item-icon" alt="Image conversion filter">
+                            <div class="item-name">Image conversion filter</div>
+                            <div class="item-desc">Convert photos to cartoon/webtoon animation style</div>
                         </a>
                         <a class="item-card" href="/web/image-tagging/index.html" target="_blank">
-                            <img src="/images/image.png" class="item-icon" alt="이미지 AI 분석">
-                            <div class="item-name">이미지 AI 분석</div>
-                            <div class="item-desc">AI 이미지 분석 사물 인식 및 태그 추천 문구 생성</div>
+                            <img src="/images/image.png" class="item-icon" alt="Image AI Analysis">
+                            <div class="item-name">Image AI Analysis</div>
+                            <div class="item-desc">AI Image Analysis, Object Recognition, and Tag Recommendation Phrase Generation</div>
                         </a>
                         <a class="item-card" href="/web/color-picker/index.html" target="_blank">
-                            <img src="/images/color.png" class="item-icon" alt="컬러 측정기">
-                            <div class="item-name">컬러 측정기</div>
-                            <div class="item-desc">화면 상의 정확한 색상 코드 스포이트 추출</div>
+                            <img src="/images/color.png" class="item-icon" alt="Color meter">
+                            <div class="item-name">Color meter</div>
+                            <div class="item-desc">Extract accurate color codes from the screen using the eyedropper tool</div>
                         </a>
                     </div>
                 </section>
                 <section class="category-section" id="group-1">
-                    <h2 class="category-title"><i class="fa-regular fa-star text-blue-500"></i> 게임</h2>
+                    <h2 class="category-title"><i class="fa-regular fa-star text-blue-500"></i> game</h2>
                     <div class="cards-grid">
                         <a class="item-card" href="/game/battle_arena/index.html" target="_blank">
-                            <img src="/images/battle.png" class="item-icon" alt="배틀 아레나">
-                            <div class="item-name">배틀 아레나</div>
-                            <div class="item-desc">50인 서바이벌 배틀 아레나 액션 게임</div>
+                            <img src="/images/battle.png" class="item-icon" alt="Battle Arena">
+                            <div class="item-name">Battle Arena</div>
+                            <div class="item-desc">50-Player Survival Battle Arena Action Game</div>
                         </a>
                         <a class="item-card" href="/game/stella_vanguard/index.html" target="_blank">
-                            <img src="/images/digital.png" class="item-icon" alt="스텔라 뱅가드">
-                            <div class="item-name">스텔라 뱅가드</div>
-                            <div class="item-desc">종스크롤 우주선 비행 슈팅 액션 게임</div>
+                            <img src="/images/digital.png" class="item-icon" alt="Stella Vanguard">
+                            <div class="item-name">Stella Vanguard</div>
+                            <div class="item-desc">Side-scrolling spaceship flight shooting action game</div>
                         </a>
                         <a class="item-card" href="/web/lotto_tarot/index.html" target="_blank">
-                            <img src="/images/lottery.png" class="item-icon" alt="타로또">
-                            <div class="item-name">타로또</div>
-                            <div class="item-desc">오늘의 타로 운세 리딩 및 인공지능 고민 상담</div>
+                            <img src="/images/lottery.png" class="item-icon" alt="Tarot">
+                            <div class="item-name">Tarot</div>
+                            <div class="item-desc">Today's Tarot Fortune Reading and AI Counseling</div>
                         </a>
                         <a class="item-card" href="/web/minesweeper/index.html" target="_blank">
-                            <img src="/images/bomb.png" class="item-icon" alt="지뢰찾기">
-                            <div class="item-name">지뢰찾기</div>
-                            <div class="item-desc">웹브라우저로 바로 즐기는 클래식 지뢰찾기</div>
+                            <img src="/images/bomb.png" class="item-icon" alt="Minesweeper">
+                            <div class="item-name">Minesweeper</div>
+                            <div class="item-desc">Classic Minesweeper Play Directly in Your Web Browser</div>
                         </a>
                         <a class="item-card" href="/web/typing-practice/index.html" target="_blank">
-                            <img src="/images/typing.png" class="item-icon" alt="타자연습">
-                            <div class="item-name">타자연습</div>
-                            <div class="item-desc">타이핑 연습을 위한 한글/영문 타자기</div>
+                            <img src="/images/typing.png" class="item-icon" alt="Typing practice">
+                            <div class="item-name">Typing practice</div>
+                            <div class="item-desc">Korean/English Typewriter for Typing Practice</div>
                         </a>
                     </div>
                 </section>
                 <section class="category-section" id="group-2">
-                    <h2 class="category-title"><i class="fa-regular fa-star text-blue-500"></i> 기타</h2>
-                    <div class="cards-grid">
-                        <a class="item-card" href="/https://forms.gle/iGqkmrB7YYptoUgQA" target="_blank">
-                            <img src="/images/board.png" class="item-icon" alt="문의하기">
-                            <div class="item-name">문의하기</div>
-                            <div class="item-desc">제휴/ 오류 등 문의 등록</div>
-                        </a>
-                        <a class="item-card" href="/web/notepad/index.html" target="_blank">
-                            <img src="/images/notepad.png" class="item-icon" alt="메모장">
-                            <div class="item-name">메모장</div>
-                            <div class="item-desc">작성 내용이 자동 보관되는 간편 웹 메모장</div>
-                        </a>
-                        <a class="item-card" href="/https://consult.smileslife.co.kr/" target="_blank">
-                            <img src="/images/health.png" class="item-icon" alt="보험 상담">
-                            <div class="item-name">보험 상담</div>
-                            <div class="item-desc">전문가가 무료로 제안하는 내 맞춤형 보험 분석</div>
-                        </a>
-                    </div>
-                </section>
-                <section class="category-section" id="group-3">
-                    <h2 class="category-title"><i class="fa-regular fa-star text-blue-500"></i> 지식 & 트렌드</h2>
+                    <h2 class="category-title"><i class="fa-regular fa-star text-blue-500"></i> Knowledge & Trends</h2>
                     <div class="cards-grid">
                         <a class="item-card" href="/https://ai.smileslife.co.kr/" target="_blank">
-                            <img src="/images/icon_ai.png" class="item-icon" alt="AI 트렌드 포털">
-                            <div class="item-name">AI 트렌드 포털</div>
-                            <div class="item-desc">최신 AI 기술 동향 및 인공지능 트렌드 정보</div>
+                            <img src="/images/icon_ai.png" class="item-icon" alt="AI Trend Portal">
+                            <div class="item-name">AI Trend Portal</div>
+                            <div class="item-desc">Latest AI Technology Trends and Artificial Intelligence Trend Information</div>
                         </a>
                         <a class="item-card" href="/https://business.smileslife.co.kr/" target="_blank">
-                            <img src="/images/icon_business.png" class="item-icon" alt="비즈니스 인사이트">
-                            <div class="item-name">비즈니스 인사이트</div>
-                            <div class="item-desc">성공적인 비즈니스 전략 및 창업 마케팅 가이드</div>
+                            <img src="/images/icon_business.png" class="item-icon" alt="Business Insights">
+                            <div class="item-name">Business Insights</div>
+                            <div class="item-desc">Successful Business Strategy and Startup Marketing Guide</div>
                         </a>
                         <a class="item-card" href="/https://crypto.smileslife.co.kr/" target="_blank">
-                            <img src="/images/icon_crypto.png" class="item-icon" alt="크립토 가이드">
-                            <div class="item-name">크립토 가이드</div>
-                            <div class="item-desc">가상자산 시장 분석 및 블록체인 트렌드 동향</div>
+                            <img src="/images/icon_crypto.png" class="item-icon" alt="Crypto Guide">
+                            <div class="item-name">Crypto Guide</div>
+                            <div class="item-desc">Virtual Asset Market Analysis and Blockchain Trends</div>
                         </a>
                         <a class="item-card" href="/https://curiosity.smileslife.co.kr/" target="_blank">
-                            <img src="/images/icon_curiosity.png" class="item-icon" alt="호기심 천국 포털">
-                            <div class="item-name">호기심 천국 포털</div>
-                            <div class="item-desc">세상의 흥미로운 지식과 미스터리 호기심 탐구</div>
+                            <img src="/images/icon_curiosity.png" class="item-icon" alt="Curiosity Heaven Portal">
+                            <div class="item-name">Curiosity Heaven Portal</div>
+                            <div class="item-desc">Exploring the world's interesting knowledge, mysteries, and curiosity</div>
                         </a>
                         <a class="item-card" href="/https://finance.smileslife.co.kr/" target="_blank">
-                            <img src="/images/icon_finance.png" class="item-icon" alt="스마트 금융 정보">
-                            <div class="item-name">스마트 금융 정보</div>
-                            <div class="item-desc">합리적인 자산 관리 및 효율적인 금융 정보 포털</div>
+                            <img src="/images/icon_finance.png" class="item-icon" alt="Smart Financial Information">
+                            <div class="item-name">Smart Financial Information</div>
+                            <div class="item-desc">Rational asset management and efficient financial information portal</div>
                         </a>
                         <a class="item-card" href="/https://fire.smileslife.co.kr/" target="_blank">
-                            <img src="/images/icon_fire.png" class="item-icon" alt="파이어족 자산설계">
-                            <div class="item-name">파이어족 자산설계</div>
-                            <div class="item-desc">경제적 자유를 준비하는 파이어족 자산 설계 팁</div>
+                            <img src="/images/icon_fire.png" class="item-icon" alt="FIRE community asset planning">
+                            <div class="item-name">FIRE community asset planning</div>
+                            <div class="item-desc">Asset Planning Tips for the FIRE Community Preparing for Financial Freedom</div>
                         </a>
                         <a class="item-card" href="/https://passive.smileslife.co.kr/" target="_blank">
-                            <img src="/images/icon_passive.png" class="item-icon" alt="자동화 패시브 인컴">
-                            <div class="item-name">자동화 패시브 인컴</div>
-                            <div class="item-desc">자동화 수익 기획 및 패시브 인컴 파이프라인 구축</div>
+                            <img src="/images/icon_passive.png" class="item-icon" alt="Automation Passive Income">
+                            <div class="item-name">Automation Passive Income</div>
+                            <div class="item-desc">Automated Revenue Planning and Building a Passive Income Pipeline</div>
                         </a>
                         <a class="item-card" href="/https://python.smileslife.co.kr/" target="_blank">
-                            <img src="/images/icon_python.png" class="item-icon" alt="파이썬 자동화 코딩">
-                            <div class="item-name">파이썬 자동화 코딩</div>
-                            <div class="item-desc">파이썬 프로그래밍 기초 핵심과 자동화 코딩 학습</div>
+                            <img src="/images/icon_python.png" class="item-icon" alt="Python automation coding">
+                            <div class="item-name">Python automation coding</div>
+                            <div class="item-desc">Learning Python Programming Basics and Automated Coding</div>
                         </a>
                         <a class="item-card" href="/https://risk.smileslife.co.kr/" target="_blank">
-                            <img src="/images/icon_risk.png" class="item-icon" alt="리스크 관리 정보">
-                            <div class="item-name">리스크 관리 정보</div>
-                            <div class="item-desc">자산 리스크 관리 및 안전한 금융 위험 요인 분석</div>
+                            <img src="/images/icon_risk.png" class="item-icon" alt="Risk Management Information">
+                            <div class="item-name">Risk Management Information</div>
+                            <div class="item-desc">Asset Risk Management and Safe Financial Risk Factor Analysis</div>
                         </a>
                         <a class="item-card" href="/https://seo.smileslife.co.kr/" target="_blank">
-                            <img src="/images/icon_seo.png" class="item-icon" alt="SEO 최적화 가이드">
-                            <div class="item-name">SEO 최적화 가이드</div>
-                            <div class="item-desc">검색엔진 최적화 노하우 및 웹사이트 상위 노출 팁</div>
+                            <img src="/images/icon_seo.png" class="item-icon" alt="SEO Optimization Guide">
+                            <div class="item-name">SEO Optimization Guide</div>
+                            <div class="item-desc">Search Engine Optimization Know-how and Tips for Top Website Rankings</div>
                         </a>
                         <a class="item-card" href="/https://stock.smileslife.co.kr/" target="_blank">
-                            <img src="/images/icon_stock.png" class="item-icon" alt="주식 투자 인사이트">
-                            <div class="item-name">주식 투자 인사이트</div>
-                            <div class="item-desc">국내외 주식 시장 시황 분석 및 주식 투자 전략</div>
+                            <img src="/images/icon_stock.png" class="item-icon" alt="Stock Investment Insights">
+                            <div class="item-name">Stock Investment Insights</div>
+                            <div class="item-desc">Analysis of Domestic and International Stock Market Conditions and Stock Investment Strategies</div>
                         </a>
                     </div>
                 </section>

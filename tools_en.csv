@@ -1,37 +1,34 @@
 name,group,url,icon,desc
-이미지 배경제거,웹서비스,web/background-removal/index.html,images/generative-image.png,AI 기반 이미지 배경 제거 및 누끼 따기
-GIF 변환기,웹서비스,web/image-to-gif/index.html,images/gif-file.png,이미지를 합쳐 움직이는 GIF 움짤 제작
-오디오 변환기,웹서비스,web/audio-converter/index.html,images/volume-adjustment.png,음악 및 오디오 파일 형식 상호 변환기
-이미지 화질 개선,웹서비스,web/image-upscaler/index.html,images/scale.png,흐릿한 사진을 선명하게 고화질 업스케일
-이미지 AI 지우개,웹서비스,web/object-eraser/index.html,images/eraser.png,AI 사진 속 원치 않는 사물 및 텍스트 제거
-이미지 변환 필터,웹서비스,web/anime-filter/index.html,images/comic-book.png,사진을 만화/웹툰 애니메이션 스타일로 변환
-이미지 AI 분석,웹서비스,web/image-tagging/index.html,images/image.png,AI 이미지 분석 사물 인식 및 태그 추천 문구 생성
-컬러 측정기,웹서비스,web/color-picker/index.html,images/color.png,화면 상의 정확한 색상 코드 스포이트 추출
-배틀 아레나,게임,game/battle_arena/index.html,images/battle.png,50인 서바이벌 배틀 아레나 액션 게임
-스텔라 뱅가드,게임,game/stella_vanguard/index.html,images/digital.png,종스크롤 우주선 비행 슈팅 액션 게임
-타로또,게임,web/lotto_tarot/index.html,images/lottery.png,오늘의 타로 운세 리딩 및 인공지능 고민 상담
-지뢰찾기,게임,web/minesweeper/index.html,images/bomb.png,웹브라우저로 바로 즐기는 클래식 지뢰찾기
-타자연습,게임,web/typing-practice/index.html,images/typing.png,타이핑 연습을 위한 한글/영문 타자기
-문의하기,기타,https://forms.gle/iGqkmrB7YYptoUgQA,images/board.png,제휴/ 오류 등 문의 등록
-메모장,기타,web/notepad/index.html,images/notepad.png,작성 내용이 자동 보관되는 간편 웹 메모장
-보험 상담,기타,https://consult.smileslife.co.kr/,images/health.png,전문가가 무료로 제안하는 내 맞춤형 보험 분석
-img1,배경화면,,https://images.unsplash.com/photo-1688550378756-866114814fee?q=80&w=2560&auto=format&fit=crop,.
-img2,배경화면,,https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?q=80&w=2560&auto=format&fit=crop,.
-img3,배경화면,,https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2560&auto=format&fit=crop,.
-img4,배경화면,,https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=2560&auto=format&fit=crop,.
-img5,배경화면,,https://images.unsplash.com/photo-1672838564788-e1e502b0cf54?q=80&w=2560&auto=format&fit=crop,.
-img6,배경화면,,https://images.unsplash.com/photo-1589959116874-6216d692f81c?q=80&w=2560&auto=format&fit=crop,.
-img7,배경화면,,https://images.unsplash.com/photo-1669666575158-ba619feba389?q=80&w=2560&auto=format&fit=crop,.
-img8,배경화면,,https://images.unsplash.com/photo-1780392345460-c93c15118dda?q=80&w=2560&auto=format&fit=crop,.
-img9,배경화면,,https://images.unsplash.com/photo-1687868803274-b800be48c907?q=80&w=2560&auto=format&fit=crop,.
-AI 트렌드 포털,지식 & 트렌드,https://ai.smileslife.co.kr/,images/icon_ai.png,최신 AI 기술 동향 및 인공지능 트렌드 정보
-비즈니스 인사이트,지식 & 트렌드,https://business.smileslife.co.kr/,images/icon_business.png,성공적인 비즈니스 전략 및 창업 마케팅 가이드
-크립토 가이드,지식 & 트렌드,https://crypto.smileslife.co.kr/,images/icon_crypto.png,가상자산 시장 분석 및 블록체인 트렌드 동향
-호기심 천국 포털,지식 & 트렌드,https://curiosity.smileslife.co.kr/,images/icon_curiosity.png,세상의 흥미로운 지식과 미스터리 호기심 탐구
-스마트 금융 정보,지식 & 트렌드,https://finance.smileslife.co.kr/,images/icon_finance.png,합리적인 자산 관리 및 효율적인 금융 정보 포털
-파이어족 자산설계,지식 & 트렌드,https://fire.smileslife.co.kr/,images/icon_fire.png,경제적 자유를 준비하는 파이어족 자산 설계 팁
-자동화 패시브 인컴,지식 & 트렌드,https://passive.smileslife.co.kr/,images/icon_passive.png,자동화 수익 기획 및 패시브 인컴 파이프라인 구축
-파이썬 자동화 코딩,지식 & 트렌드,https://python.smileslife.co.kr/,images/icon_python.png,파이썬 프로그래밍 기초 핵심과 자동화 코딩 학습
-리스크 관리 정보,지식 & 트렌드,https://risk.smileslife.co.kr/,images/icon_risk.png,자산 리스크 관리 및 안전한 금융 위험 요인 분석
-SEO 최적화 가이드,지식 & 트렌드,https://seo.smileslife.co.kr/,images/icon_seo.png,검색엔진 최적화 노하우 및 웹사이트 상위 노출 팁
-주식 투자 인사이트,지식 & 트렌드,https://stock.smileslife.co.kr/,images/icon_stock.png,국내외 주식 시장 시황 분석 및 주식 투자 전략
+Image background removal,Web service,web/background-removal/index.html,images/generative-image.png,AI-based image background removal and cutout
+GIF converter,Web service,web/image-to-gif/index.html,images/gif-file.png,Creating animated GIFs by combining images
+Audio converter,Web service,web/audio-converter/index.html,images/volume-adjustment.png,Music and Audio File Format Interconverter
+Image quality improvement,Web service,web/image-upscaler/index.html,images/scale.png,High-definition upscaling blurry photos to make them sharp
+Image AI Eraser,Web service,web/object-eraser/index.html,images/eraser.png,AI removes unwanted objects and text from photos
+Image conversion filter,Web service,web/anime-filter/index.html,images/comic-book.png,Convert photos to cartoon/webtoon animation style
+Image AI Analysis,Web service,web/image-tagging/index.html,images/image.png,"AI Image Analysis, Object Recognition, and Tag Recommendation Phrase Generation"
+Color meter,Web service,web/color-picker/index.html,images/color.png,Extract accurate color codes from the screen using the eyedropper tool
+Battle Arena,game,game/battle_arena/index.html,images/battle.png,50-Player Survival Battle Arena Action Game
+Stella Vanguard,game,game/stella_vanguard/index.html,images/digital.png,Side-scrolling spaceship flight shooting action game
+Tarot,game,web/lotto_tarot/index.html,images/lottery.png,Today's Tarot Fortune Reading and AI Counseling
+Minesweeper,game,web/minesweeper/index.html,images/bomb.png,Classic Minesweeper Play Directly in Your Web Browser
+Typing practice,game,web/typing-practice/index.html,images/typing.png,Korean/English Typewriter for Typing Practice
+img1,Wallpaper,,https://images.unsplash.com/photo-1688550378756-866114814fee?q=80&w=2560&auto=format&fit=crop,.
+img2,Wallpaper,,https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?q=80&w=2560&auto=format&fit=crop,.
+img3,Wallpaper,,https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2560&auto=format&fit=crop,.
+img4,Wallpaper,,https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=2560&auto=format&fit=crop,.
+img5,Wallpaper,,https://images.unsplash.com/photo-1672838564788-e1e502b0cf54?q=80&w=2560&auto=format&fit=crop,.
+img6,Wallpaper,,https://images.unsplash.com/photo-1589959116874-6216d692f81c?q=80&w=2560&auto=format&fit=crop,.
+img7,Wallpaper,,https://images.unsplash.com/photo-1669666575158-ba619feba389?q=80&w=2560&auto=format&fit=crop,.
+img8,Wallpaper,,https://images.unsplash.com/photo-1780392345460-c93c15118dda?q=80&w=2560&auto=format&fit=crop,.
+img9,Wallpaper,,https://images.unsplash.com/photo-1687868803274-b800be48c907?q=80&w=2560&auto=format&fit=crop,.
+AI Trend Portal,Knowledge & Trends,https://ai.smileslife.co.kr/,images/icon_ai.png,Latest AI Technology Trends and Artificial Intelligence Trend Information
+Business Insights,Knowledge & Trends,https://business.smileslife.co.kr/,images/icon_business.png,Successful Business Strategy and Startup Marketing Guide
+Crypto Guide,Knowledge & Trends,https://crypto.smileslife.co.kr/,images/icon_crypto.png,Virtual Asset Market Analysis and Blockchain Trends
+Curiosity Heaven Portal,Knowledge & Trends,https://curiosity.smileslife.co.kr/,images/icon_curiosity.png,"Exploring the world's interesting knowledge, mysteries, and curiosity"
+Smart Financial Information,Knowledge & Trends,https://finance.smileslife.co.kr/,images/icon_finance.png,Rational asset management and efficient financial information portal
+FIRE community asset planning,Knowledge & Trends,https://fire.smileslife.co.kr/,images/icon_fire.png,Asset Planning Tips for the FIRE Community Preparing for Financial Freedom
+Automation Passive Income,Knowledge & Trends,https://passive.smileslife.co.kr/,images/icon_passive.png,Automated Revenue Planning and Building a Passive Income Pipeline
+Python automation coding,Knowledge & Trends,https://python.smileslife.co.kr/,images/icon_python.png,Learning Python Programming Basics and Automated Coding
+Risk Management Information,Knowledge & Trends,https://risk.smileslife.co.kr/,images/icon_risk.png,Asset Risk Management and Safe Financial Risk Factor Analysis
+SEO Optimization Guide,Knowledge & Trends,https://seo.smileslife.co.kr/,images/icon_seo.png,Search Engine Optimization Know-how and Tips for Top Website Rankings
+Stock Investment Insights,Knowledge & Trends,https://stock.smileslife.co.kr/,images/icon_stock.png,Analysis of Domestic and International Stock Market Conditions and Stock Investment Strategies

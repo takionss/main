@@ -109,6 +109,11 @@ def main():
             icon = str(row_list[3] or '').strip()
             desc = str(row_list[4] or '').strip()
             
+            # Skip rows containing spreadsheet error messages
+            error_indicators = ['#value!', '#n/a', '#ref!', '#name?']
+            if any(err in name.lower() or err in group.lower() or err in url.lower() or err in desc.lower() for err in error_indicators):
+                continue
+            
             if not group:
                 group = "기타"
             if not icon:
