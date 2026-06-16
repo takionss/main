@@ -497,7 +497,9 @@
     </div>
 
     <script>
-        const SHEET_CSV_URL = 'tools.csv';
+        const urlParams = new URLSearchParams(window.location.search);
+        const winLang = urlParams.get('lang') || 'ko';
+        const SHEET_CSV_URL = winLang === 'ko' ? 'tools.csv' : `tools_${winLang}.csv`;
         let siteDataList = []; 
         let openWindows = {}; 
         let windowCounter = 0;

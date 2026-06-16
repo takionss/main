@@ -27,11 +27,22 @@
                 return;
             }
             
+            function getLanguagePrefix() {
+                const userLang = (navigator.language || navigator.userLanguage).toLowerCase();
+                if (userLang.startsWith('en')) return 'en';
+                if (userLang.startsWith('es')) return 'es';
+                if (userLang.startsWith('ja')) return 'ja';
+                if (userLang.startsWith('zh-tw') || userLang === 'zh-hk' || userLang === 'zh-mo') return 'zh-TW';
+                return 'ko';
+            }
+            
             const preferredMode = localStorage.getItem('smileslife-preferred-mode');
+            const lang = getLanguagePrefix();
             if (preferredMode === 'win') {
-                window.location.replace('index_win.html');
+                window.location.replace('index_win.html?lang=' + lang);
             } else if (preferredMode === 'normal') {
-                window.location.replace('index_normal.html');
+                const path = lang === 'ko' ? 'index_normal.html' : lang + '/index_normal.html';
+                window.location.replace(path);
             }
         })();
     </script>
@@ -362,8 +373,18 @@
     </div>
 
     <script>
+        function getLanguagePrefix() {
+            const userLang = (navigator.language || navigator.userLanguage).toLowerCase();
+            if (userLang.startsWith('en')) return 'en';
+            if (userLang.startsWith('es')) return 'es';
+            if (userLang.startsWith('ja')) return 'ja';
+            if (userLang.startsWith('zh-tw') || userLang === 'zh-hk' || userLang === 'zh-mo') return 'zh-TW';
+            return 'ko';
+        }
+
         function selectMode(mode) {
             const rememberCheckbox = document.getElementById('remember-preference');
+            const lang = getLanguagePrefix();
             
             if (rememberCheckbox && rememberCheckbox.checked) {
                 localStorage.setItem('smileslife-preferred-mode', mode);
@@ -389,11 +410,11 @@
                 setTimeout(() => {
                     // 주소창 URL을 index_win.html로 변경 (새로고침 시 해당 주소로 유지되도록 처리)
                     try {
-                        window.history.replaceState({}, '', 'index_win.html');
+                        window.history.replaceState({}, '', 'index_win.html?lang=' + lang);
                     } catch (e) {}
 
                     const iframe = document.createElement('iframe');
-                    iframe.src = 'index_win.html';
+                    iframe.src = 'index_win.html?lang=' + lang;
                     iframe.style.position = 'fixed';
                     iframe.style.top = '0';
                     iframe.style.left = '0';
@@ -405,7 +426,7 @@
                     document.body.appendChild(iframe);
                 }, 150);
             } else {
-                window.location.href = 'index_normal.html';
+                window.location.href = lang === 'ko' ? 'index_normal.html' : lang + '/index_normal.html';
             }
         }
         
