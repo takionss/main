@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -473,22 +475,38 @@
     <!-- 메인 컨테이너 -->
     <div class="main-container">
         <!-- 왼쪽 사이드바 -->
-        <aside id="sidebar" style="display: none;">
+        <aside id="sidebar">
             <h3 class="sidebar-title">Categories</h3>
             <ul class="sidebar-menu" id="category-menu">
-                <!-- 사이드바 메뉴 항목이 동적으로 삽입됩니다. -->
+                {% for group in site.data.tools_grouped %}
+                <li class="menu-item{% if forloop.first %} active{% endif %}" onclick="scrollToGroup('group-{{ forloop.index0 }}', this)">
+                    <i class="fa-solid fa-folder-open"></i> <span>{{ group.name }}</span>
+                </li>
+                {% endfor %}
             </ul>
         </aside>
 
         <!-- 오른쪽 메인 콘텐츠 -->
         <main id="main-content">
-            <div class="loading-container" id="loading-view">
-                <div class="spinner"></div>
-                <p style="color: var(--text-secondary); font-size: 0.95rem;">포털 서비스 구성 정보를 로드하고 있습니다...</p>
-            </div>
-            
             <!-- 도구 카드가 그룹별로 동적 렌더링될 영역 -->
-            <div id="portal-content" style="display: none; flex-direction: column; gap: 50px;"></div>
+            <div id="portal-content" style="display: flex; flex-direction: column; gap: 50px;">
+                {% for group in site.data.tools_grouped %}
+                <section class="category-section" id="group-{{ forloop.index0 }}">
+                    <h2 class="category-title"><i class="fa-regular fa-star text-blue-500"></i> {{ group.name }}</h2>
+                    <div class="cards-grid">
+                        {% for item in group.items %}
+                        <a class="item-card" href="{{ item.url }}" target="_blank">
+                            <img src="{{ item.icon }}" class="item-icon" alt="{{ item.name }}">
+                            <div class="item-name">{{ item.name }}</div>
+                            {% if item.desc and item.desc != "" %}
+                            <div class="item-desc">{{ item.desc }}</div>
+                            {% endif %}
+                        </a>
+                        {% endfor %}
+                    </div>
+                </section>
+                {% endfor %}
+            </div>
 
             <!-- Google Auto Ads Optimization Space (완전 투명 광고 가이드) -->
             <div class="adsense-container" style="clear: both; margin: 40px auto 0 auto; width: 100%; max-width: 970px; min-height: 50px;"></div>
@@ -502,9 +520,6 @@
     </div>
 
     <script>
-        const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/1RRpkarZGReZMb243IsGNQfP1Urzs5Fh24uWRbfkwVdM/export?format=csv&gid=0';
-        let groupedData = {};
-
         function switchToDesktop() {
             // 전체화면 요청 후 iframe 생성으로 페이지 전환 처리 (화면 꺼짐 및 전체화면 해제 차단)
             try {
@@ -545,116 +560,14 @@
             window.location.href = 'index.html?select=true';
         }
 
-        async function loadPortalData() {
-            try {
-                const response = await fetch(SHEET_CSV_URL);
-                const csvText = await response.text();
-                const rows = csvText.split(/\r?\n/).slice(1); // 헤더 스킵
-
-                const defaultIcon = 'images/world.png';
-                groupedData = {};
-
-                rows.forEach(row => {
-                    if (!row.trim()) return;
-                    const columns = row.split(',').map(col => col.replace(/^"|"$/g, '').trim());
-                    if (columns.length < 3) return;
-
-                    const name = columns[0] || '';
-                    const groupName = columns[1] || '기타';
-                    const url = columns[2] || '';
-                    const iconUrl = (columns[3] && columns[3] !== '') ? columns[3] : defaultIcon;
-                    
-                    // 5번째 열(E열)에서 직접 설명글을 읽어옵니다. 없으면 빈 문자열 처리
-                    const desc = (columns[4] && columns[4] !== '') ? columns[4] : '';
-
-                    // 배경화면은 바탕화면 전용이므로 포털 메뉴에서는 노출하지 않습니다.
-                    if (groupName === '배경화면') {
-                        return;
-                    }
-
-                    if (!groupedData[groupName]) {
-                        groupedData[groupName] = [];
-                    }
-
-                    groupedData[groupName].push({ name, url, iconUrl, desc });
-                });
-
-                renderPortal();
-            } catch (error) {
-                console.error("데이터 로드 중 오류 발생:", error);
-                document.getElementById('loading-view').innerHTML = `<p style="color: #ff5555;"><i class="fa-solid fa-triangle-exclamation"></i> 포털 정보를 가져올 수 없습니다. 구글 시트 링크 또는 네트워크 연결을 확인하세요.</p>`;
+        function scrollToGroup(id, element) {
+            document.querySelectorAll('.menu-item').forEach(item => item.classList.remove('active'));
+            element.classList.add('active');
+            const targetEl = document.getElementById(id);
+            if (targetEl) {
+                targetEl.scrollIntoView({ behavior: 'smooth' });
             }
-        }
-
-        function renderPortal() {
-            const menuContainer = document.getElementById('category-menu');
-            const contentContainer = document.getElementById('portal-content');
-            
-            menuContainer.innerHTML = '';
-            contentContainer.innerHTML = '';
-
-            const groups = Object.keys(groupedData);
-
-            if (groups.length === 0) {
-                document.getElementById('loading-view').innerHTML = '<p>등록된 서비스가 없습니다.</p>';
-                return;
-            }
-
-            // 사이드바 카테고리 구성 및 메인 그리드 구성
-            groups.forEach((group, index) => {
-                const safeId = `group-${index}`;
-
-                // 1. 사이드바 메뉴 추가
-                const li = document.createElement('li');
-                li.className = 'menu-item' + (index === 0 ? ' active' : '');
-                li.innerHTML = `<i class="fa-solid fa-folder-open"></i> <span>${group}</span>`;
-                li.onclick = () => {
-                    document.querySelectorAll('.menu-item').forEach(item => item.classList.remove('active'));
-                    li.classList.add('active');
-                    
-                    // 스무스 스크롤
-                    const targetEl = document.getElementById(safeId);
-                    if (targetEl) {
-                        targetEl.scrollIntoView({ behavior: 'smooth' });
-                    }
-                    closeSidebar(); // 모바일 환경에서 메뉴 클릭 시 자동으로 서랍 접기
-                };
-                menuContainer.appendChild(li);
-
-                // 2. 메인 콘텐츠 섹션 구성
-                const section = document.createElement('section');
-                section.className = 'category-section';
-                section.id = safeId;
-
-                const categoryTitle = document.createElement('h2');
-                categoryTitle.className = 'category-title';
-                categoryTitle.innerHTML = `<i class="fa-regular fa-star text-blue-500"></i> ${group}`;
-                section.appendChild(categoryTitle);
-
-                const cardsGrid = document.createElement('div');
-                cardsGrid.className = 'cards-grid';
-
-                groupedData[group].forEach(item => {
-                    const card = document.createElement('a');
-                    card.className = 'item-card';
-                    card.href = item.url;
-                    card.target = '_blank'; // 새 탭에서 열어 가벼운 서비스 유지
-                    card.innerHTML = `
-                        <img src="${item.iconUrl}" class="item-icon" alt="${item.name}">
-                        <div class="item-name">${item.name}</div>
-                        ${item.desc ? `<div class="item-desc">${item.desc}</div>` : ''}
-                    `;
-                    cardsGrid.appendChild(card);
-                });
-
-                section.appendChild(cardsGrid);
-                contentContainer.appendChild(section);
-            });
-
-            // 로딩 오버레이 끄고 사이드바와 포털 뷰 켜기
-            document.getElementById('loading-view').style.display = 'none';
-            document.getElementById('sidebar').style.display = 'block';
-            document.getElementById('portal-content').style.display = 'flex';
+            closeSidebar();
         }
 
         // 모바일 사이드바 제어 함수
@@ -673,8 +586,6 @@
                 overlay.classList.remove('active');
             }
         }
-
-        window.addEventListener('DOMContentLoaded', loadPortalData);
     </script>
 </body>
 </html>
