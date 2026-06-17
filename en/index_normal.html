@@ -753,6 +753,31 @@
             const select = document.querySelector('.lang-select');
             if (select) select.value = pageLang;
             localStorage.setItem('smileslife-preferred-lang', pageLang);
+
+            // 지식 & 트렌드 서브도메인 링크 자동 다국어(why/언어) 처리
+            const subdomains = [
+                'ai.smileslife.co.kr',
+                'business.smileslife.co.kr',
+                'crypto.smileslife.co.kr',
+                'curiosity.smileslife.co.kr',
+                'finance.smileslife.co.kr',
+                'fire.smileslife.co.kr',
+                'passive.smileslife.co.kr',
+                'python.smileslife.co.kr',
+                'risk.smileslife.co.kr',
+                'seo.smileslife.co.kr',
+                'stock.smileslife.co.kr'
+            ];
+            if (typeof pageLang !== 'undefined' && pageLang !== 'ko') {
+                document.querySelectorAll('a.item-card').forEach(link => {
+                    try {
+                        const url = new URL(link.href);
+                        if (subdomains.includes(url.hostname) && (url.pathname === '/' || url.pathname === '/index.html')) {
+                            link.href = `https://${url.hostname}/why/${pageLang}/`;
+                        }
+                    } catch (e) {}
+                });
+            }
         });
     </script>
 </body>

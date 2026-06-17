@@ -1186,6 +1186,29 @@
             // 캐시 방지(Cache-busting) 및 다국어(Language) 파라미터 적용
             const cacheBuster = `v=${Date.now()}`;
             let targetUrl = url;
+            
+            // 서브도메인 다국어 경로(/why/언어/) 자동 처리
+            const subdomains = [
+                'ai.smileslife.co.kr',
+                'business.smileslife.co.kr',
+                'crypto.smileslife.co.kr',
+                'curiosity.smileslife.co.kr',
+                'finance.smileslife.co.kr',
+                'fire.smileslife.co.kr',
+                'passive.smileslife.co.kr',
+                'python.smileslife.co.kr',
+                'risk.smileslife.co.kr',
+                'seo.smileslife.co.kr',
+                'stock.smileslife.co.kr'
+            ];
+            try {
+                const urlObj = new URL(targetUrl);
+                if (winLang !== 'ko' && subdomains.includes(urlObj.hostname) && (urlObj.pathname === '/' || urlObj.pathname === '/index.html')) {
+                    urlObj.pathname = `/why/${winLang}/`;
+                    targetUrl = urlObj.toString();
+                }
+            } catch (e) {}
+
             if (!targetUrl.includes('lang=')) {
                 targetUrl = targetUrl.includes('?') ? `${targetUrl}&lang=${winLang}` : `${targetUrl}?lang=${winLang}`;
             }
