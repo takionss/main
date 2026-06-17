@@ -846,6 +846,12 @@ BATTLE_ARENA_DICT_MAPPINGS['zh-TW'] = {
       // Update document title
       document.title = translateText("배틀 아레나 (Battle Arena) - 최후의 1인", lang);
 
+      // Explicitly translate the instruction paragraph with HTML tags
+      const instructionEl = document.getElementById('instruction');
+      if (instructionEl) {
+        instructionEl.innerHTML = translateText("🎯 50인의 숨막히는 생존 투쟁!<br>장비를 획득하고 끝까지 살아남아 승리의 통닭을 차지하십시오.", lang);
+      }
+
       // Translate static elements
       translateNode(document.body);
 
