@@ -1157,12 +1157,6 @@
         }
 
         function openWindow(title, url, iconUrl) {
-            // 구글 설문지(Google Forms) 등은 iframe 차단을 방지하기 위해 새 창(탭)으로 바로 열어 브라우저 자체 번역 기능을 활용하도록 합니다.
-            if (url.includes('forms.gle') || url.includes('docs.google.com/forms')) {
-                window.open(url, '_blank');
-                return;
-            }
-
             const existingId = getWindowIdByTitle(title);
             if (existingId) {
                 focusWindow(existingId);
