@@ -1,10 +1,15 @@
 name,group,url,icon,desc
+圖片背景移除,網路服務,web/background-removal/index.html,images/generative-image.png,基於人工智慧的圖像背景去除和摳圖
+GIF轉換器,網路服務,web/image-to-gif/index.html,images/gif-file.png,透過組合圖像創建動畫 GIF
 音訊轉換器,網路服務,web/audio-converter/index.html,images/volume-adjustment.png,音樂和音訊檔案格式轉換器
 影像品質提升,網路服務,web/image-upscaler/index.html,images/scale.png,高清放大模糊照片，使其清晰。
 影像AI橡皮擦,網路服務,web/object-eraser/index.html,images/eraser.png,AI技術可從照片中移除不需要的物體和文字
 影像轉換濾鏡,網路服務,web/anime-filter/index.html,images/comic-book.png,將照片轉換為卡通/網路漫畫動畫風格
+影像人工智慧分析,網路服務,web/image-tagging/index.html,images/image.png,AI影像分析、物件辨識、標籤推薦和短語生成
 色度計,網路服務,web/color-picker/index.html,images/color.png,使用吸管工具從螢幕中提取準確的顏色代碼
+戰鬥競技場,遊戲,game/battle_arena/index.html,images/battle.png,50人生存戰鬥競技場動作遊戲
 星之先鋒,遊戲,game/stella_vanguard/index.html,images/digital.png,橫版捲軸太空船飛行射擊動作遊戲
+塔羅牌,遊戲,web/lotto_tarot/index.html,images/lottery.png,今日塔羅牌運勢解讀與人工智慧諮詢
 掃雷,遊戲,web/minesweeper/index.html,images/bomb.png,直接在網頁瀏覽器中暢玩經典掃雷遊戲
 打字練習,遊戲,web/typing-practice/index.html,images/typing.png,韓英雙語打字機，用於打字練習
 圖片1,壁紙,,https://images.unsplash.com/photo-1688550378756-866114814fee?q=80&w=2560&auto=format&fit=crop,。
@@ -16,9 +21,11 @@ name,group,url,icon,desc
 圖片7,壁紙,,https://images.unsplash.com/photo-1669666575158-ba619feba389?q=80&w=2560&auto=format&fit=crop,。
 圖片8,壁紙,,https://images.unsplash.com/photo-1780392345460-c93c15118dda?q=80&w=2560&auto=format&fit=crop,。
 圖片9,壁紙,,https://images.unsplash.com/photo-1687868803274-b800be48c907?q=80&w=2560&auto=format&fit=crop,。
+人工智慧趨勢門戶,知識與趨勢,https://ai.smileslife.co.kr/,images/icon_ai.png,最新人工智慧技術趨勢和人工智慧趨勢訊息
 商業洞察,知識與趨勢,https://business.smileslife.co.kr/,images/icon_business.png,成功商業策略與創業行銷指南
 加密指南,知識與趨勢,https://crypto.smileslife.co.kr/,images/icon_crypto.png,虛擬資產市場分析及區塊鏈趨勢
 好奇天堂之門,知識與趨勢,https://curiosity.smileslife.co.kr/,images/icon_curiosity.png,探索世界各地有趣的知識、謎團和奇聞異事
+智慧金融資訊,知識與趨勢,https://finance.smileslife.co.kr/,images/icon_finance.png,合理的資產管理和高效的財務資訊門戶
 消防社區資產規劃,知識與趨勢,https://fire.smileslife.co.kr/,images/icon_fire.png,為FIRE社群提供的資產規劃技巧，幫助您實現財務自由
 自動化被動收入,知識與趨勢,https://passive.smileslife.co.kr/,images/icon_passive.png,自動化收入規劃與建立被動收入管道
 Python自動化編碼,知識與趨勢,https://python.smileslife.co.kr/,images/icon_python.png,學習Python程式設計基礎與自動化編碼
