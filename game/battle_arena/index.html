@@ -398,6 +398,45 @@
     <div>가로 화면으로 회전해 주세요</div>
     <div style="font-size: 13px; color: #aaa; margin-top: 10px;">이 게임은 가로 화면에 최적화되어 있습니다.</div>
   </div>
+  <script>
+    (function() {
+      const lang = new URLSearchParams(window.location.search).get('lang') || localStorage.getItem('smileslife-preferred-lang') || navigator.language || 'ko';
+      const map = {
+        'en': 'Loading battlefield...',
+        'es': 'Cargando el campo de batalla...',
+        'ja': '戦場を読み込み中...',
+        'zh': '正在載入戰場...',
+        'zh-TW': '正在載入戰場...'
+      };
+      const warnings = {
+        'en': { rotate: 'Please rotate to landscape', desc: 'This game is optimized for landscape mode.' },
+        'es': { rotate: 'Por favor, gira a horizontal', desc: 'Este juego está optimizado para pantalla horizontal.' },
+        'ja': { rotate: '画面を横向きに回転させてください', desc: 'このゲームは横画面に最適化されています。' },
+        'zh': { rotate: '請將螢幕旋轉至橫向', desc: '此遊戲已針對橫向螢幕進行最佳化。' },
+        'zh-TW': { rotate: '請將螢幕旋轉至橫向', desc: '此遊戲已針對橫向螢幕進行最佳化。' }
+      };
+      
+      let langCode = 'en';
+      if (lang.startsWith('ko')) langCode = 'ko';
+      else if (lang.startsWith('es')) langCode = 'es';
+      else if (lang.startsWith('ja')) langCode = 'ja';
+      else if (lang.startsWith('zh')) langCode = 'zh-TW';
+      
+      if (langCode !== 'ko' && map[langCode]) {
+        const loadingTextEl = document.getElementById('loading-text');
+        if (loadingTextEl) loadingTextEl.textContent = map[langCode];
+        
+        const warningEl = document.getElementById('portrait-warning');
+        if (warningEl && warnings[langCode]) {
+          const divs = warningEl.getElementsByTagName('div');
+          if (divs.length >= 3) {
+            divs[1].textContent = warnings[langCode].rotate;
+            divs[2].textContent = warnings[langCode].desc;
+          }
+        }
+      }
+    })();
+  </script>
 
   <div id="ui-layer">
     <!-- 스코프 조준선 -->
