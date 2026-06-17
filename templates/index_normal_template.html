@@ -557,6 +557,7 @@
         }
 
         function changeLanguage(val) {
+            localStorage.setItem('smileslife-preferred-lang', val);
             if (val === 'ko') {
                 window.location.href = '/index_normal.html';
             } else {
@@ -584,6 +585,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             const select = document.querySelector('.lang-select');
             if (select) select.value = pageLang;
+            localStorage.setItem('smileslife-preferred-lang', pageLang);
         });
     </script>
 </body>

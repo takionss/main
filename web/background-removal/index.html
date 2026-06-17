@@ -295,7 +295,7 @@
 
         function initLanguage() {
             const urlParams = new URLSearchParams(window.location.search);
-            let lang = urlParams.get('lang');
+            let lang = urlParams.get('lang') || localStorage.getItem('smileslife-preferred-lang');
             
             if (!lang) {
                 const userLang = navigator.language || navigator.userLanguage;
@@ -315,6 +315,7 @@
             currentLang = lang;
             document.getElementById('lang-select').value = lang;
             applyLanguage(lang);
+            localStorage.setItem('smileslife-preferred-lang', lang);
         }
 
         function applyLanguage(lang) {
@@ -360,6 +361,7 @@
             window.history.pushState({}, '', url);
             currentLang = newLang;
             applyLanguage(newLang);
+            localStorage.setItem('smileslife-preferred-lang', newLang);
         };
 
         // Initialize language settings before loading the model
