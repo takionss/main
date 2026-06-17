@@ -1157,6 +1157,16 @@
         }
 
         function openWindow(title, url, iconUrl) {
+            // 구글 설문지(Google Forms) 등 다국어 번역이 필요한 주소는 iframe 차단을 방지하기 위해 새 창(탭)으로 열고 번역기를 연동합니다.
+            if (url.includes('forms.gle') || url.includes('docs.google.com/forms')) {
+                let targetUrl = url;
+                if (winLang !== 'ko') {
+                    targetUrl = `https://translate.google.com/translate?sl=ko&tl=${winLang}&u=${encodeURIComponent(targetUrl)}`;
+                }
+                window.open(targetUrl, '_blank');
+                return;
+            }
+
             const existingId = getWindowIdByTitle(title);
             if (existingId) {
                 focusWindow(existingId);
@@ -1208,13 +1218,6 @@
                     targetUrl = urlObj.toString();
                 }
             } catch (e) {}
-
-            // 구글 설문지(Google Forms) 다국어 처리 (hl 파라미터 적용)
-            if (targetUrl.includes('forms.gle') || targetUrl.includes('docs.google.com/forms')) {
-                if (!targetUrl.includes('hl=')) {
-                    targetUrl = targetUrl.includes('?') ? `${targetUrl}&hl=${winLang}` : `${targetUrl}?hl=${winLang}`;
-                }
-            }
 
             if (!targetUrl.includes('lang=')) {
                 targetUrl = targetUrl.includes('?') ? `${targetUrl}&lang=${winLang}` : `${targetUrl}?lang=${winLang}`;

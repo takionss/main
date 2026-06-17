@@ -632,17 +632,15 @@
                 document.querySelectorAll('a.item-card').forEach(link => {
                     try {
                         let targetUrl = link.href;
-                        // 구글 설문지(Google Forms) 다국어 처리
+                        // 구글 설문지(Google Forms) 등 다국어 번역이 필요한 주소는 구글 번역기 서비스를 연동하여 페이지 내용까지 번역되도록 합니다.
                         if (targetUrl.includes('forms.gle') || targetUrl.includes('docs.google.com/forms')) {
-                            if (!targetUrl.includes('hl=')) {
-                                targetUrl = targetUrl.includes('?') ? `${targetUrl}&hl=${pageLang}` : `${targetUrl}?hl=${pageLang}`;
-                            }
+                            targetUrl = `https://translate.google.com/translate?sl=ko&tl=${pageLang}&u=${encodeURIComponent(targetUrl)}`;
                             link.href = targetUrl;
-                        }
-
-                        const url = new URL(targetUrl);
-                        if (subdomains.includes(url.hostname) && (url.pathname === '/' || url.pathname === '/index.html')) {
-                            link.href = `https://${url.hostname}/why/${pageLang}`;
+                        } else {
+                            const url = new URL(targetUrl);
+                            if (subdomains.includes(url.hostname) && (url.pathname === '/' || url.pathname === '/index.html')) {
+                                link.href = `https://${url.hostname}/why/${pageLang}`;
+                            }
                         }
                     } catch (e) {}
                 });
