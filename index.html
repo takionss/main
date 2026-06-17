@@ -28,6 +28,9 @@
             }
             
             function getLanguagePrefix() {
+                const localLang = localStorage.getItem('smileslife-preferred-lang');
+                if (localLang) return localLang;
+                
                 const userLang = (navigator.language || navigator.userLanguage).toLowerCase();
                 if (userLang.startsWith('en')) return 'en';
                 if (userLang.startsWith('es')) return 'es';
