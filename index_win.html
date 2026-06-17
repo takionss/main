@@ -1183,9 +1183,13 @@
                 ? `<button class="win-btn max-btn" style="opacity: 0.3; cursor: not-allowed;" disabled>${MAXIMIZE_SVG}</button>`
                 : `<button class="win-btn max-btn" onclick="toggleMaximizeWindow('${winId}', event)">${MAXIMIZE_SVG}</button>`;
 
-            // 캐시 방지(Cache-busting) 파라미터 적용
+            // 캐시 방지(Cache-busting) 및 다국어(Language) 파라미터 적용
             const cacheBuster = `v=${Date.now()}`;
-            const cleanUrl = url.includes('?') ? `${url}&${cacheBuster}` : `${url}?${cacheBuster}`;
+            let targetUrl = url;
+            if (!targetUrl.includes('lang=')) {
+                targetUrl = targetUrl.includes('?') ? `${targetUrl}&lang=${winLang}` : `${targetUrl}?lang=${winLang}`;
+            }
+            const cleanUrl = targetUrl.includes('?') ? `${targetUrl}&${cacheBuster}` : `${targetUrl}?${cacheBuster}`;
 
             win.innerHTML = `
                 <div class="window-header" onmousedown="startDrag('${winId}', event)" ontouchstart="startDrag('${winId}', event)">
