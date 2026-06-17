@@ -216,8 +216,8 @@
             <span class="title" id="page-title" data-i18n="title">⌨️ 타자연습</span>
             <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
                 <div class="mode-selector">
-                    <button class="btn active" id="lang-ko" onclick="setLanguage('ko')" data-i18n="typingLangKo">한글</button>
-                    <button class="btn" id="lang-en" onclick="setLanguage('en')" data-i18n="typingLangEn">English</button>
+                    <button class="btn active" id="lang-primary" onclick="setTypingLang('primary')">Primary</button>
+                    <button class="btn" id="lang-secondary" onclick="setTypingLang('secondary')">Secondary</button>
                 </div>
                 <div class="mode-selector">
                     <button class="btn active" id="mode-word" onclick="setMode('word')" data-i18n="modeWord">단어 연습</button>
@@ -301,7 +301,142 @@
             "In the end, we only regret the chances we didn't take."
         ];
 
-        let currentLang = 'ko';
+        const wordDbEs = [
+            "hola", "sol", "computadora", "españa", "internet", "mar", "pantalla", "ratón", "teclado",
+            "bicicleta", "perro", "gato", "tigre", "elefante", "conejo", "escuela", "lápiz", "escritorio",
+            "teléfono", "programa", "otoño", "invierno", "primavera", "verano", "felicidad", "amor",
+            "amistad", "esperanza", "viento", "música", "película", "biblioteca", "café", "ventana",
+            "universo", "galaxia", "sistema", "naturaleza", "ciencia", "sueño"
+        ];
+        const sentenceDbEs = [
+            "El zorro marrón rápido salta sobre el perro perezoso.",
+            "La práctica hace al maestro, así que sigue escribiendo todos los días.",
+            "La vida es lo que pasa mientras estás ocupado haciendo otros planes.",
+            "Cree que puedes y ya habrás recorrido la mitad del camino.",
+            "El éxito no es el final, el fracaso no es fatal: lo que cuenta es el valor para continuar.",
+            "Al final, solo nos arrepentimos de las oportunidades que no tomamos."
+        ];
+
+        const wordDbJa = [
+            "りんご", "さくら", "にほん", "そら", "うみ", "ねこ", "いぬ", "とら", "うさぎ", "がっこう",
+            "つくえ", "ほん", "でんわ", "おんがく", "えいが", "あき", "ふゆ", "はる", "なつ", "へいわ",
+            "ともだち", "ゆめ", "かぜ", "たいよう", "つき", "ほし", "みらい", "せいかい", "かんたん", "むずかしい"
+        ];
+        const sentenceDbJa = [
+            "いろはにほへと ちりぬるを わかよたれそ つねならむ.",
+            "継続は力なり、毎日タイピングを練習しましょう。",
+            "雨降って地固まる。悪いことの後は良い状態になる。",
+            "初心忘るべからず。いつでも謙虚に努力しましょう。",
+            "ただより高いものはない。ただで貰うと高くつく。",
+            "明日は明日の風が吹く。くよくよせずに行きましょう。"
+        ];
+
+        const wordDbZh = [
+            "蘋果", "電腦", "網路", "鍵盤", "滑鼠", "螢幕", "海洋", "自行車", "老虎", "大象", "兔子",
+            "學校", "鉛筆", "書桌", "智慧型手機", "程式", "秋天", "冬天", "春天", "夏天", "幸福",
+            "愛情", "友誼", "希望", "微風", "音樂", "電影", "圖書館", "咖啡", "宇宙"
+        ];
+        const sentenceDbZh = [
+            "實踐出真知，持續練習才能熟能生巧。",
+            "失敗乃成功之母，勇敢面對每一次挑戰。",
+            "不忘初心，方得始終，堅持到底就是勝利。",
+            "千里之行，始於足下，踏實走好每一步。",
+            "機會是留給準備好的人，隨時充實自己。"
+        ];
+
+        const TRANSLATIONS = {
+            ko: {
+                title: "⌨️ 타자연습",
+                cpm: "현재 타수",
+                avgCpm: "평균 타수",
+                maxCpm: "최고 타수",
+                accuracy: "정확도",
+                placeholder: "여기에 입력하세요...",
+                modeWord: "단어 연습",
+                modeSentence: "문장 연습",
+                wordHint: "단어는 공백(Space) 또는 엔터(Enter) 입력 시 넘어갑니다.",
+                sentenceHint: "문장은 엔터(Enter) 입력 시 다음 문장으로 넘어갑니다.",
+                startMsg: "시작하려면 입력창을 클릭하고 입력을 시작하세요."
+            },
+            en: {
+                title: "⌨️ Typing Practice",
+                cpm: "Speed (CPM)",
+                avgCpm: "Average (CPM)",
+                maxCpm: "Best (CPM)",
+                accuracy: "Accuracy",
+                placeholder: "Type here...",
+                modeWord: "Words",
+                modeSentence: "Sentences",
+                wordHint: "Words change when you press Space or Enter.",
+                sentenceHint: "Sentences change when you press Enter.",
+                startMsg: "Click the input box and start typing to begin."
+            },
+            es: {
+                title: "⌨️ Mecanografía",
+                cpm: "Velocidad (CPM)",
+                avgCpm: "Promedio (CPM)",
+                maxCpm: "Mejor (CPM)",
+                accuracy: "Precisión",
+                placeholder: "Escribe aquí...",
+                modeWord: "Palabras",
+                modeSentence: "Oraciones",
+                wordHint: "Las palabras cambian al presionar Espacio o Enter.",
+                sentenceHint: "Las oraciones cambian al presionar Enter.",
+                startMsg: "Haz clic en el cuadro de texto y comienza a escribir para comenzar."
+            },
+            ja: {
+                title: "⌨️ タイピング練習",
+                cpm: "現在の速度",
+                avgCpm: "平均速度",
+                maxCpm: "最高速度",
+                accuracy: "正確さ",
+                placeholder: "入力してください...",
+                modeWord: "単語練習",
+                modeSentence: "文章練習",
+                wordHint: "単語はスペースかエンターで次に進みます。",
+                sentenceHint: "文章はエンターを押すと次に進みます。",
+                startMsg: "入力エリアをクリックして入力を開始してください。"
+            },
+            "zh-TW": {
+                title: "⌨️ 打字練習",
+                cpm: "目前字速",
+                avgCpm: "平均字速",
+                maxCpm: "最高字速",
+                accuracy: "精確度",
+                placeholder: "在此輸入...",
+                modeWord: "單字練習",
+                modeSentence: "文章練習",
+                wordHint: "輸入空白鍵 (Space) 或 Enter 即可跳至下一個單字。",
+                sentenceHint: "按 Enter 即可跳至下一句。",
+                startMsg: "點擊輸入框並開始打字即可開始練習。"
+            }
+        };
+
+        const LANG_CONFIGS = {
+            ko: {
+                primary: { code: 'ko', label: '한글' },
+                secondary: { code: 'en', label: 'English' }
+            },
+            en: {
+                primary: { code: 'en', label: 'English' },
+                secondary: { code: 'ko', label: 'Korean' }
+            },
+            es: {
+                primary: { code: 'es', label: 'Español' },
+                secondary: { code: 'en', label: 'English' }
+            },
+            ja: {
+                primary: { code: 'ja', label: '日本語' },
+                secondary: { code: 'en', label: 'English' }
+            },
+            "zh-TW": {
+                primary: { code: 'zh-TW', label: '繁體中文' },
+                secondary: { code: 'en', label: 'English' }
+            }
+        };
+
+        let uiLang = 'ko';
+        let selectedTypingMode = 'primary'; // 'primary' or 'secondary'
         let currentMode = 'word';
         let currentTarget = '';
         let startTime = null;
@@ -319,9 +454,37 @@
         const maxCpmVal = document.getElementById('max-cpm-val');
         const accuracyVal = document.getElementById('accuracy-val');
 
-        function updateUILabels() {
-            const t = TRANSLATIONS[uiLang];
-            if (!t) return;
+        function initLanguage() {
+            const urlParams = new URLSearchParams(window.location.search);
+            let lang = urlParams.get('lang') || localStorage.getItem('smileslife-preferred-lang');
+            
+            if (!lang) {
+                const userLang = navigator.language || navigator.userLanguage;
+                if (userLang.startsWith('ko')) lang = 'ko';
+                else if (userLang.startsWith('es')) lang = 'es';
+                else if (userLang.startsWith('ja')) lang = 'ja';
+                else if (userLang.startsWith('zh')) lang = 'zh-TW';
+                else lang = 'en';
+            } else {
+                if (lang === 'ko' || lang === 'ko-kr') lang = 'ko';
+                else if (lang === 'es') lang = 'es';
+                else if (lang === 'ja') lang = 'ja';
+                else if (lang.startsWith('zh')) lang = 'zh-TW';
+                else lang = 'en';
+            }
+            
+            uiLang = lang;
+            document.getElementById('lang-select').value = lang;
+            selectedTypingMode = 'primary'; 
+            applyLanguage(lang);
+            localStorage.setItem('smileslife-preferred-lang', lang);
+        }
+
+        function applyLanguage(lang) {
+            const t = TRANSLATIONS[lang] || TRANSLATIONS['ko'];
+            document.title = t.title;
+            document.getElementById('page-title').innerText = t.title;
+            
             document.getElementById('label-cpm').innerText = t.cpm;
             document.getElementById('label-avg-cpm').innerText = t.avgCpm;
             document.getElementById('label-max-cpm').innerText = t.maxCpm;
@@ -331,12 +494,18 @@
             if (inputEl) {
                 inputEl.placeholder = t.placeholder;
             }
-
+            
             document.getElementById('mode-word').innerText = t.modeWord;
             document.getElementById('mode-sentence').innerText = t.modeSentence;
-            document.getElementById('lang-ko').innerText = t.typingLangKo;
-            document.getElementById('lang-en').innerText = t.typingLangEn;
-
+            
+            const config = LANG_CONFIGS[lang] || LANG_CONFIGS['ko'];
+            document.getElementById('lang-primary').innerText = config.primary.label;
+            document.getElementById('lang-secondary').innerText = config.secondary.label;
+            
+            if (!startTime) {
+                targetTextEl.innerText = t.startMsg;
+            }
+            
             const hintEl = document.querySelector('.keyboard-hint');
             if (hintEl) {
                 if (currentMode === 'word') {
@@ -347,15 +516,26 @@
             }
         }
 
-        function setLanguage(lang) {
-            currentLang = lang;
-            document.getElementById('lang-ko').classList.remove('active');
-            document.getElementById('lang-en').classList.remove('active');
+        function changeLanguage(val) {
+            localStorage.setItem('smileslife-preferred-lang', val);
+            const url = new URL(window.location.href);
+            url.searchParams.set('lang', val);
+            window.history.pushState({}, '', url);
+            uiLang = val;
+            applyLanguage(val);
+            selectedTypingMode = 'primary';
+            resetPractice();
+        }
+
+        function setTypingLang(mode) {
+            selectedTypingMode = mode;
+            document.getElementById('lang-primary').classList.remove('active');
+            document.getElementById('lang-secondary').classList.remove('active');
             
-            if (lang === 'ko') {
-                document.getElementById('lang-ko').classList.add('active');
+            if (mode === 'primary') {
+                document.getElementById('lang-primary').classList.add('active');
             } else {
-                document.getElementById('lang-en').classList.add('active');
+                document.getElementById('lang-secondary').classList.add('active');
             }
             resetPractice();
         }
@@ -387,14 +567,36 @@
             maxCpm = 0;
             maxCpmVal.innerText = '0';
             accuracyVal.innerText = '100%';
-            updateUILabels();
+            
+            document.getElementById('lang-primary').classList.remove('active');
+            document.getElementById('lang-secondary').classList.remove('active');
+            if (selectedTypingMode === 'primary') {
+                document.getElementById('lang-primary').classList.add('active');
+            } else {
+                document.getElementById('lang-secondary').classList.add('active');
+            }
+
+            applyLanguage(uiLang);
             nextTarget();
         }
 
         function nextTarget() {
-            const db = currentLang === 'ko' 
-                ? (currentMode === 'word' ? wordDb : sentenceDb)
-                : (currentMode === 'word' ? wordDbEn : sentenceDbEn);
+            const config = LANG_CONFIGS[uiLang] || LANG_CONFIGS['ko'];
+            const activeTypingLang = selectedTypingMode === 'primary' ? config.primary.code : config.secondary.code;
+            
+            let db;
+            if (activeTypingLang === 'ko') {
+                db = currentMode === 'word' ? wordDb : sentenceDb;
+            } else if (activeTypingLang === 'es') {
+                db = currentMode === 'word' ? wordDbEs : sentenceDbEs;
+            } else if (activeTypingLang === 'ja') {
+                db = currentMode === 'word' ? wordDbJa : sentenceDbJa;
+            } else if (activeTypingLang === 'zh-TW') {
+                db = currentMode === 'word' ? wordDbZh : sentenceDbZh;
+            } else {
+                db = currentMode === 'word' ? wordDbEn : sentenceDbEn;
+            }
+            
             let next;
             do {
                 next = db[Math.floor(Math.random() * db.length)];
@@ -424,10 +626,8 @@
                 startCalculations();
             }
 
-            // Real-time Keystrokes counting (approximate Korean typing stroke calculation)
             let typedStrokes = countStrokes(typed);
             
-            // Calculate accuracy
             let correctCount = 0;
             for (let i = 0; i < typed.length; i++) {
                 if (typed[i] === currentTarget[i]) {
@@ -438,11 +638,10 @@
             correctKeystrokes = correctCount;
             totalKeystrokes = typedStrokes;
 
-            // Highlight typing correctness
             if (currentTarget.startsWith(typed)) {
                 targetTextEl.style.color = 'inherit';
             } else {
-                targetTextEl.style.color = '#d63031'; // Red if typo
+                targetTextEl.style.color = '#d63031';
             }
 
             updateAccuracy();
@@ -456,7 +655,6 @@
             cumulativeKeystrokes += correctKeystrokes;
             cumulativeTotalKeystrokes += totalKeystrokes;
 
-            // Reset target specific variables & stop timer for resting state
             activeTimer = false;
             startTime = null;
             correctKeystrokes = 0;
@@ -497,20 +695,17 @@
                 currentActiveTime = (new Date() - startTime) / 1000;
             }
             
-            // 1. 현재 타수 (실시간 현재 문장/단어 입력 속도)
             let currentCpm = 0;
             if (currentActiveTime > 0.3 && correctKeystrokes > 0) {
                 currentCpm = Math.round((correctKeystrokes / currentActiveTime) * 60);
             }
             cpmVal.innerText = currentCpm;
 
-            // 2. 최고 타수 (역대 순간 최고 속도)
             if (currentCpm > maxCpm) {
                 maxCpm = currentCpm;
                 maxCpmVal.innerText = maxCpm;
             }
 
-            // 3. 평균 타수 (완료된 전체 타자의 평균 속도)
             let avgCpm = 0;
             if (cumulativeTime > 0) {
                 avgCpm = Math.round((cumulativeKeystrokes / cumulativeTime) * 60);
@@ -542,18 +737,15 @@
             accuracyVal.innerText = `${acc}%`;
         }
 
-        // Simple approximate stroke calculator for Korean characters (Jaso counting)
         function countStrokes(str) {
             let strokes = 0;
             for (let i = 0; i < str.length; i++) {
                 const code = str.charCodeAt(i);
-                if (code >= 0xAC00 && code <= 0xD7A3) { // Hangul Syllable
+                if (code >= 0xAC00 && code <= 0xD7A3) { 
                     const offset = code - 0xAC00;
-                    const choice = offset % 28; // Jongseong
-                    const joong = Math.floor((offset % 588) / 28); // Jungseong
-                    const cho = Math.floor(offset / 588); // Choseong
-
-                    // Add 1 stroke for Choseong, 1 for Jungseong, and 1 for Jongseong if present
+                    const choice = offset % 28; 
+                    const joong = Math.floor((offset % 588) / 28); 
+                    const cho = Math.floor(offset / 588); 
                     strokes += 2 + (choice > 0 ? 1 : 0);
                 } else {
                     strokes += 1;
