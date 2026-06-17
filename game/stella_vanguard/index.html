@@ -103,6 +103,36 @@
         .lb-score { color: #00ffcc; font-weight: bold; }
         #name-input-container { display: none; flex-direction: column; align-items: center; margin-bottom: 5vmin; width: 100%; z-index: 10; position: relative; }
         #player-name-input { font-size: 4vmin; padding: 2vmin; width: 75%; text-align: center; background: rgba(0,0,0,0.5); color: #00ffff; border: 2px solid #00ffff; border-radius: 2vmin; text-transform: uppercase; margin-bottom: 3vmin; outline: none; box-shadow: inset 0 0 10px rgba(0,255,255,0.5); font-weight: bold; }
+
+        /* Settings Screen UI Optimization overrides */
+        #settings-screen .red-box {
+            padding: 3vmin 4vmin;
+            min-height: auto;
+        }
+        #settings-screen .toggle-container {
+            margin: 1vmin 0;
+            padding-bottom: 1.2vmin;
+            gap: 0.8vmin;
+        }
+        #settings-screen .toggle-container p {
+            font-size: 3.8vmin !important;
+        }
+        #settings-screen .toggle-btn {
+            padding: 1vmin 0;
+            font-size: 2.8vmin;
+            border-radius: 1.5vmin;
+        }
+        #settings-screen #lang-select {
+            padding: 1vmin 2vmin !important;
+            font-size: 3vmin !important;
+            border-radius: 1.5vmin;
+        }
+        #settings-screen #btn-back {
+            margin-top: 2.5vmin;
+            padding: 1.5vmin 0;
+            font-size: 3.8vmin;
+            border-radius: 1.5vmin;
+        }
     </style>
 </head>
 <body>
@@ -133,7 +163,7 @@
 
     <div id="settings-screen" class="screen-panel" style="z-index: 500; display: none;">
         <div class="red-box">
-            <h2 id="text-settings-title" style="color: #00ffff; margin-bottom: 5vmin; text-shadow: 0 0 3vmin #00ffff; font-size: 7vmin; z-index: 10; position: relative;">SETTINGS</h2>
+            <h2 id="text-settings-title" style="color: #00ffff; margin-bottom: 2.5vmin; text-shadow: 0 0 3vmin #00ffff; font-size: 5.5vmin; z-index: 10; position: relative;">SETTINGS</h2>
             <div class="toggle-container">
                 <p id="text-quality" style="color: #fff; margin: 0; font-weight: bold; font-size: 4.5vmin;"></p>
                 <div class="row-btns">
