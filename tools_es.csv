@@ -12,15 +12,18 @@ Stella Vanguard,juego,game/stella_vanguard/index.html,images/digital.png,Juego d
 Tarot,juego,web/lotto_tarot/index.html,images/lottery.png,Lectura de tarot y asesoramiento con IA para hoy
 Dragaminas,juego,web/minesweeper/index.html,images/bomb.png,Juega al clásico Buscaminas directamente en tu navegador web.
 Práctica de mecanografía,juego,web/typing-practice/index.html,images/typing.png,Máquina de escribir coreana/inglesa para practicar mecanografía
-imagen1,Papel pintado,,https://images.unsplash.com/photo-1688550378756-866114814fee?q=80&w=2560&auto=format&fit=crop,.
-imagen2,Papel pintado,,https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?q=80&w=2560&auto=format&fit=crop,.
-imagen3,Papel pintado,,https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2560&auto=format&fit=crop,.
-imagen4,Papel pintado,,https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=2560&auto=format&fit=crop,.
-imagen5,Papel pintado,,https://images.unsplash.com/photo-1672838564788-e1e502b0cf54?q=80&w=2560&auto=format&fit=crop,.
-imagen6,Papel pintado,,https://images.unsplash.com/photo-1589959116874-6216d692f81c?q=80&w=2560&auto=format&fit=crop,.
-imagen7,Papel pintado,,https://images.unsplash.com/photo-1669666575158-ba619feba389?q=80&w=2560&auto=format&fit=crop,.
-imagen8,Papel pintado,,https://images.unsplash.com/photo-1780392345460-c93c15118dda?q=80&w=2560&auto=format&fit=crop,.
-imagen9,Papel pintado,,https://images.unsplash.com/photo-1687868803274-b800be48c907?q=80&w=2560&auto=format&fit=crop,.
+Contáctanos,기타,https://forms.gle/iGqkmrB7YYptoUgQA,images/board.png,"Envíe una consulta sobre colaboraciones, errores, etc."
+Bloc,기타,web/notepad/index.html,images/notepad.png,Un sencillo bloc de notas web que guarda automáticamente lo que escribes.
+Consulta de seguros,기타,https://consult.smileslife.co.kr/,images/health.png,Análisis de seguro personalizado gratuito sugerido por un experto
+img1,Papel pintado,,https://images.unsplash.com/photo-1688550378756-866114814fee?q=80&w=2560&auto=format&fit=crop,.
+img2,Papel pintado,,https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?q=80&w=2560&auto=format&fit=crop,.
+img3,Papel pintado,,https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2560&auto=format&fit=crop,.
+img4,Papel pintado,,https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=2560&auto=format&fit=crop,.
+img5,Papel pintado,,https://images.unsplash.com/photo-1672838564788-e1e502b0cf54?q=80&w=2560&auto=format&fit=crop,.
+img6,Papel pintado,,https://images.unsplash.com/photo-1589959116874-6216d692f81c?q=80&w=2560&auto=format&fit=crop,.
+img7,Papel pintado,,https://images.unsplash.com/photo-1669666575158-ba619feba389?q=80&w=2560&auto=format&fit=crop,.
+img8,Papel pintado,,https://images.unsplash.com/photo-1780392345460-c93c15118dda?q=80&w=2560&auto=format&fit=crop,.
+img9,Papel pintado,,https://images.unsplash.com/photo-1687868803274-b800be48c907?q=80&w=2560&auto=format&fit=crop,.
 Portal de tendencias de IA,Conocimiento y tendencias,https://ai.smileslife.co.kr/,images/icon_ai.png,Últimas tendencias en tecnología de IA e información sobre tendencias en inteligencia artificial.
 Perspectivas empresariales,Conocimiento y tendencias,https://business.smileslife.co.kr/,images/icon_business.png,Guía de estrategia empresarial exitosa y marketing para startups
 Guía de criptomonedas,Conocimiento y tendencias,https://crypto.smileslife.co.kr/,images/icon_crypto.png,Análisis del mercado de activos virtuales y tendencias de blockchain
