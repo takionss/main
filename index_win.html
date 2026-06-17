@@ -1204,7 +1204,7 @@
             try {
                 const urlObj = new URL(targetUrl);
                 if (winLang !== 'ko' && subdomains.includes(urlObj.hostname) && (urlObj.pathname === '/' || urlObj.pathname === '/index.html')) {
-                    urlObj.pathname = `/why/${winLang}/`;
+                    urlObj.pathname = `/why/${winLang}`;
                     targetUrl = urlObj.toString();
                 }
             } catch (e) {}
