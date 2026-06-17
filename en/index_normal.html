@@ -798,18 +798,9 @@
             if (typeof pageLang !== 'undefined' && pageLang !== 'ko') {
                 document.querySelectorAll('a.item-card').forEach(link => {
                     try {
-                        let targetUrl = link.href;
-                        // 구글 설문지(Google Forms) 다국어 처리 (시스템 번역 파라미터 적용)
-                        if (targetUrl.includes('forms.gle') || targetUrl.includes('docs.google.com/forms')) {
-                            if (!targetUrl.includes('hl=')) {
-                                targetUrl = targetUrl.includes('?') ? `${targetUrl}&hl=${pageLang}` : `${targetUrl}?hl=${pageLang}`;
-                            }
-                            link.href = targetUrl;
-                        } else {
-                            const url = new URL(targetUrl);
-                            if (subdomains.includes(url.hostname) && (url.pathname === '/' || url.pathname === '/index.html')) {
-                                link.href = `https://${url.hostname}/why/${pageLang}`;
-                            }
+                        const url = new URL(link.href);
+                        if (subdomains.includes(url.hostname) && (url.pathname === '/' || url.pathname === '/index.html')) {
+                            link.href = `https://${url.hostname}/why/${pageLang}`;
                         }
                     } catch (e) {}
                 });
