@@ -34,9 +34,18 @@
 </head>
 <body class="bg-slate-50 min-h-screen font-sans text-slate-900">
 
-    <header class="bg-white shadow-sm py-4 relative">
-
-        <h1 class="text-xl font-bold text-center text-indigo-600 tracking-tight">AI 배경 제거</h1>
+    <header class="bg-white shadow-sm py-4 relative flex items-center justify-between px-6">
+        <div class="w-24"></div>
+        <h1 id="header-title" class="text-xl font-bold text-center text-indigo-600 tracking-tight">AI 배경 제거</h1>
+        <div class="relative inline-block text-left">
+            <select id="lang-select" class="bg-slate-50 border border-slate-200 text-slate-700 px-3 py-1.5 rounded-xl text-xs font-bold focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer">
+                <option value="ko">한국어</option>
+                <option value="en">English</option>
+                <option value="es">Español</option>
+                <option value="ja">日本語</option>
+                <option value="zh-TW">繁體中文</option>
+            </select>
+        </div>
     </header>
 
     <main class="container mx-auto px-4 py-8 max-w-6xl">
@@ -49,23 +58,23 @@
             <!-- 왼쪽: 설정 패널 -->
             <aside class="lg:col-span-1 space-y-6">
                 <div class="bg-white rounded-3xl shadow-lg p-6 border border-slate-100 sticky top-12">
-                    <h3 class="font-bold text-lg mb-6 border-b pb-4 flex items-center gap-2">
-                        <i class="fas fa-sliders-h text-indigo-500"></i> 정밀 보정
+                    <h3 id="sidebar-title" class="font-bold text-lg mb-6 border-b pb-4 flex items-center gap-2">
+                        <i class="fas fa-sliders-h text-indigo-500"></i> <span id="sidebar-title-text">정밀 보정</span>
                     </h3>
                     
                     <div class="space-y-8">
                         <div>
                             <label class="flex justify-between text-sm font-bold text-slate-600 mb-2 text-xs">
-                                테두리 깎기 (Shrink)
+                                <span id="label-shrink">테두리 깎기 (Shrink)</span>
                                 <span id="shrink-val" class="text-indigo-600 font-mono">0</span>
                             </label>
                             <input type="range" id="shrink-slider" min="0" max="10" value="0" class="w-full h-1.5 bg-slate-100 rounded-lg appearance-none custom-range">
-                            <p class="text-[10px] text-slate-400 mt-2 italic leading-tight">경계면에 파란색 등 배경 잔상이 남으면 이 값을 높이세요.</p>
+                            <p id="help-shrink" class="text-[10px] text-slate-400 mt-2 italic leading-tight">경계면에 파란색 등 배경 잔상이 남으면 이 값을 높이세요.</p>
                         </div>
 
                         <div>
                             <label class="flex justify-between text-sm font-bold text-slate-600 mb-2 text-xs">
-                                경계 부드럽게 (Smooth)
+                                <span id="label-smooth">경계 부드럽게 (Smooth)</span>
                                 <span id="smooth-val" class="text-indigo-600 font-mono">1</span>
                             </label>
                             <input type="range" id="smooth-slider" min="0" max="10" value="1" class="w-full h-1.5 bg-slate-100 rounded-lg appearance-none custom-range">
@@ -73,7 +82,7 @@
 
                         <div>
                             <label class="flex justify-between text-sm font-bold text-slate-600 mb-2 text-xs">
-                                잔상 제거 (Threshold)
+                                <span id="label-thresh">잔상 제거 (Threshold)</span>
                                 <span id="thresh-val" class="text-indigo-600 font-mono">10</span>
                             </label>
                             <input type="range" id="thresh-slider" min="1" max="100" value="10" class="w-full h-1.5 bg-slate-100 rounded-lg appearance-none custom-range">
@@ -81,9 +90,9 @@
                     </div>
 
                     <button id="download-btn" class="w-full mt-10 bg-indigo-600 text-white font-bold py-4 rounded-2xl shadow-lg hover:bg-indigo-700 transition-all disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center gap-2" disabled>
-                        <i class="fas fa-download"></i> 결과물 저장 (PNG)
+                        <i class="fas fa-download"></i> <span id="download-btn-text">결과물 저장 (PNG)</span>
                     </button>
-                    <p class="text-[10px] text-center text-slate-300 mt-4">모든 보정은 저장 시 즉시 반영됩니다.</p>
+                    <p id="download-desc" class="text-[10px] text-center text-slate-300 mt-4">모든 보정은 저장 시 즉시 반영됩니다.</p>
                 </div>
             </aside>
 
@@ -93,11 +102,11 @@
                     <div class="w-24 h-24 bg-indigo-50 rounded-full flex items-center justify-center mb-8 text-indigo-200 text-4xl">
                         <i class="fas fa-images"></i>
                     </div>
-                    <h2 class="text-2xl font-bold mb-4 text-slate-700">고퀄리티 배경 제거를 시작합니다</h2>
-                    <p class="text-slate-400 mb-10 text-center max-w-sm">이미지를 여기로 끌어다 놓거나 아래 버튼을 클릭하여 파일을 선택해 주세요.</p>
+                    <h2 id="upload-title" class="text-2xl font-bold mb-4 text-slate-700">고퀄리티 배경 제거를 시작합니다</h2>
+                    <p id="upload-desc" class="text-slate-400 mb-10 text-center max-w-sm">이미지를 여기로 끌어다 놓거나 아래 버튼을 클릭하여 파일을 선택해 주세요.</p>
                     <input type="file" id="file-input" class="hidden" accept="image/*">
                     <button id="select-btn" class="bg-indigo-600 text-white px-12 py-4 rounded-2xl font-bold shadow-xl hover:bg-indigo-700 transition-all hover:scale-105 active:scale-95">
-                        내 사진 불러오기
+                        <span id="select-btn-text">내 사진 불러오기</span>
                     </button>
                 </section>
 
@@ -106,7 +115,7 @@
                         <div class="flex items-center justify-between mb-4 border-b border-slate-50 pb-4">
                             <h4 class="text-sm font-bold text-slate-800 flex items-center gap-2">
                                 <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                                실시간 결과 미리보기
+                                <span id="preview-title-text">실시간 결과 미리보기</span>
                             </h4>
                             <span id="proc-status" class="text-[10px] bg-indigo-50 text-indigo-600 px-3 py-1 rounded-full font-bold uppercase tracking-wider">Live Editing</span>
                         </div>
@@ -117,15 +126,15 @@
                                     <div class="absolute inset-0 border-4 border-indigo-100 rounded-full"></div>
                                     <div class="absolute inset-0 border-4 border-indigo-600 rounded-full border-t-transparent animate-spin"></div>
                                 </div>
-                                <h3 class="text-xl font-bold text-slate-800 mb-2 font-serif">AI 머신러닝이 동작 중입니다</h3>
-                                <p class="text-slate-400 text-sm italic">정교하게 배경을 도려내고 있습니다. 잠시만 기다려 주세요.</p>
+                                <h3 id="loading-title" class="text-xl font-bold text-slate-800 mb-2 font-serif">AI 머신러닝이 동작 중입니다</h3>
+                                <p id="loading-desc" class="text-slate-400 text-sm italic">정교하게 배경을 도려내고 있습니다. 잠시만 기다려 주세요.</p>
                             </div>
                         </div>
                     </div>
                     
                     <div class="flex justify-center">
                         <button onclick="location.reload()" class="bg-white text-slate-400 px-6 py-2.5 rounded-full border border-slate-200 hover:text-indigo-600 hover:border-indigo-100 font-medium transition-all text-sm flex items-center gap-2">
-                            <i class="fas fa-undo"></i> 다른 사진 업로드하기
+                            <i class="fas fa-undo"></i> <span id="reset-btn-text">다른 사진 업로드하기</span>
                         </button>
                     </div>
                 </section>
@@ -164,6 +173,198 @@
             download: document.getElementById('download-btn')
         };
 
+        const TRANSLATIONS = {
+            ko: {
+                title: "AI 배경 제거 (누끼따기) | SmilesLife",
+                metaDesc: "서버 전송 없이 100% 웹 브라우저 내에서 즉각 구동되는 인공지능 누끼따기 도구입니다. 드래그만으로 깔끔하게 배경이 제거된 투명 PNG 이미지를 만들고 미세 보정하세요.",
+                metaOgTitle: "AI 배경 제거 (누끼따기) - SmilesLife",
+                headerTitle: "AI 배경 제거",
+                engineLoading: "AI 엔진 로드 중...",
+                engineFail: "엔진 로드 실패: ",
+                sidebarTitle: "정밀 보정",
+                labelShrink: "테두리 깎기 (Shrink)",
+                helpShrink: "경계면에 파란색 등 배경 잔상이 남으면 이 값을 높이세요.",
+                labelSmooth: "경계 부드럽게 (Smooth)",
+                labelThresh: "잔상 제거 (Threshold)",
+                downloadBtn: "결과물 저장 (PNG)",
+                downloadDesc: "모든 보정은 저장 시 즉시 반영됩니다.",
+                uploadTitle: "고퀄리티 배경 제거를 시작합니다",
+                uploadDesc: "이미지를 여기로 끌어다 놓거나 아래 버튼을 클릭하여 파일을 선택해 주세요.",
+                selectBtn: "내 사진 불러오기",
+                previewTitle: "실시간 결과 미리보기",
+                loadingTitle: "AI 머신러닝이 동작 중입니다",
+                loadingDesc: "정교하게 배경을 도려내고 있습니다. 잠시만 기다려 주세요.",
+                resetBtn: "다른 사진 업로드하기",
+                errorProc: "처리 중 오류 발생: "
+            },
+            en: {
+                title: "AI Background Remover | SmilesLife",
+                metaDesc: "100% browser-based AI background removal tool. Make transparent PNGs instantly without uploading to servers.",
+                metaOgTitle: "AI Background Remover - SmilesLife",
+                headerTitle: "AI Background Remover",
+                engineLoading: "Loading AI Engine...",
+                engineFail: "Failed to load engine: ",
+                sidebarTitle: "Fine Tuning",
+                labelShrink: "Shrink Border",
+                helpShrink: "Increase this value if background color remains around the edges.",
+                labelSmooth: "Smooth Edge",
+                labelThresh: "Threshold",
+                downloadBtn: "Save Result (PNG)",
+                downloadDesc: "All adjustments are applied instantly upon saving.",
+                uploadTitle: "Remove Background with High Quality",
+                uploadDesc: "Drag and drop your image here, or click the button below to select a file.",
+                selectBtn: "Select Image",
+                previewTitle: "Live Preview",
+                loadingTitle: "AI model is processing...",
+                loadingDesc: "Precisely carving out the background. Please wait a moment.",
+                resetBtn: "Upload another image",
+                errorProc: "Error during processing: "
+            },
+            es: {
+                title: "Eliminador de Fondo IA | SmilesLife",
+                metaDesc: "Eliminador de fondo IA 100% en el navegador. Cree imágenes PNG transparentes al instante sin subir a servidores.",
+                metaOgTitle: "Eliminador de Fondo IA - SmilesLife",
+                headerTitle: "Eliminador de Fondo IA",
+                engineLoading: "Cargando motor de IA...",
+                engineFail: "Error al cargar el motor: ",
+                sidebarTitle: "Ajuste Fino",
+                labelShrink: "Reducir borde",
+                helpShrink: "Aumente este valor si quedan restos del color de fondo en los bordes.",
+                labelSmooth: "Suavizar borde",
+                labelThresh: "Umbral",
+                downloadBtn: "Guardar resultado (PNG)",
+                downloadDesc: "Todos los ajustes se aplican al guardar.",
+                uploadTitle: "Comience a eliminar el fondo",
+                uploadDesc: "Arrastre y suelte su imagen aquí, o haga clic en el botón de abajo para seleccionar un archivo.",
+                selectBtn: "Seleccionar imagen",
+                previewTitle: "Vista previa en vivo",
+                loadingTitle: "El modelo de IA está procesando...",
+                loadingDesc: "Recortando el fondo con precisión. Por favor, espere.",
+                resetBtn: "Cargar otra imagen",
+                errorProc: "Error durante el procesamiento: "
+            },
+            ja: {
+                title: "AI背景透過・切り抜き | SmilesLife",
+                metaDesc: "サーバー送信なしで100%ブラウザ上で動作するAI背景切り抜きツール。ドラッグだけで透明PNG画像を即座に作成。",
+                metaOgTitle: "AI背景透過・切り抜き - SmilesLife",
+                headerTitle: "AI背景透過・切り抜き",
+                engineLoading: "AIエンジンを読み込み中...",
+                engineFail: "エンジンの読み込みに失敗しました: ",
+                sidebarTitle: "微調整",
+                labelShrink: "境界を縮小",
+                helpShrink: "境界線に元の背景色が残る場合は、この値を上げてください。",
+                labelSmooth: "境界を滑らかに",
+                labelThresh: "しきい値",
+                downloadBtn: "結果を保存 (PNG)",
+                downloadDesc: "すべての調整は保存時に即座に反映されます。",
+                uploadTitle: "高品質な背景切り抜きを開始します",
+                uploadDesc: "画像をここにドラッグ＆ドロップするか、下のボタンをクリックしてファイルを選択してください。",
+                selectBtn: "画像を選択",
+                previewTitle: "リアルタイムプレビュー",
+                loadingTitle: "AIモデルが処理を行っています",
+                loadingDesc: "背景を精密に切り抜いています。しばらくお待ちください。",
+                resetBtn: "別の画像をアップロード",
+                errorProc: "処理中にエラーが発生しました: "
+            },
+            "zh-TW": {
+                title: "AI背景消除・去背 | SmilesLife",
+                metaDesc: "100%瀏覽器端運作的AI去背工具。無需上傳伺服器，拖放即可立即生成透明PNG圖片。",
+                metaOgTitle: "AI背景消除・去背 - SmilesLife",
+                headerTitle: "AI背景消除・去背",
+                engineLoading: "AI引擎載入中...",
+                engineFail: "引擎載入失敗: ",
+                sidebarTitle: "精細調整",
+                labelShrink: "縮減邊緣",
+                helpShrink: "如果邊緣殘留背景顏色，請調高此值。",
+                labelSmooth: "平滑邊緣",
+                labelThresh: "去除殘影",
+                downloadBtn: "儲存結果 (PNG)",
+                downloadDesc: "所有調整將在儲存時立即套用。",
+                uploadTitle: "開始高品質背景消除",
+                uploadDesc: "將圖片拖放到此處，或點擊下方按鈕選擇檔案。",
+                selectBtn: "選擇圖片",
+                previewTitle: "即時預覽",
+                loadingTitle: "AI模型正在處理中...",
+                loadingDesc: "正在精細去背中，請稍候。",
+                resetBtn: "上傳其他圖片",
+                errorProc: "處理時發生錯誤: "
+            }
+        };
+
+        let currentLang = 'ko';
+
+        function initLanguage() {
+            const urlParams = new URLSearchParams(window.location.search);
+            let lang = urlParams.get('lang');
+            
+            if (!lang) {
+                const userLang = navigator.language || navigator.userLanguage;
+                if (userLang.startsWith('ko')) lang = 'ko';
+                else if (userLang.startsWith('es')) lang = 'es';
+                else if (userLang.startsWith('ja')) lang = 'ja';
+                else if (userLang.startsWith('zh')) lang = 'zh-TW';
+                else lang = 'en';
+            } else {
+                if (lang === 'ko' || lang === 'ko-kr') lang = 'ko';
+                else if (lang === 'es') lang = 'es';
+                else if (lang === 'ja') lang = 'ja';
+                else if (lang.startsWith('zh')) lang = 'zh-TW';
+                else lang = 'en';
+            }
+            
+            currentLang = lang;
+            document.getElementById('lang-select').value = lang;
+            applyLanguage(lang);
+        }
+
+        function applyLanguage(lang) {
+            const t = TRANSLATIONS[lang] || TRANSLATIONS['ko'];
+            
+            document.title = t.title;
+            const descMeta = document.querySelector('meta[name="description"]');
+            if (descMeta) descMeta.setAttribute('content', t.metaDesc);
+            const ogTitle = document.querySelector('meta[property="og:title"]');
+            if (ogTitle) ogTitle.setAttribute('content', t.metaOgTitle);
+            const ogDesc = document.querySelector('meta[property="og:description"]');
+            if (ogDesc) ogDesc.setAttribute('content', t.metaDesc);
+            
+            document.getElementById('header-title').textContent = t.headerTitle;
+            
+            if (elements.status && !elements.status.classList.contains('hidden')) {
+                document.getElementById('engine-text').textContent = t.engineLoading;
+            }
+            
+            document.getElementById('sidebar-title-text').textContent = t.sidebarTitle;
+            document.getElementById('label-shrink').textContent = t.labelShrink;
+            document.getElementById('help-shrink').textContent = t.helpShrink;
+            document.getElementById('label-smooth').textContent = t.labelSmooth;
+            document.getElementById('label-thresh').textContent = t.labelThresh;
+            
+            document.getElementById('download-btn-text').textContent = t.downloadBtn;
+            document.getElementById('download-desc').textContent = t.downloadDesc;
+            
+            document.getElementById('upload-title').textContent = t.uploadTitle;
+            document.getElementById('upload-desc').textContent = t.uploadDesc;
+            document.getElementById('select-btn-text').textContent = t.selectBtn;
+            
+            document.getElementById('preview-title-text').textContent = t.previewTitle;
+            document.getElementById('loading-title').textContent = t.loadingTitle;
+            document.getElementById('loading-desc').textContent = t.loadingDesc;
+            document.getElementById('reset-btn-text').textContent = t.resetBtn;
+        }
+
+        document.getElementById('lang-select').onchange = (e) => {
+            const newLang = e.target.value;
+            const url = new URL(window.location.href);
+            url.searchParams.set('lang', newLang);
+            window.history.pushState({}, '', url);
+            currentLang = newLang;
+            applyLanguage(newLang);
+        };
+
+        // Initialize language settings before loading the model
+        initLanguage();
+
         // 엔진 로드 (직접 ONNX 세션을 생성하여 Transformers.js의 라이브러리 차원 CORS 버그 회피)
         async function init() {
             try {
@@ -180,7 +381,8 @@
                 elements.upload.classList.remove('hidden');
                 console.log("Pro AI Engine (RMBG-1.4 via ONNX Web) Ready!");
             } catch (err) {
-                document.getElementById('engine-text').textContent = "엔진 로드 실패: " + err.message;
+                const t = TRANSLATIONS[currentLang] || TRANSLATIONS['ko'];
+                document.getElementById('engine-text').textContent = t.engineFail + err.message;
                 console.error(err);
             }
         }
@@ -242,7 +444,8 @@
                     elements.download.disabled = false;
                     applyCorrection();
                 } catch (err) {
-                    alert("처리 중 오류 발생: " + err.message);
+                    const t = TRANSLATIONS[currentLang] || TRANSLATIONS['ko'];
+                    alert(t.errorProc + err.message);
                     location.reload();
                 }
             }, 50);
