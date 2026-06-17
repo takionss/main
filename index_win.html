@@ -500,6 +500,8 @@
         const urlParams = new URLSearchParams(window.location.search);
         const winLang = urlParams.get('lang') || 'ko';
         const SHEET_CSV_URL = winLang === 'ko' ? 'tools.csv' : `tools_${winLang}.csv`;
+        const WALLPAPER_GROUPS = ['배경화면', 'Wallpaper', 'Wallpapers', 'Background', 'Backgrounds', 'Fondo de pantalla', '壁紙', '背景', '背景图片'];
+        const KNOWLEDGE_TREND_GROUPS = ['지식 & 트렌드', 'Knowledge & Trends', 'Conocimiento y tendencias', '知識＆トレンド', '知識與趨勢'];
         let siteDataList = []; 
         let openWindows = {}; 
         let windowCounter = 0;
@@ -644,7 +646,7 @@
                 
                 const hasWallpapers = rows.some(row => {
                     const columns = row.split(',').map(col => col.replace(/^"|"$/g, '').trim());
-                    return columns[1] === '배경화면';
+                    return WALLPAPER_GROUPS.includes(columns[1]);
                 });
                 if (hasWallpapers) {
                     for (const key in wallpaperUrls) {
@@ -660,11 +662,12 @@
                 const defaultIcon = 'images/world.png';
                 const folderIconImg = 'images/desktop.png'; 
 
+                const mySitesTitle = winLang === 'ko' ? '내사이트' : (winLang === 'en' ? 'My Sites' : (winLang === 'es' ? 'Mis Sitios' : (winLang === 'ja' ? 'マイサイト' : '我的網站')));
                 const mySiteFolder = document.createElement('div');
                 mySiteFolder.className = 'icon';
-                mySiteFolder.innerHTML = `<img src="${folderIconImg}" class="icon-img" alt="폴더"><div>내사이트</div>`;
+                mySiteFolder.innerHTML = `<img src="${folderIconImg}" class="icon-img" alt="folder"><div>${mySitesTitle}</div>`;
                 mySiteFolder.ondblclick = () => {
-                    openFolder('내사이트', folderIconImg);
+                    openFolder(mySitesTitle, folderIconImg);
                     closeAllMenus();
                 };
                 desktop.appendChild(mySiteFolder);
@@ -673,6 +676,7 @@
                 let otherGroups = {}; 
 
                 let hasKnowledgeTrend = false;
+                let actualKtGroupName = winLang === 'ko' ? '지식 & 트렌드' : (winLang === 'en' ? 'Knowledge & Trends' : (winLang === 'es' ? 'Conocimiento y tendencias' : (winLang === 'ja' ? '知識＆トレンド' : '知識與趨勢')));
                 rows.forEach(row => {
                     if (!row.trim()) return;
                     const columns = row.split(',').map(col => col.replace(/^"|"$/g, '').trim());
@@ -683,7 +687,7 @@
                     const url = columns[2] || '';
                     const iconUrl = (columns[3] && columns[3] !== '') ? columns[3] : defaultIcon;
 
-                    if (groupName === '배경화면') {
+                    if (WALLPAPER_GROUPS.includes(groupName)) {
                         wallpaperUrls[name] = iconUrl;
                         return;
                     }
@@ -691,8 +695,9 @@
                     siteDataList.push({ name, url, iconUrl, group: groupName });
 
                     // '지식 & 트렌드' 그룹은 바탕화면에 개별 아이콘 대신 단일 폴더로 합쳐 표시
-                    if (groupName === '지식 & 트렌드') {
+                    if (KNOWLEDGE_TREND_GROUPS.includes(groupName)) {
                         hasKnowledgeTrend = true;
+                        actualKtGroupName = groupName;
                     } else {
                         const icon = document.createElement('div');
                         icon.className = 'icon';
@@ -704,7 +709,7 @@
                         desktop.appendChild(icon);
                     }
 
-                    if (groupName === '' || groupName === '기본 프로그램') {
+                    if (groupName === '' || groupName === '기본 프로그램' || groupName === 'Default Program' || groupName === 'Programa predeterminado' || groupName === '基本プログラム' || groupName === '預設程式') {
                         defaultGroup.push({ name, url, iconUrl });
                     } else {
                         if (!otherGroups[groupName]) otherGroups[groupName] = [];
@@ -717,9 +722,9 @@
                     const ktFolder = document.createElement('div');
                     ktFolder.className = 'icon';
                     const folderIcon = 'images/folder.png';
-                    ktFolder.innerHTML = `<img src="${folderIcon}" class="icon-img" alt="폴더"><div>지식 & 트렌드</div>`;
+                    ktFolder.innerHTML = `<img src="${folderIcon}" class="icon-img" alt="folder"><div>${actualKtGroupName}</div>`;
                     ktFolder.ondblclick = () => {
-                        openFolder('지식 & 트렌드', folderIcon, '지식 & 트렌드');
+                        openFolder(actualKtGroupName, folderIcon, actualKtGroupName);
                         closeAllMenus();
                     };
                     desktop.appendChild(ktFolder);
@@ -975,7 +980,7 @@
             // filterGroup이 제공되면 해당 그룹만 노출, 그렇지 않으면 '지식 & 트렌드'를 제외한 모든 프로그램 노출 (내사이트 폴더 대응)
             const targetItems = filterGroup 
                 ? siteDataList.filter(site => site.group === filterGroup)
-                : siteDataList.filter(site => site.group !== '지식 & 트렌드');
+                : siteDataList.filter(site => !KNOWLEDGE_TREND_GROUPS.includes(site.group));
 
             targetItems.forEach(site => {
                 const icon = document.createElement('div');
