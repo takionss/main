@@ -482,6 +482,7 @@
         }
 
         function changeLanguage(lang) {
+            localStorage.setItem('smileslife-preferred-lang', lang);
             applyLanguage(lang);
         }
 
@@ -489,6 +490,8 @@
             const rememberCheckbox = document.getElementById('remember-preference');
             const selectEl = document.querySelector('.lang-select');
             const lang = selectEl ? selectEl.value : getLanguagePrefix();
+            
+            localStorage.setItem('smileslife-preferred-lang', lang);
             
             if (rememberCheckbox && rememberCheckbox.checked) {
                 localStorage.setItem('smileslife-preferred-mode', mode);
