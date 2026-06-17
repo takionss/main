@@ -650,5 +650,250 @@
   
   
   
+
+  <!-- INJECTED LOCALIZATION SCRIPT -->
+  <script>
+  (function() {
+    // Self-contained Battle Arena Localization System
+const BATTLE_ARENA_TRANSLATIONS = {};
+const BATTLE_ARENA_DICT_MAPPINGS = {};
+BATTLE_ARENA_TRANSLATIONS['en'] = {};
+BATTLE_ARENA_TRANSLATIONS['en'].regex = [
+  { pattern: new RegExp('당신이\\s+(.+)\\s+처치', 'g'), replacement: 'You eliminated $1' },
+  { pattern: new RegExp('(.+)\\s+자기장 사망', 'g'), replacement: '$1 died outside Playzone' },
+  { pattern: new RegExp('(.+)\\s+주먹 처치', 'g'), replacement: '$1 killed by Fists' },
+  { pattern: new RegExp('(.+)\\s+처치\\s+(.+)', 'g'), replacement: '$1 eliminated $2' },
+  { pattern: new RegExp('(.+)\\s+처치', 'g'), replacement: '$1 eliminated' },
+  { pattern: new RegExp('(.+) 탄창 획득! \\(\\+(.+)발\\)', 'g'), replacement: 'Obtained $1 Ammo! (+$2)' },
+  { pattern: new RegExp('시체상자에서 \\[(.+)\\] 획득!', 'g'), replacement: 'Obtained [$1] from Death Box!' },
+  { pattern: new RegExp('시체상자에서 \\[(.+)\\] 장착!', 'g'), replacement: 'Equipped [$1] from Death Box!' },
+  { pattern: new RegExp('\\[(.+)\\] 획득!', 'g'), replacement: 'Obtained [$1]!' },
+  { pattern: new RegExp('\\[(.+)\\] 장착 완료!', 'g'), replacement: '[$1] equipped!' },
+  { pattern: new RegExp('\\[(.+)\\] 버림', 'g'), replacement: 'Dropped [$1]' },
+  { pattern: new RegExp('구급상자를 사용하는 중\\.\\.\\. \\(움직이면 취소됩니다\\)', 'g'), replacement: 'Using First Aid Kit... (moving cancels)' },
+  { pattern: new RegExp('구급상자를 사용하는 중\\.\\.\\. \\((.+)s\\)', 'g'), replacement: 'Using First Aid Kit... ($1s)' },
+  { pattern: new RegExp('가방 공간 부족으로 (.+)을 줍지 못했습니다\\.', 'g'), replacement: 'Not enough bag space to pick up $1.' },
+  { pattern: new RegExp('가방 공간 부족으로 (.+)를 줍지 못했습니다\\.', 'g'), replacement: 'Not enough bag space to pick up $1.' },
+  { pattern: new RegExp('최종 생존자:\\s*(.+)명\\s*\\(우승!\\)<br>나의 처치 수:\\s*(.+)', 'g'), replacement: 'Final Survivor: $1 (Winner!)<br>My Kills: $2' },
+  { pattern: new RegExp('최종 생존자:\\s*(.+)명<br>나의 킬 수:\\s*(.+)', 'g'), replacement: 'Final Survivors: $1<br>My Kills: $2' },
+  { pattern: new RegExp('나의 처치 수:\\s*(.+)', 'g'), replacement: 'My Kills: $1' },
+  { pattern: new RegExp('나의 킬 수:\\s*(.+)', 'g'), replacement: 'My Kills: $1' },
+  { pattern: new RegExp('R키로 장전하세요\\.', 'g'), replacement: 'Reload with R.' },
+];
+BATTLE_ARENA_DICT_MAPPINGS['en'] = {
+  keys: ["🎯 50인의 숨막히는 생존 투쟁!<br>장비를 획득하고 끝까지 살아남아 승리의 통닭을 차지하십시오.", "주변에 아이템이 있습니다. [Tab] 키를 눌러 파밍하세요.", "주변에 아이템이 있습니다. 줍기 버튼을 눌러 획득하세요!", "⚠️ 섬을 벗어나 강제 낙하합니다! (HP 50% 감소)", "⚠️ 움직임으로 인해 구급상자 사용이 취소되었습니다.", "구급상자를 사용하는 중... (움직이면 취소됩니다)", "⚠️ 피해를 입어 구급상자 사용이 취소되었습니다.", "👊 적을 주먹으로 타격했습니다! (-20 HP)", "가방 공간 부족으로 구급상자를 줍지 못했습니다.", "💊 구급상자 사용 완료! (체력 75% 회복)", "⚠️ 탄창이 비어있습니다! R키로 장전하세요.", "가방 공간 부족으로 수류탄을 줍지 못했습니다.", "가방 공간 부족으로 연막탄을 줍지 못했습니다.", "이 게임은 가로 화면에 최적화되어 있습니다.", "이 게임은 가로 화면에 최적化되어 있습니다.", "⚠️ 자세 변경으로 구급상자 사용 취소!", "지상에 도착했습니다. 파밍을 시작하세요!", "배틀 아레나 (Battle Arena)", "⚠️ 점프로 인해 구급상자 사용 취소!", "가방 공간 부족! (기본 최대 2개)", "🏆 이겼닭! 오늘 저녁은 통닭이닭!", "🎒 INVENTORY & LOOT", "체력이 이미 75% 이상입니다!", "⚠️ 수류탄 폭발 치명적 피해!", "이미 탄약이 가득 차 있습니다.", "단축키 [V]: 1인칭/3인칭", "🪂 낙하산 펴기 (좌클릭/F)", "가로 화면으로 회전해 주세요", "비어있는 시체 상자 [시체]", "구급상자 사용하는 중...", "5.56mm (돌격소총):", "주변에 아이템이 없습니다.", "☠️ 당신은 처치되었습니다", "전장을 불러오는 중...", "7.62mm (저격총):", "우클릭: 정조준 (줌)", "G: 수류탄 던지기 (", "H: 연막탄 던지기 (", "엎드리기 (Prone)", "⚡ 적을 처치했습니다!", "의료 키트 / 투척류", "12게이지 (샷건):", "앉기 (Crouch)", "상자가 비어있습니다.", "구급상자가 없습니다!", "🚪 문을 열었습니다.", "🚪 문을 닫았습니다.", "매치 시작 (터치)", "🎵 BGM: OFF", "🔊 SFX: OFF", "기계식 조준기 장착", "5.56mm 소총탄", "7.62mm 저격탄", "헬멧 Level 1", "헬멧 Level 3", "가방 Level 1", "가방 Level 3", "G: 수류탄 던지기", "H: 연막탄 던지기", "서기 (Stand)", "시체 상자 [시체]", "구급상자 1개 버림", "🎵 BGM: ON", "🔊 SFX: ON", "나의 처치 수: ", "5.56mm 탄창", "7.62mm 탄창", "9mm (권총):", "🔄 장전 중...", "연막탄 1개 버림", "안전지대 대기중", "나의 킬 수: ", "12게이지 산탄", "12게이지 탄창", "내 캐릭터 장비", "헬멧 (방어구)", "🪟 창문 넘기!", "🪂 낙하산 펴기", "최후의 생존자", "기계식 조준기", "2배율 스코프", "4배율 스코프", "8배율 스코프", "자기장 대기중", "🪂 뛰어내리기", "9mm 권총탄", "계속 둘러보기", "다시 도전하기", "배틀 아레나", "최후의 1인", "축소까지: ", "나의 킬: ", "9mm 탄창", "주변 아이템", "장착 스코프", "구급상자: ", "장전 완료!", "매치 시작", "스코프: ", "생존자: ", "뛰어내리기", "수류탄: ", "연막탄: ", "보유 탄약", "무기: ", "돌격소총", "저격소총", "탑승: ", "구급상자", "닫기 X", "🔫 격발", "맨주먹", "저격총", "수류탄", "연막탄", "주무기", "1인칭", "3인칭", "주먹", "없음", "권총", "샷건", "줍기", "닫기", "가방", "조준", "격발", "장전", "점프", "초", "명"],
+  map: {"배틀 아레나 (Battle Arena)": "Battle Arena - Last Survivor", "배틀 아레나": "Battle Arena", "최후의 생존자": "Last Survivor", "최후의 1인": "Last Survivor", "🎯 50인의 숨막히는 생존 투쟁!<br>장비를 획득하고 끝까지 살아남아 승리의 통닭을 차지하십시오.": "🎯 50-player intense survival fight!<br>Get gear, survive to the end and claim victory.", "매치 시작": "Start Match", "매치 시작 (터치)": "Start Match", "🎵 BGM: OFF": "🎵 BGM: OFF", "🎵 BGM: ON": "🎵 BGM: ON", "🔊 SFX: OFF": "🔊 SFX: OFF", "🔊 SFX: ON": "🔊 SFX: ON", "전장을 불러오는 중...": "Loading battlefield...", "가로 화면으로 회전해 주세요": "Please rotate to landscape", "이 게임은 가로 화면에 최적화되어 있습니다.": "This game is optimized for landscape mode.", "이 게임은 가로 화면에 최적化되어 있습니다.": "This game is optimized for landscape mode.", "무기: ": "Weapon: ", "스코프: ": "Scope: ", "맨주먹": "Fists", "주먹": "Fists", "없음": "None", "권총": "Pistol", "샷건": "Shotgun", "돌격소총": "Assault Rifle", "저격총": "Sniper Rifle", "저격소총": "Sniper Rifle", "기계식 조준기": "Iron Sights", "기계식 조준기 장착": "Iron Sights", "2배율 스코프": "2x Scope", "4배율 스코프": "4x Scope", "8배율 스코프": "8x Scope", "우클릭: 정조준 (줌)": "Right Click: ADS (Zoom)", "단축키 [V]: 1인칭/3인칭": "Press [V]: 1st/3rd Person", "자기장 대기중": "Playzone Waiting", "안전지대 대기중": "Safe Zone Waiting", "축소까지: ": "Shrinking in: ", "생존자: ": "Survivors: ", "나의 킬: ": "My Kills: ", "나의 킬 수: ": "My Kills: ", "나의 처치 수: ": "My Kills: ", "초": "s", "명": " players", "탑승: ": "Boarded: ", "뛰어내리기": "🪂 Jump", "🪂 뛰어내리기": "🪂 Jump", "줍기": "Close", "구급상자 사용하는 중...": "Using First Aid Kit... ", "구급상자를 사용하는 중... (움직이면 취소됩니다)": "Using First Aid Kit... ", "구급상자": "First Aid Kit", "수류탄": "Grenade", "연막탄": "Smoke Grenade", "9mm 권총탄": "9mm Ammo", "12게이지 산탄": "12 Gauge Ammo", "5.56mm 소총탄": "5.56mm Ammo", "7.62mm 저격탄": "7.62mm Ammo", "9mm 탄창": "9mm Ammo", "12게이지 탄창": "12 Gauge Ammo", "5.56mm 탄창": "5.56mm Ammo", "7.62mm 탄창": "7.62mm Ammo", "🎒 INVENTORY & LOOT": "🎒 INVENTORY & LOOT", "닫기 X": "Close", "닫기": "Close", "주변 아이템": "Ground Items", "내 캐릭터 장비": "My Equipment", "주무기": "Primary Weapon", "장착 스코프": "Equipped Scope", "헬멧 (방어구)": "Helmet (Armor)", "가방": "Bag", "헬멧 Level 1": "Helmet Level 1", "헬멧 Level 3": "Helmet Level 3", "가방 Level 1": "Bag Level 1", "가방 Level 3": "Bag Level 3", "의료 키트 / 투척류": "Medical / Throwables", "구급상자: ": "First Aid Kit: ", "수류탄: ": "Grenade: ", "연막탄: ": "Smoke: ", "보유 탄약": "Ammo Carried", "9mm (권총):": "9mm (Pistol):", "12게이지 (샷건):": "12 Gauge (Shotgun):", "5.56mm (돌격소총):": "5.56mm (Rifle):", "7.62mm (저격총):": "7.62mm (Sniper):", "G: 수류탄 던지기 (": "G: Throw Grenade (", "H: 연막탄 던지기 (": "H: Throw Smoke (", "G: 수류탄 던지기": "G: Throw Grenade (", "H: 연막탄 던지기": "H: Throw Smoke (", "1인칭": "1st Person", "3인칭": "3rd Person", "조준": "Aim", "격발": "🔫 Fire", "🔫 격발": "🔫 Fire", "장전": "Reload", "점프": "Jump", "서기 (Stand)": "Stand", "앉기 (Crouch)": "Crouch", "엎드리기 (Prone)": "Prone", "🏆 이겼닭! 오늘 저녁은 통닭이닭!": "🏆 Winner Winner Chicken Dinner!", "계속 둘러보기": "Spectate", "다시 도전하기": "Try Again", "비어있는 시체 상자 [시체]": "Empty Death Box [Corpse]", "시체 상자 [시체]": "Death Box [Corpse]", "상자가 비어있습니다.": "Box is empty.", "주변에 아이템이 없습니다.": "No items nearby.", "주변에 아이템이 있습니다. [Tab] 키를 눌러 파밍하세요.": "📦 Items nearby. Press [Tab] to loot.", "주변에 아이템이 있습니다. 줍기 버튼을 눌러 획득하세요!": "📦 Items nearby. Tap Pick Up to loot!", "⚠️ 피해를 입어 구급상자 사용이 취소되었습니다.": "⚠️ First Aid Kit use cancelled due to damage.", "💊 구급상자 사용 완료! (체력 75% 회복)": "💊 First Aid Kit used! (75% HP restored)", "체력이 이미 75% 이상입니다!": "HP is already 75% or higher!", "구급상자가 없습니다!": "No First Aid Kits!", "⚠️ 움직임으로 인해 구급상자 사용이 취소되었습니다.": "⚠️ First Aid Kit use cancelled due to movement.", "⚠️ 자세 변경으로 구급상자 사용 취소!": "⚠️ First Aid Kit use cancelled due to stance change!", "⚠️ 점프로 인해 구급상자 사용 취소!": "⚠️ First Aid Kit use cancelled due to jump!", "🚪 문을 열었습니다.": "🚪 Opened the door.", "🚪 문을 닫았습니다.": "🚪 Closed the door.", "🪟 창문 넘기!": "🪟 Vaulting window!", "⚠️ 섬을 벗어나 강제 낙하합니다! (HP 50% 감소)": "⚠️ Leaving the island! Forced drop (50% HP loss)", "⚠️ 수류탄 폭발 치명적 피해!": "⚠️ Fatal damage from grenade explosion!", "👊 적을 주먹으로 타격했습니다! (-20 HP)": "👊 Hit enemy with fist! (-20 HP)", "⚡ 적을 처치했습니다!": "⚡ Eliminated an enemy!", "☠️ 당신은 처치되었습니다": "☠️ You were eliminated", "⚠️ 탄창이 비어있습니다! R키로 장전하세요.": "⚠️ Magazine empty! Reload with R.", "🔄 장전 중...": "🔄 Reloading...", "장전 완료!": "Reload complete!", "🪂 낙하산 펴기 (좌클릭/F)": "🪂 Deploy Parachute (Left Click/F)", "🪂 낙하산 펴기": "🪂 Deploy Parachute", "지상에 도착했습니다. 파밍을 시작하세요!": "Arrived on the ground. Start looting!", "가방 공간 부족으로 구급상자를 줍지 못했습니다.": "Not enough bag space to pick up First Aid Kit.", "가방 공간 부족으로 수류탄을 줍지 못했습니다.": "Not enough bag space to pick up Grenade.", "가방 공간 부족으로 연막탄을 줍지 못했습니다.": "Not enough bag space to pick up Smoke Grenade.", "가방 공간 부족! (기본 최대 2개)": "Not enough bag space! (Max 2 items default)", "이미 탄약이 가득 차 있습니다.": "Ammo is already full.", "구급상자 1개 버림": "Dropped 1 First Aid Kit", "연막탄 1개 버림": "Dropped 1 Smoke Grenade"}
+};
+BATTLE_ARENA_TRANSLATIONS['es'] = {};
+BATTLE_ARENA_TRANSLATIONS['es'].regex = [
+  { pattern: new RegExp('당신이\\s+(.+)\\s+처치', 'g'), replacement: 'Eliminaste a $1' },
+  { pattern: new RegExp('(.+)\\s+자기장 사망', 'g'), replacement: '$1 murió fuera de la zona' },
+  { pattern: new RegExp('(.+)\\s+주먹 처치', 'g'), replacement: '$1 eliminado a puñetazos' },
+  { pattern: new RegExp('(.+)\\s+처치\\s+(.+)', 'g'), replacement: '$1 eliminó a $2' },
+  { pattern: new RegExp('(.+)\\s+처치', 'g'), replacement: '$1 eliminado' },
+  { pattern: new RegExp('(.+) 탄창 획득! \\(\\+(.+)발\\)', 'g'), replacement: '¡Obtenida munición de $1! (+$2)' },
+  { pattern: new RegExp('시체상자에서 \\[(.+)\\] 획득!', 'g'), replacement: '¡Recogiste [$1] de la caja de botín!' },
+  { pattern: new RegExp('시체상자에서 \\[(.+)\\] 장착!', 'g'), replacement: '¡Equipaste [$1] de la caja de botín!' },
+  { pattern: new RegExp('\\[(.+)\\] 획득!', 'g'), replacement: '¡Obtenido [$1]!' },
+  { pattern: new RegExp('\\[(.+)\\] 장착 완료!', 'g'), replacement: '¡[$1] equipado!' },
+  { pattern: new RegExp('\\[(.+)\\] 버림', 'g'), replacement: 'Tiraste [$1]' },
+  { pattern: new RegExp('구급상자를 사용하는 중\\.\\.\\. \\(움직이면 취소됩니다\\)', 'g'), replacement: 'Usando Botiquín... (se cancela si te mueves)' },
+  { pattern: new RegExp('구급상자를 사용하는 중\\.\\.\\. \\((.+)s\\)', 'g'), replacement: 'Usando Botiquín... ($1s)' },
+  { pattern: new RegExp('가방 공간 부족으로 (.+)을 줍지 못했습니다\\.', 'g'), replacement: 'Mochila llena, no se pudo recoger $1.' },
+  { pattern: new RegExp('가방 공간 부족으로 (.+)를 줍지 못했습니다\\.', 'g'), replacement: 'Mochila llena, no se pudo recoger $1.' },
+  { pattern: new RegExp('최종 생존자:\\s*(.+)명\\s*\\(우승!\\)<br>나의 처치 수:\\s*(.+)', 'g'), replacement: 'Último superviviente: $1 (¡Ganador!)<br>Mis Kills: $2' },
+  { pattern: new RegExp('최종 생존자:\\s*(.+)명<br>나의 킬 수:\\s*(.+)', 'g'), replacement: 'Supervivientes finales: $1<br>Mis Kills: $2' },
+  { pattern: new RegExp('나의 처치 수:\\s*(.+)', 'g'), replacement: 'Mis Kills: $1' },
+  { pattern: new RegExp('나의 킬 수:\\s*(.+)', 'g'), replacement: 'Mis Kills: $1' },
+  { pattern: new RegExp('R키로 장전하세요\\.', 'g'), replacement: 'Recarga con R.' },
+];
+BATTLE_ARENA_DICT_MAPPINGS['es'] = {
+  keys: ["🎯 50인의 숨막히는 생존 투쟁!<br>장비를 획득하고 끝까지 살아남아 승리의 통닭을 차지하십시오.", "주변에 아이템이 있습니다. [Tab] 키를 눌러 파밍하세요.", "주변에 아이템이 있습니다. 줍기 버튼을 눌러 획득하세요!", "⚠️ 섬을 벗어나 강제 낙하합니다! (HP 50% 감소)", "⚠️ 움직임으로 인해 구급상자 사용이 취소되었습니다.", "구급상자를 사용하는 중... (움직이면 취소됩니다)", "⚠️ 피해를 입어 구급상자 사용이 취소되었습니다.", "👊 적을 주먹으로 타격했습니다! (-20 HP)", "가방 공간 부족으로 구급상자를 줍지 못했습니다.", "💊 구급상자 사용 완료! (체력 75% 회복)", "⚠️ 탄창이 비어있습니다! R키로 장전하세요.", "가방 공간 부족으로 수류탄을 줍지 못했습니다.", "가방 공간 부족으로 연막탄을 줍지 못했습니다.", "이 게임은 가로 화면에 최적화되어 있습니다.", "이 게임은 가로 화면에 최적化되어 있습니다.", "⚠️ 자세 변경으로 구급상자 사용 취소!", "지상에 도착했습니다. 파밍을 시작하세요!", "배틀 아레나 (Battle Arena)", "⚠️ 점프로 인해 구급상자 사용 취소!", "가방 공간 부족! (기본 최대 2개)", "🏆 이겼닭! 오늘 저녁은 통닭이닭!", "🎒 INVENTORY & LOOT", "체력이 이미 75% 이상입니다!", "⚠️ 수류탄 폭발 치명적 피해!", "이미 탄약이 가득 차 있습니다.", "단축키 [V]: 1인칭/3인칭", "🪂 낙하산 펴기 (좌클릭/F)", "가로 화면으로 회전해 주세요", "비어있는 시체 상자 [시체]", "구급상자 사용하는 중...", "5.56mm (돌격소총):", "주변에 아이템이 없습니다.", "☠️ 당신은 처치되었습니다", "전장을 불러오는 중...", "7.62mm (저격총):", "우클릭: 정조준 (줌)", "G: 수류탄 던지기 (", "H: 연막탄 던지기 (", "엎드리기 (Prone)", "⚡ 적을 처치했습니다!", "의료 키트 / 투척류", "12게이지 (샷건):", "앉기 (Crouch)", "상자가 비어있습니다.", "구급상자가 없습니다!", "🚪 문을 열었습니다.", "🚪 문을 닫았습니다.", "매치 시작 (터치)", "🎵 BGM: OFF", "🔊 SFX: OFF", "기계식 조준기 장착", "5.56mm 소총탄", "7.62mm 저격탄", "헬멧 Level 1", "헬멧 Level 3", "가방 Level 1", "가방 Level 3", "G: 수류탄 던지기", "H: 연막탄 던지기", "서기 (Stand)", "시체 상자 [시체]", "구급상자 1개 버림", "🎵 BGM: ON", "🔊 SFX: ON", "나의 처치 수: ", "5.56mm 탄창", "7.62mm 탄창", "9mm (권총):", "🔄 장전 중...", "연막탄 1개 버림", "안전지대 대기중", "나의 킬 수: ", "12게이지 산탄", "12게이지 탄창", "내 캐릭터 장비", "헬멧 (방어구)", "🪟 창문 넘기!", "🪂 낙하산 펴기", "최후의 생존자", "기계식 조준기", "2배율 스코프", "4배율 스코프", "8배율 스코프", "자기장 대기중", "🪂 뛰어내리기", "9mm 권총탄", "계속 둘러보기", "다시 도전하기", "배틀 아레나", "최후의 1인", "축소까지: ", "나의 킬: ", "9mm 탄창", "주변 아이템", "장착 스코프", "구급상자: ", "장전 완료!", "매치 시작", "스코프: ", "생존자: ", "뛰어내리기", "수류탄: ", "연막탄: ", "보유 탄약", "무기: ", "돌격소총", "저격소총", "탑승: ", "구급상자", "닫기 X", "🔫 격발", "맨주먹", "저격총", "수류탄", "연막탄", "주무기", "1인칭", "3인칭", "주먹", "없음", "권총", "샷건", "줍기", "닫기", "가방", "조준", "격발", "장전", "점프", "초", "명"],
+  map: {"배틀 아레나 (Battle Arena)": "Battle Arena - Último Superviviente", "배틀 아레나": "Battle Arena", "최후의 생존자": "Último Superviviente", "최후의 1인": "Último Superviviente", "🎯 50인의 숨막히는 생존 투쟁!<br>장비를 획득하고 끝까지 살아남아 승리의 통닭을 차지하십시오.": "🎯 ¡Lucha de supervivencia intensa de 50 jugadores!<br>Consigue equipo, sobrevive hasta el final y gana.", "매치 시작": "Iniciar Partida", "매치 시작 (터치)": "Iniciar Partida", "🎵 BGM: OFF": "🎵 BGM: OFF", "🎵 BGM: ON": "🎵 BGM: ON", "🔊 SFX: OFF": "🔊 SFX: OFF", "🔊 SFX: ON": "🔊 SFX: ON", "전장을 불러오는 중...": "Cargando el campo de batalla...", "가로 화면으로 회전해 주세요": "Por favor, gira a horizontal", "이 게임은 가로 화면에 최적화되어 있습니다.": "Este juego está optimizado para pantalla horizontal.", "이 게임은 가로 화면에 최적化되어 있습니다.": "Este juego está optimizado para pantalla horizontal.", "무기: ": "Arma: ", "스코프: ": "Mira: ", "맨주먹": "Puños", "주먹": "Puños", "없음": "Ninguno", "권총": "Pistola", "샷건": "Escopeta", "돌격소총": "Fusil de Asalto", "저격총": "Fusil de Francotirador", "저격소총": "Fusil de Francotirador", "기계식 조준기": "Mira de Hierro", "기계식 조준기 장착": "Mira de Hierro", "2배율 스코프": "Mira x2", "4배율 스코프": "Mira x4", "8배율 스코프": "Mira x8", "우클릭: 정조준 (줌)": "Clic derecho: Apuntar (Zoom)", "단축키 [V]: 1인칭/3인칭": "Tecla [V]: 1ª/3ª persona", "자기장 대기중": "Esperando Zona", "안전지대 대기중": "Esperando Zona Segura", "축소까지: ": "Reducción en: ", "생존자: ": "Supervivientes: ", "나의 킬: ": "Mis Kills: ", "나의 킬 수: ": "Mis Kills: ", "나의 처치 수: ": "Mis Kills: ", "초": "s", "명": " jugadores", "탑승: ": "A bordo: ", "뛰어내리기": "🪂 Saltar", "🪂 뛰어내리기": "🪂 Saltar", "줍기": "Cerrar", "구급상자 사용하는 중...": "Usando Botiquín... ", "구급상자를 사용하는 중... (움직이면 취소됩니다)": "Usando Botiquín... ", "구급상자": "Botiquín", "수류탄": "Granada", "연막탄": "Granada de Humo", "9mm 권총탄": "Munición 9mm", "12게이지 산탄": "Munición Calibre 12", "5.56mm 소총탄": "Munición 5.56mm", "7.62mm 저격탄": "Munición 7.62mm", "9mm 탄창": "Munición 9mm", "12게이지 탄창": "Munición Calibre 12", "5.56mm 탄창": "Munición 5.56mm", "7.62mm 탄창": "Munición 7.62mm", "🎒 INVENTORY & LOOT": "🎒 INVENTARIO Y BOTÍN", "닫기 X": "Cerrar", "닫기": "Cerrar", "주변 아이템": "Objetos del Suelo", "내 캐릭터 장비": "Mi Equipamiento", "주무기": "Arma Principal", "장착 스코프": "Mira Equipada", "헬멧 (방어구)": "Casco (Armadura)", "가방": "Mochila", "헬멧 Level 1": "Casco Nivel 1", "헬멧 Level 3": "Casco Nivel 3", "가방 Level 1": "Mochila Nivel 1", "가방 Level 3": "Mochila Nivel 3", "의료 키트 / 투척류": "Médicos / Arrojadizos", "구급상자: ": "Botiquín: ", "수류탄: ": "Granada: ", "연막탄: ": "Humo: ", "보유 탄약": "Munición", "9mm (권총):": "9mm (Pistola):", "12게이지 (샷건):": "Calibre 12 (Escopeta):", "5.56mm (돌격소총):": "5.56mm (Fusil):", "7.62mm (저격총):": "7.62mm (Sniper):", "G: 수류탄 던지기 (": "G: Lanzar Granada (", "H: 연막탄 던지기 (": "H: Lanzar Humo (", "G: 수류탄 던지기": "G: Lanzar Granada (", "H: 연막탄 던지기": "H: Lanzar Humo (", "1인칭": "1ª Persona", "3인칭": "3ª Persona", "조준": "Apuntar", "격발": "Disparar", "🔫 격발": "Disparar", "장전": "Recargar", "점프": "Saltar", "서기 (Stand)": "De pie", "앉기 (Crouch)": "Agachado", "엎드리기 (Prone)": "Tumbado", "🏆 이겼닭! 오늘 저녁은 통닭이닭!": "🏆 ¡Cena de pollo para el ganador!", "계속 둘러보기": "Espectear", "다시 도전하기": "Volver a intentar", "비어있는 시체 상자 [시체]": "Caja Vacía [Cadáver]", "시체 상자 [시체]": "Caja de Botín [Cadáver]", "상자가 비어있습니다.": "La caja está vacía.", "주변에 아이템이 없습니다.": "No hay objetos cerca.", "주변에 아이템이 있습니다. [Tab] 키를 눌러 파밍하세요.": "📦 Objetos cerca. Pulsa [Tab] para lotear.", "주변에 아이템이 있습니다. 줍기 버튼을 눌러 획득하세요!": "📦 Objetos cerca. ¡Toca Recoger para lotear!", "⚠️ 피해를 입어 구급상자 사용이 취소되었습니다.": "⚠️ Uso de botiquín cancelado por daño recibido.", "💊 구급상자 사용 완료! (체력 75% 회복)": "💊 ¡Botiquín usado! (75% de HP restaurado)", "체력이 이미 75% 이상입니다!": "¡Tu salud ya está al 75% o más!", "구급상자가 없습니다!": "¡No tienes botiquines!", "⚠️ 움직임으로 인해 구급상자 사용이 취소되었습니다.": "⚠️ Uso de botiquín cancelado por movimiento.", "⚠️ 자세 변경으로 구급상자 사용 취소!": "⚠️ ¡Uso de botiquín cancelado por cambiar de postura!", "⚠️ 점프로 인해 구급상자 사용 취소!": "⚠️ ¡Uso de botiquín cancelado por saltar!", "🚪 문을 열었습니다.": "🚪 Abriste la puerta.", "🚪 문을 닫았습니다.": "🚪 Cerraste la puerta.", "🪟 창문 넘기!": "🪟 ¡Saltando por la ventana!", "⚠️ 섬을 벗어나 강제 낙하합니다! (HP 50% 감소)": "⚠️ ¡Saliendo de la isla! Caída forzada (50% pérdida de HP)", "⚠️ 수류탄 폭발 치명적 피해!": "⚠️ ¡Daño letal por explosión de granada!", "👊 적을 주먹으로 타격했습니다! (-20 HP)": "👊 ¡Golpeaste al enemigo con el puño! (-20 HP)", "⚡ 적을 처치했습니다!": "⚡ ¡Eliminaste a un enemigo!", "☠️ 당신은 처치되었습니다": "☠️ Has sido eliminado", "⚠️ 탄창이 비어있습니다! R키로 장전하세요.": "⚠️ ¡Cargador vacío! Recarga con R.", "🔄 장전 중...": "🔄 Recargando...", "장전 완료!": "¡Recarga completa!", "🪂 낙하산 펴기 (좌클릭/F)": "🪂 Desplegar Paracaídas (Clic Izquierdo/F)", "🪂 낙하산 펴기": "🪂 Abrir Paracaídas", "지상에 도착했습니다. 파밍을 시작하세요!": "¡Llegaste al suelo! ¡Empieza a lotear!", "가방 공간 부족으로 구급상자를 줍지 못했습니다.": "No hay espacio en la mochila para el Botiquín.", "가방 공간 부족으로 수류탄을 줍지 못했습니다.": "No hay espacio en la mochila para la Granada.", "가방 공간 부족으로 연막탄을 줍지 못했습니다.": "No hay espacio en la mochila para la Granada de Humo.", "가방 공간 부족! (기본 최대 2개)": "¡Mochila llena! (Máx. 2 objetos por defecto)", "이미 탄약이 가득 차 있습니다.": "La munición ya está al máximo.", "구급상자 1개 버림": "Tiraste 1 Botiquín", "연막탄 1개 버림": "Tiraste 1 Granada de Humo"}
+};
+BATTLE_ARENA_TRANSLATIONS['ja'] = {};
+BATTLE_ARENA_TRANSLATIONS['ja'].regex = [
+  { pattern: new RegExp('당신이\\s+(.+)\\s+처치', 'g'), replacement: 'あなたが $1 を倒しました' },
+  { pattern: new RegExp('(.+)\\s+자기장 사망', 'g'), replacement: '$1 が安全地帯の外で死亡しました' },
+  { pattern: new RegExp('(.+)\\s+주먹 처치', 'g'), replacement: '$1 が拳で倒されました' },
+  { pattern: new RegExp('(.+)\\s+처치\\s+(.+)', 'g'), replacement: '$1 が $2 を倒しました' },
+  { pattern: new RegExp('(.+)\\s+처치', 'g'), replacement: '$1 撃破' },
+  { pattern: new RegExp('(.+) 탄창 획득! \\(\\+(.+)발\\)', 'g'), replacement: '$1 弾薬を獲得！ (+$2発)' },
+  { pattern: new RegExp('시체상자에서 \\[(.+)\\] 획득!', 'g'), replacement: '戦利品ボックスから [$1] を獲得！' },
+  { pattern: new RegExp('시체상자에서 \\[(.+)\\] 장착!', 'g'), replacement: '戦利品ボックスから [$1] を装着！' },
+  { pattern: new RegExp('\\[(.+)\\] 획득!', 'g'), replacement: '[$1] を獲得！' },
+  { pattern: new RegExp('\\[(.+)\\] 장착 완료!', 'g'), replacement: '[$1] 装着完了！' },
+  { pattern: new RegExp('\\[(.+)\\] 버림', 'g'), replacement: '[$1] を捨てました' },
+  { pattern: new RegExp('구급상자를 사용하는 중\\.\\.\\. \\(움직이면 취소됩니다\\)', 'g'), replacement: '応急処置キットを使用中... (動くとキャンセルされます)' },
+  { pattern: new RegExp('구급상자를 사용하는 중\\.\\.\\. \\((.+)s\\)', 'g'), replacement: '応急処置キットを使用中... ($1s)' },
+  { pattern: new RegExp('가방 공간 부족으로 (.+)을 줍지 못했습니다\\.', 'g'), replacement: '容量不足のため $1 を拾えませんでした。' },
+  { pattern: new RegExp('가방 공간 부족으로 (.+)를 줍지 못했습니다\\.', 'g'), replacement: '容量不足のため $1 を拾えませんでした。' },
+  { pattern: new RegExp('최종 생존자:\\s*(.+)명\\s*\\(우승!\\)<br>나의 처치 수:\\s*(.+)', 'g'), replacement: '最終生存者: $1人 (ドン勝!)<br>キル数: $2' },
+  { pattern: new RegExp('최종 생존자:\\s*(.+)명<br>나의 킬 수:\\s*(.+)', 'g'), replacement: '最終生存者: $1人<br>キル数: $2' },
+  { pattern: new RegExp('나의 처치 수:\\s*(.+)', 'g'), replacement: 'キル数: $1' },
+  { pattern: new RegExp('나의 킬 수:\\s*(.+)', 'g'), replacement: 'キル数: $1' },
+  { pattern: new RegExp('R키로 장전하세요\\.', 'g'), replacement: 'Rキーでリロードしてください。' },
+];
+BATTLE_ARENA_DICT_MAPPINGS['ja'] = {
+  keys: ["🎯 50인의 숨막히는 생존 투쟁!<br>장비를 획득하고 끝까지 살아남아 승리의 통닭을 차지하십시오.", "주변에 아이템이 있습니다. [Tab] 키를 눌러 파밍하세요.", "주변에 아이템이 있습니다. 줍기 버튼을 눌러 획득하세요!", "⚠️ 섬을 벗어나 강제 낙하합니다! (HP 50% 감소)", "⚠️ 움직임으로 인해 구급상자 사용이 취소되었습니다.", "구급상자를 사용하는 중... (움직이면 취소됩니다)", "⚠️ 피해를 입어 구급상자 사용이 취소되었습니다.", "👊 적을 주먹으로 타격했습니다! (-20 HP)", "가방 공간 부족으로 구급상자를 줍지 못했습니다.", "💊 구급상자 사용 완료! (체력 75% 회복)", "⚠️ 탄창이 비어있습니다! R키로 장전하세요.", "가방 공간 부족으로 수류탄을 줍지 못했습니다.", "가방 공간 부족으로 연막탄을 줍지 못했습니다.", "이 게임은 가로 화면에 최적화되어 있습니다.", "이 게임은 가로 화면에 최적化되어 있습니다.", "⚠️ 자세 변경으로 구급상자 사용 취소!", "지상에 도착했습니다. 파밍을 시작하세요!", "배틀 아레나 (Battle Arena)", "⚠️ 점프로 인해 구급상자 사용 취소!", "가방 공간 부족! (기본 최대 2개)", "🏆 이겼닭! 오늘 저녁은 통닭이닭!", "🎒 INVENTORY & LOOT", "체력이 이미 75% 이상입니다!", "⚠️ 수류탄 폭발 치명적 피해!", "이미 탄약이 가득 차 있습니다.", "단축키 [V]: 1인칭/3인칭", "🪂 낙하산 펴기 (좌클릭/F)", "가로 화면으로 회전해 주세요", "비어있는 시체 상자 [시체]", "구급상자 사용하는 중...", "5.56mm (돌격소총):", "주변에 아이템이 없습니다.", "☠️ 당신은 처치되었습니다", "전장을 불러오는 중...", "7.62mm (저격총):", "우클릭: 정조준 (줌)", "G: 수류탄 던지기 (", "H: 연막탄 던지기 (", "엎드리기 (Prone)", "⚡ 적을 처치했습니다!", "의료 키트 / 투척류", "12게이지 (샷건):", "앉기 (Crouch)", "상자가 비어있습니다.", "구급상자가 없습니다!", "🚪 문을 열었습니다.", "🚪 문을 닫았습니다.", "매치 시작 (터치)", "🎵 BGM: OFF", "🔊 SFX: OFF", "기계식 조준기 장착", "5.56mm 소총탄", "7.62mm 저격탄", "헬멧 Level 1", "헬멧 Level 3", "가방 Level 1", "가방 Level 3", "G: 수류탄 던지기", "H: 연막탄 던지기", "서기 (Stand)", "시체 상자 [시체]", "구급상자 1개 버림", "🎵 BGM: ON", "🔊 SFX: ON", "나의 처치 수: ", "5.56mm 탄창", "7.62mm 탄창", "9mm (권총):", "🔄 장전 중...", "연막탄 1개 버림", "안전지대 대기중", "나의 킬 수: ", "12게이지 산탄", "12게이지 탄창", "내 캐릭터 장비", "헬멧 (방어구)", "🪟 창문 넘기!", "🪂 낙하산 펴기", "최후의 생존자", "기계식 조준기", "2배율 스코프", "4배율 스코프", "8배율 스코프", "자기장 대기중", "🪂 뛰어내리기", "9mm 권총탄", "계속 둘러보기", "다시 도전하기", "배틀 아레나", "최후의 1인", "축소까지: ", "나의 킬: ", "9mm 탄창", "주변 아이템", "장착 스코프", "구급상자: ", "장전 완료!", "매치 시작", "스코프: ", "생존자: ", "뛰어내리기", "수류탄: ", "연막탄: ", "보유 탄약", "무기: ", "돌격소총", "저격소총", "탑승: ", "구급상자", "닫기 X", "🔫 격발", "맨주먹", "저격총", "수류탄", "연막탄", "주무기", "1인칭", "3인칭", "주먹", "없음", "권총", "샷건", "줍기", "닫기", "가방", "조준", "격발", "장전", "점프", "초", "명"],
+  map: {"배틀 아레나 (Battle Arena)": "バトルアリーナ - 最後の生存者", "배틀 아레나": "バトルアリーナ", "최후의 생존자": "最後の生存者", "최후의 1인": "最後の生存者", "🎯 50인의 숨막히는 생존 투쟁!<br>장비를 획득하고 끝까지 살아남아 승리의 통닭을 차지하십시오.": "🎯 50人による息詰まるサバイバルバトル！<br>装備を獲得し、最後まで生き残って勝利のドン勝を掴み取れ！", "매치 시작": "マッチ開始", "매치 시작 (터치)": "マッチ開始", "🎵 BGM: OFF": "🎵 BGM: OFF", "🎵 BGM: ON": "🎵 BGM: ON", "🔊 SFX: OFF": "🔊 SFX: OFF", "🔊 SFX: ON": "🔊 SFX: ON", "전장을 불러오는 중...": "戦場を読み込み中...", "가로 화면으로 회전해 주세요": "画面を横向きに回転させてください", "이 게임은 가로 화면에 최적화되어 있습니다.": "このゲームは横画面に最適化されています。", "이 게임은 가로 화면에 최적化되어 있습니다.": "このゲームは横画面に最適化されています。", "무기: ": "武器: ", "스코프: ": "スコープ: ", "맨주먹": "素手", "주먹": "素手", "없음": "なし", "권총": "拳銃", "샷건": "ショットガン", "돌격소총": "アサルトライフル", "저격총": "スナイパーライフル", "저격소총": "スナイパーライフル", "기계식 조준기": "アイアンサイト", "기계식 조준기 장착": "アイアンサイト", "2배율 스코프": "2倍スコープ", "4배율 스코프": "4倍スコープ", "8배율 스코프": "8倍スコープ", "우클릭: 정조준 (줌)": "右クリック: ADS (ズーム)", "단축키 [V]: 1인칭/3인칭": "[V]キー: 1人称/3人称切り替え", "자기장 대기중": "安全地帯待機中", "안전지대 대기중": "安全地帯待機中", "축소까지: ": "縮小まで: ", "생존자: ": "生存者: ", "나의 킬: ": "キル数: ", "나의 킬 수: ": "キル数: ", "나의 처치 수: ": "キル数: ", "초": "秒", "명": "人", "탑승: ": "搭乗人数: ", "뛰어내리기": "🪂 飛び降りる", "🪂 뛰어내리기": "🪂 飛び降りる", "줍기": "閉じる", "구급상자 사용하는 중...": "応急処置キット使用中... ", "구급상자를 사용하는 중... (움직이면 취소됩니다)": "応急処置キット使用中... ", "구급상자": "応急処置キット", "수류탄": "手榴弾", "연막탄": "発煙弾", "9mm 권총탄": "9mm弾", "12게이지 산탄": "12ゲージ弾", "5.56mm 소총탄": "5.56mm弾", "7.62mm 저격탄": "7.62mm弾", "9mm 탄창": "9mm弾", "12게이지 탄창": "12ゲージ弾", "5.56mm 탄창": "5.56mm弾", "7.62mm 탄창": "7.62mm弾", "🎒 INVENTORY & LOOT": "🎒 インベントリ & ドロップ", "닫기 X": "閉じる", "닫기": "閉じる", "주변 아이템": "周辺のアイテム", "내 캐릭터 장비": "キャラクター装備", "주무기": "メイン武器", "장착 스코프": "装着スコープ", "헬멧 (방어구)": "ヘルメット (防具)", "가방": "バックパック", "헬멧 Level 1": "ヘルメット Lv.1", "헬멧 Level 3": "ヘルメット Lv.3", "가방 Level 1": "バックパック Lv.1", "가방 Level 3": "バックパック Lv.3", "의료 키트 / 투척류": "医療品 / 投擲武器", "구급상자: ": "応急処置キット: ", "수류탄: ": "手榴弾: ", "연막탄: ": "発煙弾: ", "보유 탄약": "所持弾薬", "9mm (권총):": "9mm (拳銃):", "12게이지 (샷건):": "12ゲージ (ショットガン):", "5.56mm (돌격소총):": "5.56mm (小銃):", "7.62mm (저격총):": "7.62mm (スナイパー):", "G: 수류탄 던지기 (": "G: 手榴弾を投げる (", "H: 연막탄 던지기 (": "H: 発煙弾を投げる (", "G: 수류탄 던지기": "G: 手榴弾を投げる (", "H: 연막탄 던지기": "H: 発煙弾を投げる (", "1인칭": "1人称 (FPP)", "3인칭": "3人称 (TPP)", "조준": "照準", "격발": "射撃", "🔫 격발": "射撃", "장전": "リロード", "점프": "ジャンプ", "서기 (Stand)": "立ち", "앉기 (Crouch)": "しゃがみ", "엎드리기 (Prone)": "伏せ", "🏆 이겼닭! 오늘 저녁은 통닭이닭!": "🏆 勝った！夕飯はドン勝だ！", "계속 둘러보기": "観戦を続ける", "다시 도전하기": "再挑戦する", "비어있는 시체 상자 [시체]": "空の戦利品ボックス [死体]", "시체 상자 [시체]": "戦利品ボックス [死体]", "상자가 비어있습니다.": "ボックスは空です。", "주변에 아이템이 없습니다.": "周辺にアイテムがありません。", "주변에 아이템이 있습니다. [Tab] 키를 눌러 파밍하세요.": "📦 周辺にアイテムがあります。[Tab]キーで拾います。", "주변에 아이템이 있습니다. 줍기 버튼을 눌러 획득하세요!": "📦 周辺にアイテムがあります。拾うボタンで獲得します！", "⚠️ 피해를 입어 구급상자 사용이 취소되었습니다.": "⚠️ ダメージを受けたため、応急処置キットの使用がキャンセルされました。", "💊 구급상자 사용 완료! (체력 75% 회복)": "💊 応急処置キット使用完了！ (体力を75%回復)", "체력이 이미 75% 이상입니다!": "体力がすでに75%以上です！", "구급상자가 없습니다!": "応急処置キットがありません！", "⚠️ 움직임으로 인해 구급상자 사용이 취소되었습니다.": "⚠️ 移動したため、応急処置キットの使用がキャンセルされました。", "⚠️ 자세 변경으로 구급상자 사용 취소!": "⚠️ 姿勢変更のため、応急処置キットの使用がキャンセルされました！", "⚠️ 점프로 인해 구급상자 사용 취소!": "⚠️ ジャンプしたため、応急処置キットの使用がキャンセルされました！", "🚪 문을 열었습니다.": "🚪 ドアを開けました。", "🚪 문을 닫았습니다.": "🚪 ドアを閉めました。", "🪟 창문 넘기!": "🪟 窓を乗り越えます！", "⚠️ 섬을 벗어나 강제 낙하합니다! (HP 50% 감소)": "⚠️ 島から離脱したため、強制落下します！ (HP 50% 減少)", "⚠️ 수류탄 폭발 치명적 피해!": "⚠️ 手榴弾の爆発による致命的なダメージ！", "👊 적을 주먹으로 타격했습니다! (-20 HP)": "👊 敵をパンチしました！ (-20 HP)", "⚡ 적을 처치했습니다!": "⚡ 敵を撃破しました！", "☠️ 당신은 처치되었습니다": "☠️ あなたは倒されました", "⚠️ 탄창이 비어있습니다! R키로 장전하세요.": "⚠️ マガジンが空です！ [R]キーでリロードしてください。", "🔄 장전 중...": "🔄 リロード中...", "장전 완료!": "リロード完了！", "🪂 낙하산 펴기 (좌클릭/F)": "🪂 パラシュートを開く (左クリック/F)", "🪂 낙하산 펴기": "🪂 パラシュート展開", "지상에 도착했습니다. 파밍을 시작하세요!": "着地しました。アイテム収集を開始してください！", "가방 공간 부족으로 구급상자를 줍지 못했습니다.": "バックパックの容量不足で応急処置キットを拾えません。", "가방 공간 부족으로 수류탄을 줍지 못했습니다.": "バックパックの容量不足で手榴弾を拾えません。", "가방 공간 부족으로 연막탄을 줍지 못했습니다.": "バックパック의 容量不足で発煙弾を拾えません。", "가방 공간 부족! (기본 최대 2개)": "容量不足です！ (標準スロット最大2個)", "이미 탄약이 가득 차 있습니다.": "弾薬がすでに満タンです。", "구급상자 1개 버림": "応急処置キットを1個捨てました", "연막탄 1개 버림": "発煙弾を1個捨てました"}
+};
+BATTLE_ARENA_TRANSLATIONS['zh-TW'] = {};
+BATTLE_ARENA_TRANSLATIONS['zh-TW'].regex = [
+  { pattern: new RegExp('당신이\\s+(.+)\\s+처치', 'g'), replacement: '你擊殺了 $1' },
+  { pattern: new RegExp('(.+)\\s+자기장 사망', 'g'), replacement: '$1 淘汰於電磁網外' },
+  { pattern: new RegExp('(.+)\\s+주먹 처치', 'g'), replacement: '$1 被拳頭擊殺' },
+  { pattern: new RegExp('(.+)\\s+처치\\s+(.+)', 'g'), replacement: '$1 擊殺了 $2' },
+  { pattern: new RegExp('(.+)\\s+처치', 'g'), replacement: '$1 擊殺' },
+  { pattern: new RegExp('(.+) 탄창 획득! \\(\\+(.+)발\\)', 'g'), replacement: '獲得 $1 子彈！ (+$2發)' },
+  { pattern: new RegExp('시체상자에서 \\[(.+)\\] 획득!', 'g'), replacement: '從戰利品箱獲得了 [$1]！' },
+  { pattern: new RegExp('시체상자에서 \\[(.+)\\] 장착!', 'g'), replacement: '從戰利品箱裝備了 [$1]！' },
+  { pattern: new RegExp('\\[(.+)\\] 획득!', 'g'), replacement: '獲得了 [$1]！' },
+  { pattern: new RegExp('\\[(.+)\\] 장착 완료!', 'g'), replacement: '[$1] 裝備完成！' },
+  { pattern: new RegExp('\\[(.+)\\] 버림', 'g'), replacement: '丟棄了 [$1]' },
+  { pattern: new RegExp('구급상자를 사용하는 중\\.\\.\\. \\(움직이면 취소됩니다\\)', 'g'), replacement: '正在使用急救包... (移動將會取消使用)' },
+  { pattern: new RegExp('구급상자를 사용하는 중\\.\\.\\. \\((.+)s\\)', 'g'), replacement: '正在使用急救包... ($1秒)' },
+  { pattern: new RegExp('가방 공간 부족으로 (.+)을 줍지 못했습니다\\.', 'g'), replacement: '背包空間不足，無法拾取 $1。' },
+  { pattern: new RegExp('가방 공간 부족으로 (.+)를 줍지 못했습니다\\.', 'g'), replacement: '背包空間不足，無法拾取 $1。' },
+  { pattern: new RegExp('최종 생존자:\\s*(.+)명\\s*\\(우승!\\)<br>나의 처치 수:\\s*(.+)', 'g'), replacement: '最終生存人數: $1人 (吃雞!)<br>我的擊殺: $2' },
+  { pattern: new RegExp('최종 생존자:\\s*(.+)명<br>나의 킬 수:\\s*(.+)', 'g'), replacement: '最終生存人數: $1人<br>我的擊殺: $2' },
+  { pattern: new RegExp('나의 처치 수:\\s*(.+)', 'g'), replacement: '我的擊殺: $1' },
+  { pattern: new RegExp('나의 킬 수:\\s*(.+)', 'g'), replacement: '我的擊殺: $1' },
+  { pattern: new RegExp('R키로 장전하세요\\.', 'g'), replacement: '請按 R 鍵裝彈。' },
+];
+BATTLE_ARENA_DICT_MAPPINGS['zh-TW'] = {
+  keys: ["🎯 50인의 숨막히는 생존 투쟁!<br>장비를 획득하고 끝까지 살아남아 승리의 통닭을 차지하십시오.", "주변에 아이템이 있습니다. [Tab] 키를 눌러 파밍하세요.", "주변에 아이템이 있습니다. 줍기 버튼을 눌러 획득하세요!", "⚠️ 섬을 벗어나 강제 낙하합니다! (HP 50% 감소)", "⚠️ 움직임으로 인해 구급상자 사용이 취소되었습니다.", "구급상자를 사용하는 중... (움직이면 취소됩니다)", "⚠️ 피해를 입어 구급상자 사용이 취소되었습니다.", "👊 적을 주먹으로 타격했습니다! (-20 HP)", "가방 공간 부족으로 구급상자를 줍지 못했습니다.", "💊 구급상자 사용 완료! (체력 75% 회복)", "⚠️ 탄창이 비어있습니다! R키로 장전하세요.", "가방 공간 부족으로 수류탄을 줍지 못했습니다.", "가방 공간 부족으로 연막탄을 줍지 못했습니다.", "이 게임은 가로 화면에 최적화되어 있습니다.", "이 게임은 가로 화면에 최적化되어 있습니다.", "⚠️ 자세 변경으로 구급상자 사용 취소!", "지상에 도착했습니다. 파밍을 시작하세요!", "배틀 아레나 (Battle Arena)", "⚠️ 점프로 인해 구급상자 사용 취소!", "가방 공간 부족! (기본 최대 2개)", "🏆 이겼닭! 오늘 저녁은 통닭이닭!", "🎒 INVENTORY & LOOT", "체력이 이미 75% 이상입니다!", "⚠️ 수류탄 폭발 치명적 피해!", "이미 탄약이 가득 차 있습니다.", "단축키 [V]: 1인칭/3인칭", "🪂 낙하산 펴기 (좌클릭/F)", "가로 화면으로 회전해 주세요", "비어있는 시체 상자 [시체]", "구급상자 사용하는 중...", "5.56mm (돌격소총):", "주변에 아이템이 없습니다.", "☠️ 당신은 처치되었습니다", "전장을 불러오는 중...", "7.62mm (저격총):", "우클릭: 정조준 (줌)", "G: 수류탄 던지기 (", "H: 연막탄 던지기 (", "엎드리기 (Prone)", "⚡ 적을 처치했습니다!", "의료 키트 / 투척류", "12게이지 (샷건):", "앉기 (Crouch)", "상자가 비어있습니다.", "구급상자가 없습니다!", "🚪 문을 열었습니다.", "🚪 문을 닫았습니다.", "매치 시작 (터치)", "🎵 BGM: OFF", "🔊 SFX: OFF", "기계식 조준기 장착", "5.56mm 소총탄", "7.62mm 저격탄", "헬멧 Level 1", "헬멧 Level 3", "가방 Level 1", "가방 Level 3", "G: 수류탄 던지기", "H: 연막탄 던지기", "서기 (Stand)", "시체 상자 [시체]", "구급상자 1개 버림", "🎵 BGM: ON", "🔊 SFX: ON", "나의 처치 수: ", "5.56mm 탄창", "7.62mm 탄창", "9mm (권총):", "🔄 장전 중...", "연막탄 1개 버림", "안전지대 대기중", "나의 킬 수: ", "12게이지 산탄", "12게이지 탄창", "내 캐릭터 장비", "헬멧 (방어구)", "🪟 창문 넘기!", "🪂 낙하산 펴기", "최후의 생존자", "기계식 조준기", "2배율 스코프", "4배율 스코프", "8배율 스코프", "자기장 대기중", "🪂 뛰어내리기", "9mm 권총탄", "계속 둘러보기", "다시 도전하기", "배틀 아레나", "최후의 1인", "축소까지: ", "나의 킬: ", "9mm 탄창", "주변 아이템", "장착 스코프", "구급상자: ", "장전 완료!", "매치 시작", "스코프: ", "생존자: ", "뛰어내리기", "수류탄: ", "연막탄: ", "보유 탄약", "무기: ", "돌격소총", "저격소총", "탑승: ", "구급상자", "닫기 X", "🔫 격발", "맨주먹", "저격총", "수류탄", "연막탄", "주무기", "1인칭", "3인칭", "주먹", "없음", "권총", "샷건", "줍기", "닫기", "가방", "조준", "격발", "장전", "점프", "초", "명"],
+  map: {"배틀 아레나 (Battle Arena)": "絕地戰境 - 最終生還者", "배틀 아레나": "絕地戰境", "최후의 생존자": "最終生還者", "최후의 1인": "最終生還者", "🎯 50인의 숨막히는 생존 투쟁!<br>장비를 획득하고 끝까지 살아남아 승리의 통닭을 차지하십시오.": "🎯 50人驚險求生大戰！<br>獲取裝備並存活到最後，奪得最終的勝利！", "매치 시작": "開始匹配", "매치 시작 (터치)": "開始匹配", "🎵 BGM: OFF": "🎵 BGM: OFF", "🎵 BGM: ON": "🎵 BGM: ON", "🔊 SFX: OFF": "🔊 SFX: OFF", "🔊 SFX: ON": "🔊 SFX: ON", "전장을 불러오는 중...": "正在載入戰場...", "가로 화면으로 회전해 주세요": "請將螢幕旋轉至橫向", "이 게임은 가로 화면에 최적화되어 있습니다.": "此遊戲已針對橫向螢幕進行最佳化。", "이 게임은 가로 화면에 최적化되어 있습니다.": "此遊戲已針對橫向螢幕進行最佳化。", "무기: ": "武器: ", "스코프: ": "瞄準鏡: ", "맨주먹": "拳頭", "주먹": "拳頭", "없음": "無", "권총": "手槍", "샷건": "散彈槍", "돌격소총": "突擊步槍", "저격총": "狙擊步槍", "저격소총": "狙擊步槍", "기계식 조준기": "機械瞄具", "기계식 조준기 장착": "機械瞄具", "2배율 스코프": "2倍瞄準鏡", "4배율 스코프": "4倍瞄準鏡", "8배율 스코프": "8倍瞄準鏡", "우클릭: 정조준 (줌)": "右鍵: 開鏡瞄準 (縮放)", "단축키 [V]: 1인칭/3인칭": "按 [V]: 切換第一/第三人稱", "자기장 대기중": "電磁網等待中", "안전지대 대기중": "安全區等待中", "축소까지: ": "收縮倒數: ", "생존자: ": "生存人數: ", "나의 킬: ": "我的擊殺: ", "나의 킬 수: ": "我的擊殺: ", "나의 처치 수: ": "我的擊殺: ", "초": "秒", "명": "人", "탑승: ": "機上人數: ", "뛰어내리기": "🪂 跳傘", "🪂 뛰어내리기": "🪂 跳傘", "줍기": "關閉", "구급상자 사용하는 중...": "正在使用急救包... ", "구급상자를 사용하는 중... (움직이면 취소됩니다)": "正在使用急救包... ", "구급상자": "急救包", "수류탄": "手榴彈", "연막탄": "煙霧彈", "9mm 권총탄": "9mm子彈", "12게이지 산탄": "12口徑子彈", "5.56mm 소총탄": "5.56mm子彈", "7.62mm 저격탄": "7.62mm子彈", "9mm 탄창": "9mm子彈", "12게이지 탄창": "12口徑子彈", "5.56mm 탄창": "5.56mm子彈", "7.62mm 탄창": "7.62mm子彈", "🎒 INVENTORY & LOOT": "🎒 背包與物資", "닫기 X": "關閉", "닫기": "關閉", "주변 아이템": "地面物資", "내 캐릭터 장비": "角色裝備", "주무기": "主武器", "장착 스코프": "已裝備瞄具", "헬멧 (방어구)": "頭盔 (防具)", "가방": "背包", "헬멧 Level 1": "1級頭盔", "헬멧 Level 3": "3級頭盔", "가방 Level 1": "1級背包", "가방 Level 3": "3級背包", "의료 키트 / 투척류": "醫療與投擲物", "구급상자: ": "急救包: ", "수류탄: ": "手榴彈: ", "연막탄: ": "煙霧彈: ", "보유 탄약": "持有彈藥", "9mm (권총):": "9mm (手槍):", "12게이지 (샷건):": "12口徑 (散彈槍):", "5.56mm (돌격소총):": "5.56mm (步槍):", "7.62mm (저격총):": "7.62mm (狙擊槍):", "G: 수류탄 던지기 (": "G: 投擲手榴彈 (", "H: 연막탄 던지기 (": "H: 投擲煙霧彈 (", "G: 수류탄 던지기": "G: 投擲手榴彈 (", "H: 연막탄 던지기": "H: 投擲煙霧彈 (", "1인칭": "第一人稱 (FPP)", "3인칭": "第三人稱 (TPP)", "조준": "瞄準", "격발": "開火", "🔫 격발": "開火", "장전": "裝彈", "점프": "跳躍", "서기 (Stand)": "站立", "앉기 (Crouch)": "蹲下", "엎드리기 (Prone)": "趴下", "🏆 이겼닭! 오늘 저녁은 통닭이닭!": "🏆 大吉大利，今晚吃雞！", "계속 둘러보기": "繼續觀戰", "다시 도전하기": "重新挑戰", "비어있는 시체 상자 [시체]": "空戰利品箱 [遺體]", "시체 상자 [시체]": "戰利品箱 [遺體]", "상자가 비어있습니다.": "箱子是空的。", "주변에 아이템이 없습니다.": "附近沒有物資。", "주변에 아이템이 있습니다. [Tab] 키를 눌러 파밍하세요.": "📦 附近有物資。按 [Tab] 鍵物資。", "주변에 아이템이 있습니다. 줍기 버튼을 눌러 획득하세요!": "📦 附近有物資。點擊拾取按鈕獲得物資！", "⚠️ 피해를 입어 구급상자 사용이 취소되었습니다.": "⚠️ 受到傷害，已取消使用急救包。", "💊 구급상자 사용 완료! (체력 75% 회복)": "💊 使用急救包完成！ (恢復75%生命值)", "체력이 이미 75% 이상입니다!": "生命值已經在75%以上！", "구급상자가 없습니다!": "沒有急救包！", "⚠️ 움직임으로 인해 구급상자 사용이 취소되었습니다.": "⚠️ 移動了位置，已取消使用急救包。", "⚠️ 자세 변경으로 구급상자 사용 취소!": "⚠️ 變更姿勢，已取消使用急救包！", "⚠️ 점프로 인해 구급상자 사용 취소!": "⚠️ 跳躍，已取消使用急救包！", "🚪 문을 열었습니다.": "🚪 門已打開。", "🚪 문을 닫았습니다.": "🚪 門已關閉。", "🪟 창문 넘기!": "🪟 正在翻越窗戶！", "⚠️ 섬을 벗어나 강제 낙하합니다! (HP 50% 감소)": "⚠️ 已脫離島嶼邊界，強制墜落！ (扣除50%生命值)", "⚠️ 수류탄 폭발 치명적 피해!": "⚠️ 手榴彈爆炸造成致命傷害！", "👊 적을 주먹으로 타격했습니다! (-20 HP)": "👊 用拳頭擊中敵人！ (-20 HP)", "⚡ 적을 처치했습니다!": "⚡ 已擊殺敵人！", "☠️ 당신은 처치되었습니다": "☠️ 你被擊殺了", "⚠️ 탄창이 비어있습니다! R키로 장전하세요.": "⚠️ 彈匣已空！請按 R 鍵裝彈。", "🔄 장전 중...": "🔄 正在裝彈...", "장전 완료!": "裝彈完成！", "🪂 낙하산 펴기 (좌클릭/F)": "🪂 開傘 (滑鼠左鍵/F)", "🪂 낙하산 펴기": "🪂 展開降落傘", "지상에 도착했습니다. 파밍을 시작하세요!": "已降落至地面。請開始搜尋物資！", "가방 공간 부족으로 구급상자를 줍지 못했습니다.": "背包空間不足，無法拾取急救包。", "가방 공간 부족으로 수류탄을 줍지 못했습니다.": "背包空間不足，無法拾取手榴彈。", "가방 공간 부족으로 연막탄을 줍지 못했습니다.": "背包空間不足，無法拾取煙霧彈。", "가방 공간 부족! (기본 최대 2개)": "背包空間不足！ (預設插槽上限為2個)", "이미 탄약이 가득 차 있습니다.": "子彈數量已達上限。", "구급상자 1개 버림": "丟棄了 1 個急救包", "연막탄 1개 버림": "丟棄了 1 個煙霧彈"}
+};
+
+    let currentLang = new URLSearchParams(window.location.search).get('lang') || localStorage.getItem('smileslife-preferred-lang') || navigator.language || 'ko';
+    if (currentLang.startsWith('ko')) currentLang = 'ko';
+    else if (currentLang.startsWith('en')) currentLang = 'en';
+    else if (currentLang.startsWith('es')) currentLang = 'es';
+    else if (currentLang.startsWith('ja')) currentLang = 'ja';
+    else if (currentLang.startsWith('zh')) currentLang = 'zh-TW';
+    else currentLang = 'en';
+
+    function translateText(text, lang) {
+      if (lang === 'ko' || !text) return text;
+      let t = text;
+      const rules = BATTLE_ARENA_TRANSLATIONS[lang];
+      if (!rules) return t;
+
+      const dict = BATTLE_ARENA_DICT_MAPPINGS[lang];
+      if (dict) {
+        for (let k of dict.keys) {
+          t = t.replaceAll(k, dict.map[k]);
+        }
+      }
+
+      if (rules.regex) {
+        for (let r of rules.regex) {
+          t = t.replace(r.pattern, r.replacement);
+        }
+      }
+      return t;
+    }
+
+    function translateNode(node) {
+      if (node.nodeType === Node.TEXT_NODE) {
+        const translated = translateText(node.textContent, currentLang);
+        if (translated !== node.textContent) {
+          node.textContent = translated;
+        }
+      } else if (node.nodeType === Node.ELEMENT_NODE) {
+        if (node.tagName === 'SCRIPT' || node.tagName === 'STYLE' || node.tagName === 'SELECT' || node.id === 'lang-select') return;
+        if (node.placeholder) {
+          node.placeholder = translateText(node.placeholder, currentLang);
+        }
+        node.childNodes.forEach(child => translateNode(child));
+      }
+    }
+
+    const observer = new MutationObserver((mutations) => {
+      if (currentLang === 'ko') return;
+      observer.disconnect();
+      
+      for (let mutation of mutations) {
+        if (mutation.type === 'childList') {
+          mutation.addedNodes.forEach(node => {
+            translateNode(node);
+          });
+        } else if (mutation.type === 'characterData') {
+          const translated = translateText(mutation.target.textContent, currentLang);
+          if (translated !== mutation.target.textContent) {
+            mutation.target.textContent = translated;
+          }
+        }
+      }
+      observeDOM();
+    });
+
+    function observeDOM() {
+      observer.observe(document.getElementById('ui-layer') || document.body, {
+        childList: true,
+        subtree: true,
+        characterData: true
+      });
+    }
+
+    function applyLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem('smileslife-preferred-lang', lang);
+      const select = document.getElementById('lang-select');
+      if (select) select.value = lang;
+
+      // Update document title
+      document.title = translateText("배틀 아레나 (Battle Arena) - 최후의 1인", lang);
+
+      // Translate static elements
+      translateNode(document.body);
+
+      if (lang !== 'ko') {
+        observeDOM();
+      } else {
+        observer.disconnect();
+      }
+    }
+
+    // Setup selector on load
+    window.addEventListener('DOMContentLoaded', () => {
+      const settingsUI = document.getElementById('settings-ui');
+      if (settingsUI && !document.getElementById('lang-select')) {
+        const select = document.createElement('select');
+        select.id = 'lang-select';
+        select.innerHTML = `
+          <option value="ko">한국어</option>
+          <option value="en">English</option>
+          <option value="es">Español</option>
+          <option value="ja">日本語</option>
+          <option value="zh-TW">繁體中文</option>
+        `;
+        select.value = currentLang;
+        
+        // Match settings-ui button styles
+        select.style.background = 'rgba(15, 22, 32, 0.85)';
+        select.style.color = '#ffb300';
+        select.style.border = '1px solid rgba(255, 255, 255, 0.2)';
+        select.style.padding = '10px 18px';
+        select.style.borderRadius = '6px';
+        select.style.fontWeight = 'bold';
+        select.style.cursor = 'pointer';
+        select.style.fontSize = '13px';
+        select.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.4)';
+        select.style.transition = 'all 0.2s ease';
+        select.style.backdropFilter = 'blur(4px)';
+        select.style.outline = 'none';
+
+        select.addEventListener('change', (e) => {
+          localStorage.setItem('smileslife-preferred-lang', e.target.value);
+          window.location.search = `?lang=${e.target.value}`;
+        });
+        settingsUI.appendChild(select);
+      }
+      applyLanguage(currentLang);
+    });
+  })();
+  </script>
 </body>
 </html>
