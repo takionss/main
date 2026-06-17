@@ -1209,6 +1209,13 @@
                 }
             } catch (e) {}
 
+            // 구글 설문지(Google Forms) 다국어 처리 (hl 파라미터 적용)
+            if (targetUrl.includes('forms.gle') || targetUrl.includes('docs.google.com/forms')) {
+                if (!targetUrl.includes('hl=')) {
+                    targetUrl = targetUrl.includes('?') ? `${targetUrl}&hl=${winLang}` : `${targetUrl}?hl=${winLang}`;
+                }
+            }
+
             if (!targetUrl.includes('lang=')) {
                 targetUrl = targetUrl.includes('?') ? `${targetUrl}&lang=${winLang}` : `${targetUrl}?lang=${winLang}`;
             }
