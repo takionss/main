@@ -7,7 +7,7 @@ import openpyxl
 
 URL = "https://docs.google.com/spreadsheets/d/1RRpkarZGReZMb243IsGNQfP1Urzs5Fh24uWRbfkwVdM/export?format=xlsx"
 LANGUAGES = ['ko', 'en', 'es', 'ja', 'zh-TW']
-WALLPAPER_GROUPS = ['배경화면', 'Wallpaper', 'Wallpapers', 'Background', 'Backgrounds', 'Fondo de pantalla', '壁紙', '背景', '背景图片']
+WALLPAPER_GROUPS = ['배경화면', 'Wallpaper', 'Wallpapers', 'Background', 'Backgrounds', 'Fondo de pantalla', 'Papel pintado', '壁紙', '背景', '背景图片']
 
 def resolve_url(url_str):
     if not url_str:
