@@ -71,8 +71,18 @@
 </head>
 <body class="bg-slate-50 min-h-screen font-sans text-slate-900 flex flex-col">
 
-    <header class="bg-white shadow-sm py-4 relative">
-        <h1 class="text-xl font-bold text-center text-pink-600 tracking-tight">AI 부분 지우개</h1>
+    <header class="bg-white shadow-sm py-4 px-6 flex items-center justify-between relative">
+        <div class="w-24"></div>
+        <h1 data-i18n="headerTitle" class="text-xl font-bold text-center text-pink-600 tracking-tight flex-grow">AI 부분 지우개</h1>
+        <div class="w-24 flex justify-end">
+            <select id="lang-select" class="bg-white border border-slate-200 rounded-lg px-2 py-1 text-sm font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-pink-500">
+                <option value="ko">한국어</option>
+                <option value="en">English</option>
+                <option value="es">Español</option>
+                <option value="ja">日本語</option>
+                <option value="zh-tw">繁體中文</option>
+            </select>
+        </div>
     </header>
 
     <main class="flex-grow container mx-auto px-4 py-8 max-w-5xl">
@@ -81,12 +91,12 @@
             <aside class="lg:col-span-1 space-y-6">
                 <div class="bg-white rounded-3xl shadow-lg p-6 border border-slate-100 sticky top-12">
                     <h3 class="font-bold text-lg mb-6 border-b pb-4 flex items-center gap-2">
-                        <i class="fas fa-eraser text-pink-500"></i> 브러시 설정
+                        <i class="fas fa-eraser text-pink-500"></i> <span data-i18n="brushSettings">브러시 설정</span>
                     </h3>
                     <div class="space-y-6">
                         <div>
                             <div class="flex justify-between text-xs font-bold text-slate-600 mb-2">
-                                <span>브러시 크기 (Brush Size)</span>
+                                <span data-i18n="brushSize">브러시 크기 (Brush Size)</span>
                                 <span id="brush-val" class="text-pink-600 font-mono font-bold">30px</span>
                             </div>
                             <input type="range" id="brush-slider" min="5" max="100" value="30" class="w-full h-1.5 bg-slate-100 rounded-lg appearance-none custom-range">
@@ -94,16 +104,16 @@
 
                         <div class="pt-4 border-t border-slate-100 flex flex-col gap-3">
                             <button id="erase-btn" class="w-full bg-pink-600 text-white font-bold py-3.5 rounded-2xl shadow-lg hover:bg-pink-700 active:scale-95 transition-all disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center gap-2" disabled>
-                                <i class="fas fa-magic"></i> 객체 지우기
+                                <i class="fas fa-magic"></i> <span data-i18n="eraseBtn">객체 지우기</span>
                             </button>
-                            <button id="clear-mask-btn" class="w-full bg-white text-slate-600 border border-slate-200 font-semibold py-3 rounded-2xl hover:bg-slate-50 transition-all disabled:opacity-30 disabled:cursor-not-allowed" disabled>
+                            <button id="clear-mask-btn" data-i18n="clearMaskBtn" class="w-full bg-white text-slate-600 border border-slate-200 font-semibold py-3 rounded-2xl hover:bg-slate-50 transition-all disabled:opacity-30 disabled:cursor-not-allowed" disabled>
                                 마스크 초기화
                             </button>
                         </div>
                     </div>
 
                     <button id="download-btn" class="w-full mt-8 bg-slate-900 text-white font-bold py-4 rounded-2xl shadow-lg hover:bg-slate-800 active:scale-95 transition-all disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center gap-2" disabled>
-                        <i class="fas fa-download"></i> 수정 완료 저장
+                        <i class="fas fa-download"></i> <span data-i18n="downloadBtn">수정 완료 저장</span>
                     </button>
                 </div>
             </aside>
@@ -115,10 +125,10 @@
                     <div class="w-24 h-24 bg-pink-50 rounded-full flex items-center justify-center mb-8 text-pink-500 text-4xl">
                         <i class="fas fa-image animate-pulse"></i>
                     </div>
-                    <h2 class="text-2xl font-bold mb-3 text-slate-700">AI 사물 & 객체 지우기</h2>
-                    <p class="text-slate-400 mb-10 text-center max-w-sm">수정할 사진을 끌어다 놓거나 아래 이미지 선택 버튼을 통해 업로드해 주세요.</p>
+                    <h2 data-i18n="uploadTitle" class="text-2xl font-bold mb-3 text-slate-700">AI 사물 & 객체 지우기</h2>
+                    <p data-i18n="uploadDesc" class="text-slate-400 mb-10 text-center max-w-sm">수정할 사진을 끌어다 놓거나 아래 이미지 선택 버튼을 통해 업로드해 주세요.</p>
                     <input type="file" id="file-input" class="hidden" accept="image/*">
-                    <button id="select-btn" class="bg-pink-600 text-white px-12 py-4 rounded-2xl font-bold shadow-xl hover:bg-pink-700 transition-all">
+                    <button id="select-btn" data-i18n="selectBtn" class="bg-pink-600 text-white px-12 py-4 rounded-2xl font-bold shadow-xl hover:bg-pink-700 transition-all">
                         이미지 선택
                     </button>
                 </section>
@@ -129,8 +139,8 @@
                         <div class="absolute inset-0 border-4 border-pink-100 rounded-full"></div>
                         <div class="absolute inset-0 border-4 border-pink-600 rounded-full border-t-transparent animate-spin"></div>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-2">선택한 영역 지우는 중...</h3>
-                    <p class="text-slate-400 text-sm">주변 픽셀의 결과 텍스처를 자연스럽게 합성하고 있습니다.</p>
+                    <h3 data-i18n="processingTitle" class="text-xl font-bold text-slate-800 mb-2">선택한 영역 지우는 중...</h3>
+                    <p data-i18n="processingDesc" class="text-slate-400 text-sm">주변 픽셀의 결과 텍스처를 자연스럽게 합성하고 있습니다.</p>
                 </section>
 
                 <!-- 캔버스 에디터 화면 섹션 -->
@@ -139,7 +149,7 @@
                         <div class="flex items-center justify-between mb-4 border-b border-slate-50 pb-4">
                             <h4 class="text-sm font-bold text-slate-800 flex items-center gap-2">
                                 <span class="w-2 h-2 bg-pink-500 rounded-full animate-pulse"></span>
-                                지우고 싶은 부분을 마우스나 손가락으로 문질러 칠하세요.
+                                <span data-i18n="editorTitle">지우고 싶은 부분을 마우스나 손가락으로 문질러 칠하세요.</span>
                             </h4>
                         </div>
                         <div class="canvas-container rounded-2xl border border-slate-200" id="canvas-frame">
@@ -150,7 +160,7 @@
                     </div>
                     <div class="flex justify-center gap-4">
                         <button onclick="location.reload()" class="bg-white text-slate-400 px-6 py-2.5 rounded-full border border-slate-200 hover:text-pink-600 hover:border-pink-100 font-medium transition-all text-sm flex items-center gap-2">
-                            <i class="fas fa-undo"></i> 다른 사진 업로드하기
+                            <i class="fas fa-undo"></i> <span data-i18n="uploadAnother">다른 사진 업로드하기</span>
                         </button>
                     </div>
                 </section>
@@ -166,6 +176,151 @@
     </footer>
 
     <script>
+        const DICTIONARY = {
+            ko: {
+                title: "AI 부분 지우개 (사진 개체 지우기) | SmilesLife",
+                metaDesc: "사진 속 원치 않는 사람, 글씨, 사물, 낙서 등을 문지르기만 하면 감쪽같이 배경을 살려 지워주는 브라우저 내장형 AI 부분 지우개 툴입니다.",
+                ogTitle: "AI 부분 지우개 (사진 개체 지우기) - SmilesLife",
+                ogDesc: "드래그만으로 사진에서 사물을 흔적 없이 지워보세요. 100% 로컬 연산으로 데이터 유출 위험 없이 안전합니다.",
+                headerTitle: "AI 부분 지우개",
+                brushSettings: "브러시 설정",
+                brushSize: "브러시 크기 (Brush Size)",
+                eraseBtn: "객체 지우기",
+                clearMaskBtn: "마스크 초기화",
+                downloadBtn: "수정 완료 저장",
+                uploadTitle: "AI 사물 & 객체 지우기",
+                uploadDesc: "수정할 사진을 끌어다 놓거나 아래 이미지 선택 버튼을 통해 업로드해 주세요.",
+                selectBtn: "이미지 선택",
+                processingTitle: "선택한 영역 지우는 중...",
+                processingDesc: "주변 픽셀의 결과 텍스처를 자연스럽게 합성하고 있습니다.",
+                editorTitle: "지우고 싶은 부분을 마우스나 손가락으로 문질러 칠하세요.",
+                uploadAnother: "다른 사진 업로드하기"
+            },
+            en: {
+                title: "AI Object Eraser (Remove Objects from Photos) | SmilesLife",
+                metaDesc: "Browser-based AI object eraser tool that seamlessly removes unwanted people, text, objects, and scribbles from photos while preserving the background.",
+                ogTitle: "AI Object Eraser (Remove Objects from Photos) - SmilesLife",
+                ogDesc: "Remove objects from your photos without a trace just by dragging. 100% local processing for secure data privacy.",
+                headerTitle: "AI Object Eraser",
+                brushSettings: "Brush Settings",
+                brushSize: "Brush Size",
+                eraseBtn: "Erase Object",
+                clearMaskBtn: "Reset Mask",
+                downloadBtn: "Save Changes",
+                uploadTitle: "AI Object & Element Eraser",
+                uploadDesc: "Drag and drop your photo here, or click the select button below to upload.",
+                selectBtn: "Select Image",
+                processingTitle: "Erasing selected area...",
+                processingDesc: "Blending surrounding pixels for a natural texture.",
+                editorTitle: "Paint over the area you want to erase using your mouse or finger.",
+                uploadAnother: "Upload Another Photo"
+            },
+            es: {
+                title: "Borrador de Objetos AI (Eliminar objetos de fotos) | SmilesLife",
+                metaDesc: "Herramienta de borrado de objetos por IA basada en navegador que elimina de forma sencilla personas, texto, objetos y garabatos no deseados manteniendo el fondo.",
+                ogTitle: "Borrador de Objetos AI (Eliminar objetos de fotos) - SmilesLife",
+                ogDesc: "Elimina objetos de tus fotos sin dejar rastro con solo arrastrar. Procesamiento 100% local para proteger tu privacidad.",
+                headerTitle: "Borrador de Objetos AI",
+                brushSettings: "Ajustes del Pincel",
+                brushSize: "Tamaño del Pincel",
+                eraseBtn: "Borrar Objeto",
+                clearMaskBtn: "Restablecer Máscara",
+                downloadBtn: "Guardar Cambios",
+                uploadTitle: "Borrador de Objetos AI",
+                uploadDesc: "Arrastra y suelta tu foto aquí, o haz clic en el botón de selección para subirla.",
+                selectBtn: "Seleccionar Imagen",
+                processingTitle: "Borrando el área seleccionada...",
+                processingDesc: "Mezclando los píxeles circundantes para una textura natural.",
+                editorTitle: "Pinta sobre el área que deseas borrar con el ratón o el dedo.",
+                uploadAnother: "Subir otra foto"
+            },
+            ja: {
+                title: "AI部分消しゴム (写真からオブジェクトを削除) | SmilesLife",
+                metaDesc: "写真から不要な人物、テキスト、オブジェクト、落書きなどを背景を維持しながら自然に消去するブラウザ内蔵型AI部分消しゴムツールです。",
+                ogTitle: "AI部分消しゴム (写真からオブジェクトを削除) - SmilesLife",
+                ogDesc: "ドラッグするだけで写真から対象物をきれいに消去。100%ローカル処理なので、データ流出의 걱정 없이 안전합니다.",
+                headerTitle: "AI部分消しゴム",
+                brushSettings: "ブラシ設定",
+                brushSize: "ブラシサイズ",
+                eraseBtn: "オブジェクト消去",
+                clearMaskBtn: "マスク初期化",
+                downloadBtn: "修正完了保存",
+                uploadTitle: "AIオブジェクト消しゴム",
+                uploadDesc: "修正したい写真をドラッグ＆ドロップするか、画像選択ボタンからアップロードしてください。",
+                selectBtn: "画像を選択",
+                processingTitle: "選択エリアを消去中...",
+                processingDesc: "周囲のピクセルを自然に合成しています。",
+                editorTitle: "消したい部分をマウスや指でなぞって塗ってください。",
+                uploadAnother: "別の写真をアップロード"
+            },
+            "zh-tw": {
+                title: "AI 局部擦除器 (擦除照片中物件) | SmilesLife",
+                metaDesc: "瀏覽器內建的 AI 局部擦除工具，只需塗抹即可完美移除照片中不想要的人物、文字、物件、塗鴉，同時保留背景。",
+                ogTitle: "AI 局部擦除器 (擦除照片中物件) - SmilesLife",
+                ogDesc: "只需拖曳即可無痕擦除照片中的物體。100% 本地運算，無數據外洩風險，安全可靠。",
+                headerTitle: "AI 局部擦除器",
+                brushSettings: "筆刷設定",
+                brushSize: "筆刷大小",
+                eraseBtn: "擦除物件",
+                clearMaskBtn: "重設遮罩",
+                downloadBtn: "儲存修改",
+                uploadTitle: "AI 物件 & 元素擦除",
+                uploadDesc: "將要修改的照片拖曳至此，或點選下方按鈕選取圖片上傳。",
+                selectBtn: "選取圖片",
+                processingTitle: "正在擦除選區...",
+                processingDesc: "正在自然融合周圍像素的紋理。",
+                editorTitle: "請用滑鼠或手指塗抹想要擦除的部分。",
+                uploadAnother: "上傳其他照片"
+            }
+        };
+
+        function initLanguage() {
+            const langSelect = document.getElementById('lang-select');
+            
+            function setLanguage(lang) {
+                localStorage.setItem('smileslife-preferred-lang', lang);
+                langSelect.value = lang;
+                
+                document.title = DICTIONARY[lang].title;
+                const descMeta = document.querySelector('meta[name="description"]');
+                if (descMeta) descMeta.setAttribute('content', DICTIONARY[lang].metaDesc);
+                const ogTitleMeta = document.querySelector('meta[property="og:title"]');
+                if (ogTitleMeta) ogTitleMeta.setAttribute('content', DICTIONARY[lang].ogTitle);
+                const ogDescMeta = document.querySelector('meta[property="og:description"]');
+                if (ogDescMeta) ogDescMeta.setAttribute('content', DICTIONARY[lang].ogDesc);
+                
+                document.querySelectorAll('[data-i18n]').forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    if (DICTIONARY[lang] && DICTIONARY[lang][key]) {
+                        el.textContent = DICTIONARY[lang][key];
+                    }
+                });
+            }
+
+            const urlParams = new URLSearchParams(window.location.search);
+            let lang = urlParams.get('lang') || localStorage.getItem('smileslife-preferred-lang');
+            if (!lang) {
+                const userLang = navigator.language || navigator.userLanguage;
+                const shortLang = userLang.substring(0, 2).toLowerCase();
+                if (shortLang === 'ko') lang = 'ko';
+                else if (shortLang === 'es') lang = 'es';
+                else if (shortLang === 'ja') lang = 'ja';
+                else if (userLang.toLowerCase() === 'zh-tw' || userLang.toLowerCase() === 'zh-hk') lang = 'zh-tw';
+                else lang = 'en';
+            }
+            lang = lang.toLowerCase();
+            if (lang === 'zh-cn') lang = 'zh-tw';
+            if (!DICTIONARY[lang]) lang = 'en';
+
+            langSelect.addEventListener('change', (e) => {
+                setLanguage(e.target.value);
+            });
+
+            setLanguage(lang);
+        }
+
+        document.addEventListener('DOMContentLoaded', initLanguage);
+
         const uploadSection = document.getElementById('upload-section');
         const processingSection = document.getElementById('processing-section');
         const editorSection = document.getElementById('editor-section');

@@ -1,3 +1,163 @@
+// Translation Dictionary
+const TRANSLATIONS = {
+    ko: {
+        title: "오디오 만능 변환기 (MP3, WAV, AAC, OGG 포맷 변환) | SmilesLife",
+        header_title: "오디오 만능 변환기",
+        header_desc: "MP3, WAV, AAC 등 모든 오디오 파일을 브라우저에서 즉시 변환하세요.",
+        upload_title: "오디오 파일을 업로드하세요",
+        upload_desc: "또는 여기로 드래그 앤 드롭 하세요",
+        btn_select_file: "파일 선택하기",
+        label_convert_to: "변환할 형식 선택",
+        btn_convert: "지금 변환하기",
+        result_title: "변환이 완료되었습니다!",
+        btn_download: "변환된 파일 다운로드",
+        init_engine_title: "엔진 초기화 중...",
+        init_engine_desc: "최초 실행 시 변환 엔진(WASM)을 다운로드하느라<br>몇 초 정도 시간이 걸릴 수 있습니다.",
+        footer_text: "© 2026 AI Utility Web. 브라우저 내장 기술을 사용하여 안전하게 변환합니다.",
+        status_analyzing: "파일 분석 중...",
+        status_decoding: "오디오 디코딩 중...",
+        status_encoding: "인코딩 진행 중...",
+        status_finished: "변환 완료!",
+        alert_soon: "이 형식은 곧 지원될 예정입니다!",
+        alert_error: "변환 중 오류가 발생했습니다. 파일 형식을 확인해 주세요."
+    },
+    en: {
+        title: "Universal Audio Converter (MP3, WAV, AAC, OGG Conversion) | SmilesLife",
+        header_title: "Universal Audio Converter",
+        header_desc: "Convert all audio files like MP3, WAV, AAC instantly in your browser.",
+        upload_title: "Upload your audio file",
+        upload_desc: "or drag and drop it here",
+        btn_select_file: "Select File",
+        label_convert_to: "Select Format to Convert",
+        btn_convert: "Convert Now",
+        result_title: "Conversion Complete!",
+        btn_download: "Download Converted File",
+        init_engine_title: "Initializing Engine...",
+        init_engine_desc: "On first run, it might take a few seconds<br>to download the translation engine (WASM).",
+        footer_text: "© 2026 AI Utility Web. Converted securely using built-in browser technologies.",
+        status_analyzing: "Analyzing file...",
+        status_decoding: "Decoding audio...",
+        status_encoding: "Encoding in progress...",
+        status_finished: "Conversion complete!",
+        alert_soon: "This format will be supported soon!",
+        alert_error: "An error occurred during conversion. Please check the file format."
+    },
+    es: {
+        title: "Convertidor de Audio Universal (Conversión MP3, WAV, AAC, OGG) | SmilesLife",
+        header_title: "Convertidor de Audio Universal",
+        header_desc: "Convierta todos los archivos de audio como MP3, WAV, AAC al instante en su navegador.",
+        upload_title: "Suba su archivo de audio",
+        upload_desc: "o arrástrelo y suéltelo aquí",
+        btn_select_file: "Seleccionar archivo",
+        label_convert_to: "Seleccionar formato para convertir",
+        btn_convert: "Convertir ahora",
+        result_title: "¡Conversión completa!",
+        btn_download: "Descargar archivo convertido",
+        init_engine_title: "Inicializando motor...",
+        init_engine_desc: "En la primera ejecución, puede tardar unos segundos<br>en descargar el motor de traducción (WASM).",
+        footer_text: "© 2026 AI Utility Web. Convertido de forma segura utilizando tecnologías integradas del navegador.",
+        status_analyzing: "Analizando archivo...",
+        status_decoding: "Decodificando audio...",
+        status_encoding: "Codificación en curso...",
+        status_finished: "¡Conversión completa!",
+        alert_soon: "¡Este formato será compatible pronto!",
+        alert_error: "Ocurrió un error durante la conversión. Compruebe el formato del archivo."
+    },
+    ja: {
+        title: "万能オーディオ変換器 (MP3, WAV, AAC, OGG フォーマット変換) | SmilesLife",
+        header_title: "万能オーディオ変換器",
+        header_desc: "MP3, WAV, AACなど、すべてのオーディオファイルをブラウザで即座に変換します。",
+        upload_title: "オーディオファイルをアップロードしてください",
+        upload_desc: "またはここにドラッグ＆ドロップしてください",
+        btn_select_file: "ファイルを選択する",
+        label_convert_to: "変換するフォーマットを選択",
+        btn_convert: "今すぐ変換する",
+        result_title: "変換が完了しました！",
+        btn_download: "変換されたファイルをダウンロード",
+        init_engine_title: "エンジン初期化中...",
+        init_engine_desc: "初回実行時は、変換エンジン (WASM) のダウンロードに<br>数秒かかる場合があります。",
+        footer_text: "© 2026 AI Utility Web. ブラウザ内蔵技術を使用して安全に変換します。",
+        status_analyzing: "ファイルを分析中...",
+        status_decoding: "オーディオをデコード中...",
+        status_encoding: "エンコード進行中...",
+        status_finished: "変換完了！",
+        alert_soon: "このフォーマットは間もなくサポートされる予定です！",
+        alert_error: "変換中にエラーが発生しました。ファイル形式を確認してください。"
+    },
+    'zh-TW': {
+        title: "萬能音訊轉換器 (MP3, WAV, AAC, OGG 格式轉換) | SmilesLife",
+        header_title: "萬能音訊轉換器",
+        header_desc: "在瀏覽器中立即轉換 MP3、WAV、AAC 等所有音訊檔案。",
+        upload_title: "上傳您的音訊檔案",
+        upload_desc: "或將檔案拖曳至此處",
+        btn_select_file: "選擇檔案",
+        label_convert_to: "選擇要轉換的格式",
+        btn_convert: "立即轉換",
+        result_title: "轉換完成！",
+        btn_download: "下載已轉換的檔案",
+        init_engine_title: "引擎初始化中...",
+        init_engine_desc: "首次執行時，下載轉換引擎 (WASM) 可能需要<br>幾秒鐘的時間。",
+        footer_text: "© 2026 AI Utility Web. 使用瀏覽器內建技術安全進行轉換。",
+        status_analyzing: "正在分析檔案...",
+        status_decoding: "正在解碼音訊...",
+        status_encoding: "正在進行編碼...",
+        status_finished: "轉換完成！",
+        alert_soon: "此格式即將支援！",
+        alert_error: "轉換時發生錯誤。請檢查檔案格式。"
+    }
+};
+
+window.l10n = {
+    currentLang: 'ko',
+    t: function(key) {
+        return TRANSLATIONS[this.currentLang]?.[key] || TRANSLATIONS['en']?.[key] || key;
+    }
+};
+
+function initLanguage() {
+    const urlParams = new URLSearchParams(window.location.search);
+    let lang = urlParams.get('lang');
+    if (!lang) {
+        lang = localStorage.getItem('smileslife-preferred-lang');
+    }
+    if (!lang && navigator.language) {
+        const navLang = navigator.language.toLowerCase();
+        if (navLang.startsWith('ko')) lang = 'ko';
+        else if (navLang.startsWith('es')) lang = 'es';
+        else if (navLang.startsWith('ja')) lang = 'ja';
+        else if (navLang.startsWith('zh-tw') || navLang.startsWith('zh-hk')) lang = 'zh-TW';
+        else lang = 'en';
+    }
+    if (!['ko', 'en', 'es', 'ja', 'zh-TW'].includes(lang)) {
+        lang = 'ko';
+    }
+    
+    const langSelect = document.getElementById('lang-select');
+    if (langSelect) langSelect.value = lang;
+    
+    applyLanguage(lang);
+}
+
+function applyLanguage(lang) {
+    window.l10n.currentLang = lang;
+    document.documentElement.lang = lang;
+    localStorage.setItem('smileslife-preferred-lang', lang);
+    
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        const text = TRANSLATIONS[lang]?.[key] || TRANSLATIONS['en']?.[key];
+        if (text) {
+            if (el.tagName === 'TITLE') {
+                document.title = text;
+            } else if (el.innerHTML.includes('<br>') || text.includes('<br>')) {
+                el.innerHTML = text;
+            } else {
+                el.textContent = text;
+            }
+        }
+    });
+}
+
 // UI Elements
 const uploadContainer = document.getElementById('upload-container');
 const convertContainer = document.getElementById('convert-container');
@@ -88,16 +248,16 @@ convertBtn.addEventListener('click', async () => {
     progressContainer.classList.remove('hidden');
     resultContainer.classList.add('hidden');
     updateProgress(0);
-    statusText.textContent = '파일 분석 중...';
+    statusText.textContent = window.l10n.t('status_analyzing');
 
     try {
         const arrayBuffer = await currentFile.arrayBuffer();
         const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
         
-        statusText.textContent = '오디오 디코딩 중...';
+        statusText.textContent = window.l10n.t('status_decoding');
         const audioBuffer = await audioCtx.decodeAudioData(arrayBuffer);
         
-        statusText.textContent = '인코딩 진행 중...';
+        statusText.textContent = window.l10n.t('status_encoding');
         
         if (targetFormat === 'mp3') {
             resultBlob = await encodeMp3(audioBuffer);
@@ -106,18 +266,18 @@ convertBtn.addEventListener('click', async () => {
         } else if (targetFormat === 'aac' || targetFormat === 'm4a' || targetFormat === 'ogg') {
             resultBlob = await encodeNative(audioBuffer, targetFormat);
         } else {
-            alert('이 형식은 곧 지원될 예정입니다!');
+            alert(window.l10n.t('alert_soon'));
             throw new Error('Unsupported format');
         }
 
         // Show download
         resultContainer.classList.remove('hidden');
-        statusText.textContent = '변환 완료!';
+        statusText.textContent = window.l10n.t('status_finished');
         updateProgress(100);
 
     } catch (err) {
         console.error('Conversion Error:', err);
-        alert('변환 중 오류가 발생했습니다. 파일 형식을 확인해 주세요.');
+        alert(window.l10n.t('alert_error'));
     } finally {
         convertBtn.disabled = false;
         convertBtn.classList.remove('opacity-50', 'cursor-not-allowed');
@@ -262,3 +422,14 @@ window.resetApp = function() {
     uploadContainer.classList.remove('hidden');
     convertContainer.classList.add('hidden');
 }
+
+// Init language selector event listener and run initial check
+document.addEventListener('DOMContentLoaded', () => {
+    const langSelect = document.getElementById('lang-select');
+    if (langSelect) {
+        langSelect.addEventListener('change', (e) => {
+            applyLanguage(e.target.value);
+        });
+    }
+    initLanguage();
+});

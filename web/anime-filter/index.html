@@ -41,8 +41,18 @@
 </head>
 <body class="bg-slate-50 min-h-screen font-sans text-slate-900 flex flex-col">
 
-    <header class="bg-white shadow-sm py-4 relative">
-        <h1 class="text-xl font-bold text-center text-amber-600 tracking-tight">AI 만화 필터</h1>
+    <header class="bg-white shadow-sm py-4 px-6 flex items-center justify-between relative">
+        <div class="w-24"></div>
+        <h1 data-i18n="headerTitle" class="text-xl font-bold text-center text-amber-600 tracking-tight flex-grow">AI 만화 필터</h1>
+        <div class="w-24 flex justify-end">
+            <select id="lang-select" class="bg-white border border-slate-200 rounded-lg px-2 py-1 text-sm font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-amber-500">
+                <option value="ko">한국어</option>
+                <option value="en">English</option>
+                <option value="es">Español</option>
+                <option value="ja">日本語</option>
+                <option value="zh-tw">繁體中文</option>
+            </select>
+        </div>
     </header>
 
     <main class="flex-grow container mx-auto px-4 py-8 max-w-5xl">
@@ -51,26 +61,26 @@
             <aside class="lg:col-span-1 space-y-6">
                 <div class="bg-white rounded-3xl shadow-lg p-6 border border-slate-100 sticky top-12">
                     <h3 class="font-bold text-lg mb-6 border-b pb-4 flex items-center gap-2">
-                        <i class="fas fa-palette text-amber-500"></i> 스타일 선택
+                        <i class="fas fa-palette text-amber-500"></i> <span data-i18n="styleSelect">스타일 선택</span>
                     </h3>
                     
                     <!-- 프리셋 Grid -->
                     <div class="grid grid-cols-2 gap-3 mb-6">
                         <button onclick="selectPreset('ghibli')" id="preset-ghibli" class="preset-card active p-3 rounded-2xl border border-slate-200 text-center transition-all hover:border-amber-400">
                             <i class="fas fa-leaf text-amber-600 text-lg mb-1 block"></i>
-                            <span class="text-xs font-bold text-slate-700 block">지브리 스타일</span>
+                            <span data-i18n="presetGhibli" class="text-xs font-bold text-slate-700 block">지브리 스타일</span>
                         </button>
                         <button onclick="selectPreset('comic')" id="preset-comic" class="preset-card p-3 rounded-2xl border border-slate-200 text-center transition-all hover:border-amber-400">
                             <i class="fas fa-bolt text-slate-500 text-lg mb-1 block"></i>
-                            <span class="text-xs font-bold text-slate-700 block">코믹스 스타일</span>
+                            <span data-i18n="presetComic" class="text-xs font-bold text-slate-700 block">코믹스 스타일</span>
                         </button>
                         <button onclick="selectPreset('oil')" id="preset-oil" class="preset-card p-3 rounded-2xl border border-slate-200 text-center transition-all hover:border-amber-400">
                             <i class="fas fa-paint-brush text-slate-500 text-lg mb-1 block"></i>
-                            <span class="text-xs font-bold text-slate-700 block">유화 스타일</span>
+                            <span data-i18n="presetOil" class="text-xs font-bold text-slate-700 block">유화 스타일</span>
                         </button>
                         <button onclick="selectPreset('popart')" id="preset-popart" class="preset-card p-3 rounded-2xl border border-slate-200 text-center transition-all hover:border-amber-400">
                             <i class="fas fa-bullhorn text-slate-500 text-lg mb-1 block"></i>
-                            <span class="text-xs font-bold text-slate-700 block">팝아트 스타일</span>
+                            <span data-i18n="presetPopart" class="text-xs font-bold text-slate-700 block">팝아트 스타일</span>
                         </button>
                     </div>
 
@@ -78,35 +88,35 @@
                     <div class="space-y-4 pt-4 border-t border-slate-100">
                         <div>
                             <div class="flex justify-between text-xs font-bold text-slate-600 mb-2">
-                                <span>외곽선 굵기 (Outline)</span>
+                                <span data-i18n="outline">외곽선 굵기 (Outline)</span>
                                 <span id="outline-val" class="text-amber-600 font-mono font-bold">1.5</span>
                             </div>
                             <input type="range" id="outline-slider" min="0" max="6" value="1.5" step="0.1" class="w-full h-1.5 bg-slate-100 rounded-lg appearance-none custom-range">
                         </div>
                         <div>
                             <div class="flex justify-between text-xs font-bold text-slate-600 mb-2">
-                                <span>외곽선 감도 (Sensitivity)</span>
+                                <span data-i18n="sensitivity">외곽선 감도 (Sensitivity)</span>
                                 <span id="sens-val" class="text-amber-600 font-mono font-bold">70</span>
                             </div>
                             <input type="range" id="sens-slider" min="20" max="150" value="70" step="1" class="w-full h-1.5 bg-slate-100 rounded-lg appearance-none custom-range">
                         </div>
                         <div>
                             <div class="flex justify-between text-xs font-bold text-slate-600 mb-2">
-                                <span>색면 단순화 (Smoothing)</span>
+                                <span data-i18n="smoothing">색면 단순화 (Smoothing)</span>
                                 <span id="smooth-val" class="text-amber-600 font-mono font-bold">3.0</span>
                             </div>
                             <input type="range" id="smooth-slider" min="0" max="12" value="3.0" step="0.5" class="w-full h-1.5 bg-slate-100 rounded-lg appearance-none custom-range">
                         </div>
                         <div>
                             <div class="flex justify-between text-xs font-bold text-slate-600 mb-2">
-                                <span>색상 채도 (Saturation)</span>
+                                <span data-i18n="saturation">색상 채도 (Saturation)</span>
                                 <span id="sat-val" class="text-amber-600 font-mono font-bold">100%</span>
                             </div>
                             <input type="range" id="sat-slider" min="0" max="200" value="100" step="5" class="w-full h-1.5 bg-slate-100 rounded-lg appearance-none custom-range">
                         </div>
                         <div>
                             <div class="flex justify-between text-xs font-bold text-slate-600 mb-2">
-                                <span>명암 대비 (Contrast)</span>
+                                <span data-i18n="contrast">명암 대비 (Contrast)</span>
                                 <span id="con-val" class="text-amber-600 font-mono font-bold">100%</span>
                             </div>
                             <input type="range" id="con-slider" min="50" max="150" value="100" step="5" class="w-full h-1.5 bg-slate-100 rounded-lg appearance-none custom-range">
@@ -114,7 +124,7 @@
                     </div>
 
                     <button id="download-btn" class="w-full mt-8 bg-amber-600 text-white font-bold py-4 rounded-2xl shadow-lg hover:bg-amber-700 active:scale-95 transition-all disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center gap-2" disabled>
-                        <i class="fas fa-download"></i> 필터 적용 사진 저장
+                        <i class="fas fa-download"></i> <span data-i18n="downloadBtn">필터 적용 사진 저장</span>
                     </button>
                 </div>
             </aside>
@@ -126,10 +136,10 @@
                     <div class="w-24 h-24 bg-amber-50 rounded-full flex items-center justify-center mb-8 text-amber-500 text-4xl">
                         <i class="fas fa-magic animate-bounce"></i>
                     </div>
-                    <h2 class="text-2xl font-bold mb-3 text-slate-700">AI 만화 & 예술 스타일 필터</h2>
-                    <p class="text-slate-400 mb-10 text-center max-w-sm">변환할 사진을 여기에 드래그하거나 이미지 선택 버튼을 클릭하여 업로드해 주세요.</p>
+                    <h2 data-i18n="uploadTitle" class="text-2xl font-bold mb-3 text-slate-700">AI 만화 & 예술 스타일 필터</h2>
+                    <p data-i18n="uploadDesc" class="text-slate-400 mb-10 text-center max-w-sm">변환할 사진을 여기에 드래그하거나 이미지 선택 버튼을 클릭하여 업로드해 주세요.</p>
                     <input type="file" id="file-input" class="hidden" accept="image/*">
-                    <button id="select-btn" class="bg-amber-600 text-white px-12 py-4 rounded-2xl font-bold shadow-xl hover:bg-amber-700 transition-all">
+                    <button id="select-btn" data-i18n="selectBtn" class="bg-amber-600 text-white px-12 py-4 rounded-2xl font-bold shadow-xl hover:bg-amber-700 transition-all">
                         이미지 선택
                     </button>
                 </section>
@@ -140,8 +150,8 @@
                         <div class="absolute inset-0 border-4 border-amber-100 rounded-full"></div>
                         <div class="absolute inset-0 border-4 border-amber-600 rounded-full border-t-transparent animate-spin"></div>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-2">예술적 화풍 변환 적용 중...</h3>
-                    <p class="text-slate-400 text-sm">소벨 드로잉 윤곽선과 오일/애니메이션 색조를 칠하고 있습니다.</p>
+                    <h3 data-i18n="processingTitle" class="text-xl font-bold text-slate-800 mb-2">예술적 화풍 변환 적용 중...</h3>
+                    <p data-i18n="processingDesc" class="text-slate-400 text-sm">소벨 드로잉 윤곽선과 오일/애니메이션 색조를 칠하고 있습니다.</p>
                 </section>
 
                 <!-- 결과 화면 섹션 -->
@@ -150,7 +160,7 @@
                         <div class="flex items-center justify-between mb-4 border-b border-slate-50 pb-4">
                             <h4 class="text-sm font-bold text-slate-800 flex items-center gap-2">
                                 <span class="w-2 h-2 bg-amber-500 rounded-full animate-pulse"></span>
-                                변환 결과 미리보기
+                                <span data-i18n="resultTitle">변환 결과 미리보기</span>
                             </h4>
                         </div>
                         <div class="flex justify-center bg-slate-100 rounded-2xl overflow-hidden p-2 select-none border border-slate-200">
@@ -159,7 +169,7 @@
                     </div>
                     <div class="flex justify-center gap-4">
                         <button onclick="location.reload()" class="bg-white text-slate-400 px-6 py-2.5 rounded-full border border-slate-200 hover:text-amber-600 hover:border-amber-100 font-medium transition-all text-sm flex items-center gap-2">
-                            <i class="fas fa-undo"></i> 다른 사진 업로드하기
+                            <i class="fas fa-undo"></i> <span data-i18n="uploadAnother">다른 사진 업로드하기</span>
                         </button>
                     </div>
                 </section>
@@ -175,6 +185,181 @@
     </footer>
 
     <script>
+        const DICTIONARY = {
+            ko: {
+                title: "AI 만화 필터 (지브리 & 웹툰 카툰 스타일) | SmilesLife",
+                metaDesc: "사진을 지브리 만화 영화, 웹툰 스케치, 유화 미술품, 팝아트 포스터 스타일로 실시간 변환해주는 AI 만화 필터 도구입니다. 외곽선, 채도, 명암 대비 조절 가능.",
+                ogTitle: "AI 만화 필터 (지브리 & 웹툰 카툰 스타일) - SmilesLife",
+                ogDesc: "사진을 클릭 한 번으로 애니메이션 풍으로 바꾸세요. 외곽선 굵기와 명암 대비 세밀 조정 기능을 통해 나만의 카툰 프로필을 만들어보세요.",
+                headerTitle: "AI 만화 필터",
+                styleSelect: "스타일 선택",
+                presetGhibli: "지브리 스타일",
+                presetComic: "코믹스 스타일",
+                presetOil: "유화 스타일",
+                presetPopart: "팝아트 스타일",
+                outline: "외곽선 굵기 (Outline)",
+                sensitivity: "외곽선 감도 (Sensitivity)",
+                smoothing: "색면 단순화 (Smoothing)",
+                saturation: "색상 채도 (Saturation)",
+                contrast: "명암 대비 (Contrast)",
+                downloadBtn: "필터 적용 사진 저장",
+                uploadTitle: "AI 만화 & 예술 스타일 필터",
+                uploadDesc: "변환할 사진을 여기에 드래그하거나 이미지 선택 버튼을 클릭하여 업로드해 주세요.",
+                selectBtn: "이미지 선택",
+                processingTitle: "예술적 화풍 변환 적용 중...",
+                processingDesc: "소벨 드로잉 윤곽선과 오일/애니메이션 색조를 칠하고 있습니다.",
+                resultTitle: "변환 결과 미리보기",
+                uploadAnother: "다른 사진 업로드하기"
+            },
+            en: {
+                title: "AI Anime Filter (Ghibli & Webtoon Cartoon Style) | SmilesLife",
+                metaDesc: "Real-time AI cartoon filter tool that transforms photos into Ghibli movies, webtoon sketches, oil paintings, and pop art posters. Adjustable outline, saturation, and contrast.",
+                ogTitle: "AI Anime Filter (Ghibli & Webtoon Cartoon Style) - SmilesLife",
+                ogDesc: "Turn your photos into anime-style with one click. Adjust outline weight and contrast to create your own cartoon profile.",
+                headerTitle: "AI Anime Filter",
+                styleSelect: "Select Style",
+                presetGhibli: "Ghibli Style",
+                presetComic: "Comic Style",
+                presetOil: "Oil Painting Style",
+                presetPopart: "Pop Art Style",
+                outline: "Outline Thickness",
+                sensitivity: "Outline Sensitivity",
+                smoothing: "Color Smoothing",
+                saturation: "Color Saturation",
+                contrast: "Contrast",
+                downloadBtn: "Save Filtered Photo",
+                uploadTitle: "AI Cartoon & Art Style Filter",
+                uploadDesc: "Drag and drop your photo here, or click the select button to upload.",
+                selectBtn: "Select Image",
+                processingTitle: "Applying artistic transformation...",
+                processingDesc: "Drawing Sobel outlines and applying oil/anime color tones.",
+                resultTitle: "Filtered Result Preview",
+                uploadAnother: "Upload Another Photo"
+            },
+            es: {
+                title: "Filtro de Anime AI (Estilo Ghibli y Cómic) | SmilesLife",
+                metaDesc: "Filtro de dibujos animados por IA en tiempo real que transforma fotos en películas Ghibli, bocetos de cómics, pinturas al óleo y pósteres de pop art. Contorno, saturación y contraste ajustables.",
+                ogTitle: "Filtro de Anime AI (Estilo Ghibli y Cómic) - SmilesLife",
+                ogDesc: "Convierte tus fotos en estilo anime con un clic. Ajusta el grosor del contorno y el contraste para crear tu propio perfil de caricatura.",
+                headerTitle: "Filtro de Anime AI",
+                styleSelect: "Seleccionar Estilo",
+                presetGhibli: "Estilo Ghibli",
+                presetComic: "Estilo Cómic",
+                presetOil: "Estilo Óleo",
+                presetPopart: "Estilo Pop Art",
+                outline: "Grosor del Contorno",
+                sensitivity: "Sensibilidad del Contorno",
+                smoothing: "Suavizado de Color",
+                saturation: "Saturación",
+                contrast: "Contraste",
+                downloadBtn: "Guardar Foto Filtrada",
+                uploadTitle: "Filtro de Dibujos Animados y Arte AI",
+                uploadDesc: "Arrastra y suelta tu foto aquí, o haz clic en el botón de selección para subirla.",
+                selectBtn: "Seleccionar Imagen",
+                processingTitle: "Aplicando transformación artística...",
+                processingDesc: "Dibujando contornos Sobel y aplicando tonos de color al óleo/anime.",
+                resultTitle: "Vista Previa del Resultado",
+                uploadAnother: "Subir otra foto"
+            },
+            ja: {
+                title: "AI アニメフィルター (ジブリ＆ウェブトゥーン風) | SmilesLife",
+                metaDesc: "写真をジブリアニメ、ウェブトゥーンスケッチ、油絵、ポップアート風ポスターにリアルタイムで変換するAIカートゥーンフィルターです。輪郭線、彩度、コントラスト調整可能。",
+                ogTitle: "AI アニメフィルター (ジブリ＆ウェブトゥーン風) - SmilesLife",
+                ogDesc: "クリックひとつで写真をアニメ風に変換。輪郭線の太さやコントラストを細かく調整して、自分だけのカートゥーン風プロフィールを作成しましょう。",
+                headerTitle: "AI アニメフィルター",
+                styleSelect: "スタイル選択",
+                presetGhibli: "ジブリ風",
+                presetComic: "コミック風",
+                presetOil: "油絵風",
+                presetPopart: "ポップアート風",
+                outline: "輪郭線の太さ",
+                sensitivity: "輪郭線感度",
+                smoothing: "色の平滑化",
+                saturation: "色彩度",
+                contrast: "コントラスト",
+                downloadBtn: "フィルター写真を保存",
+                uploadTitle: "AI アニメ＆アートスタイルフィルター",
+                uploadDesc: "変換する写真をここにドラッグするか、画像選択ボタンをクリックしてアップロードしてください。",
+                selectBtn: "画像を選択",
+                processingTitle: "芸術的な画風へ変換中...",
+                processingDesc: "ソーベル輪郭線を描画し、油絵・アニメ調の色調を塗っています。",
+                resultTitle: "変換結果プレビュー",
+                uploadAnother: "別の写真をアップロード"
+            },
+            "zh-tw": {
+                title: "AI 動漫濾鏡 (吉卜力 & 漫畫風格) | SmilesLife",
+                metaDesc: "即時 AI 卡通動漫濾鏡工具，將照片轉換為吉卜力電影、漫畫素描、油畫藝術品或普普風海報風格。可自訂輪廓線、飽和度與對比度。",
+                ogTitle: "AI 動漫濾鏡 (吉卜力 & 漫畫風格) - SmilesLife",
+                ogDesc: "一鍵將照片轉換為動漫風格。細部調整輪廓線粗細與明暗對比，製作您專屬的卡通頭像。",
+                headerTitle: "AI 動漫濾鏡",
+                styleSelect: "選擇風格",
+                presetGhibli: "吉卜力風格",
+                presetComic: "美式漫畫風",
+                presetOil: "油畫風格",
+                presetPopart: "普普風藝術",
+                outline: "輪廓粗細",
+                sensitivity: "輪廓感應度",
+                smoothing: "色彩平滑化",
+                saturation: "色彩飽和度",
+                contrast: "明暗對比",
+                downloadBtn: "儲存濾鏡照片",
+                uploadTitle: "AI 動漫 & 藝術風格濾鏡",
+                uploadDesc: "將要轉換的照片拖曳至此，或點選下方按鈕選取圖片上傳。",
+                selectBtn: "選取圖片",
+                processingTitle: "正在套用藝術風格轉換...",
+                processingDesc: "正在繪製 Sobel 邊緣輪廓並套用油畫與動漫色彩。",
+                resultTitle: "轉換結果預覽",
+                uploadAnother: "上傳其他照片"
+            }
+        };
+
+        function initLanguage() {
+            const langSelect = document.getElementById('lang-select');
+            
+            function setLanguage(lang) {
+                localStorage.setItem('smileslife-preferred-lang', lang);
+                langSelect.value = lang;
+                
+                document.title = DICTIONARY[lang].title;
+                const descMeta = document.querySelector('meta[name="description"]');
+                if (descMeta) descMeta.setAttribute('content', DICTIONARY[lang].metaDesc);
+                const ogTitleMeta = document.querySelector('meta[property="og:title"]');
+                if (ogTitleMeta) ogTitleMeta.setAttribute('content', DICTIONARY[lang].ogTitle);
+                const ogDescMeta = document.querySelector('meta[property="og:description"]');
+                if (ogDescMeta) ogDescMeta.setAttribute('content', DICTIONARY[lang].ogDesc);
+                
+                document.querySelectorAll('[data-i18n]').forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    if (DICTIONARY[lang] && DICTIONARY[lang][key]) {
+                        el.textContent = DICTIONARY[lang][key];
+                    }
+                });
+            }
+
+            const urlParams = new URLSearchParams(window.location.search);
+            let lang = urlParams.get('lang') || localStorage.getItem('smileslife-preferred-lang');
+            if (!lang) {
+                const userLang = navigator.language || navigator.userLanguage;
+                const shortLang = userLang.substring(0, 2).toLowerCase();
+                if (shortLang === 'ko') lang = 'ko';
+                else if (shortLang === 'es') lang = 'es';
+                else if (shortLang === 'ja') lang = 'ja';
+                else if (userLang.toLowerCase() === 'zh-tw' || userLang.toLowerCase() === 'zh-hk') lang = 'zh-tw';
+                else lang = 'en';
+            }
+            lang = lang.toLowerCase();
+            if (lang === 'zh-cn') lang = 'zh-tw';
+            if (!DICTIONARY[lang]) lang = 'en';
+
+            langSelect.addEventListener('change', (e) => {
+                setLanguage(e.target.value);
+            });
+
+            setLanguage(lang);
+        }
+
+        document.addEventListener('DOMContentLoaded', initLanguage);
+
         const uploadSection = document.getElementById('upload-section');
         const processingSection = document.getElementById('processing-section');
         const resultSection = document.getElementById('result-section');

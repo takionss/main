@@ -213,44 +213,51 @@
 
     <div class="typing-container">
         <div class="header">
-            <span class="title">⌨️ 타자연습</span>
-            <div style="display: flex; gap: 10px;">
+            <span class="title" id="page-title" data-i18n="title">⌨️ 타자연습</span>
+            <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
                 <div class="mode-selector">
-                    <button class="btn active" id="lang-ko" onclick="setLanguage('ko')">한글</button>
-                    <button class="btn" id="lang-en" onclick="setLanguage('en')">English</button>
+                    <button class="btn active" id="lang-ko" onclick="setLanguage('ko')" data-i18n="typingLangKo">한글</button>
+                    <button class="btn" id="lang-en" onclick="setLanguage('en')" data-i18n="typingLangEn">English</button>
                 </div>
                 <div class="mode-selector">
-                    <button class="btn active" id="mode-word" onclick="setMode('word')">단어 연습</button>
-                    <button class="btn" id="mode-sentence" onclick="setMode('sentence')">문장 연습</button>
+                    <button class="btn active" id="mode-word" onclick="setMode('word')" data-i18n="modeWord">단어 연습</button>
+                    <button class="btn" id="mode-sentence" onclick="setMode('sentence')" data-i18n="modeSentence">문장 연습</button>
                 </div>
+                <select id="lang-select" onchange="changeLanguage(this.value)" style="padding: 5px 10px; border-radius: 6px; border: 1px solid #ced6e0; background: #f1f2f6; color: var(--text-color); font-size: 12px; font-weight: bold; cursor: pointer; outline: none;">
+                    <option value="ko">한국어</option>
+                    <option value="en">English</option>
+                    <option value="es">Español</option>
+                    <option value="ja">日本語</option>
+                    <option value="zh-TW">繁體中文</option>
+                </select>
             </div>
         </div>
 
         <div class="dashboard">
             <div class="dash-item">
-                <span class="dash-label" id="label-cpm">현재 타수</span>
+                <span class="dash-label" id="label-cpm" data-i18n="cpm">현재 타수</span>
                 <span class="dash-val" id="cpm-val">0</span>
             </div>
             <div class="dash-item">
-                <span class="dash-label" id="label-avg-cpm">평균 타수</span>
+                <span class="dash-label" id="label-avg-cpm" data-i18n="avgCpm">평균 타수</span>
                 <span class="dash-val" id="avg-cpm-val">0</span>
             </div>
             <div class="dash-item">
-                <span class="dash-label" id="label-max-cpm">최고 타수</span>
+                <span class="dash-label" id="label-max-cpm" data-i18n="maxCpm">최고 타수</span>
                 <span class="dash-val" id="max-cpm-val">0</span>
             </div>
             <div class="dash-item">
-                <span class="dash-label" id="label-accuracy">정확도</span>
+                <span class="dash-label" id="label-accuracy" data-i18n="accuracy">정확도</span>
                 <span class="dash-val" id="accuracy-val">100%</span>
             </div>
         </div>
 
         <div class="typing-area">
-            <div class="target-text-box" id="target-text">시작하려면 입력창을 클릭하고 입력을 시작하세요.</div>
+            <div class="target-text-box" id="target-text" data-i18n="startMsg">시작하려면 입력창을 클릭하고 입력을 시작하세요.</div>
             <div class="user-input-box">
                 <input type="text" class="input-field" id="input-field" placeholder="여기에 입력하세요..." autocomplete="off" oninput="onInput()" onkeydown="onKeyDown(event)">
             </div>
-            <div class="keyboard-hint">단어는 공백(Space) 또는 엔터(Enter) 입력 시 넘어갑니다.</div>
+            <div class="keyboard-hint" data-i18n="wordHint">단어는 공백(Space) 또는 엔터(Enter) 입력 시 넘어갑니다.</div>
         </div>
     </div>
 
@@ -313,30 +320,29 @@
         const accuracyVal = document.getElementById('accuracy-val');
 
         function updateUILabels() {
-            const isKo = currentLang === 'ko';
-            document.getElementById('label-cpm').innerText = isKo ? '현재 타수' : 'Speed (CPM)';
-            document.getElementById('label-avg-cpm').innerText = isKo ? '평균 타수' : 'Average (CPM)';
-            document.getElementById('label-max-cpm').innerText = isKo ? '최고 타수' : 'Best (CPM)';
-            document.getElementById('label-accuracy').innerText = isKo ? '정확도' : 'Accuracy';
+            const t = TRANSLATIONS[uiLang];
+            if (!t) return;
+            document.getElementById('label-cpm').innerText = t.cpm;
+            document.getElementById('label-avg-cpm').innerText = t.avgCpm;
+            document.getElementById('label-max-cpm').innerText = t.maxCpm;
+            document.getElementById('label-accuracy').innerText = t.accuracy;
             
             const inputEl = document.getElementById('input-field');
             if (inputEl) {
-                inputEl.placeholder = isKo ? '여기에 입력하세요...' : 'Type here...';
+                inputEl.placeholder = t.placeholder;
             }
 
-            document.getElementById('mode-word').innerText = isKo ? '단어 연습' : 'Words';
-            document.getElementById('mode-sentence').innerText = isKo ? '문장 연습' : 'Sentences';
+            document.getElementById('mode-word').innerText = t.modeWord;
+            document.getElementById('mode-sentence').innerText = t.modeSentence;
+            document.getElementById('lang-ko').innerText = t.typingLangKo;
+            document.getElementById('lang-en').innerText = t.typingLangEn;
 
             const hintEl = document.querySelector('.keyboard-hint');
             if (hintEl) {
                 if (currentMode === 'word') {
-                    hintEl.innerText = isKo 
-                        ? "단어는 공백(Space) 또는 엔터(Enter) 입력 시 넘어갑니다." 
-                        : "Words change when you press Space or Enter.";
+                    hintEl.innerText = t.wordHint;
                 } else {
-                    hintEl.innerText = isKo 
-                        ? "문장은 엔터(Enter) 입력 시 다음 문장으로 넘어갑니다." 
-                        : "Sentences change when you press Enter.";
+                    hintEl.innerText = t.sentenceHint;
                 }
             }
         }
@@ -556,7 +562,10 @@
             return strokes;
         }
 
-        window.onload = resetPractice;
+        window.onload = () => {
+            initLanguage();
+            resetPractice();
+        };
     </script>
 </body>
 </html>

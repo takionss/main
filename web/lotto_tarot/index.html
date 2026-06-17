@@ -10,7 +10,7 @@
         body {
             background-color: #0b0c10;
             color: #66fcf1;
-            font-family: 'Gowun Dodum', sans-serif;
+            font-family: 'Gowun Dodum', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             text-align: center;
             margin: 0; 
             padding: 20px;
@@ -18,6 +18,29 @@
         }
         h1 { text-shadow: 0 0 10px #45a29e; font-size: 2.2em; margin-bottom: 30px; }
         
+        /* Language Selector Container */
+        .lang-selector-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        #langSelect {
+            background: #1f2833;
+            color: #66fcf1;
+            border: 1px solid #45a29e;
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 0.9em;
+            cursor: pointer;
+            outline: none;
+            transition: 0.3s;
+        }
+        #langSelect:hover {
+            border-color: #66fcf1;
+            box-shadow: 0 0 10px rgba(102, 252, 241, 0.5);
+        }
+
         .card-container {
             display: flex; justify-content: center; gap: 20px; margin-bottom: 30px;
             perspective: 1000px;
@@ -55,7 +78,7 @@
             border: 2px solid #66fcf1; padding: 15px 30px;
             font-size: 1.2em; border-radius: 30px; cursor: pointer;
             transition: 0.3s;
-            font-family: 'Gowun Dodum', sans-serif;
+            font-family: inherit;
             box-shadow: 0 0 10px rgba(102, 252, 241, 0.3);
             margin-bottom: 20px;
         }
@@ -104,6 +127,13 @@
 
         /* 모바일 최적화 반응형 레이아웃 */
         @media (max-width: 500px) {
+            .lang-selector-container {
+                position: relative;
+                top: 0;
+                right: 0;
+                margin-bottom: 15px;
+                text-align: right;
+            }
             h1 { font-size: 1.6em; margin-bottom: 20px; }
             .card-container {
                 gap: 8px;
@@ -144,9 +174,19 @@
         }
     </style>
 </head>
-<body>
+<body onload="initLanguage()">
 
-    <h1>🔮 운명의 타로 로또 예측기</h1>
+    <div class="lang-selector-container">
+        <select id="langSelect" onchange="changeLanguage(this.value)">
+            <option value="ko">한국어</option>
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="ja">日本語</option>
+            <option value="zh-TW">繁體中文</option>
+        </select>
+    </div>
+
+    <h1 id="page-title">🔮 운명의 타로 로또 예측기</h1>
     
     <div class="card-container">
         <div class="card" id="card0"><div class="card-face card-front">✨</div><div class="card-face card-back" id="img0"></div></div>
@@ -166,59 +206,316 @@
     <script>
         const BASE_URL = "https://sacred-texts.com/tarot/pkt/img/";
         const tarotDeck = [];
-        
-        const majors = [
-            { name: "바보", meaning: "새로운 시작과 무한한 가능성" },
-            { name: "마법사", meaning: "창조력과 강한 의지" },
-            { name: "여사제", meaning: "직관과 숨겨진 지혜" },
-            { name: "여황제", meaning: "풍요로움과 따뜻한 에너지" },
-            { name: "황제", meaning: "안정과 강력한 리더십" },
-            { name: "교황", meaning: "믿음과 정신적 가르침" },
-            { name: "연인", meaning: "조화로운 결합과 긍정적 선택" },
-            { name: "전차", meaning: "거침없는 추진력과 승리" },
-            { name: "힘", meaning: "부드러운 카리스마와 인내" },
-            { name: "은둔자", meaning: "깊은 통찰력과 깨달음" },
-            { name: "운명의 수레바퀴", meaning: "운명적인 전환점과 뜻밖의 행운" },
-            { name: "정의", meaning: "공정한 판단과 완벽한 균형" },
-            { name: "매달린 사람", meaning: "새로운 관점과 헌신" },
-            { name: "죽음", meaning: "극적인 변화와 새로운 부활" },
-            { name: "절제", meaning: "조화와 순조로운 흐름" },
-            { name: "악마", meaning: "치명적인 매력과 숨은 욕망" },
-            { name: "탑", meaning: "갑작스러운 변화와 낡은 것의 해방" },
-            { name: "별", meaning: "희망과 밝게 빛나는 미래" },
-            { name: "달", meaning: "직감과 내면의 무의식" },
-            { name: "태양", meaning: "눈부신 성공과 긍정적 에너지" },
-            { name: "심판", meaning: "운명적 부활과 결정적인 보상" },
-            { name: "세계", meaning: "완벽한 성취와 해피엔딩" }
-        ];
-        
-        majors.forEach((card, i) => {
-            let numStr = i < 10 ? '0' + i : i.toString();
-            tarotDeck.push({ name: card.name + " (메이저)", url: `${BASE_URL}ar${numStr}.jpg`, type: "메이저", meaning: card.meaning });
-        });
+        let currentLang = 'ko';
 
-        const suits = { 
-            "wa": { name: "지팡이", meaning: "열정과 행동력이 상승하여 빠른 결과를 가져옵니다." },
-            "cu": { name: "컵", meaning: "감정과 직관이 풍부해져 뜻밖의 행운을 끌어당깁니다." },
-            "sw": { name: "검", meaning: "날카로운 판단력으로 행운의 숫자를 꿰뚫어 봅니다." },
-            "pe": { name: "펜타클", meaning: "물질적인 풍요와 금전운이 매우 강하게 깃들어 있습니다." }
+        const DICTIONARY = {
+            "ko": {
+                title: "🔮 운명의 타로 로또 예측기",
+                tab_title: "🔮 프리미엄 타로 로또 예측기",
+                btn_shuffle: "운명의 카드 셔플",
+                btn_shuffling: "당신의 간절함을 카드에 담는 중... 🌀",
+                btn_retry: "새로운 염원으로 다시 뽑기",
+                init_msg: `<br>눈을 감고 <span class="highlight">로또 1등이 되어야만 하는 간절한 이유</span>를 떠올려보세요.<br>당신의 염원이 최고조에 달했을 때, 버튼을 눌러주세요.<br><br>`,
+                loading_msg: `<br>강렬한 염원이 타로 카드에 스며들고 있습니다...<br><br>`,
+                revelation: "✨ [운명의 계시]",
+                prediction_desc: "당신의 간절한 염원과 위 카드의 기운을 듬뿍 담은<br><span class='highlight'>이번 회차 1등 예측 번호입니다!</span>",
+                game_label: "게임",
+                major_label: " (메이저)",
+                majors: [
+                    { name: "바보", meaning: "새로운 시작과 무한한 가능성" },
+                    { name: "마법사", meaning: "창조력과 강한 의지" },
+                    { name: "여사제", meaning: "직관과 숨겨진 지혜" },
+                    { name: "여황제", meaning: "풍요로움과 따뜻한 에너지" },
+                    { name: "황제", meaning: "안정과 강력한 리더십" },
+                    { name: "교황", meaning: "믿음과 정신적 가르침" },
+                    { name: "연인", meaning: "조화로운 결합과 긍정적 선택" },
+                    { name: "전차", meaning: "거침없는 추진력과 승리" },
+                    { name: "힘", meaning: "부드러운 카리스마와 인내" },
+                    { name: "은둔자", meaning: "깊은 통찰력과 깨달음" },
+                    { name: "운명의 수레바퀴", meaning: "운명적인 전환점과 뜻밖의 행운" },
+                    { name: "정의", meaning: "공정한 판단과 완벽한 균형" },
+                    { name: "매달린 사람", meaning: "새로운 관점과 헌신" },
+                    { name: "죽음", meaning: "극적인 변화와 새로운 부활" },
+                    { name: "절제", meaning: "조화와 순조로운 흐름" },
+                    { name: "악마", meaning: "치명적인 매력과 숨은 욕망" },
+                    { name: "탑", meaning: "갑작스러운 변화와 낡은 것의 해방" },
+                    { name: "별", meaning: "희망과 밝게 빛나는 미래" },
+                    { name: "달", meaning: "직감과 내면의 무의식" },
+                    { name: "태양", meaning: "눈부신 성공과 긍정적 에너지" },
+                    { name: "심판", meaning: "운명적 부활과 결정적인 보상" },
+                    { name: "세계", meaning: "완벽한 성취와 해피엔딩" }
+                ],
+                suits: {
+                    "wa": { name: "지팡이", meaning: "열정과 행동력이 상승하여 빠른 결과를 가져옵니다." },
+                    "cu": { name: "컵", meaning: "감정과 직관이 풍부해져 뜻밖의 행운을 끌어당깁니다." },
+                    "sw": { name: "검", meaning: "날카로운 판단력으로 행운의 숫자를 꿰뚫어 봅니다." },
+                    "pe": { name: "펜타클", meaning: "물질적인 풍요와 금전운이 매우 강하게 깃들어 있습니다." }
+                },
+                ranks: { "ac": "에이스", "02": "2", "03": "3", "04": "4", "05": "5", "06": "6", "07": "7", "08": "8", "09": "9", "10": "10", "pa": "시종", "kn": "기사", "qu": "여왕", "ki": "왕" }
+            },
+            "en": {
+                title: "🔮 Tarot Lotto Predictor",
+                tab_title: "🔮 Premium Tarot Lotto Predictor",
+                btn_shuffle: "Shuffle the Cards of Destiny",
+                btn_shuffling: "Imbuing cards with your earnest desires... 🌀",
+                btn_retry: "Draw again with new desires",
+                init_msg: `<br>Close your eyes and visualize <span class="highlight">the desperate reason why you must win the jackpot</span>.<br>When your desire reaches its peak, press the button.<br><br>`,
+                loading_msg: `<br>Your intense desire is absorbing into the tarot cards...<br><br>`,
+                revelation: "✨ [Revelation of Destiny]",
+                prediction_desc: "With your earnest desire and the energy of the cards above,<br>here is <span class='highlight'>the predicted winning numbers for this round!</span>",
+                game_label: "Game",
+                major_label: " (Major)",
+                majors: [
+                    { name: "The Fool", meaning: "New beginnings and infinite possibilities" },
+                    { name: "The Magician", meaning: "Creativity and strong willpower" },
+                    { name: "The High Priestess", meaning: "Intuition and hidden wisdom" },
+                    { name: "The Empress", meaning: "Abundance and warm energy" },
+                    { name: "The Emperor", meaning: "Stability and strong leadership" },
+                    { name: "The Hierophant", meaning: "Faith and spiritual teachings" },
+                    { name: "The Lovers", meaning: "Harmonious union and positive choices" },
+                    { name: "The Chariot", meaning: "Unstoppable drive and victory" },
+                    { name: "Strength", meaning: "Gentle charisma and patience" },
+                    { name: "The Hermit", meaning: "Deep insight and realization" },
+                    { name: "Wheel of Fortune", meaning: "Destined turning point and unexpected luck" },
+                    { name: "Justice", meaning: "Fair judgment and perfect balance" },
+                    { name: "The Hanged Man", meaning: "New perspectives and dedication" },
+                    { name: "Death", meaning: "Dramatic change and new rebirth" },
+                    { name: "Temperance", meaning: "Harmony and smooth flow" },
+                    { name: "The Devil", meaning: "Fatal charm and hidden desires" },
+                    { name: "The Tower", meaning: "Sudden change and liberation from the old" },
+                    { name: "The Star", meaning: "Hope and a bright shining future" },
+                    { name: "The Moon", meaning: "Intuition and inner subconscious" },
+                    { name: "The Sun", meaning: "Brilliant success and positive energy" },
+                    { name: "Judgement", meaning: "Destined rebirth and decisive rewards" },
+                    { name: "The World", meaning: "Perfect achievement and happy ending" }
+                ],
+                suits: {
+                    "wa": { name: "Wands", meaning: "Passion and action increase, bringing quick results." },
+                    "cu": { name: "Cups", meaning: "Emotions and intuition enrich, attracting unexpected luck." },
+                    "sw": { name: "Swords", meaning: "Pierces through the lucky numbers with sharp judgment." },
+                    "pe": { name: "Pentacles", meaning: "Strongly imbued with material abundance and financial luck." }
+                },
+                ranks: { "ac": "Ace", "02": "2", "03": "3", "04": "4", "05": "5", "06": "6", "07": "7", "08": "8", "09": "9", "10": "10", "pa": "Page", "kn": "Knight", "qu": "Queen", "ki": "King" }
+            },
+            "es": {
+                title: "🔮 Predictor de Lotería del Tarot",
+                tab_title: "🔮 Predictor de Lotería del Tarot Premium",
+                btn_shuffle: "Barajar las cartas del destino",
+                btn_shuffling: "Impregnando tu ferviente deseo en las cartas... 🌀",
+                btn_retry: "Robar de nuevo con nuevos deseos",
+                init_msg: `<br>Cierra los ojos e imagina <span class="highlight">la razón desesperada por la que debes ganar el premio mayor</span>.<br>Cuando tu deseo alcance su punto máximo, presiona el botón.<br><br>`,
+                loading_msg: `<br>Tu intenso deseo se está absorbiendo en las cartas del tarot...<br><br>`,
+                revelation: "✨ [Revelación del Destino]",
+                prediction_desc: "Con tu ferviente deseo y la energía de las cartas de arriba,<br>¡aquí están <span class='highlight'>los números ganadores predichos para esta ronda!</span>",
+                game_label: "Juego",
+                major_label: " (Arcano Mayor)",
+                majors: [
+                    { name: "El Loco", meaning: "Nuevos comienzos e infinitas posibilidades" },
+                    { name: "El Mago", meaning: "Creatividad y gran fuerza de voluntad" },
+                    { name: "La Sacerdotisa", meaning: "Intuición y sabiduría oculta" },
+                    { name: "La Emperatriz", meaning: "Abundancia y energía cálida" },
+                    { name: "El Emperador", meaning: "Estabilidad y fuerte liderazgo" },
+                    { name: "El Papa", meaning: "Fe y enseñanzas espirituales" },
+                    { name: "Los Enamorados", meaning: "Unión armoniosa y elecciones positivas" },
+                    { name: "El Carro", meaning: "Impulso imparable y victoria" },
+                    { name: "La Fuerza", meaning: "Carisma suave y paciencia" },
+                    { name: "El Ermitaño", meaning: "Profunda comprensión y sabiduría" },
+                    { name: "La Rueda de la Fortuna", meaning: "Punto de inflexión del destino y suerte inesperada" },
+                    { name: "La Justicia", meaning: "Juicio justo y equilibrio perfecto" },
+                    { name: "El Colgado", meaning: "Nuevas perspectivas y dedicación" },
+                    { name: "La Muerte", meaning: "Cambio dramático y renacimiento" },
+                    { name: "La Templanza", meaning: "Armonía y flujo constante" },
+                    { name: "El Diablo", meaning: "Encanto fatal y deseos ocultos" },
+                    { name: "La Torre", meaning: "Cambio repentino y liberación de lo viejo" },
+                    { name: "La Estrella", meaning: "Esperanza y un futuro brillante" },
+                    { name: "La Luna", meaning: "Intuición y subconsciente interno" },
+                    { name: "El Sol", meaning: "Éxito brillante y energía positiva" },
+                    { name: "El Juicio", meaning: "Renacimiento destinado y recompensas decisivas" },
+                    { name: "El Mundo", meaning: "Logro perfecto y final feliz" }
+                ],
+                suits: {
+                    "wa": { name: "Bastos", meaning: "Aumenta la pasión y la acción, trayendo resultados rápidos." },
+                    "cu": { name: "Copas", meaning: "Las emociones y la intuición se enriquecen, atrayendo la suerte." },
+                    "sw": { name: "Espadas", meaning: "Atraviesa los números de la suerte con un juicio agudo." },
+                    "pe": { name: "Oros", meaning: "Fuertemente impregnado de abundancia material y suerte financiera." }
+                },
+                ranks: { "ac": "As", "02": "2", "03": "3", "04": "4", "05": "5", "06": "6", "07": "7", "08": "8", "09": "9", "10": "10", "pa": "Sota", "kn": "Caballero", "qu": "Reina", "ki": "Rey" }
+            },
+            "ja": {
+                title: "🔮 運命のタロットロト予測器",
+                tab_title: "🔮 プレミアムタロットロト予測器",
+                btn_shuffle: "運命의カードをシャッフル",
+                btn_shuffling: "あなたの切実な願いをカードに込めています... 🌀",
+                btn_retry: "新たな願いを込めて引き直す",
+                init_msg: `<br>目を閉じて、<span class="highlight">ロトで1等に当選しなければならない切実な理由</span>を思い浮かべてください。<br>あなたの願いが最高潮に達した時、ボタンを押してください。<br><br>`,
+                loading_msg: `<br>強烈な願いがタロットカードに染み込んでいます...<br><br>`,
+                revelation: "✨ [運命の啓示]",
+                prediction_desc: "あなたの切実な願いとカードのエネルギーをたっぷりと込めた<br><span class='highlight'>今回の1等予測番号です！</span>",
+                game_label: "ゲーム",
+                major_label: " (メジャー)",
+                majors: [
+                    { name: "愚者", meaning: "新しい始まりと無限の可能性" },
+                    { name: "魔術師", meaning: "創造力と強い意志" },
+                    { name: "女教皇", meaning: "直感と隠された知恵" },
+                    { name: "女帝", meaning: "豊かさと温かいエネルギー" },
+                    { name: "皇帝", meaning: "安定と強力なリーダーシップ" },
+                    { name: "法王", meaning: "信念と精神的な教え" },
+                    { name: "恋人", meaning: "調和のとれた結びつきと前向きな選択" },
+                    { name: "戦車", meaning: "突き進む推進力と勝利" },
+                    { name: "力", meaning: "しなやかなカリスマ性と忍耐" },
+                    { name: "隠者", meaning: "深い洞察力と悟り" },
+                    { name: "運命の輪", meaning: "運命的な転換点と思い掛けない幸運" },
+                    { name: "正義", meaning: "公正な判断と完璧な調和" },
+                    { name: "吊された男", meaning: "新しい視点と献身" },
+                    { name: "死神", meaning: "劇的な変化と新たな復活" },
+                    { name: "節制", meaning: "調和とスムーズな流れ" },
+                    { name: "悪魔", meaning: "致命的な魅力と隠された欲望" },
+                    { name: "塔", meaning: "突然の変化と古いものからの解放" },
+                    { name: "星", meaning: "希望と明るく輝く未来" },
+                    { name: "月", meaning: "直感と内なる無意識" },
+                    { name: "太陽", meaning: "輝かしい成功と前向きなエネルギー" },
+                    { name: "審判", meaning: "運命的な復活と決定的な報酬" },
+                    { name: "世界", meaning: "完璧な成就とハッピーエンド" }
+                ],
+                suits: {
+                    "wa": { name: "ワンド", meaning: "情熱と行動力が高まり、迅速な結果をもたらします。" },
+                    "cu": { name: "カップ", meaning: "感情と直感が豊かになり、思い掛けない幸運を引き寄せます。" },
+                    "sw": { name: "ソード", meaning: "鋭い判断力で幸運の数字を見抜きます。" },
+                    "pe": { name: "ペンタクル", meaning: "物質的な豊かさと金運が非常に強く宿っています。" }
+                },
+                ranks: { "ac": "エース", "02": "2", "03": "3", "04": "4", "05": "5", "06": "6", "07": "7", "08": "8", "09": "9", "10": "10", "pa": "ペイジ", "kn": "ナイト", "qu": "クイーン", "ki": "キング" }
+            },
+            "zh-TW": {
+                title: "🔮 命運塔羅威力彩預測器",
+                tab_title: "🔮 尊榮塔羅威力彩預測器",
+                btn_shuffle: "洗牌命運之卡",
+                btn_shuffling: "正將您的虔誠意念注入卡片中... 🌀",
+                btn_retry: "帶著新的願望重新抽取",
+                init_msg: `<br>閉上雙眼，在腦海中浮現 <span class="highlight">您必須贏得頭獎的強烈理由</span>。<br>當您的祈願達到頂點時，請按下按鈕。<br><br>`,
+                loading_msg: `<br>強烈的祈願正滲透進塔羅牌中...<br><br>`,
+                revelation: "✨ [命運的啟示]",
+                prediction_desc: "融入了您虔誠的意念與上述卡片的能量，<br><span class='highlight'>這是本次頭獎的預測號碼！</span>",
+                game_label: "組",
+                major_label: " (大阿爾克那)",
+                majors: [
+                    { name: "愚者", meaning: "全新的開始與無限的可能" },
+                    { name: "魔術師", meaning: "創造力與堅強的意志" },
+                    { name: "女祭司", meaning: "直覺與隱藏的智慧" },
+                    { name: "皇后", meaning: "豐饒與溫暖的能量" },
+                    { name: "皇帝", meaning: "穩定與強大的領導力" },
+                    { name: "教皇", meaning: "信仰與精神的教誨" },
+                    { name: "戀人", meaning: "和諧的結合與積極的選擇" },
+                    { name: "戰車", meaning: "勇往直前的推進力與勝利" },
+                    { name: "力量", meaning: "溫柔的魅力與堅韌" },
+                    { name: "隱士", meaning: "深邃的洞察力與領悟" },
+                    { name: "命運之輪", meaning: "命運的轉折點與意想不到的好運" },
+                    { name: "正義", meaning: "公正的判決與完美的平衡" },
+                    { name: "倒吊人", meaning: "全新的視角與奉獻" },
+                    { name: "死神", meaning: "戲劇性的轉變與新生" },
+                    { name: "節制", meaning: "調和與順暢的流動" },
+                    { name: "惡魔", meaning: "致命的魅力與潛藏的慾望" },
+                    { name: "高塔", meaning: "突如其來的變革與陳舊事物的解脫" },
+                    { name: "星星", meaning: "希望與璀璨的未來" },
+                    { name: "月亮", meaning: "直覺與內在的潛意識" },
+                    { name: "太陽", meaning: "耀眼的成功與積極的能量" },
+                    { name: "審判", meaning: "命運的復活與決定性的回報" },
+                    { name: "世界", meaning: "完美的成就與美好結局" }
+                ],
+                suits: {
+                    "wa": { name: "權杖", meaning: "熱情與行動力提升，將帶來迅速的成果。" },
+                    "cu": { name: "聖杯", meaning: "情感與直覺變得豐富，將吸引意想不到的好運。" },
+                    "sw": { name: "寶劍", meaning: "憑藉敏銳的判斷力，洞察幸運的數字。" },
+                    "pe": { name: "金幣", meaning: "強烈注入了物質富足與金錢好運。" }
+                },
+                ranks: { "ac": "王牌(Ace)", "02": "2", "03": "3", "04": "4", "05": "5", "06": "6", "07": "7", "08": "8", "09": "9", "10": "10", "pa": "侍從", "kn": "騎士", "qu": "女王", "ki": "國王" }
+            }
         };
-        const ranks = { "ac": "에이스", "02": "2", "03": "3", "04": "4", "05": "5", "06": "6", "07": "7", "08": "8", "09": "9", "10": "10", "pa": "시종", "kn": "기사", "qu": "여왕", "ki": "왕" };
-        
-        for (let s in suits) {
-            for (let r in ranks) {
-                tarotDeck.push({ name: `${suits[s].name} ${ranks[r]}`, url: `${BASE_URL}${s}${r}.jpg`, type: suits[s].name, meaning: suits[s].meaning });
+
+        function buildTarotDeck() {
+            tarotDeck.length = 0;
+            const langData = DICTIONARY[currentLang];
+            
+            // Majors
+            langData.majors.forEach((card, i) => {
+                let numStr = i < 10 ? '0' + i : i.toString();
+                tarotDeck.push({
+                    name: card.name + langData.major_label,
+                    url: `${BASE_URL}ar${numStr}.jpg`,
+                    type: "major",
+                    meaning: card.meaning
+                });
+            });
+            
+            // Suits
+            for (let s in langData.suits) {
+                for (let r in langData.ranks) {
+                    tarotDeck.push({
+                        name: `${langData.suits[s].name} ${langData.ranks[r]}`,
+                        url: `${BASE_URL}${s}${r}.jpg`,
+                        type: s,
+                        meaning: langData.suits[s].meaning
+                    });
+                }
             }
         }
 
-        function getWeightedRandom(weights) {
+        function initLanguage() {
+            const urlParams = new URLSearchParams(window.location.search);
+            let lang = urlParams.get('lang');
+            
+            if (!lang) {
+                lang = localStorage.getItem('smileslife-preferred-lang');
+            }
+            
+            if (!lang) {
+                const userLang = navigator.language || navigator.userLanguage;
+                if (userLang.startsWith('ko')) lang = 'ko';
+                else if (userLang.startsWith('es')) lang = 'es';
+                else if (userLang.startsWith('ja')) lang = 'ja';
+                else if (userLang.startsWith('zh')) lang = 'zh-TW';
+                else lang = 'en';
+            }
+            
+            if (!DICTIONARY[lang]) {
+                lang = 'ko';
+            }
+            
+            setLanguage(lang);
+        }
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('smileslife-preferred-lang', lang);
+            document.getElementById('langSelect').value = lang;
+            
+            document.title = DICTIONARY[lang].tab_title;
+            document.getElementById('page-title').innerHTML = DICTIONARY[lang].title;
+            
+            const drawBtn = document.getElementById('drawBtn');
+            if (!drawBtn.disabled) {
+                drawBtn.innerText = DICTIONARY[lang].btn_shuffle;
+            }
+            
+            const resultBox = document.getElementById('result-text');
+            if (resultBox.classList.contains('text-center') && !resultBox.classList.contains('wish-text')) {
+                resultBox.innerHTML = DICTIONARY[lang].init_msg;
+            }
+            
+            buildTarotDeck();
+        }
+
+        function changeLanguage(lang) {
+            setLanguage(lang);
+        }
+
+        function getWeightedRandom(weights, offset = 1) {
             let sum = weights.reduce((a, b) => a + b, 0);
             let rand = Math.random() * sum;
             for (let i = 0; i < weights.length; i++) {
-                if (rand < weights[i]) return i + 1;
+                if (rand < weights[i]) return i + offset;
                 rand -= weights[i];
             }
-            return 45;
+            return weights.length - 1 + offset;
         }
 
         function getBallColor(num) {
@@ -233,17 +530,16 @@
             const btn = document.getElementById('drawBtn');
             const resultBox = document.getElementById('result-text');
             btn.disabled = true;
-            btn.innerText = "당신의 간절함을 카드에 담는 중... 🌀"; // 버튼 텍스트 변경
+            btn.innerText = DICTIONARY[currentLang].btn_shuffling;
             
             for(let i=0; i<3; i++) {
                 document.getElementById(`card${i}`).classList.remove('flipped');
             }
             
-            // 로딩 메시지 변경
             resultBox.className = "text-center wish-text";
-            resultBox.innerHTML = "<br>강렬한 염원이 타로 카드에 스며들고 있습니다...<br><br>";
+            resultBox.innerHTML = DICTIONARY[currentLang].loading_msg;
             
-            await new Promise(r => setTimeout(r, 1500)); // 몰입을 위해 로딩 시간을 살짝 늘림
+            await new Promise(r => setTimeout(r, 1500));
 
             let shuffled = [...tarotDeck].sort(() => 0.5 - Math.random());
             let chosenCards = shuffled.slice(0, 3);
@@ -254,47 +550,101 @@
                 await new Promise(r => setTimeout(r, 800));
             }
             
-            let weights = new Array(45).fill(1.0);
+            // Adapt lottery rules dynamically
+            let maxNum = 45;
+            let selectCount = 6;
+            let hasExtra = false;
+            let extraMax = 0;
+            let extraOffset = 1;
+            let extraColor = "";
+
+            if (currentLang === 'ko') {
+                maxNum = 45;
+                selectCount = 6;
+            } else if (currentLang === 'en') {
+                maxNum = 69;
+                selectCount = 5;
+                hasExtra = true;
+                extraMax = 26;
+                extraOffset = 1;
+                extraColor = "ball-red";
+            } else if (currentLang === 'es') {
+                maxNum = 49;
+                selectCount = 6;
+                hasExtra = true;
+                extraMax = 10; // 0 to 9
+                extraOffset = 0;
+                extraColor = "ball-yellow";
+            } else if (currentLang === 'ja') {
+                maxNum = 43;
+                selectCount = 6;
+            } else if (currentLang === 'zh-TW') {
+                maxNum = 38;
+                selectCount = 6;
+                hasExtra = true;
+                extraMax = 8;
+                extraOffset = 1;
+                extraColor = "ball-red";
+            }
+
+            let weights = new Array(maxNum).fill(1.0);
+            let zoneSize = Math.floor(maxNum / 4);
+
             chosenCards.forEach(card => {
-                if (card.type === "지팡이") for (let i = 0; i < 10; i++) weights[i] += 1.5;
-                else if (card.type === "컵") for (let i = 10; i < 20; i++) weights[i] += 1.5;
-                else if (card.type === "검") for (let i = 20; i < 30; i++) weights[i] += 1.5;
-                else if (card.type === "펜타클") for (let i = 30; i < 40; i++) weights[i] += 1.5;
-                else {
-                    let luckyZone = Math.floor(Math.random() * 4) * 10;
-                    for (let i = luckyZone; i < Math.min(luckyZone + 10, 45); i++) weights[i] += 2.0;
+                if (card.type === "wa") {
+                    for (let i = 0; i < zoneSize; i++) weights[i] += 1.5;
+                } else if (card.type === "cu") {
+                    for (let i = zoneSize; i < 2 * zoneSize; i++) weights[i] += 1.5;
+                } else if (card.type === "sw") {
+                    for (let i = 2 * zoneSize; i < 3 * zoneSize; i++) weights[i] += 1.5;
+                } else if (card.type === "pe") {
+                    for (let i = 3 * zoneSize; i < maxNum; i++) weights[i] += 1.5;
+                } else {
+                    let luckyZone = Math.floor(Math.random() * 4);
+                    let start = luckyZone * zoneSize;
+                    let end = luckyZone === 3 ? maxNum : (luckyZone + 1) * zoneSize;
+                    for (let i = start; i < end; i++) weights[i] += 2.0;
                 }
             });
 
             let lottoGames = [];
             for (let g = 0; g < 5; g++) {
                 let predicted = new Set();
-                while (predicted.size < 6) {
-                    predicted.add(getWeightedRandom(weights));
+                while (predicted.size < selectCount) {
+                    predicted.add(getWeightedRandom(weights, 1));
                 }
-                lottoGames.push(Array.from(predicted).sort((a, b) => a - b));
+                let mainNums = Array.from(predicted).sort((a, b) => a - b);
+                let extraNum = null;
+                if (hasExtra) {
+                    extraNum = Math.floor(Math.random() * extraMax) + extraOffset;
+                }
+                lottoGames.push({ mainNums, extraNum });
             }
             
-            let introText = `✨ [운명의 계시]<br>`;
+            let introText = `${DICTIONARY[currentLang].revelation}<br>`;
             chosenCards.forEach(c => {
                 introText += `- ${c.name} : ${c.meaning}<br>`;
             });
-            introText += `<br>당신의 간절한 염원과 위 카드의 기운을 듬뿍 담은<br><span class='highlight'>이번 회차 1등 예측 번호입니다!</span><br>`;
+            introText += `<br>${DICTIONARY[currentLang].prediction_desc}<br>`;
             introText += `<hr style='border: 1px dashed #45a29e; margin: 15px 0;'>`;
 
             let ballsHTML = `<div>`;
-            lottoGames.forEach((nums, idx) => {
+            lottoGames.forEach((game, idx) => {
                 let gameNum = (idx + 1).toString().padStart(2, '0');
-                ballsHTML += `<div class="ball-container"><div class="game-label">게임 ${gameNum}</div>`;
-                nums.forEach((num, ballIdx) => {
+                ballsHTML += `<div class="ball-container"><div class="game-label">${DICTIONARY[currentLang].game_label} ${gameNum}</div>`;
+                game.mainNums.forEach((num, ballIdx) => {
                     let delay = (ballIdx * 0.1) + "s";
                     ballsHTML += `<div class="ball ${getBallColor(num)}" style="animation-delay: ${delay}">${num}</div>`;
                 });
+                if (game.extraNum !== null) {
+                    let delay = (game.mainNums.length * 0.1) + "s";
+                    ballsHTML += `<div class="ball ${extraColor}" style="animation-delay: ${delay}">${game.extraNum}</div>`;
+                }
                 ballsHTML += `</div>`;
             });
             ballsHTML += `</div>`;
             
-            resultBox.className = "text-left"; // 결과 출력 시 다시 왼쪽 정렬
+            resultBox.className = "text-left";
             resultBox.innerHTML = "";
             let charIndex = 0;
             let isTag = false;
@@ -318,7 +668,7 @@
                 } else {
                     resultBox.innerHTML += ballsHTML;
                     btn.disabled = false;
-                    btn.innerText = "새로운 염원으로 다시 뽑기"; // 완료 후 버튼 텍스트 변경
+                    btn.innerText = DICTIONARY[currentLang].btn_retry;
                 }
             }
             typeWriter();

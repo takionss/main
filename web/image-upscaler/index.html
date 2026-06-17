@@ -32,8 +32,16 @@
 <body class="bg-slate-50 min-h-screen font-sans text-slate-900 flex flex-col">
 
     <header class="bg-white shadow-sm py-4 relative">
- 
-        <h1 class="text-xl font-bold text-center text-indigo-600 tracking-tight">AI 화질 개선기</h1>
+        <div class="absolute top-4 right-4 z-20">
+            <select id="lang-select" class="bg-white border border-slate-200 rounded-lg px-3 py-1.5 text-sm font-medium outline-none focus:border-indigo-500 transition-colors shadow-sm">
+                <option value="ko">한국어</option>
+                <option value="en">English</option>
+                <option value="es">Español</option>
+                <option value="ja">日本語</option>
+                <option value="zh-TW">繁體中文</option>
+            </select>
+        </div>
+        <h1 class="text-xl font-bold text-center text-indigo-600 tracking-tight" data-i18n="header_title">AI 화질 개선기</h1>
     </header>
 
     <main class="flex-grow container mx-auto px-4 py-8 max-w-5xl">
@@ -42,41 +50,41 @@
             <aside class="lg:col-span-1 space-y-6">
                 <div class="bg-white rounded-3xl shadow-lg p-6 border border-slate-100 sticky top-12">
                     <h3 class="font-bold text-lg mb-6 border-b pb-4 flex items-center gap-2">
-                        <i class="fas fa-magic text-indigo-500"></i> 복원 옵션
+                        <i class="fas fa-magic text-indigo-500"></i> <span data-i18n="options_title">복원 옵션</span>
                     </h3>
                     <div class="space-y-6">
                         <div>
                             <label class="flex justify-between text-xs font-bold text-slate-600 mb-2">
-                                복원 배율 (Scale)
+                                <span data-i18n="label_scale">복원 배율 (Scale)</span>
                                 <span id="scale-val" class="text-indigo-600 font-mono font-bold">2x</span>
                             </label>
                             <select id="scale-select" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 font-medium">
-                                <option value="2">2x (표준 복원)</option>
-                                <option value="3">3x (고해상도 복원)</option>
-                                <option value="4">4x (초고해상도 복원)</option>
-                                <option value="6">6x (초정밀 극대 배율)</option>
-                                <option value="8">8x (최대 물리 배율)</option>
+                                <option value="2" data-i18n="opt_scale_2">2x (표준 복원)</option>
+                                <option value="3" data-i18n="opt_scale_3">3x (고해상도 복원)</option>
+                                <option value="4" data-i18n="opt_scale_4">4x (초고해상도 복원)</option>
+                                <option value="6" data-i18n="opt_scale_6">6x (초정밀 극대 배율)</option>
+                                <option value="8" data-i18n="opt_scale_8">8x (최대 물리 배율)</option>
                             </select>
                         </div>
                         <div>
                             <label class="flex justify-between text-xs font-bold text-slate-600 mb-2">
-                                노이즈 감쇠 (Denoise)
+                                <span data-i18n="label_denoise">노이즈 감쇠 (Denoise)</span>
                                 <span id="denoise-val" class="text-indigo-600 font-mono font-bold">20%</span>
                             </label>
                             <input type="range" id="denoise-slider" min="0" max="100" value="20" class="w-full h-1.5 bg-slate-100 rounded-lg appearance-none custom-range">
-                            <p class="text-[9px] text-slate-400 mt-1">압축 손실로 인한 픽셀 찌꺼기를 지웁니다.</p>
+                            <p class="text-[9px] text-slate-400 mt-1" data-i18n="help_denoise">압축 손실로 인한 픽셀 찌꺼기를 지웁니다.</p>
                         </div>
                         <div>
                             <label class="flex justify-between text-xs font-bold text-slate-600 mb-2">
-                                선명도 개선 (Sharpen)
+                                <span data-i18n="label_sharpen">선명도 개선 (Sharpen)</span>
                                 <span id="sharpen-val" class="text-indigo-600 font-mono font-bold">30%</span>
                             </label>
                             <input type="range" id="sharpen-slider" min="0" max="100" value="30" class="w-full h-1.5 bg-slate-100 rounded-lg appearance-none custom-range">
-                            <p class="text-[9px] text-slate-400 mt-1">뭉개진 경계선을 날카롭게 만듭니다.</p>
+                            <p class="text-[9px] text-slate-400 mt-1" data-i18n="help_sharpen">뭉개진 경계선을 날카롭게 만듭니다.</p>
                         </div>
                     </div>
                     <button id="download-btn" class="w-full mt-8 bg-indigo-600 text-white font-bold py-4 rounded-2xl shadow-lg hover:bg-indigo-700 active:scale-95 transition-all disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center gap-2" disabled>
-                        <i class="fas fa-download"></i> 고화질 저장 (PNG)
+                        <i class="fas fa-download"></i> <span data-i18n="btn_save">고화질 저장 (PNG)</span>
                     </button>
                 </div>
             </aside>
@@ -88,10 +96,10 @@
                     <div class="w-24 h-24 bg-indigo-50 rounded-full flex items-center justify-center mb-8 text-indigo-500 text-4xl">
                         <i class="fas fa-cloud-upload-alt animate-bounce"></i>
                     </div>
-                    <h2 class="text-2xl font-bold mb-3 text-slate-700">고해상도 업스케일링</h2>
-                    <p class="text-slate-400 mb-10 text-center max-w-sm">이미지를 여기로 끌어다 놓거나 클릭하여 원본 파일을 선택해 주세요.</p>
+                    <h2 class="text-2xl font-bold mb-3 text-slate-700" data-i18n="upload_title">고해상도 업스케일링</h2>
+                    <p class="text-slate-400 mb-10 text-center max-w-sm" data-i18n="upload_desc">이미지를 여기로 끌어다 놓거나 클릭하여 원본 파일을 선택해 주세요.</p>
                     <input type="file" id="file-input" class="hidden" accept="image/*">
-                    <button id="select-btn" class="bg-indigo-600 text-white px-12 py-4 rounded-2xl font-bold shadow-xl hover:bg-indigo-700 transition-all">
+                    <button id="select-btn" class="bg-indigo-600 text-white px-12 py-4 rounded-2xl font-bold shadow-xl hover:bg-indigo-700 transition-all" data-i18n="btn_select_image">
                         이미지 선택
                     </button>
                 </section>
@@ -102,8 +110,8 @@
                         <div class="absolute inset-0 border-4 border-indigo-100 rounded-full"></div>
                         <div class="absolute inset-0 border-4 border-indigo-600 rounded-full border-t-transparent animate-spin"></div>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-2">AI 화질 개선 인퍼런스 동작 중</h3>
-                    <p class="text-slate-400 text-sm">초해상도 복원 알고리즘이 빈 화소를 재구성하고 있습니다...</p>
+                    <h3 class="text-xl font-bold text-slate-800 mb-2" data-i18n="inference_title">AI 화질 개선 인퍼런스 동작 중</h3>
+                    <p class="text-slate-400 text-sm" data-i18n="inference_desc">초해상도 복원 알고리즘이 빈 화소를 재구성하고 있습니다...</p>
                 </section>
 
                 <!-- 비교 화면 섹션 -->
@@ -112,7 +120,7 @@
                         <div class="flex items-center justify-between mb-4 border-b border-slate-50 pb-4">
                             <h4 class="text-sm font-bold text-slate-800 flex items-center gap-2">
                                 <span class="w-2 h-2 bg-indigo-500 rounded-full animate-pulse"></span>
-                                좌우 비교 슬라이더 (좌: 원본 | 우: 개선)
+                                <span data-i18n="compare_title">좌우 비교 슬라이더 (좌: 원본 | 우: 개선)</span>
                             </h4>
                         </div>
                         <div class="compare-container rounded-2xl overflow-hidden border border-slate-100 shadow-inner select-none" id="compare-box">
@@ -133,7 +141,7 @@
                     </div>
                     <div class="flex justify-center">
                         <button onclick="location.reload()" class="bg-white text-slate-400 px-6 py-2.5 rounded-full border border-slate-200 hover:text-indigo-600 hover:border-indigo-100 font-medium transition-all text-sm flex items-center gap-2">
-                            <i class="fas fa-undo"></i> 다른 사진 업로드하기
+                            <i class="fas fa-undo"></i> <span data-i18n="btn_upload_another">다른 사진 업로드하기</span>
                         </button>
                     </div>
                 </section>
@@ -141,14 +149,189 @@
         </div>
     </main>
 
+
     <footer class="py-8 text-center text-slate-400 text-xs">
-                        <!-- Google Auto Ads Optimization Space -->
+        <!-- Google Auto Ads Optimization Space -->
         <div class="adsense-container" style="clear: both; margin: 20px auto; width: 100%; max-width: 970px; min-height: 50px;"></div>
 
-<p>© 2026 SmilesLife. POWERED BY LANCSOS-3 & BILATERAL DENOISE AI</p>
+        <p data-i18n="footer_text">© 2026 SmilesLife. POWERED BY LANCSOS-3 & BILATERAL DENOISE AI</p>
     </footer>
 
     <script>
+        const TRANSLATIONS = {
+            ko: {
+                title: "AI 화질 개선기 (업스케일러) | SmilesLife",
+                header_title: "AI 화질 개선기",
+                options_title: "복원 옵션",
+                label_scale: "복원 배율 (Scale)",
+                opt_scale_2: "2x (표준 복원)",
+                opt_scale_3: "3x (고해상도 복원)",
+                opt_scale_4: "4x (초고해상도 복원)",
+                opt_scale_6: "6x (초정밀 극대 배율)",
+                opt_scale_8: "8x (최대 물리 배율)",
+                label_denoise: "노이즈 감쇠 (Denoise)",
+                help_denoise: "압축 손실로 인한 픽셀 찌꺼기를 지웁니다.",
+                label_sharpen: "선명도 개선 (Sharpen)",
+                help_sharpen: "뭉개진 경계선을 날카롭게 만듭니다.",
+                btn_save: "고화질 저장 (PNG)",
+                upload_title: "고해상도 업스케일링",
+                upload_desc: "이미지를 여기로 끌어다 놓거나 클릭하여 원본 파일을 선택해 주세요.",
+                btn_select_image: "이미지 선택",
+                inference_title: "AI 화질 개선 인퍼런스 동작 중",
+                inference_desc: "초해상도 복원 알고리즘이 빈 화소를 재구성하고 있습니다...",
+                compare_title: "좌우 비교 슬라이더 (좌: 원본 | 우: 개선)",
+                btn_upload_another: "다른 사진 업로드하기",
+                footer_text: "© 2026 SmilesLife. POWERED BY LANCSOS-3 & BILATERAL DENOISE AI"
+            },
+            en: {
+                title: "AI Image Upscaler (Enhance Image Quality) | SmilesLife",
+                header_title: "AI Image Upscaler",
+                options_title: "Restoration Options",
+                label_scale: "Scale Ratio",
+                opt_scale_2: "2x (Standard)",
+                opt_scale_3: "3x (High-Res)",
+                opt_scale_4: "4x (Ultra-Res)",
+                opt_scale_6: "6x (Super Precision)",
+                opt_scale_8: "8x (Maximum Scale)",
+                label_denoise: "Denoise",
+                help_denoise: "Removes pixel compression artifacts and noise.",
+                label_sharpen: "Sharpen",
+                help_sharpen: "Sharpens blurry edges for details.",
+                btn_save: "Save High-Res (PNG)",
+                upload_title: "High-Res Upscaling",
+                upload_desc: "Drag and drop your image here, or click to select a file.",
+                btn_select_image: "Select Image",
+                inference_title: "AI Upscaling in Progress",
+                inference_desc: "The super-resolution algorithm is reconstructing empty pixels...",
+                compare_title: "Compare Slider (Left: Original | Right: Enhanced)",
+                btn_upload_another: "Upload Another Image",
+                footer_text: "© 2026 SmilesLife. POWERED BY LANCSOS-3 & BILATERAL DENOISE AI"
+            },
+            es: {
+                title: "Mejorador de Imagen AI (Escalador) | SmilesLife",
+                header_title: "Mejorador de Imagen AI",
+                options_title: "Opciones de restauración",
+                label_scale: "Relación de escala",
+                opt_scale_2: "2x (Estándar)",
+                opt_scale_3: "3x (Alta resolución)",
+                opt_scale_4: "4x (Ultra resolución)",
+                opt_scale_6: "6x (Súper precisión)",
+                opt_scale_8: "8x (Escala máxima)",
+                label_denoise: "Reducción de ruido",
+                help_denoise: "Elimina artefactos y ruido de compresión de píxeles.",
+                label_sharpen: "Enfoque",
+                help_sharpen: "Enfoca bordes borrosos para resaltar detalles.",
+                btn_save: "Guardar Alta Res (PNG)",
+                upload_title: "Escalado de alta resolución",
+                upload_desc: "Arrastra y suelta tu imagen aquí, o haz clic para seleccionar.",
+                btn_select_image: "Seleccionar imagen",
+                inference_title: "Escalado AI en progreso",
+                inference_desc: "El algoritmo de superresolución está reconstruyendo píxeles vacíos...",
+                compare_title: "Deslizador de comparación (Izquierda: Original | Derecha: Mejorada)",
+                btn_upload_another: "Subir otra imagen",
+                footer_text: "© 2026 SmilesLife. POWERED BY LANCSOS-3 & BILATERAL DENOISE AI"
+            },
+            ja: {
+                title: "AI 画質改善・アップスケーラー | SmilesLife",
+                header_title: "AI 画質改善機",
+                options_title: "修復オプション",
+                label_scale: "拡大倍率 (Scale)",
+                opt_scale_2: "2x (標準修復)",
+                opt_scale_3: "3x (高解像度修復)",
+                opt_scale_4: "4x (超高解像度修復)",
+                opt_scale_6: "6x (超精密極大倍率)",
+                opt_scale_8: "8x (最大物理倍率)",
+                label_denoise: "ノイズ低減 (Denoise)",
+                help_denoise: "圧縮損失による画質のノイズを除去します。",
+                label_sharpen: "シャープネス (Sharpen)",
+                help_sharpen: "ぼやけた輪郭を鮮明にします。",
+                btn_save: "高画質保存 (PNG)",
+                upload_title: "高解像度アップスケーリング",
+                upload_desc: "画像をここにドラッグするか、クリックして元のファイルを選択してください。",
+                btn_select_image: "画像を選択",
+                inference_title: "AI画質向上インファレンス動作中",
+                inference_desc: "超解像修復アルゴリズムが不足しているピクセルを再構築しています...",
+                compare_title: "左右比較スライダー (左: 元画像 | 右: 改善後)",
+                btn_upload_another: "別の写真をアップロードする",
+                footer_text: "© 2026 SmilesLife. POWERED BY LANCSOS-3 & BILATERAL DENOISE AI"
+            },
+            'zh-TW': {
+                title: "AI 畫質修復與放大工具 (Upscaler) | SmilesLife",
+                header_title: "AI 畫質修復機",
+                options_title: "修復選項",
+                label_scale: "放大倍率 (Scale)",
+                opt_scale_2: "2x (標準修復)",
+                opt_scale_3: "3x (高畫質修復)",
+                opt_scale_4: "4x (超高畫質修復)",
+                opt_scale_6: "6x (超精密極大倍率)",
+                opt_scale_8: "8x (最大物理倍率)",
+                label_denoise: "降噪度 (Denoise)",
+                help_denoise: "消除因壓縮失真產生的雜訊與像素殘影。",
+                label_sharpen: "銳利度 (Sharpen)",
+                help_sharpen: "使模糊的邊緣變得更清晰銳利。",
+                btn_save: "儲存高畫質 (PNG)",
+                upload_title: "高解析度放大",
+                upload_desc: "將圖片拖曳至此處，或點擊以選擇原始檔案。",
+                btn_select_image: "選擇圖片",
+                inference_title: "AI 畫質修復計算中",
+                inference_desc: "超解析度重建演算法正在重組補強像素...",
+                compare_title: "左右對比滑桿 (左：原圖 | 右：修復後)",
+                btn_upload_another: "上傳其他照片",
+                footer_text: "© 2026 SmilesLife. POWERED BY LANCSOS-3 & BILATERAL DENOISE AI"
+            }
+        };
+
+        window.l10n = {
+            currentLang: 'ko',
+            t: function(key) {
+                return TRANSLATIONS[this.currentLang]?.[key] || TRANSLATIONS['en']?.[key] || key;
+            }
+        };
+
+        function initLanguage() {
+            const urlParams = new URLSearchParams(window.location.search);
+            let lang = urlParams.get('lang');
+            if (!lang) {
+                lang = localStorage.getItem('smileslife-preferred-lang');
+            }
+            if (!lang && navigator.language) {
+                const navLang = navigator.language.toLowerCase();
+                if (navLang.startsWith('ko')) lang = 'ko';
+                else if (navLang.startsWith('es')) lang = 'es';
+                else if (navLang.startsWith('ja')) lang = 'ja';
+                else if (navLang.startsWith('zh-tw') || navLang.startsWith('zh-hk')) lang = 'zh-TW';
+                else lang = 'en';
+            }
+            if (!['ko', 'en', 'es', 'ja', 'zh-TW'].includes(lang)) {
+                lang = 'ko';
+            }
+            
+            const langSelect = document.getElementById('lang-select');
+            if (langSelect) langSelect.value = lang;
+            
+            applyLanguage(lang);
+        }
+
+        function applyLanguage(lang) {
+            window.l10n.currentLang = lang;
+            document.documentElement.lang = lang;
+            localStorage.setItem('smileslife-preferred-lang', lang);
+            
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                const text = TRANSLATIONS[lang]?.[key] || TRANSLATIONS['en']?.[key];
+                if (text) {
+                    if (el.tagName === 'TITLE') {
+                        document.title = text;
+                    } else if (el.innerHTML.includes('<br>') || text.includes('<br>')) {
+                        el.innerHTML = text;
+                    } else {
+                        el.textContent = text;
+                    }
+                }
+            });
+        }
+
         const uploadSection = document.getElementById('upload-section');
         const processingSection = document.getElementById('processing-section');
         const resultSection = document.getElementById('result-section');
@@ -361,6 +544,17 @@
             originalView.style.height = `${resultCanvas.offsetHeight}px`;
         }
         window.addEventListener('resize', updateOverlayCanvasSize);
+
+        // Language init
+        document.addEventListener('DOMContentLoaded', () => {
+            const langSelect = document.getElementById('lang-select');
+            if (langSelect) {
+                langSelect.addEventListener('change', (e) => {
+                    applyLanguage(e.target.value);
+                });
+            }
+            initLanguage();
+        });
     </script>
 </body>
 </html>

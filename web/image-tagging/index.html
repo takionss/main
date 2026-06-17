@@ -24,12 +24,22 @@
     <!-- TensorFlow.js and MobileNet CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.17.0/dist/tf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@2.1.0/dist/mobilenet.min.js"></script>
-        <script src="../../adsense-loader.js"></script>
+    <script src="../../adsense-loader.js"></script>
 </head>
 <body class="bg-slate-50 min-h-screen font-sans text-slate-900 flex flex-col">
 
-    <header class="bg-white shadow-sm py-4 relative">
-        <h1 class="text-xl font-bold text-center text-teal-600 tracking-tight">AI 이미지 태깅</h1>
+    <header class="bg-white shadow-sm py-4 px-6 flex items-center justify-between relative">
+        <div class="w-24"></div>
+        <h1 data-i18n="headerTitle" class="text-xl font-bold text-center text-teal-600 tracking-tight flex-grow">AI 이미지 태깅</h1>
+        <div class="w-24 flex justify-end">
+            <select id="lang-select" class="bg-white border border-slate-200 rounded-lg px-2 py-1 text-sm font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-teal-500">
+                <option value="ko">한국어</option>
+                <option value="en">English</option>
+                <option value="es">Español</option>
+                <option value="ja">日本語</option>
+                <option value="zh-tw">繁體中文</option>
+            </select>
+        </div>
     </header>
 
     <main class="flex-grow container mx-auto px-4 py-8 max-w-5xl">
@@ -40,18 +50,18 @@
                 <!-- 업로드 & 미리보기 카드 -->
                 <div class="bg-white rounded-3xl shadow-lg p-6 border border-slate-100 text-center">
                     <h3 class="font-bold text-lg mb-6 border-b pb-4 flex items-center justify-center gap-2">
-                        <i class="fas fa-camera text-teal-500"></i> 분석 이미지
+                        <i class="fas fa-camera text-teal-500"></i> <span data-i18n="analysisImage">분석 이미지</span>
                     </h3>
                     
                     <div id="image-box" class="w-full aspect-square bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden flex items-center justify-center relative select-none">
-                        <span id="box-placeholder" class="text-slate-400 text-xs">사진을 업로드하면 여기에 표시됩니다</span>
+                        <span id="box-placeholder" data-i18n="placeholderText" class="text-slate-400 text-xs">사진을 업로드하면 여기에 표시됩니다</span>
                         <img id="preview-img" class="hidden w-full h-full object-cover">
                     </div>
 
                     <div class="mt-6">
                         <input type="file" id="file-input" class="hidden" accept="image/*">
                         <button id="select-btn" class="w-full bg-teal-600 text-white font-bold py-4 rounded-2xl shadow-lg hover:bg-teal-700 active:scale-95 transition-all flex items-center justify-center gap-2">
-                            <i class="fas fa-cloud-upload-alt"></i> 사진 올리기
+                            <i class="fas fa-cloud-upload-alt"></i> <span data-i18n="uploadBtn">사진 올리기</span>
                         </button>
                     </div>
                 </div>
@@ -65,8 +75,8 @@
                     <div class="w-20 h-20 bg-teal-50 rounded-full flex items-center justify-center mb-6 text-teal-500 text-3xl">
                         <i class="fas fa-tags animate-pulse"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-2">분석 시작하기</h3>
-                    <p class="text-slate-400 text-sm max-w-sm">왼쪽 패널에서 사진을 업로드해 주세요.<br>AI가 사물 종류와 텍스처를 파악해 키워드와 추천 문구를 만들어 냅니다.</p>
+                    <h3 data-i18n="emptyStateTitle" class="text-xl font-bold text-slate-800 mb-2">분석 시작하기</h3>
+                    <p data-i18n="emptyStateDesc" class="text-slate-400 text-sm max-w-sm">왼쪽 패널에서 사진을 업로드해 주세요.<br>AI가 사물 종류와 텍스처를 파악해 키워드와 추천 문구를 만들어 냅니다.</p>
                 </div>
 
                 <!-- 분석 및 개선 진행 로딩오버레이 -->
@@ -75,8 +85,8 @@
                         <div class="absolute inset-0 border-4 border-teal-100 rounded-full"></div>
                         <div class="absolute inset-0 border-4 border-teal-600 rounded-full border-t-transparent animate-spin"></div>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-2" id="loading-title">로컬 딥러닝 엔진 로드 중...</h3>
-                    <p class="text-slate-400 text-sm">브라우저 내 인공지능 신경망이 사진 데이터를 연산하는 중입니다.</p>
+                    <h3 class="text-xl font-bold text-slate-800 mb-2" id="loading-title" data-i18n="loadingTitle">로컬 딥러닝 엔진 로드 중...</h3>
+                    <p data-i18n="loadingDesc" class="text-slate-400 text-sm">브라우저 내 인공지능 신경망이 사진 데이터를 연산하는 중입니다.</p>
                 </div>
 
                 <!-- 분석 결과 표시 카드 -->
@@ -85,10 +95,10 @@
                     <div class="bg-white rounded-3xl shadow-xl p-6 border border-slate-100">
                         <div class="flex items-center justify-between border-b pb-4 mb-6">
                             <h4 class="font-bold text-slate-800 flex items-center gap-2">
-                                <i class="fas fa-hashtag text-teal-500"></i> AI 추천 한글 태그
+                                <i class="fas fa-hashtag text-teal-500"></i> <span data-i18n="tagsTitle">AI 추천 한글 태그</span>
                             </h4>
                             <button id="copy-tags-btn" class="text-xs text-teal-600 font-bold hover:text-teal-700 flex items-center gap-1">
-                                <i class="fas fa-copy"></i> 태그 전체 복사
+                                <i class="fas fa-copy"></i> <span data-i18n="copyTagsBtn">태그 전체 복사</span>
                             </button>
                         </div>
                         <div id="tag-container" class="flex flex-wrap gap-2">
@@ -100,10 +110,10 @@
                     <div class="bg-white rounded-3xl shadow-xl p-6 border border-slate-100">
                         <div class="flex items-center justify-between border-b pb-4 mb-6">
                             <h4 class="font-bold text-slate-800 flex items-center gap-2">
-                                <i class="fas fa-pencil-alt text-teal-500"></i> AI 추천 SNS & 포스팅 본문 문구
+                                <i class="fas fa-pencil-alt text-teal-500"></i> <span data-i18n="seoTitle">AI 추천 SNS & 포스팅 본문 문구</span>
                             </h4>
                             <button id="copy-text-btn" class="text-xs text-teal-600 font-bold hover:text-teal-700 flex items-center gap-1">
-                                <i class="fas fa-copy"></i> 문구 복사
+                                <i class="fas fa-copy"></i> <span data-i18n="copyTextBtn">문구 복사</span>
                             </button>
                         </div>
                         <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 text-sm text-slate-700 leading-relaxed font-medium">
@@ -125,6 +135,179 @@
     </footer>
 
     <script>
+        const DICTIONARY = {
+            ko: {
+                title: "AI 이미지 태깅 (해시태그 및 포스팅 본문 자동 완성) | SmilesLife",
+                metaDesc: "사진 분석을 통해 어울리는 한글 인스타그램/블로그 해시태그를 매핑하여 추천하고, SNS 포스팅 본문 및 블로그 포스팅용 멘트를 자동 생성하는 무료 AI 이미지 분석 툴입니다.",
+                ogTitle: "AI 이미지 태깅 (해시태그 및 포스팅 본문 자동 완성) - SmilesLife",
+                ogDesc: "올린 사진 속 대상을 머신러닝 모델이 감지해 인스타 해시태그와 SNS 피드 문구를 자동으로 작성해줍니다. 간편하게 복사하여 바로 사용하세요.",
+                headerTitle: "AI 이미지 태깅",
+                analysisImage: "분석 이미지",
+                placeholderText: "사진을 업로드하면 여기에 표시됩니다",
+                uploadBtn: "사진 올리기",
+                emptyStateTitle: "분석 시작하기",
+                emptyStateDesc: "왼쪽 패널에서 사진을 업로드해 주세요.<br>AI가 사물 종류와 텍스처를 파악해 키워드와 추천 문구를 만들어 냅니다.",
+                loadingTitle: "로컬 딥러닝 엔진 로드 중...",
+                loadingDesc: "브라우저 내 인공지능 신경망이 사진 데이터를 연산하는 중입니다.",
+                tagsTitle: "AI 추천 한글 태그",
+                copyTagsBtn: "태그 전체 복사",
+                seoTitle: "AI 추천 SNS & 포스팅 본문 문구",
+                copyTextBtn: "문구 복사",
+                tagCopied: "태그가 복사되었습니다",
+                allTagsCopied: "태그가 클립보드에 복사되었습니다!",
+                textCopied: "SNS 추천 글이 클립보드에 복사되었습니다!",
+                analysisError: "사진 분석 오류가 발생했습니다.",
+                loadingEngine: "AI 이미지 태깅 엔진 로드 중...",
+                analyzingImage: "이미지 인공지능 분석 중..."
+            },
+            en: {
+                title: "AI Image Tagging (Auto-complete Hashtags & Post Description) | SmilesLife",
+                metaDesc: "Free AI image analysis tool that recommends matching Instagram/blog hashtags and automatically generates post descriptions through photo analysis.",
+                ogTitle: "AI Image Tagging (Auto-complete Hashtags & Post Description) - SmilesLife",
+                ogDesc: "Machine learning model detects objects in your uploaded photo and automatically drafts Instagram hashtags and SNS feed descriptions.",
+                headerTitle: "AI Image Tagging",
+                analysisImage: "Analysis Image",
+                placeholderText: "Upload a photo to see it here",
+                uploadBtn: "Upload Photo",
+                emptyStateTitle: "Start Analysis",
+                emptyStateDesc: "Please upload a photo from the left panel.<br>AI will identify objects and textures to generate keywords and recommendations.",
+                loadingTitle: "Loading Local Deep Learning Engine...",
+                loadingDesc: "The browser's neural network is processing the photo data.",
+                tagsTitle: "AI Recommended Tags",
+                copyTagsBtn: "Copy All Tags",
+                seoTitle: "AI Recommended SNS & Post Descriptions",
+                copyTextBtn: "Copy Text",
+                tagCopied: "Tag copied",
+                allTagsCopied: "Tags copied to clipboard!",
+                textCopied: "SNS description copied to clipboard!",
+                analysisError: "An error occurred during photo analysis.",
+                loadingEngine: "Loading AI image tagging engine...",
+                analyzingImage: "Analyzing image with AI..."
+            },
+            es: {
+                title: "Etiquetado de Imágenes AI (Generador de Hashtags y Descripciones) | SmilesLife",
+                metaDesc: "Herramienta gratuita de análisis de imágenes por IA que recomienda hashtags para Instagram/blogs y genera descripciones de publicaciones mediante fotos.",
+                ogTitle: "Etiquetado de Imágenes AI (Generador de Hashtags y Descripciones) - SmilesLife",
+                ogDesc: "El modelo de aprendizaje automático detecta objetos en la foto subida y redacta automáticamente hashtags de Instagram y descripciones para redes sociales.",
+                headerTitle: "Etiquetado de Imágenes AI",
+                analysisImage: "Imagen de Análisis",
+                placeholderText: "Sube una foto para verla aquí",
+                uploadBtn: "Subir Foto",
+                emptyStateTitle: "Iniciar Análisis",
+                emptyStateDesc: "Sube una foto desde el panel izquierdo.<br>La IA identificará los objetos y texturas para generar palabras clave y recomendaciones.",
+                loadingTitle: "Cargando Motor de Aprendizaje Local...",
+                loadingDesc: "La red neuronal del navegador está procesando los datos de la foto.",
+                tagsTitle: "Hashtags Recomendados por IA",
+                copyTagsBtn: "Copiar Todos los Tags",
+                seoTitle: "Descripciones para Redes Sociales Recomendadas por IA",
+                copyTextBtn: "Copiar Texto",
+                tagCopied: "Etiqueta copiada",
+                allTagsCopied: "¡Hashtags copiados al portapapeles!",
+                textCopied: "¡Descripción de publicación copiada al portapapeles!",
+                analysisError: "Ocurrió un error al analizar la foto.",
+                loadingEngine: "Cargando motor de etiquetado por IA...",
+                analyzingImage: "Analizando imagen con IA..."
+            },
+            ja: {
+                title: "AI 画像タギング (ハッシュタグ＆投稿テキスト自動生成) | SmilesLife",
+                metaDesc: "写真分析を通じてふさわしいInstagram/ブログ用のハッシュタグを推薦し、SNS投稿用の本文テキストを自動生成する無料のAI画像分析ツールです。",
+                ogTitle: "AI 画像タギング (ハッシュタグ＆投稿テキスト自動生成) - SmilesLife",
+                ogDesc: "アップロードされた写真の対象を機械学習モデルが検出し、インスタのハッシュタグやSNSの投稿テキストを自動的に作成します。コピーしてすぐ使えます。",
+                headerTitle: "AI 画像タギング",
+                analysisImage: "分析画像",
+                placeholderText: "写真をアップロードするとここに表示されます",
+                uploadBtn: "写真をアップロード",
+                emptyStateTitle: "分析を開始する",
+                emptyStateDesc: "左側のパネルから写真をアップロードしてください。<br>AIが物体の種類やテクスチャを把握し、キーワードとおすすめ文を生成します。",
+                loadingTitle: "ローカルディープラーニングエンジンをロード中...",
+                loadingDesc: "ブラウザ内のAIニューラルネットワークが画像データを計算しています。",
+                tagsTitle: "AI推奨ハッシュタグ",
+                copyTagsBtn: "タグをすべてコピー",
+                seoTitle: "AI推奨SNS＆ブログ投稿文",
+                copyTextBtn: "テキストコピー",
+                tagCopied: "タグがコピーされました",
+                allTagsCopied: "ハッシュタグがクリップボードにコピーされました！",
+                textCopied: "SNSおすすめ文がクリップボードにコピーされました！",
+                analysisError: "写真の分析中にエラーが発生しました。",
+                loadingEngine: "AI画像タギングエンジンをロード中...",
+                analyzingImage: "画像をAI分析中..."
+            },
+            "zh-tw": {
+                title: "AI 影像標籤生成器 (自動填寫主題標籤與貼文內容) | SmilesLife",
+                metaDesc: "免費的 AI 影像分析工具，透過照片分析推薦適合的 Instagram/部落格主題標籤，並自動生成社群貼文內容。",
+                ogTitle: "AI 影像標籤生成器 (自動填寫主題標籤與貼文內容) - SmilesLife",
+                ogDesc: "機器學習模型能偵測上傳照片中的物體，並自動撰寫 Instagram 標籤與社群媒體貼文內容。輕鬆複製即可立即使用。",
+                headerTitle: "AI 影像標籤生成器",
+                analysisImage: "分析圖片",
+                placeholderText: "照片上傳後將顯示於此",
+                uploadBtn: "上傳照片",
+                emptyStateTitle: "開始分析",
+                emptyStateDesc: "請從左側面板上傳照片。<br>AI 將辨識物體與紋理，以生成關鍵字與推薦內容。",
+                loadingTitle: "正在載入本地深度學習引擎...",
+                loadingDesc: "瀏覽器內的人工智慧神經網路正在運算照片數據。",
+                tagsTitle: "AI 推薦主題標籤",
+                copyTagsBtn: "複製所有標籤",
+                seoTitle: "AI 推薦社群與部落格貼文內容",
+                copyTextBtn: "複製文字",
+                tagCopied: "標籤已複製",
+                allTagsCopied: "標籤已複製到剪貼簿！",
+                textCopied: "社群媒體貼文內容已複製到剪貼簿！",
+                analysisError: "影像分析時發生錯誤。",
+                loadingEngine: "正在載入 AI 影像標籤引擎...",
+                analyzingImage: "正在使用 AI 分析圖片..."
+            }
+        };
+
+        let currentLang = 'ko';
+
+        function initLanguage() {
+            const langSelect = document.getElementById('lang-select');
+            
+            function setLanguage(lang) {
+                currentLang = lang;
+                localStorage.setItem('smileslife-preferred-lang', lang);
+                langSelect.value = lang;
+                
+                document.title = DICTIONARY[lang].title;
+                const descMeta = document.querySelector('meta[name="description"]');
+                if (descMeta) descMeta.setAttribute('content', DICTIONARY[lang].metaDesc);
+                const ogTitleMeta = document.querySelector('meta[property="og:title"]');
+                if (ogTitleMeta) ogTitleMeta.setAttribute('content', DICTIONARY[lang].ogTitle);
+                const ogDescMeta = document.querySelector('meta[property="og:description"]');
+                if (ogDescMeta) ogDescMeta.setAttribute('content', DICTIONARY[lang].ogDesc);
+                
+                document.querySelectorAll('[data-i18n]').forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    if (DICTIONARY[lang] && DICTIONARY[lang][key]) {
+                        el.textContent = DICTIONARY[lang][key];
+                    }
+                });
+            }
+
+            const urlParams = new URLSearchParams(window.location.search);
+            let lang = urlParams.get('lang') || localStorage.getItem('smileslife-preferred-lang');
+            if (!lang) {
+                const userLang = navigator.language || navigator.userLanguage;
+                const shortLang = userLang.substring(0, 2).toLowerCase();
+                if (shortLang === 'ko') lang = 'ko';
+                else if (shortLang === 'es') lang = 'es';
+                else if (shortLang === 'ja') lang = 'ja';
+                else if (userLang.toLowerCase() === 'zh-tw' || userLang.toLowerCase() === 'zh-hk') lang = 'zh-tw';
+                else lang = 'en';
+            }
+            lang = lang.toLowerCase();
+            if (lang === 'zh-cn') lang = 'zh-tw';
+            if (!DICTIONARY[lang]) lang = 'en';
+
+            langSelect.addEventListener('change', (e) => {
+                setLanguage(e.target.value);
+            });
+
+            setLanguage(lang);
+        }
+
+        document.addEventListener('DOMContentLoaded', initLanguage);
+
         const fileInput = document.getElementById('file-input');
         const selectBtn = document.getElementById('select-btn');
         const previewImg = document.getElementById('preview-img');
@@ -143,7 +326,7 @@
 
         let net = null;
 
-        // 한글 번역 사전 매핑 테이블 (MobileNet의 주요 1000가지 클래스 중 다수 대응용)
+        // 한글 번역 사전 매핑 테이블
         const koreanDictionary = {
             'tabby': '치즈고양이',
             'tiger cat': '호랑이고양이',
@@ -295,7 +478,6 @@
             'wool': '양모',
             'umbrella': '우산',
             'hair drier': '드라이기',
-            'sunglass': '선글라스',
             'backpack': '백팩',
             'purse': '핸드백',
             'wallet': '지갑',
@@ -353,31 +535,565 @@
             'lakeside': '호숫가',
             'seashore': '해변',
             'sandbar': '모래톱',
-            'coral reef': '산호초',
             'volcano': '화산',
             'geyser': '간헐천',
-            'valley': '골짜기',
             'web site': '웹사이트',
             'comic book': '만화책'
         };
 
-        function translateToKorean(englishTerm) {
-            // 소문자로 정규화 및 쉼표 구분자 처리
+        const TRANSLATED_TERMS = {
+            es: {
+                'tabby': 'gato atigrado',
+                'tiger cat': 'gato tigre',
+                'persian cat': 'gato persa',
+                'siamese cat': 'gato siamés',
+                'egyptian cat': 'gato egipcio',
+                'cougar': 'puma',
+                'leopard': 'leopardo',
+                'snow leopard': 'leopardo de las nieves',
+                'jaguar': 'jaguar',
+                'lion': 'león',
+                'tiger': 'tigre',
+                'cheetah': 'guepardo',
+                'dalmatian': 'dálmata',
+                'golden retriever': 'cobrador dorado',
+                'labrador retriever': 'labrador retriever',
+                'beagle': 'beagle',
+                'corgi': 'corgi',
+                'poodle': 'caniche',
+                'chihuahua': 'chihuahua',
+                'pug': 'pug',
+                'french bulldog': 'bulldog francés',
+                'husky': 'husky',
+                'malamute': 'malamute',
+                'samoyed': 'samoyedo',
+                'pomeranian': 'pomerania',
+                'shih-tzu': 'shih-tzu',
+                'maltese dog': 'bichón maltés',
+                'yorkshire terrier': 'yorkshire terrier',
+                'german shepherd': 'pastor alemán',
+                'collie': 'collie',
+                'sheepherder': 'perro pastor',
+                'red panda': 'panda rojo',
+                'giant panda': 'panda gigante',
+                'koala': 'koala',
+                'desktop computer': 'computadora de escritorio',
+                'computer keyboard': 'teclado de computadora',
+                'notebook': 'cuaderno',
+                'laptop': 'computadora portátil',
+                'mouse': 'ratón',
+                'cellular telephone': 'teléfono celular',
+                'mobile phone': 'teléfono móvil',
+                'ipod': 'ipod',
+                'screen': 'pantalla',
+                'television': 'televisión',
+                'sunglass': 'gafas de sol',
+                'sunglasses': 'gafas de sol',
+                'coffee mug': 'taza de café',
+                'cup': 'taza',
+                'teapot': 'tetera',
+                'coffeepot': 'cafetera',
+                'espresso': 'café espresso',
+                'water bottle': 'botella de agua',
+                'beer bottle': 'botella de cerveza',
+                'wine bottle': 'botella de vino',
+                'restaurant': 'restaurante',
+                'grocery store': 'tienda de comestibles',
+                'plate': 'plato',
+                'table': 'mesa',
+                'desk': 'escritorio',
+                'dining table': 'mesa de comedor',
+                'wardrobe': 'armario',
+                'bookcase': 'estantería',
+                'sofa': 'sofá',
+                'studio couch': 'sofá cama',
+                'rocking chair': 'mecedora',
+                'cradle': 'cuna',
+                'guacamole': 'guacamole',
+                'consomme': 'consomé',
+                'hot pot': 'olla caliente',
+                'trifle': 'trifle',
+                'ice cream': 'helado',
+                'doughnut': 'dona',
+                'cookie': 'galleta',
+                'chocolate sauce': 'salsa de chocolate',
+                'burrito': 'burrito',
+                'pizza': 'pizza',
+                'potpie': 'pastel de carne',
+                'meat loaf': 'pastel de carne',
+                'spaghetti squash': 'espagueti',
+                'carbonara': 'carbonara',
+                'cheeseburger': 'hamburguesa con queso',
+                'hotdog': 'perrito caliente',
+                'french loaf': 'barra de pan',
+                'bagel': 'bagel',
+                'guinea pig': 'conejillo de indias',
+                'hamster': 'hámster',
+                'rabbit': 'conejo',
+                'hare': 'liebre',
+                'squirrel': 'ardilla',
+                'chipmunk': 'ardilla listada',
+                'wood rabbit': 'conejo de monte',
+                'badger': 'tejón',
+                'otter': 'nutria',
+                'sea otter': 'nutria marina',
+                'meerkat': 'suricata',
+                'bee': 'abeja',
+                'butterfly': 'mariposa',
+                'dragonfly': 'libélula',
+                'snail': 'caracol',
+                'sea urchin': 'erizo de mar',
+                'coral reef': 'arrecife de coral',
+                'starfish': 'estrella de mar',
+                'fish': 'pez',
+                'goldfish': 'pez dorado',
+                'shark': 'tiburón',
+                'whale': 'ballena',
+                'dolphin': 'delfín',
+                'sports car': 'coche deportivo',
+                'cab': 'taxi',
+                'minivan': 'monovolumen',
+                'jeep': 'jeep',
+                'limousine': 'limusina',
+                'racer': 'coche de carreras',
+                'convertible': 'descapotable',
+                'beach wagon': 'vagón de playa',
+                'station wagon': 'familiar',
+                'pickup': 'camioneta',
+                'tow truck': 'grúa de remolque',
+                'fire engine': 'camión de bomberos',
+                'ambulance': 'ambulancia',
+                'garbage truck': 'camión de la basura',
+                'recreational vehicle': 'autocaravana',
+                'police van': 'furgón policial',
+                'bus': 'autobús',
+                'trolleybus': 'trolebús',
+                'streetcar': 'tranvía',
+                'motorcycle': 'motocicleta',
+                'bicycle-built-for-two': 'tándem',
+                'mountain bike': 'bicicleta de montaña',
+                'tricycle': 'triciclo',
+                'unicycle': 'monociclo',
+                'kick scooter': 'patinete',
+                'mountain tent': 'tienda de campaña',
+                'yurt': 'yurta',
+                'patio': 'patio',
+                'running shoe': 'zapatilla de correr',
+                'sneaker': 'zapatilla de deporte',
+                'sandal': 'sandalia',
+                'boot': 'bota',
+                'cowboy boot': 'bota de vaquero',
+                'sock': 'calcetín',
+                'jean': 'vaqueros',
+                'jersey': 'camiseta',
+                'suit': 'traje',
+                'trench coat': 'gabardina',
+                'cardigan': 'cárdigan',
+                'sweatshirt': 'sudadera',
+                'wool': 'lana',
+                'umbrella': 'paraguas',
+                'hair drier': 'secador de pelo',
+                'backpack': 'mochila',
+                'purse': 'bolso',
+                'wallet': 'cartera',
+                'key': 'llave',
+                'ballpoint pen': 'bolígrafo',
+                'fountain pen': 'pluma estilográfica',
+                'pencil box': 'estuche de lápices',
+                'ruler': 'regla',
+                'book': 'libro',
+                'binder': 'carpeta',
+                'envelope': 'sobre',
+                'camera': 'cámara',
+                'lens': 'lente',
+                'violin': 'violín',
+                'guitar': 'guitarra',
+                'acoustic guitar': 'guitarra acústica',
+                'electric guitar': 'guitarra eléctrica',
+                'piano': 'piano',
+                'drum': 'tambor',
+                'marimba': 'marimba',
+                'accordion': 'acordeón',
+                'microphone': 'micrófono',
+                'headphones': 'auriculares',
+                'earphone': 'auricular',
+                'flower': 'flor',
+                'daisy': 'margarita',
+                'sunflower': 'girasol',
+                'tulip': 'tulipán',
+                'rose': 'rosa',
+                'dahlia': 'dalia',
+                'orchid': 'orquídea',
+                'acorn': 'bellota',
+                'corn': 'maíz',
+                'banana': 'plátano',
+                'apple': 'manzana',
+                'orange': 'naranja',
+                'lemon': 'limón',
+                'pineapple': 'piña',
+                'strawberry': 'fresa',
+                'grape': 'uva',
+                'fig': 'higo',
+                'pomegranate': 'granada',
+                'watermelon': 'sandía',
+                'cabbage': 'repollo',
+                'broccoli': 'brócoli',
+                'cauliflower': 'coliflor',
+                'zucchini': 'calabacín',
+                'mushroom': 'champiñón',
+                'bell pepper': 'pimiento',
+                'onion': 'cebolla',
+                'garlic': 'ajo',
+                'cliff': 'acantilado',
+                'alp': 'alpe',
+                'valley': 'valle',
+                'lakeside': 'orilla del lago',
+                'seashore': 'costa',
+                'sandbar': 'banco de arena',
+                'volcano': 'volcán',
+                'geyser': 'géiser',
+                'web site': 'sitio web',
+                'comic book': 'cómic'
+            },
+            ja: {
+                'tabby': 'トラ猫',
+                'tiger cat': 'トラ猫',
+                'persian cat': 'ペルシャ猫',
+                'siamese cat': 'シャム猫',
+                'egyptian cat': 'エジプト猫',
+                'cougar': 'クーガー',
+                'leopard': 'ヒョウ',
+                'snow leopard': 'ユキヒョウ',
+                'jaguar': 'ジャガー',
+                'lion': 'ライオン',
+                'tiger': 'トラ',
+                'cheetah': 'チーター',
+                'dalmatian': 'ダルメシアン',
+                'golden retriever': 'ゴールデンレトリバー',
+                'labrador retriever': 'ラブラドールレトリバー',
+                'beagle': 'ビーグル',
+                'corgi': 'コーギー',
+                'poodle': 'プードル',
+                'chihuahua': 'チワワ',
+                'pug': 'パグ',
+                'french bulldog': 'フレンチブルドッグ',
+                'husky': 'ハスキー',
+                'malamute': 'マラミュート',
+                'samoyed': 'サモエド',
+                'pomeranian': 'ポメラニアン',
+                'shih-tzu': 'シーズー',
+                'maltese dog': 'マルチーズ',
+                'yorkshire terrier': 'ヨークシャーテリア',
+                'german shepherd': 'ジャーマンシェパード',
+                'collie': 'コリー',
+                'sheepherder': '牧羊犬',
+                'red panda': 'レッサーパンダ',
+                'giant panda': 'ジャイアントパンダ',
+                'koala': 'コアラ',
+                'desktop computer': 'デスクトップパソコン',
+                'computer keyboard': 'キーボード',
+                'notebook': 'ノート',
+                'laptop': 'ノートパソコン',
+                'mouse': 'マウス',
+                'cellular telephone': '携帯電話',
+                'mobile phone': 'スマートフォン',
+                'ipod': 'iPod',
+                'screen': '画面',
+                'television': 'テレビ',
+                'sunglass': 'サングラス',
+                'sunglasses': 'サングラス',
+                'coffee mug': 'マグカップ',
+                'cup': 'コップ',
+                'teapot': '急須',
+                'coffeepot': 'コーヒーポット',
+                'espresso': 'エスプレッソ',
+                'water bottle': '水筒',
+                'beer bottle': 'ビール瓶',
+                'wine bottle': 'ワインボトル',
+                'restaurant': 'レストラン',
+                'grocery store': '食料品店',
+                'plate': 'お皿',
+                'table': 'テーブル',
+                'desk': '机',
+                'dining table': '食卓',
+                'wardrobe': 'ワードローブ',
+                'bookcase': '本棚',
+                'sofa': 'ソファ',
+                'studio couch': 'スタジオソファ',
+                'rocking chair': 'ロッキングチェア',
+                'cradle': 'ゆりかご',
+                'guacamole': 'ワカモレ',
+                'consomme': 'コンソメ',
+                'hot pot': '鍋料理',
+                'trifle': 'トライフル',
+                'ice cream': 'アイスクリーム',
+                'doughnut': 'ドーナツ',
+                'cookie': 'クッキー',
+                'chocolate sauce': 'チョコレートソース',
+                'burrito': 'ブリトー',
+                'pizza': 'ピザ',
+                'potpie': 'ポットパイ',
+                'meat loaf': 'ミートローフ',
+                'spaghetti squash': 'スパゲッティ',
+                'carbonara': 'カルボナーラ',
+                'cheeseburger': 'チーズバーガー',
+                'hotdog': 'ホットドッグ',
+                'french loaf': 'フランスパン',
+                'bagel': 'ベーグル',
+                'guinea pig': 'モルモット',
+                'hamster': 'ハムスター',
+                'rabbit': 'うさぎ',
+                'hare': '野うさぎ',
+                'squirrel': 'リス',
+                'chipmunk': 'シマリス',
+                'wood rabbit': 'ウサギ',
+                'badger': 'アナグマ',
+                'otter': 'カワウソ',
+                'sea otter': 'ラッコ',
+                'meerkat': 'ミーアキャット',
+                'bee': 'ハチ',
+                'butterfly': 'チョウ',
+                'dragonfly': 'トンボ',
+                'snail': 'カタツムリ',
+                'sea urchin': 'ウニ',
+                'coral reef': 'サンゴ礁',
+                'starfish': 'ヒトデ',
+                'fish': '魚',
+                'goldfish': '金魚',
+                'shark': 'サメ',
+                'whale': 'クジラ',
+                'dolphin': 'イルカ',
+                'sports car': 'スポーツカー',
+                'cab': 'タクシー',
+                'minivan': 'ミニバン',
+                'jeep': 'ジープ',
+                'limousine': 'リムジン',
+                'racer': 'レーシングカー',
+                'convertible': 'オープンカー',
+                'beach wagon': 'ビーチワゴン',
+                'station wagon': 'ステーションワゴン',
+                'pickup': 'ピックアップトラック',
+                'tow truck': 'レッカー車',
+                'fire engine': '消防車',
+                'ambulance': '救急車',
+                'garbage truck': 'ゴミ収集車',
+                'recreational vehicle': 'キャンピングカー',
+                'police van': 'パトロールカー',
+                'bus': 'バス',
+                'trolleybus': 'トロリーバス',
+                'streetcar': '路面電車',
+                'motorcycle': 'バイク',
+                'bicycle-built-for-two': '二人乗り自転車',
+                'mountain bike': 'マウンテンバイク',
+                'tricycle': '三輪車',
+                'unicycle': '一輪車',
+                'kick scooter': 'キックボード',
+                'mountain tent': 'テント',
+                'yurt': 'ゲル',
+                'patio': '中庭',
+                'running shoe': 'ランニングシューズ',
+                'sneaker': 'スニーカー',
+                'sandal': 'サンダル',
+                'boot': 'ブーツ',
+                'cowboy boot': 'カウボーイブーツ',
+                'sock': '靴下',
+                'jean': 'ジーンズ',
+                'jersey': 'ジャージ',
+                'suit': 'スーツ',
+                'trench coat': 'トレンチコート',
+                'cardigan': 'カーディガン',
+                'sweatshirt': 'スウェット',
+                'wool': 'ウール',
+                'umbrella': '傘',
+                'hair drier': 'ドライヤー',
+                'backpack': 'リュックサック',
+                'purse': 'ハンドバッグ',
+                'wallet': '財布',
+                'key': '鍵',
+                'ballpoint pen': 'ボールペン',
+                'fountain pen': '万年筆',
+                'pencil box': '筆箱',
+                'ruler': '定規',
+                'book': '本',
+                'binder': 'バインダー',
+                'envelope': '封筒',
+                'camera': 'カメラ',
+                'lens': 'レンズ',
+                'violin': 'バイオリン',
+                'guitar': 'ギター',
+                'acoustic guitar': 'アコースティックギター',
+                'electric guitar': 'エレキギター',
+                'piano': 'ピアノ',
+                'drum': 'ドラム',
+                'marimba': 'マリンバ',
+                'accordion': 'アコーディオン',
+                'microphone': 'マイク',
+                'headphones': 'ヘッドホン',
+                'earphone': 'イヤホン',
+                'flower': '花',
+                'daisy': 'デイジー',
+                'sunflower': 'ひまわり',
+                'tulip': 'チューリップ',
+                'rose': 'バラ',
+                'dahlia': 'ダリア',
+                'orchid': 'ラン',
+                'acorn': 'どんぐり',
+                'corn': 'トウモロコシ',
+                'banana': 'バナナ',
+                'apple': 'リンゴ',
+                'orange': 'オレンジ',
+                'lemon': 'レモン',
+                'pineapple': 'パイナップル',
+                'strawberry': 'イチゴ',
+                'grape': 'ブドウ',
+                'fig': 'イチジク',
+                'pomegranate': 'ザクロ',
+                'watermelon': 'スイカ',
+                'cabbage': 'キャベツ',
+                'broccoli': 'ブロッコリー',
+                'cauliflower': 'カリフラワー',
+                'zucchini': 'ズッキーニ',
+                'mushroom': 'キノコ',
+                'bell pepper': 'パプリカ',
+                'onion': 'タマネギ',
+                'garlic': 'ニンニク',
+                'cliff': '崖',
+                'alp': 'アルプス山',
+                'valley': '谷',
+                'lakeside': '湖畔',
+                'seashore': '海岸',
+                'sandbar': '砂州',
+                'volcano': '火山',
+                'geyser': '間欠泉',
+                'web site': 'ウェブサイト',
+                'comic book': '漫画本'
+            },
+            "zh-tw": {
+                'tabby': '虎斑貓',
+                'tiger cat': '虎斑貓',
+                'persian cat': '波斯貓',
+                'siamese cat': '暹羅貓',
+                'egyptian cat': '埃及貓',
+                'cougar': '美洲獅',
+                'leopard': '豹',
+                'snow leopard': '雪豹',
+                'jaguar': '美洲豹',
+                'lion': '獅子',
+                'tiger': '老虎',
+                'cheetah': '獵豹',
+                'dalmatian': '大麥町犬',
+                'golden retriever': '黃金獵犬',
+                'labrador retriever': '拉不拉多犬',
+                'beagle': '米格魯',
+                'corgi': '柯基犬',
+                'poodle': '貴賓犬',
+                'chihuahua': '吉娃娃',
+                'pug': '巴哥犬',
+                'french bulldog': '法國鬥牛犬',
+                'husky': '哈士奇',
+                'malamute': '阿拉斯加雪橇犬',
+                'samoyed': '薩摩耶犬',
+                'pomeranian': '博美犬',
+                'shih-tzu': '西施犬',
+                'maltese dog': '馬爾濟斯',
+                'yorkshire terrier': '約克夏',
+                'german shepherd': '德國牧羊犬',
+                'collie': '牧羊犬',
+                'sheepherder': '牧羊犬',
+                'red panda': '小貓熊',
+                'giant panda': '大貓熊',
+                'koala': '無尾熊',
+                'desktop computer': '桌上型電腦',
+                'computer keyboard': '鍵盤',
+                'notebook': '筆記本',
+                'laptop': '筆記型電腦',
+                'mouse': '滑鼠',
+                'cellular telephone': '手機',
+                'mobile phone': '智慧型手機',
+                'ipod': 'iPod',
+                'screen': '螢幕',
+                'television': '電視',
+                'sunglass': '太陽眼鏡',
+                'sunglasses': '太陽眼鏡',
+                'coffee mug': '馬克杯',
+                'cup': '杯子',
+                'teapot': '茶壺',
+                'coffeepot': '咖啡壺',
+                'espresso': '濃縮咖啡',
+                'water bottle': '水瓶',
+                'beer bottle': '啤酒瓶',
+                'wine bottle': '酒瓶',
+                'restaurant': '餐廳',
+                'grocery store': '雜貨店',
+                'plate': '盤子',
+                'table': '桌子',
+                'desk': '書桌',
+                'dining table': '餐桌',
+                'wardrobe': '衣櫃',
+                'bookcase': '書櫃',
+                'sofa': '沙發',
+                'studio couch': '單人沙發床',
+                'rocking chair': '搖椅',
+                'cradle': '搖籃',
+                'guacamole': '酪梨醬',
+                'consomme': '清湯',
+                'hot pot': '火鍋',
+                'trifle': '英式trifles',
+                'ice cream': '冰淇淋',
+                'doughnut': '甜甜圈',
+                'cookie': '餅乾',
+                'chocolate sauce': '巧克力醬',
+                'burrito': '墨西哥捲餅',
+                'pizza': '披薩',
+                'potpie': '餡餅',
+                'meat loaf': '肉餅',
+                'spaghetti squash': '義大利麵',
+                'carbonara': '培根蛋麵',
+                'cheeseburger': '起司漢堡',
+                'hotdog': '熱狗',
+                'french loaf': '法國麵包',
+                'bagel': '貝果',
+                'guinea pig': '天竺鼠',
+                'hamster': '倉鼠',
+                'rabbit': '兔子',
+                'hare': '野兔',
+                'squirrel': '松鼠',
+                'chipmunk': '花栗鼠',
+                'wood rabbit': '野兔',
+                'badger': '獾',
+                'otter': '水獺',
+                'sea otter': '海獺',
+                'meerkat': '狐獴',
+                'bee': '蜜蜂',
+                'butterfly': '蝴蝶',
+                'dragonfly': '蜻蜓',
+                'snail': '蝸牛',
+                'sea urchin': '海膽',
+                'coral reef': '珊瑚礁',
+                'starfish': '海星',
+                'fish': '魚',
+                'goldfish': '金魚',
+                'shark': '鯊魚',
+                'whale': '鯨魚',
+                'dolphin': '海豚',
+                'sports car': '跑車',
+                'cab': '計程車',
+                'minivan': '休旅車',
+                'jeep': '�        function translateTerm(englishTerm, lang) {
             const term = englishTerm.split(',')[0].trim().toLowerCase();
             
-            // 딕셔너리 직접 매핑 시도
-            if (koreanDictionary[term]) {
-                return koreanDictionary[term];
-            }
-
-            // 부분 매핑 시도
-            for (let key in koreanDictionary) {
-                if (term.includes(key)) {
-                    return koreanDictionary[key];
+            if (lang === 'ko') {
+                if (koreanDictionary[term]) return koreanDictionary[term];
+                for (let key in koreanDictionary) {
+                    if (term.includes(key)) return koreanDictionary[key];
+                }
+            } else if (TRANSLATED_TERMS[lang]) {
+                if (TRANSLATED_TERMS[lang][term]) return TRANSLATED_TERMS[lang][term];
+                for (let key in TRANSLATED_TERMS[lang]) {
+                    if (term.includes(key)) return TRANSLATED_TERMS[lang][key];
                 }
             }
 
-            // 매핑 안되는 경우 영어 단어 첫 글자 대문자화하여 그대로 출력
             return term.charAt(0).toUpperCase() + term.slice(1);
         }
 
@@ -387,7 +1103,7 @@
             emptyState.classList.add('hidden');
             resultState.classList.add('hidden');
             loadingState.classList.remove('hidden');
-            loadingTitle.textContent = "AI 이미지 태깅 엔진 로드 중...";
+            loadingTitle.textContent = DICTIONARY[currentLang].loadingEngine;
             
             try {
                 net = await mobilenet.load({
@@ -396,8 +1112,7 @@
                 });
             } catch (err) {
                 console.error("TensorFlow.js loading failed", err);
-                loadingTitle.textContent = "엔진 로드 실패. 대체 로직 구동 중...";
-                // 실패 대비 지연 후 수동 태그 더미로 작동
+                loadingTitle.textContent = "Engine load failed. Running fallback...";
             }
         }
 
@@ -428,7 +1143,7 @@
         async function handleFile(file) {
             await loadModel();
             
-            loadingTitle.textContent = "이미지 인공지능 분석 중...";
+            loadingTitle.textContent = DICTIONARY[currentLang].analyzingImage;
             
             const url = URL.createObjectURL(file);
             previewImg.src = url;
@@ -441,7 +1156,6 @@
                     if (net) {
                         predictions = await net.classify(previewImg);
                     } else {
-                        // 모델 다운로드 실패 시 유사 딥러닝 룰베이스 분석 Fallback 시뮬레이션
                         predictions = [
                             { className: 'desktop computer', probability: 0.82 },
                             { className: 'coffee mug', probability: 0.12 },
@@ -450,8 +1164,8 @@
                     }
                     displayResults(predictions);
                 } catch (err) {
-                    console.error("인퍼런스 오류", err);
-                    alert("사진 분석 오류가 발생했습니다.");
+                    console.error("Inference error", err);
+                    alert(DICTIONARY[currentLang].analysisError);
                 } finally {
                     loadingState.classList.add('hidden');
                     resultState.classList.remove('hidden');
@@ -460,16 +1174,179 @@
         }
 
         function displayResults(predictions) {
-            // 태그 목록 채우기
             tagContainer.innerHTML = '';
             
             const topPrediction = predictions[0];
-            const topKorean = translateToKorean(topPrediction.className);
+            const topTranslated = translateTerm(topPrediction.className, currentLang);
 
-            // 한글 카테고리에 맞는 기본 추천 해시태그 풀 생성
             const tags = [];
+            predictions.forEach((p) => {
+                const trans = translateTerm(p.className, currentLang);
+                tags.push(trans);
+            });
+
+            // Localized fallback default tags
+            const extraTags = {
+                ko: ['AI분석', '일상', '오늘의한컷'],
+                en: ['AIAnalysis', 'Daily', 'PicOfTheDay'],
+                es: ['AnálisisIA', 'Diario', 'FotoDelDía'],
+                ja: ['AI分析', '日常', '今日の一枚'],
+                'zh-tw': ['AI分析', '日常', '今日照片']
+            };
             
-            // 예측값 분석해서 번역 태그 추가
+            (extraTags[currentLang] || extraTags['en']).forEach(t => tags.push(t));
+
+            // 태그 뱃지 생성
+            tags.forEach(tag => {
+                const tagEl = document.createElement('span');
+                tagEl.className = "bg-teal-50 text-teal-700 font-bold px-3 py-1.5 rounded-full text-xs border border-teal-100 flex items-center gap-1 cursor-pointer hover:bg-teal-100 transition-colors";
+                tagEl.innerHTML = `#${tag}`;
+                tagEl.onclick = () => {
+                    navigator.clipboard.writeText(`#${tag}`);
+                    alert(`${DICTIONARY[currentLang].tagCopied}: #${tag}`);
+                };
+                tagContainer.appendChild(tagEl);
+            });
+
+            // SNS/SEO 포스팅 문장 작문 생성기
+            const templates = TEMPLATE_TEXTS[currentLang] || TEMPLATE_TEXTS['en'];
+            const randomTemplate = templates[Math.floor(Math.random() * templates.length)];
+            const formattedText = randomTemplate.replace(/{tag}/g, topTranslated);
+            seoDescription.innerHTML = formattedText;
+        }
+
+        // 전체 태그 복사
+        copyTagsBtn.onclick = () => {
+            const tags = Array.from(tagContainer.querySelectorAll('span'))
+                              .map(el => el.textContent.trim())
+                              .join(' ');
+            navigator.clipboard.writeText(tags);
+            alert(DICTIONARY[currentLang].allTagsCopied);
+        };
+
+        // 전체 글 복사
+        copyTextBtn.onclick = () => {
+            const text = seoDescription.innerText;
+            navigator.clipboard.writeText(text);
+            alert(DICTIONARY[currentLang].textCopied);
+        };
+    </script>
+</body>
+</html>toma encantadora y perfecta para subir a redes sociales como blogs o Instagram. #RegistroDiario #{tag}`,
+                `El tema central de esta foto detectado por la red neuronal de inteligencia artificial (IA) es <b>{tag}</b>. La iluminación natural y las formas armonizan bellamente, atrayendo atención inmediata. Esta imagen atmosférica es muy útil para publicaciones de feed y canales de marketing. #{tag} #EtiquetadoIA`,
+                `Un registro fotográfico precioso recientemente analizado. El reconocimiento de objetos por IA captura claramente las características de <b>{tag}</b>. La atmósfera acogedora y emocional de esta foto aporta calidez incluso a una vida diaria ocupada. ¡Intenta usarla para tu feed de registro diario!`
+            ],
+            ja: [
+                `今日撮影された素晴らしい写真をご紹介します！AI画像タグ分析の結果、この写真には主に <b>{tag}</b> が含まれていると分析されました。全体的な構図や色使いが非常に優れており、ブログやInstagramなどのSNSにアップロードするのに最適な魅力的な一枚です。 #今日の記録 #{tag}`,
+                `人工知能（AI）ニューラルネットワークが検出したこの写真のメインテーマは <b>{tag}</b> です。自然な光の処理と形状が美しく調和し、一目で目を引く魅力があります。フィードやマーケティングチャネルへの投稿に役立つ雰囲気のある画像です。 #{tag} #AIタグ`,
+                `新しく分析された大切な写真記録です。AIオブジェクト認識結果、<b>{tag}</b> の特徴が明確に表現されています。この写真ならではの温かみのあるエモーショナルな雰囲気は、忙しい日常の中でも癒やしを与えてくれます。日常の記録用フィードにぜひご活用ください！`
+            ],
+            "zh-tw": [
+                `向您介紹今天拍攝的精美照片！根據 AI 影像標籤分析，此照片主要包含 <b>{tag}</b>。整體的構圖和色彩搭配非常出色，是一張非常適合上傳到部落格或 Instagram 等社群平台的魅力相片。 #每日記錄 #{tag}`,
+                `人工智慧 (AI) 神經網路偵測到這張照片的核心主題是 <b>{tag}</b>。自然的光影處理與形狀完美調和，展現出瞬間吸睛的獨特魅力。這是一張極具氛圍感的影像，非常適合社群貼文或行銷管道使用。 #{tag} #AI標籤`,
+                `最新分析的珍貴照片記錄。AI 物件識別結果清晰呈現了 <b>{tag}</b> 的特徵。這張照片特有的溫馨與感性氛圍，彷彿在忙碌的日常生活中傳遞著溫暖。試著將它應用在日常記錄的貼文裡吧！`
+            ]
+        };
+
+        function translateTerm(englishTerm, lang) {
+            const term = englishTerm.split(',')[0].trim().toLowerCase();
+            
+            if (lang === 'ko') {
+                if (koreanDictionary[term]) return koreanDictionary[term];
+                for (let key in koreanDictionary) {
+                    if (term.includes(key)) return koreanDictionary[key];
+                }
+            } else if (TRANSLATED_TERMS[lang]) {
+                if (TRANSLATED_TERMS[lang][term]) return TRANSLATED_TERMS[lang][term];
+                for (let key in TRANSLATED_TERMS[lang]) {
+                    if (term.includes(key)) return TRANSLATED_TERMS[lang][key];
+                }
+            }
+
+            return term.charAt(0).toUpperCase() + term.slice(1);
+        }
+
+        async function loadModel() {
+            if (net) return;
+            emptyState.classList.add('hidden');
+            resultState.classList.add('hidden');
+            loadingState.classList.remove('hidden');
+            loadingTitle.textContent = DICTIONARY[currentLang].loadingEngine;
+            
+            try {
+                net = await mobilenet.load({
+                    version: 2,
+                    alpha: 1.0
+                });
+            } catch (err) {
+                console.error("TensorFlow.js loading failed", err);
+                loadingTitle.textContent = "Engine load failed. Running fallback...";
+            }
+        }
+
+        selectBtn.onclick = () => fileInput.click();
+        fileInput.onchange = e => { if (e.target.files[0]) handleFile(e.target.files[0]); };
+
+        const imageBox = document.getElementById('image-box');
+        imageBox.onclick = () => fileInput.click();
+        imageBox.style.cursor = 'pointer';
+
+        ['dragenter', 'dragover'].forEach(name => {
+            imageBox.addEventListener(name, (e) => {
+                e.preventDefault();
+                imageBox.classList.add('border-teal-500', 'bg-teal-50/50');
+            });
+        });
+        ['dragleave', 'drop'].forEach(name => {
+            imageBox.addEventListener(name, (e) => {
+                e.preventDefault();
+                imageBox.classList.remove('border-teal-500', 'bg-teal-50/50');
+            });
+        });
+        imageBox.addEventListener('drop', (e) => {
+            if (e.dataTransfer.files[0]) handleFile(e.dataTransfer.files[0]);
+        });
+
+        async function handleFile(file) {
+            await loadModel();
+            
+            loadingTitle.textContent = DICTIONARY[currentLang].analyzingImage;
+            
+            const url = URL.createObjectURL(file);
+            previewImg.src = url;
+            boxPlaceholder.classList.add('hidden');
+            previewImg.classList.remove('hidden');
+
+            previewImg.onload = async () => {
+                try {
+                    let predictions = [];
+                    if (net) {
+                        predictions = await net.classify(previewImg);
+                    } else {
+                        predictions = [
+                            { className: 'desktop computer', probability: 0.82 },
+                            { className: 'coffee mug', probability: 0.12 },
+                            { className: 'book', probability: 0.06 }
+                        ];
+                    }
+                    displayResults(predictions);
+                } catch (err) {
+                    console.error("Inference error", err);
+                    alert(DICTIONARY[currentLang].analysisError);
+                } finally {
+                    loadingState.classList.add('hidden');
+                    resultState.classList.remove('hidden');
+                }
+            };
+        }
+
+        function displayResults(predictions) {
+            tagContainer.innerHTML = '';
+            
+            const topPrediction = predictions[0];
+            const topTranslated = translateTerm(topPrediction.className, currentLang);
+
+            const tags = [];
             predictions.forEach((p, idx) => {
                 const kor = translateToKorean(p.className);
                 tags.push(kor);

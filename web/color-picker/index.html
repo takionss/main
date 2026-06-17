@@ -212,17 +212,25 @@
     </style>
     <script src="../../adsense-loader.js"></script>
 </head>
-<body>
+    <div style="position: absolute; top: 15px; right: 15px;">
+        <select id="lang-select" onchange="changeLanguage(this.value)" style="padding: 6px 10px; border-radius: 6px; border: 1px solid var(--border-color); background: var(--card-bg); color: var(--text-color); font-size: 13px; font-weight: 600; cursor: pointer; outline: none; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+            <option value="ko">한국어</option>
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="ja">日本語</option>
+            <option value="zh-TW">繁體中文</option>
+        </select>
+    </div>
 
     <div class="meter-container">
         <div class="preview-box" id="preview-box">
-            <button class="eyedropper-btn" onclick="openEyeDropper()">
+            <button class="eyedropper-btn" onclick="openEyeDropper()" data-i18n="extract">
                 🔍 색상 추출하기
             </button>
         </div>
         <div class="content">
-            <div class="title">디지털 컬러 측정기</div>
-            <div class="unsupported" id="unsupported-msg">
+            <div class="title" data-i18n="title">디지털 컬러 측정기</div>
+            <div class="unsupported" id="unsupported-msg" data-i18n="unsupported">
                 * 이 브라우저는 외부 화면 색상 추출 API를 지원하지 않습니다. 아래 슬라이더를 이용해 주세요.
             </div>
 
@@ -230,17 +238,17 @@
                 <div class="value-row">
                     <span class="value-label">HEX</span>
                     <span class="value-text" id="val-hex">#0078D4</span>
-                    <button class="copy-btn" onclick="copyText('val-hex')">복사</button>
+                    <button class="copy-btn" onclick="copyText('val-hex')" data-i18n="copy">복사</button>
                 </div>
                 <div class="value-row">
                     <span class="value-label">RGB</span>
                     <span class="value-text" id="val-rgb">rgb(0, 120, 212)</span>
-                    <button class="copy-btn" onclick="copyText('val-rgb')">복사</button>
+                    <button class="copy-btn" onclick="copyText('val-rgb')" data-i18n="copy">복사</button>
                 </div>
                 <div class="value-row">
                     <span class="value-label">HSL</span>
                     <span class="value-text" id="val-hsl">hsl(206, 100%, 42%)</span>
-                    <button class="copy-btn" onclick="copyText('val-hsl')">복사</button>
+                    <button class="copy-btn" onclick="copyText('val-hsl')" data-i18n="copy">복사</button>
                 </div>
             </div>
 
@@ -263,7 +271,7 @@
             </div>
 
             <div class="history">
-                <div class="title" style="font-size:12px;">최근 선택한 색상</div>
+                <div class="title" style="font-size:12px;" data-i18n="recent">최근 선택한 색상</div>
                 <div class="history-list" id="history-list"></div>
             </div>
         </div>
@@ -274,6 +282,99 @@
 
 
     <script>
+        const TRANSLATIONS = {
+            ko: {
+                title: "디지털 컬러 측정기",
+                extract: "🔍 색상 추출하기",
+                unsupported: "* 이 브라우저는 외부 화면 색상 추출 API를 지원하지 않습니다. 아래 슬라이더를 이용해 주세요.",
+                copy: "복사",
+                recent: "최근 선택한 색상",
+                noSupportAlert: "사용하시는 브라우저가 화면 색상 스포이트(EyeDropper) API를 지원하지 않습니다.",
+                copiedAlert: "클립보드에 복사되었습니다: ",
+                htmlTitle: "디지털 컬러 측정기"
+            },
+            en: {
+                title: "Digital Color Meter",
+                extract: "🔍 Extract Color",
+                unsupported: "* This browser does not support the EyeDropper API. Please use the sliders below.",
+                copy: "Copy",
+                recent: "Recent Colors",
+                noSupportAlert: "Your browser does not support the EyeDropper API.",
+                copiedAlert: "Copied to clipboard: ",
+                htmlTitle: "Digital Color Meter"
+            },
+            es: {
+                title: "Medidor de Color Digital",
+                extract: "🔍 Extraer Color",
+                unsupported: "* Este navegador no es compatible con la API EyeDropper. Utilice los controles deslizantes a continuación.",
+                copy: "Copiar",
+                recent: "Colores Recientes",
+                noSupportAlert: "Su navegador no admite la API EyeDropper.",
+                copiedAlert: "Copiado al portapapeles: ",
+                htmlTitle: "Medidor de Color Digital"
+            },
+            ja: {
+                title: "デジタルカラーメーター",
+                extract: "🔍 色を抽出する",
+                unsupported: "* このブラウザはEyeDropper APIをサポートしていません。下のスライダーを使用してください。",
+                copy: "コピー",
+                recent: "最近選択した色",
+                noSupportAlert: "お使いのブラウザはEyeDropper APIをサポートしていません。",
+                copiedAlert: "クリップボードにコピーされました: ",
+                htmlTitle: "デジタルカラーメーター"
+            },
+            "zh-TW": {
+                title: "數位色彩測量儀",
+                extract: "🔍 提取顏色",
+                unsupported: "* 此瀏覽器不支援 EyeDropper API。請使用下方的滑桿。",
+                copy: "複製",
+                recent: "最近選擇的顏色",
+                noSupportAlert: "您的瀏覽器不支援 EyeDropper API。",
+                copiedAlert: "已複製到剪貼簿: ",
+                htmlTitle: "數位色彩測量儀"
+            }
+        };
+
+        let currentLang = 'ko';
+
+        function initLanguage() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const langParam = urlParams.get('lang');
+            const storedLang = localStorage.getItem('smileslife-preferred-lang');
+            
+            let defaultLang = 'ko';
+            if (langParam && TRANSLATIONS[langParam]) {
+                defaultLang = langParam;
+            } else if (storedLang && TRANSLATIONS[storedLang]) {
+                defaultLang = storedLang;
+            }
+            
+            changeLanguage(defaultLang);
+        }
+
+        function changeLanguage(lang) {
+            if (!TRANSLATIONS[lang]) return;
+            currentLang = lang;
+            localStorage.setItem('smileslife-preferred-lang', lang);
+            
+            const select = document.getElementById('lang-select');
+            if (select) select.value = lang;
+            
+            document.title = TRANSLATIONS[lang].htmlTitle;
+            document.documentElement.lang = lang;
+            
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (TRANSLATIONS[lang][key]) {
+                    if (key === 'extract') {
+                        el.innerHTML = TRANSLATIONS[lang][key];
+                    } else {
+                        el.textContent = TRANSLATIONS[lang][key];
+                    }
+                }
+            });
+        }
+
         let r = 0, g = 120, b = 212;
         let historyColors = ['#0078D4', '#E91E63', '#FFC107', '#4CAF50', '#FF5722'];
 
@@ -292,6 +393,7 @@
         const historyList = document.getElementById('history-list');
 
         window.onload = () => {
+            initLanguage();
             if (!window.EyeDropper) {
                 document.getElementById('unsupported-msg').style.display = 'block';
             }
@@ -301,7 +403,7 @@
 
         async function openEyeDropper() {
             if (!window.EyeDropper) {
-                alert('사용하시는 브라우저가 화면 색상 스포이트(EyeDropper) API를 지원하지 않습니다.');
+                alert(TRANSLATIONS[currentLang].noSupportAlert);
                 return;
             }
 
@@ -384,7 +486,7 @@
         function copyText(id) {
             const text = document.getElementById(id).innerText;
             navigator.clipboard.writeText(text).then(() => {
-                alert('클립보드에 복사되었습니다: ' + text);
+                alert(TRANSLATIONS[currentLang].copiedAlert + text);
             });
         }
 

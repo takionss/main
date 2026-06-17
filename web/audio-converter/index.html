@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>오디오 만능 변환기 (MP3, WAV, AAC, OGG 포맷 변환) | SmilesLife</title>
+    <title data-i18n="title">오디오 만능 변환기 (MP3, WAV, AAC, OGG 포맷 변환) | SmilesLife</title>
     
     <!-- SEO Meta Tags -->
     <meta name="description" content="웹 브라우저 내에서 즉시 연산되는 오디오 포맷 변환기입니다. MP3, WAV, AAC, OGG, M4A 형식 음원 파일을 서버 전송 없이 빠르고 안전하게 상호 변환하세요.">
@@ -30,18 +30,27 @@
 
     <!-- Header -->
     <header class="bg-white shadow-sm py-6 relative">
+        <div class="absolute top-4 right-4 z-20">
+            <select id="lang-select" class="bg-white border border-slate-200 rounded-lg px-3 py-1.5 text-sm font-medium outline-none focus:border-green-500 transition-colors shadow-sm">
+                <option value="ko">한국어</option>
+                <option value="en">English</option>
+                <option value="es">Español</option>
+                <option value="ja">日本語</option>
+                <option value="zh-TW">繁體中文</option>
+            </select>
+        </div>
         <div class="container mx-auto px-4 text-center">
             <h1 class="text-3xl font-bold text-green-600 flex items-center justify-center gap-2">
-                <i class="fas fa-file-audio"></i> 오디오 만능 변환기
+                <i class="fas fa-file-audio"></i> <span data-i18n="header_title">오디오 만능 변환기</span>
             </h1>
-            <p class="text-slate-500 mt-2">MP3, WAV, AAC 등 모든 오디오 파일을 브라우저에서 즉시 변환하세요.</p>
+            <p class="text-slate-500 mt-2" data-i18n="header_desc">MP3, WAV, AAC 등 모든 오디오 파일을 브라우저에서 즉시 변환하세요.</p>
         </div>
     </header>
 
     <main class="flex-grow container mx-auto px-4 py-12 max-w-3xl">
         
         <!-- App Container -->
-        <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100">
+        <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100 relative">
             
             <!-- Upload Area -->
             <div id="upload-container" class="p-8 md:p-12 text-center border-b border-slate-50">
@@ -49,10 +58,10 @@
                     <div class="w-16 h-16 bg-slate-50 rounded-full flex items-center justify-center mx-auto mb-4 text-slate-400 group-hover:bg-green-100 group-hover:text-green-500 transition-colors">
                         <i class="fas fa-music text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-2">오디오 파일을 업로드하세요</h3>
-                    <p class="text-slate-400 mb-6 text-sm">또는 여기로 드래그 앤 드롭 하세요</p>
+                    <h3 class="text-xl font-bold mb-2" data-i18n="upload_title">오디오 파일을 업로드하세요</h3>
+                    <p class="text-slate-400 mb-6 text-sm" data-i18n="upload_desc">또는 여기로 드래그 앤 드롭 하세요</p>
                     <input type="file" id="file-input" class="hidden" accept="audio/*">
-                    <button onclick="document.getElementById('file-input').click()" class="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-xl font-bold shadow-lg transition-all">
+                    <button onclick="document.getElementById('file-input').click()" class="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-xl font-bold shadow-lg transition-all" data-i18n="btn_select_file">
                         파일 선택하기
                     </button>
                 </div>
@@ -78,7 +87,7 @@
                 <div class="grid sm:grid-cols-2 gap-6">
                     <div>
                         <label class="block text-sm font-bold text-slate-700 mb-3 flex items-center gap-2">
-                            <i class="fas fa-sign-out-alt text-green-500"></i> 변환할 형식 선택
+                            <i class="fas fa-sign-out-alt text-green-500"></i> <span data-i18n="label_convert_to">변환할 형식 선택</span>
                         </label>
                         <select id="format-select" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-green-500 transition-colors font-medium">
                             <option value="mp3">MP3 (MPEG-1 Audio Layer III)</option>
@@ -90,7 +99,7 @@
                     </div>
                     <div class="flex flex-col justify-end">
                         <button id="convert-btn" class="w-full bg-slate-900 hover:bg-black text-white font-bold py-3.5 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2">
-                            <i class="fas fa-sync-alt"></i> 지금 변환하기
+                            <i class="fas fa-sync-alt"></i> <span data-i18n="btn_convert">지금 변환하기</span>
                         </button>
                     </div>
                 </div>
@@ -98,7 +107,7 @@
                 <!-- Progress Bar (Hidden during idle) -->
                 <div id="progress-container" class="hidden space-y-3">
                     <div class="flex justify-between text-sm">
-                        <span id="status-text" class="text-slate-500 font-medium italic animate-pulse">인코딩 진행 중...</span>
+                        <span id="status-text" class="text-slate-500 font-medium italic animate-pulse" data-i18n="status_analyzing">파일 분석 중...</span>
                         <span id="progress-val" class="text-green-600 font-bold">0%</span>
                     </div>
                     <div class="w-full bg-slate-100 h-3 rounded-full overflow-hidden">
@@ -111,9 +120,9 @@
                     <div class="w-12 h-12 bg-green-500 text-white rounded-full flex items-center justify-center mx-auto mb-2 text-xl shadow-lg shadow-green-200">
                         <i class="fas fa-check"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-green-800">변환이 완료되었습니다!</h3>
+                    <h3 class="text-lg font-bold text-green-800" data-i18n="result_title">변환이 완료되었습니다!</h3>
                     <button id="download-btn" class="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-10 py-3.5 rounded-xl font-bold transition-all shadow-md">
-                        <i class="fas fa-download"></i> 변환된 파일 다운로드
+                        <i class="fas fa-download"></i> <span data-i18n="btn_download">변환된 파일 다운로드</span>
                     </button>
                 </div>
             </div>
@@ -124,8 +133,8 @@
                     <div class="absolute inset-0 border-4 border-slate-100 rounded-full"></div>
                     <div class="absolute inset-0 border-4 border-green-500 rounded-full border-t-transparent animate-spin"></div>
                 </div>
-                <h3 class="text-xl font-bold mb-2">엔진 초기화 중...</h3>
-                <p class="text-slate-400 text-sm">최초 실행 시 변환 엔진(WASM)을 다운로드하느라<br>몇 초 정도 시간이 걸릴 수 있습니다.</p>
+                <h3 class="text-xl font-bold mb-2" data-i18n="init_engine_title">엔진 초기화 중...</h3>
+                <p class="text-slate-400 text-sm" data-i18n="init_engine_desc">최초 실행 시 변환 엔진(WASM)을 다운로드하느라<br>몇 초 정도 시간이 걸릴 수 있습니다.</p>
             </div>
 
         </div>
@@ -134,10 +143,10 @@
 
     <!-- Footer -->
     <footer class="py-8 text-center text-slate-400 text-sm">
-                        <!-- Google Auto Ads Optimization Space -->
+        <!-- Google Auto Ads Optimization Space -->
         <div class="adsense-container" style="clear: both; margin: 20px auto; width: 100%; max-width: 970px; min-height: 50px;"></div>
 
-<p>© 2026 AI Utility Web. 브라우저 내장 기술을 사용하여 안전하게 변환합니다.</p>
+        <p data-i18n="footer_text">© 2026 AI Utility Web. 브라우저 내장 기술을 사용하여 안전하게 변환합니다.</p>
     </footer>
 
     <!-- Pure JS Audio Libraries (No SharedArrayBuffer required) -->
