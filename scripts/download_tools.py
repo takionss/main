@@ -98,7 +98,7 @@ def main():
         
     print(f"Resolved primary (ko) sheet as: '{ko_sheet_name}'")
 
-    def parse_sheet(sheet):
+    def parse_sheet(sheet, lang='ko'):
         rows_data = []
         default_icon = "images/world.png"
         for row_idx, row in enumerate(sheet.iter_rows(values_only=True), 1):
@@ -123,7 +123,14 @@ def main():
                 continue
             
             if not group:
-                group = "기타"
+                if lang == 'ko':
+                    group = "기타"
+                elif lang == 'ja':
+                    group = "その他"
+                elif lang == 'zh-TW':
+                    group = "其他"
+                else:
+                    group = "Etc"
             if not icon:
                 icon = default_icon
                 
@@ -137,7 +144,7 @@ def main():
         return rows_data
 
     # Parse primary data
-    ko_rows = parse_sheet(wb[ko_sheet_name])
+    ko_rows = parse_sheet(wb[ko_sheet_name], 'ko')
     
     # Load HTML template
     template_path = os.path.join("templates", "index_normal_template.html")
@@ -158,7 +165,7 @@ def main():
             sheet_rows = ko_rows
         elif lang in wb.sheetnames:
             print(f"Processing language sheet: {lang}")
-            sheet_rows = parse_sheet(wb[lang])
+            sheet_rows = parse_sheet(wb[lang], lang)
         else:
             print(f"Language sheet '{lang}' not found. Falling back to primary (ko) sheet data.")
             sheet_rows = ko_rows
