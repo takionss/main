@@ -286,12 +286,6 @@
           "url": "web/notepad/index.html",
           "icon": "images/notepad.png",
           "desc": "A simple web notepad that automatically saves your writing"
-        },
-        {
-          "name": "Insurance consultation",
-          "url": "https://consult.smileslife.co.kr/",
-          "icon": "images/health.png",
-          "desc": "Free personalized insurance analysis suggested by an expert"
         }
       ]
     },
@@ -470,12 +464,6 @@
           "url": "web/notepad/index.html",
           "icon": "images/notepad.png",
           "desc": "Un sencillo bloc de notas web que guarda automáticamente lo que escribes."
-        },
-        {
-          "name": "Consulta de seguros",
-          "url": "https://consult.smileslife.co.kr/",
-          "icon": "images/health.png",
-          "desc": "Análisis de seguro personalizado gratuito sugerido por un experto"
         }
       ]
     },
@@ -654,12 +642,6 @@
           "url": "web/notepad/index.html",
           "icon": "images/notepad.png",
           "desc": "作成内容が自動的にアーカイブされる簡単なWebメモ帳"
-        },
-        {
-          "name": "保険相談",
-          "url": "https://consult.smileslife.co.kr/",
-          "icon": "images/health.png",
-          "desc": "専門家が無料で提案するカスタムメイドの保険分析"
         }
       ]
     },
@@ -838,12 +820,6 @@
           "url": "web/notepad/index.html",
           "icon": "images/notepad.png",
           "desc": "一個簡單的網頁記事本，可以自動儲存你的文字。"
-        },
-        {
-          "name": "保險諮詢",
-          "url": "https://consult.smileslife.co.kr/",
-          "icon": "images/health.png",
-          "desc": "專家建議的免費個人化保險分析"
         }
       ]
     },
