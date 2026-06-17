@@ -9,6 +9,14 @@ URL = "https://docs.google.com/spreadsheets/d/1RRpkarZGReZMb243IsGNQfP1Urzs5Fh24
 LANGUAGES = ['ko', 'en', 'es', 'ja', 'zh-TW']
 WALLPAPER_GROUPS = ['배경화면', 'Wallpaper', 'Wallpapers', 'Background', 'Backgrounds', 'Fondo de pantalla', '壁紙', '背景', '背景图片']
 
+def resolve_url(url_str):
+    if not url_str:
+        return ""
+    if url_str.startswith("http://") or url_str.startswith("https://") or url_str.startswith("//"):
+        return url_str
+    return "/" + url_str.lstrip("/")
+
+
 TRANSLATIONS = {
     'ko': {
         't_title': 'SmilesLife Portal - 일반 모드',
@@ -205,8 +213,10 @@ def main():
             
             for item in group["items"]:
                 desc_html = f'                            <div class="item-desc">{item["desc"]}</div>\n' if item["desc"] else ""
-                portal_content_html += f'                        <a class="item-card" href="/{item["url"]}" target="_blank">\n'
-                portal_content_html += f'                            <img src="/{item["icon"]}" class="item-icon" alt="{item["name"]}">\n'
+                resolved_url = resolve_url(item["url"])
+                resolved_icon = resolve_url(item["icon"])
+                portal_content_html += f'                        <a class="item-card" href="{resolved_url}" target="_blank">\n'
+                portal_content_html += f'                            <img src="{resolved_icon}" class="item-icon" alt="{item["name"]}">\n'
                 portal_content_html += f'                            <div class="item-name">{item["name"]}</div>\n'
                 portal_content_html += desc_html
                 portal_content_html += '                        </a>\n'
