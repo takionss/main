@@ -428,7 +428,7 @@
           "name": "Arena de batalla",
           "url": "game/battle_arena/index.html",
           "icon": "images/battle.png",
-          "desc": "Juego de acción y batalla de supervivencia en arena para 50 jugadores"
+          "desc": "Juego de acción y batalla de supervivencia para 50 jugadores"
         },
         {
           "name": "Stella Vanguard",
