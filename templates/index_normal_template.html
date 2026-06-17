@@ -632,9 +632,11 @@
                 document.querySelectorAll('a.item-card').forEach(link => {
                     try {
                         let targetUrl = link.href;
-                        // 구글 설문지(Google Forms) 등 다국어 번역이 필요한 주소는 구글 번역기 서비스를 연동하여 페이지 내용까지 번역되도록 합니다.
+                        // 구글 설문지(Google Forms) 다국어 처리 (시스템 번역 파라미터 적용)
                         if (targetUrl.includes('forms.gle') || targetUrl.includes('docs.google.com/forms')) {
-                            targetUrl = `https://translate.google.com/translate?sl=ko&tl=${pageLang}&u=${encodeURIComponent(targetUrl)}`;
+                            if (!targetUrl.includes('hl=')) {
+                                targetUrl = targetUrl.includes('?') ? `${targetUrl}&hl=${pageLang}` : `${targetUrl}?hl=${pageLang}`;
+                            }
                             link.href = targetUrl;
                         } else {
                             const url = new URL(targetUrl);
