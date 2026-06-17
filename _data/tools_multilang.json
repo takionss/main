@@ -405,7 +405,7 @@
           "name": "Arena de batalla",
           "url": "game/battle_arena/index.html",
           "icon": "images/battle.png",
-          "desc": "Juego de acción y batalla de supervivencia para 50 jugadores"
+          "desc": "Juego de acción y batalla de supervivencia en arena para 50 jugadores"
         },
         {
           "name": "Stella Vanguard",
@@ -470,7 +470,7 @@
           "name": "Planificación de activos comunitarios FIRE",
           "url": "https://fire.smileslife.co.kr/",
           "icon": "images/icon_fire.png",
-          "desc": "Consejos de planificación patrimonial para la comunidad FIRE: Preparándose para la libertad financiera"
+          "desc": "Consejos de planificación patrimonial para la comunidad FIRE: Preparándose para la libertad financiera."
         },
         {
           "name": "Ingresos pasivos por automatización",
@@ -671,18 +671,6 @@
       "name": "網路服務",
       "items": [
         {
-          "name": "圖片背景移除",
-          "url": "web/background-removal/index.html",
-          "icon": "images/generative-image.png",
-          "desc": "基於人工智慧的圖像背景去除和摳圖"
-        },
-        {
-          "name": "GIF轉換器",
-          "url": "web/image-to-gif/index.html",
-          "icon": "images/gif-file.png",
-          "desc": "透過組合圖像創建動畫 GIF"
-        },
-        {
           "name": "音訊轉換器",
           "url": "web/audio-converter/index.html",
           "icon": "images/volume-adjustment.png",
@@ -707,12 +695,6 @@
           "desc": "將照片轉換為卡通/網路漫畫動畫風格"
         },
         {
-          "name": "影像人工智慧分析",
-          "url": "web/image-tagging/index.html",
-          "icon": "images/image.png",
-          "desc": "AI影像分析、物件辨識、標籤推薦和短語生成"
-        },
-        {
           "name": "色度計",
           "url": "web/color-picker/index.html",
           "icon": "images/color.png",
@@ -724,22 +706,10 @@
       "name": "遊戲",
       "items": [
         {
-          "name": "戰鬥競技場",
-          "url": "game/battle_arena/index.html",
-          "icon": "images/battle.png",
-          "desc": "50人生存戰鬥競技場動作遊戲"
-        },
-        {
           "name": "星之先鋒",
           "url": "game/stella_vanguard/index.html",
           "icon": "images/digital.png",
           "desc": "橫版捲軸太空船飛行射擊動作遊戲"
-        },
-        {
-          "name": "塔羅牌",
-          "url": "web/lotto_tarot/index.html",
-          "icon": "images/lottery.png",
-          "desc": "今日塔羅牌占卜與人工智慧諮詢"
         },
         {
           "name": "掃雷",
@@ -759,12 +729,6 @@
       "name": "知識與趨勢",
       "items": [
         {
-          "name": "人工智慧趨勢門戶",
-          "url": "https://ai.smileslife.co.kr/",
-          "icon": "images/icon_ai.png",
-          "desc": "最新人工智慧技術趨勢和人工智慧趨勢訊息"
-        },
-        {
           "name": "商業洞察",
           "url": "https://business.smileslife.co.kr/",
           "icon": "images/icon_business.png",
@@ -781,12 +745,6 @@
           "url": "https://curiosity.smileslife.co.kr/",
           "icon": "images/icon_curiosity.png",
           "desc": "探索世界各地有趣的知識、謎團和奇聞異事"
-        },
-        {
-          "name": "智慧金融資訊",
-          "url": "https://finance.smileslife.co.kr/",
-          "icon": "images/icon_finance.png",
-          "desc": "合理的資產管理和高效的財務資訊門戶"
         },
         {
           "name": "消防社區資產規劃",
