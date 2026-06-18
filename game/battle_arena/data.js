@@ -1,1 +1,7169 @@
-const a0_0x460254=a0_0x4e57;(function(_0x452105,_0x5d90b4){const _0x948500=a0_0x4e57,_0x43a04d=_0x452105();while(!![]){try{const _0x4bd922=parseInt(_0x948500(0x5a9))/0x1+parseInt(_0x948500(0x12a))/0x2*(-parseInt(_0x948500(0x7fa))/0x3)+-parseInt(_0x948500(0x736))/0x4+-parseInt(_0x948500(0x568))/0x5+parseInt(_0x948500(0x45d))/0x6+parseInt(_0x948500(0x46c))/0x7*(-parseInt(_0x948500(0x3e3))/0x8)+parseInt(_0x948500(0x12e))/0x9*(parseInt(_0x948500(0x185))/0xa);if(_0x4bd922===_0x5d90b4)break;else _0x43a04d['push'](_0x43a04d['shift']());}catch(_0x286f35){_0x43a04d['push'](_0x43a04d['shift']());}}}(a0_0x5f29,0xbcd4b));const a0_0x818038=(function(){let _0x579ea5=!![];return function(_0x3cedf8,_0x3cf36d){const _0xa91764=_0x579ea5?function(){const _0x117bdb=a0_0x4e57;if(_0x3cf36d){const _0x5e0c4e=_0x3cf36d[_0x117bdb(0x486)](_0x3cedf8,arguments);return _0x3cf36d=null,_0x5e0c4e;}}:function(){};return _0x579ea5=![],_0xa91764;};}()),a0_0x3c2025=a0_0x818038(this,function(){const _0x233dfc=a0_0x4e57,_0x12e4f0={'\x4e\x69\x47\x4a\x62':_0x233dfc(0x8e8)};return a0_0x3c2025[_0x233dfc(0x2ff)]()[_0x233dfc(0x775)]('\x28\x28\x28\x2e\x2b\x29\x2b\x29\x2b\x29\x2b\x24')[_0x233dfc(0x2ff)]()[_0x233dfc(0x89c)](a0_0x3c2025)[_0x233dfc(0x775)](_0x12e4f0[_0x233dfc(0x1b8)]);});a0_0x3c2025();function a0_0x4e57(_0x28989d,_0x5a0e5d){_0x28989d=_0x28989d-0xe0;const _0x358ebd=a0_0x5f29();let _0x3c2025=_0x358ebd[_0x28989d];return _0x3c2025;}import*as a0_0xe98f69 from'\x74\x68\x72\x65\x65';document[a0_0x460254(0x6ac)](a0_0x460254(0x793))[a0_0x460254(0x6b6)]('\x74\x6f\x75\x63\x68\x73\x74\x61\x72\x74',_0x55d23d=>{const _0x1e6142=a0_0x460254,_0x212f34={'\x47\x51\x7a\x4b\x74':function(_0x48a8f3){return _0x48a8f3();}};_0x55d23d[_0x1e6142(0x252)](),_0x212f34[_0x1e6142(0x3b1)](toggleInventory);}),document[a0_0x460254(0x6ac)](a0_0x460254(0x793))[a0_0x460254(0x6b6)](a0_0x460254(0x22a),()=>{const _0x57bb9f={'\x6c\x48\x55\x46\x62':function(_0x548aec){return _0x548aec();}};_0x57bb9f['\x6c\x48\x55\x46\x62'](toggleInventory);}),document[a0_0x460254(0x6b6)]('\x63\x6f\x6e\x74\x65\x78\x74\x6d\x65\x6e\x75',_0x59d77e=>_0x59d77e[a0_0x460254(0x252)]());const isTouchDevice=/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i['\x74\x65\x73\x74'](navigator['\x75\x73\x65\x72\x41\x67\x65\x6e\x74'])||'\x6f\x6e\x74\x6f\x75\x63\x68\x73\x74\x61\x72\x74'in window||navigator[a0_0x460254(0x57c)]>0x0;function initPlaneSeatsUI(){const _0x39a59d=a0_0x460254,_0x479faf={'\x6e\x4b\x55\x57\x55':_0x39a59d(0x826),'\x71\x59\x70\x41\x6c':function(_0x18e1a6,_0x553931){return _0x18e1a6<_0x553931;},'\x50\x6f\x45\x79\x4f':_0x39a59d(0x853),'\x61\x52\x6e\x44\x69':_0x39a59d(0x882),'\x49\x72\x63\x47\x57':'\x23\x66\x66\x33\x33\x33\x33'},_0x567fd4=document[_0x39a59d(0x6ac)](_0x479faf[_0x39a59d(0x246)]);if(!_0x567fd4)return;_0x567fd4[_0x39a59d(0x2dd)]='';for(let _0x48f739=0x0;_0x479faf[_0x39a59d(0x543)](_0x48f739,0x32);_0x48f739++){const _0x37b149=document[_0x39a59d(0x58c)](_0x479faf[_0x39a59d(0x3de)]);_0x37b149['\x69\x64']=_0x39a59d(0x6b7)+_0x48f739,_0x37b149[_0x39a59d(0x570)]['\x77\x69\x64\x74\x68']=_0x479faf[_0x39a59d(0x26a)],_0x37b149[_0x39a59d(0x570)][_0x39a59d(0x4da)]=_0x479faf[_0x39a59d(0x26a)],_0x37b149[_0x39a59d(0x570)][_0x39a59d(0x101)]=_0x39a59d(0x4e4),_0x37b149[_0x39a59d(0x570)]['\x62\x61\x63\x6b\x67\x72\x6f\x75\x6e\x64']=_0x479faf[_0x39a59d(0x5b2)],_0x37b149['\x73\x74\x79\x6c\x65'][_0x39a59d(0x6e1)]='\x30\x20\x30\x20\x34\x70\x78\x20\x23\x66\x66\x33\x33\x33\x33',_0x37b149[_0x39a59d(0x570)][_0x39a59d(0x4dc)]='\x61\x6c\x6c\x20\x30\x2e\x33\x73\x20\x65\x61\x73\x65',_0x567fd4[_0x39a59d(0xe5)](_0x37b149);}}function updatePlaneSeatsUI(){const _0x40f13c=a0_0x460254,_0x562851={'\x42\x4c\x44\x62\x51':_0x40f13c(0x60e),'\x74\x57\x75\x7a\x6b':'\x41\x49\x52\x50\x4c\x41\x4e\x45','\x4a\x75\x71\x45\x56':_0x40f13c(0x5dc),'\x75\x44\x41\x44\x61':function(_0x1801ff,_0x200cea){return _0x1801ff===_0x200cea;},'\x4e\x61\x71\x4f\x47':_0x40f13c(0x3e9),'\x4d\x47\x4e\x70\x53':_0x40f13c(0x38e),'\x62\x6a\x6f\x6a\x46':_0x40f13c(0x1c8),'\x52\x48\x47\x69\x66':_0x40f13c(0x307),'\x6e\x47\x65\x68\x63':function(_0x315bad,_0x45df8b){return _0x315bad<_0x45df8b;},'\x5a\x6e\x56\x75\x47':function(_0x33d2e6,_0x3d4fdb){return _0x33d2e6+_0x3d4fdb;},'\x66\x4a\x71\x56\x77':function(_0x3f74a1,_0x1746ff){return _0x3f74a1&&_0x1746ff;},'\x70\x42\x70\x64\x63':_0x40f13c(0x1d0),'\x64\x68\x4d\x50\x6e':'\x30\x20\x30\x20\x34\x70\x78\x20\x23\x66\x66\x33\x33\x33\x33','\x61\x68\x42\x42\x79':_0x40f13c(0x3ad)},_0x295692=document[_0x40f13c(0x6ac)](_0x562851['\x42\x4c\x44\x62\x51']);if(!_0x295692||gameState!==_0x562851[_0x40f13c(0x1ef)]){if(_0x295692)_0x295692[_0x40f13c(0x570)][_0x40f13c(0x2bf)]='\x6e\x6f\x6e\x65';return;}_0x295692[_0x40f13c(0x570)][_0x40f13c(0x2bf)]=_0x562851['\x4a\x75\x71\x45\x56'];const _0x5db306=_0x562851[_0x40f13c(0x2cb)](gameState,_0x562851[_0x40f13c(0x1ef)]);let _0x2d5ee9=_0x5db306?0x1:0x0;const _0x51ad67=document['\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64'](_0x562851['\x4e\x61\x71\x4f\x47']);_0x51ad67&&(_0x5db306?(_0x51ad67['\x73\x74\x79\x6c\x65'][_0x40f13c(0x43a)]=_0x562851[_0x40f13c(0x3c3)],_0x51ad67[_0x40f13c(0x570)][_0x40f13c(0x6e1)]=_0x562851['\x62\x6a\x6f\x6a\x46']):(_0x51ad67[_0x40f13c(0x570)][_0x40f13c(0x43a)]=_0x562851['\x52\x48\x47\x69\x66'],_0x51ad67[_0x40f13c(0x570)]['\x62\x6f\x78\x53\x68\x61\x64\x6f\x77']='\x6e\x6f\x6e\x65'));for(let _0x37fd65=0x0;_0x562851[_0x40f13c(0x633)](_0x37fd65,0x31);_0x37fd65++){const _0x4d230e=enemies[_0x37fd65],_0x526070=document[_0x40f13c(0x6ac)](_0x40f13c(0x6b7)+_0x562851['\x5a\x6e\x56\x75\x47'](_0x37fd65,0x1));if(_0x562851[_0x40f13c(0x573)](_0x4d230e,_0x526070)){const _0x264605=_0x562851[_0x40f13c(0x2cb)](_0x4d230e[_0x40f13c(0x626)],_0x562851[_0x40f13c(0x2e5)]);_0x264605?(_0x2d5ee9++,_0x526070[_0x40f13c(0x570)][_0x40f13c(0x43a)]=_0x40f13c(0x10d),_0x526070[_0x40f13c(0x570)]['\x62\x6f\x78\x53\x68\x61\x64\x6f\x77']=_0x562851[_0x40f13c(0x482)]):(_0x526070[_0x40f13c(0x570)][_0x40f13c(0x43a)]=_0x562851['\x52\x48\x47\x69\x66'],_0x526070[_0x40f13c(0x570)][_0x40f13c(0x6e1)]=_0x562851['\x61\x68\x42\x42\x79']);}}const _0x28968b=document[_0x40f13c(0x6ac)](_0x40f13c(0xe2));if(_0x28968b)_0x28968b[_0x40f13c(0x2d8)]=_0x2d5ee9;}isTouchDevice&&(document[a0_0x460254(0x840)][a0_0x460254(0x823)][a0_0x460254(0x5bf)]('\x74\x6f\x75\x63\x68\x2d\x64\x65\x76\x69\x63\x65'),document[a0_0x460254(0x6ac)](a0_0x460254(0x26d))[a0_0x460254(0x2dd)]='\ud83d\udce6\x20\uc8fc\ubcc0\uc5d0\x20\uc544\uc774\ud15c\uc774\x20\uc788\uc2b5\ub2c8\ub2e4\x2e\x20\uc90d\uae30\x20\ubc84\ud2bc\uc744\x20\ub20c\ub7ec\x20\ud68d\ub4dd\ud558\uc138\uc694\x21');document[a0_0x460254(0x6ac)](a0_0x460254(0x26d))[a0_0x460254(0x6b6)](a0_0x460254(0x32e),_0x10b26d=>{const _0x2a04d0=a0_0x460254,_0x5c733a={'\x43\x79\x75\x4c\x46':function(_0x353676){return _0x353676();}};_0x10b26d[_0x2a04d0(0x252)](),_0x5c733a['\x43\x79\x75\x4c\x46'](tryFastLoot);}),document[a0_0x460254(0x6ac)](a0_0x460254(0x26d))[a0_0x460254(0x6b6)](a0_0x460254(0x22a),()=>{tryFastLoot();});const AudioContext=window[a0_0x460254(0x7a1)]||window[a0_0x460254(0x73a)];let audioCtx=null,sfxVolumeNode=null,skydiveWindNode=null,skydiveWindGain=null,skydiveWindOsc=null;function initAudio(){const _0x514492=a0_0x460254,_0x4da502={'\x45\x5a\x77\x48\x67':function(_0x3a72ae,_0x328720){return _0x3a72ae===_0x328720;},'\x55\x4e\x5a\x48\x50':_0x514492(0x2cd),'\x5a\x62\x66\x4a\x6e':_0x514492(0x731)};if(audioCtx){_0x4da502['\x45\x5a\x77\x48\x67'](audioCtx[_0x514492(0x626)],_0x4da502[_0x514492(0x87d)])&&audioCtx['\x72\x65\x73\x75\x6d\x65']();return;}try{audioCtx=new AudioContext(),sfxVolumeNode=audioCtx[_0x514492(0x280)](),sfxVolumeNode[_0x514492(0x7ae)][_0x514492(0x25e)](0x1,audioCtx[_0x514492(0x23b)]),sfxVolumeNode[_0x514492(0x7e6)](audioCtx[_0x514492(0x8a7)]);}catch(_0x4b248d){console[_0x514492(0x1f8)](_0x4da502[_0x514492(0x420)],_0x4b248d);}}function getSfxDestination(){const _0x45d591=a0_0x460254,_0x1bf5d2={'\x70\x57\x4a\x7a\x52':function(_0x15e60f){return _0x15e60f();}};return _0x1bf5d2[_0x45d591(0x462)](initAudio),sfxVolumeNode||audioCtx[_0x45d591(0x8a7)];}let bgmInterval=null,bgmNodes=[],planeNodes=[],planePropellers=[],planeNavLights=[],bgmEnabled=![],sfxEnabled=!![];const SoundSystem={'\x70\x6c\x61\x79\x42\x47\x4d'(){const _0x328aeb=a0_0x460254,_0x1546f0={'\x6e\x4f\x72\x4b\x46':'\x73\x61\x77\x74\x6f\x6f\x74\x68','\x48\x67\x63\x6b\x77':function(_0x563526,_0xeaf3e5){return _0x563526+_0xeaf3e5;},'\x44\x6f\x47\x77\x4a':function(_0x4fbbfd,_0x398f63){return _0x4fbbfd===_0x398f63;},'\x62\x49\x57\x68\x75':_0x328aeb(0x8cf),'\x57\x71\x50\x55\x4b':'\x73\x69\x6e\x65','\x76\x48\x73\x7a\x42':function(_0x3032f6,_0x3b0966){return _0x3032f6+_0x3b0966;},'\x66\x5a\x6c\x7a\x63':function(_0x1ca968,_0x4605df){return _0x1ca968+_0x4605df;},'\x69\x69\x73\x4e\x48':'\x73\x71\x75\x61\x72\x65','\x4a\x59\x4d\x69\x75':function(_0x29fdbf,_0x1a42a5){return _0x29fdbf*_0x1a42a5;},'\x6a\x76\x59\x69\x48':_0x328aeb(0x592),'\x71\x42\x45\x77\x63':function(_0x1980b5,_0x1bd903){return _0x1980b5+_0x1bd903;},'\x4e\x75\x72\x52\x62':function(_0x449257,_0x1b90bc){return _0x449257+_0x1b90bc;},'\x6a\x65\x61\x75\x61':function(_0x435245,_0x2c9f6d){return _0x435245===_0x2c9f6d;},'\x4a\x46\x43\x6a\x64':_0x328aeb(0x2d1),'\x6c\x72\x74\x43\x57':function(_0x1b3a1a,_0x344d30){return _0x1b3a1a<_0x344d30;},'\x77\x63\x57\x74\x46':'\x62\x61\x6e\x64\x70\x61\x73\x73','\x66\x52\x55\x57\x72':_0x328aeb(0x428),'\x73\x71\x58\x50\x6c':function(_0x43a8a6,_0x335992){return _0x43a8a6-_0x335992;},'\x6b\x73\x5a\x45\x6d':'\x68\x69\x67\x68\x70\x61\x73\x73','\x68\x6b\x71\x6b\x7a':function(_0x468ca1,_0x2193a8){return _0x468ca1+_0x2193a8;},'\x78\x5a\x49\x67\x77':function(_0x4ab3db,_0x457628){return _0x4ab3db*_0x457628;},'\x6e\x48\x61\x44\x4c':function(_0x2ae586,_0x23d4a2){return _0x2ae586*_0x23d4a2;},'\x6d\x73\x6d\x4e\x67':function(_0x404d0f,_0x157954){return _0x404d0f+_0x157954;},'\x43\x4a\x6d\x72\x4b':'\x74\x72\x69\x61\x6e\x67\x6c\x65','\x53\x4d\x4e\x74\x57':function(_0x4bc399,_0x127c0d){return _0x4bc399+_0x127c0d;},'\x57\x6b\x6f\x5a\x71':function(_0x2f1658,_0x3f163a){return _0x2f1658+_0x3f163a;},'\x74\x50\x59\x6d\x67':function(_0x4395a2,_0x2e67f0){return _0x4395a2===_0x2e67f0;},'\x79\x53\x78\x67\x47':function(_0x150122,_0x59f592){return _0x150122===_0x59f592;},'\x77\x4c\x75\x78\x76':function(_0x55ff3e,_0x4d857d){return _0x55ff3e===_0x4d857d;},'\x6f\x50\x65\x6f\x73':function(_0x352a49,_0x7cb87){return _0x352a49===_0x7cb87;},'\x54\x41\x5a\x55\x67':function(_0x4e30c4,_0x347e13){return _0x4e30c4===_0x347e13;},'\x68\x56\x71\x56\x74':function(_0x7fd114,_0x2290ad){return _0x7fd114===_0x2290ad;},'\x53\x4e\x6a\x6b\x66':function(_0x5c0365,_0x48c55b){return _0x5c0365===_0x48c55b;},'\x65\x56\x55\x78\x41':function(_0x30091e,_0x3b87b0){return _0x30091e===_0x3b87b0;},'\x4d\x54\x56\x4c\x65':function(_0x5c177e,_0x3d34f1){return _0x5c177e===_0x3d34f1;},'\x51\x67\x48\x49\x51':function(_0x5ebf72,_0xe242be,_0x3fbca5){return _0x5ebf72(_0xe242be,_0x3fbca5);},'\x72\x74\x73\x64\x4f':function(_0x197220,_0x5bf6ff){return _0x197220>=_0x5bf6ff;},'\x6a\x6b\x50\x65\x64':function(_0x318b1a,_0x413da6){return _0x318b1a%_0x413da6;},'\x5a\x44\x43\x6b\x66':function(_0x2b04e8,_0x565fa5){return _0x2b04e8===_0x565fa5;},'\x6f\x51\x71\x4f\x70':function(_0x878dc5,_0x326deb){return _0x878dc5(_0x326deb);},'\x43\x51\x55\x42\x61':function(_0x262dd0,_0x46c18f){return _0x262dd0===_0x46c18f;},'\x42\x48\x61\x54\x64':function(_0x51c915,_0x5b1026){return _0x51c915>_0x5b1026;},'\x77\x52\x6f\x44\x74':function(_0x282668,_0x30a428){return _0x282668(_0x30a428);},'\x61\x74\x6a\x50\x52':function(_0x2df20f,_0x322a97,_0x3ee42a){return _0x2df20f(_0x322a97,_0x3ee42a);},'\x67\x58\x6d\x4d\x58':_0x328aeb(0x81c),'\x69\x75\x79\x74\x78':function(_0x39b73a,_0x264704){return _0x39b73a===_0x264704;},'\x54\x74\x58\x79\x46':function(_0xd0bd4a,_0x3963b3){return _0xd0bd4a===_0x3963b3;},'\x63\x4f\x67\x74\x42':function(_0x497a50,_0x4fdee1){return _0x497a50===_0x4fdee1;},'\x76\x69\x50\x67\x6c':function(_0x5bd666){return _0x5bd666();},'\x4a\x4c\x59\x65\x56':function(_0x3833e9,_0x6383af){return _0x3833e9===_0x6383af;},'\x79\x6a\x54\x63\x57':_0x328aeb(0x2cd)};if(!bgmEnabled)return;_0x1546f0[_0x328aeb(0xef)](initAudio);if(!audioCtx)return;_0x1546f0[_0x328aeb(0x778)](audioCtx[_0x328aeb(0x626)],_0x1546f0[_0x328aeb(0x64c)])&&audioCtx[_0x328aeb(0x8c4)]();this[_0x328aeb(0x535)]();try{const _0x4182f9=audioCtx[_0x328aeb(0x280)]();_0x4182f9[_0x328aeb(0x7ae)][_0x328aeb(0x25e)](0x0,audioCtx[_0x328aeb(0x23b)]),_0x4182f9[_0x328aeb(0x7ae)][_0x328aeb(0x70b)](0.55,audioCtx['\x63\x75\x72\x72\x65\x6e\x74\x54\x69\x6d\x65']+0x3),_0x4182f9[_0x328aeb(0x7e6)](audioCtx['\x64\x65\x73\x74\x69\x6e\x61\x74\x69\x6f\x6e']);const _0x3eb6cc=audioCtx[_0x328aeb(0x361)]();_0x3eb6cc[_0x328aeb(0x488)]=_0x1546f0[_0x328aeb(0xe6)],_0x3eb6cc['\x66\x72\x65\x71\x75\x65\x6e\x63\x79']['\x73\x65\x74\x56\x61\x6c\x75\x65\x41\x74\x54\x69\x6d\x65'](41.2,audioCtx[_0x328aeb(0x23b)]);const _0x41e4e1=audioCtx[_0x328aeb(0x2ed)]();_0x41e4e1[_0x328aeb(0x488)]=_0x1546f0[_0x328aeb(0x100)],_0x41e4e1[_0x328aeb(0x335)][_0x328aeb(0x30b)]=0x8c;const _0x44cbd6=audioCtx['\x63\x72\x65\x61\x74\x65\x47\x61\x69\x6e']();_0x44cbd6[_0x328aeb(0x7ae)][_0x328aeb(0x30b)]=0.35,_0x3eb6cc['\x63\x6f\x6e\x6e\x65\x63\x74'](_0x41e4e1)[_0x328aeb(0x7e6)](_0x44cbd6)['\x63\x6f\x6e\x6e\x65\x63\x74'](_0x4182f9),_0x3eb6cc[_0x328aeb(0x3e6)](),bgmNodes[_0x328aeb(0x1a4)](_0x3eb6cc,_0x44cbd6,_0x41e4e1);const _0x29ed2f=(_0x598fd4=_0x328aeb(0x8cf),_0x3cadc7=0x78)=>{const _0x41bed1=_0x328aeb,_0x4a62b9={'\x4c\x7a\x76\x6e\x75':_0x1546f0[_0x41bed1(0xe6)],'\x45\x75\x55\x45\x76':function(_0x2ab48c,_0x12f7bb){return _0x2ab48c*_0x12f7bb;},'\x44\x42\x75\x68\x70':_0x41bed1(0x592),'\x43\x6e\x51\x43\x71':function(_0x29ee58,_0x5c3602){const _0x3d2ea0=_0x41bed1;return _0x1546f0[_0x3d2ea0(0x837)](_0x29ee58,_0x5c3602);}};if(!audioCtx)return;const _0x18d6c1=audioCtx['\x63\x75\x72\x72\x65\x6e\x74\x54\x69\x6d\x65'];if(_0x1546f0[_0x41bed1(0x352)](_0x598fd4,_0x1546f0[_0x41bed1(0x105)])){const _0x1668d4=audioCtx[_0x41bed1(0x361)]();_0x1668d4['\x74\x79\x70\x65']=_0x1546f0[_0x41bed1(0x88c)],_0x1668d4[_0x41bed1(0x335)][_0x41bed1(0x25e)](_0x3cadc7,_0x18d6c1),_0x1668d4[_0x41bed1(0x335)][_0x41bed1(0x2f5)](0xa,_0x1546f0[_0x41bed1(0x571)](_0x18d6c1,0.6));const _0x1c820e=audioCtx[_0x41bed1(0x280)]();_0x1c820e[_0x41bed1(0x7ae)][_0x41bed1(0x25e)](0.85,_0x18d6c1),_0x1c820e[_0x41bed1(0x7ae)][_0x41bed1(0x2f5)](0.001,_0x1546f0[_0x41bed1(0x34c)](_0x18d6c1,0.6)),_0x1668d4[_0x41bed1(0x7e6)](_0x1c820e)[_0x41bed1(0x7e6)](_0x4182f9),_0x1668d4[_0x41bed1(0x3e6)](_0x18d6c1),_0x1668d4['\x73\x74\x6f\x70'](_0x1546f0[_0x41bed1(0x837)](_0x18d6c1,0.6));const _0x5922c9=audioCtx[_0x41bed1(0x361)]();_0x5922c9[_0x41bed1(0x488)]=_0x1546f0[_0x41bed1(0x7d1)],_0x5922c9[_0x41bed1(0x335)][_0x41bed1(0x25e)](_0x1546f0[_0x41bed1(0x49e)](_0x3cadc7,0.66),_0x18d6c1);const _0x3ee7f4=audioCtx[_0x41bed1(0x2ed)]();_0x3ee7f4[_0x41bed1(0x488)]=_0x1546f0[_0x41bed1(0x100)],_0x3ee7f4['\x66\x72\x65\x71\x75\x65\x6e\x63\x79']['\x73\x65\x74\x56\x61\x6c\x75\x65\x41\x74\x54\x69\x6d\x65'](0x708,_0x18d6c1),_0x3ee7f4[_0x41bed1(0x335)]['\x65\x78\x70\x6f\x6e\x65\x6e\x74\x69\x61\x6c\x52\x61\x6d\x70\x54\x6f\x56\x61\x6c\x75\x65\x41\x74\x54\x69\x6d\x65'](0x64,_0x1546f0[_0x41bed1(0x3f9)](_0x18d6c1,0.5));const _0x13b68c=audioCtx[_0x41bed1(0x280)]();_0x13b68c[_0x41bed1(0x7ae)][_0x41bed1(0x25e)](0.2,_0x18d6c1),_0x13b68c[_0x41bed1(0x7ae)][_0x41bed1(0x2f5)](0.001,_0x1546f0[_0x41bed1(0x797)](_0x18d6c1,0.5)),_0x5922c9[_0x41bed1(0x7e6)](_0x3ee7f4)[_0x41bed1(0x7e6)](_0x13b68c)[_0x41bed1(0x7e6)](_0x4182f9),_0x5922c9[_0x41bed1(0x3e6)](_0x18d6c1),_0x5922c9[_0x41bed1(0x260)](_0x1546f0[_0x41bed1(0x797)](_0x18d6c1,0.5));}else{if(_0x1546f0[_0x41bed1(0x480)](_0x598fd4,_0x1546f0[_0x41bed1(0x1c2)])){const _0x2461c2=audioCtx[_0x41bed1(0x103)]*0.1,_0x1e6628=audioCtx[_0x41bed1(0x346)](0x1,_0x2461c2,audioCtx[_0x41bed1(0x103)]),_0x1b61f4=_0x1e6628[_0x41bed1(0x7a2)](0x0);for(let _0x1cb490=0x0;_0x1546f0[_0x41bed1(0x5f5)](_0x1cb490,_0x2461c2);_0x1cb490++)_0x1b61f4[_0x1cb490]=_0x1546f0[_0x41bed1(0x49e)](Math['\x72\x61\x6e\x64\x6f\x6d'](),0x2)-0x1;const _0x59a613=audioCtx[_0x41bed1(0x5bc)]();_0x59a613['\x62\x75\x66\x66\x65\x72']=_0x1e6628;const _0x59396b=audioCtx[_0x41bed1(0x2ed)]();_0x59396b['\x74\x79\x70\x65']=_0x1546f0[_0x41bed1(0x2fa)],_0x59396b[_0x41bed1(0x335)][_0x41bed1(0x30b)]=0x578;const _0x891a6f=audioCtx[_0x41bed1(0x280)]();_0x891a6f[_0x41bed1(0x7ae)][_0x41bed1(0x25e)](0.12,_0x18d6c1),_0x891a6f[_0x41bed1(0x7ae)][_0x41bed1(0x2f5)](0.001,_0x18d6c1+0.08),_0x59a613[_0x41bed1(0x7e6)](_0x59396b)[_0x41bed1(0x7e6)](_0x891a6f)[_0x41bed1(0x7e6)](_0x4182f9),_0x59a613[_0x41bed1(0x3e6)](_0x18d6c1);}else{if(_0x1546f0[_0x41bed1(0x352)](_0x598fd4,_0x1546f0['\x66\x52\x55\x57\x72'])){const _0x36eca2=_0x1546f0[_0x41bed1(0x49e)](audioCtx[_0x41bed1(0x103)],0.04),_0x469d3f=audioCtx['\x63\x72\x65\x61\x74\x65\x42\x75\x66\x66\x65\x72'](0x1,_0x36eca2,audioCtx[_0x41bed1(0x103)]),_0x15b381=_0x469d3f[_0x41bed1(0x7a2)](0x0);for(let _0x3f392c=0x0;_0x3f392c<_0x36eca2;_0x3f392c++)_0x15b381[_0x3f392c]=_0x1546f0['\x73\x71\x58\x50\x6c'](_0x1546f0[_0x41bed1(0x49e)](Math['\x72\x61\x6e\x64\x6f\x6d'](),0x2),0x1);const _0x4c885c=audioCtx[_0x41bed1(0x5bc)]();_0x4c885c[_0x41bed1(0x81b)]=_0x469d3f;const _0xcd1d2b=audioCtx[_0x41bed1(0x2ed)]();_0xcd1d2b[_0x41bed1(0x488)]=_0x1546f0[_0x41bed1(0x106)],_0xcd1d2b[_0x41bed1(0x335)][_0x41bed1(0x30b)]=0x1f40;const _0x311989=audioCtx[_0x41bed1(0x280)]();_0x311989[_0x41bed1(0x7ae)][_0x41bed1(0x25e)](0.04,_0x18d6c1),_0x311989[_0x41bed1(0x7ae)][_0x41bed1(0x2f5)](0.001,_0x1546f0[_0x41bed1(0x383)](_0x18d6c1,0.03)),_0x4c885c[_0x41bed1(0x7e6)](_0xcd1d2b)[_0x41bed1(0x7e6)](_0x311989)[_0x41bed1(0x7e6)](_0x4182f9),_0x4c885c[_0x41bed1(0x3e6)](_0x18d6c1);}else _0x1546f0[_0x41bed1(0x480)](_0x598fd4,_0x41bed1(0x81c))&&[_0x3cadc7,_0x1546f0[_0x41bed1(0x526)](_0x3cadc7,1.2),_0x1546f0[_0x41bed1(0x35a)](_0x3cadc7,1.5)][_0x41bed1(0x64b)](_0x1b40b0=>{const _0x5107b1=_0x41bed1,_0x1e22f8=audioCtx[_0x5107b1(0x361)]();_0x1e22f8[_0x5107b1(0x488)]=_0x4a62b9[_0x5107b1(0x836)],_0x1e22f8[_0x5107b1(0x335)]['\x76\x61\x6c\x75\x65']=_0x4a62b9['\x45\x75\x55\x45\x76'](_0x1b40b0,0.5);const _0xbb59c3=audioCtx['\x63\x72\x65\x61\x74\x65\x42\x69\x71\x75\x61\x64\x46\x69\x6c\x74\x65\x72']();_0xbb59c3[_0x5107b1(0x488)]=_0x4a62b9[_0x5107b1(0x20f)],_0xbb59c3[_0x5107b1(0x335)][_0x5107b1(0x30b)]=0x1c2;const _0x58996e=audioCtx[_0x5107b1(0x280)]();_0x58996e[_0x5107b1(0x7ae)][_0x5107b1(0x25e)](0x0,_0x18d6c1),_0x58996e[_0x5107b1(0x7ae)]['\x6c\x69\x6e\x65\x61\x72\x52\x61\x6d\x70\x54\x6f\x56\x61\x6c\x75\x65\x41\x74\x54\x69\x6d\x65'](0.12,_0x4a62b9[_0x5107b1(0x2fd)](_0x18d6c1,0.6)),_0x58996e[_0x5107b1(0x7ae)]['\x6c\x69\x6e\x65\x61\x72\x52\x61\x6d\x70\x54\x6f\x56\x61\x6c\x75\x65\x41\x74\x54\x69\x6d\x65'](0x0,_0x18d6c1+2.8),_0x1e22f8[_0x5107b1(0x7e6)](_0xbb59c3)[_0x5107b1(0x7e6)](_0x58996e)[_0x5107b1(0x7e6)](_0x4182f9),_0x1e22f8[_0x5107b1(0x3e6)](_0x18d6c1),_0x1e22f8[_0x5107b1(0x260)](_0x4a62b9[_0x5107b1(0x2fd)](_0x18d6c1,2.8));});}}},_0x1d172e=_0x4883a1=>{const _0x41385b=_0x328aeb;if(!audioCtx)return;const _0x16a6ad=audioCtx['\x63\x75\x72\x72\x65\x6e\x74\x54\x69\x6d\x65'],_0xe151c7=audioCtx[_0x41385b(0x361)]();_0xe151c7[_0x41385b(0x488)]=_0x1546f0[_0x41385b(0xe6)],_0xe151c7[_0x41385b(0x335)][_0x41385b(0x25e)](_0x4883a1*0x2,_0x16a6ad);const _0x4ce5a5=audioCtx[_0x41385b(0x2ed)]();_0x4ce5a5[_0x41385b(0x488)]='\x6c\x6f\x77\x70\x61\x73\x73',_0x4ce5a5[_0x41385b(0x335)][_0x41385b(0x25e)](0x17c,_0x16a6ad),_0x4ce5a5[_0x41385b(0x335)][_0x41385b(0x2f5)](0x64,_0x1546f0[_0x41385b(0x34c)](_0x16a6ad,0.18));const _0x1d0f3d=audioCtx[_0x41385b(0x280)]();_0x1d0f3d[_0x41385b(0x7ae)]['\x73\x65\x74\x56\x61\x6c\x75\x65\x41\x74\x54\x69\x6d\x65'](0.18,_0x16a6ad),_0x1d0f3d['\x67\x61\x69\x6e'][_0x41385b(0x2f5)](0.001,_0x1546f0[_0x41385b(0x571)](_0x16a6ad,0.18)),_0xe151c7['\x63\x6f\x6e\x6e\x65\x63\x74'](_0x4ce5a5)['\x63\x6f\x6e\x6e\x65\x63\x74'](_0x1d0f3d)[_0x41385b(0x7e6)](_0x4182f9),_0xe151c7['\x73\x74\x61\x72\x74'](_0x16a6ad),_0xe151c7[_0x41385b(0x260)](_0x1546f0[_0x41385b(0x183)](_0x16a6ad,0.18));},_0x2d6b69=_0x1ee225=>{const _0x55d959=_0x328aeb;if(!audioCtx)return;const _0x39c8cc=audioCtx[_0x55d959(0x23b)],_0x42d2cf=audioCtx[_0x55d959(0x361)](),_0x497256=audioCtx[_0x55d959(0x361)]();_0x42d2cf[_0x55d959(0x488)]=_0x1546f0['\x6e\x4f\x72\x4b\x46'],_0x42d2cf[_0x55d959(0x335)][_0x55d959(0x25e)](_0x1ee225,_0x39c8cc),_0x497256[_0x55d959(0x488)]=_0x1546f0[_0x55d959(0x584)],_0x497256[_0x55d959(0x335)][_0x55d959(0x25e)](_0x1ee225*1.005,_0x39c8cc);const _0x5c141f=audioCtx[_0x55d959(0x2ed)]();_0x5c141f[_0x55d959(0x488)]=_0x1546f0[_0x55d959(0x2fa)],_0x5c141f['\x66\x72\x65\x71\x75\x65\x6e\x63\x79'][_0x55d959(0x25e)](0x44c,_0x39c8cc),_0x5c141f['\x51'][_0x55d959(0x30b)]=0x1;const _0x7cdc36=audioCtx['\x63\x72\x65\x61\x74\x65\x47\x61\x69\x6e']();_0x7cdc36[_0x55d959(0x7ae)]['\x73\x65\x74\x56\x61\x6c\x75\x65\x41\x74\x54\x69\x6d\x65'](0.08,_0x39c8cc),_0x7cdc36['\x67\x61\x69\x6e']['\x65\x78\x70\x6f\x6e\x65\x6e\x74\x69\x61\x6c\x52\x61\x6d\x70\x54\x6f\x56\x61\x6c\x75\x65\x41\x74\x54\x69\x6d\x65'](0.001,_0x1546f0[_0x55d959(0x83d)](_0x39c8cc,0.35)),_0x42d2cf[_0x55d959(0x7e6)](_0x5c141f),_0x497256['\x63\x6f\x6e\x6e\x65\x63\x74'](_0x5c141f),_0x5c141f['\x63\x6f\x6e\x6e\x65\x63\x74'](_0x7cdc36)['\x63\x6f\x6e\x6e\x65\x63\x74'](_0x4182f9),_0x42d2cf[_0x55d959(0x3e6)](_0x39c8cc),_0x42d2cf[_0x55d959(0x260)](_0x1546f0[_0x55d959(0x837)](_0x39c8cc,0.35)),_0x497256[_0x55d959(0x3e6)](_0x39c8cc),_0x497256[_0x55d959(0x260)](_0x1546f0[_0x55d959(0x1c6)](_0x39c8cc,0.35));},_0x4b650c=[41.2,41.2,48.99,41.2,0x37,41.2,48.99,41.2,41.2,41.2,48.99,41.2,0x37,41.2,58.27,41.2,32.7,32.7,38.89,32.7,43.65,32.7,38.89,32.7,36.71,36.71,43.65,36.71,48.99,36.71,0x37,48.99,36.71,36.71,43.65,36.71,48.99,36.71,43.65,36.71,36.71,36.71,43.65,36.71,48.99,36.71,0x37,36.71,48.99,48.99,58.27,48.99,65.41,48.99,58.27,48.99,0x37,0x37,65.41,0x37,73.42,65.41,0x37,41.2],_0x48a866=[0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,164.81,0x0,0xc4,0xdc,0x0,246.94,0xdc,0xc4,164.81,0x0,0xc4,0xdc,0x0,293.66,246.94,0xdc,261.63,0x0,293.66,329.63,0x0,0x188,329.63,293.66,293.66,0x0,329.63,349.23,0x0,0x1b8,0x188,349.23];let _0x2bcecc=0x0;bgmInterval=setInterval(()=>{const _0x141fcc=_0x328aeb,_0x1fa90a=_0x2bcecc%0x40;(_0x1fa90a===0x0||_0x1546f0[_0x141fcc(0x352)](_0x1fa90a,0x3)||_0x1546f0[_0x141fcc(0x36e)](_0x1fa90a,0x4)||_0x1fa90a===0x8||_0x1546f0[_0x141fcc(0x310)](_0x1fa90a,0xb)||_0x1fa90a===0xc||_0x1fa90a===0x10||_0x1546f0[_0x141fcc(0x303)](_0x1fa90a,0x13)||_0x1546f0['\x44\x6f\x47\x77\x4a'](_0x1fa90a,0x14)||_0x1546f0[_0x141fcc(0x8a0)](_0x1fa90a,0x18)||_0x1546f0[_0x141fcc(0x1b0)](_0x1fa90a,0x1b)||_0x1546f0[_0x141fcc(0x480)](_0x1fa90a,0x1c)||_0x1546f0[_0x141fcc(0x310)](_0x1fa90a,0x20)||_0x1546f0[_0x141fcc(0x8b0)](_0x1fa90a,0x23)||_0x1546f0[_0x141fcc(0x8a0)](_0x1fa90a,0x24)||_0x1546f0[_0x141fcc(0x480)](_0x1fa90a,0x28)||_0x1546f0[_0x141fcc(0x461)](_0x1fa90a,0x2b)||_0x1546f0[_0x141fcc(0x8a0)](_0x1fa90a,0x2c)||_0x1fa90a===0x30||_0x1546f0['\x53\x4e\x6a\x6b\x66'](_0x1fa90a,0x33)||_0x1546f0[_0x141fcc(0x352)](_0x1fa90a,0x34)||_0x1546f0[_0x141fcc(0x461)](_0x1fa90a,0x38)||_0x1546f0[_0x141fcc(0x558)](_0x1fa90a,0x3b)||_0x1546f0[_0x141fcc(0x4a6)](_0x1fa90a,0x3c))&&_0x1546f0[_0x141fcc(0x597)](_0x29ed2f,_0x1546f0[_0x141fcc(0x105)],_0x1546f0[_0x141fcc(0x43b)](_0x1fa90a,0x20)?0x5f:0x6e);(_0x1546f0['\x6a\x6b\x50\x65\x64'](_0x1fa90a,0x4)===0x2||_0x1546f0[_0x141fcc(0x407)](_0x1fa90a%0x8,0x7))&&_0x1546f0[_0x141fcc(0x862)](_0x29ed2f,_0x1546f0[_0x141fcc(0x1c2)]);_0x1546f0[_0x141fcc(0x228)](_0x1fa90a%0x2,0x1)&&_0x1546f0['\x6f\x51\x71\x4f\x70'](_0x29ed2f,_0x1546f0[_0x141fcc(0x50e)]);const _0x3ab081=_0x4b650c[_0x1fa90a];_0x1546f0[_0x141fcc(0x454)](_0x3ab081,0x0)&&_0x1546f0[_0x141fcc(0x3da)](_0x1d172e,_0x3ab081);const _0x213a99=_0x48a866[_0x1fa90a];_0x1546f0[_0x141fcc(0x454)](_0x213a99,0x0)&&_0x1546f0[_0x141fcc(0x3da)](_0x2d6b69,_0x213a99);if(_0x1546f0[_0x141fcc(0x461)](_0x1fa90a,0x0))_0x1546f0[_0x141fcc(0x744)](_0x29ed2f,_0x1546f0['\x67\x58\x6d\x4d\x58'],82.41);if(_0x1546f0['\x69\x75\x79\x74\x78'](_0x1fa90a,0x10))_0x1546f0[_0x141fcc(0x597)](_0x29ed2f,_0x1546f0[_0x141fcc(0x5ef)],65.41);if(_0x1fa90a===0x20)_0x1546f0[_0x141fcc(0x744)](_0x29ed2f,_0x1546f0[_0x141fcc(0x5ef)],73.42);if(_0x1546f0[_0x141fcc(0x303)](_0x1fa90a,0x30))_0x1546f0[_0x141fcc(0x597)](_0x29ed2f,_0x1546f0['\x67\x58\x6d\x4d\x58'],0x62);if(_0x1fa90a===0x0)_0x3eb6cc['\x66\x72\x65\x71\x75\x65\x6e\x63\x79']['\x65\x78\x70\x6f\x6e\x65\x6e\x74\x69\x61\x6c\x52\x61\x6d\x70\x54\x6f\x56\x61\x6c\x75\x65\x41\x74\x54\x69\x6d\x65'](41.2,_0x1546f0['\x76\x48\x73\x7a\x42'](audioCtx[_0x141fcc(0x23b)],0.8));if(_0x1546f0[_0x141fcc(0x352)](_0x1fa90a,0x10))_0x3eb6cc[_0x141fcc(0x335)][_0x141fcc(0x2f5)](32.7,_0x1546f0[_0x141fcc(0x83d)](audioCtx[_0x141fcc(0x23b)],0.8));if(_0x1546f0['\x54\x74\x58\x79\x46'](_0x1fa90a,0x20))_0x3eb6cc[_0x141fcc(0x335)][_0x141fcc(0x2f5)](36.71,_0x1546f0['\x71\x42\x45\x77\x63'](audioCtx[_0x141fcc(0x23b)],0.8));if(_0x1546f0[_0x141fcc(0x448)](_0x1fa90a,0x30))_0x3eb6cc['\x66\x72\x65\x71\x75\x65\x6e\x63\x79'][_0x141fcc(0x2f5)](48.99,_0x1546f0[_0x141fcc(0x1c6)](audioCtx[_0x141fcc(0x23b)],0.8));_0x2bcecc++;},0xf0);}catch(_0x322405){}},'\x73\x74\x6f\x70\x42\x47\x4d'(){const _0x8324d6=a0_0x460254,_0x5b6ba8={'\x52\x74\x48\x72\x6e':function(_0xaea1bc,_0x4651b8){return _0xaea1bc(_0x4651b8);}};bgmInterval&&(_0x5b6ba8[_0x8324d6(0x808)](clearInterval,bgmInterval),bgmInterval=null),bgmNodes['\x66\x6f\x72\x45\x61\x63\x68'](_0x13cf42=>{const _0x5a476a=_0x8324d6;try{_0x13cf42[_0x5a476a(0x260)]();}catch(_0x373df8){}try{_0x13cf42[_0x5a476a(0x8da)]();}catch(_0x549fc8){}}),bgmNodes=[];},'\x70\x6c\x61\x79\x50\x6c\x61\x6e\x65\x53\x6f\x75\x6e\x64'(){const _0x56bdba=a0_0x460254,_0x22fa5d={'\x46\x64\x46\x6a\x54':function(_0x23ba3a){return _0x23ba3a();},'\x66\x49\x6f\x64\x72':function(_0x448f04,_0x52531f){return _0x448f04===_0x52531f;},'\x59\x6c\x64\x67\x52':'\x73\x75\x73\x70\x65\x6e\x64\x65\x64','\x51\x4e\x73\x52\x77':_0x56bdba(0x847),'\x74\x46\x47\x56\x44':_0x56bdba(0x6e2),'\x74\x74\x77\x4d\x64':_0x56bdba(0x592)};if(!sfxEnabled)return;_0x22fa5d[_0x56bdba(0x70c)](initAudio);if(!audioCtx)return;_0x22fa5d[_0x56bdba(0x617)](audioCtx[_0x56bdba(0x626)],_0x22fa5d[_0x56bdba(0x231)])&&audioCtx['\x72\x65\x73\x75\x6d\x65']();this[_0x56bdba(0x270)]();try{const _0x464971=audioCtx[_0x56bdba(0x361)](),_0x1ccf9c=audioCtx['\x63\x72\x65\x61\x74\x65\x4f\x73\x63\x69\x6c\x6c\x61\x74\x6f\x72'](),_0x29d202=audioCtx['\x63\x72\x65\x61\x74\x65\x42\x69\x71\x75\x61\x64\x46\x69\x6c\x74\x65\x72'](),_0xf0cdb6=audioCtx['\x63\x72\x65\x61\x74\x65\x47\x61\x69\x6e']();_0x464971['\x74\x79\x70\x65']=_0x22fa5d[_0x56bdba(0x366)],_0x464971[_0x56bdba(0x335)]['\x73\x65\x74\x56\x61\x6c\x75\x65\x41\x74\x54\x69\x6d\x65'](0x32,audioCtx[_0x56bdba(0x23b)]),_0x1ccf9c[_0x56bdba(0x488)]=_0x22fa5d[_0x56bdba(0x229)],_0x1ccf9c[_0x56bdba(0x335)][_0x56bdba(0x25e)](0x28,audioCtx[_0x56bdba(0x23b)]),_0x29d202[_0x56bdba(0x488)]=_0x22fa5d['\x74\x74\x77\x4d\x64'],_0x29d202['\x66\x72\x65\x71\x75\x65\x6e\x63\x79']['\x73\x65\x74\x56\x61\x6c\x75\x65\x41\x74\x54\x69\x6d\x65'](0x78,audioCtx[_0x56bdba(0x23b)]),_0xf0cdb6[_0x56bdba(0x7ae)][_0x56bdba(0x25e)](0.15,audioCtx[_0x56bdba(0x23b)]),_0x464971[_0x56bdba(0x7e6)](_0x29d202),_0x1ccf9c[_0x56bdba(0x7e6)](_0x29d202),_0x29d202[_0x56bdba(0x7e6)](_0xf0cdb6),_0xf0cdb6[_0x56bdba(0x7e6)](getSfxDestination()),_0x464971[_0x56bdba(0x3e6)](),_0x1ccf9c[_0x56bdba(0x3e6)](),planeNodes['\x70\x75\x73\x68'](_0x464971,_0x1ccf9c,_0xf0cdb6);}catch(_0x338cee){}},'\x73\x74\x6f\x70\x50\x6c\x61\x6e\x65\x53\x6f\x75\x6e\x64'(){const _0x5d7b5e=a0_0x460254;planeNodes[_0x5d7b5e(0x64b)](_0x101b0f=>{const _0x1a2753=_0x5d7b5e;try{_0x101b0f[_0x1a2753(0x260)]();}catch(_0xe9ca52){}try{_0x101b0f[_0x1a2753(0x8da)]();}catch(_0x43edff){}}),planeNodes=[];},'\x70\x6c\x61\x79\x53\x6b\x79\x64\x69\x76\x65\x57\x69\x6e\x64\x53\x6f\x75\x6e\x64'(){const _0x1b0b0d=a0_0x460254,_0x13e079={'\x6a\x4f\x51\x58\x7a':function(_0x26efe8){return _0x26efe8();},'\x46\x48\x47\x47\x45':function(_0x1f523e,_0x23d46c){return _0x1f523e*_0x23d46c;},'\x46\x72\x67\x70\x6d':function(_0x107f40,_0x311ac7){return _0x107f40<_0x311ac7;},'\x72\x43\x41\x78\x67':function(_0x70c65d,_0x4e0f41){return _0x70c65d-_0x4e0f41;},'\x48\x4c\x58\x76\x64':function(_0x4bf2f3,_0x2251e5){return _0x4bf2f3*_0x2251e5;},'\x6b\x54\x42\x52\x6f':_0x1b0b0d(0x592),'\x52\x75\x69\x79\x73':_0x1b0b0d(0x6e2)};if(!sfxEnabled)return;_0x13e079[_0x1b0b0d(0x753)](initAudio);if(!audioCtx)return;this[_0x1b0b0d(0x7a7)]();try{const _0x3cfbe3=_0x13e079[_0x1b0b0d(0x3d0)](audioCtx['\x73\x61\x6d\x70\x6c\x65\x52\x61\x74\x65'],0x2),_0x239277=audioCtx['\x63\x72\x65\x61\x74\x65\x42\x75\x66\x66\x65\x72'](0x1,_0x3cfbe3,audioCtx['\x73\x61\x6d\x70\x6c\x65\x52\x61\x74\x65']),_0x2f2203=_0x239277[_0x1b0b0d(0x7a2)](0x0);for(let _0x64081a=0x0;_0x13e079[_0x1b0b0d(0x890)](_0x64081a,_0x3cfbe3);_0x64081a++){_0x2f2203[_0x64081a]=_0x13e079[_0x1b0b0d(0x525)](_0x13e079[_0x1b0b0d(0x230)](Math[_0x1b0b0d(0x81e)](),0x2),0x1);}const _0x204e99=audioCtx[_0x1b0b0d(0x5bc)]();_0x204e99[_0x1b0b0d(0x81b)]=_0x239277,_0x204e99[_0x1b0b0d(0x577)]=!![];const _0x5d1376=audioCtx[_0x1b0b0d(0x2ed)]();_0x5d1376[_0x1b0b0d(0x488)]=_0x13e079[_0x1b0b0d(0x5b9)],_0x5d1376[_0x1b0b0d(0x335)]['\x73\x65\x74\x56\x61\x6c\x75\x65\x41\x74\x54\x69\x6d\x65'](0x190,audioCtx[_0x1b0b0d(0x23b)]);const _0x2efcf7=audioCtx[_0x1b0b0d(0x361)]();_0x2efcf7[_0x1b0b0d(0x488)]=_0x13e079[_0x1b0b0d(0x4a1)],_0x2efcf7[_0x1b0b0d(0x335)][_0x1b0b0d(0x25e)](1.5,audioCtx[_0x1b0b0d(0x23b)]);const _0x313504=audioCtx['\x63\x72\x65\x61\x74\x65\x47\x61\x69\x6e']();_0x313504[_0x1b0b0d(0x7ae)][_0x1b0b0d(0x25e)](0x96,audioCtx[_0x1b0b0d(0x23b)]),_0x2efcf7[_0x1b0b0d(0x7e6)](_0x313504),_0x313504[_0x1b0b0d(0x7e6)](_0x5d1376[_0x1b0b0d(0x335)]);const _0x4ba69c=audioCtx[_0x1b0b0d(0x280)]();_0x4ba69c[_0x1b0b0d(0x7ae)][_0x1b0b0d(0x25e)](0.001,audioCtx[_0x1b0b0d(0x23b)]),_0x4ba69c['\x67\x61\x69\x6e'][_0x1b0b0d(0x70b)](0.4,audioCtx[_0x1b0b0d(0x23b)]+0x1),_0x204e99[_0x1b0b0d(0x7e6)](_0x5d1376)[_0x1b0b0d(0x7e6)](_0x4ba69c)['\x63\x6f\x6e\x6e\x65\x63\x74'](_0x13e079[_0x1b0b0d(0x753)](getSfxDestination)),_0x2efcf7[_0x1b0b0d(0x3e6)](),_0x204e99[_0x1b0b0d(0x3e6)](),skydiveWindNode=_0x204e99,skydiveWindGain=_0x4ba69c,skydiveWindOsc=_0x2efcf7;}catch(_0x2c0f29){}},'\x73\x74\x6f\x70\x53\x6b\x79\x64\x69\x76\x65\x57\x69\x6e\x64\x53\x6f\x75\x6e\x64'(){const _0x4ef359=a0_0x460254,_0x15e2cc={'\x4c\x59\x73\x47\x49':function(_0x169dcc,_0x43acbf){return _0x169dcc+_0x43acbf;},'\x71\x50\x52\x73\x59':function(_0x18eab7,_0xb519f6,_0x313def){return _0x18eab7(_0xb519f6,_0x313def);}};try{if(skydiveWindGain){const _0x1d7b13=audioCtx[_0x4ef359(0x23b)];skydiveWindGain[_0x4ef359(0x7ae)][_0x4ef359(0x204)](_0x1d7b13),skydiveWindGain[_0x4ef359(0x7ae)]['\x73\x65\x74\x56\x61\x6c\x75\x65\x41\x74\x54\x69\x6d\x65'](skydiveWindGain[_0x4ef359(0x7ae)][_0x4ef359(0x30b)],_0x1d7b13),skydiveWindGain['\x67\x61\x69\x6e'][_0x4ef359(0x2f5)](0.001,_0x15e2cc['\x4c\x59\x73\x47\x49'](_0x1d7b13,0.3));const _0x1a2a9a=skydiveWindNode,_0x3d7dd8=skydiveWindOsc;_0x15e2cc[_0x4ef359(0x51f)](setTimeout,()=>{const _0x26c8db=_0x4ef359;try{_0x1a2a9a[_0x26c8db(0x260)](),_0x1a2a9a[_0x26c8db(0x8da)]();}catch(_0x31adf6){}try{_0x3d7dd8[_0x26c8db(0x260)](),_0x3d7dd8[_0x26c8db(0x8da)]();}catch(_0x285725){}},0x15e);}}catch(_0x375065){}skydiveWindNode=null,skydiveWindGain=null,skydiveWindOsc=null;},'\x70\x6c\x61\x79\x50\x61\x72\x61\x63\x68\x75\x74\x65\x53\x6f\x75\x6e\x64'(){const _0x2a5e08=a0_0x460254,_0x278cce={'\x51\x44\x43\x77\x64':function(_0x111ac0){return _0x111ac0();},'\x68\x4e\x4e\x67\x73':'\x74\x72\x69\x61\x6e\x67\x6c\x65','\x66\x52\x6d\x65\x6b':function(_0x40a1ed,_0x2292aa){return _0x40a1ed+_0x2292aa;},'\x47\x59\x66\x72\x7a':_0x2a5e08(0x592),'\x4a\x6a\x4d\x56\x78':function(_0x536888,_0x39056f){return _0x536888+_0x39056f;},'\x65\x65\x6a\x6c\x70':function(_0x3e8c82,_0x5b6680){return _0x3e8c82<_0x5b6680;},'\x41\x4f\x49\x78\x4d':function(_0x30f915,_0x53e399){return _0x30f915*_0x53e399;},'\x66\x41\x64\x55\x6a':function(_0x174e3d,_0xaf19e4){return _0x174e3d<_0xaf19e4;},'\x76\x45\x78\x42\x6d':function(_0x3ede25,_0x4ed8de){return _0x3ede25-_0x4ed8de;},'\x63\x69\x75\x4f\x45':'\x62\x61\x6e\x64\x70\x61\x73\x73','\x57\x6a\x4a\x7a\x6d':function(_0x4a15c1,_0x36a49e){return _0x4a15c1*_0x36a49e;},'\x70\x74\x6d\x72\x65':function(_0x476c02,_0x161c1a){return _0x476c02*_0x161c1a;}};if(!sfxEnabled)return;_0x278cce[_0x2a5e08(0x687)](initAudio);if(!audioCtx)return;this[_0x2a5e08(0x7a7)]();const _0x4172d4=audioCtx[_0x2a5e08(0x23b)];try{const _0x1d0f0d=audioCtx['\x63\x72\x65\x61\x74\x65\x4f\x73\x63\x69\x6c\x6c\x61\x74\x6f\x72'](),_0x771257=audioCtx[_0x2a5e08(0x280)]();_0x1d0f0d['\x74\x79\x70\x65']=_0x278cce[_0x2a5e08(0x23f)],_0x1d0f0d[_0x2a5e08(0x335)][_0x2a5e08(0x25e)](0x140,_0x4172d4),_0x1d0f0d[_0x2a5e08(0x335)][_0x2a5e08(0x2f5)](0x4b,_0x278cce[_0x2a5e08(0x222)](_0x4172d4,0.8)),_0x771257[_0x2a5e08(0x7ae)][_0x2a5e08(0x25e)](0.35,_0x4172d4),_0x771257['\x67\x61\x69\x6e'][_0x2a5e08(0x2f5)](0.001,_0x4172d4+0.8);const _0x1d5095=audioCtx[_0x2a5e08(0x2ed)]();_0x1d5095[_0x2a5e08(0x488)]=_0x278cce[_0x2a5e08(0x25d)],_0x1d5095[_0x2a5e08(0x335)][_0x2a5e08(0x25e)](0x12c,_0x4172d4),_0x1d0f0d[_0x2a5e08(0x7e6)](_0x1d5095)[_0x2a5e08(0x7e6)](_0x771257)[_0x2a5e08(0x7e6)](_0x278cce[_0x2a5e08(0x687)](getSfxDestination)),_0x1d0f0d[_0x2a5e08(0x3e6)](_0x4172d4),_0x1d0f0d[_0x2a5e08(0x260)](_0x278cce[_0x2a5e08(0x866)](_0x4172d4,0.8));for(let _0x1b48bc=0x0;_0x278cce[_0x2a5e08(0x652)](_0x1b48bc,0x4);_0x1b48bc++){const _0x6a3534=_0x4172d4+_0x278cce[_0x2a5e08(0x62f)](_0x1b48bc,0.12),_0x4bfc0a=0.25,_0x5abf8=_0x278cce[_0x2a5e08(0x62f)](audioCtx[_0x2a5e08(0x103)],_0x4bfc0a),_0x996b05=audioCtx[_0x2a5e08(0x346)](0x1,_0x5abf8,audioCtx['\x73\x61\x6d\x70\x6c\x65\x52\x61\x74\x65']),_0x18fcb3=_0x996b05[_0x2a5e08(0x7a2)](0x0);for(let _0x594dbb=0x0;_0x278cce[_0x2a5e08(0x3d1)](_0x594dbb,_0x5abf8);_0x594dbb++){_0x18fcb3[_0x594dbb]=_0x278cce[_0x2a5e08(0x413)](_0x278cce['\x41\x4f\x49\x78\x4d'](Math[_0x2a5e08(0x81e)](),0x2),0x1);}const _0x1b7399=audioCtx[_0x2a5e08(0x5bc)]();_0x1b7399[_0x2a5e08(0x81b)]=_0x996b05;const _0x5c13aa=audioCtx[_0x2a5e08(0x2ed)]();_0x5c13aa[_0x2a5e08(0x488)]=_0x278cce[_0x2a5e08(0x782)],_0x5c13aa['\x66\x72\x65\x71\x75\x65\x6e\x63\x79'][_0x2a5e08(0x25e)](_0x278cce['\x76\x45\x78\x42\x6d'](0x190,_0x278cce[_0x2a5e08(0x55f)](_0x1b48bc,0x32)),_0x6a3534),_0x5c13aa['\x51'][_0x2a5e08(0x25e)](0x2,_0x6a3534);const _0x7be734=audioCtx[_0x2a5e08(0x280)]();_0x7be734[_0x2a5e08(0x7ae)][_0x2a5e08(0x25e)](0x0,_0x6a3534),_0x7be734['\x67\x61\x69\x6e'][_0x2a5e08(0x70b)](_0x278cce[_0x2a5e08(0x413)](0.2,_0x278cce['\x70\x74\x6d\x72\x65'](_0x1b48bc,0.03)),_0x6a3534+0.05),_0x7be734[_0x2a5e08(0x7ae)]['\x65\x78\x70\x6f\x6e\x65\x6e\x74\x69\x61\x6c\x52\x61\x6d\x70\x54\x6f\x56\x61\x6c\x75\x65\x41\x74\x54\x69\x6d\x65'](0.001,_0x6a3534+_0x4bfc0a),_0x1b7399[_0x2a5e08(0x7e6)](_0x5c13aa)[_0x2a5e08(0x7e6)](_0x7be734)['\x63\x6f\x6e\x6e\x65\x63\x74'](_0x278cce[_0x2a5e08(0x687)](getSfxDestination)),_0x1b7399['\x73\x74\x61\x72\x74'](_0x6a3534),_0x1b7399[_0x2a5e08(0x260)](_0x6a3534+_0x4bfc0a);}}catch(_0x4cf4cb){}},'\x70\x6c\x61\x79\x44\x72\x79\x43\x6c\x69\x63\x6b'(){const _0x2ebf7d=a0_0x460254,_0x52bd21={'\x6d\x46\x63\x45\x59':function(_0x18f1b4){return _0x18f1b4();},'\x58\x6b\x74\x64\x45':_0x2ebf7d(0x6e2),'\x6f\x6c\x73\x55\x41':function(_0x107dcd,_0x859273){return _0x107dcd+_0x859273;},'\x4f\x74\x72\x4b\x56':function(_0x3fb005,_0x3ad251){return _0x3fb005+_0x3ad251;}};if(!sfxEnabled)return;_0x52bd21[_0x2ebf7d(0xe4)](initAudio);if(!audioCtx)return;const _0x406b2b=audioCtx['\x63\x75\x72\x72\x65\x6e\x74\x54\x69\x6d\x65'];try{const _0x3c8332=audioCtx[_0x2ebf7d(0x361)](),_0x44a00c=audioCtx[_0x2ebf7d(0x280)]();_0x3c8332['\x74\x79\x70\x65']=_0x52bd21[_0x2ebf7d(0x316)],_0x3c8332[_0x2ebf7d(0x335)][_0x2ebf7d(0x25e)](0x640,_0x406b2b),_0x3c8332['\x66\x72\x65\x71\x75\x65\x6e\x63\x79'][_0x2ebf7d(0x2f5)](0x320,_0x52bd21[_0x2ebf7d(0x6dc)](_0x406b2b,0.04)),_0x44a00c['\x67\x61\x69\x6e']['\x73\x65\x74\x56\x61\x6c\x75\x65\x41\x74\x54\x69\x6d\x65'](0.08,_0x406b2b),_0x44a00c[_0x2ebf7d(0x7ae)][_0x2ebf7d(0x2f5)](0.001,_0x52bd21[_0x2ebf7d(0x868)](_0x406b2b,0.04)),_0x3c8332[_0x2ebf7d(0x7e6)](_0x44a00c)['\x63\x6f\x6e\x6e\x65\x63\x74'](audioCtx[_0x2ebf7d(0x8a7)]),_0x3c8332['\x73\x74\x61\x72\x74'](_0x406b2b),_0x3c8332[_0x2ebf7d(0x260)](_0x406b2b+0.04);}catch(_0x5229a2){}},'\x70\x6c\x61\x79\x52\x65\x6c\x6f\x61\x64\x53\x6f\x75\x6e\x64'(_0xe75026){const _0x122864=a0_0x460254,_0x1e745d={'\x4b\x75\x57\x5a\x51':function(_0x14ff55,_0x290344){return _0x14ff55/_0x290344;},'\x78\x47\x46\x79\x6a':function(_0x111c09,_0x374e64){return _0x111c09+_0x374e64;},'\x56\x6c\x6f\x70\x57':function(_0x1bb31e,_0x5bb562){return _0x1bb31e*_0x5bb562;},'\x47\x4c\x7a\x6a\x4c':function(_0x19abfb,_0x55df44){return _0x19abfb-_0x55df44;},'\x44\x5a\x6a\x57\x62':function(_0x4f475e,_0x34366d){return _0x4f475e+_0x34366d;},'\x45\x72\x49\x67\x6a':function(_0x2bce2d,_0x5edd8c){return _0x2bce2d+_0x5edd8c;},'\x6b\x62\x6b\x51\x70':function(_0x235d9b,_0x1ca932){return _0x235d9b+_0x1ca932;},'\x67\x4d\x75\x7a\x58':function(_0x2141fd){return _0x2141fd();},'\x43\x50\x62\x62\x46':function(_0x4a4925,_0x23a94b){return _0x4a4925===_0x23a94b;},'\x6d\x4c\x50\x44\x47':function(_0x3147dc,_0x43c05,_0x22608f,_0x2f8bb3,_0x26fedb){return _0x3147dc(_0x43c05,_0x22608f,_0x2f8bb3,_0x26fedb);},'\x4a\x55\x48\x72\x76':function(_0x5825c9,_0x285a03){return _0x5825c9+_0x285a03;},'\x6f\x66\x62\x63\x67':_0x122864(0x1db),'\x58\x55\x74\x4c\x4a':function(_0x4fcfa9,_0x4dceb1,_0x152cc4,_0x447acb,_0x53f71d){return _0x4fcfa9(_0x4dceb1,_0x152cc4,_0x447acb,_0x53f71d);},'\x6d\x4e\x4b\x4d\x54':function(_0x4841aa,_0x584035){return _0x4841aa===_0x584035;},'\x73\x4f\x49\x6f\x4a':function(_0x22ad82,_0x2cbe03,_0x41a606,_0x58e32d,_0x26bef0){return _0x22ad82(_0x2cbe03,_0x41a606,_0x58e32d,_0x26bef0);},'\x67\x76\x5a\x48\x68':function(_0x2d5c8d,_0x178ed2,_0x1a6e20,_0x4aae37,_0x389c59){return _0x2d5c8d(_0x178ed2,_0x1a6e20,_0x4aae37,_0x389c59);},'\x6b\x51\x51\x6b\x63':function(_0x12db22,_0x5563a3){return _0x12db22+_0x5563a3;},'\x6d\x52\x6f\x6f\x43':function(_0x1060ce,_0x2a507d){return _0x1060ce+_0x2a507d;}};if(!sfxEnabled)return;_0x1e745d[_0x122864(0x795)](initAudio);if(!audioCtx)return;const _0x260d51=audioCtx[_0x122864(0x23b)];try{const _0x3c67f2=(_0x2b9529,_0x46d249,_0x101631,_0x406dc2)=>{const _0x1ddd5b=_0x122864,_0x3cd889=audioCtx[_0x1ddd5b(0x361)](),_0x192ed7=audioCtx['\x63\x72\x65\x61\x74\x65\x47\x61\x69\x6e']();_0x3cd889[_0x1ddd5b(0x488)]=_0x1ddd5b(0x44d),_0x3cd889[_0x1ddd5b(0x335)][_0x1ddd5b(0x25e)](_0x46d249,_0x2b9529),_0x3cd889['\x66\x72\x65\x71\x75\x65\x6e\x63\x79']['\x65\x78\x70\x6f\x6e\x65\x6e\x74\x69\x61\x6c\x52\x61\x6d\x70\x54\x6f\x56\x61\x6c\x75\x65\x41\x74\x54\x69\x6d\x65'](_0x1e745d[_0x1ddd5b(0x505)](_0x46d249,0x2),_0x1e745d[_0x1ddd5b(0x22f)](_0x2b9529,_0x101631)),_0x192ed7[_0x1ddd5b(0x7ae)][_0x1ddd5b(0x25e)](_0x406dc2,_0x2b9529),_0x192ed7[_0x1ddd5b(0x7ae)]['\x65\x78\x70\x6f\x6e\x65\x6e\x74\x69\x61\x6c\x52\x61\x6d\x70\x54\x6f\x56\x61\x6c\x75\x65\x41\x74\x54\x69\x6d\x65'](0.001,_0x1e745d['\x78\x47\x46\x79\x6a'](_0x2b9529,_0x101631));const _0x49fa93=audioCtx[_0x1ddd5b(0x5bc)](),_0x570666=_0x1e745d[_0x1ddd5b(0x504)](audioCtx['\x73\x61\x6d\x70\x6c\x65\x52\x61\x74\x65'],_0x101631),_0x25ad63=audioCtx['\x63\x72\x65\x61\x74\x65\x42\x75\x66\x66\x65\x72'](0x1,_0x570666,audioCtx[_0x1ddd5b(0x103)]),_0x263940=_0x25ad63[_0x1ddd5b(0x7a2)](0x0);for(let _0x12da68=0x0;_0x12da68<_0x570666;_0x12da68++)_0x263940[_0x12da68]=_0x1e745d[_0x1ddd5b(0x1d8)](_0x1e745d[_0x1ddd5b(0x504)](Math[_0x1ddd5b(0x81e)](),0x2),0x1);_0x49fa93[_0x1ddd5b(0x81b)]=_0x25ad63;const _0x37433f=audioCtx[_0x1ddd5b(0x2ed)]();_0x37433f[_0x1ddd5b(0x488)]=_0x1ddd5b(0x18c),_0x37433f[_0x1ddd5b(0x335)]['\x73\x65\x74\x56\x61\x6c\x75\x65\x41\x74\x54\x69\x6d\x65'](0x9c4,_0x2b9529);const _0x304b33=audioCtx[_0x1ddd5b(0x280)]();_0x304b33[_0x1ddd5b(0x7ae)][_0x1ddd5b(0x25e)](_0x1e745d[_0x1ddd5b(0x504)](_0x406dc2,0.4),_0x2b9529),_0x304b33['\x67\x61\x69\x6e'][_0x1ddd5b(0x2f5)](0.001,_0x1e745d['\x44\x5a\x6a\x57\x62'](_0x2b9529,_0x101631)),_0x3cd889[_0x1ddd5b(0x7e6)](_0x192ed7)['\x63\x6f\x6e\x6e\x65\x63\x74'](audioCtx['\x64\x65\x73\x74\x69\x6e\x61\x74\x69\x6f\x6e']),_0x49fa93[_0x1ddd5b(0x7e6)](_0x37433f)[_0x1ddd5b(0x7e6)](_0x304b33)[_0x1ddd5b(0x7e6)](audioCtx[_0x1ddd5b(0x8a7)]),_0x3cd889[_0x1ddd5b(0x3e6)](_0x2b9529),_0x3cd889[_0x1ddd5b(0x260)](_0x1e745d[_0x1ddd5b(0x1ab)](_0x2b9529,_0x101631)),_0x49fa93[_0x1ddd5b(0x3e6)](_0x2b9529),_0x49fa93[_0x1ddd5b(0x260)](_0x1e745d[_0x1ddd5b(0x6e6)](_0x2b9529,_0x101631));};if(_0x1e745d[_0x122864(0x152)](_0xe75026,'\uad8c\ucd1d'))_0x3c67f2(_0x260d51,0x320,0.08,0.08),_0x1e745d[_0x122864(0x7ea)](_0x3c67f2,_0x1e745d[_0x122864(0x16e)](_0x260d51,0.15),0x44c,0.12,0.1);else{if(_0xe75026===_0x1e745d[_0x122864(0x41b)])_0x3c67f2(_0x260d51,0x1c2,0.12,0.1),_0x1e745d['\x58\x55\x74\x4c\x4a'](_0x3c67f2,_0x260d51+0.25,0x12c,0.15,0.08),_0x1e745d[_0x122864(0x41d)](_0x3c67f2,_0x260d51+0.55,0x17c,0.12,0.08),_0x3c67f2(_0x260d51+0.75,0x258,0.1,0.12);else _0x1e745d[_0x122864(0x286)](_0xe75026,'\uc0f7\uac74')?(_0x1e745d[_0x122864(0x8d9)](_0x3c67f2,_0x260d51,0x1f4,0.12,0.12),_0x1e745d[_0x122864(0x8d9)](_0x3c67f2,_0x1e745d[_0x122864(0x6e6)](_0x260d51,0.2),0x2ee,0.1,0.1),_0x1e745d[_0x122864(0x34b)](_0x3c67f2,_0x1e745d[_0x122864(0x320)](_0x260d51,0.45),0x15e,0.18,0.06)):(_0x1e745d[_0x122864(0x41d)](_0x3c67f2,_0x260d51,0x258,0.1,0.1),_0x1e745d[_0x122864(0x7ea)](_0x3c67f2,_0x1e745d['\x6d\x52\x6f\x6f\x43'](_0x260d51,0.25),0x1c2,0.14,0.12),_0x3c67f2(_0x260d51+0.55,0x2ee,0.12,0.14));}}catch(_0x255d44){}},'\x70\x6c\x61\x79\x47\x75\x6e\x73\x68\x6f\x74'(_0x5771b1,_0x16b812=0x1,_0xc8739c=0x0){const _0x1f7fd8=a0_0x460254,_0x3cdeea={'\x56\x68\x5a\x68\x76':function(_0x45f746){return _0x45f746();},'\x65\x63\x4f\x4d\x75':function(_0x2fc4c7){return _0x2fc4c7();},'\x72\x52\x6b\x78\x75':function(_0x30a75c,_0x31f3aa){return _0x30a75c*_0x31f3aa;},'\x71\x67\x4a\x56\x74':function(_0x3c5274,_0x5e8138){return _0x3c5274-_0x5e8138;},'\x64\x42\x4e\x70\x4b':function(_0x2994db,_0x2a09d9){return _0x2994db*_0x2a09d9;},'\x50\x4c\x69\x4c\x66':_0x1f7fd8(0x6e2),'\x43\x49\x52\x65\x61':function(_0x17dfab,_0x423885){return _0x17dfab===_0x423885;},'\x66\x4a\x79\x70\x66':_0x1f7fd8(0x801),'\x75\x67\x57\x57\x65':function(_0x60f2b4,_0x418e97){return _0x60f2b4+_0x418e97;},'\x42\x43\x57\x73\x4e':_0x1f7fd8(0x18c),'\x4a\x65\x70\x4b\x62':function(_0x582216,_0x35b907){return _0x582216===_0x35b907;},'\x57\x41\x75\x5a\x58':_0x1f7fd8(0x503),'\x7a\x73\x72\x44\x6e':_0x1f7fd8(0x592),'\x46\x76\x6d\x6a\x61':function(_0x39aa39,_0xe5b2ed){return _0x39aa39*_0xe5b2ed;},'\x77\x44\x54\x56\x54':function(_0x19c860,_0x513e61){return _0x19c860+_0x513e61;},'\x51\x68\x75\x5a\x4c':'\x52\x49\x46\x4c\x45','\x43\x51\x51\x56\x78':function(_0x5ce363,_0x5546fd){return _0x5ce363*_0x5546fd;},'\x5a\x5a\x77\x75\x54':_0x1f7fd8(0x536),'\x67\x74\x61\x58\x52':_0x1f7fd8(0x516),'\x78\x50\x6f\x69\x75':function(_0x2c1420,_0x397537){return _0x2c1420+_0x397537;}};if(!sfxEnabled)return;_0x3cdeea[_0x1f7fd8(0x3f6)](initAudio);if(!audioCtx)return;const _0xf9fce6=audioCtx['\x63\x75\x72\x72\x65\x6e\x74\x54\x69\x6d\x65'];try{const _0x28d183=audioCtx[_0x1f7fd8(0x280)]();_0x28d183[_0x1f7fd8(0x7ae)][_0x1f7fd8(0x30b)]=_0x16b812;const _0x5dd59a=audioCtx[_0x1f7fd8(0x7e0)]();_0x5dd59a[_0x1f7fd8(0x764)][_0x1f7fd8(0x25e)](_0xc8739c,_0xf9fce6),_0x5dd59a[_0x1f7fd8(0x7e6)](_0x3cdeea[_0x1f7fd8(0x264)](getSfxDestination)),_0x28d183[_0x1f7fd8(0x7e6)](_0x5dd59a);const _0x4654b8=_0x3cdeea['\x72\x52\x6b\x78\x75'](audioCtx[_0x1f7fd8(0x103)],0.8),_0x1b1e5b=audioCtx['\x63\x72\x65\x61\x74\x65\x42\x75\x66\x66\x65\x72'](0x1,_0x4654b8,audioCtx['\x73\x61\x6d\x70\x6c\x65\x52\x61\x74\x65']),_0x27a145=_0x1b1e5b['\x67\x65\x74\x43\x68\x61\x6e\x6e\x65\x6c\x44\x61\x74\x61'](0x0);for(let _0x345dc5=0x0;_0x345dc5<_0x4654b8;_0x345dc5++){_0x27a145[_0x345dc5]=_0x3cdeea['\x71\x67\x4a\x56\x74'](_0x3cdeea[_0x1f7fd8(0x374)](Math[_0x1f7fd8(0x81e)](),0x2),0x1);}const _0x3d126d=audioCtx[_0x1f7fd8(0x5bc)]();_0x3d126d['\x62\x75\x66\x66\x65\x72']=_0x1b1e5b;const _0x26ac00=audioCtx['\x63\x72\x65\x61\x74\x65\x42\x69\x71\x75\x61\x64\x46\x69\x6c\x74\x65\x72'](),_0x16f793=audioCtx[_0x1f7fd8(0x280)](),_0x527473=audioCtx[_0x1f7fd8(0x361)](),_0x59a527=audioCtx[_0x1f7fd8(0x280)]();_0x527473[_0x1f7fd8(0x488)]=_0x3cdeea[_0x1f7fd8(0x1c9)];let _0x80af02=0.3,_0x559a06=0.18,_0x3eda54=0.3;if(_0x3cdeea[_0x1f7fd8(0x3f8)](_0x5771b1,'\x50\x49\x53\x54\x4f\x4c')){const _0x80da8b=_0x3cdeea[_0x1f7fd8(0x769)]['\x73\x70\x6c\x69\x74']('\x7c');let _0x53001b=0x0;while(!![]){switch(_0x80da8b[_0x53001b++]){case'\x30':_0x16f793[_0x1f7fd8(0x7ae)][_0x1f7fd8(0x25e)](_0x3cdeea[_0x1f7fd8(0x26b)](_0x559a06,0.6),_0xf9fce6);continue;case'\x31':_0x59a527['\x67\x61\x69\x6e'][_0x1f7fd8(0x2f5)](0.001,_0x3cdeea['\x75\x67\x57\x57\x65'](_0xf9fce6,0.12));continue;case'\x32':_0x527473[_0x1f7fd8(0x335)][_0x1f7fd8(0x25e)](0xdc,_0xf9fce6);continue;case'\x33':_0x16f793['\x67\x61\x69\x6e'][_0x1f7fd8(0x2f5)](0.001,_0x3cdeea[_0x1f7fd8(0x21a)](_0xf9fce6,0.15));continue;case'\x34':_0x26ac00['\x51'][_0x1f7fd8(0x25e)](0x2,_0xf9fce6);continue;case'\x35':_0x26ac00[_0x1f7fd8(0x488)]=_0x3cdeea[_0x1f7fd8(0x3a2)];continue;case'\x36':_0x80af02=0.2;continue;case'\x37':_0x59a527[_0x1f7fd8(0x7ae)][_0x1f7fd8(0x25e)](_0x3cdeea[_0x1f7fd8(0x374)](_0x3eda54,0.6),_0xf9fce6);continue;case'\x38':_0x26ac00['\x66\x72\x65\x71\x75\x65\x6e\x63\x79'][_0x1f7fd8(0x25e)](0x3e8,_0xf9fce6);continue;case'\x39':_0x527473['\x66\x72\x65\x71\x75\x65\x6e\x63\x79'][_0x1f7fd8(0x2f5)](0x32,_0xf9fce6+0.08);continue;}break;}}else{if(_0x3cdeea[_0x1f7fd8(0x700)](_0x5771b1,_0x1f7fd8(0x305))){const _0x5f5cae=_0x3cdeea[_0x1f7fd8(0x388)][_0x1f7fd8(0x696)]('\x7c');let _0x308182=0x0;while(!![]){switch(_0x5f5cae[_0x308182++]){case'\x30':_0x26ac00[_0x1f7fd8(0x488)]=_0x3cdeea[_0x1f7fd8(0x30a)];continue;case'\x31':_0x80af02=0.5;continue;case'\x32':_0x527473['\x66\x72\x65\x71\x75\x65\x6e\x63\x79']['\x73\x65\x74\x56\x61\x6c\x75\x65\x41\x74\x54\x69\x6d\x65'](0x5f,_0xf9fce6);continue;case'\x33':_0x59a527['\x67\x61\x69\x6e'][_0x1f7fd8(0x25e)](_0x3eda54*2.4,_0xf9fce6);continue;case'\x34':_0x16f793[_0x1f7fd8(0x7ae)]['\x73\x65\x74\x56\x61\x6c\x75\x65\x41\x74\x54\x69\x6d\x65'](_0x3cdeea[_0x1f7fd8(0x6a1)](_0x559a06,2.8),_0xf9fce6);continue;case'\x35':_0x16f793[_0x1f7fd8(0x7ae)][_0x1f7fd8(0x2f5)](0.001,_0x3cdeea[_0x1f7fd8(0x818)](_0xf9fce6,0.45));continue;case'\x36':_0x26ac00['\x66\x72\x65\x71\x75\x65\x6e\x63\x79'][_0x1f7fd8(0x25e)](0x3e8,_0xf9fce6);continue;case'\x37':_0x527473[_0x1f7fd8(0x335)]['\x65\x78\x70\x6f\x6e\x65\x6e\x74\x69\x61\x6c\x52\x61\x6d\x70\x54\x6f\x56\x61\x6c\x75\x65\x41\x74\x54\x69\x6d\x65'](0xa,_0x3cdeea['\x75\x67\x57\x57\x65'](_0xf9fce6,0.25));continue;case'\x38':_0x59a527[_0x1f7fd8(0x7ae)]['\x65\x78\x70\x6f\x6e\x65\x6e\x74\x69\x61\x6c\x52\x61\x6d\x70\x54\x6f\x56\x61\x6c\x75\x65\x41\x74\x54\x69\x6d\x65'](0.001,_0xf9fce6+0.3);continue;}break;}}else{if(_0x5771b1===_0x3cdeea[_0x1f7fd8(0x776)]){const _0x3aaa58=_0x1f7fd8(0x768)['\x73\x70\x6c\x69\x74']('\x7c');let _0x2f75f=0x0;while(!![]){switch(_0x3aaa58[_0x2f75f++]){case'\x30':_0x527473[_0x1f7fd8(0x335)][_0x1f7fd8(0x2f5)](0x1e,_0xf9fce6+0.12);continue;case'\x31':_0x80af02=0.35;continue;case'\x32':_0x59a527['\x67\x61\x69\x6e']['\x65\x78\x70\x6f\x6e\x65\x6e\x74\x69\x61\x6c\x52\x61\x6d\x70\x54\x6f\x56\x61\x6c\x75\x65\x41\x74\x54\x69\x6d\x65'](0.001,_0xf9fce6+0.2);continue;case'\x33':_0x26ac00[_0x1f7fd8(0x488)]=_0x3cdeea[_0x1f7fd8(0x3a2)];continue;case'\x34':_0x26ac00[_0x1f7fd8(0x335)][_0x1f7fd8(0x25e)](0x4b0,_0xf9fce6);continue;case'\x35':_0x16f793[_0x1f7fd8(0x7ae)][_0x1f7fd8(0x2f5)](0.001,_0x3cdeea[_0x1f7fd8(0x21a)](_0xf9fce6,0.26));continue;case'\x36':_0x26ac00['\x51'][_0x1f7fd8(0x25e)](1.5,_0xf9fce6);continue;case'\x37':_0x16f793['\x67\x61\x69\x6e'][_0x1f7fd8(0x25e)](_0x3cdeea['\x72\x52\x6b\x78\x75'](_0x559a06,1.3),_0xf9fce6);continue;case'\x38':_0x59a527[_0x1f7fd8(0x7ae)][_0x1f7fd8(0x25e)](_0x3cdeea[_0x1f7fd8(0x276)](_0x3eda54,1.2),_0xf9fce6);continue;case'\x39':_0x527473[_0x1f7fd8(0x335)][_0x1f7fd8(0x25e)](0xb4,_0xf9fce6);continue;}break;}}else{if(_0x3cdeea[_0x1f7fd8(0x700)](_0x5771b1,_0x3cdeea[_0x1f7fd8(0x1e7)])){const _0x54cae0=_0x3cdeea['\x67\x74\x61\x58\x52'][_0x1f7fd8(0x696)]('\x7c');let _0x4e7bd7=0x0;while(!![]){switch(_0x54cae0[_0x4e7bd7++]){case'\x30':_0x16f793[_0x1f7fd8(0x7ae)][_0x1f7fd8(0x25e)](_0x3cdeea[_0x1f7fd8(0x26b)](_0x559a06,3.8),_0xf9fce6);continue;case'\x31':_0x59a527[_0x1f7fd8(0x7ae)]['\x73\x65\x74\x56\x61\x6c\x75\x65\x41\x74\x54\x69\x6d\x65'](_0x3eda54*3.2,_0xf9fce6);continue;case'\x32':_0x59a527['\x67\x61\x69\x6e'][_0x1f7fd8(0x2f5)](0.001,_0x3cdeea['\x78\x50\x6f\x69\x75'](_0xf9fce6,0.5));continue;case'\x33':_0x26ac00[_0x1f7fd8(0x335)][_0x1f7fd8(0x25e)](0x2ee,_0xf9fce6);continue;case'\x34':_0x527473[_0x1f7fd8(0x335)][_0x1f7fd8(0x2f5)](0xf,_0x3cdeea[_0x1f7fd8(0x21a)](_0xf9fce6,0.35));continue;case'\x35':_0x80af02=0.8;continue;case'\x36':_0x527473[_0x1f7fd8(0x335)][_0x1f7fd8(0x25e)](0x4b,_0xf9fce6);continue;case'\x37':_0x16f793[_0x1f7fd8(0x7ae)][_0x1f7fd8(0x2f5)](0.001,_0xf9fce6+0.8);continue;case'\x38':_0x26ac00[_0x1f7fd8(0x488)]=_0x3cdeea[_0x1f7fd8(0x30a)];continue;}break;}}}}}_0x3d126d[_0x1f7fd8(0x7e6)](_0x26ac00),_0x26ac00[_0x1f7fd8(0x7e6)](_0x16f793),_0x16f793['\x63\x6f\x6e\x6e\x65\x63\x74'](_0x28d183),_0x527473[_0x1f7fd8(0x7e6)](_0x59a527),_0x59a527['\x63\x6f\x6e\x6e\x65\x63\x74'](_0x28d183),_0x3d126d[_0x1f7fd8(0x3e6)](_0xf9fce6),_0x3d126d[_0x1f7fd8(0x260)](_0x3cdeea[_0x1f7fd8(0x21a)](_0xf9fce6,_0x80af02)),_0x527473[_0x1f7fd8(0x3e6)](_0xf9fce6),_0x527473[_0x1f7fd8(0x260)](_0x3cdeea[_0x1f7fd8(0x818)](_0xf9fce6,_0x80af02));}catch(_0x17bc4d){}},'\x70\x6c\x61\x79\x50\x61\x69\x6e\x53\x6f\x75\x6e\x64'(){const _0x287b40=a0_0x460254,_0x4354e5={'\x67\x52\x6f\x65\x78':function(_0x510429){return _0x510429();},'\x72\x65\x42\x69\x49':_0x287b40(0x847),'\x4e\x6a\x6e\x6d\x4b':function(_0x480ac8,_0x17c687){return _0x480ac8+_0x17c687;},'\x46\x78\x63\x56\x5a':function(_0x120d6d,_0x5bb1ca){return _0x120d6d+_0x5bb1ca;}};if(!sfxEnabled)return;_0x4354e5['\x67\x52\x6f\x65\x78'](initAudio);if(!audioCtx)return;const _0x154b64=audioCtx[_0x287b40(0x23b)];try{const _0x1e59f5=audioCtx['\x63\x72\x65\x61\x74\x65\x4f\x73\x63\x69\x6c\x6c\x61\x74\x6f\x72'](),_0x1c4850=audioCtx[_0x287b40(0x280)]();_0x1e59f5[_0x287b40(0x488)]=_0x4354e5[_0x287b40(0x45a)],_0x1e59f5[_0x287b40(0x335)][_0x287b40(0x25e)](0x78,_0x154b64),_0x1e59f5[_0x287b40(0x335)][_0x287b40(0x2f5)](0x28,_0x154b64+0.15),_0x1c4850[_0x287b40(0x7ae)]['\x73\x65\x74\x56\x61\x6c\x75\x65\x41\x74\x54\x69\x6d\x65'](0.3,_0x154b64),_0x1c4850['\x67\x61\x69\x6e'][_0x287b40(0x2f5)](0.001,_0x4354e5['\x4e\x6a\x6e\x6d\x4b'](_0x154b64,0.2));const _0x1df00f=audioCtx[_0x287b40(0x2ed)]();_0x1df00f['\x74\x79\x70\x65']=_0x287b40(0x592),_0x1df00f['\x66\x72\x65\x71\x75\x65\x6e\x63\x79'][_0x287b40(0x30b)]=0x190,_0x1e59f5[_0x287b40(0x7e6)](_0x1df00f),_0x1df00f[_0x287b40(0x7e6)](_0x1c4850),_0x1c4850['\x63\x6f\x6e\x6e\x65\x63\x74'](_0x4354e5[_0x287b40(0x3ca)](getSfxDestination)),_0x1e59f5['\x73\x74\x61\x72\x74'](_0x154b64),_0x1e59f5['\x73\x74\x6f\x70'](_0x4354e5[_0x287b40(0x34f)](_0x154b64,0.2));}catch(_0x599138){}},'\x70\x6c\x61\x79\x45\x78\x70\x6c\x6f\x73\x69\x6f\x6e'(_0x14a16b=0x1){const _0x364a11=a0_0x460254,_0x2c849b={'\x4c\x66\x72\x6f\x73':function(_0x3e829d,_0x375e28){return _0x3e829d<_0x375e28;},'\x41\x62\x67\x51\x71':function(_0x332720,_0x363210){return _0x332720*_0x363210;},'\x51\x72\x48\x76\x6a':function(_0x47fc0a,_0x403f7a){return _0x47fc0a+_0x403f7a;},'\x74\x73\x59\x41\x51':function(_0xad85e6){return _0xad85e6();},'\x52\x55\x79\x56\x76':function(_0x435bd8,_0xe9be8c){return _0x435bd8+_0xe9be8c;},'\x4c\x59\x70\x6e\x75':_0x364a11(0x6e2),'\x77\x4f\x67\x45\x62':function(_0x3bb319){return _0x3bb319();},'\x70\x44\x6e\x58\x6a':function(_0x3bf289,_0x2fe6aa){return _0x3bf289+_0x2fe6aa;}};if(!sfxEnabled)return;initAudio();if(!audioCtx)return;const _0x98d02d=audioCtx[_0x364a11(0x23b)];try{const _0x4f1b96=audioCtx['\x73\x61\x6d\x70\x6c\x65\x52\x61\x74\x65']*1.2,_0xd8e667=audioCtx['\x63\x72\x65\x61\x74\x65\x42\x75\x66\x66\x65\x72'](0x1,_0x4f1b96,audioCtx[_0x364a11(0x103)]),_0x21448b=_0xd8e667[_0x364a11(0x7a2)](0x0);for(let _0x3f09e0=0x0;_0x2c849b[_0x364a11(0x72a)](_0x3f09e0,_0x4f1b96);_0x3f09e0++){_0x21448b[_0x3f09e0]=_0x2c849b[_0x364a11(0x5ec)](Math[_0x364a11(0x81e)](),0x2)-0x1;}const _0x275d10=audioCtx['\x63\x72\x65\x61\x74\x65\x42\x75\x66\x66\x65\x72\x53\x6f\x75\x72\x63\x65']();_0x275d10[_0x364a11(0x81b)]=_0xd8e667;const _0x268575=audioCtx['\x63\x72\x65\x61\x74\x65\x42\x69\x71\x75\x61\x64\x46\x69\x6c\x74\x65\x72']();_0x268575['\x74\x79\x70\x65']='\x6c\x6f\x77\x70\x61\x73\x73',_0x268575[_0x364a11(0x335)][_0x364a11(0x25e)](0x1f4,_0x98d02d),_0x268575['\x66\x72\x65\x71\x75\x65\x6e\x63\x79'][_0x364a11(0x2f5)](0x32,_0x2c849b['\x51\x72\x48\x76\x6a'](_0x98d02d,0.9));const _0x31ca1c=audioCtx['\x63\x72\x65\x61\x74\x65\x47\x61\x69\x6e']();_0x31ca1c[_0x364a11(0x7ae)]['\x73\x65\x74\x56\x61\x6c\x75\x65\x41\x74\x54\x69\x6d\x65'](_0x2c849b[_0x364a11(0x5ec)](0.7,_0x14a16b),_0x98d02d),_0x31ca1c[_0x364a11(0x7ae)][_0x364a11(0x2f5)](0.001,_0x2c849b[_0x364a11(0x22e)](_0x98d02d,1.1)),_0x275d10[_0x364a11(0x7e6)](_0x268575),_0x268575[_0x364a11(0x7e6)](_0x31ca1c),_0x31ca1c[_0x364a11(0x7e6)](_0x2c849b[_0x364a11(0x74a)](getSfxDestination)),_0x275d10['\x73\x74\x61\x72\x74'](_0x98d02d),_0x275d10[_0x364a11(0x260)](_0x2c849b['\x52\x55\x79\x56\x76'](_0x98d02d,1.2));const _0x55411b=audioCtx[_0x364a11(0x361)](),_0x1bc627=audioCtx[_0x364a11(0x280)]();_0x55411b[_0x364a11(0x488)]=_0x2c849b[_0x364a11(0x209)],_0x55411b[_0x364a11(0x335)][_0x364a11(0x25e)](0x46,_0x98d02d),_0x55411b['\x66\x72\x65\x71\x75\x65\x6e\x63\x79'][_0x364a11(0x2f5)](0x14,_0x2c849b[_0x364a11(0x689)](_0x98d02d,0.35)),_0x1bc627['\x67\x61\x69\x6e'][_0x364a11(0x25e)](0.9*_0x14a16b,_0x98d02d),_0x1bc627[_0x364a11(0x7ae)][_0x364a11(0x2f5)](0.001,_0x2c849b[_0x364a11(0x22e)](_0x98d02d,0.35)),_0x55411b[_0x364a11(0x7e6)](_0x1bc627),_0x1bc627[_0x364a11(0x7e6)](_0x2c849b[_0x364a11(0x887)](getSfxDestination)),_0x55411b[_0x364a11(0x3e6)](_0x98d02d),_0x55411b[_0x364a11(0x260)](_0x2c849b['\x70\x44\x6e\x58\x6a'](_0x98d02d,0.35));}catch(_0x4e4183){}},'\x70\x6c\x61\x79\x53\x6d\x6f\x6b\x65\x48\x69\x73\x73'(_0x232261=0x1){const _0x44ef9d=a0_0x460254,_0x4d7483={'\x4a\x4f\x44\x49\x59':function(_0x2361cb,_0x529d91){return _0x2361cb*_0x529d91;},'\x62\x6a\x45\x53\x46':function(_0x25f120,_0x50d746){return _0x25f120<_0x50d746;},'\x68\x53\x62\x63\x49':function(_0x5f551d,_0x1b1ab5){return _0x5f551d*_0x1b1ab5;},'\x4f\x44\x56\x59\x5a':_0x44ef9d(0x35f),'\x5a\x4f\x66\x77\x4f':function(_0x5620fa,_0x6aa3d7){return _0x5620fa+_0x6aa3d7;},'\x43\x7a\x51\x54\x6c':function(_0x38f47f,_0xfbf622){return _0x38f47f+_0xfbf622;},'\x63\x7a\x4c\x77\x6d':function(_0x1f1ad2){return _0x1f1ad2();},'\x66\x43\x78\x4a\x79':function(_0x2f3be6,_0x38b9d5){return _0x2f3be6+_0x38b9d5;}};initAudio();if(!audioCtx)return;const _0x290b49=audioCtx['\x63\x75\x72\x72\x65\x6e\x74\x54\x69\x6d\x65'];try{const _0x4026ee=_0x4d7483[_0x44ef9d(0x634)](audioCtx[_0x44ef9d(0x103)],0x2),_0x4df61d=audioCtx[_0x44ef9d(0x346)](0x1,_0x4026ee,audioCtx[_0x44ef9d(0x103)]),_0x5bc850=_0x4df61d['\x67\x65\x74\x43\x68\x61\x6e\x6e\x65\x6c\x44\x61\x74\x61'](0x0);for(let _0x41f09f=0x0;_0x4d7483[_0x44ef9d(0x4d8)](_0x41f09f,_0x4026ee);_0x41f09f++){_0x5bc850[_0x41f09f]=_0x4d7483[_0x44ef9d(0x3c5)](Math[_0x44ef9d(0x81e)](),0x2)-0x1;}const _0x480649=audioCtx[_0x44ef9d(0x5bc)]();_0x480649[_0x44ef9d(0x81b)]=_0x4df61d;const _0x1af065=audioCtx[_0x44ef9d(0x2ed)]();_0x1af065[_0x44ef9d(0x488)]=_0x4d7483[_0x44ef9d(0x622)],_0x1af065[_0x44ef9d(0x335)][_0x44ef9d(0x25e)](0x898,_0x290b49);const _0x43b817=audioCtx[_0x44ef9d(0x280)]();_0x43b817[_0x44ef9d(0x7ae)][_0x44ef9d(0x25e)](_0x4d7483[_0x44ef9d(0x634)](0.12,_0x232261),_0x290b49),_0x43b817['\x67\x61\x69\x6e']['\x6c\x69\x6e\x65\x61\x72\x52\x61\x6d\x70\x54\x6f\x56\x61\x6c\x75\x65\x41\x74\x54\x69\x6d\x65'](_0x4d7483['\x4a\x4f\x44\x49\x59'](0.08,_0x232261),_0x4d7483[_0x44ef9d(0x3f5)](_0x290b49,0.5)),_0x43b817[_0x44ef9d(0x7ae)][_0x44ef9d(0x2f5)](0.001,_0x4d7483[_0x44ef9d(0x716)](_0x290b49,0x2)),_0x480649[_0x44ef9d(0x7e6)](_0x1af065),_0x1af065[_0x44ef9d(0x7e6)](_0x43b817),_0x43b817[_0x44ef9d(0x7e6)](_0x4d7483[_0x44ef9d(0x419)](getSfxDestination)),_0x480649[_0x44ef9d(0x3e6)](_0x290b49),_0x480649[_0x44ef9d(0x260)](_0x4d7483['\x66\x43\x78\x4a\x79'](_0x290b49,0x2));}catch(_0x55cd32){}},'\x70\x6c\x61\x79\x50\x75\x6e\x63\x68'(_0x3215f9){const _0x519b81=a0_0x460254,_0x2bb107={'\x6d\x4f\x72\x58\x62':function(_0x5e7597){return _0x5e7597();},'\x57\x71\x50\x64\x49':_0x519b81(0x44d),'\x64\x64\x6d\x42\x42':function(_0x3e557a,_0x27c712){return _0x3e557a+_0x27c712;},'\x76\x6a\x4f\x41\x4f':function(_0x200d8a,_0x180051){return _0x200d8a+_0x180051;},'\x56\x78\x57\x64\x78':function(_0x5b81f6){return _0x5b81f6();},'\x41\x45\x50\x7a\x73':function(_0x3f302e,_0x11b9a0){return _0x3f302e+_0x11b9a0;},'\x77\x79\x43\x55\x42':_0x519b81(0x6e2),'\x52\x42\x44\x42\x76':function(_0x3da60d,_0x24afbc){return _0x3da60d+_0x24afbc;},'\x76\x55\x4c\x6b\x6b':function(_0x3c7e77){return _0x3c7e77();},'\x51\x42\x79\x74\x54':function(_0xfa3b01,_0x51aae0){return _0xfa3b01+_0x51aae0;},'\x41\x65\x4f\x70\x55':function(_0x27e53a){return _0x27e53a();}};_0x2bb107[_0x519b81(0x545)](initAudio);if(!audioCtx)return;const _0x3bbe75=audioCtx['\x63\x75\x72\x72\x65\x6e\x74\x54\x69\x6d\x65'];try{if(!_0x3215f9){const _0x2cd1dc=audioCtx[_0x519b81(0x361)](),_0x11c2ec=audioCtx['\x63\x72\x65\x61\x74\x65\x47\x61\x69\x6e']();_0x2cd1dc[_0x519b81(0x488)]=_0x2bb107[_0x519b81(0x401)],_0x2cd1dc[_0x519b81(0x335)][_0x519b81(0x25e)](0x140,_0x3bbe75),_0x2cd1dc[_0x519b81(0x335)][_0x519b81(0x2f5)](0x5a,_0x2bb107[_0x519b81(0x23d)](_0x3bbe75,0.1)),_0x11c2ec[_0x519b81(0x7ae)][_0x519b81(0x25e)](0.15,_0x3bbe75),_0x11c2ec['\x67\x61\x69\x6e'][_0x519b81(0x2f5)](0.001,_0x2bb107['\x76\x6a\x4f\x41\x4f'](_0x3bbe75,0.1)),_0x2cd1dc[_0x519b81(0x7e6)](_0x11c2ec),_0x11c2ec[_0x519b81(0x7e6)](_0x2bb107[_0x519b81(0x685)](getSfxDestination)),_0x2cd1dc[_0x519b81(0x3e6)](_0x3bbe75),_0x2cd1dc[_0x519b81(0x260)](_0x2bb107[_0x519b81(0x6c4)](_0x3bbe75,0.1));}else{const _0x293dcf=audioCtx[_0x519b81(0x361)](),_0xe3d07d=audioCtx[_0x519b81(0x280)]();_0x293dcf[_0x519b81(0x488)]=_0x2bb107['\x77\x79\x43\x55\x42'],_0x293dcf[_0x519b81(0x335)][_0x519b81(0x25e)](0x6e,_0x3bbe75),_0x293dcf['\x66\x72\x65\x71\x75\x65\x6e\x63\x79'][_0x519b81(0x2f5)](0x37,_0x2bb107['\x41\x45\x50\x7a\x73'](_0x3bbe75,0.12)),_0xe3d07d[_0x519b81(0x7ae)][_0x519b81(0x25e)](0.4,_0x3bbe75),_0xe3d07d[_0x519b81(0x7ae)][_0x519b81(0x2f5)](0.001,_0x2bb107['\x52\x42\x44\x42\x76'](_0x3bbe75,0.12)),_0x293dcf[_0x519b81(0x7e6)](_0xe3d07d),_0xe3d07d[_0x519b81(0x7e6)](_0x2bb107[_0x519b81(0x110)](getSfxDestination)),_0x293dcf['\x73\x74\x61\x72\x74'](_0x3bbe75),_0x293dcf['\x73\x74\x6f\x70'](_0x2bb107['\x52\x42\x44\x42\x76'](_0x3bbe75,0.12));const _0x3161e3=audioCtx[_0x519b81(0x361)](),_0x32ce50=audioCtx[_0x519b81(0x280)]();_0x3161e3[_0x519b81(0x488)]=_0x2bb107[_0x519b81(0x401)],_0x3161e3['\x66\x72\x65\x71\x75\x65\x6e\x63\x79']['\x73\x65\x74\x56\x61\x6c\x75\x65\x41\x74\x54\x69\x6d\x65'](0x384,_0x3bbe75),_0x3161e3[_0x519b81(0x335)]['\x65\x78\x70\x6f\x6e\x65\x6e\x74\x69\x61\x6c\x52\x61\x6d\x70\x54\x6f\x56\x61\x6c\x75\x65\x41\x74\x54\x69\x6d\x65'](0x96,_0x2bb107['\x51\x42\x79\x74\x54'](_0x3bbe75,0.04)),_0x32ce50[_0x519b81(0x7ae)][_0x519b81(0x25e)](0.2,_0x3bbe75),_0x32ce50[_0x519b81(0x7ae)][_0x519b81(0x2f5)](0.001,_0x2bb107[_0x519b81(0x6c4)](_0x3bbe75,0.04)),_0x3161e3[_0x519b81(0x7e6)](_0x32ce50),_0x32ce50[_0x519b81(0x7e6)](_0x2bb107['\x41\x65\x4f\x70\x55'](getSfxDestination)),_0x3161e3[_0x519b81(0x3e6)](_0x3bbe75),_0x3161e3[_0x519b81(0x260)](_0x3bbe75+0.04);}}catch(_0x31c804){}},'\x70\x6c\x61\x79\x46\x6f\x6f\x74\x73\x74\x65\x70'(_0x12baff){const _0x2d9ea7=a0_0x460254,_0x2d2c73={'\x45\x4a\x70\x72\x44':function(_0x40cc05){return _0x40cc05();},'\x6c\x68\x41\x71\x63':_0x2d9ea7(0x6e2),'\x75\x5a\x4d\x75\x42':function(_0xdc5d73,_0x2b4db0){return _0xdc5d73+_0x2b4db0;},'\x4c\x50\x69\x44\x50':_0x2d9ea7(0x592),'\x58\x68\x54\x41\x64':function(_0x546c2c,_0x2df19e){return _0x546c2c+_0x2df19e;}};if(!sfxEnabled)return;_0x2d2c73[_0x2d9ea7(0x133)](initAudio);if(!audioCtx)return;const _0x2c42a7=audioCtx[_0x2d9ea7(0x23b)];try{const _0x57fa03=audioCtx[_0x2d9ea7(0x361)](),_0x3b4742=audioCtx[_0x2d9ea7(0x280)]();_0x57fa03['\x74\x79\x70\x65']=_0x2d2c73[_0x2d9ea7(0x1da)],_0x57fa03[_0x2d9ea7(0x335)][_0x2d9ea7(0x25e)](0x41,_0x2c42a7),_0x57fa03['\x66\x72\x65\x71\x75\x65\x6e\x63\x79'][_0x2d9ea7(0x2f5)](0x19,_0x2d2c73['\x75\x5a\x4d\x75\x42'](_0x2c42a7,0.08)),_0x3b4742[_0x2d9ea7(0x7ae)][_0x2d9ea7(0x25e)](_0x12baff?0.06:0.035,_0x2c42a7),_0x3b4742['\x67\x61\x69\x6e'][_0x2d9ea7(0x2f5)](0.001,_0x2c42a7+0.08);const _0x21e2fe=audioCtx[_0x2d9ea7(0x2ed)]();_0x21e2fe[_0x2d9ea7(0x488)]=_0x2d2c73[_0x2d9ea7(0x612)],_0x21e2fe[_0x2d9ea7(0x335)][_0x2d9ea7(0x25e)](0x64,_0x2c42a7),_0x57fa03[_0x2d9ea7(0x7e6)](_0x21e2fe),_0x21e2fe[_0x2d9ea7(0x7e6)](_0x3b4742),_0x3b4742[_0x2d9ea7(0x7e6)](getSfxDestination()),_0x57fa03[_0x2d9ea7(0x3e6)](_0x2c42a7),_0x57fa03[_0x2d9ea7(0x260)](_0x2d2c73['\x58\x68\x54\x41\x64'](_0x2c42a7,0.08));}catch(_0x56a2a3){}},'\x70\x6c\x61\x79\x48\x65\x61\x6c\x53\x6f\x75\x6e\x64'(){const _0x343e6e=a0_0x460254,_0x15f7a2={'\x73\x79\x6c\x71\x76':function(_0x27f934,_0x5828f6){return _0x27f934+_0x5828f6;},'\x59\x5a\x65\x63\x52':function(_0x46fe65,_0x50d05a){return _0x46fe65*_0x50d05a;},'\x52\x44\x46\x72\x75':function(_0x3f41dc,_0x2b0130){return _0x3f41dc*_0x2b0130;},'\x75\x73\x7a\x51\x7a':function(_0x302174,_0x55ed61){return _0x302174+_0x55ed61;},'\x65\x42\x58\x4f\x59':function(_0x3893a6,_0x278872){return _0x3893a6*_0x278872;},'\x74\x4b\x6e\x6a\x6f':function(_0x29075a){return _0x29075a();},'\x6e\x79\x6b\x64\x72':function(_0x476704,_0x178bed){return _0x476704*_0x178bed;},'\x51\x62\x6b\x55\x69':function(_0xfc8f46,_0x3cf944){return _0xfc8f46+_0x3cf944;},'\x53\x46\x4b\x43\x43':function(_0x5909a4,_0x5ab678){return _0x5909a4*_0x5ab678;}};if(!sfxEnabled)return;_0x15f7a2['\x74\x4b\x6e\x6a\x6f'](initAudio);if(!audioCtx)return;const _0x34ad8a=audioCtx[_0x343e6e(0x23b)];try{const _0x5b3d01=[0x14a,0x1b8,0x22a,0x293];_0x5b3d01[_0x343e6e(0x64b)]((_0x105716,_0x21aa00)=>{const _0x2139ad=_0x343e6e,_0x4bae60=audioCtx[_0x2139ad(0x361)](),_0x21c887=audioCtx[_0x2139ad(0x280)]();_0x4bae60[_0x2139ad(0x488)]=_0x2139ad(0x6e2),_0x4bae60[_0x2139ad(0x335)][_0x2139ad(0x25e)](_0x105716,_0x15f7a2[_0x2139ad(0x1dd)](_0x34ad8a,_0x21aa00*0.12)),_0x21c887[_0x2139ad(0x7ae)][_0x2139ad(0x25e)](0x0,_0x15f7a2[_0x2139ad(0x1dd)](_0x34ad8a,_0x15f7a2['\x59\x5a\x65\x63\x52'](_0x21aa00,0.12))),_0x21c887[_0x2139ad(0x7ae)][_0x2139ad(0x70b)](0.08,_0x15f7a2['\x73\x79\x6c\x71\x76'](_0x34ad8a,_0x15f7a2[_0x2139ad(0x61a)](_0x21aa00,0.12))+0.03),_0x21c887[_0x2139ad(0x7ae)][_0x2139ad(0x2f5)](0.001,_0x15f7a2[_0x2139ad(0x1dd)](_0x15f7a2[_0x2139ad(0x4a3)](_0x34ad8a,_0x15f7a2[_0x2139ad(0x293)](_0x21aa00,0.12)),0.3)),_0x4bae60['\x63\x6f\x6e\x6e\x65\x63\x74'](_0x21c887),_0x21c887[_0x2139ad(0x7e6)](_0x15f7a2[_0x2139ad(0x791)](getSfxDestination)),_0x4bae60[_0x2139ad(0x3e6)](_0x34ad8a+_0x15f7a2['\x6e\x79\x6b\x64\x72'](_0x21aa00,0.12)),_0x4bae60[_0x2139ad(0x260)](_0x15f7a2[_0x2139ad(0x258)](_0x34ad8a,_0x15f7a2[_0x2139ad(0x6a2)](_0x21aa00,0.12))+0.3);});}catch(_0x5da532){}},'\x70\x6c\x61\x79\x4c\x6f\x6f\x74\x53\x6f\x75\x6e\x64'(){const _0x33818d=a0_0x460254,_0x4de64c={'\x66\x48\x62\x4f\x6e':_0x33818d(0x44d),'\x45\x46\x53\x41\x65':function(_0x4d7f8a,_0x528e35){return _0x4d7f8a+_0x528e35;},'\x4c\x79\x5a\x75\x4d':function(_0x2677f7){return _0x2677f7();},'\x54\x6b\x42\x4a\x48':function(_0x2c408f,_0x46ffb3){return _0x2c408f+_0x46ffb3;}};if(!sfxEnabled)return;initAudio();if(!audioCtx)return;const _0x5067a3=audioCtx['\x63\x75\x72\x72\x65\x6e\x74\x54\x69\x6d\x65'];try{const _0x5b63c6=audioCtx[_0x33818d(0x361)](),_0x2c6f09=audioCtx[_0x33818d(0x280)]();_0x5b63c6[_0x33818d(0x488)]=_0x4de64c[_0x33818d(0x8cc)],_0x5b63c6['\x66\x72\x65\x71\x75\x65\x6e\x63\x79'][_0x33818d(0x25e)](0x226,_0x5067a3),_0x5b63c6[_0x33818d(0x335)][_0x33818d(0x2f5)](0x352,_0x4de64c['\x45\x46\x53\x41\x65'](_0x5067a3,0.08)),_0x2c6f09[_0x33818d(0x7ae)][_0x33818d(0x25e)](0.05,_0x5067a3),_0x2c6f09[_0x33818d(0x7ae)][_0x33818d(0x2f5)](0.001,_0x4de64c[_0x33818d(0x674)](_0x5067a3,0.08)),_0x5b63c6[_0x33818d(0x7e6)](_0x2c6f09),_0x2c6f09['\x63\x6f\x6e\x6e\x65\x63\x74'](_0x4de64c['\x4c\x79\x5a\x75\x4d'](getSfxDestination)),_0x5b63c6[_0x33818d(0x3e6)](_0x5067a3),_0x5b63c6[_0x33818d(0x260)](_0x4de64c[_0x33818d(0x1d2)](_0x5067a3,0.08));}catch(_0x1ca6ae){}},'\x70\x6c\x61\x79\x4d\x61\x74\x63\x68\x45\x6e\x64\x53\x6f\x75\x6e\x64'(_0x37cf4c){const _0x54326c=a0_0x460254,_0x5c96bf={'\x64\x7a\x59\x54\x78':function(_0x40b09c,_0x3c433e){return _0x40b09c+_0x3c433e;},'\x51\x49\x41\x55\x76':function(_0x288c2d,_0x230eca){return _0x288c2d*_0x230eca;},'\x44\x6e\x75\x64\x73':_0x54326c(0x592),'\x48\x67\x64\x6e\x48':function(_0x4a9fe9,_0x484ad3){return _0x4a9fe9+_0x484ad3;},'\x58\x64\x55\x6a\x47':function(_0x1816d4,_0x4efc8b){return _0x1816d4+_0x4efc8b;},'\x5a\x53\x67\x53\x50':function(_0x29cf71,_0x2835c4){return _0x29cf71*_0x2835c4;},'\x50\x41\x64\x41\x5a':function(_0x3f0cc7){return _0x3f0cc7();},'\x47\x79\x52\x72\x47':function(_0x3cebd0,_0x26aa2c){return _0x3cebd0*_0x26aa2c;},'\x6b\x48\x54\x6f\x51':function(_0x519c2a,_0x5b3924){return _0x519c2a+_0x5b3924;},'\x6b\x46\x56\x71\x54':_0x54326c(0x847),'\x54\x50\x47\x4b\x42':function(_0x322e77,_0x3d34e2){return _0x322e77+_0x3d34e2;},'\x42\x68\x41\x62\x78':function(_0x398e99){return _0x398e99();}};if(!sfxEnabled)return;_0x5c96bf[_0x54326c(0x1f1)](initAudio);if(!audioCtx)return;const _0x1072b9=audioCtx[_0x54326c(0x23b)];try{if(_0x37cf4c){const _0x320b4f=[261.63,329.63,0x188,523.25];_0x320b4f[_0x54326c(0x64b)]((_0x43fdb3,_0x44c5f1)=>{const _0x5b121c=_0x54326c,_0x5ce26b=audioCtx['\x63\x72\x65\x61\x74\x65\x4f\x73\x63\x69\x6c\x6c\x61\x74\x6f\x72'](),_0x54982e=audioCtx['\x63\x72\x65\x61\x74\x65\x47\x61\x69\x6e']();_0x5ce26b['\x74\x79\x70\x65']=_0x5b121c(0x847),_0x5ce26b['\x66\x72\x65\x71\x75\x65\x6e\x63\x79'][_0x5b121c(0x25e)](_0x43fdb3,_0x5c96bf['\x64\x7a\x59\x54\x78'](_0x1072b9,_0x5c96bf[_0x5b121c(0x389)](_0x44c5f1,0.14)));const _0x1defdd=audioCtx[_0x5b121c(0x2ed)]();_0x1defdd['\x74\x79\x70\x65']=_0x5c96bf['\x44\x6e\x75\x64\x73'],_0x1defdd[_0x5b121c(0x335)][_0x5b121c(0x25e)](0x2ee,_0x1072b9+_0x5c96bf[_0x5b121c(0x389)](_0x44c5f1,0.14)),_0x54982e[_0x5b121c(0x7ae)]['\x73\x65\x74\x56\x61\x6c\x75\x65\x41\x74\x54\x69\x6d\x65'](0x0,_0x1072b9+_0x5c96bf['\x51\x49\x41\x55\x76'](_0x44c5f1,0.14)),_0x54982e[_0x5b121c(0x7ae)][_0x5b121c(0x70b)](0.07,_0x5c96bf[_0x5b121c(0x3f2)](_0x1072b9+_0x44c5f1*0.14,0.05)),_0x54982e[_0x5b121c(0x7ae)][_0x5b121c(0x2f5)](0.001,_0x5c96bf[_0x5b121c(0x3f2)](_0x5c96bf[_0x5b121c(0x2d0)](_0x1072b9,_0x5c96bf[_0x5b121c(0x81d)](_0x44c5f1,0.14)),0.7)),_0x5ce26b[_0x5b121c(0x7e6)](_0x1defdd),_0x1defdd['\x63\x6f\x6e\x6e\x65\x63\x74'](_0x54982e),_0x54982e['\x63\x6f\x6e\x6e\x65\x63\x74'](_0x5c96bf[_0x5b121c(0x1f1)](getSfxDestination)),_0x5ce26b['\x73\x74\x61\x72\x74'](_0x5c96bf[_0x5b121c(0x3f2)](_0x1072b9,_0x5c96bf[_0x5b121c(0x46a)](_0x44c5f1,0.14))),_0x5ce26b[_0x5b121c(0x260)](_0x5c96bf[_0x5b121c(0x54b)](_0x5c96bf[_0x5b121c(0x54b)](_0x1072b9,_0x5c96bf['\x5a\x53\x67\x53\x50'](_0x44c5f1,0.14)),0.75));});}else{const _0x26ebcf=audioCtx['\x63\x72\x65\x61\x74\x65\x4f\x73\x63\x69\x6c\x6c\x61\x74\x6f\x72'](),_0x475a54=audioCtx[_0x54326c(0x280)]();_0x26ebcf[_0x54326c(0x488)]=_0x5c96bf[_0x54326c(0x432)],_0x26ebcf['\x66\x72\x65\x71\x75\x65\x6e\x63\x79'][_0x54326c(0x25e)](0x6e,_0x1072b9),_0x26ebcf['\x66\x72\x65\x71\x75\x65\x6e\x63\x79'][_0x54326c(0x70b)](0x23,_0x5c96bf['\x58\x64\x55\x6a\x47'](_0x1072b9,1.4));const _0x5210b3=audioCtx[_0x54326c(0x2ed)]();_0x5210b3[_0x54326c(0x488)]=_0x5c96bf[_0x54326c(0x6b1)],_0x5210b3[_0x54326c(0x335)][_0x54326c(0x25e)](0xb4,_0x1072b9),_0x475a54[_0x54326c(0x7ae)][_0x54326c(0x25e)](0.2,_0x1072b9),_0x475a54['\x67\x61\x69\x6e'][_0x54326c(0x70b)](0.001,_0x5c96bf[_0x54326c(0x496)](_0x1072b9,1.4)),_0x26ebcf[_0x54326c(0x7e6)](_0x5210b3),_0x5210b3['\x63\x6f\x6e\x6e\x65\x63\x74'](_0x475a54),_0x475a54[_0x54326c(0x7e6)](_0x5c96bf['\x42\x68\x41\x62\x78'](getSfxDestination)),_0x26ebcf[_0x54326c(0x3e6)](_0x1072b9),_0x26ebcf['\x73\x74\x6f\x70'](_0x5c96bf['\x64\x7a\x59\x54\x78'](_0x1072b9,1.4));}}catch(_0x398259){}}},WEAPONS={'\x50\x55\x4e\x43\x48':{'\x6e\x61\x6d\x65':'\uc8fc\uba39','\x72\x61\x6e\x67\x65':0x4,'\x64\x6d\x67':0x14},'\x50\x49\x53\x54\x4f\x4c':{'\x6e\x61\x6d\x65':'\uad8c\ucd1d','\x72\x61\x6e\x67\x65':0x1e,'\x64\x6d\x67':0x12},'\x53\x48\x4f\x54\x47\x55\x4e':{'\x6e\x61\x6d\x65':'\uc0f7\uac74','\x72\x61\x6e\x67\x65':0xf,'\x64\x6d\x67':0x50},'\x52\x49\x46\x4c\x45':{'\x6e\x61\x6d\x65':'\ub3cc\uaca9\uc18c\ucd1d','\x72\x61\x6e\x67\x65':0x78,'\x64\x6d\x67':0x23},'\x53\x4e\x49\x50\x45\x52':{'\x6e\x61\x6d\x65':a0_0x460254(0x1db),'\x72\x61\x6e\x67\x65':0x12c,'\x64\x6d\x67':0x5a}},SCOPES={'\x4e\x4f\x4e\x45':{'\x6e\x61\x6d\x65':a0_0x460254(0x236),'\x6d\x61\x67':0x1},'\x58\x32':{'\x6e\x61\x6d\x65':a0_0x460254(0x308),'\x6d\x61\x67':0x2},'\x58\x34':{'\x6e\x61\x6d\x65':a0_0x460254(0x123),'\x6d\x61\x67':0x4},'\x58\x38':{'\x6e\x61\x6d\x65':a0_0x460254(0x8cb),'\x6d\x61\x67':0x8}},HELMETS={'\x4c\x56\x31':{'\x6e\x61\x6d\x65':a0_0x460254(0x439),'\x72\x65\x64\x75\x63\x74\x69\x6f\x6e':0.3},'\x4c\x56\x32':{'\x6e\x61\x6d\x65':'\ud5ec\uba67\x20\x4c\x65\x76\x65\x6c\x20\x32','\x72\x65\x64\x75\x63\x74\x69\x6f\x6e':0.4},'\x4c\x56\x33':{'\x6e\x61\x6d\x65':a0_0x460254(0x895),'\x72\x65\x64\x75\x63\x74\x69\x6f\x6e':0.55}},BAGS={'\x4c\x56\x31':{'\x6e\x61\x6d\x65':a0_0x460254(0x6c6),'\x63\x61\x70\x61\x63\x69\x74\x79':0x5},'\x4c\x56\x32':{'\x6e\x61\x6d\x65':'\uac00\ubc29\x20\x4c\x65\x76\x65\x6c\x20\x32','\x63\x61\x70\x61\x63\x69\x74\x79':0x8},'\x4c\x56\x33':{'\x6e\x61\x6d\x65':a0_0x460254(0x4ef),'\x63\x61\x70\x61\x63\x69\x74\x79':0xc}},wPool=[WEAPONS[a0_0x460254(0x1b7)],WEAPONS[a0_0x460254(0x305)],WEAPONS[a0_0x460254(0x195)],WEAPONS[a0_0x460254(0x536)]],sPool=[SCOPES['\x58\x32'],SCOPES['\x58\x34'],SCOPES['\x58\x38']],hPool=[HELMETS[a0_0x460254(0x6f8)],HELMETS[a0_0x460254(0x682)],HELMETS[a0_0x460254(0x2af)]],bPool=[BAGS[a0_0x460254(0x6f8)],BAGS[a0_0x460254(0x682)],BAGS['\x4c\x56\x33']],playerInventory={'\x77\x65\x61\x70\x6f\x6e':WEAPONS[a0_0x460254(0x181)],'\x73\x63\x6f\x70\x65':SCOPES['\x4e\x4f\x4e\x45'],'\x68\x65\x6c\x6d\x65\x74':null,'\x62\x61\x67':null,'\x67\x72\x65\x6e\x61\x64\x65\x73':0x0,'\x73\x6d\x6f\x6b\x65\x73':0x0,'\x66\x69\x72\x73\x74\x61\x69\x64\x73':0x0,'\x61\x6d\x6d\x6f':{'\x50\x49\x53\x54\x4f\x4c':0x0,'\x53\x48\x4f\x54\x47\x55\x4e':0x0,'\x52\x49\x46\x4c\x45':0x0,'\x53\x4e\x49\x50\x45\x52':0x0},'\x6c\x6f\x61\x64\x65\x64\x41\x6d\x6d\x6f':{'\x50\x49\x53\x54\x4f\x4c':0x0,'\x53\x48\x4f\x54\x47\x55\x4e':0x0,'\x52\x49\x46\x4c\x45':0x0,'\x53\x4e\x49\x50\x45\x52':0x0}},enemies=[],lootBoxes=[],enemyBullets=[],recentGunshots=[],liveChickens=[],scene=new a0_0xe98f69[(a0_0x460254(0x67c))]();scene[a0_0x460254(0x43a)]=new a0_0xe98f69[(a0_0x460254(0x5a7))](0x71a5d4),scene['\x66\x6f\x67']=new a0_0xe98f69['\x46\x6f\x67\x45\x78\x70\x32'](0x71a5d4,0.003);const camera=new a0_0xe98f69['\x50\x65\x72\x73\x70\x65\x63\x74\x69\x76\x65\x43\x61\x6d\x65\x72\x61'](0x41,window[a0_0x460254(0x641)]/window['\x69\x6e\x6e\x65\x72\x48\x65\x69\x67\x68\x74'],0.1,0x9c4);camera[a0_0x460254(0x8a6)][a0_0x460254(0x2d5)](0x0,0x96,0x0);const renderer=new a0_0xe98f69[(a0_0x460254(0x7db))]({'\x61\x6e\x74\x69\x61\x6c\x69\x61\x73':!![]});renderer[a0_0x460254(0x422)](window[a0_0x460254(0x641)],window[a0_0x460254(0x126)]),renderer['\x73\x68\x61\x64\x6f\x77\x4d\x61\x70'][a0_0x460254(0x5dd)]=!![],document[a0_0x460254(0x840)][a0_0x460254(0xe5)](renderer[a0_0x460254(0x86c)]),scene[a0_0x460254(0x5bf)](new a0_0xe98f69[(a0_0x460254(0x83a))](0xffffff,0.6));const sun=new a0_0xe98f69[(a0_0x460254(0x6c5))](0xffeedd,1.5);sun[a0_0x460254(0x8a6)][a0_0x460254(0x2d5)](0xc8,0x12c,0x64),sun[a0_0x460254(0x705)]=!![],sun[a0_0x460254(0x8d2)][a0_0x460254(0x34a)][a0_0x460254(0x774)]=-0x12c,sun[a0_0x460254(0x8d2)][a0_0x460254(0x34a)][a0_0x460254(0x13e)]=0x12c,sun['\x73\x68\x61\x64\x6f\x77']['\x63\x61\x6d\x65\x72\x61'][a0_0x460254(0x51e)]=0x12c,sun[a0_0x460254(0x8d2)][a0_0x460254(0x34a)]['\x62\x6f\x74\x74\x6f\x6d']=-0x12c,sun['\x73\x68\x61\x64\x6f\x77'][a0_0x460254(0x34a)]['\x6e\x65\x61\x72']=0.5,sun[a0_0x460254(0x8d2)][a0_0x460254(0x34a)][a0_0x460254(0x5eb)]=0x3e8,sun['\x73\x68\x61\x64\x6f\x77'][a0_0x460254(0x76a)][a0_0x460254(0x1a1)]=0x800,sun[a0_0x460254(0x8d2)][a0_0x460254(0x76a)]['\x68\x65\x69\x67\x68\x74']=0x800,sun['\x73\x68\x61\x64\x6f\x77'][a0_0x460254(0x608)]=-0.0008,scene[a0_0x460254(0x5bf)](sun);const buildingSpots=[],windowSpots=[],doorsList=[],numBuildings=0x19;for(let i=0x0;i<numBuildings;i++){let x=0x0,z=0x0,w=0xf,d=0xf,ok=![];for(let retries=0x0;retries<0x96;retries++){x=(Math['\x72\x61\x6e\x64\x6f\x6d']()-0.5)*0x1b8,z=(Math[a0_0x460254(0x81e)]()-0.5)*0x1b8,w=0xe+Math['\x72\x61\x6e\x64\x6f\x6d']()*0xe,d=0xe+Math[a0_0x460254(0x81e)]()*0xe;let overlap=![];if(Math[a0_0x460254(0x16d)](x*x+z*z)>0xd2)overlap=!![];if(Math[a0_0x460254(0x16d)](x*x+z*z)<0x1e)overlap=!![];const distToPond1=Math[a0_0x460254(0x16d)]((x-0x3c)**0x2+(z-0x50)**0x2);if(distToPond1<0x19+Math[a0_0x460254(0x57a)](w,d)/0x2+0x6)overlap=!![];const distToPond2=Math[a0_0x460254(0x16d)]((x+0x50)**0x2+(z+0x3c)**0x2);if(distToPond2<0x14+Math[a0_0x460254(0x57a)](w,d)/0x2+0x6)overlap=!![];if(!overlap)for(let j=0x0;j<buildingSpots['\x6c\x65\x6e\x67\x74\x68'];j++){const other=buildingSpots[j],dist=Math[a0_0x460254(0x16d)]((x-other['\x78'])**0x2+(z-other['\x7a'])**0x2),minD=Math[a0_0x460254(0x57a)](w,d)/0x2+Math['\x6d\x61\x78'](other['\x77'],other['\x64'])/0x2+0x14;if(dist<minD){overlap=!![];break;}}if(!overlap){ok=!![];break;}}if(ok){const distFromCenter=Math['\x73\x71\x72\x74'](x*x+z*z),baseNoise=Math[a0_0x460254(0x19e)](x/0x28)*0x4+Math[a0_0x460254(0x642)](z/0x23)*0x3+Math[a0_0x460254(0x19e)]((x+z)/0x14)*0x2+13.5,angle=Math[a0_0x460254(0x15d)](z,x),borderNoise=Math[a0_0x460254(0x19e)](angle*0x3)*0x19+Math[a0_0x460254(0x642)](angle*0x5)*0xf+Math[a0_0x460254(0x19e)](angle*0x8)*0x8,islandRadius=0xe6+borderNoise;let radialFade=0x1;distFromCenter>islandRadius&&(radialFade=Math[a0_0x460254(0x57a)](0x0,0x1-(distFromCenter-islandRadius)/0x32));let spotY=baseNoise*radialFade-(0x1-radialFade)*0x12;const distToPond1=Math[a0_0x460254(0x16d)]((x-0x3c)*(x-0x3c)+(z-0x50)*(z-0x50));if(distToPond1<0x19){const pondFactor=Math[a0_0x460254(0x57a)](0x0,0x1-distToPond1/0x19);spotY-=pondFactor*pondFactor*0x8;}const distToPond2=Math['\x73\x71\x72\x74']((x+0x50)*(x+0x50)+(z+0x3c)*(z+0x3c));if(distToPond2<0x14){const pondFactor=Math['\x6d\x61\x78'](0x0,0x1-distToPond2/0x14);spotY-=pondFactor*pondFactor*0x7;}if(distFromCenter<0x19){const factor=Math[a0_0x460254(0x57a)](0x0,(distFromCenter-0xc)/0xd);spotY=a0_0xe98f69[a0_0x460254(0x53d)]['\x6c\x65\x72\x70'](13.5,spotY,factor);}buildingSpots[a0_0x460254(0x1a4)]({'\x78':x,'\x7a':z,'\x77':w,'\x64':d,'\x79':spotY,'\x73\x65\x65\x64':Math[a0_0x460254(0x81e)]()});}}function getWaterLevel(_0x103841,_0x420d76){const _0x5cf8de=a0_0x460254,_0x3e0896={'\x42\x65\x74\x78\x73':function(_0x392b85,_0x8e9bfc){return _0x392b85(_0x8e9bfc);},'\x55\x4f\x5a\x65\x62':function(_0x1c674d,_0x22d142){return _0x1c674d(_0x22d142);},'\x47\x48\x61\x65\x45':function(_0x2bfb9,_0x4be9b1){return _0x2bfb9*_0x4be9b1;},'\x61\x4e\x6c\x50\x63':function(_0x48ad0c,_0x4a1e7a){return _0x48ad0c-_0x4a1e7a;},'\x56\x64\x52\x6c\x59':function(_0x250009,_0x3da5f5){return _0x250009*_0x3da5f5;},'\x76\x49\x7a\x6e\x53':function(_0x5ea21b,_0x24b012){return _0x5ea21b-_0x24b012;},'\x70\x48\x54\x72\x79':function(_0x458534,_0x3a64ce){return _0x458534<_0x3a64ce;},'\x66\x4f\x53\x44\x5a':function(_0x3c4fed,_0x4732ae){return _0x3c4fed+_0x4732ae;},'\x4f\x53\x65\x4b\x57':function(_0x28f815,_0xdf6d5b){return _0x28f815+_0xdf6d5b;},'\x65\x6a\x77\x65\x45':function(_0x3180e5,_0x1b1959){return _0x3180e5+_0x1b1959;}};if(_0x3e0896['\x42\x65\x74\x78\x73'](isNaN,_0x103841)||_0x3e0896[_0x5cf8de(0x357)](isNaN,_0x420d76))return WATER_LEVEL;const _0x4fad6c=Math[_0x5cf8de(0x16d)](_0x3e0896[_0x5cf8de(0x45b)](_0x103841-0x3c,_0x3e0896[_0x5cf8de(0x4d5)](_0x103841,0x3c))+_0x3e0896['\x56\x64\x52\x6c\x59'](_0x3e0896['\x61\x4e\x6c\x50\x63'](_0x420d76,0x50),_0x3e0896[_0x5cf8de(0x35d)](_0x420d76,0x50)));if(_0x3e0896[_0x5cf8de(0x766)](_0x4fad6c,0x19))return 14.5;const _0x5474bd=Math['\x73\x71\x72\x74'](_0x3e0896['\x66\x4f\x53\x44\x5a'](_0x3e0896[_0x5cf8de(0x225)](_0x103841,0x50)*_0x3e0896[_0x5cf8de(0x225)](_0x103841,0x50),_0x3e0896[_0x5cf8de(0x45b)](_0x3e0896[_0x5cf8de(0x1f2)](_0x420d76,0x3c),_0x3e0896[_0x5cf8de(0x82b)](_0x420d76,0x3c))));if(_0x3e0896[_0x5cf8de(0x766)](_0x5474bd,0x14))return 6.5;return WATER_LEVEL;}function getElevation(_0x2c43b5,_0x1865ca,_0x30a680=null){const _0xaf1b4b=a0_0x460254,_0x4db7ea={'\x62\x72\x59\x74\x64':function(_0x4cbe60,_0x41d669){return _0x4cbe60(_0x41d669);},'\x52\x45\x6b\x64\x4b':function(_0x25b38b,_0x2e5902){return _0x25b38b+_0x2e5902;},'\x46\x4f\x4d\x54\x4e':function(_0x58e303,_0x152166){return _0x58e303*_0x152166;},'\x59\x58\x46\x67\x44':function(_0x47c49b,_0x246855){return _0x47c49b*_0x246855;},'\x6e\x56\x61\x44\x6c':function(_0x2ce0b5,_0x6aea1b){return _0x2ce0b5+_0x6aea1b;},'\x69\x77\x67\x77\x43':function(_0x1c2e80,_0x24b542){return _0x1c2e80/_0x24b542;},'\x6d\x54\x6c\x59\x44':function(_0x2b7f1d,_0x2741d0){return _0x2b7f1d*_0x2741d0;},'\x6a\x5a\x75\x70\x75':function(_0x246c8b,_0x1fc75f){return _0x246c8b/_0x1fc75f;},'\x57\x6a\x44\x51\x4b':function(_0x1790ef,_0x408745){return _0x1790ef+_0x408745;},'\x54\x44\x69\x62\x58':function(_0x507292,_0x24b318){return _0x507292*_0x24b318;},'\x59\x61\x53\x58\x4a':function(_0x2e4d4c,_0x292c17){return _0x2e4d4c+_0x292c17;},'\x77\x72\x53\x6e\x5a':function(_0x49514d,_0x1c155b){return _0x49514d>_0x1c155b;},'\x5a\x50\x68\x4b\x51':function(_0x3c76d9,_0x3dd67f){return _0x3c76d9-_0x3dd67f;},'\x71\x64\x68\x75\x76':function(_0x3c5e38,_0x32db3a){return _0x3c5e38*_0x32db3a;},'\x6f\x50\x75\x4d\x6b':function(_0x183283,_0x4e56c3){return _0x183283+_0x4e56c3;},'\x4d\x57\x71\x79\x7a':function(_0x536a3e,_0x173539){return _0x536a3e*_0x173539;},'\x57\x73\x6d\x7a\x41':function(_0x57d19e,_0x3135bf){return _0x57d19e-_0x3135bf;},'\x4e\x4e\x55\x47\x68':function(_0x3fb24d,_0x3188fa){return _0x3fb24d*_0x3188fa;},'\x74\x65\x4f\x45\x79':function(_0x4437dc,_0x50247b){return _0x4437dc-_0x50247b;},'\x44\x63\x4f\x75\x50':function(_0x25a4c0,_0x5a821b){return _0x25a4c0<_0x5a821b;},'\x41\x43\x4d\x55\x6b':function(_0x5593e3,_0x318919){return _0x5593e3-_0x318919;},'\x79\x68\x47\x6f\x63':function(_0x3a0fd6,_0x2e37ec){return _0x3a0fd6+_0x2e37ec;},'\x4e\x6e\x41\x63\x68':function(_0x56d1b3,_0x2e9bb4){return _0x56d1b3+_0x2e9bb4;},'\x4d\x52\x5a\x6d\x67':function(_0x4a11f3,_0x351cd8){return _0x4a11f3-_0x351cd8;},'\x74\x42\x52\x70\x78':function(_0x4dc6a9,_0x56cc57){return _0x4dc6a9<_0x56cc57;},'\x68\x5a\x68\x58\x76':function(_0x4ea6bb,_0x14e1a0){return _0x4ea6bb>=_0x14e1a0;},'\x4d\x75\x73\x57\x70':function(_0x5b7630,_0x450a52){return _0x5b7630-_0x450a52;},'\x68\x4a\x51\x5a\x4b':function(_0x5e02e9,_0x2e0e40){return _0x5e02e9<=_0x2e0e40;},'\x74\x4b\x77\x50\x53':function(_0x36bf97,_0x5a593f){return _0x36bf97-_0x5a593f;},'\x4a\x63\x43\x49\x76':function(_0x1057f6,_0x1b81e2){return _0x1057f6/_0x1b81e2;},'\x6c\x61\x53\x4d\x6f':function(_0x297ccf,_0xf37030){return _0x297ccf>=_0xf37030;},'\x50\x63\x57\x4d\x68':function(_0x13f1b8,_0x9a5ef4){return _0x13f1b8>=_0x9a5ef4;},'\x42\x55\x59\x65\x49':function(_0x5925cf,_0x3889ec){return _0x5925cf-_0x3889ec;},'\x45\x65\x62\x6e\x52':function(_0x554039,_0x2b7680){return _0x554039===_0x2b7680;},'\x6e\x6b\x53\x6d\x71':function(_0x3ce7a0,_0x44968f){return _0x3ce7a0+_0x44968f;},'\x51\x6b\x62\x66\x4a':function(_0x23d989,_0x46c3db){return _0x23d989-_0x46c3db;},'\x6c\x67\x57\x46\x79':function(_0x4f4ef3,_0x103d40){return _0x4f4ef3<=_0x103d40;},'\x59\x47\x6b\x5a\x74':function(_0xdf84d8,_0x3c9cdc){return _0xdf84d8+_0x3c9cdc;},'\x75\x4c\x65\x4b\x51':function(_0x41d115,_0x484801){return _0x41d115-_0x484801;},'\x6e\x62\x76\x69\x6e':function(_0x2bd75f,_0x1ddbb6){return _0x2bd75f-_0x1ddbb6;},'\x63\x61\x55\x4b\x61':function(_0x490c01,_0x1636b1){return _0x490c01+_0x1636b1;},'\x53\x61\x4e\x74\x63':function(_0x3b5ea2,_0x830417){return _0x3b5ea2*_0x830417;}};if(_0x4db7ea[_0xaf1b4b(0x771)](isNaN,_0x2c43b5)||_0x4db7ea[_0xaf1b4b(0x771)](isNaN,_0x1865ca))return 0x0;const _0x46a87d=Math[_0xaf1b4b(0x16d)](_0x4db7ea[_0xaf1b4b(0x157)](_0x4db7ea['\x46\x4f\x4d\x54\x4e'](_0x2c43b5,_0x2c43b5),_0x4db7ea[_0xaf1b4b(0x4b6)](_0x1865ca,_0x1865ca))),_0x321bff=_0x4db7ea[_0xaf1b4b(0x86d)](_0x4db7ea[_0xaf1b4b(0x86d)](Math['\x73\x69\x6e'](_0x4db7ea[_0xaf1b4b(0x884)](_0x2c43b5,0x28))*0x4+_0x4db7ea[_0xaf1b4b(0x38a)](Math[_0xaf1b4b(0x642)](_0x4db7ea['\x69\x77\x67\x77\x43'](_0x1865ca,0x23)),0x3),Math[_0xaf1b4b(0x19e)](_0x4db7ea[_0xaf1b4b(0x497)](_0x4db7ea[_0xaf1b4b(0x157)](_0x2c43b5,_0x1865ca),0x14))*0x2),13.5),_0x502425=Math['\x61\x74\x61\x6e\x32'](_0x1865ca,_0x2c43b5),_0x4784c6=_0x4db7ea[_0xaf1b4b(0x86d)](_0x4db7ea[_0xaf1b4b(0x2cc)](Math['\x73\x69\x6e'](_0x4db7ea['\x54\x44\x69\x62\x58'](_0x502425,0x3))*0x19,Math[_0xaf1b4b(0x642)](_0x4db7ea[_0xaf1b4b(0x723)](_0x502425,0x5))*0xf),Math[_0xaf1b4b(0x19e)](_0x4db7ea['\x6d\x54\x6c\x59\x44'](_0x502425,0x8))*0x8),_0x17870b=_0x4db7ea[_0xaf1b4b(0x8c0)](0xe6,_0x4784c6);let _0x4dd081=0x1;_0x4db7ea[_0xaf1b4b(0x483)](_0x46a87d,_0x17870b)&&(_0x4dd081=Math[_0xaf1b4b(0x57a)](0x0,_0x4db7ea[_0xaf1b4b(0x7c2)](0x1,_0x4db7ea[_0xaf1b4b(0x497)](_0x46a87d-_0x17870b,0x32))));let _0x295e66=_0x4db7ea[_0xaf1b4b(0x7c2)](_0x4db7ea[_0xaf1b4b(0x26e)](_0x321bff,_0x4dd081),_0x4db7ea[_0xaf1b4b(0x38a)](_0x4db7ea['\x5a\x50\x68\x4b\x51'](0x1,_0x4dd081),0x12));const _0x48bdf7=Math[_0xaf1b4b(0x16d)](_0x4db7ea[_0xaf1b4b(0x3a9)](_0x4db7ea[_0xaf1b4b(0x594)](_0x4db7ea[_0xaf1b4b(0x1e1)](_0x2c43b5,0x3c),_0x2c43b5-0x3c),_0x4db7ea[_0xaf1b4b(0x876)](_0x4db7ea[_0xaf1b4b(0x7f7)](_0x1865ca,0x50),_0x1865ca-0x50)));if(_0x4db7ea[_0xaf1b4b(0x2d9)](_0x48bdf7,0x19)){const _0x3cc43f=Math[_0xaf1b4b(0x57a)](0x0,_0x4db7ea['\x41\x43\x4d\x55\x6b'](0x1,_0x4db7ea[_0xaf1b4b(0x497)](_0x48bdf7,0x19)));_0x295e66-=_0x4db7ea['\x4d\x57\x71\x79\x7a'](_0x3cc43f,_0x3cc43f)*0x8;}const _0x42d25d=Math['\x73\x71\x72\x74'](_0x4db7ea[_0xaf1b4b(0x342)](_0x4db7ea['\x6d\x54\x6c\x59\x44'](_0x4db7ea[_0xaf1b4b(0x2e2)](_0x2c43b5,0x50),_0x2c43b5+0x50),_0x4db7ea[_0xaf1b4b(0x157)](_0x1865ca,0x3c)*_0x4db7ea[_0xaf1b4b(0x2e2)](_0x1865ca,0x3c)));if(_0x42d25d<0x14){const _0x1ea735=Math[_0xaf1b4b(0x57a)](0x0,_0x4db7ea['\x4d\x52\x5a\x6d\x67'](0x1,_0x4db7ea[_0xaf1b4b(0x497)](_0x42d25d,0x14)));_0x295e66-=_0x4db7ea[_0xaf1b4b(0x38a)](_0x4db7ea[_0xaf1b4b(0x414)](_0x1ea735,_0x1ea735),0x7);}if(_0x4db7ea['\x74\x42\x52\x70\x78'](_0x46a87d,0x19)){const _0x1d36b3=Math[_0xaf1b4b(0x57a)](0x0,_0x4db7ea['\x69\x77\x67\x77\x43'](_0x4db7ea[_0xaf1b4b(0x810)](_0x46a87d,0xc),0xd));_0x295e66=a0_0xe98f69[_0xaf1b4b(0x53d)][_0xaf1b4b(0x4ee)](13.5,_0x295e66,_0x1d36b3);}for(let _0x54609b=0x0;_0x54609b<buildingSpots[_0xaf1b4b(0x88b)];_0x54609b++){const _0x32c485=buildingSpots[_0x54609b],_0x4fc188=0x7,_0x3c9f02=_0x4db7ea['\x6a\x5a\x75\x70\x75'](_0x32c485['\x77'],0x2),_0x517dce=_0x32c485['\x64']/0x2,_0x663440=1.5;if(_0x4db7ea[_0xaf1b4b(0x409)](_0x2c43b5,_0x4db7ea[_0xaf1b4b(0x4d3)](_0x4db7ea['\x41\x43\x4d\x55\x6b'](_0x32c485['\x78'],_0x3c9f02)-_0x663440,0.4))&&_0x4db7ea[_0xaf1b4b(0x671)](_0x2c43b5,_0x4db7ea[_0xaf1b4b(0x326)](_0x32c485['\x78'],_0x3c9f02))&&_0x4db7ea[_0xaf1b4b(0x409)](_0x1865ca,_0x4db7ea[_0xaf1b4b(0xf9)](_0x32c485['\x7a'],_0x517dce))&&_0x4db7ea['\x68\x4a\x51\x5a\x4b'](_0x1865ca,_0x4db7ea[_0xaf1b4b(0x86d)](_0x32c485['\x7a'],_0x517dce))){const _0x46f183=_0x4db7ea[_0xaf1b4b(0x136)](_0x4db7ea[_0xaf1b4b(0x7f7)](_0x1865ca,_0x4db7ea['\x74\x4b\x77\x50\x53'](_0x32c485['\x7a'],_0x517dce)),_0x32c485['\x64']);return _0x4db7ea[_0xaf1b4b(0x86d)](_0x32c485['\x79']+0.1,_0x4db7ea['\x54\x44\x69\x62\x58'](_0x46f183,5.05));}if(_0x4db7ea[_0xaf1b4b(0x156)](_0x2c43b5,_0x4db7ea[_0xaf1b4b(0x7c2)](_0x32c485['\x78'],_0x3c9f02))&&_0x2c43b5<=_0x4db7ea[_0xaf1b4b(0x342)](_0x32c485['\x78'],_0x3c9f02)&&_0x4db7ea[_0xaf1b4b(0x4a2)](_0x1865ca,_0x4db7ea[_0xaf1b4b(0x73b)](_0x32c485['\x7a'],_0x517dce))&&_0x4db7ea[_0xaf1b4b(0x671)](_0x1865ca,_0x4db7ea['\x6e\x56\x61\x44\x6c'](_0x32c485['\x7a'],_0x517dce))){const _0x4f9e57=_0x30a680!==null&&_0x30a680!==![],_0x2bcf3d=_0x4f9e57&&_0x30a680>=_0x4db7ea[_0xaf1b4b(0x157)](_0x32c485['\x79'],1.7);if(_0x2bcf3d||_0x4db7ea[_0xaf1b4b(0x20e)](_0x30a680,null))return _0x4db7ea['\x52\x45\x6b\x64\x4b'](_0x32c485['\x79'],5.15);return _0x4db7ea[_0xaf1b4b(0x708)](_0x32c485['\x79'],0.1);}if(_0x4db7ea['\x50\x63\x57\x4d\x68'](_0x2c43b5,_0x4db7ea[_0xaf1b4b(0x162)](_0x32c485['\x78']-_0x3c9f02,_0x4fc188))&&_0x4db7ea[_0xaf1b4b(0x1f9)](_0x2c43b5,_0x4db7ea['\x6e\x56\x61\x44\x6c'](_0x32c485['\x78'],_0x3c9f02)+_0x4fc188)&&_0x1865ca>=_0x32c485['\x7a']-_0x517dce-_0x4fc188&&_0x4db7ea[_0xaf1b4b(0x1f9)](_0x1865ca,_0x4db7ea[_0xaf1b4b(0x690)](_0x32c485['\x7a'],_0x517dce)+_0x4fc188)){const _0x541b10=Math['\x61\x62\x73'](_0x4db7ea[_0xaf1b4b(0x5df)](_0x2c43b5,_0x32c485['\x78'])),_0x3ac179=Math['\x61\x62\x73'](_0x4db7ea[_0xaf1b4b(0x89d)](_0x1865ca,_0x32c485['\x7a'])),_0x5de0f6=Math['\x6d\x61\x78'](0x0,Math[_0xaf1b4b(0x19c)](0x1,(_0x4db7ea[_0xaf1b4b(0x87c)](_0x3c9f02,_0x4fc188)-_0x541b10)/_0x4fc188)),_0x290a23=Math[_0xaf1b4b(0x57a)](0x0,Math['\x6d\x69\x6e'](0x1,_0x4db7ea[_0xaf1b4b(0x497)](_0x517dce+_0x4fc188-_0x3ac179,_0x4fc188))),_0x31a12d=_0x4db7ea[_0xaf1b4b(0x391)](_0x5de0f6,_0x290a23);return a0_0xe98f69[_0xaf1b4b(0x53d)][_0xaf1b4b(0x4ee)](_0x295e66,_0x32c485['\x79']+0.1,_0x31a12d);}}return _0x295e66;}const WATER_LEVEL=-0x4,mapSize=0x258,groundGeo=new a0_0xe98f69['\x50\x6c\x61\x6e\x65\x47\x65\x6f\x6d\x65\x74\x72\x79'](mapSize,mapSize,0xc8,0xc8);groundGeo[a0_0x460254(0x5e4)](-Math['\x50\x49']/0x2);const posAttr=groundGeo[a0_0x460254(0x4ba)][a0_0x460254(0x8a6)];for(let i=0x0;i<posAttr['\x63\x6f\x75\x6e\x74'];i++)posAttr[a0_0x460254(0x2a0)](i,getElevation(posAttr['\x67\x65\x74\x58'](i),posAttr[a0_0x460254(0x3a8)](i),![]));groundGeo[a0_0x460254(0x6eb)]();const colors=new Float32Array(posAttr['\x63\x6f\x75\x6e\x74']*0x3);for(let i=0x0;i<posAttr[a0_0x460254(0x6b9)];i++){const vx=posAttr[a0_0x460254(0x784)](i),vz=posAttr[a0_0x460254(0x3a8)](i),vy=posAttr[a0_0x460254(0x82a)](i),eps=0x1,hL=getElevation(vx-eps,vz,![]),hR=getElevation(vx+eps,vz,![]),hD=getElevation(vx,vz-eps,![]),hU=getElevation(vx,vz+eps,![]),slope=Math[a0_0x460254(0x16d)]((hR-hL)*(hR-hL)+(hU-hD)*(hU-hD))/(0x2*eps);let r=0.22,g=0.38,b=0.16;if(vy<0x0)r=0.28,g=0.23,b=0.16;else{if(slope>0.45)r=0.35+Math['\x73\x69\x6e'](vx*0.5)*0.03,g=0.35+Math['\x73\x69\x6e'](vx*0.5)*0.03,b=0.35+Math[a0_0x460254(0x19e)](vx*0.5)*0.03;else{if(slope>0.15)r=0.32+Math[a0_0x460254(0x642)](vz*0.5)*0.02,g=0.27+Math[a0_0x460254(0x642)](vz*0.5)*0.02,b=0.18+Math[a0_0x460254(0x642)](vz*0.5)*0.02;else{const noise=Math[a0_0x460254(0x19e)](vx*0.08)*Math[a0_0x460254(0x642)](vz*0.08)*0.04;r+=noise,g+=noise*1.2,b+=noise*0.8;const distFromCenter=Math[a0_0x460254(0x16d)](vx*vx+vz*vz);if(distFromCenter<0x19){const factor=Math[a0_0x460254(0x57a)](0x0,(0x19-distFromCenter)/0x19);r=a0_0xe98f69[a0_0x460254(0x53d)]['\x6c\x65\x72\x70'](r,0.44,factor),g=a0_0xe98f69[a0_0x460254(0x53d)][a0_0x460254(0x4ee)](g,0.4,factor),b=a0_0xe98f69[a0_0x460254(0x53d)][a0_0x460254(0x4ee)](b,0.3,factor);}}}}if(vy>0xb){const snowFactor=Math[a0_0x460254(0x19c)](0x1,(vy-0xb)/0x7);r=a0_0xe98f69[a0_0x460254(0x53d)]['\x6c\x65\x72\x70'](r,0.9,snowFactor),g=a0_0xe98f69['\x4d\x61\x74\x68\x55\x74\x69\x6c\x73'][a0_0x460254(0x4ee)](g,0.92,snowFactor),b=a0_0xe98f69['\x4d\x61\x74\x68\x55\x74\x69\x6c\x73'][a0_0x460254(0x4ee)](b,0.95,snowFactor);}colors[i*0x3]=r,colors[i*0x3+0x1]=g,colors[i*0x3+0x2]=b;}groundGeo[a0_0x460254(0x36a)](a0_0x460254(0x3ee),new a0_0xe98f69[(a0_0x460254(0x170))](colors,0x3));const ground=new a0_0xe98f69['\x4d\x65\x73\x68'](groundGeo,new a0_0xe98f69['\x4d\x65\x73\x68\x53\x74\x61\x6e\x64\x61\x72\x64\x4d\x61\x74\x65\x72\x69\x61\x6c']({'\x76\x65\x72\x74\x65\x78\x43\x6f\x6c\x6f\x72\x73':!![],'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0x1}));ground[a0_0x460254(0x7e1)]=!![],scene[a0_0x460254(0x5bf)](ground);const waterGeo=new a0_0xe98f69[(a0_0x460254(0x148))](0x1770,0x40);waterGeo[a0_0x460254(0x5e4)](-Math['\x50\x49']/0x2);const waterMat=new a0_0xe98f69[(a0_0x460254(0x8a3))]({'\x63\x6f\x6c\x6f\x72':0x1d3f5e,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.15,'\x6d\x65\x74\x61\x6c\x6e\x65\x73\x73':0.85,'\x74\x72\x61\x6e\x73\x70\x61\x72\x65\x6e\x74':!![],'\x6f\x70\x61\x63\x69\x74\x79':0.85,'\x64\x65\x70\x74\x68\x57\x72\x69\x74\x65':!![]}),water=new a0_0xe98f69[(a0_0x460254(0x59f))](waterGeo,waterMat);water[a0_0x460254(0x8a6)]['\x79']=WATER_LEVEL,scene['\x61\x64\x64'](water);const pond1Geo=new a0_0xe98f69[(a0_0x460254(0x148))](0x19,0x20);pond1Geo['\x72\x6f\x74\x61\x74\x65\x58'](-Math['\x50\x49']/0x2);const pondWaterMat=new a0_0xe98f69[(a0_0x460254(0x8a3))]({'\x63\x6f\x6c\x6f\x72':0x1d4d5e,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.2,'\x6d\x65\x74\x61\x6c\x6e\x65\x73\x73':0.7,'\x74\x72\x61\x6e\x73\x70\x61\x72\x65\x6e\x74':!![],'\x6f\x70\x61\x63\x69\x74\x79':0.78,'\x64\x65\x70\x74\x68\x57\x72\x69\x74\x65':!![]}),pond1Water=new a0_0xe98f69[(a0_0x460254(0x59f))](pond1Geo,pondWaterMat);pond1Water[a0_0x460254(0x8a6)][a0_0x460254(0x2d5)](0x3c,14.5,0x50),scene['\x61\x64\x64'](pond1Water);const pond2Geo=new a0_0xe98f69[(a0_0x460254(0x148))](0x14,0x20);pond2Geo['\x72\x6f\x74\x61\x74\x65\x58'](-Math['\x50\x49']/0x2);const pond2Water=new a0_0xe98f69[(a0_0x460254(0x59f))](pond2Geo,pondWaterMat);pond2Water[a0_0x460254(0x8a6)]['\x73\x65\x74'](-0x50,6.5,-0x3c),scene[a0_0x460254(0x5bf)](pond2Water);const treeGeoCone=new a0_0xe98f69['\x43\x6f\x6e\x65\x47\x65\x6f\x6d\x65\x74\x72\x79'](2.5,0x8,0x8),treeGeoTrunk=new a0_0xe98f69['\x43\x79\x6c\x69\x6e\x64\x65\x72\x47\x65\x6f\x6d\x65\x74\x72\x79'](0.5,0.5,0x3),treeMatCone=new a0_0xe98f69[(a0_0x460254(0x8a3))]({'\x63\x6f\x6c\x6f\x72':0x243d18}),treeMatTrunk=new a0_0xe98f69[(a0_0x460254(0x8a3))]({'\x63\x6f\x6c\x6f\x72':0x3d2c18}),houseMat=new a0_0xe98f69['\x4d\x65\x73\x68\x53\x74\x61\x6e\x64\x61\x72\x64\x4d\x61\x74\x65\x72\x69\x61\x6c']({'\x63\x6f\x6c\x6f\x72':0xaaaaaa}),obstacles=[];buildingSpots[a0_0x460254(0x64b)]((_0x5c9034,_0x1d967b)=>{const _0x22cc2a=a0_0x460254,_0x101176={'\x43\x6b\x45\x67\x73':function(_0x144e38,_0x4f0f1b){return _0x144e38-_0x4f0f1b;},'\x78\x63\x55\x7a\x58':function(_0x33653e,_0x43e319){return _0x33653e/_0x43e319;},'\x75\x77\x55\x71\x79':function(_0x40063c,_0x2c4c69){return _0x40063c+_0x2c4c69;},'\x70\x79\x4b\x6b\x49':function(_0x568318,_0x5cecd1){return _0x568318/_0x5cecd1;},'\x79\x44\x51\x51\x55':function(_0x354f4d,_0x5c281f){return _0x354f4d+_0x5c281f;},'\x4c\x5a\x77\x48\x54':function(_0x4a6038,_0x20e636){return _0x4a6038+_0x20e636;},'\x76\x45\x71\x6b\x4e':function(_0x1f057c,_0x240cec){return _0x1f057c<_0x240cec;},'\x49\x65\x67\x45\x6f':function(_0x11e0d8,_0x181fbb){return _0x11e0d8*_0x181fbb;},'\x53\x43\x67\x68\x72':function(_0x33fb16,_0x5d43fa,_0x2ca7fe,_0xa307e0){return _0x33fb16(_0x5d43fa,_0x2ca7fe,_0xa307e0);},'\x4d\x51\x4e\x79\x62':_0x22cc2a(0x6f2),'\x41\x72\x4c\x4d\x63':function(_0x3e4256,_0x3d8219){return _0x3e4256===_0x3d8219;},'\x4f\x68\x75\x62\x70':_0x22cc2a(0x1b7),'\x71\x76\x6c\x48\x59':_0x22cc2a(0x305),'\x47\x42\x48\x72\x4c':function(_0x22dfec,_0x5d7e02){return _0x22dfec===_0x5d7e02;},'\x6c\x75\x78\x79\x6e':_0x22cc2a(0x6a8),'\x64\x4d\x6d\x54\x6b':_0x22cc2a(0x195),'\x70\x75\x52\x61\x4c':_0x22cc2a(0x536),'\x74\x55\x58\x65\x65':function(_0x3efd71,_0x109202){return _0x3efd71-_0x109202;},'\x4f\x4e\x55\x46\x70':function(_0x323bd2,_0x15de50){return _0x323bd2(_0x15de50);},'\x75\x74\x43\x74\x64':_0x22cc2a(0x267),'\x46\x55\x52\x4d\x6e':function(_0x18a9a2,_0x8cfe35,_0x2cfc08,_0x2702b8){return _0x18a9a2(_0x8cfe35,_0x2cfc08,_0x2702b8);},'\x73\x74\x43\x4d\x6a':_0x22cc2a(0x61e),'\x64\x70\x69\x44\x72':function(_0x5e4f37,_0x4e1e38){return _0x5e4f37*_0x4e1e38;},'\x67\x50\x52\x61\x4d':_0x22cc2a(0x719),'\x73\x59\x48\x4d\x4d':'\x46\x49\x52\x53\x54\x41\x49\x44','\x4e\x6e\x53\x56\x66':'\x47\x52\x45\x4e\x41\x44\x45','\x55\x6d\x7a\x44\x53':_0x22cc2a(0x111),'\x67\x74\x67\x65\x53':_0x22cc2a(0x2ec),'\x79\x70\x4b\x45\x64':function(_0x1ce1bf,_0x516d2c){return _0x1ce1bf<_0x516d2c;},'\x68\x4a\x4a\x6a\x5a':function(_0x408471,_0x67684a){return _0x408471*_0x67684a;},'\x45\x43\x78\x47\x5a':function(_0x1e30ed,_0x496e65){return _0x1e30ed+_0x496e65;},'\x45\x44\x69\x6e\x46':function(_0x28f81c,_0x5991f1){return _0x28f81c+_0x5991f1;},'\x56\x4b\x78\x4a\x4f':function(_0x53db8a,_0xfd1966){return _0x53db8a>=_0xfd1966;},'\x52\x54\x58\x41\x75':function(_0x5d3f03,_0x872d92){return _0x5d3f03<_0x872d92;},'\x4f\x5a\x44\x55\x66':function(_0x918302,_0x27e234){return _0x918302/_0x27e234;},'\x68\x61\x66\x49\x4a':function(_0x149454,_0x497076){return _0x149454/_0x497076;},'\x63\x6b\x4a\x6b\x52':function(_0x4e166a,_0x1e06c6){return _0x4e166a+_0x1e06c6;},'\x43\x4c\x48\x44\x55':function(_0x3c37f5,_0x32b9d0){return _0x3c37f5-_0x32b9d0;},'\x41\x76\x56\x43\x6b':function(_0x58af45,_0x4ac55f){return _0x58af45/_0x4ac55f;},'\x50\x49\x47\x56\x78':function(_0x5686c7,_0x1d1bc0){return _0x5686c7/_0x1d1bc0;},'\x62\x74\x6e\x72\x6b':function(_0x508b75,_0x1c3d1e){return _0x508b75-_0x1c3d1e;},'\x61\x75\x77\x76\x56':function(_0x2280a2,_0x5accb3){return _0x2280a2/_0x5accb3;},'\x54\x47\x6a\x6f\x76':function(_0x1a2258,_0x1e8b87){return _0x1a2258-_0x1e8b87;},'\x47\x48\x7a\x76\x52':function(_0x1c4cb4,_0x22a842){return _0x1c4cb4/_0x22a842;},'\x70\x44\x57\x59\x45':function(_0x2933d7,_0x2e6cf0){return _0x2933d7-_0x2e6cf0;},'\x6a\x51\x6a\x51\x5a':function(_0x5148d7,_0x4852de){return _0x5148d7/_0x4852de;},'\x58\x78\x72\x6d\x64':function(_0x57471a,_0x3061c6){return _0x57471a/_0x3061c6;},'\x77\x4b\x62\x75\x5a':function(_0x23c219,_0x26279b){return _0x23c219>=_0x26279b;},'\x54\x67\x5a\x54\x50':function(_0x2ff1ab,_0x29fa13){return _0x2ff1ab/_0x29fa13;},'\x79\x4d\x77\x45\x4a':function(_0x1e71f6,_0x5f565c){return _0x1e71f6/_0x5f565c;},'\x54\x6a\x69\x6f\x51':function(_0x5884c2,_0x329e9b){return _0x5884c2/_0x329e9b;},'\x55\x52\x59\x65\x6e':function(_0x544eb0,_0x28c1cb){return _0x544eb0+_0x28c1cb;},'\x4f\x5a\x66\x75\x61':function(_0x15fade,_0xf60549){return _0x15fade+_0xf60549;},'\x76\x59\x76\x68\x4a':function(_0x10d91e,_0x4687dd){return _0x10d91e-_0x4687dd;},'\x63\x63\x68\x6d\x6e':function(_0x4f34a9,_0x55c6f4){return _0x4f34a9/_0x55c6f4;},'\x6e\x6a\x6c\x70\x4d':function(_0x3606ae,_0x2f2c5b){return _0x3606ae/_0x2f2c5b;},'\x79\x45\x6a\x43\x70':function(_0x4e4844,_0x21669a){return _0x4e4844-_0x21669a;},'\x63\x72\x79\x61\x4e':function(_0x520e9c,_0x1b64f8){return _0x520e9c/_0x1b64f8;},'\x5a\x4d\x4b\x4e\x54':function(_0xf01e9e,_0x1dfbe4){return _0xf01e9e+_0x1dfbe4;},'\x75\x4a\x4f\x62\x56':function(_0x445f0f,_0x48cdec){return _0x445f0f/_0x48cdec;},'\x44\x6f\x59\x56\x46':function(_0x44dbba,_0x23a210){return _0x44dbba+_0x23a210;},'\x4b\x47\x57\x4e\x73':function(_0x3a7409,_0x42e282){return _0x3a7409/_0x42e282;},'\x50\x6f\x67\x79\x45':function(_0x3f2b50,_0x5f379b){return _0x3f2b50/_0x5f379b;},'\x79\x54\x57\x46\x50':function(_0x1a79f1,_0x136017){return _0x1a79f1/_0x136017;},'\x57\x64\x4f\x6c\x44':function(_0x5d1d42,_0xdc0007){return _0x5d1d42/_0xdc0007;},'\x71\x6a\x6e\x53\x68':function(_0x154652,_0x588d89){return _0x154652/_0x588d89;},'\x75\x78\x71\x49\x64':function(_0x379527,_0x189c2f){return _0x379527<_0x189c2f;},'\x70\x5a\x44\x4f\x70':function(_0x102803,_0x308494){return _0x102803===_0x308494;},'\x62\x64\x6f\x59\x78':function(_0x1ddb98,_0x163759){return _0x1ddb98+_0x163759;},'\x4c\x63\x6d\x54\x5a':function(_0x3c2865,_0x23c7b9){return _0x3c2865-_0x23c7b9;},'\x45\x7a\x55\x55\x6a':function(_0x4ddfdf,_0x1862b0){return _0x4ddfdf/_0x1862b0;},'\x5a\x49\x4a\x71\x4f':function(_0x5ddb29,_0x52ee95){return _0x5ddb29+_0x52ee95;},'\x68\x50\x72\x59\x53':function(_0x83018f,_0x53ef4a){return _0x83018f/_0x53ef4a;},'\x75\x45\x6b\x78\x4f':function(_0x426db4,_0xdaa9a7){return _0x426db4+_0xdaa9a7;},'\x71\x66\x67\x7a\x41':function(_0x3f5c95,_0x1d5c84){return _0x3f5c95+_0x1d5c84;},'\x62\x74\x6c\x58\x76':function(_0x466244,_0x5b0808){return _0x466244+_0x5b0808;},'\x78\x6a\x53\x45\x4e':function(_0x1cb217,_0x49da8a){return _0x1cb217/_0x49da8a;},'\x43\x63\x6a\x53\x5a':function(_0x54b99a,_0x16ed50){return _0x54b99a-_0x16ed50;},'\x4b\x71\x50\x74\x68':function(_0x45a3fc,_0x254838){return _0x45a3fc/_0x254838;},'\x4b\x70\x62\x4d\x64':function(_0x3b2b0e,_0x47592a){return _0x3b2b0e+_0x47592a;},'\x6c\x68\x42\x73\x55':function(_0x37902c,_0x32f9ad){return _0x37902c/_0x32f9ad;},'\x56\x78\x56\x47\x76':function(_0x3cf0f3,_0x52f879){return _0x3cf0f3/_0x52f879;},'\x4c\x48\x4f\x77\x77':function(_0x22491c,_0x37996a){return _0x22491c-_0x37996a;},'\x6c\x53\x6e\x56\x4d':function(_0x1bdda9,_0x101e2d){return _0x1bdda9/_0x101e2d;},'\x42\x6e\x54\x4a\x4d':function(_0x284bf1,_0x3abc9a){return _0x284bf1-_0x3abc9a;},'\x76\x5a\x6b\x43\x58':function(_0x57e71a,_0x3bc931){return _0x57e71a-_0x3bc931;},'\x46\x45\x4f\x66\x44':function(_0x4f46ff,_0x7f09dd){return _0x4f46ff/_0x7f09dd;},'\x53\x6c\x7a\x55\x6a':function(_0x4e8424,_0xdf52dd){return _0x4e8424-_0xdf52dd;},'\x7a\x48\x5a\x74\x62':function(_0x410312,_0xe134c9){return _0x410312/_0xe134c9;},'\x79\x6a\x61\x72\x77':function(_0x125bbe,_0x1f1371){return _0x125bbe/_0x1f1371;},'\x45\x4d\x5a\x69\x61':function(_0x2df7d4,_0x3ff1c8){return _0x2df7d4/_0x3ff1c8;},'\x77\x4d\x55\x68\x46':function(_0x52e245,_0x3428a9){return _0x52e245-_0x3428a9;},'\x6c\x5a\x68\x6e\x53':function(_0x37324f,_0x3e0f11){return _0x37324f-_0x3e0f11;},'\x6b\x58\x69\x4f\x6f':function(_0x28f481,_0xd0f289){return _0x28f481/_0xd0f289;},'\x78\x43\x6b\x68\x43':function(_0x2f3bf0,_0x2e2d16){return _0x2f3bf0/_0x2e2d16;},'\x56\x54\x72\x50\x50':function(_0x531d66,_0x31a246){return _0x531d66+_0x31a246;},'\x67\x4b\x7a\x6d\x42':function(_0x4845f0,_0x3bdd7c){return _0x4845f0/_0x3bdd7c;},'\x5a\x41\x65\x72\x59':function(_0x42d4d8,_0x5117ea){return _0x42d4d8/_0x5117ea;},'\x62\x6f\x4d\x65\x45':function(_0x45adbf,_0x379643){return _0x45adbf/_0x379643;},'\x52\x6e\x5a\x6b\x6b':function(_0x9b6622,_0x4b2494){return _0x9b6622/_0x4b2494;},'\x50\x62\x59\x5a\x6c':function(_0x29f9eb,_0x589186){return _0x29f9eb/_0x589186;},'\x50\x44\x58\x75\x67':function(_0x1cfad8,_0x15a7c1){return _0x1cfad8/_0x15a7c1;},'\x61\x78\x54\x65\x46':function(_0x53590b,_0x5060a0){return _0x53590b/_0x5060a0;},'\x46\x72\x44\x67\x74':function(_0x1ea06f,_0x4e60fa){return _0x1ea06f/_0x4e60fa;},'\x45\x57\x63\x4b\x5a':function(_0x370e14,_0x5d1513){return _0x370e14/_0x5d1513;},'\x67\x4c\x67\x75\x65':function(_0x2bbf50,_0x54d4d2){return _0x2bbf50/_0x54d4d2;},'\x70\x50\x71\x7a\x4a':function(_0x380f6c,_0x418544){return _0x380f6c+_0x418544;},'\x73\x76\x6e\x43\x5a':function(_0x272327,_0x3a29d8){return _0x272327/_0x3a29d8;},'\x72\x62\x66\x6f\x50':function(_0x5d4921,_0x17d1dc){return _0x5d4921/_0x17d1dc;},'\x6e\x6c\x6e\x65\x50':function(_0x382656,_0x475346){return _0x382656/_0x475346;},'\x41\x6c\x7a\x56\x4c':function(_0x3a78aa,_0x3db5aa){return _0x3a78aa-_0x3db5aa;},'\x52\x42\x6b\x71\x4f':function(_0x4e1281,_0x1846fa){return _0x4e1281/_0x1846fa;},'\x78\x58\x6e\x77\x6a':function(_0x4a2bc2,_0x55fed1){return _0x4a2bc2+_0x55fed1;},'\x4c\x53\x53\x4f\x69':function(_0x12c789,_0x213f41){return _0x12c789/_0x213f41;},'\x77\x43\x6e\x44\x57':function(_0xcf2493,_0x206be0){return _0xcf2493+_0x206be0;},'\x44\x5a\x6f\x4f\x68':function(_0xf84de6,_0x4a0119){return _0xf84de6/_0x4a0119;},'\x4c\x6e\x47\x79\x43':function(_0x99a09b,_0x2f4e76){return _0x99a09b/_0x2f4e76;},'\x4a\x6f\x7a\x66\x49':function(_0xe48c24,_0x5ae47b){return _0xe48c24/_0x5ae47b;},'\x6a\x59\x70\x63\x67':function(_0x1f9d8a,_0x182d59){return _0x1f9d8a/_0x182d59;},'\x69\x4b\x66\x6b\x4f':function(_0x566768,_0x4139c0){return _0x566768<_0x4139c0;},'\x77\x59\x4f\x48\x45':function(_0x58328e,_0x219842){return _0x58328e*_0x219842;},'\x73\x72\x6f\x69\x4d':function(_0x81e473,_0x1a6111){return _0x81e473-_0x1a6111;},'\x43\x46\x64\x43\x75':function(_0x422dac,_0xc9e04e){return _0x422dac+_0xc9e04e;},'\x69\x48\x4f\x50\x56':function(_0x555de3,_0x26acc0,_0x11cfe4,_0x1f9b2a){return _0x555de3(_0x26acc0,_0x11cfe4,_0x1f9b2a);},'\x48\x63\x49\x6e\x79':function(_0x5d7d1e,_0x4471d3){return _0x5d7d1e===_0x4471d3;},'\x48\x66\x4b\x49\x71':function(_0x2be349,_0x5de7f8){return _0x2be349-_0x5de7f8;},'\x54\x45\x45\x4b\x66':_0x22cc2a(0x5d3),'\x57\x41\x48\x7a\x56':function(_0x46d7d7,_0x336b81){return _0x46d7d7*_0x336b81;}},_0x116dc1=_0x5c9034['\x78'],_0x2da78c=_0x5c9034['\x7a'],_0x3307b2=_0x5c9034['\x77'],_0x435e2f=_0x5c9034['\x64'],_0x442a8e=_0x5c9034['\x79'],_0x1a9c97=0x5,_0x4fc06a=0.4,_0x407c57=new a0_0xe98f69[(_0x22cc2a(0x5be))]();_0x407c57['\x70\x6f\x73\x69\x74\x69\x6f\x6e'][_0x22cc2a(0x2d5)](_0x116dc1,_0x442a8e,_0x2da78c);let _0xde3306;const _0x2092e8=_0x5c9034[_0x22cc2a(0x5d1)];if(_0x101176[_0x22cc2a(0x732)](_0x2092e8,0.4)){const _0x559773=new a0_0xe98f69[(_0x22cc2a(0x5a7))]()['\x73\x65\x74\x48\x53\x4c'](_0x101176['\x75\x77\x55\x71\x79'](_0x101176[_0x22cc2a(0x746)](Math[_0x22cc2a(0x81e)](),0.1),0.05),0.2,_0x101176[_0x22cc2a(0x44f)](0.4,_0x101176[_0x22cc2a(0x321)](Math['\x72\x61\x6e\x64\x6f\x6d'](),0.2)));_0xde3306=new a0_0xe98f69[(_0x22cc2a(0x8a3))]({'\x63\x6f\x6c\x6f\x72':_0x559773,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.8});}else _0x101176[_0x22cc2a(0x362)](_0x2092e8,0.7)?_0xde3306=new a0_0xe98f69[(_0x22cc2a(0x8a3))]({'\x63\x6f\x6c\x6f\x72':0x4f5d65,'\x6d\x65\x74\x61\x6c\x6e\x65\x73\x73':0.8,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.3}):_0xde3306=new a0_0xe98f69['\x4d\x65\x73\x68\x53\x74\x61\x6e\x64\x61\x72\x64\x4d\x61\x74\x65\x72\x69\x61\x6c']({'\x63\x6f\x6c\x6f\x72':0x8b3a2b,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.9});const _0x5b8c5=new a0_0xe98f69[(_0x22cc2a(0x8a3))]({'\x63\x6f\x6c\x6f\x72':0x5a4a3a,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.9}),_0x495337=new a0_0xe98f69[(_0x22cc2a(0x8a3))]({'\x63\x6f\x6c\x6f\x72':0x3d3025,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.8}),_0x40c0e4=new a0_0xe98f69[(_0x22cc2a(0x8a3))]({'\x63\x6f\x6c\x6f\x72':0x444444,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.7}),_0x323384=new a0_0xe98f69[(_0x22cc2a(0x59f))](new a0_0xe98f69[(_0x22cc2a(0x8c2))](_0x3307b2,0.2,_0x435e2f),_0x5b8c5);_0x323384[_0x22cc2a(0x8a6)]['\x79']=0.1,_0x323384['\x72\x65\x63\x65\x69\x76\x65\x53\x68\x61\x64\x6f\x77']=!![],_0x407c57[_0x22cc2a(0x5bf)](_0x323384);const _0x3d1d70=new a0_0xe98f69[(_0x22cc2a(0x59f))](new a0_0xe98f69[(_0x22cc2a(0x8c2))](_0x3307b2+0.8,0.3,_0x101176[_0x22cc2a(0x88a)](_0x435e2f,0.8)),_0x495337);_0x3d1d70['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x79']=_0x101176[_0x22cc2a(0x277)](_0x1a9c97,0.15),_0x3d1d70[_0x22cc2a(0x705)]=!![],_0x407c57[_0x22cc2a(0x5bf)](_0x3d1d70);const _0xb0b1d7=new a0_0xe98f69['\x4d\x65\x73\x68\x53\x74\x61\x6e\x64\x61\x72\x64\x4d\x61\x74\x65\x72\x69\x61\x6c']({'\x63\x6f\x6c\x6f\x72':0x3a2818,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.9}),_0x27b774=new a0_0xe98f69[(_0x22cc2a(0x59f))](new a0_0xe98f69['\x42\x6f\x78\x47\x65\x6f\x6d\x65\x74\x72\x79'](_0x101176[_0x22cc2a(0x49d)](_0x3307b2,0.2),0.22,0.22),_0xb0b1d7);_0x27b774[_0x22cc2a(0x8a6)][_0x22cc2a(0x2d5)](0x0,_0x101176['\x74\x55\x58\x65\x65'](_0x1a9c97,0.11),0x0),_0x27b774[_0x22cc2a(0x705)]=!![],_0x407c57[_0x22cc2a(0x5bf)](_0x27b774);for(let _0x3681d4=-_0x3307b2/0x3;_0x3681d4<=_0x101176[_0x22cc2a(0x2f2)](_0x101176[_0x22cc2a(0x644)](_0x3307b2,0x3),0.1);_0x3681d4+=_0x3307b2/0x3){const _0x409b92=new a0_0xe98f69[(_0x22cc2a(0x59f))](new a0_0xe98f69[(_0x22cc2a(0x8c2))](0.18,0.18,_0x101176[_0x22cc2a(0x49d)](_0x435e2f,0.2)),_0xb0b1d7);_0x409b92['\x70\x6f\x73\x69\x74\x69\x6f\x6e'][_0x22cc2a(0x2d5)](_0x3681d4,_0x101176[_0x22cc2a(0x49d)](_0x1a9c97,0.18),0x0),_0x409b92[_0x22cc2a(0x705)]=!![],_0x407c57[_0x22cc2a(0x5bf)](_0x409b92);}const _0xf9ac5b=[],_0x562f8d=_0x101176[_0x22cc2a(0x2c5)](_0x2092e8,0.4)&&_0x101176[_0x22cc2a(0x529)](_0x2092e8,0.7)?0x4:2.2,_0x590014=3.4,_0x1c00df=_0x101176[_0x22cc2a(0x8d0)](_0x101176[_0x22cc2a(0x49d)](_0x3307b2,_0x562f8d),0x2),_0x254cb1=new a0_0xe98f69[(_0x22cc2a(0x59f))](new a0_0xe98f69['\x42\x6f\x78\x47\x65\x6f\x6d\x65\x74\x72\x79'](_0x1c00df,_0x1a9c97,_0x4fc06a),_0xde3306);_0x254cb1[_0x22cc2a(0x8a6)][_0x22cc2a(0x2d5)](_0x101176['\x68\x61\x66\x49\x4a'](-_0x3307b2,0x2)+_0x1c00df/0x2,_0x101176[_0x22cc2a(0x644)](_0x1a9c97,0x2),_0x435e2f/0x2-_0x101176[_0x22cc2a(0x644)](_0x4fc06a,0x2)),_0x254cb1[_0x22cc2a(0x705)]=!![],_0x254cb1[_0x22cc2a(0x7e1)]=!![],_0x407c57[_0x22cc2a(0x5bf)](_0x254cb1),_0xf9ac5b[_0x22cc2a(0x1a4)]({'\x6d\x69\x6e\x58':-_0x3307b2/0x2,'\x6d\x61\x78\x58':_0x101176['\x63\x6b\x4a\x6b\x52'](-_0x3307b2/0x2,_0x1c00df),'\x6d\x69\x6e\x5a':_0x101176[_0x22cc2a(0x48b)](_0x101176['\x41\x76\x56\x43\x6b'](_0x435e2f,0x2),_0x4fc06a),'\x6d\x61\x78\x5a':_0x101176[_0x22cc2a(0x8b1)](_0x435e2f,0x2)});const _0x5da6af=new a0_0xe98f69['\x4d\x65\x73\x68'](new a0_0xe98f69[(_0x22cc2a(0x8c2))](_0x1c00df,_0x1a9c97,_0x4fc06a),_0xde3306);_0x5da6af[_0x22cc2a(0x8a6)][_0x22cc2a(0x2d5)](_0x101176[_0x22cc2a(0x400)](_0x3307b2/0x2,_0x101176[_0x22cc2a(0x644)](_0x1c00df,0x2)),_0x1a9c97/0x2,_0x101176[_0x22cc2a(0x49d)](_0x101176['\x4f\x5a\x44\x55\x66'](_0x435e2f,0x2),_0x101176[_0x22cc2a(0x69b)](_0x4fc06a,0x2))),_0x5da6af[_0x22cc2a(0x705)]=!![],_0x5da6af[_0x22cc2a(0x7e1)]=!![],_0x407c57['\x61\x64\x64'](_0x5da6af),_0xf9ac5b[_0x22cc2a(0x1a4)]({'\x6d\x69\x6e\x58':_0x101176['\x43\x4c\x48\x44\x55'](_0x101176['\x61\x75\x77\x76\x56'](_0x3307b2,0x2),_0x1c00df),'\x6d\x61\x78\x58':_0x101176[_0x22cc2a(0x8d0)](_0x3307b2,0x2),'\x6d\x69\x6e\x5a':_0x101176[_0x22cc2a(0x5ca)](_0x435e2f/0x2,_0x4fc06a),'\x6d\x61\x78\x5a':_0x101176[_0x22cc2a(0x13f)](_0x435e2f,0x2)});const _0x26a54c=new a0_0xe98f69[(_0x22cc2a(0x59f))](new a0_0xe98f69[(_0x22cc2a(0x8c2))](_0x562f8d,_0x101176[_0x22cc2a(0x397)](_0x1a9c97,_0x590014),_0x4fc06a),_0xde3306);_0x26a54c[_0x22cc2a(0x8a6)]['\x73\x65\x74'](0x0,_0x590014+_0x101176[_0x22cc2a(0x1e0)](_0x101176[_0x22cc2a(0x48b)](_0x1a9c97,_0x590014),0x2),_0x101176[_0x22cc2a(0x400)](_0x101176[_0x22cc2a(0x159)](_0x435e2f,0x2),_0x101176[_0x22cc2a(0x69b)](_0x4fc06a,0x2))),_0x26a54c['\x63\x61\x73\x74\x53\x68\x61\x64\x6f\x77']=!![],_0x407c57[_0x22cc2a(0x5bf)](_0x26a54c);if(!(_0x101176[_0x22cc2a(0x2c9)](_0x2092e8,0.4)&&_0x101176['\x79\x70\x4b\x45\x64'](_0x2092e8,0.7))){const _0x1ae127=new a0_0xe98f69['\x47\x72\x6f\x75\x70']();_0x1ae127['\x70\x6f\x73\x69\x74\x69\x6f\x6e'][_0x22cc2a(0x2d5)](_0x101176['\x6a\x51\x6a\x51\x5a'](_0x562f8d,0x2),0.1,_0x101176['\x54\x67\x5a\x54\x50'](_0x435e2f,0x2)-_0x101176[_0x22cc2a(0x13f)](_0x4fc06a,0x2)),_0x407c57[_0x22cc2a(0x5bf)](_0x1ae127);const _0x462954=new a0_0xe98f69[(_0x22cc2a(0x59f))](new a0_0xe98f69[(_0x22cc2a(0x8c2))](_0x562f8d,_0x101176[_0x22cc2a(0x645)](_0x590014,0.1),0.15),new a0_0xe98f69[(_0x22cc2a(0x8a3))]({'\x63\x6f\x6c\x6f\x72':0x8b5a2b,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.9}));_0x462954[_0x22cc2a(0x8a6)][_0x22cc2a(0x2d5)](_0x101176['\x70\x79\x4b\x6b\x49'](-_0x562f8d,0x2),_0x101176[_0x22cc2a(0x3f7)](_0x101176[_0x22cc2a(0x645)](_0x590014,0.1),0x2),0x0),_0x462954[_0x22cc2a(0x705)]=!![],_0x1ae127['\x61\x64\x64'](_0x462954);const _0x27e8c8=new a0_0xe98f69['\x4d\x65\x73\x68\x53\x74\x61\x6e\x64\x61\x72\x64\x4d\x61\x74\x65\x72\x69\x61\x6c']({'\x63\x6f\x6c\x6f\x72':0xd4af37,'\x6d\x65\x74\x61\x6c\x6e\x65\x73\x73':0.8,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.2}),_0xecc3ed=new a0_0xe98f69[(_0x22cc2a(0x59f))](new a0_0xe98f69[(_0x22cc2a(0x718))](0.04,0x8,0x8),_0x27e8c8);_0xecc3ed['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x73\x65\x74'](_0x101176[_0x22cc2a(0x88a)](_0x101176[_0x22cc2a(0x317)](-_0x562f8d,0x2),0.15),0x0,0.1),_0x462954[_0x22cc2a(0x5bf)](_0xecc3ed);const _0x5ba62a=new a0_0xe98f69[(_0x22cc2a(0x59f))](new a0_0xe98f69[(_0x22cc2a(0x718))](0.04,0x8,0x8),_0x27e8c8);_0x5ba62a[_0x22cc2a(0x8a6)][_0x22cc2a(0x2d5)](_0x101176[_0x22cc2a(0x1ad)](_0x101176[_0x22cc2a(0x3f7)](-_0x562f8d,0x2),0.15),0x0,-0.1),_0x462954[_0x22cc2a(0x5bf)](_0x5ba62a);const _0xf03830=new a0_0xe98f69[(_0x22cc2a(0x691))](_0x101176['\x79\x44\x51\x51\x55'](_0x116dc1,_0x562f8d/0x2),_0x101176[_0x22cc2a(0x58e)](_0x442a8e,0.1),_0x101176[_0x22cc2a(0xf2)](_0x2da78c+_0x101176[_0x22cc2a(0x8b1)](_0x435e2f,0x2),_0x101176[_0x22cc2a(0x13f)](_0x4fc06a,0x2)));doorsList[_0x22cc2a(0x1a4)]({'\x70\x69\x76\x6f\x74':_0x1ae127,'\x78':_0x116dc1,'\x7a':_0x101176[_0x22cc2a(0x397)](_0x2da78c+_0x101176[_0x22cc2a(0x4f6)](_0x435e2f,0x2),_0x101176[_0x22cc2a(0x232)](_0x4fc06a,0x2)),'\x77':_0x562f8d,'\x64':_0x4fc06a,'\x69\x73\x4f\x70\x65\x6e':![],'\x77\x6f\x72\x6c\x64\x50\x6f\x73':_0xf03830});}const _0x12b0f4=0x2,_0x29005f=1.8,_0x2b64b2=0x1,_0x39764e=_0x101176[_0x22cc2a(0x494)](_0x3307b2,_0x101176[_0x22cc2a(0x746)](_0x12b0f4,0x2))/0x3,_0x160cfd=new a0_0xe98f69['\x4d\x65\x73\x68'](new a0_0xe98f69[(_0x22cc2a(0x8c2))](_0x39764e,_0x1a9c97,_0x4fc06a),_0xde3306);_0x160cfd[_0x22cc2a(0x8a6)][_0x22cc2a(0x2d5)](_0x101176[_0x22cc2a(0x7c1)](-_0x3307b2/0x2,_0x101176[_0x22cc2a(0x1e0)](_0x39764e,0x2)),_0x101176[_0x22cc2a(0x5ba)](_0x1a9c97,0x2),_0x101176[_0x22cc2a(0x1ad)](_0x101176[_0x22cc2a(0x8d0)](-_0x435e2f,0x2),_0x101176[_0x22cc2a(0x4f6)](_0x4fc06a,0x2))),_0x160cfd['\x63\x61\x73\x74\x53\x68\x61\x64\x6f\x77']=!![],_0x160cfd[_0x22cc2a(0x7e1)]=!![],_0x407c57[_0x22cc2a(0x5bf)](_0x160cfd),_0xf9ac5b['\x70\x75\x73\x68']({'\x6d\x69\x6e\x58':_0x101176[_0x22cc2a(0x294)](-_0x3307b2,0x2),'\x6d\x61\x78\x58':_0x101176['\x45\x44\x69\x6e\x46'](_0x101176['\x68\x61\x66\x49\x4a'](-_0x3307b2,0x2),_0x39764e),'\x6d\x69\x6e\x5a':_0x101176[_0x22cc2a(0x833)](-_0x435e2f,0x2),'\x6d\x61\x78\x5a':_0x101176[_0x22cc2a(0x274)](_0x101176['\x75\x4a\x4f\x62\x56'](-_0x435e2f,0x2),_0x4fc06a)});const _0x108b2d=new a0_0xe98f69[(_0x22cc2a(0x59f))](new a0_0xe98f69[(_0x22cc2a(0x8c2))](_0x39764e,_0x1a9c97,_0x4fc06a),_0xde3306);_0x108b2d[_0x22cc2a(0x8a6)][_0x22cc2a(0x2d5)](0x0,_0x1a9c97/0x2,_0x101176[_0x22cc2a(0x66f)](_0x101176['\x4b\x47\x57\x4e\x73'](-_0x435e2f,0x2),_0x101176[_0x22cc2a(0x425)](_0x4fc06a,0x2))),_0x108b2d[_0x22cc2a(0x705)]=!![],_0x108b2d[_0x22cc2a(0x7e1)]=!![],_0x407c57[_0x22cc2a(0x5bf)](_0x108b2d),_0xf9ac5b[_0x22cc2a(0x1a4)]({'\x6d\x69\x6e\x58':_0x101176['\x54\x67\x5a\x54\x50'](-_0x39764e,0x2),'\x6d\x61\x78\x58':_0x101176[_0x22cc2a(0x14c)](_0x39764e,0x2),'\x6d\x69\x6e\x5a':-_0x435e2f/0x2,'\x6d\x61\x78\x5a':-_0x435e2f/0x2+_0x4fc06a});const _0x5629f3=new a0_0xe98f69[(_0x22cc2a(0x59f))](new a0_0xe98f69[(_0x22cc2a(0x8c2))](_0x39764e,_0x1a9c97,_0x4fc06a),_0xde3306);_0x5629f3[_0x22cc2a(0x8a6)][_0x22cc2a(0x2d5)](_0x101176[_0x22cc2a(0x645)](_0x101176[_0x22cc2a(0x5c6)](_0x3307b2,0x2),_0x101176[_0x22cc2a(0x5b5)](_0x39764e,0x2)),_0x101176['\x54\x67\x5a\x54\x50'](_0x1a9c97,0x2),_0x101176[_0x22cc2a(0x4db)](-_0x435e2f,0x2)+_0x101176['\x6a\x51\x6a\x51\x5a'](_0x4fc06a,0x2)),_0x5629f3['\x63\x61\x73\x74\x53\x68\x61\x64\x6f\x77']=!![],_0x5629f3[_0x22cc2a(0x7e1)]=!![],_0x407c57[_0x22cc2a(0x5bf)](_0x5629f3),_0xf9ac5b[_0x22cc2a(0x1a4)]({'\x6d\x69\x6e\x58':_0x3307b2/0x2-_0x39764e,'\x6d\x61\x78\x58':_0x3307b2/0x2,'\x6d\x69\x6e\x5a':_0x101176[_0x22cc2a(0x317)](-_0x435e2f,0x2),'\x6d\x61\x78\x5a':_0x101176[_0x22cc2a(0x274)](-_0x435e2f/0x2,_0x4fc06a)});for(let _0x46618c=0x0;_0x101176[_0x22cc2a(0x71a)](_0x46618c,0x2);_0x46618c++){const _0x469b29=_0x101176['\x70\x5a\x44\x4f\x70'](_0x46618c,0x0)?_0x101176['\x62\x64\x6f\x59\x78'](-_0x3307b2/0x2,_0x39764e)+_0x12b0f4/0x2:_0x101176[_0x22cc2a(0x59b)](_0x101176[_0x22cc2a(0x3f7)](_0x3307b2,0x2)-_0x39764e,_0x101176[_0x22cc2a(0x8b1)](_0x12b0f4,0x2)),_0x3e1cf0=new a0_0xe98f69[(_0x22cc2a(0x59f))](new a0_0xe98f69['\x42\x6f\x78\x47\x65\x6f\x6d\x65\x74\x72\x79'](_0x12b0f4,_0x2b64b2,_0x4fc06a),_0xde3306);_0x3e1cf0['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x73\x65\x74'](_0x469b29,_0x101176[_0x22cc2a(0x835)](_0x2b64b2,0x2),_0x101176[_0x22cc2a(0x277)](_0x101176[_0x22cc2a(0x5c6)](-_0x435e2f,0x2),_0x4fc06a/0x2)),_0x3e1cf0[_0x22cc2a(0x705)]=!![],_0x3e1cf0['\x72\x65\x63\x65\x69\x76\x65\x53\x68\x61\x64\x6f\x77']=!![],_0x407c57[_0x22cc2a(0x5bf)](_0x3e1cf0),_0xf9ac5b['\x70\x75\x73\x68']({'\x6d\x69\x6e\x58':_0x101176['\x43\x4c\x48\x44\x55'](_0x469b29,_0x12b0f4/0x2),'\x6d\x61\x78\x58':_0x101176[_0x22cc2a(0x44f)](_0x469b29,_0x101176[_0x22cc2a(0x69b)](_0x12b0f4,0x2)),'\x6d\x69\x6e\x5a':_0x101176['\x63\x63\x68\x6d\x6e'](-_0x435e2f,0x2),'\x6d\x61\x78\x5a':_0x101176[_0x22cc2a(0x466)](_0x101176[_0x22cc2a(0x804)](-_0x435e2f,0x2),_0x4fc06a)});const _0x57c185=new a0_0xe98f69[(_0x22cc2a(0x59f))](new a0_0xe98f69[(_0x22cc2a(0x8c2))](_0x12b0f4,_0x101176['\x43\x4c\x48\x44\x55'](_0x1a9c97-_0x2b64b2,_0x29005f),_0x4fc06a),_0xde3306);_0x57c185[_0x22cc2a(0x8a6)][_0x22cc2a(0x2d5)](_0x469b29,_0x101176[_0x22cc2a(0x16f)](_0x101176[_0x22cc2a(0x58e)](_0x2b64b2,_0x29005f),_0x101176[_0x22cc2a(0x645)](_0x101176[_0x22cc2a(0x397)](_0x1a9c97,_0x2b64b2),_0x29005f)/0x2),_0x101176[_0x22cc2a(0x792)](_0x101176[_0x22cc2a(0x804)](-_0x435e2f,0x2),_0x101176[_0x22cc2a(0x4f6)](_0x4fc06a,0x2))),_0x57c185[_0x22cc2a(0x705)]=!![],_0x407c57[_0x22cc2a(0x5bf)](_0x57c185),windowSpots['\x70\x75\x73\x68']({'\x78':_0x101176[_0x22cc2a(0x180)](_0x116dc1,_0x469b29),'\x79':_0x101176['\x55\x52\x59\x65\x6e'](_0x101176['\x62\x74\x6c\x58\x76'](_0x442a8e,_0x2b64b2),_0x101176[_0x22cc2a(0x73e)](_0x29005f,0x2)),'\x7a':_0x2da78c-_0x101176[_0x22cc2a(0x8cd)](_0x435e2f,0x2)+_0x101176[_0x22cc2a(0x5c6)](_0x4fc06a,0x2),'\x61\x6e\x67\x6c\x65':_0x101176[_0x22cc2a(0x804)](-Math['\x50\x49'],0x2)});}const _0x1f8732=_0x101176['\x75\x4a\x4f\x62\x56'](_0x101176[_0x22cc2a(0xfd)](_0x435e2f,_0x12b0f4),0x2),_0x2b0ce2=new a0_0xe98f69[(_0x22cc2a(0x59f))](new a0_0xe98f69[(_0x22cc2a(0x8c2))](_0x4fc06a,_0x1a9c97,_0x1f8732),_0xde3306);_0x2b0ce2[_0x22cc2a(0x8a6)][_0x22cc2a(0x2d5)](_0x101176[_0x22cc2a(0x48b)](_0x101176[_0x22cc2a(0x41a)](_0x3307b2,0x2),_0x101176['\x54\x67\x5a\x54\x50'](_0x4fc06a,0x2)),_0x101176[_0x22cc2a(0x14c)](_0x1a9c97,0x2),_0x101176[_0x22cc2a(0x686)](_0x101176[_0x22cc2a(0x5c6)](-_0x435e2f,0x2),_0x101176['\x6c\x68\x42\x73\x55'](_0x1f8732,0x2))),_0x2b0ce2['\x63\x61\x73\x74\x53\x68\x61\x64\x6f\x77']=!![],_0x2b0ce2[_0x22cc2a(0x7e1)]=!![],_0x407c57[_0x22cc2a(0x5bf)](_0x2b0ce2),_0xf9ac5b[_0x22cc2a(0x1a4)]({'\x6d\x69\x6e\x58':_0x101176['\x43\x63\x6a\x53\x5a'](_0x101176['\x56\x78\x56\x47\x76'](_0x3307b2,0x2),_0x4fc06a),'\x6d\x61\x78\x58':_0x3307b2/0x2,'\x6d\x69\x6e\x5a':-_0x435e2f/0x2,'\x6d\x61\x78\x5a':_0x101176[_0x22cc2a(0x180)](-_0x435e2f/0x2,_0x1f8732)});const _0x25ae16=new a0_0xe98f69[(_0x22cc2a(0x59f))](new a0_0xe98f69[(_0x22cc2a(0x8c2))](_0x4fc06a,_0x1a9c97,_0x1f8732),_0xde3306);_0x25ae16[_0x22cc2a(0x8a6)][_0x22cc2a(0x2d5)](_0x101176['\x4c\x48\x4f\x77\x77'](_0x101176[_0x22cc2a(0x73c)](_0x3307b2,0x2),_0x4fc06a/0x2),_0x101176['\x6c\x68\x42\x73\x55'](_0x1a9c97,0x2),_0x101176[_0x22cc2a(0x49d)](_0x101176['\x61\x75\x77\x76\x56'](_0x435e2f,0x2),_0x1f8732/0x2)),_0x25ae16[_0x22cc2a(0x705)]=!![],_0x25ae16['\x72\x65\x63\x65\x69\x76\x65\x53\x68\x61\x64\x6f\x77']=!![],_0x407c57[_0x22cc2a(0x5bf)](_0x25ae16),_0xf9ac5b['\x70\x75\x73\x68']({'\x6d\x69\x6e\x58':_0x101176['\x42\x6e\x54\x4a\x4d'](_0x3307b2/0x2,_0x4fc06a),'\x6d\x61\x78\x58':_0x101176[_0x22cc2a(0x8cd)](_0x3307b2,0x2),'\x6d\x69\x6e\x5a':_0x435e2f/0x2-_0x1f8732,'\x6d\x61\x78\x5a':_0x435e2f/0x2});const _0x57064e=new a0_0xe98f69[(_0x22cc2a(0x59f))](new a0_0xe98f69[(_0x22cc2a(0x8c2))](_0x4fc06a,_0x2b64b2,_0x12b0f4),_0xde3306);_0x57064e[_0x22cc2a(0x8a6)][_0x22cc2a(0x2d5)](_0x101176[_0x22cc2a(0x13d)](_0x101176[_0x22cc2a(0x511)](_0x3307b2,0x2),_0x101176[_0x22cc2a(0x14c)](_0x4fc06a,0x2)),_0x101176[_0x22cc2a(0x69b)](_0x2b64b2,0x2),0x0),_0x57064e[_0x22cc2a(0x705)]=!![],_0x57064e[_0x22cc2a(0x7e1)]=!![],_0x407c57[_0x22cc2a(0x5bf)](_0x57064e),_0xf9ac5b[_0x22cc2a(0x1a4)]({'\x6d\x69\x6e\x58':_0x101176[_0x22cc2a(0x1e0)](_0x3307b2,0x2)-_0x4fc06a,'\x6d\x61\x78\x58':_0x101176['\x46\x45\x4f\x66\x44'](_0x3307b2,0x2),'\x6d\x69\x6e\x5a':-_0x12b0f4/0x2,'\x6d\x61\x78\x5a':_0x101176[_0x22cc2a(0x69b)](_0x12b0f4,0x2)});const _0x4c1434=new a0_0xe98f69['\x4d\x65\x73\x68'](new a0_0xe98f69[(_0x22cc2a(0x8c2))](_0x4fc06a,_0x101176[_0x22cc2a(0x49d)](_0x101176[_0x22cc2a(0x549)](_0x1a9c97,_0x2b64b2),_0x29005f),_0x12b0f4),_0xde3306);_0x4c1434['\x70\x6f\x73\x69\x74\x69\x6f\x6e'][_0x22cc2a(0x2d5)](_0x101176['\x7a\x48\x5a\x74\x62'](_0x3307b2,0x2)-_0x101176[_0x22cc2a(0x75b)](_0x4fc06a,0x2),_0x101176[_0x22cc2a(0x686)](_0x2b64b2+_0x29005f,_0x101176[_0x22cc2a(0x8a4)](_0x101176['\x77\x4d\x55\x68\x46'](_0x101176[_0x22cc2a(0x353)](_0x1a9c97,_0x2b64b2),_0x29005f),0x2)),0x0),_0x4c1434['\x63\x61\x73\x74\x53\x68\x61\x64\x6f\x77']=!![],_0x407c57['\x61\x64\x64'](_0x4c1434),windowSpots[_0x22cc2a(0x1a4)]({'\x78':_0x116dc1+_0x101176[_0x22cc2a(0x28e)](_0x3307b2,0x2)-_0x101176[_0x22cc2a(0x752)](_0x4fc06a,0x2),'\x79':_0x101176['\x56\x54\x72\x50\x50'](_0x442a8e+_0x2b64b2,_0x101176[_0x22cc2a(0x2a2)](_0x29005f,0x2)),'\x7a':_0x2da78c,'\x61\x6e\x67\x6c\x65':0x0});const _0x4aa00b=new a0_0xe98f69[(_0x22cc2a(0x59f))](new a0_0xe98f69[(_0x22cc2a(0x8c2))](_0x4fc06a,_0x1a9c97,_0x435e2f),_0xde3306);_0x4aa00b['\x70\x6f\x73\x69\x74\x69\x6f\x6e'][_0x22cc2a(0x2d5)](_0x101176[_0x22cc2a(0x277)](-_0x3307b2/0x2,_0x101176['\x67\x4b\x7a\x6d\x42'](_0x4fc06a,0x2)),_0x101176['\x5a\x41\x65\x72\x59'](_0x1a9c97,0x2),0x0),_0x4aa00b[_0x22cc2a(0x705)]=!![],_0x4aa00b['\x72\x65\x63\x65\x69\x76\x65\x53\x68\x61\x64\x6f\x77']=!![],_0x407c57[_0x22cc2a(0x5bf)](_0x4aa00b),_0xf9ac5b[_0x22cc2a(0x1a4)]({'\x6d\x69\x6e\x58':_0x101176[_0x22cc2a(0x541)](-_0x3307b2,0x2),'\x6d\x61\x78\x58':_0x101176['\x5a\x4d\x4b\x4e\x54'](-_0x3307b2/0x2,_0x4fc06a),'\x6d\x69\x6e\x5a':_0x101176['\x52\x6e\x5a\x6b\x6b'](-_0x435e2f,0x2),'\x6d\x61\x78\x5a':_0x101176['\x67\x4b\x7a\x6d\x42'](_0x435e2f,0x2)});const _0xb3770e=0.6,_0x1c39de=[{'\x63\x78':-_0x3307b2/0x4,'\x63\x7a':_0x101176[_0x22cc2a(0x3b8)](-_0x435e2f,0x4)},{'\x63\x78':_0x3307b2/0x4,'\x63\x7a':_0x101176[_0x22cc2a(0x653)](-_0x435e2f,0x4)},{'\x63\x78':_0x101176['\x67\x4b\x7a\x6d\x42'](-_0x3307b2,0x4),'\x63\x7a':_0x101176[_0x22cc2a(0x583)](_0x435e2f,0x4)},{'\x63\x78':_0x101176[_0x22cc2a(0x25f)](_0x3307b2,0x4),'\x63\x7a':_0x101176[_0x22cc2a(0x3bd)](_0x435e2f,0x4)}];_0x1c39de['\x66\x6f\x72\x45\x61\x63\x68'](_0x4e0135=>{const _0xd99e03=_0x22cc2a,_0x19edd0=new a0_0xe98f69['\x4d\x65\x73\x68'](new a0_0xe98f69['\x42\x6f\x78\x47\x65\x6f\x6d\x65\x74\x72\x79'](_0xb3770e,_0x1a9c97,_0xb3770e),_0x40c0e4);_0x19edd0[_0xd99e03(0x8a6)][_0xd99e03(0x2d5)](_0x4e0135['\x63\x78'],_0x1a9c97/0x2,_0x4e0135['\x63\x7a']),_0x19edd0['\x63\x61\x73\x74\x53\x68\x61\x64\x6f\x77']=!![],_0x19edd0[_0xd99e03(0x7e1)]=!![],_0x407c57['\x61\x64\x64'](_0x19edd0),_0xf9ac5b['\x70\x75\x73\x68']({'\x6d\x69\x6e\x58':_0x101176[_0xd99e03(0x49d)](_0x4e0135['\x63\x78'],_0x101176[_0xd99e03(0x2a2)](_0xb3770e,0x2)),'\x6d\x61\x78\x58':_0x101176['\x75\x77\x55\x71\x79'](_0x4e0135['\x63\x78'],_0xb3770e/0x2),'\x6d\x69\x6e\x5a':_0x101176[_0xd99e03(0x49d)](_0x4e0135['\x63\x7a'],_0x101176[_0xd99e03(0x2a2)](_0xb3770e,0x2)),'\x6d\x61\x78\x5a':_0x4e0135['\x63\x7a']+_0x101176[_0xd99e03(0x644)](_0xb3770e,0x2)});});const _0x257fb3=_0x101176[_0x22cc2a(0x49d)](_0x101176['\x4c\x5a\x77\x48\x54'](_0x3307b2/0x2,_0x101176[_0x22cc2a(0x5d4)](_0x3307b2,0x6)),2.2),_0x4601ff=new a0_0xe98f69[(_0x22cc2a(0x59f))](new a0_0xe98f69[(_0x22cc2a(0x8c2))](_0x257fb3,_0x1a9c97,0.25),_0xde3306);_0x4601ff[_0x22cc2a(0x8a6)]['\x73\x65\x74'](_0x101176[_0x22cc2a(0x180)](_0x101176['\x58\x78\x72\x6d\x64'](-_0x3307b2,0x2),_0x101176[_0x22cc2a(0x28e)](_0x257fb3,0x2)),_0x101176[_0x22cc2a(0x4ce)](_0x1a9c97,0x2),0x0),_0x4601ff[_0x22cc2a(0x705)]=!![],_0x4601ff[_0x22cc2a(0x7e1)]=!![],_0x407c57[_0x22cc2a(0x5bf)](_0x4601ff),_0xf9ac5b[_0x22cc2a(0x1a4)]({'\x6d\x69\x6e\x58':-_0x3307b2/0x2,'\x6d\x61\x78\x58':_0x101176[_0x22cc2a(0x1b3)](_0x101176[_0x22cc2a(0x5c6)](-_0x3307b2,0x2),_0x257fb3),'\x6d\x69\x6e\x5a':-0.125,'\x6d\x61\x78\x5a':0.125});const _0x4e0766=_0x101176[_0x22cc2a(0x1e8)](_0x435e2f,0x2),_0x24683b=new a0_0xe98f69['\x4d\x65\x73\x68'](new a0_0xe98f69['\x42\x6f\x78\x47\x65\x6f\x6d\x65\x74\x72\x79'](0.25,_0x1a9c97,_0x4e0766),_0xde3306);_0x24683b[_0x22cc2a(0x8a6)][_0x22cc2a(0x2d5)](_0x101176['\x72\x62\x66\x6f\x50'](_0x3307b2,0x6),_0x101176['\x73\x76\x6e\x43\x5a'](_0x1a9c97,0x2),_0x101176[_0x22cc2a(0x767)](-_0x435e2f,0x4)),_0x24683b[_0x22cc2a(0x705)]=!![],_0x24683b['\x72\x65\x63\x65\x69\x76\x65\x53\x68\x61\x64\x6f\x77']=!![],_0x407c57[_0x22cc2a(0x5bf)](_0x24683b),_0xf9ac5b[_0x22cc2a(0x1a4)]({'\x6d\x69\x6e\x58':_0x101176[_0x22cc2a(0x6bd)](_0x101176[_0x22cc2a(0x28c)](_0x3307b2,0x6),0.125),'\x6d\x61\x78\x58':_0x101176['\x78\x58\x6e\x77\x6a'](_0x101176[_0x22cc2a(0x4ec)](_0x3307b2,0x6),0.125),'\x6d\x69\x6e\x5a':_0x101176[_0x22cc2a(0x404)](-_0x435e2f,0x2),'\x6d\x61\x78\x5a':0x0});const _0x20639a=1.5,_0xe0ea7a=Math[_0x22cc2a(0x16d)](_0x101176['\x77\x43\x6e\x44\x57'](_0x435e2f*_0x435e2f,_0x1a9c97*_0x1a9c97)),_0x33812e=Math['\x61\x74\x61\x6e\x32'](_0x1a9c97,_0x435e2f),_0x1aa01f=new a0_0xe98f69[(_0x22cc2a(0x59f))](new a0_0xe98f69[(_0x22cc2a(0x8c2))](_0x20639a,0.2,_0xe0ea7a),_0x5b8c5);_0x1aa01f[_0x22cc2a(0x8a6)]['\x73\x65\x74'](_0x101176[_0x22cc2a(0x353)](_0x101176['\x44\x5a\x6f\x4f\x68'](-_0x3307b2,0x2),_0x101176[_0x22cc2a(0x2a2)](_0x20639a,0x2)),_0x101176[_0x22cc2a(0x8b2)](_0x1a9c97,0x2)+0.1,0x0),_0x1aa01f[_0x22cc2a(0x14f)]['\x78']=-_0x33812e,_0x1aa01f['\x63\x61\x73\x74\x53\x68\x61\x64\x6f\x77']=!![],_0x1aa01f[_0x22cc2a(0x7e1)]=!![],_0x407c57['\x61\x64\x64'](_0x1aa01f);const _0x4c2b0a=new a0_0xe98f69[(_0x22cc2a(0x8a3))]({'\x63\x6f\x6c\x6f\x72':0x333333,'\x6d\x65\x74\x61\x6c\x6e\x65\x73\x73':0.6,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.2}),_0x2339f1=new a0_0xe98f69[(_0x22cc2a(0x59f))](new a0_0xe98f69[(_0x22cc2a(0x8c2))](0.1,0.8,_0xe0ea7a),_0x4c2b0a);_0x2339f1[_0x22cc2a(0x8a6)][_0x22cc2a(0x2d5)](_0x101176['\x4a\x6f\x7a\x66\x49'](-_0x3307b2,0x2)-_0x20639a,_0x101176[_0x22cc2a(0x1b3)](_0x1a9c97/0x2,0.5),0x0),_0x2339f1['\x72\x6f\x74\x61\x74\x69\x6f\x6e']['\x78']=-_0x33812e,_0x2339f1[_0x22cc2a(0x705)]=!![],_0x407c57['\x61\x64\x64'](_0x2339f1),scene[_0x22cc2a(0x5bf)](_0x407c57);const _0x3803ff=_0xf9ac5b[_0x22cc2a(0x2be)](_0x14472c=>({'\x6d\x69\x6e\x58':_0x116dc1+_0x14472c[_0x22cc2a(0x192)],'\x6d\x61\x78\x58':_0x116dc1+_0x14472c[_0x22cc2a(0x3e7)],'\x6d\x69\x6e\x5a':_0x2da78c+_0x14472c[_0x22cc2a(0x251)],'\x6d\x61\x78\x5a':_0x2da78c+_0x14472c[_0x22cc2a(0x61c)]}));obstacles[_0x22cc2a(0x1a4)]({'\x74\x79\x70\x65':'\x42\x55\x49\x4c\x44\x49\x4e\x47','\x77\x61\x6c\x6c\x73':_0x3803ff,'\x73\x70\x6f\x74\x58':_0x116dc1,'\x73\x70\x6f\x74\x5a':_0x2da78c,'\x73\x70\x6f\x74\x59':_0x442a8e,'\x77':_0x3307b2,'\x64':_0x435e2f});const _0x5edcef=[new a0_0xe98f69['\x56\x65\x63\x74\x6f\x72\x33'](-_0x3307b2/0x3,0.2,_0x101176[_0x22cc2a(0x533)](-_0x435e2f,0x3)),new a0_0xe98f69[(_0x22cc2a(0x691))](_0x3307b2/0x3,0.2,_0x101176[_0x22cc2a(0x767)](-_0x435e2f,0x3)),new a0_0xe98f69[(_0x22cc2a(0x691))](0x0,0.2,_0x101176[_0x22cc2a(0x6ed)](_0x435e2f,0x3)),new a0_0xe98f69[(_0x22cc2a(0x691))](_0x101176['\x68\x50\x72\x59\x53'](_0x3307b2,0x3),0.2,_0x101176[_0x22cc2a(0x46e)](_0x435e2f,0x3))];_0x5edcef[_0x22cc2a(0x64b)](_0x1afb29=>{const _0x477971=_0x22cc2a,_0x579826=new a0_0xe98f69['\x56\x65\x63\x74\x6f\x72\x33'](_0x101176[_0x477971(0x88a)](_0x116dc1,_0x1afb29['\x78']),_0x101176[_0x477971(0x44f)](_0x442a8e,_0x1afb29['\x79']),_0x2da78c+_0x1afb29['\x7a']),_0x3ae462=Math[_0x477971(0x81e)]();if(_0x101176[_0x477971(0x362)](_0x3ae462,0.3)){const _0x5c23dd=wPool[Math[_0x477971(0x773)](_0x101176[_0x477971(0x321)](Math[_0x477971(0x81e)](),wPool[_0x477971(0x88b)]))];_0x101176[_0x477971(0x64f)](spawnGroundItem,_0x579826,_0x101176[_0x477971(0x89b)],_0x5c23dd);const _0x41a539=_0x101176[_0x477971(0x19b)](_0x5c23dd[_0x477971(0x74e)],'\uad8c\ucd1d')?_0x101176[_0x477971(0x7b1)]:_0x5c23dd['\x6e\x61\x6d\x65']==='\uc0f7\uac74'?_0x101176[_0x477971(0x23e)]:_0x101176['\x47\x42\x48\x72\x4c'](_0x5c23dd[_0x477971(0x74e)],_0x101176[_0x477971(0x168)])?_0x101176[_0x477971(0x27f)]:_0x101176[_0x477971(0x28b)],_0x986b80=_0x579826[_0x477971(0x31f)]()[_0x477971(0x5bf)](new a0_0xe98f69[(_0x477971(0x691))](_0x101176[_0x477971(0x645)](Math['\x72\x61\x6e\x64\x6f\x6d'](),0.5)*1.8,0x0,_0x101176['\x49\x65\x67\x45\x6f'](Math['\x72\x61\x6e\x64\x6f\x6d']()-0.5,1.8)));_0x101176[_0x477971(0x64f)](spawnGroundItem,_0x986b80,_0x477971(0x5d3)+_0x41a539,{'\x6e\x61\x6d\x65':_0x101176['\x4f\x4e\x55\x46\x70'](getAmmoName,_0x41a539)});}else{if(_0x101176[_0x477971(0x362)](_0x3ae462,0.45))spawnGroundItem(_0x579826,_0x101176[_0x477971(0x395)],sPool[Math['\x66\x6c\x6f\x6f\x72'](Math[_0x477971(0x81e)]()*sPool['\x6c\x65\x6e\x67\x74\x68'])]);else{if(_0x101176[_0x477971(0x362)](_0x3ae462,0.6))_0x101176[_0x477971(0x537)](spawnGroundItem,_0x579826,_0x101176['\x73\x74\x43\x4d\x6a'],hPool[Math[_0x477971(0x773)](_0x101176[_0x477971(0x1cc)](Math[_0x477971(0x81e)](),hPool['\x6c\x65\x6e\x67\x74\x68']))]);else{if(_0x3ae462<0.7)spawnGroundItem(_0x579826,_0x101176[_0x477971(0x298)],bPool[Math[_0x477971(0x773)](_0x101176['\x49\x65\x67\x45\x6f'](Math['\x72\x61\x6e\x64\x6f\x6d'](),bPool['\x6c\x65\x6e\x67\x74\x68']))]);else{if(_0x3ae462<0.8)_0x101176[_0x477971(0x64f)](spawnGroundItem,_0x579826,_0x101176[_0x477971(0x834)],{'\x6e\x61\x6d\x65':_0x477971(0x80d)});else _0x101176[_0x477971(0x362)](_0x3ae462,0.9)?_0x101176[_0x477971(0x64f)](spawnGroundItem,_0x579826,_0x101176[_0x477971(0x384)],{'\x6e\x61\x6d\x65':_0x101176[_0x477971(0x3c8)]}):spawnGroundItem(_0x579826,'\x53\x4d\x4f\x4b\x45',{'\x6e\x61\x6d\x65':_0x101176[_0x477971(0x416)]});}}}}});for(let _0x80f383=0x0;_0x101176['\x69\x4b\x66\x6b\x4f'](_0x80f383,0x2);_0x80f383++){const _0x1beeef=_0x101176[_0x22cc2a(0x78e)](_0x101176[_0x22cc2a(0xf2)](Math[_0x22cc2a(0x81e)](),0.5),_0x3307b2-0x2),_0x4b7286=_0x101176['\x68\x4a\x4a\x6a\x5a'](_0x101176[_0x22cc2a(0x7ac)](Math['\x72\x61\x6e\x64\x6f\x6d'](),0.5),_0x435e2f-0x2),_0x4a9754=new a0_0xe98f69['\x56\x65\x63\x74\x6f\x72\x33'](_0x116dc1+_0x1beeef,_0x101176[_0x22cc2a(0x58e)](_0x442a8e,5.3),_0x101176[_0x22cc2a(0x1d7)](_0x2da78c,_0x4b7286)),_0x2cccca=Math[_0x22cc2a(0x81e)]();if(_0x2cccca<0.4){const _0x43e4a4=wPool[Math['\x66\x6c\x6f\x6f\x72'](Math['\x72\x61\x6e\x64\x6f\x6d']()*wPool[_0x22cc2a(0x88b)])];_0x101176[_0x22cc2a(0x851)](spawnGroundItem,_0x4a9754,_0x101176[_0x22cc2a(0x89b)],_0x43e4a4);const _0x1f79cc=_0x101176[_0x22cc2a(0x2e3)](_0x43e4a4[_0x22cc2a(0x74e)],'\uad8c\ucd1d')?_0x101176[_0x22cc2a(0x7b1)]:_0x43e4a4[_0x22cc2a(0x74e)]==='\uc0f7\uac74'?_0x101176[_0x22cc2a(0x23e)]:_0x43e4a4[_0x22cc2a(0x74e)]===_0x101176[_0x22cc2a(0x168)]?_0x101176[_0x22cc2a(0x27f)]:_0x101176[_0x22cc2a(0x28b)],_0x5ef0dc=_0x4a9754[_0x22cc2a(0x31f)]()['\x61\x64\x64'](new a0_0xe98f69[(_0x22cc2a(0x691))](_0x101176[_0x22cc2a(0x321)](_0x101176[_0x22cc2a(0xf2)](Math['\x72\x61\x6e\x64\x6f\x6d'](),0.5),1.8),0x0,_0x101176[_0x22cc2a(0x746)](_0x101176['\x48\x66\x4b\x49\x71'](Math[_0x22cc2a(0x81e)](),0.5),1.8)));spawnGroundItem(_0x5ef0dc,_0x101176[_0x22cc2a(0x679)]+_0x1f79cc,{'\x6e\x61\x6d\x65':_0x101176['\x4f\x4e\x55\x46\x70'](getAmmoName,_0x1f79cc)});}else _0x2cccca<0.7?_0x101176[_0x22cc2a(0x537)](spawnGroundItem,_0x4a9754,_0x101176[_0x22cc2a(0x395)],sPool[Math['\x66\x6c\x6f\x6f\x72'](_0x101176[_0x22cc2a(0x5d5)](Math['\x72\x61\x6e\x64\x6f\x6d'](),sPool[_0x22cc2a(0x88b)]))]):_0x101176[_0x22cc2a(0x64f)](spawnGroundItem,_0x4a9754,_0x101176[_0x22cc2a(0x834)],{'\x6e\x61\x6d\x65':'\uad6c\uae09\uc0c1\uc790'});}});const numObstacles=0x12c;for(let i=0x0;i<numObstacles;i++){let x=0x0,z=0x0,radius=0x1,obsType=a0_0x460254(0x284),ok=![];for(let retries=0x0;retries<0x96;retries++){x=(Math[a0_0x460254(0x81e)]()-0.5)*0x208,z=(Math[a0_0x460254(0x81e)]()-0.5)*0x208;const randVal=Math[a0_0x460254(0x81e)]();if(randVal<0.55){obsType='\x54\x52\x45\x45';const scale=0.6+Math[a0_0x460254(0x81e)]()*1.8;radius=0.95*scale;}else{if(randVal<0.82){obsType=a0_0x460254(0x2e4);const scale=0.8+Math[a0_0x460254(0x81e)]()*1.2;radius=1.1*scale;}else{obsType=a0_0x460254(0x164);const scale=1.8+Math[a0_0x460254(0x81e)]()*3.2;radius=scale*1.1;}}let overlap=![];const distFromC=Math[a0_0x460254(0x16d)](x*x+z*z);(distFromC<0x19||distFromC>0xe6)&&(overlap=!![]);const distToPond1=Math[a0_0x460254(0x16d)]((x-0x3c)**0x2+(z-0x50)**0x2);distToPond1<0x19+radius+2.5&&(overlap=!![]);const distToPond2=Math[a0_0x460254(0x16d)]((x+0x50)**0x2+(z+0x3c)**0x2);distToPond2<0x14+radius+2.5&&(overlap=!![]);if(!overlap)for(let b=0x0;b<buildingSpots['\x6c\x65\x6e\x67\x74\x68'];b++){const spot=buildingSpots[b],dx=Math[a0_0x460254(0x712)](x-spot['\x78']),dz=Math[a0_0x460254(0x712)](z-spot['\x7a']);if(dx<spot['\x77']/0x2+radius+4.5&&dz<spot['\x64']/0x2+radius+4.5){overlap=!![];break;}}if(!overlap)for(let o=0x0;o<obstacles[a0_0x460254(0x88b)];o++){const other=obstacles[o],dist=Math[a0_0x460254(0x16d)]((x-other['\x78'])**0x2+(z-other['\x7a'])**0x2);if(dist<radius+other[a0_0x460254(0x85d)]+0x3){overlap=!![];break;}}if(!overlap){ok=!![];break;}}if(ok){const y=getElevation(x,z);if(obsType==='\x54\x52\x45\x45'){const scale=radius/0.95,trunk=new a0_0xe98f69[(a0_0x460254(0x59f))](treeGeoTrunk,treeMatTrunk);trunk['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x73\x65\x74'](x,y+1.5*scale,z),trunk['\x63\x61\x73\x74\x53\x68\x61\x64\x6f\x77']=!![],trunk[a0_0x460254(0x7e1)]=!![],trunk[a0_0x460254(0x7ef)]['\x73\x65\x74'](scale,scale,scale);const treeType=Math[a0_0x460254(0x773)](Math[a0_0x460254(0x81e)]()*0x3);let leaves;if(treeType===0x0){leaves=new a0_0xe98f69['\x47\x72\x6f\x75\x70']();const leaves1=new a0_0xe98f69[(a0_0x460254(0x59f))](new a0_0xe98f69[(a0_0x460254(0x137))](2.5,3.2,0x8),treeMatCone);leaves1[a0_0x460254(0x8a6)][a0_0x460254(0x2d5)](0x0,2.4,0x0),leaves1['\x63\x61\x73\x74\x53\x68\x61\x64\x6f\x77']=!![],leaves[a0_0x460254(0x5bf)](leaves1);const leaves2=new a0_0xe98f69[(a0_0x460254(0x59f))](new a0_0xe98f69['\x43\x6f\x6e\x65\x47\x65\x6f\x6d\x65\x74\x72\x79'](0x2,2.5,0x8),treeMatCone);leaves2[a0_0x460254(0x8a6)][a0_0x460254(0x2d5)](0x0,3.9,0x0),leaves2[a0_0x460254(0x705)]=!![],leaves['\x61\x64\x64'](leaves2);const leaves3=new a0_0xe98f69[(a0_0x460254(0x59f))](new a0_0xe98f69[(a0_0x460254(0x137))](1.4,1.8,0x8),treeMatCone);leaves3[a0_0x460254(0x8a6)][a0_0x460254(0x2d5)](0x0,5.2,0x0),leaves3[a0_0x460254(0x705)]=!![],leaves[a0_0x460254(0x5bf)](leaves3);}else{if(treeType===0x1){leaves=new a0_0xe98f69[(a0_0x460254(0x5be))]();const leafMat=new a0_0xe98f69[(a0_0x460254(0x8a3))]({'\x63\x6f\x6c\x6f\x72':0x2e5c1e,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.9}),centerSphere=new a0_0xe98f69[(a0_0x460254(0x59f))](new a0_0xe98f69[(a0_0x460254(0x6e8))](1.8,0x1),leafMat);centerSphere[a0_0x460254(0x8a6)][a0_0x460254(0x2d5)](0x0,3.2,0x0),centerSphere[a0_0x460254(0x705)]=!![],leaves[a0_0x460254(0x5bf)](centerSphere);const offsets=[[0.8,3.6,0.4,0x1],[-0.8,3.4,-0.5,0.95],[0.5,2.9,-0.8,0.85],[-0.6,2.8,0.6,0.9],[0x0,0x4,-0.2,1.1]];offsets[a0_0x460254(0x64b)](([_0x5319c4,_0x41ab90,_0x5dc4e6,_0x5adfd9])=>{const _0x4b1ea6=a0_0x460254,_0x4a6a54={'\x77\x49\x5a\x6b\x61':function(_0x24dbd3,_0x415a06){return _0x24dbd3*_0x415a06;}},_0x51160d=new a0_0xe98f69[(_0x4b1ea6(0x59f))](new a0_0xe98f69[(_0x4b1ea6(0x6e8))](_0x4a6a54[_0x4b1ea6(0x6df)](1.1,_0x5adfd9),0x1),leafMat);_0x51160d[_0x4b1ea6(0x8a6)]['\x73\x65\x74'](_0x5319c4,_0x41ab90,_0x5dc4e6),_0x51160d[_0x4b1ea6(0x705)]=!![],leaves['\x61\x64\x64'](_0x51160d);});}else{leaves=new a0_0xe98f69[(a0_0x460254(0x5be))]();const mapleMat=new a0_0xe98f69[(a0_0x460254(0x8a3))]({'\x63\x6f\x6c\x6f\x72':0xd3a03e,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.9}),centerSphere=new a0_0xe98f69[(a0_0x460254(0x59f))](new a0_0xe98f69[(a0_0x460254(0x6e8))](1.7,0x1),mapleMat);centerSphere[a0_0x460254(0x8a6)][a0_0x460254(0x2d5)](0x0,2.9,0x0),centerSphere[a0_0x460254(0x705)]=!![],leaves[a0_0x460254(0x5bf)](centerSphere);const offsets=[[0.7,3.3,0.4,0.9],[-0.7,3.1,-0.4,0.9],[0.4,2.6,-0.7,0.8],[-0.5,2.5,0.5,0.85],[0x0,3.7,-0.2,1.05]];offsets['\x66\x6f\x72\x45\x61\x63\x68'](([_0x2cc4bb,_0x3fde36,_0x2ad455,_0x494ece])=>{const _0x2122b2=a0_0x460254,_0x548255={'\x48\x61\x49\x6a\x6a':function(_0x5aeeb0,_0x353b49){return _0x5aeeb0*_0x353b49;}},_0x4f0086=new a0_0xe98f69[(_0x2122b2(0x59f))](new a0_0xe98f69[(_0x2122b2(0x6e8))](_0x548255[_0x2122b2(0x888)](0x1,_0x494ece),0x1),mapleMat);_0x4f0086[_0x2122b2(0x8a6)][_0x2122b2(0x2d5)](_0x2cc4bb,_0x3fde36,_0x2ad455),_0x4f0086[_0x2122b2(0x705)]=!![],leaves[_0x2122b2(0x5bf)](_0x4f0086);});}}trunk['\x61\x64\x64'](leaves),scene[a0_0x460254(0x5bf)](trunk),obstacles[a0_0x460254(0x1a4)]({'\x74\x79\x70\x65':a0_0x460254(0x284),'\x78':x,'\x7a':z,'\x72\x61\x64\x69\x75\x73':radius});}else{if(obsType===a0_0x460254(0x2e4)){const bushGroup=new a0_0xe98f69[(a0_0x460254(0x5be))]();bushGroup['\x70\x6f\x73\x69\x74\x69\x6f\x6e'][a0_0x460254(0x2d5)](x,y,z);const bushMat=new a0_0xe98f69[(a0_0x460254(0x8a3))]({'\x63\x6f\x6c\x6f\x72':0x1b4322,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.95,'\x74\x72\x61\x6e\x73\x70\x61\x72\x65\x6e\x74':!![],'\x6f\x70\x61\x63\x69\x74\x79':0.65}),numPuffs=0x4+Math[a0_0x460254(0x773)](Math[a0_0x460254(0x81e)]()*0x3);for(let p=0x0;p<numPuffs;p++){const pSize=radius*(0.5+Math['\x72\x61\x6e\x64\x6f\x6d']()*0.5),puff=new a0_0xe98f69[(a0_0x460254(0x59f))](new a0_0xe98f69[(a0_0x460254(0x6e8))](pSize,0x1),bushMat);puff['\x70\x6f\x73\x69\x74\x69\x6f\x6e'][a0_0x460254(0x2d5)]((Math[a0_0x460254(0x81e)]()-0.5)*radius*0.8,pSize*0.4,(Math[a0_0x460254(0x81e)]()-0.5)*radius*0.8),puff[a0_0x460254(0x705)]=!![],puff['\x72\x65\x63\x65\x69\x76\x65\x53\x68\x61\x64\x6f\x77']=!![],bushGroup[a0_0x460254(0x5bf)](puff);}scene[a0_0x460254(0x5bf)](bushGroup),obstacles[a0_0x460254(0x1a4)]({'\x74\x79\x70\x65':a0_0x460254(0x2e4),'\x78':x,'\x7a':z,'\x72\x61\x64\x69\x75\x73':radius*1.1});}else{const scale=radius/1.15,rockGroup=new a0_0xe98f69[(a0_0x460254(0x5be))]();rockGroup[a0_0x460254(0x8a6)][a0_0x460254(0x2d5)](x,y,z);const rockMat=new a0_0xe98f69['\x4d\x65\x73\x68\x53\x74\x61\x6e\x64\x61\x72\x64\x4d\x61\x74\x65\x72\x69\x61\x6c']({'\x63\x6f\x6c\x6f\x72':0x757d75,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.8,'\x6d\x65\x74\x61\x6c\x6e\x65\x73\x73':0.1}),numRocks=0x3+Math[a0_0x460254(0x773)](Math[a0_0x460254(0x81e)]()*0x3);for(let r=0x0;r<numRocks;r++){const rSize=scale*(0.8+Math[a0_0x460254(0x81e)]()*0x1),subRock=new a0_0xe98f69[(a0_0x460254(0x59f))](new a0_0xe98f69['\x44\x6f\x64\x65\x63\x61\x68\x65\x64\x72\x6f\x6e\x47\x65\x6f\x6d\x65\x74\x72\x79'](rSize),rockMat);subRock['\x70\x6f\x73\x69\x74\x69\x6f\x6e'][a0_0x460254(0x2d5)]((Math[a0_0x460254(0x81e)]()-0.5)*scale*1.1,rSize*0.35+Math[a0_0x460254(0x81e)]()*0.25*scale,(Math[a0_0x460254(0x81e)]()-0.5)*scale*1.1),subRock['\x72\x6f\x74\x61\x74\x69\x6f\x6e'][a0_0x460254(0x2d5)](Math[a0_0x460254(0x81e)]()*Math['\x50\x49'],Math[a0_0x460254(0x81e)]()*Math['\x50\x49'],Math[a0_0x460254(0x81e)]()*Math['\x50\x49']),subRock[a0_0x460254(0x705)]=!![],subRock['\x72\x65\x63\x65\x69\x76\x65\x53\x68\x61\x64\x6f\x77']=!![],rockGroup[a0_0x460254(0x5bf)](subRock);}scene[a0_0x460254(0x5bf)](rockGroup),obstacles[a0_0x460254(0x1a4)]({'\x74\x79\x70\x65':a0_0x460254(0x164),'\x78':x,'\x7a':z,'\x72\x61\x64\x69\x75\x73':radius});}}}}function createSoldierModel(_0x349979=0x3d5c3d,_0x580b04=0xffccaa){const _0x54a0f7=a0_0x460254,_0x46410b={'\x61\x42\x53\x7a\x6f':function(_0x219602,_0x3ed51e){return _0x219602<_0x3ed51e;},'\x70\x76\x48\x76\x50':'\x59\x58\x5a','\x57\x69\x67\x72\x4a':'\x6d\x61\x74\x65\x72\x69\x61\x6c','\x76\x67\x61\x59\x4c':function(_0x59cfb2,_0x59db23){return _0x59cfb2/_0x59db23;},'\x4d\x4f\x57\x66\x76':function(_0x498f7d,_0xcb5d53){return _0x498f7d*_0xcb5d53;},'\x50\x42\x5a\x74\x49':function(_0x134514,_0x48c16d){return _0x134514*_0x48c16d;},'\x65\x67\x63\x71\x61':function(_0x565a69,_0x14b82b,_0xffdadb,_0x5240cc,_0x269bbc){return _0x565a69(_0x14b82b,_0xffdadb,_0x5240cc,_0x269bbc);},'\x71\x65\x73\x6d\x75':function(_0x57df74,_0x5922bc,_0xfec260,_0x525593,_0x149113,_0x38a1b9){return _0x57df74(_0x5922bc,_0xfec260,_0x525593,_0x149113,_0x38a1b9);}},_0x40aac0=new a0_0xe98f69['\x47\x72\x6f\x75\x70']();_0x40aac0[_0x54a0f7(0x14f)][_0x54a0f7(0x8d6)]=_0x46410b[_0x54a0f7(0x85c)];const _0x2c4e73=new a0_0xe98f69['\x4d\x65\x73\x68\x53\x74\x61\x6e\x64\x61\x72\x64\x4d\x61\x74\x65\x72\x69\x61\x6c']({'\x63\x6f\x6c\x6f\x72':_0x349979,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.8}),_0x2110b5=new a0_0xe98f69['\x4d\x65\x73\x68\x53\x74\x61\x6e\x64\x61\x72\x64\x4d\x61\x74\x65\x72\x69\x61\x6c']({'\x63\x6f\x6c\x6f\x72':_0x580b04,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.8}),_0x23cd12=new a0_0xe98f69['\x4d\x65\x73\x68\x53\x74\x61\x6e\x64\x61\x72\x64\x4d\x61\x74\x65\x72\x69\x61\x6c']({'\x63\x6f\x6c\x6f\x72':0x1e2f1e,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.9,'\x73\x69\x64\x65':a0_0xe98f69[_0x54a0f7(0x328)]}),_0x305493=new a0_0xe98f69[(_0x54a0f7(0x8a3))]({'\x63\x6f\x6c\x6f\x72':0x111111}),_0x4e9356=new a0_0xe98f69['\x4d\x65\x73\x68\x53\x74\x61\x6e\x64\x61\x72\x64\x4d\x61\x74\x65\x72\x69\x61\x6c']({'\x63\x6f\x6c\x6f\x72':0x2a3e2a}),_0x313784=new a0_0xe98f69['\x47\x72\x6f\x75\x70']();_0x313784[_0x54a0f7(0x8a6)]['\x79']=0.95,_0x40aac0[_0x54a0f7(0x5bf)](_0x313784);const _0x1108ec=new a0_0xe98f69[(_0x54a0f7(0x59f))](new a0_0xe98f69[(_0x54a0f7(0x8c2))](0.56,0.35,0.28),_0x2c4e73);_0x1108ec[_0x54a0f7(0x8a6)]['\x79']=0.18,_0x1108ec[_0x54a0f7(0x705)]=!![],_0x1108ec[_0x54a0f7(0x7e1)]=!![],_0x313784['\x61\x64\x64'](_0x1108ec);const _0x42898b=new a0_0xe98f69['\x4d\x65\x73\x68'](new a0_0xe98f69['\x42\x6f\x78\x47\x65\x6f\x6d\x65\x74\x72\x79'](0.42,0.25,0.05),new a0_0xe98f69[(_0x54a0f7(0x8a3))]({'\x63\x6f\x6c\x6f\x72':0x222222,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.95}));_0x42898b[_0x54a0f7(0x8a6)][_0x54a0f7(0x2d5)](0x0,0x0,-0.155),_0x1108ec[_0x54a0f7(0x5bf)](_0x42898b);const _0x1273c1=new a0_0xe98f69[(_0x54a0f7(0x59f))](new a0_0xe98f69['\x42\x6f\x78\x47\x65\x6f\x6d\x65\x74\x72\x79'](0.48,0.16,0.25),_0x4e9356);_0x1273c1[_0x54a0f7(0x8a6)]['\x79']=-0.07,_0x1273c1[_0x54a0f7(0x705)]=!![],_0x1273c1[_0x54a0f7(0x7e1)]=!![],_0x313784['\x61\x64\x64'](_0x1273c1);const _0x40be70=new a0_0xe98f69[(_0x54a0f7(0x8a3))]({'\x63\x6f\x6c\x6f\x72':0x1a1a1a,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.9}),_0x164165=new a0_0xe98f69[(_0x54a0f7(0x59f))](new a0_0xe98f69[(_0x54a0f7(0x8c2))](0.52,0.14,0.26),_0x40be70);_0x164165[_0x54a0f7(0x8a6)]['\x79']=-0.22,_0x164165['\x63\x61\x73\x74\x53\x68\x61\x64\x6f\x77']=!![],_0x164165[_0x54a0f7(0x7e1)]=!![],_0x313784[_0x54a0f7(0x5bf)](_0x164165);const _0xcace18=new a0_0xe98f69[(_0x54a0f7(0x59f))](new a0_0xe98f69[(_0x54a0f7(0x8c2))](0.48,0.18,0.24),_0x4e9356);_0xcace18[_0x54a0f7(0x8a6)]['\x79']=-0.32,_0xcace18[_0x54a0f7(0x705)]=!![],_0xcace18[_0x54a0f7(0x7e1)]=!![],_0x313784['\x61\x64\x64'](_0xcace18),Object[_0x54a0f7(0x1d1)](_0x313784,_0x46410b[_0x54a0f7(0x7d8)],{'\x67\x65\x74'(){return _0x1108ec['\x6d\x61\x74\x65\x72\x69\x61\x6c'];},'\x73\x65\x74'(_0x1933b3){const _0x229560=_0x54a0f7;_0x1108ec[_0x229560(0x5f0)]=_0x1933b3,_0x1273c1[_0x229560(0x5f0)]=_0x1933b3,_0x164165[_0x229560(0x5f0)]=_0x1933b3,_0xcace18[_0x229560(0x5f0)]=_0x1933b3;}});const _0x3d7011=new a0_0xe98f69[(_0x54a0f7(0x5be))]();_0x3d7011['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x73\x65\x74'](0x0,1.45,0x0);const _0x4069f9=new a0_0xe98f69[(_0x54a0f7(0x59f))](new a0_0xe98f69[(_0x54a0f7(0x718))](0.22,0x10,0x10),_0x2110b5);_0x4069f9[_0x54a0f7(0x705)]=!![],_0x3d7011[_0x54a0f7(0x5bf)](_0x4069f9);const _0xd5ceac=new a0_0xe98f69['\x4d\x65\x73\x68\x42\x61\x73\x69\x63\x4d\x61\x74\x65\x72\x69\x61\x6c']({'\x63\x6f\x6c\x6f\x72':0x111111}),_0xe04ef7=new a0_0xe98f69[(_0x54a0f7(0x4d1))]({'\x63\x6f\x6c\x6f\x72':0x992222}),_0x499907=new a0_0xe98f69['\x4d\x65\x73\x68'](new a0_0xe98f69[(_0x54a0f7(0x718))](0.025,0x8,0x8),_0xd5ceac);_0x499907[_0x54a0f7(0x8a6)][_0x54a0f7(0x2d5)](-0.07,0.05,-0.19),_0x3d7011['\x61\x64\x64'](_0x499907);const _0x4ed93f=new a0_0xe98f69[(_0x54a0f7(0x59f))](new a0_0xe98f69[(_0x54a0f7(0x718))](0.025,0x8,0x8),_0xd5ceac);_0x4ed93f[_0x54a0f7(0x8a6)][_0x54a0f7(0x2d5)](0.07,0.05,-0.19),_0x3d7011[_0x54a0f7(0x5bf)](_0x4ed93f);const _0x283dfe=new a0_0xe98f69[(_0x54a0f7(0x59f))](new a0_0xe98f69[(_0x54a0f7(0x137))](0.022,0.07,0x4),_0x2110b5);_0x283dfe[_0x54a0f7(0x14f)]['\x78']=_0x46410b[_0x54a0f7(0x4c1)](-Math['\x50\x49'],0x2),_0x283dfe['\x70\x6f\x73\x69\x74\x69\x6f\x6e'][_0x54a0f7(0x2d5)](0x0,0x0,-0.23),_0x3d7011['\x61\x64\x64'](_0x283dfe);const _0x9d876d=new a0_0xe98f69[(_0x54a0f7(0x59f))](new a0_0xe98f69[(_0x54a0f7(0x8c2))](0.07,0.015,0.006),_0xe04ef7);_0x9d876d['\x70\x6f\x73\x69\x74\x69\x6f\x6e'][_0x54a0f7(0x2d5)](0x0,-0.07,-0.208),_0x3d7011['\x61\x64\x64'](_0x9d876d);const _0x524138=new a0_0xe98f69[(_0x54a0f7(0x59f))](new a0_0xe98f69[(_0x54a0f7(0x8c2))](0.035,0.07,0.025),_0x2110b5);_0x524138['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x73\x65\x74'](-0.23,0.02,0x0),_0x524138[_0x54a0f7(0x14f)]['\x79']=0.12,_0x3d7011[_0x54a0f7(0x5bf)](_0x524138);const _0x14cb2f=new a0_0xe98f69['\x4d\x65\x73\x68'](new a0_0xe98f69[(_0x54a0f7(0x8c2))](0.035,0.07,0.025),_0x2110b5);_0x14cb2f[_0x54a0f7(0x8a6)]['\x73\x65\x74'](0.23,0.02,0x0),_0x14cb2f[_0x54a0f7(0x14f)]['\x79']=-0.12,_0x3d7011[_0x54a0f7(0x5bf)](_0x14cb2f);const _0x42df03=new a0_0xe98f69[(_0x54a0f7(0x8a3))]({'\x63\x6f\x6c\x6f\x72':0x221100,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.85}),_0x5ae9e2=new a0_0xe98f69['\x4d\x65\x73\x68'](new a0_0xe98f69['\x53\x70\x68\x65\x72\x65\x47\x65\x6f\x6d\x65\x74\x72\x79'](0.23,0x10,0xc,0x0,_0x46410b[_0x54a0f7(0x175)](Math['\x50\x49'],0x2),0x0,_0x46410b[_0x54a0f7(0x4a7)](Math['\x50\x49'],0.65)),_0x42df03);_0x5ae9e2[_0x54a0f7(0x8a6)][_0x54a0f7(0x2d5)](0x0,0.03,0.02),_0x5ae9e2[_0x54a0f7(0x14f)]['\x78']=0.18,_0x3d7011[_0x54a0f7(0x5bf)](_0x5ae9e2);const _0x507025=new a0_0xe98f69['\x4d\x65\x73\x68'](new a0_0xe98f69[(_0x54a0f7(0x718))](0.27,0x10,0xa,0x0,_0x46410b[_0x54a0f7(0x4a7)](Math['\x50\x49'],0x2),0x0,_0x46410b[_0x54a0f7(0x4c1)](Math['\x50\x49'],0x2)),_0x23cd12);_0x507025[_0x54a0f7(0x8a6)][_0x54a0f7(0x2d5)](0x0,0.07,0.02),_0x507025[_0x54a0f7(0x14f)]['\x78']=0.12,_0x507025[_0x54a0f7(0x705)]=!![],_0x507025[_0x54a0f7(0x7cf)]=![],_0x3d7011[_0x54a0f7(0x5bf)](_0x507025);const _0xc095db=new a0_0xe98f69[(_0x54a0f7(0x59f))](new a0_0xe98f69[(_0x54a0f7(0x8c2))](0.29,0.11,0.09),new a0_0xe98f69['\x4d\x65\x73\x68\x53\x74\x61\x6e\x64\x61\x72\x64\x4d\x61\x74\x65\x72\x69\x61\x6c']({'\x63\x6f\x6c\x6f\x72':0x111111,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.2}));_0xc095db[_0x54a0f7(0x8a6)][_0x54a0f7(0x2d5)](0x0,0.06,-0.21),_0xc095db[_0x54a0f7(0x14f)]['\x78']=0.12,_0xc095db['\x76\x69\x73\x69\x62\x6c\x65']=![],_0x3d7011[_0x54a0f7(0x5bf)](_0xc095db),_0x40aac0['\x61\x64\x64'](_0x3d7011);function _0x28476f(_0x12c0c8,_0x5ebb11,_0x3f7613,_0x5bd2e9){const _0x413807=_0x54a0f7,_0x29d8d2=new a0_0xe98f69[(_0x413807(0x5be))]();_0x29d8d2[_0x413807(0x8a6)][_0x413807(0x2d5)](_0x5ebb11,_0x3f7613,_0x5bd2e9);const _0x39d44f=new a0_0xe98f69[(_0x413807(0x59f))](new a0_0xe98f69[(_0x413807(0x8c2))](0.12,0.25,0.12),_0x12c0c8);_0x39d44f[_0x413807(0x8a6)]['\x79']=-0.125,_0x39d44f[_0x413807(0x705)]=!![],_0x39d44f['\x72\x65\x63\x65\x69\x76\x65\x53\x68\x61\x64\x6f\x77']=!![],_0x29d8d2[_0x413807(0x5bf)](_0x39d44f);const _0x25a805=new a0_0xe98f69[(_0x413807(0x8a3))]({'\x63\x6f\x6c\x6f\x72':0x181818,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.8}),_0x592fba=new a0_0xe98f69[(_0x413807(0x59f))](new a0_0xe98f69['\x42\x6f\x78\x47\x65\x6f\x6d\x65\x74\x72\x79'](0.15,0.07,0.15),_0x25a805);_0x592fba[_0x413807(0x8a6)][_0x413807(0x2d5)](_0x46410b[_0x413807(0x33b)](_0x5ebb11,0x0)?-0.015:0.015,0.02,0x0),_0x39d44f[_0x413807(0x5bf)](_0x592fba);const _0x40ce73=new a0_0xe98f69[(_0x413807(0x5be))]();_0x40ce73['\x70\x6f\x73\x69\x74\x69\x6f\x6e'][_0x413807(0x2d5)](0x0,-0.25,0x0),_0x29d8d2[_0x413807(0x5bf)](_0x40ce73);const _0x3e4829=new a0_0xe98f69[(_0x413807(0x59f))](new a0_0xe98f69[(_0x413807(0x8c2))](0.1,0.25,0.1),_0x12c0c8);_0x3e4829[_0x413807(0x8a6)]['\x79']=-0.125,_0x3e4829[_0x413807(0x705)]=!![],_0x3e4829[_0x413807(0x7e1)]=!![],_0x40ce73[_0x413807(0x5bf)](_0x3e4829);const _0x19b3d9=new a0_0xe98f69['\x4d\x65\x73\x68'](new a0_0xe98f69[(_0x413807(0x8c2))](0.08,0.08,0.08),_0x2110b5);return _0x19b3d9[_0x413807(0x8a6)][_0x413807(0x2d5)](0x0,-0.27,0x0),_0x19b3d9[_0x413807(0x705)]=!![],_0x19b3d9['\x72\x65\x63\x65\x69\x76\x65\x53\x68\x61\x64\x6f\x77']=!![],_0x40ce73[_0x413807(0x5bf)](_0x19b3d9),{'\x67\x72\x6f\x75\x70':_0x29d8d2,'\x65\x6c\x62\x6f\x77':_0x40ce73};}const _0x5049de=new a0_0xe98f69['\x4d\x65\x73\x68\x53\x74\x61\x6e\x64\x61\x72\x64\x4d\x61\x74\x65\x72\x69\x61\x6c']({'\x63\x6f\x6c\x6f\x72':_0x349979,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.8}),_0x126923=new a0_0xe98f69[(_0x54a0f7(0x59f))](new a0_0xe98f69[(_0x54a0f7(0x718))](0.08,0xc,0xc),_0x5049de);_0x126923[_0x54a0f7(0x8a6)][_0x54a0f7(0x2d5)](-0.31,1.25,0x0),_0x126923[_0x54a0f7(0x705)]=!![],_0x40aac0[_0x54a0f7(0x5bf)](_0x126923);const _0x1b1ba0=new a0_0xe98f69[(_0x54a0f7(0x59f))](new a0_0xe98f69[(_0x54a0f7(0x718))](0.08,0xc,0xc),_0x5049de);_0x1b1ba0[_0x54a0f7(0x8a6)][_0x54a0f7(0x2d5)](0.31,1.25,0x0),_0x1b1ba0['\x63\x61\x73\x74\x53\x68\x61\x64\x6f\x77']=!![],_0x40aac0[_0x54a0f7(0x5bf)](_0x1b1ba0);const _0x217200=_0x46410b[_0x54a0f7(0x68f)](_0x28476f,_0x2c4e73,-0.38,1.25,0x0),_0x253962=_0x28476f(_0x2c4e73,0.38,1.25,0x0);_0x40aac0[_0x54a0f7(0x5bf)](_0x217200['\x67\x72\x6f\x75\x70']),_0x40aac0['\x61\x64\x64'](_0x253962[_0x54a0f7(0x8ba)]);function _0x31417c(_0x5ee065,_0x1f2a12,_0x590c2b,_0x5017e1,_0x2d3989){const _0x593f71=_0x54a0f7,_0x1361f5=new a0_0xe98f69[(_0x593f71(0x5be))]();_0x1361f5[_0x593f71(0x8a6)]['\x73\x65\x74'](_0x590c2b,_0x5017e1,_0x2d3989);const _0x4b22bc=new a0_0xe98f69['\x4d\x65\x73\x68'](new a0_0xe98f69[(_0x593f71(0x8c2))](0.16,0.26,0.16),_0x5ee065);_0x4b22bc[_0x593f71(0x8a6)]['\x79']=-0.13,_0x4b22bc[_0x593f71(0x705)]=!![],_0x4b22bc[_0x593f71(0x7e1)]=!![],_0x1361f5[_0x593f71(0x5bf)](_0x4b22bc);const _0x115195=new a0_0xe98f69[(_0x593f71(0x5be))]();_0x115195[_0x593f71(0x8a6)]['\x73\x65\x74'](0x0,-0.26,0x0),_0x1361f5['\x61\x64\x64'](_0x115195);const _0x26baf0=new a0_0xe98f69[(_0x593f71(0x59f))](new a0_0xe98f69[(_0x593f71(0x8c2))](0.14,0.26,0.14),_0x5ee065);_0x26baf0[_0x593f71(0x8a6)]['\x79']=-0.13,_0x26baf0[_0x593f71(0x705)]=!![],_0x26baf0[_0x593f71(0x7e1)]=!![],_0x115195[_0x593f71(0x5bf)](_0x26baf0);const _0x37c4f3=new a0_0xe98f69[(_0x593f71(0x8a3))]({'\x63\x6f\x6c\x6f\x72':0x181818,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.8}),_0x45592c=new a0_0xe98f69['\x4d\x65\x73\x68'](new a0_0xe98f69['\x42\x6f\x78\x47\x65\x6f\x6d\x65\x74\x72\x79'](0.16,0.08,0.04),_0x37c4f3);_0x45592c[_0x593f71(0x8a6)][_0x593f71(0x2d5)](0x0,0x0,-0.09),_0x115195[_0x593f71(0x5bf)](_0x45592c);const _0x97a67c=new a0_0xe98f69[(_0x593f71(0x59f))](new a0_0xe98f69['\x42\x6f\x78\x47\x65\x6f\x6d\x65\x74\x72\x79'](0.17,0.08,0.24),_0x1f2a12);return _0x97a67c[_0x593f71(0x8a6)][_0x593f71(0x2d5)](0x0,-0.3,-0.05),_0x97a67c[_0x593f71(0x705)]=!![],_0x97a67c['\x72\x65\x63\x65\x69\x76\x65\x53\x68\x61\x64\x6f\x77']=!![],_0x115195[_0x593f71(0x5bf)](_0x97a67c),{'\x67\x72\x6f\x75\x70':_0x1361f5,'\x6b\x6e\x65\x65':_0x115195};}const _0x1c6691=_0x31417c(_0x4e9356,_0x305493,-0.16,0.6,0x0),_0x36ec54=_0x46410b[_0x54a0f7(0x464)](_0x31417c,_0x4e9356,_0x305493,0.16,0.6,0x0);_0x40aac0[_0x54a0f7(0x5bf)](_0x1c6691[_0x54a0f7(0x8ba)]),_0x40aac0[_0x54a0f7(0x5bf)](_0x36ec54[_0x54a0f7(0x8ba)]);const _0x52096b=new a0_0xe98f69[(_0x54a0f7(0x5be))]();_0x52096b[_0x54a0f7(0x8a6)][_0x54a0f7(0x2d5)](0x0,0.95,0.16),_0x40aac0['\x61\x64\x64'](_0x52096b);const _0xa317d3=new a0_0xe98f69[(_0x54a0f7(0x59f))](new a0_0xe98f69[(_0x54a0f7(0x8c2))](0.32,0.45,0.15),_0x2c4e73);_0xa317d3[_0x54a0f7(0x705)]=!![],_0x52096b[_0x54a0f7(0x5bf)](_0xa317d3),_0x52096b[_0x54a0f7(0x7cf)]=![];const _0x806839=new a0_0xe98f69[(_0x54a0f7(0x59f))](new a0_0xe98f69['\x42\x6f\x78\x47\x65\x6f\x6d\x65\x74\x72\x79'](0.3,0.45,0.18),new a0_0xe98f69[(_0x54a0f7(0x8a3))]({'\x63\x6f\x6c\x6f\x72':0x888888,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.9}));_0x806839[_0x54a0f7(0x8a6)][_0x54a0f7(0x2d5)](0x0,0.95,0.16),_0x806839[_0x54a0f7(0x705)]=!![],_0x806839[_0x54a0f7(0x7cf)]=![],_0x40aac0['\x61\x64\x64'](_0x806839);const _0x5d62aa=new a0_0xe98f69[(_0x54a0f7(0x5be))]();_0x5d62aa[_0x54a0f7(0x8a6)]['\x73\x65\x74'](0x0,-0.25,0x0),_0x253962['\x65\x6c\x62\x6f\x77'][_0x54a0f7(0x5bf)](_0x5d62aa);function _0x174593(_0x43dbeb){const _0x547f03=_0x54a0f7;if(!_0x43dbeb)_0x507025[_0x547f03(0x7cf)]=![],_0xc095db[_0x547f03(0x7cf)]=![];else{_0x507025[_0x547f03(0x7cf)]=!![];if(_0x43dbeb[_0x547f03(0x74e)]['\x69\x6e\x63\x6c\x75\x64\x65\x73']('\x31'))_0x507025[_0x547f03(0x5f0)][_0x547f03(0x3ee)]['\x73\x65\x74\x48\x65\x78'](0x4caf50),_0xc095db['\x76\x69\x73\x69\x62\x6c\x65']=![];else{if(_0x43dbeb[_0x547f03(0x74e)][_0x547f03(0x43d)]('\x32'))_0x507025[_0x547f03(0x5f0)][_0x547f03(0x3ee)]['\x73\x65\x74\x48\x65\x78'](0x9688),_0xc095db['\x76\x69\x73\x69\x62\x6c\x65']=![];else _0x43dbeb[_0x547f03(0x74e)][_0x547f03(0x43d)]('\x33')&&(_0x507025['\x6d\x61\x74\x65\x72\x69\x61\x6c'][_0x547f03(0x3ee)][_0x547f03(0x2ba)](0x212121),_0xc095db['\x76\x69\x73\x69\x62\x6c\x65']=!![]);}}}function _0x19e9c3(_0x5104b6){const _0xd3e20=_0x54a0f7;if(!_0x5104b6)_0x52096b[_0xd3e20(0x7cf)]=![];else{_0x52096b['\x76\x69\x73\x69\x62\x6c\x65']=!![];if(_0x5104b6[_0xd3e20(0x74e)][_0xd3e20(0x43d)]('\x31'))_0xa317d3[_0xd3e20(0x7ef)][_0xd3e20(0x2d5)](0.8,0.8,0.8),_0xa317d3[_0xd3e20(0x5f0)][_0xd3e20(0x3ee)][_0xd3e20(0x2ba)](0x8d6e63);else{if(_0x5104b6[_0xd3e20(0x74e)]['\x69\x6e\x63\x6c\x75\x64\x65\x73']('\x32'))_0xa317d3['\x73\x63\x61\x6c\x65'][_0xd3e20(0x2d5)](0x1,0x1,0x1),_0xa317d3[_0xd3e20(0x5f0)][_0xd3e20(0x3ee)][_0xd3e20(0x2ba)](0x5d4037);else _0x5104b6['\x6e\x61\x6d\x65'][_0xd3e20(0x43d)]('\x33')&&(_0xa317d3[_0xd3e20(0x7ef)][_0xd3e20(0x2d5)](1.2,1.2,1.2),_0xa317d3['\x6d\x61\x74\x65\x72\x69\x61\x6c'][_0xd3e20(0x3ee)][_0xd3e20(0x2ba)](0x3e2723));}}}return{'\x67\x72\x6f\x75\x70':_0x40aac0,'\x62\x6f\x64\x79':_0x313784,'\x6c\x65\x66\x74\x41\x72\x6d':_0x217200[_0x54a0f7(0x8ba)],'\x6c\x65\x66\x74\x45\x6c\x62\x6f\x77':_0x217200['\x65\x6c\x62\x6f\x77'],'\x72\x69\x67\x68\x74\x41\x72\x6d':_0x253962[_0x54a0f7(0x8ba)],'\x72\x69\x67\x68\x74\x45\x6c\x62\x6f\x77':_0x253962[_0x54a0f7(0x844)],'\x6c\x65\x66\x74\x4c\x65\x67':_0x1c6691[_0x54a0f7(0x8ba)],'\x72\x69\x67\x68\x74\x4c\x65\x67':_0x36ec54['\x67\x72\x6f\x75\x70'],'\x6c\x65\x66\x74\x54\x68\x69\x67\x68':_0x1c6691['\x67\x72\x6f\x75\x70'],'\x6c\x65\x66\x74\x4b\x6e\x65\x65':_0x1c6691[_0x54a0f7(0x2c2)],'\x72\x69\x67\x68\x74\x54\x68\x69\x67\x68':_0x36ec54['\x67\x72\x6f\x75\x70'],'\x72\x69\x67\x68\x74\x4b\x6e\x65\x65':_0x36ec54[_0x54a0f7(0x2c2)],'\x77\x65\x61\x70\x6f\x6e\x43\x6f\x6e\x74\x61\x69\x6e\x65\x72':_0x5d62aa,'\x68\x65\x61\x64\x47\x72\x6f\x75\x70':_0x3d7011,'\x70\x61\x72\x61\x63\x68\x75\x74\x65\x42\x61\x67':_0x806839,'\x62\x61\x63\x6b\x70\x61\x63\x6b\x47\x72\x6f\x75\x70':_0x52096b,'\x75\x70\x64\x61\x74\x65\x48\x65\x6c\x6d\x65\x74\x56\x69\x73\x75\x61\x6c':_0x174593,'\x75\x70\x64\x61\x74\x65\x42\x61\x67\x56\x69\x73\x75\x61\x6c':_0x19e9c3,'\x6c\x65\x66\x74\x4a\x6f\x69\x6e\x74':_0x126923,'\x72\x69\x67\x68\x74\x4a\x6f\x69\x6e\x74':_0x1b1ba0};}function updateSoldierJoints(_0x39c664){const _0xe1e8d=a0_0x460254,_0x18d0b0={'\x69\x66\x63\x77\x69':function(_0x44102f,_0x2acba0){return _0x44102f+_0x2acba0;},'\x4b\x74\x73\x64\x77':function(_0xd46b1c,_0x4bb879){return _0xd46b1c-_0x4bb879;}};_0x39c664[_0xe1e8d(0x781)]&&_0x39c664[_0xe1e8d(0x63e)]&&_0x39c664[_0xe1e8d(0x781)][_0xe1e8d(0x8a6)][_0xe1e8d(0x2d5)](_0x18d0b0['\x69\x66\x63\x77\x69'](_0x39c664[_0xe1e8d(0x63e)][_0xe1e8d(0x8a6)]['\x78'],0.07),_0x39c664[_0xe1e8d(0x63e)][_0xe1e8d(0x8a6)]['\x79'],_0x39c664[_0xe1e8d(0x63e)][_0xe1e8d(0x8a6)]['\x7a']),_0x39c664[_0xe1e8d(0x295)]&&_0x39c664[_0xe1e8d(0x500)]&&_0x39c664[_0xe1e8d(0x295)]['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x73\x65\x74'](_0x18d0b0[_0xe1e8d(0x22d)](_0x39c664[_0xe1e8d(0x500)]['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x78'],0.07),_0x39c664['\x72\x69\x67\x68\x74\x41\x72\x6d'][_0xe1e8d(0x8a6)]['\x79'],_0x39c664[_0xe1e8d(0x500)][_0xe1e8d(0x8a6)]['\x7a']);}function createWeaponMesh(_0x3333bb,_0x5d0e3d){const _0xe1233f=a0_0x460254,_0x3c49bc={'\x4f\x50\x4f\x42\x64':'\ub9e8\uc8fc\uba39','\x65\x51\x5a\x4a\x70':function(_0x191dee,_0x41d261){return _0x191dee===_0x41d261;},'\x43\x6c\x63\x4f\x41':function(_0x1be42d,_0x224c7c){return _0x1be42d===_0x224c7c;},'\x69\x66\x70\x48\x58':function(_0x1f5e13,_0x187f74){return _0x1f5e13===_0x187f74;},'\x79\x49\x72\x6f\x51':function(_0x549f0b,_0x526d94){return _0x549f0b/_0x526d94;},'\x44\x6c\x59\x49\x45':function(_0x369843,_0x1b9ccf){return _0x369843===_0x1b9ccf;},'\x61\x67\x6f\x48\x6e':function(_0x142461,_0x48d206){return _0x142461/_0x48d206;},'\x71\x47\x4e\x44\x72':function(_0x1d995d,_0x45b309){return _0x1d995d===_0x45b309;},'\x70\x41\x76\x54\x55':function(_0x4ae476,_0x48c112){return _0x4ae476!==_0x48c112;},'\x55\x61\x6f\x42\x58':function(_0x76b9a0,_0x2e3725){return _0x76b9a0!==_0x2e3725;},'\x4d\x50\x45\x4b\x7a':function(_0x3e8a3e,_0x289bd0){return _0x3e8a3e/_0x289bd0;},'\x54\x46\x68\x4b\x74':function(_0x2d58b2,_0x25abd8){return _0x2d58b2/_0x25abd8;}},_0x12057e=new a0_0xe98f69[(_0xe1233f(0x5be))](),_0xbab555=new a0_0xe98f69[(_0xe1233f(0x8a3))]({'\x63\x6f\x6c\x6f\x72':0x222222,'\x6d\x65\x74\x61\x6c\x6e\x65\x73\x73':0.8,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.2}),_0x6e881=new a0_0xe98f69['\x4d\x65\x73\x68\x53\x74\x61\x6e\x64\x61\x72\x64\x4d\x61\x74\x65\x72\x69\x61\x6c']({'\x63\x6f\x6c\x6f\x72':0x5c4033,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.7}),_0x51410c=new a0_0xe98f69['\x4d\x65\x73\x68\x53\x74\x61\x6e\x64\x61\x72\x64\x4d\x61\x74\x65\x72\x69\x61\x6c']({'\x63\x6f\x6c\x6f\x72':0x111111,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.6}),_0x3f6af2=new a0_0xe98f69['\x4d\x65\x73\x68\x53\x74\x61\x6e\x64\x61\x72\x64\x4d\x61\x74\x65\x72\x69\x61\x6c']({'\x63\x6f\x6c\x6f\x72':0x1e3f20,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.5}),_0x37d0f3=new a0_0xe98f69[(_0xe1233f(0x4d1))]({'\x63\x6f\x6c\x6f\x72':0xffff});if(_0x3333bb['\x6e\x61\x6d\x65']===_0x3c49bc['\x4f\x50\x4f\x42\x64']||_0x3c49bc[_0xe1233f(0x77f)](_0x3333bb[_0xe1233f(0x74e)],'\uc8fc\uba39'))return null;if(_0x3c49bc[_0xe1233f(0x859)](_0x3333bb[_0xe1233f(0x74e)],'\uad8c\ucd1d')){const _0xeca7dc=new a0_0xe98f69['\x4d\x65\x73\x68'](new a0_0xe98f69['\x42\x6f\x78\x47\x65\x6f\x6d\x65\x74\x72\x79'](0.04,0.1,0.04),_0x51410c);_0xeca7dc[_0xe1233f(0x8a6)]['\x73\x65\x74'](0x0,-0.05,-0.01),_0xeca7dc['\x72\x6f\x74\x61\x74\x69\x6f\x6e']['\x78']=0.2,_0x12057e['\x61\x64\x64'](_0xeca7dc);const _0x1e8ed6=new a0_0xe98f69[(_0xe1233f(0x59f))](new a0_0xe98f69['\x42\x6f\x78\x47\x65\x6f\x6d\x65\x74\x72\x79'](0.04,0.04,0.18),_0xbab555);_0x1e8ed6[_0xe1233f(0x8a6)][_0xe1233f(0x2d5)](0x0,0x0,0.03),_0x12057e[_0xe1233f(0x5bf)](_0x1e8ed6);const _0x3456e6=new a0_0xe98f69[(_0xe1233f(0x59f))](new a0_0xe98f69[(_0xe1233f(0x8c2))](0.02,0.05,0.01),_0x51410c);_0x3456e6[_0xe1233f(0x8a6)]['\x73\x65\x74'](0x0,0.035,-0.04),_0x12057e[_0xe1233f(0x5bf)](_0x3456e6);const _0x5b66c7=new a0_0xe98f69[(_0xe1233f(0x59f))](new a0_0xe98f69[(_0xe1233f(0x8c2))](0.01,0.055,0.01),_0x51410c);_0x5b66c7[_0xe1233f(0x8a6)][_0xe1233f(0x2d5)](0x0,0.04,0.1),_0x12057e[_0xe1233f(0x5bf)](_0x5b66c7);}else{const _0x4b7a9a=new a0_0xe98f69[(_0xe1233f(0x59f))](new a0_0xe98f69[(_0xe1233f(0x8c2))](0.06,0.1,0.22),_0x6e881);_0x4b7a9a['\x70\x6f\x73\x69\x74\x69\x6f\x6e'][_0xe1233f(0x2d5)](0x0,-0.03,-0.1),_0x12057e['\x61\x64\x64'](_0x4b7a9a);const _0x20e441=new a0_0xe98f69[(_0xe1233f(0x59f))](new a0_0xe98f69[(_0xe1233f(0x8c2))](0.06,0.08,0.2),_0xbab555);_0x20e441['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x73\x65\x74'](0x0,0x0,0.05),_0x12057e[_0xe1233f(0x5bf)](_0x20e441);if(_0x3c49bc['\x69\x66\x70\x48\x58'](_0x3333bb[_0xe1233f(0x74e)],_0xe1233f(0x6a8))){const _0x25a636=new a0_0xe98f69[(_0xe1233f(0x59f))](new a0_0xe98f69[(_0xe1233f(0x8c2))](0.04,0.14,0.06),_0x51410c);_0x25a636['\x70\x6f\x73\x69\x74\x69\x6f\x6e'][_0xe1233f(0x2d5)](0x0,-0.09,0.08),_0x25a636[_0xe1233f(0x14f)]['\x78']=-0.2,_0x12057e[_0xe1233f(0x5bf)](_0x25a636);const _0x26eefb=new a0_0xe98f69[(_0xe1233f(0x59f))](new a0_0xe98f69[(_0xe1233f(0x7b9))](0.015,0.015,0.35),_0xbab555);_0x26eefb[_0xe1233f(0x14f)]['\x78']=_0x3c49bc[_0xe1233f(0x2ad)](Math['\x50\x49'],0x2),_0x26eefb[_0xe1233f(0x8a6)][_0xe1233f(0x2d5)](0x0,0.015,0.28),_0x12057e['\x61\x64\x64'](_0x26eefb);const _0x2db7b7=new a0_0xe98f69[(_0xe1233f(0x59f))](new a0_0xe98f69['\x42\x6f\x78\x47\x65\x6f\x6d\x65\x74\x72\x79'](0.01,0.07,0.01),_0x51410c);_0x2db7b7[_0xe1233f(0x8a6)][_0xe1233f(0x2d5)](-0.015,0.06,-0.02),_0x12057e[_0xe1233f(0x5bf)](_0x2db7b7);const _0x4f2d3f=new a0_0xe98f69[(_0xe1233f(0x59f))](new a0_0xe98f69[(_0xe1233f(0x8c2))](0.01,0.07,0.01),_0x51410c);_0x4f2d3f[_0xe1233f(0x8a6)][_0xe1233f(0x2d5)](0.015,0.06,-0.02),_0x12057e[_0xe1233f(0x5bf)](_0x4f2d3f);const _0x2f454a=new a0_0xe98f69['\x4d\x65\x73\x68'](new a0_0xe98f69[(_0xe1233f(0x8c2))](0.01,0.08,0.01),_0x51410c);_0x2f454a['\x70\x6f\x73\x69\x74\x69\x6f\x6e'][_0xe1233f(0x2d5)](0x0,0.055,0.4),_0x12057e['\x61\x64\x64'](_0x2f454a);}else{if(_0x3c49bc['\x44\x6c\x59\x49\x45'](_0x3333bb[_0xe1233f(0x74e)],_0xe1233f(0x1db))){const _0x407bb0=new a0_0xe98f69[(_0xe1233f(0x59f))](new a0_0xe98f69[(_0xe1233f(0x7b9))](0.012,0.012,0.55),_0xbab555);_0x407bb0[_0xe1233f(0x14f)]['\x78']=_0x3c49bc['\x61\x67\x6f\x48\x6e'](Math['\x50\x49'],0x2),_0x407bb0[_0xe1233f(0x8a6)][_0xe1233f(0x2d5)](0x0,0.015,0.38),_0x12057e[_0xe1233f(0x5bf)](_0x407bb0);const _0xea5162=new a0_0xe98f69[(_0xe1233f(0x59f))](new a0_0xe98f69['\x43\x79\x6c\x69\x6e\x64\x65\x72\x47\x65\x6f\x6d\x65\x74\x72\x79'](0.02,0.02,0.08),_0x51410c);_0xea5162[_0xe1233f(0x14f)]['\x78']=_0x3c49bc['\x79\x49\x72\x6f\x51'](Math['\x50\x49'],0x2),_0xea5162[_0xe1233f(0x8a6)][_0xe1233f(0x2d5)](0x0,0.015,0.68),_0x12057e[_0xe1233f(0x5bf)](_0xea5162);const _0x553cec=new a0_0xe98f69[(_0xe1233f(0x59f))](new a0_0xe98f69[(_0xe1233f(0x8c2))](0.015,0.06,0.02),_0xbab555);_0x553cec[_0xe1233f(0x8a6)][_0xe1233f(0x2d5)](0x0,0.055,-0.02),_0x12057e[_0xe1233f(0x5bf)](_0x553cec);const _0x2b41ed=new a0_0xe98f69[(_0xe1233f(0x59f))](new a0_0xe98f69[(_0xe1233f(0x8c2))](0.01,0.07,0.01),_0xbab555);_0x2b41ed[_0xe1233f(0x8a6)][_0xe1233f(0x2d5)](0x0,0.05,0.6),_0x12057e[_0xe1233f(0x5bf)](_0x2b41ed);}else{if(_0x3c49bc[_0xe1233f(0x4d4)](_0x3333bb['\x6e\x61\x6d\x65'],'\uc0f7\uac74')){const _0x59e43b=new a0_0xe98f69['\x4d\x65\x73\x68'](new a0_0xe98f69[(_0xe1233f(0x7b9))](0.016,0.016,0.3),_0xbab555);_0x59e43b[_0xe1233f(0x14f)]['\x78']=_0x3c49bc[_0xe1233f(0x2ad)](Math['\x50\x49'],0x2),_0x59e43b['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x73\x65\x74'](-0.012,0.015,0.25),_0x12057e[_0xe1233f(0x5bf)](_0x59e43b);const _0x59fcbb=new a0_0xe98f69[(_0xe1233f(0x59f))](new a0_0xe98f69[(_0xe1233f(0x7b9))](0.016,0.016,0.3),_0xbab555);_0x59fcbb['\x72\x6f\x74\x61\x74\x69\x6f\x6e']['\x78']=_0x3c49bc[_0xe1233f(0x2ad)](Math['\x50\x49'],0x2),_0x59fcbb['\x70\x6f\x73\x69\x74\x69\x6f\x6e'][_0xe1233f(0x2d5)](0.012,0.015,0.25),_0x12057e[_0xe1233f(0x5bf)](_0x59fcbb);const _0x2196d0=new a0_0xe98f69[(_0xe1233f(0x59f))](new a0_0xe98f69[(_0xe1233f(0x718))](0.04),_0x6e881);_0x2196d0[_0xe1233f(0x8a6)][_0xe1233f(0x2d5)](0x0,0.055,0.38),_0x12057e[_0xe1233f(0x5bf)](_0x2196d0);}}}}if(_0x5d0e3d&&_0x3c49bc[_0xe1233f(0x248)](_0x5d0e3d[_0xe1233f(0x74e)],_0xe1233f(0x236))&&_0x3c49bc[_0xe1233f(0x5c1)](_0x5d0e3d['\x6e\x61\x6d\x65'],'\uc5c6\uc74c')){const _0x32be3e=new a0_0xe98f69[(_0xe1233f(0x59f))](new a0_0xe98f69[(_0xe1233f(0x7b9))](0.025,0.025,0.12),_0x3f6af2);_0x32be3e[_0xe1233f(0x14f)]['\x78']=_0x3c49bc[_0xe1233f(0xe7)](Math['\x50\x49'],0x2),_0x32be3e[_0xe1233f(0x8a6)][_0xe1233f(0x2d5)](0x0,0.09,0.05),_0x12057e[_0xe1233f(0x5bf)](_0x32be3e);const _0x530eb8=new a0_0xe98f69[(_0xe1233f(0x59f))](new a0_0xe98f69[(_0xe1233f(0x7b9))](0.02,0.02,0.01),_0x37d0f3);_0x530eb8[_0xe1233f(0x14f)]['\x78']=Math['\x50\x49']/0x2,_0x530eb8['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x73\x65\x74'](0x0,0.09,0.11),_0x12057e[_0xe1233f(0x5bf)](_0x530eb8);const _0x6b121=new a0_0xe98f69[(_0xe1233f(0x59f))](new a0_0xe98f69[(_0xe1233f(0x8c2))](0.02,0.045,0.025),_0x3f6af2);_0x6b121['\x70\x6f\x73\x69\x74\x69\x6f\x6e'][_0xe1233f(0x2d5)](0x0,0.0575,0.01),_0x12057e[_0xe1233f(0x5bf)](_0x6b121);const _0x5cb9a8=new a0_0xe98f69[(_0xe1233f(0x59f))](new a0_0xe98f69['\x42\x6f\x78\x47\x65\x6f\x6d\x65\x74\x72\x79'](0.02,0.045,0.025),_0x3f6af2);_0x5cb9a8[_0xe1233f(0x8a6)][_0xe1233f(0x2d5)](0x0,0.0575,0.09),_0x12057e[_0xe1233f(0x5bf)](_0x5cb9a8);}return _0x12057e[_0xe1233f(0x14f)]['\x78']=_0x3c49bc[_0xe1233f(0x845)](Math['\x50\x49'],0x2),_0x12057e[_0xe1233f(0x14f)]['\x7a']=Math['\x50\x49'],_0x3333bb['\x6e\x61\x6d\x65']==='\uad8c\ucd1d'?_0x12057e[_0xe1233f(0x8a6)][_0xe1233f(0x2d5)](0x0,-0.03,0.03):_0x12057e[_0xe1233f(0x8a6)][_0xe1233f(0x2d5)](0x0,-0.11,0.03),_0x12057e;}function updateVisualEquip(_0x40b298,_0x195512,_0xe8d307){const _0x183016=a0_0x460254,_0x5a2810={'\x49\x67\x70\x42\x47':function(_0x4ecf0e,_0x59d75b){return _0x4ecf0e>_0x59d75b;},'\x73\x46\x52\x4e\x41':function(_0x2cc659,_0x1b9d79,_0x3c7e6b){return _0x2cc659(_0x1b9d79,_0x3c7e6b);}};while(_0x5a2810[_0x183016(0x7c8)](_0x40b298[_0x183016(0x640)][_0x183016(0x58f)][_0x183016(0x88b)],0x0)){_0x40b298[_0x183016(0x640)][_0x183016(0x2b8)](_0x40b298[_0x183016(0x640)]['\x63\x68\x69\x6c\x64\x72\x65\x6e'][0x0]);}const _0x19060a=_0x5a2810[_0x183016(0x17e)](createWeaponMesh,_0x195512,_0xe8d307);_0x19060a&&(_0x19060a['\x75\x73\x65\x72\x44\x61\x74\x61']={'\x77\x65\x61\x70\x6f\x6e\x4e\x61\x6d\x65':_0x195512[_0x183016(0x74e)]},_0x40b298['\x77\x65\x61\x70\x6f\x6e\x43\x6f\x6e\x74\x61\x69\x6e\x65\x72'][_0x183016(0x5bf)](_0x19060a));}const muzzleFlashConeGeo=new a0_0xe98f69['\x43\x6f\x6e\x65\x47\x65\x6f\x6d\x65\x74\x72\x79'](0.15,0.4,0x6),muzzleFlashSphereGeo=new a0_0xe98f69['\x53\x70\x68\x65\x72\x65\x47\x65\x6f\x6d\x65\x74\x72\x79'](0.22),muzzleFlashConeMat=new a0_0xe98f69[(a0_0x460254(0x4d1))]({'\x63\x6f\x6c\x6f\x72':0xffcc00,'\x74\x72\x61\x6e\x73\x70\x61\x72\x65\x6e\x74':!![],'\x6f\x70\x61\x63\x69\x74\x79':0.95}),muzzleFlashSphereMat=new a0_0xe98f69[(a0_0x460254(0x4d1))]({'\x63\x6f\x6c\x6f\x72':0xffaa00,'\x74\x72\x61\x6e\x73\x70\x61\x72\x65\x6e\x74':!![],'\x6f\x70\x61\x63\x69\x74\x79':0.5});function triggerMuzzleFlash(_0x5ab55b){const _0x34bf38=a0_0x460254,_0x117b57={'\x4f\x48\x6e\x6e\x79':'\x66\x75\x6e\x63\x74\x69\x6f\x6e','\x56\x46\x6f\x4a\x57':function(_0x364501,_0x4e4dd8){return _0x364501===_0x4e4dd8;},'\x65\x74\x76\x61\x59':_0x34bf38(0x6a8),'\x46\x52\x4b\x4c\x7a':'\uc800\uaca9\ucd1d','\x55\x6d\x52\x73\x4b':function(_0x14548d,_0x49979d){return _0x14548d===_0x49979d;},'\x51\x72\x79\x71\x50':function(_0x2845e2,_0x17d390,_0x2aba8f){return _0x2845e2(_0x17d390,_0x2aba8f);}};if(!_0x5ab55b||_0x5ab55b[_0x34bf38(0x58f)][_0x34bf38(0x88b)]===0x0)return;const _0x5878d0=_0x5ab55b[_0x34bf38(0x58f)][0x0];if(!_0x5878d0)return;const _0x59db2b=_0x5878d0['\x75\x73\x65\x72\x44\x61\x74\x61']&&_0x5878d0[_0x34bf38(0x3dd)]['\x77\x65\x61\x70\x6f\x6e\x4e\x61\x6d\x65']||'\uad8c\ucd1d';let _0x485ffa=0.46,_0x4eddc1=0.015;if(_0x117b57[_0x34bf38(0x8e7)](_0x59db2b,'\uad8c\ucd1d'))_0x485ffa=0.12,_0x4eddc1=0.02;else{if(_0x117b57[_0x34bf38(0x8e7)](_0x59db2b,_0x117b57[_0x34bf38(0x259)]))_0x485ffa=0.46,_0x4eddc1=0.015;else{if(_0x117b57[_0x34bf38(0x8e7)](_0x59db2b,_0x117b57['\x46\x52\x4b\x4c\x7a']))_0x485ffa=0.72,_0x4eddc1=0.015;else _0x117b57['\x55\x6d\x52\x73\x4b'](_0x59db2b,'\uc0f7\uac74')&&(_0x485ffa=0.4,_0x4eddc1=0.015);}}const _0x10e62e=new a0_0xe98f69[(_0x34bf38(0x59f))](muzzleFlashConeGeo,muzzleFlashConeMat);_0x10e62e[_0x34bf38(0x14f)]['\x78']=Math['\x50\x49']/0x2,_0x10e62e[_0x34bf38(0x8a6)][_0x34bf38(0x2d5)](0x0,_0x4eddc1,_0x485ffa),_0x5878d0[_0x34bf38(0x5bf)](_0x10e62e);const _0x58b5bd=new a0_0xe98f69[(_0x34bf38(0x59f))](muzzleFlashSphereGeo,muzzleFlashSphereMat);_0x58b5bd['\x70\x6f\x73\x69\x74\x69\x6f\x6e'][_0x34bf38(0x2d5)](0x0,_0x4eddc1,_0x485ffa),_0x5878d0[_0x34bf38(0x5bf)](_0x58b5bd),_0x117b57[_0x34bf38(0x595)](setTimeout,()=>{const _0x460db1=_0x34bf38;if(_0x5878d0&&typeof _0x5878d0['\x72\x65\x6d\x6f\x76\x65']===_0x117b57[_0x460db1(0x557)])try{_0x5878d0[_0x460db1(0x2b8)](_0x10e62e),_0x5878d0['\x72\x65\x6d\x6f\x76\x65'](_0x58b5bd);}catch(_0x195905){}},0x3c);}function resolveCollisions(_0x3969d3,_0x26c24c=0.45,_0x16a3f8=null,_0x29708e=null){const _0x170a99=a0_0x460254,_0x5d88d8={'\x6f\x51\x54\x49\x53':function(_0x289f6d,_0x1d4e37){return _0x289f6d-_0x1d4e37;},'\x42\x4a\x52\x46\x59':function(_0x361980,_0x8f12e1){return _0x361980-_0x8f12e1;},'\x55\x73\x44\x6a\x74':function(_0x492fbc,_0x4bd419){return _0x492fbc+_0x4bd419;},'\x79\x55\x46\x65\x55':function(_0x55a1a2,_0x8e8681){return _0x55a1a2*_0x8e8681;},'\x75\x50\x42\x64\x62':function(_0x4a1574,_0x50fd99){return _0x4a1574<_0x50fd99;},'\x69\x64\x48\x45\x75':function(_0x5f3796,_0x903de2){return _0x5f3796===_0x903de2;},'\x6f\x5a\x70\x6a\x41':function(_0x5df0f2,_0x223606){return _0x5df0f2+_0x223606;},'\x44\x7a\x5a\x57\x66':function(_0x6e9502,_0x2c553b){return _0x6e9502*_0x2c553b;},'\x44\x53\x4e\x59\x47':function(_0x437492,_0x72ecef){return _0x437492/_0x72ecef;},'\x75\x66\x6e\x76\x72':function(_0x1c8837,_0x1f76dc){return _0x1c8837/_0x1f76dc;},'\x64\x72\x6e\x42\x78':function(_0x46cde3,_0x23d148){return _0x46cde3===_0x23d148;},'\x4c\x50\x66\x49\x4b':_0x170a99(0x284),'\x52\x54\x44\x64\x48':function(_0x187b69,_0x3379a3){return _0x187b69-_0x3379a3;},'\x56\x58\x64\x7a\x77':function(_0x20c880,_0x2f1dc0){return _0x20c880-_0x2f1dc0;},'\x72\x45\x62\x44\x4b':function(_0x156810,_0x3d9765){return _0x156810+_0x3d9765;},'\x67\x42\x62\x79\x6b':function(_0x400325,_0x4c38c9){return _0x400325===_0x4c38c9;},'\x75\x73\x73\x77\x57':function(_0x38d22c,_0x405bba){return _0x38d22c/_0x405bba;},'\x48\x44\x63\x76\x73':function(_0x323c70,_0x7352f7){return _0x323c70===_0x7352f7;},'\x6b\x49\x6c\x50\x45':function(_0x137325,_0x48d31f){return _0x137325>=_0x48d31f;},'\x55\x63\x57\x56\x76':function(_0x4293d1,_0x3f2c40){return _0x4293d1-_0x3f2c40;},'\x45\x7a\x6f\x5a\x65':function(_0x4e0adc,_0x17d51a){return _0x4e0adc-_0x17d51a;},'\x4d\x71\x56\x72\x67':function(_0x3f0613,_0x2a5123){return _0x3f0613-_0x2a5123;},'\x61\x7a\x48\x41\x68':function(_0x3ca580,_0xab34d3){return _0x3ca580<=_0xab34d3;},'\x74\x45\x63\x49\x71':function(_0x5b9daa,_0x2d7ecb){return _0x5b9daa+_0x2d7ecb;},'\x49\x4f\x6d\x46\x64':function(_0x37a617,_0x12db37){return _0x37a617-_0x12db37;},'\x6c\x76\x66\x65\x47':function(_0x27341e,_0x579a9e){return _0x27341e+_0x579a9e;},'\x57\x4f\x4c\x64\x4b':function(_0x424957,_0x14e0de){return _0x424957>_0x14e0de;},'\x58\x74\x45\x6c\x56':function(_0x51bbf3,_0xb301fe){return _0x51bbf3+_0xb301fe;},'\x6b\x6e\x75\x51\x49':function(_0xf1c459,_0x561903){return _0xf1c459+_0x561903;},'\x53\x70\x54\x5a\x4d':function(_0x518846,_0x5c860e){return _0x518846+_0x5c860e;},'\x57\x51\x68\x64\x43':function(_0x45aaeb,_0x593ce5){return _0x45aaeb/_0x593ce5;},'\x73\x6a\x54\x65\x76':function(_0x1c4b06,_0x54f5b9){return _0x1c4b06-_0x54f5b9;},'\x52\x46\x70\x4e\x43':function(_0x329ba9,_0x47da67){return _0x329ba9<_0x47da67;},'\x7a\x6c\x71\x71\x75':function(_0x1306ef,_0x52b282){return _0x1306ef===_0x52b282;},'\x43\x48\x65\x59\x47':function(_0x3c16f8,_0x12e06f){return _0x3c16f8-_0x12e06f;},'\x44\x6d\x68\x52\x4f':function(_0x38c5bd,_0x1f0b28){return _0x38c5bd/_0x1f0b28;},'\x41\x4a\x6d\x47\x70':function(_0x4d9869,_0x398947){return _0x4d9869/_0x398947;},'\x4d\x54\x51\x79\x66':function(_0x101633,_0xad9eb2){return _0x101633/_0xad9eb2;},'\x50\x4d\x53\x41\x67':function(_0x5f5702,_0xd46a64){return _0x5f5702!==_0xd46a64;},'\x47\x6c\x44\x50\x50':function(_0x1a3700,_0x11b09d){return _0x1a3700+_0x11b09d;},'\x44\x6c\x72\x66\x4c':function(_0x1c8379,_0x167338){return _0x1c8379-_0x167338;},'\x66\x66\x47\x62\x46':function(_0x526946,_0x182224){return _0x526946>_0x182224;},'\x6b\x56\x48\x67\x6b':function(_0x565ce1,_0x3c0e4f){return _0x565ce1*_0x3c0e4f;},'\x4f\x4b\x4e\x43\x65':function(_0x4e32a2,_0x1f524f){return _0x4e32a2/_0x1f524f;},'\x74\x58\x4c\x55\x51':function(_0x3961bd,_0x2c3d95){return _0x3961bd/_0x2c3d95;},'\x45\x54\x6c\x55\x6b':function(_0x4cb9ec,_0x560f2f){return _0x4cb9ec/_0x560f2f;},'\x4e\x77\x6c\x79\x65':function(_0x26c311,_0x1bd122){return _0x26c311/_0x1bd122;},'\x44\x6f\x74\x55\x76':function(_0x54abb7,_0x5c42dc){return _0x54abb7/_0x5c42dc;},'\x53\x6a\x5a\x74\x51':function(_0x1d200c,_0x31b8ca){return _0x1d200c*_0x31b8ca;},'\x55\x45\x6c\x76\x5a':_0x170a99(0x603),'\x4a\x6d\x59\x62\x73':function(_0x238aea,_0x2ca035){return _0x238aea-_0x2ca035;},'\x54\x74\x74\x64\x6c':function(_0x1f9e30,_0x946079){return _0x1f9e30*_0x946079;},'\x78\x5a\x53\x6c\x66':function(_0x565c67,_0x2648cd){return _0x565c67-_0x2648cd;},'\x63\x64\x64\x4c\x72':function(_0x3400a3,_0x1f6889){return _0x3400a3>_0x1f6889;},'\x6c\x51\x51\x6f\x44':function(_0x4f12b3,_0x30394d){return _0x4f12b3*_0x30394d;},'\x42\x4e\x50\x79\x67':function(_0xd4460,_0x20ef70){return _0xd4460/_0x20ef70;},'\x54\x57\x6f\x48\x6e':function(_0x121f5d,_0x3bf5fc){return _0x121f5d/_0x3bf5fc;},'\x47\x46\x42\x68\x4a':function(_0x2d3577,_0x6afa5e){return _0x2d3577/_0x6afa5e;},'\x6d\x58\x49\x57\x4f':'\x75\x6e\x64\x65\x66\x69\x6e\x65\x64','\x52\x66\x46\x4e\x6d':function(_0x39bf23,_0x3adf75){return _0x39bf23&&_0x3adf75;},'\x76\x79\x49\x4f\x6a':function(_0x28d7f5,_0x56b9bd){return _0x28d7f5+_0x56b9bd;},'\x71\x56\x56\x49\x67':function(_0x108aec,_0x20bdd5){return _0x108aec>_0x20bdd5;},'\x73\x69\x58\x6d\x63':function(_0x50f679,_0x557d3e){return _0x50f679/_0x557d3e;}};if(isVaulting)return![];let _0x545318=![],_0x238c3c=0x0,_0x348007=0x0;obstacles[_0x170a99(0x64b)](_0x2f8b4c=>{const _0x50925a=_0x170a99;if(_0x5d88d8[_0x50925a(0x437)](_0x2f8b4c[_0x50925a(0x488)],_0x5d88d8[_0x50925a(0x2e6)])||_0x2f8b4c[_0x50925a(0x488)]===_0x50925a(0x164)){const _0x5d43c3=_0x5d88d8[_0x50925a(0x444)](_0x3969d3['\x78'],_0x2f8b4c['\x78']),_0x397fa6=_0x5d88d8[_0x50925a(0x241)](_0x3969d3['\x7a'],_0x2f8b4c['\x7a']),_0x299ffb=Math[_0x50925a(0x16d)](_0x5d88d8[_0x50925a(0x3ac)](_0x5d43c3,_0x5d43c3)+_0x397fa6*_0x397fa6),_0x5c2ec5=_0x5d88d8[_0x50925a(0xf5)](_0x2f8b4c[_0x50925a(0x85d)],_0x26c24c);if(_0x299ffb<_0x5c2ec5){_0x545318=!![];if(_0x5d88d8[_0x50925a(0x365)](_0x299ffb,0x0)){const _0x3c0725=_0x5d88d8[_0x50925a(0x3ac)](Math[_0x50925a(0x81e)]()*Math['\x50\x49'],0x2),_0x125950=Math[_0x50925a(0x642)](_0x3c0725)*_0x5c2ec5,_0x180c69=Math[_0x50925a(0x19e)](_0x3c0725)*_0x5c2ec5;_0x3969d3['\x78']+=_0x125950,_0x3969d3['\x7a']+=_0x180c69,_0x238c3c+=_0x125950,_0x348007+=_0x180c69;}else{const _0x5aa6cc=_0x5d88d8[_0x50925a(0x3ac)](_0x5d88d8[_0x50925a(0x37b)](_0x5d43c3,_0x299ffb),_0x5d88d8[_0x50925a(0x444)](_0x5c2ec5,_0x299ffb)),_0x323e74=_0x5d88d8[_0x50925a(0x78a)](_0x397fa6,_0x299ffb)*_0x5d88d8[_0x50925a(0x426)](_0x5c2ec5,_0x299ffb);_0x3969d3['\x78']+=_0x5aa6cc,_0x3969d3['\x7a']+=_0x323e74,_0x238c3c+=_0x5d88d8['\x44\x53\x4e\x59\x47'](_0x5d43c3,_0x299ffb),_0x348007+=_0x5d88d8['\x75\x73\x73\x77\x57'](_0x397fa6,_0x299ffb);}}}else{if(_0x5d88d8[_0x50925a(0x182)](_0x2f8b4c[_0x50925a(0x488)],_0x50925a(0x553))){const _0xe05259=_0x2f8b4c['\x77']/0x2,_0x33f1a4=_0x5d88d8[_0x50925a(0x3f4)](_0x2f8b4c['\x64'],0x2),_0x1d90b3=1.5,_0xff252a=_0x5d88d8['\x6b\x49\x6c\x50\x45'](_0x3969d3['\x78'],_0x5d88d8[_0x50925a(0x565)](_0x5d88d8[_0x50925a(0x38c)](_0x5d88d8[_0x50925a(0x5ac)](_0x2f8b4c['\x73\x70\x6f\x74\x58'],_0xe05259),_0x1d90b3),0.4))&&_0x5d88d8[_0x50925a(0x2d6)](_0x3969d3['\x78'],_0x5d88d8[_0x50925a(0x5e2)](_0x2f8b4c[_0x50925a(0x65f)]-_0xe05259,0.2))&&_0x5d88d8[_0x50925a(0x517)](_0x3969d3['\x7a'],_0x5d88d8[_0x50925a(0x5ac)](_0x5d88d8[_0x50925a(0x29f)](_0x2f8b4c[_0x50925a(0x889)],_0x33f1a4),0.4))&&_0x5d88d8['\x61\x7a\x48\x41\x68'](_0x3969d3['\x7a'],_0x5d88d8[_0x50925a(0x5e2)](_0x5d88d8[_0x50925a(0x4b9)](_0x2f8b4c[_0x50925a(0x889)],_0x33f1a4),0.4));if(_0x5d88d8['\x57\x4f\x4c\x64\x4b'](_0x3969d3['\x79'],_0x2f8b4c[_0x50925a(0x820)]+3.8)||_0xff252a&&_0x5d88d8['\x57\x4f\x4c\x64\x4b'](_0x3969d3['\x79'],_0x5d88d8['\x58\x74\x45\x6c\x56'](_0x2f8b4c[_0x50925a(0x820)],0.3)))return;_0x2f8b4c[_0x50925a(0x8b8)][_0x50925a(0x64b)](_0x83d66f=>{const _0x3ea268=_0x50925a,_0x18b74b=Math[_0x3ea268(0x57a)](_0x83d66f['\x6d\x69\x6e\x58'],Math[_0x3ea268(0x19c)](_0x3969d3['\x78'],_0x83d66f[_0x3ea268(0x3e7)])),_0x4b7294=Math[_0x3ea268(0x57a)](_0x83d66f[_0x3ea268(0x251)],Math[_0x3ea268(0x19c)](_0x3969d3['\x7a'],_0x83d66f[_0x3ea268(0x61c)])),_0x1ed89b=_0x5d88d8[_0x3ea268(0x426)](_0x3969d3['\x78'],_0x18b74b),_0x12b2c8=_0x5d88d8[_0x3ea268(0x717)](_0x3969d3['\x7a'],_0x4b7294),_0x354f50=Math[_0x3ea268(0x16d)](_0x5d88d8['\x55\x73\x44\x6a\x74'](_0x5d88d8[_0x3ea268(0x3ac)](_0x1ed89b,_0x1ed89b),_0x12b2c8*_0x12b2c8));if(_0x5d88d8[_0x3ea268(0x743)](_0x354f50,_0x26c24c)){_0x545318=!![];if(_0x5d88d8['\x69\x64\x48\x45\x75'](_0x354f50,0x0))_0x3969d3['\x78']=_0x5d88d8[_0x3ea268(0x881)](_0x83d66f['\x6d\x61\x78\x58'],_0x26c24c),_0x238c3c+=0x1;else{const _0x27cb44=_0x5d88d8[_0x3ea268(0x843)](_0x5d88d8[_0x3ea268(0x37b)](_0x1ed89b,_0x354f50),_0x26c24c-_0x354f50),_0x4a63a7=_0x5d88d8[_0x3ea268(0x37b)](_0x12b2c8,_0x354f50)*_0x5d88d8[_0x3ea268(0x426)](_0x26c24c,_0x354f50);_0x3969d3['\x78']+=_0x27cb44,_0x3969d3['\x7a']+=_0x4a63a7,_0x238c3c+=_0x5d88d8['\x75\x66\x6e\x76\x72'](_0x1ed89b,_0x354f50),_0x348007+=_0x12b2c8/_0x354f50;}}});}}}),doorsList[_0x170a99(0x64b)](_0x16e1d5=>{const _0x5b8784=_0x170a99;if(!_0x16e1d5[_0x5b8784(0x7e5)]){const _0x58d15f=getElevation(_0x16e1d5['\x78'],_0x16e1d5['\x7a'],![]);if(_0x5d88d8['\x57\x4f\x4c\x64\x4b'](_0x3969d3['\x79'],_0x5d88d8[_0x5b8784(0x1ca)](_0x58d15f,3.2)))return;const _0x2e53ae=_0x5d88d8[_0x5b8784(0x38c)](_0x16e1d5['\x78'],_0x5d88d8[_0x5b8784(0x78a)](_0x16e1d5['\x77'],0x2)),_0x3440cb=_0x5d88d8['\x53\x70\x54\x5a\x4d'](_0x16e1d5['\x78'],_0x5d88d8[_0x5b8784(0x8d4)](_0x16e1d5['\x77'],0x2)),_0x1b555=_0x5d88d8[_0x5b8784(0x717)](_0x16e1d5['\x7a'],_0x16e1d5['\x64']/0x2),_0x48c54d=_0x5d88d8[_0x5b8784(0x3d3)](_0x16e1d5['\x7a'],_0x5d88d8[_0x5b8784(0x37b)](_0x16e1d5['\x64'],0x2)),_0x8d8a32=Math[_0x5b8784(0x57a)](_0x2e53ae,Math[_0x5b8784(0x19c)](_0x3969d3['\x78'],_0x3440cb)),_0x48a51e=Math[_0x5b8784(0x57a)](_0x1b555,Math[_0x5b8784(0x19c)](_0x3969d3['\x7a'],_0x48c54d)),_0xeb1695=_0x5d88d8[_0x5b8784(0x5ac)](_0x3969d3['\x78'],_0x8d8a32),_0x43cb61=_0x5d88d8['\x73\x6a\x54\x65\x76'](_0x3969d3['\x7a'],_0x48a51e),_0x1e1cdf=Math[_0x5b8784(0x16d)](_0x5d88d8['\x74\x45\x63\x49\x71'](_0x5d88d8[_0x5b8784(0x843)](_0xeb1695,_0xeb1695),_0x5d88d8[_0x5b8784(0x3ac)](_0x43cb61,_0x43cb61)));if(_0x5d88d8[_0x5b8784(0x4c5)](_0x1e1cdf,_0x26c24c)){_0x545318=!![];if(_0x5d88d8[_0x5b8784(0x4f7)](_0x1e1cdf,0x0))_0x3969d3['\x78']+=_0x26c24c,_0x238c3c+=0x1;else{const _0x1c4a15=_0xeb1695/_0x1e1cdf*_0x5d88d8[_0x5b8784(0x870)](_0x26c24c,_0x1e1cdf),_0x48e791=_0x5d88d8[_0x5b8784(0x3d5)](_0x43cb61,_0x1e1cdf)*_0x5d88d8['\x43\x48\x65\x59\x47'](_0x26c24c,_0x1e1cdf);_0x3969d3['\x78']+=_0x1c4a15,_0x3969d3['\x7a']+=_0x48e791,_0x238c3c+=_0x5d88d8[_0x5b8784(0x1cb)](_0xeb1695,_0x1e1cdf),_0x348007+=_0x5d88d8[_0x5b8784(0x74f)](_0x43cb61,_0x1e1cdf);}}}});if(_0x16a3f8&&_0x16a3f8!==_0x5d88d8[_0x170a99(0x8bd)]&&_0x5d88d8['\x66\x66\x47\x62\x46'](playerHp,0x0)){const _0x393b9e=_0x5d88d8[_0x170a99(0x885)](_0x3969d3['\x78'],playerPos['\x78']),_0x26929b=_0x5d88d8[_0x170a99(0x241)](_0x3969d3['\x7a'],playerPos['\x7a']),_0x4c8d33=Math[_0x170a99(0x16d)](_0x5d88d8[_0x170a99(0x80a)](_0x5d88d8['\x79\x55\x46\x65\x55'](_0x393b9e,_0x393b9e),_0x5d88d8[_0x170a99(0x4e3)](_0x26929b,_0x26929b))),_0xf903e9=0.75;if(_0x4c8d33<_0xf903e9){_0x545318=!![];const _0x3d42bf=_0x5d88d8[_0x170a99(0x527)](_0x5d88d8['\x78\x5a\x53\x6c\x66'](_0xf903e9,_0x4c8d33),0.5);_0x5d88d8[_0x170a99(0x234)](_0x4c8d33,0.01)?(_0x3969d3['\x78']+=_0x5d88d8[_0x170a99(0x710)](_0x5d88d8[_0x170a99(0x66d)](_0x393b9e,_0x4c8d33),_0x3d42bf),_0x3969d3['\x7a']+=_0x5d88d8['\x54\x57\x6f\x48\x6e'](_0x26929b,_0x4c8d33)*_0x3d42bf,_0x238c3c+=_0x5d88d8[_0x170a99(0x143)](_0x393b9e,_0x4c8d33),_0x348007+=_0x5d88d8[_0x170a99(0x8d4)](_0x26929b,_0x4c8d33)):(_0x3969d3['\x78']+=_0x5d88d8[_0x170a99(0x4e3)](_0xf903e9,0.5),_0x238c3c+=0x1);}}_0x5d88d8[_0x170a99(0x453)](typeof enemies,_0x5d88d8['\x6d\x58\x49\x57\x4f'])&&enemies[_0x170a99(0x64b)](_0x5ebc22=>{const _0x1b4867=_0x170a99;if(_0x5d88d8['\x50\x4d\x53\x41\x67'](_0x5ebc22['\x69\x64'],_0x16a3f8)&&_0x5d88d8[_0x1b4867(0x6ae)](_0x5ebc22['\x68\x70'],0x0)&&_0x5ebc22[_0x1b4867(0x626)]===_0x1b4867(0x113)){const _0x27bd9d=_0x5d88d8[_0x1b4867(0x444)](_0x3969d3['\x78'],_0x5ebc22[_0x1b4867(0x48f)][_0x1b4867(0x8a6)]['\x78']),_0x43f191=_0x3969d3['\x7a']-_0x5ebc22[_0x1b4867(0x48f)][_0x1b4867(0x8a6)]['\x7a'],_0x3981a8=Math[_0x1b4867(0x16d)](_0x5d88d8[_0x1b4867(0x5c8)](_0x27bd9d*_0x27bd9d,_0x43f191*_0x43f191)),_0x2ed58=0.85;if(_0x3981a8<_0x2ed58){_0x545318=!![];const _0x26ea0f=_0x5d88d8[_0x1b4867(0x3ac)](_0x5d88d8[_0x1b4867(0x174)](_0x2ed58,_0x3981a8),0.5);if(_0x5d88d8[_0x1b4867(0x2f4)](_0x3981a8,0.01)){const _0x23489c=_0x1b4867(0x149)[_0x1b4867(0x696)]('\x7c');let _0x9c5a17=0x0;while(!![]){switch(_0x23489c[_0x9c5a17++]){case'\x30':_0x3969d3['\x7a']+=_0x5d88d8['\x6b\x56\x48\x67\x6b'](_0x5d88d8[_0x1b4867(0x77c)](_0x43f191,_0x3981a8),_0x26ea0f);continue;case'\x31':_0x348007+=_0x5d88d8[_0x1b4867(0x70d)](_0x43f191,_0x3981a8);continue;case'\x32':_0x5ebc22[_0x1b4867(0x48f)][_0x1b4867(0x8a6)]['\x78']-=_0x5d88d8[_0x1b4867(0x892)](_0x27bd9d,_0x3981a8)*_0x26ea0f;continue;case'\x33':_0x238c3c+=_0x5d88d8[_0x1b4867(0x2f7)](_0x27bd9d,_0x3981a8);continue;case'\x34':_0x3969d3['\x78']+=_0x5d88d8['\x44\x7a\x5a\x57\x66'](_0x5d88d8[_0x1b4867(0x29e)](_0x27bd9d,_0x3981a8),_0x26ea0f);continue;case'\x35':_0x5ebc22['\x6d\x65\x73\x68'][_0x1b4867(0x8a6)]['\x7a']-=_0x5d88d8['\x53\x6a\x5a\x74\x51'](_0x5d88d8[_0x1b4867(0x2f7)](_0x43f191,_0x3981a8),_0x26ea0f);continue;}break;}}else _0x3969d3['\x78']+=_0x2ed58*0.5,_0x238c3c+=0x1;}}});if(_0x5d88d8['\x52\x66\x46\x4e\x6d'](_0x29708e,_0x545318)){const _0x2c361=Math[_0x170a99(0x16d)](_0x5d88d8[_0x170a99(0x6db)](_0x5d88d8['\x53\x6a\x5a\x74\x51'](_0x238c3c,_0x238c3c),_0x5d88d8[_0x170a99(0x843)](_0x348007,_0x348007)));_0x5d88d8[_0x170a99(0x855)](_0x2c361,0.001)?(_0x29708e['\x78']=_0x5d88d8[_0x170a99(0x161)](_0x238c3c,_0x2c361),_0x29708e['\x7a']=_0x5d88d8['\x75\x73\x73\x77\x57'](_0x348007,_0x2c361)):(_0x29708e['\x78']=0x0,_0x29708e['\x7a']=-0x1);}return _0x545318;}let gameState=a0_0x460254(0x79c),lobbyAngle=0x0,lobbyPitch=0.15,lobbyDistance=3.2,isLobbyDragging=![],prevLobbyMouseX=0x0,prevLobbyMouseY=0x0,playerVelocityY=0x0,isGrounded=!![],playerStance=a0_0x460254(0x51a),currentEyeY=1.5,currentTppY=1.6,isVaulting=![],vaultStartTime=0x0,ironSightWeight=0x0;const VAULT_DURATION=0.5,vaultStartPos=new a0_0xe98f69[(a0_0x460254(0x691))](),vaultEndPos=new a0_0xe98f69[(a0_0x460254(0x691))](),planeGroup=new a0_0xe98f69[(a0_0x460254(0x5be))](),startBGMHandler=()=>{const _0x1063a0=a0_0x460254,_0x2b71c0={'\x74\x69\x46\x55\x78':_0x1063a0(0x57f),'\x53\x49\x6a\x41\x73':function(_0x223a0b,_0x236ede){return _0x223a0b===_0x236ede;},'\x5a\x55\x50\x47\x61':'\x4c\x4f\x42\x42\x59','\x58\x53\x77\x66\x47':function(_0x19eb67){return _0x19eb67();},'\x79\x6c\x50\x4f\x55':'\x63\x6c\x69\x63\x6b','\x59\x55\x61\x67\x53':'\x74\x6f\x75\x63\x68\x73\x74\x61\x72\x74'};if(_0x2b71c0[_0x1063a0(0x2a7)](gameState,_0x2b71c0['\x5a\x55\x50\x47\x61'])){_0x2b71c0[_0x1063a0(0x67e)](initAudio);bgmEnabled&&SoundSystem[_0x1063a0(0x559)]();const _0x14d352=document[_0x1063a0(0x7e7)],_0x21aee1=_0x14d352[_0x1063a0(0x6de)]||_0x14d352[_0x1063a0(0x3af)]||_0x14d352[_0x1063a0(0x3e0)]||_0x14d352[_0x1063a0(0x74b)];_0x21aee1?_0x21aee1[_0x1063a0(0x728)](_0x14d352)[_0x1063a0(0x292)](()=>{const _0x55dc78=_0x1063a0;screen[_0x55dc78(0x3aa)]&&screen[_0x55dc78(0x3aa)]['\x6c\x6f\x63\x6b']&&screen[_0x55dc78(0x3aa)]['\x6c\x6f\x63\x6b'](_0x2b71c0[_0x55dc78(0x7d6)])[_0x55dc78(0x484)](_0x5dc5e1=>{});})[_0x1063a0(0x484)](_0x3c57de=>{}):screen['\x6f\x72\x69\x65\x6e\x74\x61\x74\x69\x6f\x6e']&&screen[_0x1063a0(0x3aa)][_0x1063a0(0x6c1)]&&screen[_0x1063a0(0x3aa)][_0x1063a0(0x6c1)](_0x2b71c0[_0x1063a0(0x7d6)])[_0x1063a0(0x484)](_0x35117b=>{});}document[_0x1063a0(0x591)](_0x2b71c0['\x79\x6c\x50\x4f\x55'],startBGMHandler),document[_0x1063a0(0x591)](_0x2b71c0['\x59\x55\x61\x67\x53'],startBGMHandler);};document[a0_0x460254(0x6b6)](a0_0x460254(0x22a),startBGMHandler),document[a0_0x460254(0x6b6)](a0_0x460254(0x32e),startBGMHandler);const bgmBtn=document[a0_0x460254(0x6ac)](a0_0x460254(0x755)),sfxBtn=document['\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64'](a0_0x460254(0x5ff));bgmBtn[a0_0x460254(0x6b6)](a0_0x460254(0x22a),_0x1afff4=>{const _0x48d5a1=a0_0x460254,_0x540a97={'\x64\x56\x64\x68\x4b':'\ud83c\udfb5\x20\x42\x47\x4d\x3a\x20\x4f\x4e','\x63\x58\x75\x66\x46':_0x48d5a1(0x762),'\x62\x6b\x64\x67\x44':_0x48d5a1(0x6ea)};_0x1afff4['\x73\x74\x6f\x70\x50\x72\x6f\x70\x61\x67\x61\x74\x69\x6f\x6e'](),initAudio(),bgmEnabled=!bgmEnabled,bgmEnabled?(bgmBtn[_0x48d5a1(0x2d8)]=_0x540a97[_0x48d5a1(0x7e2)],bgmBtn[_0x48d5a1(0x570)][_0x48d5a1(0x3ee)]=_0x540a97[_0x48d5a1(0x7b8)],SoundSystem[_0x48d5a1(0x559)]()):(bgmBtn[_0x48d5a1(0x2d8)]=_0x540a97['\x62\x6b\x64\x67\x44'],bgmBtn[_0x48d5a1(0x570)][_0x48d5a1(0x3ee)]='\x23\x66\x66\x62\x33\x30\x30',SoundSystem['\x73\x74\x6f\x70\x42\x47\x4d']());}),sfxBtn['\x61\x64\x64\x45\x76\x65\x6e\x74\x4c\x69\x73\x74\x65\x6e\x65\x72'](a0_0x460254(0x22a),_0x1048fa=>{const _0x2a454f=a0_0x460254,_0x3f2183={'\x6f\x6b\x44\x57\x4f':_0x2a454f(0x701),'\x48\x54\x6c\x76\x4a':_0x2a454f(0x1e3),'\x41\x4c\x44\x43\x70':_0x2a454f(0x6f9)};_0x1048fa[_0x2a454f(0x26f)](),initAudio(),sfxEnabled=!sfxEnabled,sfxEnabled?(sfxBtn['\x69\x6e\x6e\x65\x72\x54\x65\x78\x74']=_0x3f2183[_0x2a454f(0x3f0)],sfxBtn[_0x2a454f(0x570)][_0x2a454f(0x3ee)]=_0x2a454f(0x762)):(sfxBtn[_0x2a454f(0x2d8)]=_0x3f2183[_0x2a454f(0x142)],sfxBtn[_0x2a454f(0x570)]['\x63\x6f\x6c\x6f\x72']=_0x3f2183[_0x2a454f(0x433)]);});const planeMat=new a0_0xe98f69[(a0_0x460254(0x8a3))]({'\x63\x6f\x6c\x6f\x72':0x2d3a2d,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.5,'\x6d\x65\x74\x61\x6c\x6e\x65\x73\x73':0.2}),darkPlaneMat=new a0_0xe98f69['\x4d\x65\x73\x68\x53\x74\x61\x6e\x64\x61\x72\x64\x4d\x61\x74\x65\x72\x69\x61\x6c']({'\x63\x6f\x6c\x6f\x72':0x1e271e,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.6,'\x6d\x65\x74\x61\x6c\x6e\x65\x73\x73':0.2}),pBody=new a0_0xe98f69[(a0_0x460254(0x59f))](new a0_0xe98f69[(a0_0x460254(0x7b9))](4.5,4.5,0x2a,0x10),planeMat);pBody['\x72\x6f\x74\x61\x74\x69\x6f\x6e']['\x78']=Math['\x50\x49']/0x2,pBody[a0_0x460254(0x8a6)][a0_0x460254(0x2d5)](0x0,0x0,0x0);const pNose=new a0_0xe98f69[(a0_0x460254(0x59f))](new a0_0xe98f69[(a0_0x460254(0x718))](4.5,0x10,0x10,0x0,Math['\x50\x49']*0x2,0x0,Math['\x50\x49']/0x2),planeMat);pNose[a0_0x460254(0x14f)]['\x78']=Math['\x50\x49']/0x2,pNose[a0_0x460254(0x8a6)][a0_0x460254(0x2d5)](0x0,-0.2,0x15);const nosePropellerGroup=new a0_0xe98f69[(a0_0x460254(0x5be))]();nosePropellerGroup[a0_0x460254(0x8a6)][a0_0x460254(0x2d5)](0x0,-0.2,0x15+4.5);const noseSpinner=new a0_0xe98f69[(a0_0x460254(0x59f))](new a0_0xe98f69[(a0_0x460254(0x137))](1.2,0x2,0x8),new a0_0xe98f69[(a0_0x460254(0x8a3))]({'\x63\x6f\x6c\x6f\x72':0x333333,'\x6d\x65\x74\x61\x6c\x6e\x65\x73\x73':0.9}));noseSpinner[a0_0x460254(0x14f)]['\x78']=Math['\x50\x49']/0x2,nosePropellerGroup[a0_0x460254(0x5bf)](noseSpinner);for(let b=0x0;b<0x4;b++){const blade=new a0_0xe98f69[(a0_0x460254(0x59f))](new a0_0xe98f69[(a0_0x460254(0x8c2))](0xa,0.4,0.12),new a0_0xe98f69[(a0_0x460254(0x8a3))]({'\x63\x6f\x6c\x6f\x72':0x111111}));blade[a0_0x460254(0x14f)]['\x7a']=b*Math['\x50\x49']/0x2,nosePropellerGroup[a0_0x460254(0x5bf)](blade);}const pWindow=new a0_0xe98f69[(a0_0x460254(0x59f))](new a0_0xe98f69[(a0_0x460254(0x8c2))](3.6,1.8,0x2),new a0_0xe98f69[(a0_0x460254(0x8a3))]({'\x63\x6f\x6c\x6f\x72':0x5080b,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.1,'\x6d\x65\x74\x61\x6c\x6e\x65\x73\x73':0.9}));pWindow['\x70\x6f\x73\x69\x74\x69\x6f\x6e'][a0_0x460254(0x2d5)](0x0,2.3,19.5);const wingLeft=new a0_0xe98f69[(a0_0x460254(0x59f))](new a0_0xe98f69[(a0_0x460254(0x8c2))](0x18,0.8,0x8),planeMat);wingLeft[a0_0x460254(0x8a6)][a0_0x460254(0x2d5)](-13.5,1.5,0x2),wingLeft[a0_0x460254(0x14f)]['\x79']=-0.06,wingLeft['\x72\x6f\x74\x61\x74\x69\x6f\x6e']['\x7a']=0.03;const wingRight=new a0_0xe98f69[(a0_0x460254(0x59f))](new a0_0xe98f69['\x42\x6f\x78\x47\x65\x6f\x6d\x65\x74\x72\x79'](0x18,0.8,0x8),planeMat);wingRight[a0_0x460254(0x8a6)]['\x73\x65\x74'](13.5,1.5,0x2),wingRight[a0_0x460254(0x14f)]['\x79']=0.06,wingRight[a0_0x460254(0x14f)]['\x7a']=-0.03;const wingletLeft=new a0_0xe98f69[(a0_0x460254(0x59f))](new a0_0xe98f69[(a0_0x460254(0x8c2))](0x3,0.5,0x4),darkPlaneMat);wingletLeft[a0_0x460254(0x8a6)]['\x73\x65\x74'](-25.2,0x2,1.3),wingletLeft[a0_0x460254(0x14f)]['\x7a']=0.6;const wingletRight=new a0_0xe98f69['\x4d\x65\x73\x68'](new a0_0xe98f69[(a0_0x460254(0x8c2))](0x3,0.5,0x4),darkPlaneMat);wingletRight[a0_0x460254(0x8a6)][a0_0x460254(0x2d5)](25.2,0x2,1.3),wingletRight['\x72\x6f\x74\x61\x74\x69\x6f\x6e']['\x7a']=-0.6;const pTailVert=new a0_0xe98f69['\x4d\x65\x73\x68'](new a0_0xe98f69['\x42\x6f\x78\x47\x65\x6f\x6d\x65\x74\x72\x79'](0.8,0xc,0x8),planeMat);pTailVert[a0_0x460254(0x8a6)][a0_0x460254(0x2d5)](0x0,7.5,-0x12);const pTailHoriz=new a0_0xe98f69[(a0_0x460254(0x59f))](new a0_0xe98f69['\x42\x6f\x78\x47\x65\x6f\x6d\x65\x74\x72\x79'](0x12,0.6,0x6),darkPlaneMat);pTailHoriz[a0_0x460254(0x8a6)][a0_0x460254(0x2d5)](0x0,0x2,-0x12);const cargoRamp=new a0_0xe98f69[(a0_0x460254(0x59f))](new a0_0xe98f69[(a0_0x460254(0x8c2))](0x6,0x4,0x8),darkPlaneMat);cargoRamp[a0_0x460254(0x8a6)][a0_0x460254(0x2d5)](0x0,-1.8,-0x11),cargoRamp[a0_0x460254(0x14f)]['\x78']=-0.08;const gearPodLeft=new a0_0xe98f69[(a0_0x460254(0x59f))](new a0_0xe98f69['\x42\x6f\x78\x47\x65\x6f\x6d\x65\x74\x72\x79'](1.5,3.5,0xc),darkPlaneMat);gearPodLeft[a0_0x460254(0x8a6)][a0_0x460254(0x2d5)](-4.5,-2.5,0x0);const gearPodRight=new a0_0xe98f69[(a0_0x460254(0x59f))](new a0_0xe98f69[(a0_0x460254(0x8c2))](1.5,3.5,0xc),darkPlaneMat);gearPodRight[a0_0x460254(0x8a6)]['\x73\x65\x74'](4.5,-2.5,0x0),planeGroup[a0_0x460254(0x5bf)](pBody,pNose,pWindow,wingLeft,wingRight,wingletLeft,wingletRight,pTailVert,pTailHoriz,cargoRamp,gearPodLeft,gearPodRight,nosePropellerGroup),planePropellers[a0_0x460254(0x1a4)](nosePropellerGroup);const engineGeo=new a0_0xe98f69[(a0_0x460254(0x7b9))](1.5,1.3,0x7,0x8),engineMat=new a0_0xe98f69[(a0_0x460254(0x8a3))]({'\x63\x6f\x6c\x6f\x72':0x1f221f,'\x6d\x65\x74\x61\x6c\x6e\x65\x73\x73':0.8,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.3}),enginePositions=[{'\x78':-7.5,'\x79':-0.2,'\x7a':2.3},{'\x78':-16.5,'\x79':-0.2,'\x7a':2.3},{'\x78':7.5,'\x79':-0.2,'\x7a':2.3},{'\x78':16.5,'\x79':-0.2,'\x7a':2.3}];enginePositions[a0_0x460254(0x64b)]((_0x4b976d,_0x482567)=>{const _0x5a0e14=a0_0x460254,_0x2b16c6={'\x63\x70\x66\x47\x6f':function(_0x46c7d2,_0x276041){return _0x46c7d2/_0x276041;},'\x68\x4a\x6a\x70\x70':function(_0x2407fc,_0xd4f168){return _0x2407fc/_0xd4f168;},'\x43\x41\x46\x6d\x75':function(_0x513d19,_0x5b2010){return _0x513d19-_0x5b2010;},'\x41\x6c\x44\x78\x47':function(_0x51b4a8,_0x481005){return _0x51b4a8+_0x481005;},'\x47\x77\x53\x62\x6c':function(_0x17804a,_0x1c2c16){return _0x17804a/_0x1c2c16;},'\x4f\x74\x76\x77\x70':function(_0x55c76f,_0xa0322b){return _0x55c76f<_0xa0322b;},'\x6f\x51\x51\x51\x77':function(_0x3e8933,_0x1e64ac){return _0x3e8933/_0x1e64ac;},'\x69\x48\x47\x6f\x63':function(_0x395185,_0x2515cd){return _0x395185*_0x2515cd;}},_0x4f5dc8=new a0_0xe98f69[(_0x5a0e14(0x59f))](engineGeo,engineMat);_0x4f5dc8[_0x5a0e14(0x14f)]['\x78']=_0x2b16c6[_0x5a0e14(0x12d)](Math['\x50\x49'],0x2),_0x4f5dc8[_0x5a0e14(0x8a6)]['\x73\x65\x74'](_0x4b976d['\x78'],_0x4b976d['\x79'],_0x4b976d['\x7a']),planeGroup['\x61\x64\x64'](_0x4f5dc8);const _0xd17f02=new a0_0xe98f69['\x43\x6f\x6e\x65\x47\x65\x6f\x6d\x65\x74\x72\x79'](0.7,1.8,0x8),_0x1e53dd=new a0_0xe98f69['\x4d\x65\x73\x68\x42\x61\x73\x69\x63\x4d\x61\x74\x65\x72\x69\x61\x6c']({'\x63\x6f\x6c\x6f\x72':0xff3300}),_0x5be2e1=new a0_0xe98f69[(_0x5a0e14(0x59f))](_0xd17f02,_0x1e53dd);_0x5be2e1[_0x5a0e14(0x14f)]['\x78']=_0x2b16c6[_0x5a0e14(0x341)](-Math['\x50\x49'],0x2),_0x5be2e1['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x73\x65\x74'](_0x4b976d['\x78'],_0x4b976d['\x79'],_0x2b16c6[_0x5a0e14(0x36c)](_0x4b976d['\x7a'],0x4)),planeGroup['\x61\x64\x64'](_0x5be2e1);const _0x47d418=new a0_0xe98f69[(_0x5a0e14(0x5be))]();_0x47d418[_0x5a0e14(0x8a6)]['\x73\x65\x74'](_0x4b976d['\x78'],_0x4b976d['\x79'],_0x2b16c6[_0x5a0e14(0x8b7)](_0x4b976d['\x7a'],3.8));const _0x22521f=new a0_0xe98f69[(_0x5a0e14(0x59f))](new a0_0xe98f69[(_0x5a0e14(0x137))](0.7,1.2,0x8),new a0_0xe98f69[(_0x5a0e14(0x8a3))]({'\x63\x6f\x6c\x6f\x72':0x333333,'\x6d\x65\x74\x61\x6c\x6e\x65\x73\x73':0.9}));_0x22521f[_0x5a0e14(0x14f)]['\x78']=_0x2b16c6[_0x5a0e14(0x37c)](Math['\x50\x49'],0x2),_0x47d418[_0x5a0e14(0x5bf)](_0x22521f);for(let _0x302f91=0x0;_0x2b16c6['\x4f\x74\x76\x77\x70'](_0x302f91,0x4);_0x302f91++){const _0x4d9bda=new a0_0xe98f69[(_0x5a0e14(0x59f))](new a0_0xe98f69[(_0x5a0e14(0x8c2))](4.8,0.25,0.08),new a0_0xe98f69['\x4d\x65\x73\x68\x53\x74\x61\x6e\x64\x61\x72\x64\x4d\x61\x74\x65\x72\x69\x61\x6c']({'\x63\x6f\x6c\x6f\x72':0x111111}));_0x4d9bda[_0x5a0e14(0x14f)]['\x7a']=_0x2b16c6[_0x5a0e14(0x47d)](_0x2b16c6['\x69\x48\x47\x6f\x63'](_0x302f91,Math['\x50\x49']),0x2),_0x47d418[_0x5a0e14(0x5bf)](_0x4d9bda);}planeGroup[_0x5a0e14(0x5bf)](_0x47d418),planePropellers[_0x5a0e14(0x1a4)](_0x47d418);});const redLight=new a0_0xe98f69['\x4d\x65\x73\x68'](new a0_0xe98f69['\x53\x70\x68\x65\x72\x65\x47\x65\x6f\x6d\x65\x74\x72\x79'](0.4,0x8,0x8),new a0_0xe98f69[(a0_0x460254(0x4d1))]({'\x63\x6f\x6c\x6f\x72':0xff0000}));redLight[a0_0x460254(0x8a6)][a0_0x460254(0x2d5)](-26.5,2.5,1.3);const greenLight=new a0_0xe98f69[(a0_0x460254(0x59f))](new a0_0xe98f69[(a0_0x460254(0x718))](0.4,0x8,0x8),new a0_0xe98f69['\x4d\x65\x73\x68\x42\x61\x73\x69\x63\x4d\x61\x74\x65\x72\x69\x61\x6c']({'\x63\x6f\x6c\x6f\x72':0xff00}));greenLight[a0_0x460254(0x8a6)]['\x73\x65\x74'](26.5,2.5,1.3);const tailLight=new a0_0xe98f69[(a0_0x460254(0x59f))](new a0_0xe98f69['\x53\x70\x68\x65\x72\x65\x47\x65\x6f\x6d\x65\x74\x72\x79'](0.4,0x8,0x8),new a0_0xe98f69['\x4d\x65\x73\x68\x42\x61\x73\x69\x63\x4d\x61\x74\x65\x72\x69\x61\x6c']({'\x63\x6f\x6c\x6f\x72':0xffffff}));tailLight[a0_0x460254(0x8a6)]['\x73\x65\x74'](0x0,13.5,-0x15),planeGroup[a0_0x460254(0x5bf)](redLight,greenLight,tailLight),planeNavLights[a0_0x460254(0x1a4)](redLight,greenLight,tailLight),planeGroup['\x70\x6f\x73\x69\x74\x69\x6f\x6e'][a0_0x460254(0x2d5)](-0x12c,0x118,-0x12c),planeGroup[a0_0x460254(0x55a)](0x12c,0x118,0x12c),scene[a0_0x460254(0x5bf)](planeGroup);const parachute=new a0_0xe98f69[(a0_0x460254(0x5be))](),parachuteGeo=new a0_0xe98f69[(a0_0x460254(0x718))](0x3,0x10,0x10,0x0,Math['\x50\x49']*0x2,0x0,Math['\x50\x49']/0x2),canopyMesh=new a0_0xe98f69['\x4d\x65\x73\x68'](parachuteGeo,new a0_0xe98f69[(a0_0x460254(0x8a3))]({'\x63\x6f\x6c\x6f\x72':0xdddddd,'\x73\x69\x64\x65':a0_0xe98f69[a0_0x460254(0x328)],'\x74\x72\x61\x6e\x73\x70\x61\x72\x65\x6e\x74':!![],'\x6f\x70\x61\x63\x69\x74\x79':0.85}));parachute['\x61\x64\x64'](canopyMesh);const linesMaterial=new a0_0xe98f69[(a0_0x460254(0x6cc))]({'\x63\x6f\x6c\x6f\x72':0x555555}),numStrings=0x8;for(let i=0x0;i<numStrings;i++){const angle=i/numStrings*Math['\x50\x49']*0x2,rimX=Math[a0_0x460254(0x642)](angle)*0x3,rimZ=Math[a0_0x460254(0x19e)](angle)*0x3,points=[new a0_0xe98f69[(a0_0x460254(0x691))](rimX,0x0,rimZ),new a0_0xe98f69['\x56\x65\x63\x74\x6f\x72\x33'](0x0,-4.55,-0.16)],lineGeo=new a0_0xe98f69[(a0_0x460254(0x2aa))]()[a0_0x460254(0x5e8)](points),line=new a0_0xe98f69[(a0_0x460254(0x4c4))](lineGeo,linesMaterial);parachute[a0_0x460254(0x5bf)](line);}parachute['\x76\x69\x73\x69\x62\x6c\x65']=![];function a0_0x5f29(){const _0x31daae=['\x42\x4a\x52\x46\x59','\x53\x70\x68\x65\x72\x65\x47\x65\x6f\x6d\x65\x74\x72\x79','\x42\x41\x47','\x75\x78\x71\x49\x64','\x51\x65\x66\x57\x65','\x6d\x49\x78\x48\x46','\x76\x5a\x55\x64\x43','\x6e\x6f\x74\x69\x63\x65\x2d\x62\x6f\x78','\x4b\x41\x4a\x71\x72','\x79\x43\x49\x46\x4d','\x6e\x76\x58\x68\x73','\x62\x61\x63\x6b\x67\x72\x6f\x75\x6e\x64\x43\x6f\x6c\x6f\x72','\x46\x4f\x4d\x54\x4e','\x71\x63\x45\x71\x41','\x55\x68\x4c\x63\x6b','\x45\x74\x56\x79\x73','\x52\x52\x43\x65\x4c','\x63\x61\x6c\x6c','\x54\x75\x4b\x44\x50','\x4c\x66\x72\x6f\x73','\x20\x2d\x3e\x20','\x4e\x6a\x42\x52\x4f','\x4f\x43\x41\x78\x65','\x23\x30\x30\x66\x66\x30\x30','\x45\x58\x4e\x56\x4d','\x48\x50\x48\x49\x77','\x57\x65\x62\x20\x41\x75\x64\x69\x6f\x20\x41\x50\x49\x20\x6e\x6f\x74\x20\x73\x75\x70\x70\x6f\x72\x74\x65\x64','\x79\x70\x4b\x45\x64','\x6d\x46\x5a\x44\x54','\x64\x61\x6d\x61\x67\x65\x2d\x69\x6e\x64\x69\x63\x61\x74\x6f\x72','\ud83c\udfaf\x20\x48\x45\x41\x44\x53\x48\x4f\x54\x21','\x34\x35\x39\x39\x32\x31\x32\x41\x67\x65\x4d\x4c\x75','\x64\x44\x46\x55\x49','\x6c\x6f\x63\x61\x74\x69\x6f\x6e','\x55\x62\x48\x53\x77','\x77\x65\x62\x6b\x69\x74\x41\x75\x64\x69\x6f\x43\x6f\x6e\x74\x65\x78\x74','\x42\x55\x59\x65\x49','\x6c\x53\x6e\x56\x4d','\x76\x65\x6c','\x54\x67\x5a\x54\x50','\x61\x6e\x69\x6d\x61\x74\x69\x6f\x6e','\x6a\x79\x6c\x68\x45','\x72\x65\x6d\x6f\x76\x65\x43\x68\x69\x6c\x64','\x6b\x44\x71\x43\x45','\x75\x50\x42\x64\x62','\x61\x74\x6a\x50\x52','\x71\x6d\x47\x66\x6e','\x68\x4a\x4a\x6a\x5a','\x5a\x73\x44\x46\x76','\x4d\x42\x51\x4b\x64','\x66\x50\x66\x62\x61','\x74\x73\x59\x41\x51','\x6d\x73\x52\x65\x71\x75\x65\x73\x74\x46\x75\x6c\x6c\x73\x63\x72\x65\x65\x6e','\x76\x53\x6a\x41\x69','\uc5f0\ub9c9\ud0c4\x20\x31\uac1c\x20\ubc84\ub9bc','\x6e\x61\x6d\x65','\x4d\x54\x51\x79\x66','\x68\x65\x61\x64\x47\x72\x6f\x75\x70','\x4d\x63\x66\x70\x73','\x78\x43\x6b\x68\x43','\x6a\x4f\x51\x58\x7a','\x4d\x61\x70\x4a\x63','\x62\x74\x6e\x2d\x74\x6f\x67\x67\x6c\x65\x2d\x62\x67\x6d','\x28\ud5e4\ub4dc\uc0f7\x29','\x75\x76\x58\x63\x65','\x54\x66\x69\x58\x65','\x42\x53\x70\x4e\x59','\x66\x6f\x76','\x79\x6a\x61\x72\x77','\x53\x54\x41\x42\x4c\x45','\x57\x75\x55\x66\x6b','\x4c\x71\x67\x47\x57','\x59\x62\x47\x47\x54','\x53\x48\x6a\x6b\x4b','\x51\x4a\x42\x65\x51','\x23\x30\x30\x66\x66\x63\x63','\x53\x62\x53\x72\x50','\x70\x61\x6e','\x62\x71\x75\x69\x43','\x70\x48\x54\x72\x79','\x6e\x6c\x6e\x65\x50','\x33\x7c\x34\x7c\x36\x7c\x37\x7c\x35\x7c\x39\x7c\x30\x7c\x38\x7c\x32\x7c\x31','\x66\x4a\x79\x70\x66','\x6d\x61\x70\x53\x69\x7a\x65','\x59\x75\x62\x4d\x4d','\x4f\x75\x43\x72\x6b','\x6f\x47\x41\x6a\x4a','\uc218\ub958\ud0c4\x20\x2d\x3e\x20','\x70\x61\x72\x65\x6e\x74','\x50\x41\x72\x41\x6e','\x62\x72\x59\x74\x64','\x35\x2e\x35\x36\x6d\x6d\x20\uc18c\ucd1d\ud0c4','\x66\x6c\x6f\x6f\x72','\x6c\x65\x66\x74','\x73\x65\x61\x72\x63\x68','\x51\x68\x75\x5a\x4c','\x72\x67\x62\x61\x28\x30\x2c\x30\x2c\x30\x2c\x30\x2e\x37\x29','\x4a\x4c\x59\x65\x56','\x59\x44\x7a\x4d\x75','\x61\x67\x64\x73\x70','\x52\x61\x79\x63\x61\x73\x74\x65\x72','\x4f\x4b\x4e\x43\x65','\x74\x6a\x68\x64\x47','\x4b\x46\x6b\x50\x51','\x65\x51\x5a\x4a\x70','\x6c\x5a\x68\x59\x66','\x6c\x65\x66\x74\x4a\x6f\x69\x6e\x74','\x63\x69\x75\x4f\x45','\x6d\x69\x6e\x69\x6d\x61\x70','\x67\x65\x74\x58','\x6d\x61\x78\x48\x70','\x61\x6c\x69\x67\x6e\x49\x74\x65\x6d\x73','\ud83c\udfb5\x20\x42\x47\x4d\x3a\x20\x4f\x4e','\x62\x49\x6a\x4f\x74','\x4b\x51\x4d\x65\x45','\x75\x66\x6e\x76\x72','\x46\x41\x6e\x46\x54','\x6d\x6f\x62\x69\x6c\x65\x2d\x75\x69','\x27\x29\x3b\x20\x65\x76\x65\x6e\x74\x2e\x73\x74\x6f\x70\x50\x72\x6f\x70\x61\x67\x61\x74\x69\x6f\x6e\x28\x29\x3b\x22\x20\x6f\x6e\x63\x6c\x69\x63\x6b\x3d\x22\x77\x69\x6e\x64\x6f\x77\x2e\x70\x69\x63\x6b\x75\x70\x49\x74\x65\x6d\x28','\x77\x59\x4f\x48\x45','\x77\x44\x4e\x58\x77','\x78\x46\x64\x67\x49','\x74\x4b\x6e\x6a\x6f','\x62\x64\x6f\x59\x78','\x62\x74\x6e\x2d\x63\x6c\x6f\x73\x65\x2d\x69\x6e\x76','\x56\x53\x63\x6a\x4d','\x67\x4d\x75\x7a\x58','\x47\x65\x73\x43\x6e','\x4e\x75\x72\x52\x62','\x73\x70\x65\x65\x64','\x63\x6a\x6d\x43\x63','\x56\x6e\x62\x67\x42','\x74\x6f\x75\x63\x68\x6d\x6f\x76\x65','\x4c\x4f\x42\x42\x59','\x51\x49\x53\x76\x51','\x6c\x65\x66\x74\x4c\x65\x67','\x69\x73\x41\x6f\x6a','\x77\x57\x5a\x46\x4d','\x41\x75\x64\x69\x6f\x43\x6f\x6e\x74\x65\x78\x74','\x67\x65\x74\x43\x68\x61\x6e\x6e\x65\x6c\x44\x61\x74\x61','\x70\x68\x6e\x43\x42','\uc2dc\uccb4\uc0c1\uc790\uc5d0\uc11c\x20\x5b\uc218\ub958\ud0c4\x5d\x20\ud68d\ub4dd\x21','\uad6c\uae09\uc0c1\uc790\ub97c\x20\uc0ac\uc6a9\ud558\ub294\x20\uc911\x2e\x2e\x2e\x20\x28\uc6c0\uc9c1\uc774\uba74\x20\ucde8\uc18c\ub429\ub2c8\ub2e4\x29','\x70\x4f\x49\x72\x67','\x73\x74\x6f\x70\x53\x6b\x79\x64\x69\x76\x65\x57\x69\x6e\x64\x53\x6f\x75\x6e\x64','\x4e\x7a\x67\x73\x46','\x52\x49\x47\x48\x54','\x47\x49\x56\x47\x62','\x51\x76\x78\x63\x78','\x73\x72\x6f\x69\x4d','\x54\x76\x5a\x45\x42','\x67\x61\x69\x6e','\x4a\x43\x6c\x78\x4a','\x51\x52\x68\x50\x58','\x4f\x68\x75\x62\x70','\x64\x42\x41\x6b\x43','\x6a\x54\x49\x54\x78','\x41\x48\x48\x63\x4a','\x5a\x47\x6a\x49\x5a','\x48\x7a\x4e\x43\x51','\x33\x7c\x32\x7c\x30\x7c\x31\x7c\x34','\x63\x58\x75\x66\x46','\x43\x79\x6c\x69\x6e\x64\x65\x72\x47\x65\x6f\x6d\x65\x74\x72\x79','\x4c\x4d\x45\x51\x53','\uba85\x3c\x62\x72\x3e\ub098\uc758\x20\ud0ac\x20\uc218\x3a\x20','\x77\x77\x5a\x71\x53','\x6d\x61\x74\x65\x72\x69\x61\x6c\x73','\x69\x6e\x76\x2d\x73\x63\x6f\x70\x65\x2d\x64\x72\x6f\x70\x2d\x62\x74\x6e','\x6f\x77\x48\x6e\x47','\x7a\x4c\x55\x44\x5a','\x63\x6b\x4a\x6b\x52','\x5a\x50\x68\x4b\x51','\x77\x72\x4b\x4a\x6f','\x31\x30\x30\x25','\x33\x7c\x34\x7c\x30\x7c\x31\x7c\x32','\x72\x69\x67\x68\x74\x4c\x65\x67','\x41\x59\x53\x47\x66','\x49\x67\x70\x42\x47','\x47\x3a\x20\uc218\ub958\ud0c4\x20\ub358\uc9c0\uae30\x20\x28','\x61\x77\x75\x48\x59','\x50\x53\x4f\x44\x6a','\x68\x6e\x78\x71\x70','\x69\x55\x49\x4e\x44','\x6b\x54\x46\x6a\x70','\x76\x69\x73\x69\x62\x6c\x65','\x6f\x54\x55\x66\x46','\x69\x69\x73\x4e\x48','\x68\x70\x2d\x6c\x61\x62\x65\x6c\x2d','\x6e\x45\x41\x70\x67','\x32\x7c\x31\x7c\x38\x7c\x35\x7c\x36\x7c\x30\x7c\x33\x7c\x37\x7c\x34','\x71\x5a\x68\x63\x74','\x74\x69\x46\x55\x78','\x78\x78\x76\x4f\x72','\x57\x69\x67\x72\x4a','\x61\x68\x43\x6f\x47','\x69\x6e\x73\x65\x74\x20\x30\x20\x30\x20\x31\x30\x30\x70\x78\x20\x72\x67\x62\x61\x28\x32\x35\x35\x2c\x30\x2c\x30\x2c\x30\x2e\x34\x29','\x57\x65\x62\x47\x4c\x52\x65\x6e\x64\x65\x72\x65\x72','\x7a\x6a\x50\x78\x79','\x73\x65\x74\x74\x69\x6e\x67\x73\x2d\x75\x69','\x7a\x4a\x6d\x41\x67','\x58\x42\x6e\x4b\x53','\x63\x72\x65\x61\x74\x65\x53\x74\x65\x72\x65\x6f\x50\x61\x6e\x6e\x65\x72','\x72\x65\x63\x65\x69\x76\x65\x53\x68\x61\x64\x6f\x77','\x64\x56\x64\x68\x4b','\x73\x70\x61\x74\x68','\x68\x6c\x78\x52\x44','\x69\x73\x4f\x70\x65\x6e','\x63\x6f\x6e\x6e\x65\x63\x74','\x64\x6f\x63\x75\x6d\x65\x6e\x74\x45\x6c\x65\x6d\x65\x6e\x74','\x79\x47\x68\x6c\x46','\x70\x72\x6c\x6c\x75','\x6d\x4c\x50\x44\x47','\x53\x4d\x4f\x4b\x45','\x73\x65\x74\x46\x72\x6f\x6d\x41\x78\x69\x73\x41\x6e\x67\x6c\x65','\x73\x72\x59\x4a\x6d','\x76\x56\x4a\x54\x46','\x73\x63\x61\x6c\x65','\x51\x4b\x41\x6b\x4f','\x69\x6e\x76\x2d\x62\x61\x67\x2d\x64\x72\x6f\x70\x2d\x62\x74\x6e','\x59\x63\x7a\x66\x6b','\x62\x4f\x4d\x73\x55','\x66\x70\x4a\x52\x64','\x59\x63\x45\x71\x61','\x63\x51\x72\x53\x57','\x74\x65\x4f\x45\x79','\x42\x56\x53\x51\x4d','\x59\x51\x55\x51\x61','\x32\x32\x31\x36\x33\x37\x73\x4d\x68\x56\x47\x58','\x44\x5a\x51\x4f\x4a','\x6b\x5a\x43\x72\x44','\x53\x43\x6d\x46\x77','\x4e\x52\x4b\x75\x43','\x44\x45\x46\x41\x55\x4c\x54','\x54\x54\x48\x43\x6d','\x35\x7c\x38\x7c\x34\x7c\x30\x7c\x33\x7c\x32\x7c\x39\x7c\x37\x7c\x31\x7c\x36','\x5a\x63\x73\x5a\x5a','\x76\x74\x65\x45\x6f','\x68\x50\x72\x59\x53','\x65\x5a\x45\x71\x46','\x5a\x5a\x76\x59\x44','\x41\x61\x56\x73\x65','\x52\x74\x48\x72\x6e','\x72\x52\x4b\x61\x57','\x58\x74\x45\x6c\x56','\x41\x77\x75\x75\x6d','\x55\x75\x77\x43\x73','\uad6c\uae09\uc0c1\uc790','\x72\x79\x75\x42\x7a','\x78\x46\x69\x4a\x57','\x41\x43\x4d\x55\x6b','\x69\x6e\x76\x2d\x61\x6d\x6d\x6f\x2d\x70\x69\x73\x74\x6f\x6c','\x76\x47\x6b\x58\x57','\x63\x4a\x55\x58\x4f','\x69\x73\x43\x72\x61\x74\x65','\x68\x65\x61\x64','\x6a\x4c\x6e\x55\x62','\x62\x50\x51\x70\x74','\x77\x44\x54\x56\x54','\x67\x72\x6f\x75\x6e\x64\x2d\x6c\x6f\x6f\x74\x2d\x6c\x69\x73\x74','\x53\x6e\x4f\x70\x4b','\x62\x75\x66\x66\x65\x72','\x43\x48\x4f\x52\x44','\x5a\x53\x67\x53\x50','\x72\x61\x6e\x64\x6f\x6d','\x79\x6c\x5a\x54\x57','\x73\x70\x6f\x74\x59','\x4d\x53\x56\x79\x4d','\x63\x46\x78\x68\x63','\x63\x6c\x61\x73\x73\x4c\x69\x73\x74','\x4c\x65\x62\x4c\x69','\x36\x7c\x35\x7c\x32\x7c\x33\x7c\x30\x7c\x34\x7c\x31','\x73\x65\x61\x74\x73\x2d\x67\x72\x69\x64','\x70\x6c\x61\x79\x52\x65\x6c\x6f\x61\x64\x53\x6f\x75\x6e\x64','\x50\x72\x6f','\x47\x69\x47\x57\x46','\x67\x65\x74\x59','\x65\x6a\x77\x65\x45','\x67\x6e\x6b\x49\x71','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x3c\x73\x70\x61\x6e\x20\x63\x6c\x61\x73\x73\x3d\x22\x6c\x6f\x6f\x74\x2d\x69\x74\x65\x6d\x2d\x6e\x61\x6d\x65\x22\x3e','\x4a\x6b\x57\x54\x41','\x79\x4f\x6f\x4f\x6c','\uc800\uaca9\uc18c\ucd1d','\x58\x76\x72\x58\x63','\x56\x55\x51\x75\x63','\x63\x72\x79\x61\x4e','\x73\x59\x48\x4d\x4d','\x45\x7a\x55\x55\x6a','\x4c\x7a\x76\x6e\x75','\x48\x67\x63\x6b\x77','\x64\x69\x73\x70\x6f\x73\x65','\x68\x70\x55\x49','\x41\x6d\x62\x69\x65\x6e\x74\x4c\x69\x67\x68\x74','\x66\x77\x64','\x73\x75\x62','\x53\x4d\x4e\x74\x57','\x73\x63\x6f\x70\x65','\x78\x69\x76\x76\x70','\x62\x6f\x64\x79','\x50\x79\x78\x67\x75','\x46\x74\x56\x4b\x63','\x44\x7a\x5a\x57\x66','\x65\x6c\x62\x6f\x77','\x54\x46\x68\x4b\x74','\x44\x6a\x4d\x4f\x53','\x73\x61\x77\x74\x6f\x6f\x74\x68','\x62\x74\x6e\x2d\x74\x68\x72\x6f\x77\x2d\x73\x6d\x6f\x6b\x65','\x4c\x61\x6a\x4d\x7a','\x4c\x65\x64\x58\x76','\x57\x4f\x55\x43\x7a','\x41\x49\x52\x50\x4c\x41\x4e\x45','\x79\x56\x61\x54\x6c','\x55\x6a\x6f\x62\x47','\x65\x62\x69\x54\x54','\x73\x68\x6f\x6f\x74\x65\x72\x50\x6f\x73','\x69\x48\x4f\x50\x56','\x49\x51\x4c\x54\x43','\x64\x69\x76','\x4b\x65\x79\x57','\x71\x56\x56\x49\x67','\x50\x65\x78\x5a\x6c','\x6c\x78\x70\x57\x50','\x69\x6e\x76\x2d\x73\x6d\x6f\x6b\x65\x2d\x63\x6f\x75\x6e\x74','\x43\x6c\x63\x4f\x41','\x51\x48\x61\x5a\x6b','\x23\x66\x66\x64\x35\x34\x66','\x70\x76\x48\x76\x50','\x72\x61\x64\x69\x75\x73','\x7a\x7a\x70\x4a\x54','\x4c\x68\x4b\x6c\x69','\x4e\x77\x48\x45\x4c','\x4a\x43\x71\x72\x70','\x6f\x51\x71\x4f\x70','\x45\x4d\x72\x79\x43','\x35\x7c\x38\x7c\x33\x7c\x32\x7c\x36\x7c\x34\x7c\x37\x7c\x31\x7c\x30','\x61\x75\x73\x4b\x57','\x4a\x6a\x4d\x56\x78','\x47\x56\x43\x59\x6d','\x4f\x74\x72\x4b\x56','\x70\x6c\x61\x79\x53\x6b\x79\x64\x69\x76\x65\x57\x69\x6e\x64\x53\x6f\x75\x6e\x64','\x64\x69\x72\x65\x63\x74\x69\x6f\x6e','\x6c\x65\x66\x74\x54\x68\x69\x67\x68','\x64\x6f\x6d\x45\x6c\x65\x6d\x65\x6e\x74','\x6e\x56\x61\x44\x6c','\x62\x6c\x59\x4c\x78','\x69\x75\x48\x6e\x64','\x43\x48\x65\x59\x47','\x62\x74\x6e\x2d\x69\x6e\x74\x65\x72\x61\x63\x74','\x6e\x6f\x72\x6d\x61\x6c\x69\x7a\x65','\x6d\x52\x68\x73\x42','\x6d\x68\x6d\x4f\x6c','\x50\x4f\x4b\x71\x44','\x4e\x4e\x55\x47\x68','\x61\x6d\x6d\x6f\x54\x79\x70\x65','\x4e\x4f\x4e\x45','\x70\x69\x63\x6b\x75\x70\x49\x74\x65\x6d','\x72\x4e\x4c\x63\x42','\x62\x6c\x6f\x63\x6b','\x63\x61\x55\x4b\x61','\x55\x4e\x5a\x48\x50','\x4e\x66\x5a\x6c\x56','\x6e\x59\x65\x41\x4b','\x6f\x66\x66\x73\x65\x74\x48\x65\x69\x67\x68\x74','\x6f\x5a\x70\x6a\x41','\x36\x70\x78','\x73\x63\x6f\x70\x65\x2d\x6d\x61\x67\x2d\x74\x65\x78\x74','\x69\x77\x67\x77\x43','\x4a\x6d\x59\x62\x73','\x4d\x72\x6d\x4a\x41','\x77\x4f\x67\x45\x62','\x48\x61\x49\x6a\x6a','\x73\x70\x6f\x74\x5a','\x79\x44\x51\x51\x55','\x6c\x65\x6e\x67\x74\x68','\x57\x71\x50\x55\x4b','\x4e\x48\x67\x74\x55','\x4b\x65\x79\x44','\x54\x79\x64\x72\x47','\x46\x72\x67\x70\x6d','\x63\x52\x76\x51\x66','\x45\x54\x6c\x55\x6b','\x78\x69\x64\x45\x75','\x35\x2e\x35\x36\x6d\x6d\x20\ud0c4\ucc3d\x20\ud68d\ub4dd\x21\x20\x28\x2b\x36\x30\ubc1c\x29','\ud5ec\uba67\x20\x4c\x65\x76\x65\x6c\x20\x33','\x73\x6f\x70\x64\x43','\x66\x71\x67\x71\x4b','\x6c\x71\x4d\x76\x78','\x6c\x41\x79\x68\x79','\x6a\x76\x79\x49\x74','\x4d\x51\x4e\x79\x62','\x63\x6f\x6e\x73\x74\x72\x75\x63\x74\x6f\x72','\x6e\x62\x76\x69\x6e','\x67\x65\x6f\x6d\x65\x74\x72\x69\x65\x73','\x63\x72\x6f\x73\x73\x68\x61\x69\x72','\x6f\x50\x65\x6f\x73','\x6d\x65\x73\x73\x61\x67\x65','\x73\x56\x45\x78\x41','\x4d\x65\x73\x68\x53\x74\x61\x6e\x64\x61\x72\x64\x4d\x61\x74\x65\x72\x69\x61\x6c','\x45\x4d\x5a\x69\x61','\x4c\x64\x63\x5a\x41','\x70\x6f\x73\x69\x74\x69\x6f\x6e','\x64\x65\x73\x74\x69\x6e\x61\x74\x69\x6f\x6e','\x51\x57\x74\x58\x4e','\x48\x41\x4c\x78\x6e','\x6d\x75\x6c\x74\x69\x70\x6c\x79','\x70\x44\x71\x70\x52','\uc5f0\ub9c9\ud0c4\uc774\x20\uc5c6\uc2b5\ub2c8\ub2e4\x21','\x67\x6e\x70\x4b\x49','\x69\x6e\x76\x65\x6e\x74\x6f\x72\x79\x2d\x75\x69','\x76\x6a\x77\x55\x52','\x68\x56\x71\x56\x74','\x50\x49\x47\x56\x78','\x4c\x6e\x47\x79\x43','\x4b\x55\x44\x6e\x74','\x50\x41\x52\x41\x43\x48\x55\x54\x49\x4e\x47','\x68\x70\x2d\x66\x69\x6c\x6c\x2d','\x70\x6c\x61\x79\x4d\x61\x74\x63\x68\x45\x6e\x64\x53\x6f\x75\x6e\x64','\x41\x6c\x44\x78\x47','\x77\x61\x6c\x6c\x73','\x45\x4d\x6b\x4c\x6a','\x67\x72\x6f\x75\x70','\x4b\x4f\x61\x54\x56','\x4c\x45\x46\x54','\x55\x45\x6c\x76\x5a','\x61\x6a\x66\x46\x76','\x70\x6f\x69\x6e\x74\x65\x72\x4c\x6f\x63\x6b\x45\x6c\x65\x6d\x65\x6e\x74','\x59\x61\x53\x58\x4a','\x6b\x68\x58\x57\x61','\x42\x6f\x78\x47\x65\x6f\x6d\x65\x74\x72\x79','\x54\x41\x4b\x73\x4b','\x72\x65\x73\x75\x6d\x65','\x63\x68\x61\x6e\x67\x65\x64\x54\x6f\x75\x63\x68\x65\x73','\x74\x4b\x51\x6d\x71','\x4d\x57\x66\x42\x57','\x45\x72\x72\x6f\x72\x20\x61\x74\x74\x65\x6d\x70\x74\x69\x6e\x67\x20\x74\x6f\x20\x65\x6e\x61\x62\x6c\x65\x20\x66\x75\x6c\x6c\x2d\x73\x63\x72\x65\x65\x6e\x20\x6d\x6f\x64\x65\x3a\x20','\x42\x72\x41\x79\x50','\x4a\x77\x57\x46\x72','\x38\ubc30\uc728\x20\uc2a4\ucf54\ud504','\x66\x48\x62\x4f\x6e','\x78\x6a\x53\x45\x4e','\x6d\x6f\x76\x65\x6d\x65\x6e\x74\x59','\x48\x49\x54','\x4f\x5a\x44\x55\x66','\x65\x6e\x65\x6d\x79\x2d\x68\x70\x2d\x62\x61\x72\x2d\x62\x67','\x73\x68\x61\x64\x6f\x77','\ub2f9\uc2e0\uc774\x20','\x57\x51\x68\x64\x43','\u26a0\ufe0f\x20\uc6c0\uc9c1\uc784\uc73c\ub85c\x20\uc778\ud574\x20\uad6c\uae09\uc0c1\uc790\x20\uc0ac\uc6a9\uc774\x20\ucde8\uc18c\ub418\uc5c8\uc2b5\ub2c8\ub2e4\x2e','\x6f\x72\x64\x65\x72','\x6b\x69\x48\x70\x68','\x46\x66\x45\x44\x65','\x73\x4f\x49\x6f\x4a','\x64\x69\x73\x63\x6f\x6e\x6e\x65\x63\x74','\x72\x78\x4c\x42\x64','\x6b\x6d\x74\x58\x5a','\x61\x6d\x48\x48\x6d','\x70\x6c\x61\x79\x50\x6c\x61\x6e\x65\x53\x6f\x75\x6e\x64','\uc2dc\uccb4\uc0c1\uc790\uc5d0\uc11c\x20\x5b\uc5f0\ub9c9\ud0c4\x5d\x20\ud68d\ub4dd\x21','\x52\x6e\x69\x4f\x63','\x54\x7a\x55\x54\x5a','\x62\x74\x6e\x2d\x70\x72\x6f\x6e\x65','\x48\x53\x45\x7a\x64','\x51\x72\x46\x6c\x63','\x6c\x65\x6e\x67\x74\x68\x53\x71','\x43\x6b\x48\x41\x4a','\x56\x46\x6f\x4a\x57','\x28\x28\x28\x2e\x2b\x29\x2b\x29\x2b\x29\x2b\x24','\x55\x67\x46\x58\x64','\x49\x43\x55\x63\x57','\x70\x6c\x61\x6e\x65\x2d\x6f\x63\x63\x75\x70\x61\x6e\x74\x73\x2d\x63\x6f\x75\x6e\x74','\x72\x49\x45\x53\x76','\x6d\x46\x63\x45\x59','\x61\x70\x70\x65\x6e\x64\x43\x68\x69\x6c\x64','\x6e\x4f\x72\x4b\x46','\x4d\x50\x45\x4b\x7a','\x71\x76\x48\x66\x71','\x78\x56\x66\x68\x4a','\x39\x6d\x6d\x20\uad8c\ucd1d\ud0c4','\x6d\x42\x58\x41\x6b','\x75\x50\x65\x64\x6c','\x4f\x53\x4b\x51\x64','\x5a\x4a\x53\x78\x50','\x76\x69\x50\x67\x6c','\x63\x6c\x61\x73\x73\x4e\x61\x6d\x65','\x67\x73\x62\x41\x4f','\x76\x59\x76\x68\x4a','\x63\x6f\x64\x65','\x78\x71\x58\x68\x72','\x72\x45\x62\x44\x4b','\x51\x48\x70\x42\x62','\x58\x45\x51\x78\x45','\x4c\x48\x4e\x52\x42','\x74\x4b\x77\x50\x53','\x74\x68\x72\x6f\x77\x2d\x73\x68\x6f\x72\x74\x63\x75\x74\x73','\x63\x6c\x69\x65\x6e\x74\x59','\x67\x62\x72\x4a\x76','\x43\x63\x6a\x53\x5a','\x69\x4c\x49\x56\x51','\x50\x77\x62\x75\x68','\x6a\x76\x59\x69\x48','\x62\x6f\x72\x64\x65\x72\x52\x61\x64\x69\x75\x73','\x57\x61\x4c\x70\x72','\x73\x61\x6d\x70\x6c\x65\x52\x61\x74\x65','\x4d\x67\x42\x79\x71','\x62\x49\x57\x68\x75','\x6b\x73\x5a\x45\x6d','\x73\x75\x62\x56\x65\x63\x74\x6f\x72\x73','\x42\x53\x62\x51\x4f','\x76\x69\x63\x74\x6f\x72\x79\x2d\x6d\x69\x6e\x69\x2d\x62\x74\x6e','\x41\x46\x64\x7a\x55','\x30\x7c\x32\x7c\x34\x7c\x33\x7c\x31','\x72\x65\x6e\x64\x65\x72','\x23\x66\x66\x33\x33\x33\x33','\x72\x67\x62\x61\x28\x32\x35\x35\x2c\x20\x30\x2c\x20\x30\x2c\x20','\x6d\x55\x6c\x4a\x41','\x76\x55\x4c\x6b\x6b','\uc218\ub958\ud0c4','\x77\x48\x4f\x57\x4f','\x50\x4c\x41\x59\x49\x4e\x47','\x69\x58\x62\x68\x68','\x49\x68\x4b\x6c\x6e','\x43\x6a\x42\x50\x67','\x58\x4e\x48\x73\x6c','\x4e\x78\x62\x70\x4f','\x76\x65\x6c\x59','\x2c\x20\x27','\x3c\x2f\x73\x70\x61\x6e\x3e\x3c\x62\x72\x3e\ubcf4\uc720\x20\ud0c4\uc218\x3a\x20\x3c\x73\x70\x61\x6e\x20\x73\x74\x79\x6c\x65\x3d\x22\x63\x6f\x6c\x6f\x72\x3a\x23\x66\x66\x65\x62\x33\x62\x3b\x20\x66\x6f\x6e\x74\x2d\x73\x69\x7a\x65\x3a\x31\x36\x70\x78\x3b\x20\x66\x6f\x6e\x74\x2d\x77\x65\x69\x67\x68\x74\x3a\x62\x6f\x6c\x64\x3b\x22\x3e','\x48\x49\x69\x75\x53','\x78\x6e\x42\x56\x78','\x6c\x47\x64\x5a\x6e','\x4e\x55\x69\x65\x47','\x6e\x4f\x63\x59\x5a','\x63\x72\x61\x76\x44','\x68\x4e\x4c\x44\x6d','\x34\ubc30\uc728\x20\uc2a4\ucf54\ud504','\x72\x65\x64\x75\x63\x74\x69\x6f\x6e','\x68\x45\x49\x61\x6b','\x69\x6e\x6e\x65\x72\x48\x65\x69\x67\x68\x74','\x73\x6f\x6c\x64\x69\x65\x72','\x64\x68\x71\x59\x65','\x77\x5a\x4d\x41\x4e','\x32\x54\x77\x64\x69\x66\x6b','\x54\x45\x6b\x48\x5a','\x68\x69\x77\x75\x4b','\x63\x70\x66\x47\x6f','\x39\x69\x65\x75\x41\x4e\x43','\x6d\x74\x6c\x5a\x44','\x41\x49\x5f','\x4e\x43\x52\x6b\x72','\x66\x69\x72\x73\x74\x61\x69\x64\x73','\x45\x4a\x70\x72\x44','\x4e\x76\x56\x46\x79','\u26a0\ufe0f\x20\ud53c\ud574\ub97c\x20\uc785\uc5b4\x20\uad6c\uae09\uc0c1\uc790\x20\uc0ac\uc6a9\uc774\x20\ucde8\uc18c\ub418\uc5c8\uc2b5\ub2c8\ub2e4\x2e','\x4a\x63\x43\x49\x76','\x43\x6f\x6e\x65\x47\x65\x6f\x6d\x65\x74\x72\x79','\x73\x74\x69\x59\x79','\x4e\x69\x56\x4c\x74','\x63\x65\x61\x54\x58','\x47\x46\x72\x63\x4f','\x45\x75\x53\x72\x74','\x76\x5a\x6b\x43\x58','\x72\x69\x67\x68\x74','\x47\x48\x7a\x76\x52','\x63\x72\x4c\x6a\x79','\x69\x6e\x76\x2d\x67\x72\x65\x6e\x61\x64\x65\x2d\x63\x6f\x75\x6e\x74','\x48\x54\x6c\x76\x4a','\x47\x46\x42\x68\x4a','\x74\x61\x72\x67\x65\x74\x53\x63\x61\x6c\x65','\x5d\x20\uc7a5\ucc29\x21','\x6e\x73\x75\x6c\x4d','\x51\x49\x6e\x4b\x57','\x43\x69\x72\x63\x6c\x65\x47\x65\x6f\x6d\x65\x74\x72\x79','\x34\x7c\x30\x7c\x32\x7c\x35\x7c\x33\x7c\x31','\x74\x64\x4b\x42\x63','\uc2dc\uccb4\uc0c1\uc790\uc5d0\uc11c\x20\x5b','\x50\x6f\x67\x79\x45','\x73\x58\x58\x43\x47','\x77\x41\x66\x6a\x4c','\x72\x6f\x74\x61\x74\x69\x6f\x6e','\x4c\x47\x61\x66\x51','\x77\x7a\x4c\x6e\x6c','\x43\x50\x62\x62\x46','\x51\x51\x58\x74\x6a','\x65\x54\x71\x6e\x42','\x46\x5a\x79\x42\x73','\x6c\x61\x53\x4d\x6f','\x52\x45\x6b\x64\x4b','\x4a\x5a\x65\x52\x51','\x58\x78\x72\x6d\x64','\x62\x69\x6d\x76\x64','\x6f\x77\x69\x6a\x76','\x6c\x4d\x75\x76\x77','\x61\x74\x61\x6e\x32','\x55\x51\x69\x58\x4b','\x73\x6e\x79\x69\x4a','\x63\x6e\x53\x54\x65','\x73\x69\x58\x6d\x63','\x51\x6b\x62\x66\x4a','\x45\x7a\x66\x77\x65','\x52\x4f\x43\x4b','\x6c\x52\x78\x6c\x64','\x55\x5a\x44\x4b\x4e','\x43\x48\x49\x43\x4b','\x6c\x75\x78\x79\x6e','\x56\x77\x69\x62\x64','\x57\x43\x4a\x4e\x44','\x47\x44\x70\x6f\x6b','\x68\x54\x76\x46\x65','\x73\x71\x72\x74','\x4a\x55\x48\x72\x76','\x75\x45\x6b\x78\x4f','\x42\x75\x66\x66\x65\x72\x41\x74\x74\x72\x69\x62\x75\x74\x65','\x56\x4a\x6d\x6e\x61','\x71\x64\x78\x67\x4e','\x51\x4d\x62\x5a\x55','\x44\x6c\x72\x66\x4c','\x4d\x4f\x57\x66\x76','\x64\x52\x50\x54\x72','\ud83e\ude82\x20\ub6f0\uc5b4\ub0b4\ub9ac\uae30','\x4e\x51\x78\x75\x46','\x50\x5a\x6d\x79\x63','\x58\x64\x71\x50\x6d','\x67\x6f\x48\x4e\x44','\x59\x61\x70\x49\x65','\x71\x45\x71\x73\x4b','\x73\x46\x52\x4e\x41','\x68\x67\x4c\x63\x42','\x71\x66\x67\x7a\x41','\x50\x55\x4e\x43\x48','\x48\x44\x63\x76\x73','\x6d\x73\x6d\x4e\x67','\x45\x48\x73\x71\x63','\x32\x30\x35\x37\x33\x31\x37\x30\x52\x61\x75\x63\x44\x74','\x6a\x51\x6d\x46\x45','\x69\x6e\x76\x2d\x61\x6d\x6d\x6f\x2d\x73\x68\x6f\x74\x67\x75\x6e','\x52\x4c\x4f\x4b\x50','\x4a\x79\x6e\x55\x77','\uc11c\uae30\x20\x28\x53\x74\x61\x6e\x64\x29','\x52\x56\x72\x48\x6f','\x62\x61\x6e\x64\x70\x61\x73\x73','\x27\x29\x3b\x20\x65\x76\x65\x6e\x74\x2e\x73\x74\x6f\x70\x50\x72\x6f\x70\x61\x67\x61\x74\x69\x6f\x6e\x28\x29\x3b\x22\x3e\uc90d\uae30\x3c\x2f\x62\x75\x74\x74\x6f\x6e\x3e\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','\x58\x42\x6d\x4c\x48','\x5a\x44\x51\x4d\x74','\x72\x61\x6e\x67\x65','\x6f\x78\x4f\x74\x44','\x6d\x69\x6e\x58','\x6f\x6e\x63\x6c\x69\x63\x6b','\x45\x59\x74\x52\x42','\x52\x49\x46\x4c\x45','\x6e\x7a\x6d\x51\x43','\x59\x54\x70\x73\x64','\x70\x6c\x61\x79\x53\x6d\x6f\x6b\x65\x48\x69\x73\x73','\x76\x75\x6a\x4c\x45','\x49\x66\x4c\x5a\x46','\x41\x72\x4c\x4d\x63','\x6d\x69\x6e','\x64\x6a\x61\x52\x48','\x73\x69\x6e','\x76\x79\x56\x7a\x53','\x74\x43\x57\x41\x49','\x77\x69\x64\x74\x68','\x65\x61\x64\x75\x65','\u26a0\ufe0f\x20\uc218\ub958\ud0c4\x20\ud3ed\ubc1c\x20\uce58\uba85\uc801\x20\ud53c\ud574\x21','\x70\x75\x73\x68','\x63\x4b\x6d\x77\x48','\x6d\x75\x6c\x74\x69\x70\x6c\x79\x53\x63\x61\x6c\x61\x72','\x4f\x56\x55\x51\x7a','\x48\x3a\x20\uc5f0\ub9c9\ud0c4\x20\ub358\uc9c0\uae30\x20\x28','\x6f\x62\x6a\x65\x63\x74','\x53\x64\x4d\x75\x57','\x45\x72\x49\x67\x6a','\x66\x6f\x6e\x74\x57\x65\x69\x67\x68\x74','\x55\x52\x59\x65\x6e','\x66\x69\x6e\x64','\x4a\x64\x73\x71\x68','\x54\x41\x5a\x55\x67','\uac00\ubc29\x20\uacf5\uac04\x20\ubd80\uc871\x21\x20\x28\uae30\ubcf8\x20\ucd5c\ub300\x20\x32\uac1c\x29','\x69\x6e\x74\x65\x72\x73\x65\x63\x74\x4f\x62\x6a\x65\x63\x74\x73','\x70\x50\x71\x7a\x4a','\x61\x76\x6f\x69\x64\x61\x6e\x63\x65\x54\x69\x6d\x65\x72','\x62\x74\x6e\x2d\x74\x68\x72\x6f\x77\x2d\x67\x72\x65\x6e\x61\x64\x65','\x6a\x6f\x79\x73\x74\x69\x63\x6b\x2d\x73\x74\x69\x63\x6b','\x50\x49\x53\x54\x4f\x4c','\x4e\x69\x47\x4a\x62','\x4b\x65\x79\x48','\x32\x7c\x34\x7c\x30\x7c\x33\x7c\x31','\x46\x5a\x4e\x57\x48','\x6a\x49\x6e\x48\x67','\ud83e\ude82\x20\ub099\ud558\uc0b0\x20\ud3b4\uae30\x20\x28\uc88c\ud074\ub9ad\x2f\x46\x29','\x4e\x6d\x6c\x54\x55','\x59\x55\x4b\x54\x4c','\x6c\x61\x73\x74\x48\x69\x74\x54\x69\x6d\x65','\x55\x6b\x57\x44\x75','\x4a\x46\x43\x6a\x64','\x77\x68\x65\x65\x6c','\x53\x44\x4d\x51\x56','\x75\x70\x64\x61\x74\x65\x48\x65\x6c\x6d\x65\x74\x56\x69\x73\x75\x61\x6c','\x57\x6b\x6f\x5a\x71','\x63\x6c\x65\x61\x72\x52\x65\x63\x74','\x30\x20\x30\x20\x36\x70\x78\x20\x23\x66\x66\x65\x62\x33\x62','\x50\x4c\x69\x4c\x66','\x6b\x6e\x75\x51\x49','\x41\x4a\x6d\x47\x70','\x64\x70\x69\x44\x72','\x42\x4b\x61\x4c\x66','\x67\x65\x6f\x6d\x65\x74\x72\x79','\x6f\x48\x45\x76\x6c','\x49\x4e\x5f\x50\x4c\x41\x4e\x45','\x64\x65\x66\x69\x6e\x65\x50\x72\x6f\x70\x65\x72\x74\x79','\x54\x6b\x42\x4a\x48','\x59\x4d\x62\x47\x7a','\uac1c\x20\ud68d\ub4dd\x21','\x63\x46\x6f\x4d\x71','\uc774\ubbf8\x20\ud0c4\uc57d\uc774\x20\uac00\ub4dd\x20\ucc28\x20\uc788\uc2b5\ub2c8\ub2e4\x2e','\x43\x46\x64\x43\x75','\x47\x4c\x7a\x6a\x4c','\x4c\x56\x65\x66\x55','\x6c\x68\x41\x71\x63','\uc800\uaca9\ucd1d','\x72\x57\x6c\x65\x71','\x73\x79\x6c\x71\x76','\x67\x61\x64\x67\x46','\x6d\x4c\x74\x62\x54','\x6a\x51\x6a\x51\x5a','\x57\x73\x6d\x7a\x41','\x30\x7c\x33\x7c\x34\x7c\x31\x7c\x35\x7c\x32','\ud83d\udd0a\x20\x53\x46\x58\x3a\x20\x4f\x46\x46','\x50\x74\x51\x6e\x6e','\x70\x75\x66\x66\x73','\x74\x65\x78\x74\x53\x68\x61\x64\x6f\x77','\x5a\x5a\x77\x75\x54','\x73\x76\x6e\x43\x5a','\x71\x6f\x65\x4d\x64','\x6c\x65\x66\x74\x4b\x6e\x65\x65','\x68\x61\x54\x68\x74','\x33\x7c\x30\x7c\x34\x7c\x32\x7c\x35\x7c\x31\x7c\x36','\x69\x6e\x76\x2d\x73\x63\x6f\x70\x65\x2d\x76\x61\x6c','\x44\x61\x66\x67\x43','\x74\x57\x75\x7a\x6b','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x3c\x73\x70\x61\x6e\x20\x63\x6c\x61\x73\x73\x3d\x22\x6c\x6f\x6f\x74\x2d\x69\x74\x65\x6d\x2d\x6e\x61\x6d\x65\x22\x3e','\x50\x41\x64\x41\x5a','\x4f\x53\x65\x4b\x57','\x4f\x45\x47\x66\x41','\x39\x6d\x6d\x20\ud0c4\ucc3d','\x4f\x50\x55\x69\x41','\x41\x4a\x74\x59\x46','\x6d\x6f\x75\x73\x65\x64\x6f\x77\x6e','\x65\x72\x72\x6f\x72','\x6c\x67\x57\x46\x79','\x58\x53\x78\x59\x4c','\x64\x66\x67\x4a\x62','\x4d\x68\x52\x56\x74','\x4e\x79\x4f\x6c\x47','\x71\x75\x61\x74\x65\x72\x6e\x69\x6f\x6e','\x20\ud22c\ucc99\x21','\uad6c\uae09\uc0c1\uc790\x20\ud68d\ub4dd\x21','\x69\x74\x48\x69\x63','\x73\x74\x61\x72\x74\x2d\x62\x74\x6e','\x6c\x61\x62\x65\x6c','\x63\x61\x6e\x63\x65\x6c\x53\x63\x68\x65\x64\x75\x6c\x65\x64\x56\x61\x6c\x75\x65\x73','\x65\x78\x69\x74\x50\x6f\x69\x6e\x74\x65\x72\x4c\x6f\x63\x6b','\x4c\x6b\x76\x4f\x4f','\x76\x6b\x56\x74\x53','\x6c\x4b\x4d\x6b\x5a','\x4c\x59\x70\x6e\x75','\x4c\x71\x56\x42\x56','\x6a\x75\x6d\x70\x54\x69\x6d\x65','\uc218\ub958\ud0c4\uc774\x20\uc5c6\uc2b5\ub2c8\ub2e4\x21','\x69\x4a\x4f\x42\x69','\x45\x65\x62\x6e\x52','\x44\x42\x75\x68\x70','\x45\x75\x6c\x65\x72','\u26a0\ufe0f\x20\ud0c4\ucc3d\uc774\x20\ube44\uc5b4\uc788\uc2b5\ub2c8\ub2e4\x21\x20\x52\ud0a4\ub85c\x20\uc7a5\uc804\ud558\uc138\uc694\x2e','\x47\x63\x59\x57\x50','\x55\x62\x72\x50\x7a','\x41\x4d\x4d\x4f\x5f\x53\x48\x4f\x54\x47\x55\x4e','\x70\x6f\x73','\x59\x43\x50\x42\x4d','\x77\x61\x6e\x64\x65\x72\x44\x69\x72','\x74\x69\x6b\x68\x79','\x72\x59\x62\x61\x71','\x75\x67\x57\x57\x65','\x57\x6b\x71\x74\x75','\x48\x50\x3a\x20','\x50\x4a\x7a\x5a\x79','\x74\x41\x59\x4f\x75','\x57\x73\x74\x61\x59','\x74\x72\x5a\x6a\x59','\x77\x43\x71\x4e\x75','\x66\x52\x6d\x65\x6b','\x56\x64\x6f\x68\x57','\x41\x4b\x45\x62\x75','\x66\x4f\x53\x44\x5a','\x68\x69\x74\x43\x6f\x75\x6e\x74','\x59\x58\x66\x45\x62','\x43\x51\x55\x42\x61','\x74\x46\x47\x56\x44','\x63\x6c\x69\x63\x6b','\x73\x56\x53\x72\x74','\x68\x65\x61\x6c\x2d\x70\x72\x6f\x67\x72\x65\x73\x73\x2d\x63\x6f\x6e\x74\x61\x69\x6e\x65\x72','\x4b\x74\x73\x64\x77','\x51\x72\x48\x76\x6a','\x78\x47\x46\x79\x6a','\x48\x4c\x58\x76\x64','\x59\x6c\x64\x67\x52','\x6e\x6a\x6c\x70\x4d','\x62\x77\x74\x6e\x65','\x63\x64\x64\x4c\x72','\x4b\x50\x78\x43\x78','\uae30\uacc4\uc2dd\x20\uc870\uc900\uae30','\x70\x54\x49\x68\x43','\x53\x63\x57\x49\x51','\x69\x6e\x73\x74\x72\x75\x63\x74\x69\x6f\x6e','\x4a\x42\x46\x59\x53','\x63\x75\x72\x72\x65\x6e\x74\x54\x69\x6d\x65','\x69\x63\x4b\x49\x44','\x64\x64\x6d\x42\x42','\x71\x76\x6c\x48\x59','\x68\x4e\x4e\x67\x73','\x4e\x6f\x6f\x62','\x56\x58\x64\x7a\x77','\x6e\x59\x4b\x46\x43','\x64\x43\x64\x75\x73','\x4b\x7a\x65\x75\x49','\x73\x68\x69\x66\x74','\x6e\x4b\x55\x57\x55','\x6e\x74\x5a\x71\x49','\x70\x41\x76\x54\x55','\x43\x4f\x47\x56\x4a','\x49\x6b\x66\x4b\x6d','\x51\x71\x50\x4f\x6c','\x6d\x61\x74\x63\x68\x2d\x69\x6e\x66\x6f','\x54\x61\x62','\x71\x4f\x62\x67\x42','\x61\x6d\x6d\x6f','\x6c\x7a\x51\x6c\x65','\x6d\x69\x6e\x5a','\x70\x72\x65\x76\x65\x6e\x74\x44\x65\x66\x61\x75\x6c\x74','\x65\x72\x47\x51\x45','\u26a0\ufe0f\x20\ube14\ub8e8\uc874\uc774\x20\uc904\uc5b4\ub4e4\uace0\x20\uc788\uc2b5\ub2c8\ub2e4\x21','\x65\x45\x44\x53\x64','\ub9e4\uce58\x20\uc2dc\uc791\x20\x28\ud130\uce58\x29','\x4b\x78\x45\x57\x48','\x51\x62\x6b\x55\x69','\x65\x74\x76\x61\x59','\x6b\x44\x7a\x54\x6d','\x4f\x72\x69\x65\x6e\x74\x61\x74\x69\x6f\x6e\x20\x6c\x6f\x63\x6b\x20\x65\x72\x72\x6f\x72\x3a\x20','\x68\x4c\x51\x7a\x53','\x47\x59\x66\x72\x7a','\x73\x65\x74\x56\x61\x6c\x75\x65\x41\x74\x54\x69\x6d\x65','\x61\x78\x54\x65\x46','\x73\x74\x6f\x70','\x43\x43\x41\x67\x74','\x59\x65\x6c\x75\x56','\x48\x74\x51\x61\x79','\x65\x63\x4f\x4d\x75','\x5a\x43\x78\x4c\x4b','\x63\x69\x65\x77\x70','\x53\x43\x4f\x50\x45','\x57\x51\x47\x54\x6c','\x73\x48\x77\x64\x5a','\x61\x52\x6e\x44\x69','\x72\x52\x6b\x78\x75','\x5a\x72\x6c\x4a\x49','\x6c\x6f\x6f\x74\x2d\x70\x72\x6f\x6d\x70\x74','\x71\x64\x68\x75\x76','\x73\x74\x6f\x70\x50\x72\x6f\x70\x61\x67\x61\x74\x69\x6f\x6e','\x73\x74\x6f\x70\x50\x6c\x61\x6e\x65\x53\x6f\x75\x6e\x64','\x62\x74\x6e\x2d\x68\x65\x61\x6c','\x67\x65\x74\x43\x6f\x6e\x74\x65\x78\x74','\x6a\x43\x41\x64\x6d','\x5a\x4d\x4b\x4e\x54','\x63\x65\x44\x4d\x75','\x43\x51\x51\x56\x78','\x45\x43\x78\x47\x5a','\x61\x65\x54\x61\x61','\x62\x75\x4b\x4f\x44','\x64\x69\x72','\x72\x65\x73\x74\x61\x72\x74\x2d\x62\x74\x6e','\x54\x47\x58\x48\x55','\x69\x6e\x76\x2d\x66\x69\x72\x73\x74\x61\x69\x64\x2d\x63\x6f\x75\x6e\x74','\uc549\uae30\x20\x28\x43\x72\x6f\x75\x63\x68\x29','\x64\x4d\x6d\x54\x6b','\x63\x72\x65\x61\x74\x65\x47\x61\x69\x6e','\x49\x6e\x59\x54\x57','\x3c\x2f\x73\x70\x61\x6e\x3e\x20\x2f\x20','\x6a\x6e\x6e\x45\x6e','\x54\x52\x45\x45','\x77\x65\x61\x70\x6f\x6e','\x6d\x4e\x4b\x4d\x54','\x53\x48\x52\x49\x4e\x4b\x49\x4e\x47','\x69\x4e\x51\x44\x47','\x6f\x76\x65\x72\x6c\x61\x79','\x45\x79\x6c\x5a\x71','\x70\x75\x52\x61\x4c','\x52\x42\x6b\x71\x4f','\x4b\x50\x55\x6b\x54','\x6b\x58\x69\x4f\x6f','\x69\x73\x41\x72\x72\x61\x79','\x4c\x62\x55\x66\x50','\x64\x67\x79\x4c\x52','\x74\x68\x65\x6e','\x65\x42\x58\x4f\x59','\x68\x61\x66\x49\x4a','\x72\x69\x67\x68\x74\x4a\x6f\x69\x6e\x74','\x62\x73\x4b\x70\x43','\x54\x43\x6e\x4f\x57','\x67\x50\x52\x61\x4d','\x4b\x55\x47\x4a\x68','\x69\x42\x76\x41\x4a','\x70\x78\x6d\x4a\x59','\x47\x69\x42\x74\x52','\x70\x6c\x61\x79\x4c\x6f\x6f\x74\x53\x6f\x75\x6e\x64','\x44\x6f\x74\x55\x76','\x49\x4f\x6d\x46\x64','\x73\x65\x74\x59','\x64\x72\x69\x66\x74\x53\x70\x65\x65\x64','\x78\x63\x55\x7a\x58','\x6c\x61\x73\x74\x53\x68\x6f\x74','\x75\x70\x64\x61\x74\x65\x42\x61\x67\x56\x69\x73\x75\x61\x6c','\x55\x4f\x62\x53\x47','\x78\x57\x43\x58\x5a','\x53\x49\x6a\x41\x73','\x66\x6d\x4a\x6e\x6d','\x71\x76\x70\x58\x4f','\x42\x75\x66\x66\x65\x72\x47\x65\x6f\x6d\x65\x74\x72\x79','\x70\x6c\x61\x79\x65\x72\x2d\x68\x70\x2d\x74\x65\x78\x74','\ucd5c\uc885\x20\uc0dd\uc874\uc790\x3a\x20\x31\uba85\x20\x28\uc6b0\uc2b9\x21\x29\x3c\x62\x72\x3e\ub098\uc758\x20\ucc98\uce58\x20\uc218\x3a\x20\x3c\x73\x74\x72\x6f\x6e\x67\x20\x73\x74\x79\x6c\x65\x3d\x22\x63\x6f\x6c\x6f\x72\x3a\x20\x23\x66\x66\x65\x62\x33\x62\x3b\x20\x66\x6f\x6e\x74\x2d\x73\x69\x7a\x65\x3a\x20\x32\x30\x70\x78\x3b\x22\x3e','\x79\x49\x72\x6f\x51','\x72\x65\x6c\x6f\x61\x64','\x4c\x56\x33','\x69\x54\x4d\x67\x4f','\x63\x70\x69\x46\x50','\x67\x44\x4a\x50\x6a','\uc218\ub958\ud0c4\x20','\x41\x4d\x4d\x4f\x5f\x53\x4e\x49\x50\x45\x52','\x38\x70\x78','\x72\x67\x74','\x5a\x70\x42\x64\x63','\x72\x65\x6d\x6f\x76\x65','\x61\x67\x45\x74\x47','\x73\x65\x74\x48\x65\x78','\x75\x58\x68\x4c\x69','\x76\x75\x49\x58\x78','\x62\x6c\x75\x65','\x6d\x61\x70','\x64\x69\x73\x70\x6c\x61\x79','\x4d\x6a\x4f\x78\x53','\x69\x6e\x76\x2d\x77\x65\x61\x70\x6f\x6e\x2d\x64\x72\x6f\x70\x2d\x62\x74\x6e','\x6b\x6e\x65\x65','\x57\x45\x57\x68\x65','\x75\x55\x55\x45\x4a','\x56\x4b\x78\x4a\x4f','\x3c\x2f\x73\x70\x61\x6e\x3e','\x76\x67\x72\x70\x73','\x68\x67\x49\x68\x77','\x77\x4b\x62\x75\x5a','\x4f\x70\x79\x58\x7a','\x75\x44\x41\x44\x61','\x57\x6a\x44\x51\x4b','\x73\x75\x73\x70\x65\x6e\x64\x65\x64','\x64\x6f\x74','\ud83c\udfc6\x20\uc774\uacbc\ub2ed\x21\x20\uc624\ub298\x20\uc800\ub141\uc740\x20\ud1b5\ub2ed\uc774\ub2ed\x21','\x58\x64\x55\x6a\x47','\x50\x45\x52\x43','\ud83d\udc8a\x20\uad6c\uae09\uc0c1\uc790\x20\uc0ac\uc6a9\x20\uc644\ub8cc\x21\x20\x28\uccb4\ub825\x20\x37\x35\x25\x20\ud68c\ubcf5\x29','\x51\x48\x58\x43\x73','\x42\x64\x70\x4b\x5a','\x73\x65\x74','\x61\x7a\x48\x41\x68','\x77\x61\x6e\x64\x65\x72\x54\x69\x6d\x65\x72','\x69\x6e\x6e\x65\x72\x54\x65\x78\x74','\x44\x63\x4f\x75\x50','\x61\x70\x70\x6c\x79\x51\x75\x61\x74\x65\x72\x6e\x69\x6f\x6e','\x6b\x69\x6c\x6c\x2d\x66\x65\x65\x64','\x70\x69\x76\x6f\x74','\x69\x6e\x6e\x65\x72\x48\x54\x4d\x4c','\x74\x59\x69\x69\x41','\x74\x4d\x6d\x50\x52','\x4f\x65\x56\x45\x42','\x64\x69\x73\x74\x61\x6e\x63\x65','\x4e\x6e\x41\x63\x68','\x48\x63\x49\x6e\x79','\x42\x55\x53\x48','\x70\x42\x70\x64\x63','\x4c\x50\x66\x49\x4b','\x48\x5a\x4d\x68\x42','\x74\x6f\x75\x63\x68\x65\x6e\x64','\x76\x54\x6f\x69\x6a','\x57\x57\x6d\x65\x4a','\x49\x52\x52\x61\x62','\uc5f0\ub9c9\ud0c4','\x63\x72\x65\x61\x74\x65\x42\x69\x71\x75\x61\x64\x46\x69\x6c\x74\x65\x72','\x42\x6e\x6f\x55\x56','\x66\x75\x50\x55\x44','\x72\x4c\x53\x78\x41','\x73\x61\x66\x65\x5a\x6f\x6e\x65\x54\x61\x72\x67\x65\x74','\x45\x44\x69\x6e\x46','\x74\x6f\x75\x63\x68\x2d\x6c\x6f\x6f\x6b\x2d\x7a\x6f\x6e\x65','\x66\x66\x47\x62\x46','\x65\x78\x70\x6f\x6e\x65\x6e\x74\x69\x61\x6c\x52\x61\x6d\x70\x54\x6f\x56\x61\x6c\x75\x65\x41\x74\x54\x69\x6d\x65','\x51\x63\x47\x64\x41','\x4e\x77\x6c\x79\x65','\x31\x7c\x34\x7c\x35\x7c\x32\x7c\x33\x7c\x36\x7c\x30','\x41\x4d\x4d\x4f\x5f\x52\x49\x46\x4c\x45','\x77\x63\x57\x74\x46','\x7a\x6f\x59\x6a\x72','\x4d\x57\x6d\x52\x6e','\x43\x6e\x51\x43\x71','\x20\ucc98\uce58\x20','\x74\x6f\x53\x74\x72\x69\x6e\x67','\x52\x49\x44\x67\x64','\x67\x56\x55\x46\x55','\x4a\x64\x64\x69\x77','\x77\x4c\x75\x78\x76','\x5a\x70\x4f\x58\x53','\x53\x48\x4f\x54\x47\x55\x4e','\x4a\x43\x74\x67\x41','\x72\x67\x62\x61\x28\x32\x35\x35\x2c\x20\x32\x35\x35\x2c\x20\x32\x35\x35\x2c\x20\x30\x2e\x31\x35\x29','\x32\ubc30\uc728\x20\uc2a4\ucf54\ud504','\x49\x4d\x72\x6b\x79','\x7a\x73\x72\x44\x6e','\x76\x61\x6c\x75\x65','\x33\uc778\uce6d\x20\x28\x54\x50\x50\x29','\x52\x4f\x63\x48\x41','\x62\x58\x72\x76\x79','\x6a\x4a\x4a\x72\x71','\x79\x53\x78\x67\x47','\x70\x6c\x61\x79\x65\x72\x2d\x68\x70\x2d\x62\x61\x72\x2d\x66\x69\x6c\x6c','\x4e\x4e\x67\x41\x51','\x59\x52\x53\x4d\x72','\x73\x65\x74\x46\x72\x6f\x6d\x51\x75\x61\x74\x65\x72\x6e\x69\x6f\x6e','\x67\x61\x6e\x63\x46','\x58\x6b\x74\x64\x45','\x54\x6a\x69\x6f\x51','\x7a\x69\x48\x63\x52','\x6c\x69\x4a\x73\x67','\x42\x47\x6a\x49\x53','\x61\x57\x5a\x4c\x6f','\x23\x66\x66\x38\x61\x38\x30','\x6a\x49\x51\x43\x61','\x46\x6c\x4b\x6d\x73','\x63\x6c\x6f\x6e\x65','\x6b\x51\x51\x6b\x63','\x49\x65\x67\x45\x6f','\x5a\x75\x43\x59\x4a','\x4d\x44\x43\x58\x6a','\x68\x6d\x75\x66\x55','\x76\x65\x6c\x5a','\x4d\x52\x5a\x6d\x67','\x7a\x6f\x6e\x65\x2d\x74\x69\x6d\x65\x72','\x44\x6f\x75\x62\x6c\x65\x53\x69\x64\x65','\x33\uc778\uce6d','\x41\x6e\x52\x56\x75','\x5a\x68\x55\x74\x69','\x78\x69\x6b\x52\x4d','\uac00\ubc29\x20\uacf5\uac04\x20\ubd80\uc871\uc73c\ub85c\x20\uc5f0\ub9c9\ud0c4\uc744\x20\uc90d\uc9c0\x20\ubabb\ud588\uc2b5\ub2c8\ub2e4\x2e','\x74\x6f\x75\x63\x68\x73\x74\x61\x72\x74','\ud83d\udeaa\x20\ubb38\uc744\x20\ub2eb\uc558\uc2b5\ub2c8\ub2e4\x2e','\u26a1\x20\uc801\uc744\x20\ucc98\uce58\ud588\uc2b5\ub2c8\ub2e4\x21','\x72\x69\x67\x68\x74\x54\x68\x69\x67\x68','\x54\x47\x65\x47\x6d','\x6a\x47\x61\x64\x77','\x6a\x4e\x73\x68\x71','\x66\x72\x65\x71\x75\x65\x6e\x63\x79','\x54\x6d\x54\x50\x56','\x6d\x71\x66\x76\x74','\x62\x6f\x72\x64\x65\x72','\ud83d\udeaa\x20\ubb38\uc744\x20\uc5f4\uc5c8\uc2b5\ub2c8\ub2e4\x2e','\x64\x6b\x72\x70\x55','\x61\x42\x53\x7a\x6f','\x55\x4b\x45\x56\x72','\x55\x4c\x56\x77\x43','\x29\x3b\x20\x65\x76\x65\x6e\x74\x2e\x73\x74\x6f\x70\x50\x72\x6f\x70\x61\x67\x61\x74\x69\x6f\x6e\x28\x29\x3b\x22\x20\x6f\x6e\x63\x6c\x69\x63\x6b\x3d\x22\x77\x69\x6e\x64\x6f\x77\x2e\x70\x69\x63\x6b\x75\x70\x49\x74\x65\x6d\x28','\x47\x71\x57\x45\x6c','\x6a\x4d\x72\x56\x68','\x68\x4a\x6a\x70\x70','\x79\x68\x47\x6f\x63','\x71\x49\x4f\x54\x53','\x77\x73\x42\x49\x53','\x57\x4e\x54\x53\x6a','\x63\x72\x65\x61\x74\x65\x42\x75\x66\x66\x65\x72','\x6e\x5a\x7a\x4a\x62','\x75\x72\x55\x51\x4b','\x37\x2e\x36\x32\x6d\x6d\x20\uc800\uaca9\ud0c4','\x63\x61\x6d\x65\x72\x61','\x67\x76\x5a\x48\x68','\x66\x5a\x6c\x7a\x63','\ud83d\udeaa\x20\uc5f4\uae30','\x31\x7c\x32\x7c\x30\x7c\x34\x7c\x35\x7c\x33\x7c\x36','\x46\x78\x63\x56\x5a','\x58\x4d\x53\x75\x6f','\x64\x65\x67\x2c\x20\x74\x72\x61\x6e\x73\x70\x61\x72\x65\x6e\x74\x20\x30\x64\x65\x67\x2c\x20\x74\x72\x61\x6e\x73\x70\x61\x72\x65\x6e\x74\x20\x31\x34\x30\x64\x65\x67\x2c\x20\x72\x67\x62\x61\x28\x32\x35\x35\x2c\x30\x2c\x30\x2c\x30\x2e\x38\x35\x29\x20\x31\x38\x30\x64\x65\x67\x2c\x20\x74\x72\x61\x6e\x73\x70\x61\x72\x65\x6e\x74\x20\x32\x32\x30\x64\x65\x67\x2c\x20\x74\x72\x61\x6e\x73\x70\x61\x72\x65\x6e\x74\x20\x33\x36\x30\x64\x65\x67\x29','\x44\x6f\x47\x77\x4a','\x6c\x5a\x68\x6e\x53','\x72\x69\x67\x68\x74\x45\x6c\x62\x6f\x77','\x4e\x66\x47\x67\x70','\x44\x52\x4b\x49\x69','\x55\x4f\x5a\x65\x62','\x6c\x70\x79\x42\x77','\x63\x65\x6e\x74\x65\x72','\x6e\x48\x61\x44\x4c','\x77\x69\x6e\x67\x4c','\x67\x78\x4b\x69\x4e','\x76\x49\x7a\x6e\x53','\x6c\x62\x52\x61\x6d','\x68\x69\x67\x68\x70\x61\x73\x73','\x6e\x42\x4b\x46\x51','\x63\x72\x65\x61\x74\x65\x4f\x73\x63\x69\x6c\x6c\x61\x74\x6f\x72','\x76\x45\x71\x6b\x4e','\x4e\x4f\x61\x51\x4b','\x62\x74\x6e\x2d\x61\x74\x74\x61\x63\x6b','\x67\x42\x62\x79\x6b','\x51\x4e\x73\x52\x77','\x51\x58\x4a\x4e\x54','\x67\x45\x77\x64\x4f','\x4b\x46\x4a\x6b\x48','\x73\x65\x74\x41\x74\x74\x72\x69\x62\x75\x74\x65','\x48\x58\x79\x63\x49','\x43\x41\x46\x6d\x75','\x48\x65\x62\x44\x63','\x74\x50\x59\x6d\x67','\x78\x72\x57\x69\x74','\x73\x74\x72\x6f\x6b\x65\x53\x74\x79\x6c\x65','\x6e\x50\x47\x6b\x6a','\x70\x6c\x61\x79\x65\x72\x2d\x68\x70\x2d\x75\x69','\x6d\x47\x4c\x6f\x70','\x64\x42\x4e\x70\x4b','\x50\x57\x6d\x4e\x45','\x55\x53\x6f\x45\x52','\x73\x63\x6f\x70\x65\x2d\x6f\x76\x65\x72\x6c\x61\x79','\x64\x6d\x67\x46\x61\x64\x65\x20\x31\x2e\x32\x73\x20\x66\x6f\x72\x77\x61\x72\x64\x73','\x70\x6c\x61\x79\x50\x61\x72\x61\x63\x68\x75\x74\x65\x53\x6f\x75\x6e\x64','\x43\x52\x42\x6e\x59','\x44\x53\x4e\x59\x47','\x47\x77\x53\x62\x6c','\x58\x46\x51\x52\x4c','\x6d\x44\x7a\x76\x61','\x76\x63\x71\x72\x42','\x76\x63\x64\x4e\x59','\x6f\x47\x78\x4b\x41','\x34\x7c\x35\x7c\x37\x7c\x33\x7c\x30\x7c\x36\x7c\x32\x7c\x31','\x68\x6b\x71\x6b\x7a','\x4e\x6e\x53\x56\x66','\x62\x4a\x51\x78\x73','\x31\uc778\uce6d\x20\x28\x46\x50\x50\x29','\x66\x69\x6c\x6c','\x57\x41\x75\x5a\x58','\x51\x49\x41\x55\x76','\x6d\x54\x6c\x59\x44','\x41\x6c\x51\x48\x59','\x45\x7a\x6f\x5a\x65','\x3c\x64\x69\x76\x20\x73\x74\x79\x6c\x65\x3d\x22\x63\x6f\x6c\x6f\x72\x3a\x23\x38\x38\x38\x3b\x20\x74\x65\x78\x74\x2d\x61\x6c\x69\x67\x6e\x3a\x63\x65\x6e\x74\x65\x72\x3b\x20\x6d\x61\x72\x67\x69\x6e\x2d\x74\x6f\x70\x3a\x32\x30\x70\x78\x3b\x20\x66\x6f\x6e\x74\x2d\x73\x69\x7a\x65\x3a\x31\x32\x70\x78\x3b\x22\x3e\uc8fc\ubcc0\uc5d0\x20\uc544\uc774\ud15c\uc774\x20\uc5c6\uc2b5\ub2c8\ub2e4\x2e\x3c\x2f\x64\x69\x76\x3e','\x23\x66\x66\x65\x62\x33\x62','\x6e\x56\x51\x6d\x6e','\x4b\x41\x44\x68\x70','\x53\x61\x4e\x74\x63','\x58\x75\x6a\x49\x4e','\x69\x6d\x61\x68\x6e','\x47\x75\x72\x46\x4c','\x75\x74\x43\x74\x64','\x74\x50\x50\x4e\x56','\x70\x44\x57\x59\x45','\x47\x4c\x4e\x63\x6b','\x4b\x65\x79\x46','\x58\x79\x4c\x62\x59','\x57\x4e\x67\x51\x79','\x6e\x49\x74\x65\x73','\x4b\x7a\x52\x4a\x61','\x63\x54\x65\x4c\x65','\x76\x61\x4c\x47\x49','\x47\x52\x45\x4e\x41\x44\x45','\x73\x51\x71\x6a\x55','\x42\x43\x57\x73\x4e','\x48\x7a\x49\x6d\x6f','\x6a\x72\x79\x77\x65','\x6b\x69\x6c\x6c\x2d\x6c\x6f\x67','\x75\x6e\x64\x65\x66\x69\x6e\x65\x64','\x5a\x58\x76\x51\x62','\x67\x65\x74\x5a','\x6f\x50\x75\x4d\x6b','\x6f\x72\x69\x65\x6e\x74\x61\x74\x69\x6f\x6e','\x76\x61\x6c','\x79\x55\x46\x65\x55','\x6e\x6f\x6e\x65','\x65\x6e\x65\x6d\x79\x2d\x68\x70\x2d\x63\x6f\x6e\x74\x61\x69\x6e\x65\x72','\x77\x65\x62\x6b\x69\x74\x52\x65\x71\x75\x65\x73\x74\x46\x75\x6c\x6c\x73\x63\x72\x65\x65\x6e','\x67\x65\x74\x45\x6c\x61\x70\x73\x65\x64\x54\x69\x6d\x65','\x47\x51\x7a\x4b\x74','\x61\x6e\x69\x6d\x61\x74\x69\x6f\x6e\x54\x69\x6d\x65','\x73\x65\x65\x47\x70','\x64\x72\x69\x66\x74\x41\x6e\x67\x6c\x65','\x48\x61\x63\x6b\x65\x72','\x64\x4e\x47\x73\x71','\x3c\x62\x72\x3e\ud0c4\uc57d\x20\uaddc\uaca9\x3a\x20\uc5c6\uc74c\x3c\x62\x72\x3e\ubcf4\uc720\x20\ud0c4\uc218\x3a\x20\x2d','\x52\x6e\x5a\x6b\x6b','\x4f\x57\x7a\x70\x75','\x46\x41\x4c\x4c\x49\x4e\x47','\x6c\x56\x4d\x59\x65','\x70\x53\x4f\x6c\x49','\x46\x72\x44\x67\x74','\x47\x61\x79\x4f\x70','\x41\x71\x64\x4f\x73','\x6d\x4f\x6a\x64\x4f','\x63\x6c\x69\x65\x6e\x74\x58','\x4d\x7a\x46\x59\x47','\x4d\x47\x4e\x70\x53','\x65\x7a\x76\x64\x71','\x68\x53\x62\x63\x49','\x56\x6f\x5a\x73\x41','\ub9e4\uce58\x20\uc2dc\uc791','\x55\x6d\x7a\x44\x53','\x65\x55\x52\x4c\x61','\x67\x52\x6f\x65\x78','\x6e\x72\x55\x58\x58','\x56\x59\x55\x47\x45','\x73\x51\x62\x4c\x68','\x43\x52\x4f\x55\x43\x48','\x64\x69\x73\x74\x61\x6e\x63\x65\x54\x6f','\x46\x48\x47\x47\x45','\x66\x41\x64\x55\x6a','\x45\x7a\x63\x73\x4e','\x53\x70\x54\x5a\x4d','\x66\x6f\x6e\x74\x53\x69\x7a\x65','\x44\x6d\x68\x52\x4f','\x63\x78\x6e\x6e\x4d','\x46\x52\x70\x4f\x67','\x6c\x61\x6e\x64\x65\x64','\x45\x66\x5a\x4b\x7a','\x77\x52\x6f\x44\x74','\x66\x77\x56\x4e\x57','\x76\x69\x63\x74\x6f\x72\x79\x2d\x62\x6f\x78','\x75\x73\x65\x72\x44\x61\x74\x61','\x50\x6f\x45\x79\x4f','\x52\x62\x59\x46\x68','\x6d\x6f\x7a\x52\x65\x71\x75\x65\x73\x74\x46\x75\x6c\x6c\x53\x63\x72\x65\x65\x6e','\x62\x77\x64','\ud83d\udd04\x20\uc7a5\uc804\x20\uc911\x2e\x2e\x2e','\x34\x36\x30\x36\x36\x34\x30\x78\x65\x59\x7a\x46\x6f','\x62\x6b\x66\x6b\x64','\x51\x74\x6e\x68\x66','\x73\x74\x61\x72\x74','\x6d\x61\x78\x58','\x64\x64\x67\x6e\x4e','\x70\x6c\x61\x6e\x65\x2d\x73\x65\x61\x74\x2d\x64\x6f\x74\x2d\x30','\x6b\x4a\x6d\x4a\x72','\x50\x65\x73\x4e\x78','\x67\x4d\x71\x71\x5a','\x6a\x49\x6a\x68\x4b','\x63\x6f\x6c\x6f\x72','\x57\x45\x73\x71\x46','\x6f\x6b\x44\x57\x4f','\x63\x74\x44\x4f\x75','\x48\x67\x64\x6e\x48','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x3c\x73\x70\x61\x6e\x20\x63\x6c\x61\x73\x73\x3d\x22\x6c\x6f\x6f\x74\x2d\x69\x74\x65\x6d\x2d\x6e\x61\x6d\x65\x22\x3e\ube44\uc5b4\uc788\ub294\x20\uc2dc\uccb4\x20\uc0c1\uc790\x20\x5b\uc2dc\uccb4\x5d\x3c\x2f\x73\x70\x61\x6e\x3e\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x3c\x62\x75\x74\x74\x6f\x6e\x20\x63\x6c\x61\x73\x73\x3d\x22\x6c\x6f\x6f\x74\x2d\x62\x74\x6e\x22\x20\x64\x69\x73\x61\x62\x6c\x65\x64\x20\x73\x74\x79\x6c\x65\x3d\x22\x6f\x70\x61\x63\x69\x74\x79\x3a\x20\x30\x2e\x35\x3b\x22\x3e\uc90d\uae30\x3c\x2f\x62\x75\x74\x74\x6f\x6e\x3e\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','\x75\x73\x73\x77\x57','\x5a\x4f\x66\x77\x4f','\x56\x68\x5a\x68\x76','\x79\x4d\x77\x45\x4a','\x43\x49\x52\x65\x61','\x71\x42\x45\x77\x63','\x62\x75\x74\x74\x6f\x6e','\x65\x65\x58\x62\x73','\x65\x6c\x6a\x69\x75','\x47\x54\x6c\x6f\x77','\x75\x66\x69\x52\x6e','\x30\x20\x30\x20\x34\x70\x78\x20\x23\x66\x66\x33\x64\x30\x30','\x62\x74\x6e\x72\x6b','\x57\x71\x50\x64\x49','\x58\x63\x6f\x54\x77','\x4b\x65\x79\x43','\x4c\x53\x53\x4f\x69','\x6c\x66\x74','\x31\x32\uac8c\uc774\uc9c0\x20\ud0c4\ucc3d','\x5a\x44\x43\x6b\x66','\uac00\ubc29\x20\uacf5\uac04\x20\ubd80\uc871\uc73c\ub85c\x20\uc218\ub958\ud0c4\uc744\x20\uc90d\uc9c0\x20\ubabb\ud588\uc2b5\ub2c8\ub2e4\x2e','\x68\x5a\x68\x58\x76','\x4d\x45\x44\x74\x68','\x53\x68\x69\x66\x74\x52\x69\x67\x68\x74','\x63\x44\x74\x72\x68','\x64\x6d\x67','\x41\x45\x6c\x43\x53','\x55\x61\x69\x71\x6f','\x6b\x64\x45\x73\x6a','\x77\x69\x6e\x67\x52','\x63\x4b\x46\x54\x53','\x76\x45\x78\x42\x6d','\x54\x44\x69\x62\x58','\x77\x52\x43\x59\x6b','\x67\x74\x67\x65\x53','\x41\x50\x57\x74\x79','\x46\x43\x4e\x4e\x4a','\x63\x7a\x4c\x77\x6d','\x4b\x71\x50\x74\x68','\x6f\x66\x62\x63\x67','\x6a\x4f\x5a\x69\x67','\x58\x55\x74\x4c\x4a','\x66\x4f\x76\x67\x42','\x77\x6f\x72\x6c\x64\x50\x6f\x73','\x5a\x62\x66\x4a\x6e','\x42\x70\x55\x54\x52','\x73\x65\x74\x53\x69\x7a\x65','\x34\x70\x78','\x69\x65\x63\x73\x71','\x75\x4a\x4f\x62\x56','\x6f\x51\x54\x49\x53','\x77\x67\x4d\x78\x7a','\x48\x41\x54','\x6c\x70\x78\x4a\x58','\x59\x4e\x75\x54\x71','\x62\x4a\x63\x6b\x6d','\x6c\x44\x41\x63\x47','\x5a\x73\x48\x77\x68','\x61\x64\x64\x53\x63\x61\x6c\x65\x64\x56\x65\x63\x74\x6f\x72','\x56\x77\x71\x55\x71','\x63\x79\x70\x41\x6e','\x50\x4c\x48\x45\x64','\x6b\x46\x56\x71\x54','\x41\x4c\x44\x43\x70','\x62\x74\x6e\x2d\x72\x65\x6c\x6f\x61\x64','\x72\x65\x63\x6f\x69\x6c\x54\x69\x6d\x65','\x68\x6d\x64\x44\x72','\x64\x72\x6e\x42\x78','\x3c\x62\x72\x3e\x3c\x62\x72\x3e\x3c\x62\x75\x74\x74\x6f\x6e\x20\x69\x64\x3d\x22\x72\x65\x73\x74\x61\x72\x74\x2d\x62\x74\x6e\x22\x20\x73\x74\x79\x6c\x65\x3d\x22\x6d\x61\x72\x67\x69\x6e\x2d\x74\x6f\x70\x3a\x20\x32\x30\x70\x78\x3b\x20\x70\x61\x64\x64\x69\x6e\x67\x3a\x20\x31\x35\x70\x78\x20\x34\x30\x70\x78\x3b\x20\x66\x6f\x6e\x74\x2d\x73\x69\x7a\x65\x3a\x20\x31\x38\x70\x78\x3b\x20\x66\x6f\x6e\x74\x2d\x77\x65\x69\x67\x68\x74\x3a\x20\x62\x6f\x6c\x64\x3b\x20\x62\x61\x63\x6b\x67\x72\x6f\x75\x6e\x64\x3a\x20\x23\x65\x35\x33\x39\x33\x35\x3b\x20\x63\x6f\x6c\x6f\x72\x3a\x20\x77\x68\x69\x74\x65\x3b\x20\x62\x6f\x72\x64\x65\x72\x3a\x20\x6e\x6f\x6e\x65\x3b\x20\x62\x6f\x72\x64\x65\x72\x2d\x72\x61\x64\x69\x75\x73\x3a\x20\x32\x35\x70\x78\x3b\x20\x63\x75\x72\x73\x6f\x72\x3a\x20\x70\x6f\x69\x6e\x74\x65\x72\x3b\x22\x3e\ub2e4\uc2dc\x20\ub3c4\uc804\ud558\uae30\x3c\x2f\x62\x75\x74\x74\x6f\x6e\x3e','\ud5ec\uba67\x20\x4c\x65\x76\x65\x6c\x20\x31','\x62\x61\x63\x6b\x67\x72\x6f\x75\x6e\x64','\x72\x74\x73\x64\x4f','\x34\x7c\x36\x7c\x32\x7c\x30\x7c\x33\x7c\x31\x7c\x35','\x69\x6e\x63\x6c\x75\x64\x65\x73','\ucd5c\uc885\x20\uc0dd\uc874\uc790\x3a\x20','\x55\x74\x5a\x79\x6a','\x79\x66\x45\x52\x50','\x73\x53\x48\x6f\x41','\x65\x45\x6c\x63\x6a','\x49\x46\x66\x41\x7a','\x52\x54\x44\x64\x48','\x49\x65\x76\x4b\x71','\x29\x3b\x20\x65\x76\x65\x6e\x74\x2e\x73\x74\x6f\x70\x50\x72\x6f\x70\x61\x67\x61\x74\x69\x6f\x6e\x28\x29\x3b\x22\x3e\uc90d\uae30\x3c\x2f\x62\x75\x74\x74\x6f\x6e\x3e\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','\x53\x69\x43\x72\x42','\x63\x4f\x67\x74\x42','\x57\x71\x61\x6c\x62','\x4d\x61\x7a\x64\x66','\x4c\x6f\x55\x45\x50','\x75\x70\x6a\x70\x56','\x74\x72\x69\x61\x6e\x67\x6c\x65','\x52\x64\x54\x53\x77','\x4c\x5a\x77\x48\x54','\ud83d\udc4a\x20\uc801\uc744\x20\uc8fc\uba39\uc73c\ub85c\x20\ud0c0\uaca9\ud588\uc2b5\ub2c8\ub2e4\x21\x20\x28\x2d\x32\x30\x20\x48\x50\x29','\x78\x4f\x54\x69\x75','\x57\x6a\x52\x79\x73','\x50\x4d\x53\x41\x67','\x42\x48\x61\x54\x64','\x77\x53\x4e\x50\x56','\x44\x45\x77\x64\x74','\x6b\x76\x53\x6b\x61','\x59\x41\x65\x79\x44','\x71\x54\x53\x46\x55','\x72\x65\x42\x69\x49','\x47\x48\x61\x65\x45','\x63\x42\x6a\x66\x70','\x32\x34\x39\x33\x30\x39\x30\x77\x76\x53\x52\x6d\x76','\x6f\x59\x71\x62\x64','\x4a\x49\x71\x79\x70','\x72\x6b\x49\x65\x6f','\x53\x4e\x6a\x6b\x66','\x70\x57\x4a\x7a\x52','\x41\x65\x6e\x53\x53','\x71\x65\x73\x6d\x75','\x75\x54\x4c\x73\x44','\x5a\x49\x4a\x71\x4f','\x55\x52\x77\x49\x79','\x64\x61\x58\x76\x65','\x73\x65\x74\x46\x72\x6f\x6d\x43\x61\x6d\x65\x72\x61','\x47\x79\x52\x72\x47','\x6a\x6f\x79\x73\x74\x69\x63\x6b\x2d\x63\x6f\x6e\x74\x61\x69\x6e\x65\x72','\x31\x34\x78\x64\x67\x57\x77\x66','\x46\x49\x4e\x49\x53\x48\x45\x44','\x44\x5a\x6f\x4f\x68','\x6e\x75\x77\x77\x41','\x69\x6e\x76\x2d\x66\x69\x72\x73\x74\x61\x69\x64\x2d\x75\x73\x65\x2d\x62\x74\x6e','\x78\x4d\x50\x74\x48','\x4f\x61\x49\x4e\x4b','\x4c\x6b\x67\x46\x44','\x6c\x77\x5a\x59\x41','\x56\x52\x71\x6a\x6e','\x41\x4d\x4d\x4f\x5f\x50\x49\x53\x54\x4f\x4c','\x53\x61\x73\x52\x6e','\x63\x70\x74\x63\x65','\x6b\x65\x79\x75\x70','\x53\x74\x6b\x65\x4f','\x31\x70\x78\x20\x73\x6f\x6c\x69\x64\x20\x77\x68\x69\x74\x65','\x6f\x48\x67\x54\x64','\x6f\x51\x51\x51\x77','\x47\x4a\x53\x57\x47','\x72\x64\x45\x52\x63','\x6a\x65\x61\x75\x61','\x55\x78\x44\x61\x43','\x64\x68\x4d\x50\x6e','\x77\x72\x53\x6e\x5a','\x63\x61\x74\x63\x68','\x5d\x20\ubc84\ub9bc','\x61\x70\x70\x6c\x79','\x6c\x61\x73\x74\x52\x65\x64\x69\x72\x65\x63\x74\x69\x6f\x6e\x54\x69\x6d\x65','\x74\x79\x70\x65','\x6a\x44\x63\x70\x61','\x73\x6d\x7a\x50\x66','\x43\x4c\x48\x44\x55','\x6c\x6f\x67','\x4c\x55\x4c\x6b\x6a','\x4e\x73\x64\x58\x49','\x6d\x65\x73\x68','\x72\x61\x79','\x6c\x6f\x61\x64\x65\x64\x41\x6d\x6d\x6f','\x77\x67\x78\x63\x7a','\x50\x52\x4f\x4e\x45','\x79\x45\x6a\x43\x70','\x4d\x51\x56\x6e\x58','\x54\x50\x47\x4b\x42','\x6a\x5a\x75\x70\x75','\x78\x79\x6b\x6c\x4a','\x6e\x6a\x46\x6a\x57','\x46\x74\x59\x42\x6c','\x4c\x50\x5a\x75\x68','\x53\x6b\x6e\x6c\x4d','\x43\x6b\x45\x67\x73','\x4a\x59\x4d\x69\x75','\x71\x77\x55\x45\x65','\x75\x52\x4c\x63\x44','\x52\x75\x69\x79\x73','\x50\x63\x57\x4d\x68','\x75\x73\x7a\x51\x7a','\x3c\x2f\x73\x70\x61\x6e\x3e\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x3c\x62\x75\x74\x74\x6f\x6e\x20\x63\x6c\x61\x73\x73\x3d\x22\x6c\x6f\x6f\x74\x2d\x62\x74\x6e\x22\x20\x6f\x6e\x74\x6f\x75\x63\x68\x73\x74\x61\x72\x74\x3d\x22\x77\x69\x6e\x64\x6f\x77\x2e\x70\x69\x63\x6b\x75\x70\x49\x74\x65\x6d\x28','\x63\x55\x64\x72\x74','\x4d\x54\x56\x4c\x65','\x50\x42\x5a\x74\x49','\x73\x4c\x4e\x4c\x59','\x6f\x74\x63\x4d\x6f','\x6c\x65\x66\x74\x45\x6c\x62\x6f\x77','\x67\x65\x74\x4f\x72\x43\x72\x65\x61\x74\x65','\x6a\x6e\x72\x5a\x71','\x76\x45\x47\x43\x79','\x73\x4e\x49\x6d\x61','\x4e\x52\x74\x63\x79','\x73\x6d\x6f\x6b\x65\x73','\x53\x50\x6a\x5a\x53','\x61\x6d\x51\x4e\x4f','\x71\x65\x56\x52\x50','\x6a\x44\x6b\x51\x78','\x61\x71\x6b\x70\x4d','\x59\x58\x46\x67\x44','\x59\x46\x56\x61\x55','\x5a\x67\x5a\x51\x66','\x6c\x76\x66\x65\x47','\x61\x74\x74\x72\x69\x62\x75\x74\x65\x73','\x63\x62\x55\x77\x59','\x59\x58\x5a','\x63\x58\x57\x4a\x6e','\x76\x58\x77\x47\x78','\x4e\x43\x49\x5a\x76','\x70\x56\x5a\x73\x45','\x76\x67\x61\x59\x4c','\x61\x70\x70\x6c\x79\x41\x78\x69\x73\x41\x6e\x67\x6c\x65','\x73\x54\x56\x4c\x69','\x4c\x69\x6e\x65','\x52\x46\x70\x4e\x43','\x61\x73\x70\x65\x63\x74','\x41\x71\x6d\x55\x4e','\x6a\x4c\x57\x52\x44','\x75\x69\x56\x6c\x50','\x6e\x50\x4a\x49\x41','\x4b\x4b\x51\x72\x4f','\x61\x6d\x6d\x6f\x43\x6f\x75\x6e\x74','\x54\x4a\x52\x4c\x69','\x67\x4c\x67\x75\x65','\x48\x64\x51\x44\x51','\x70\x6c\x61\x79\x46\x6f\x6f\x74\x73\x74\x65\x70','\x4d\x65\x73\x68\x42\x61\x73\x69\x63\x4d\x61\x74\x65\x72\x69\x61\x6c','\x62\x74\x6e\x2d\x63\x72\x6f\x75\x63\x68','\x4d\x75\x73\x57\x70','\x71\x47\x4e\x44\x72','\x61\x4e\x6c\x50\x63','\x63\x4e\x61\x5a\x5a','\x69\x69\x6a\x71\x4c','\x62\x6a\x45\x53\x46','\x53\x43\x54\x66\x70','\x68\x65\x69\x67\x68\x74','\x71\x6a\x6e\x53\x68','\x74\x72\x61\x6e\x73\x69\x74\x69\x6f\x6e','\x75\x59\x4e\x5a\x53','\x63\x71\x67\x79\x77','\x37\x2e\x36\x32\x6d\x6d\x20\ud0c4\ucc3d','\x4b\x43\x71\x55\x66','\x70\x6c\x61\x79\x48\x65\x61\x6c\x53\x6f\x75\x6e\x64','\x54\x54\x54\x77\x53','\x6b\x56\x48\x67\x6b','\x35\x30\x25','\x62\x61\x67','\x4b\x65\x79\x45','\x54\x53\x66\x4b\x44','\x6f\x4b\x4b\x56\x76','\x39\x6d\x6d\x20\ud0c4\ucc3d\x20\ud68d\ub4dd\x21\x20\x28\x2b\x33\x30\ubc1c\x29','\x70\x77\x72\x71\x67','\x68\x79\x49\x48\x4f','\x56\x78\x56\x47\x76','\x67\x72\x65\x6e\x61\x64\x65','\x6c\x65\x72\x70','\uac00\ubc29\x20\x4c\x65\x76\x65\x6c\x20\x33','\x4b\x4f\x4a\x46\x69','\x79\x52\x71\x57\x6a','\x47\x73\x6c\x53\x4f','\x6d\x61\x72\x67\x69\x6e\x42\x6f\x74\x74\x6f\x6d','\x6a\x6f\x79\x73\x74\x69\x63\x6b\x2d\x74\x6f\x75\x63\x68\x2d\x7a\x6f\x6e\x65','\x54\x4d\x6f\x62\x56','\x63\x63\x68\x6d\x6e','\x7a\x6c\x71\x71\x75','\x6e\x58\x79\x77\x62','\x77\x65\x73\x72\x65','\x76\x78\x49\x45\x6d','\x73\x54\x70\x6b\x64','\x46\x75\x58\x75\x66','\x44\x50\x7a\x6b\x45','\x58\x79\x5a\x68\x78','\uccb4\ub825\uc774\x20\uc774\ubbf8\x20\x37\x35\x25\x20\uc774\uc0c1\uc785\ub2c8\ub2e4\x21','\x72\x69\x67\x68\x74\x41\x72\x6d','\x78\x4e\x63\x6e\x67','\x62\x74\x6e\x2d\x69\x6e\x76\x65\x6e\x74\x6f\x72\x79','\x30\x7c\x36\x7c\x34\x7c\x35\x7c\x32\x7c\x37\x7c\x33\x7c\x38\x7c\x31','\x56\x6c\x6f\x70\x57','\x4b\x75\x57\x5a\x51','\x66\x69\x72\x73\x74\x61\x69\x64','\x66\x71\x66\x66\x50','\x59\x47\x73\x6a\x66','\x65\x78\x70','\x5d\x20\ud68d\ub4dd\x21','\x4a\x45\x43\x6a\x55','\x53\x56\x4c\x6e\x61','\x52\x62\x47\x74\x6b','\x66\x52\x55\x57\x72','\x44\x6d\x49\x70\x46','\x4e\x57\x57\x72\x4f','\x4b\x47\x57\x4e\x73','\x63\x72\x6f\x73\x73\x56\x65\x63\x74\x6f\x72\x73','\x77\x61\x77\x5a\x69','\x6f\x71\x58\x64\x55','\x71\x4a\x52\x51\x6a','\x38\x7c\x33\x7c\x30\x7c\x37\x7c\x36\x7c\x34\x7c\x31\x7c\x32\x7c\x35','\x6b\x49\x6c\x50\x45','\x4f\x66\x50\x69\x77','\x6a\x64\x49\x48\x6f','\x53\x54\x41\x4e\x44','\x31\x7c\x33\x7c\x30\x7c\x32\x7c\x34','\x64\x4f\x65\x6d\x47','\x4a\x63\x52\x4c\x55','\x74\x6f\x70','\x71\x50\x52\x73\x59','\x42\x54\x66\x46\x61','\x4e\x48\x4a\x45\x70','\u26a0\ufe0f\x20\uc810\ud504\ub85c\x20\uc778\ud574\x20\uad6c\uae09\uc0c1\uc790\x20\uc0ac\uc6a9\x20\ucde8\uc18c\x21','\x65\x6c\x44\x55\x6e','\x4b\x65\x79\x47','\x72\x43\x41\x78\x67','\x78\x5a\x49\x67\x77','\x54\x74\x74\x64\x6c','\x44\x6a\x4c\x53\x4c','\x52\x54\x58\x41\x75','\x62\x65\x67\x69\x6e\x50\x61\x74\x68','\x73\x44\x79\x4f\x61','\x71\x62\x49\x44\x4b','\x55\x52\x78\x46\x4c','\x77\x53\x59\x4f\x4a','\x6c\x75\x4f\x61\x4a','\x62\x75\x6c\x6c\x65\x74','\x6b\x4b\x68\x73\x63','\ud83e\ude82\x20\ub099\ud558\uc0b0\x20\ud3b4\uae30','\x6a\x59\x70\x63\x67','\x50\x69\x65\x57\x73','\x73\x74\x6f\x70\x42\x47\x4d','\x53\x4e\x49\x50\x45\x52','\x46\x55\x52\x4d\x6e','\x70\x6c\x61\x79\x44\x72\x79\x43\x6c\x69\x63\x6b','\x4f\x68\x59\x73\x67','\x67\x42\x62\x62\x4e','\x4c\x56\x55\x41\x52','\x20\uc8fc\uba39\x20\ucc98\uce58','\x4d\x61\x74\x68\x55\x74\x69\x6c\x73','\x20\uc790\uae30\uc7a5\x20\uc0ac\ub9dd','\x48\x68\x6f\x72\x50','\x6c\x4a\x6b\x74\x6a','\x62\x6f\x4d\x65\x45','\x68\x51\x66\x73\x65','\x71\x59\x70\x41\x6c','\x69\x6e\x6c\x69\x6e\x65\x2d\x62\x6c\x6f\x63\x6b','\x6d\x4f\x72\x58\x62','\x67\x6a\x45\x6d\x67','\x75\x64\x49\x6d\x51','\x49\x4a\x75\x54\x69','\x53\x6c\x7a\x55\x6a','\x43\x4c\x43\x44\x4b','\x6b\x48\x54\x6f\x51','\x48\x5a\x75\x57\x6a','\x6c\x6f\x6f\x74\x2d\x69\x74\x65\x6d\x2d\x72\x6f\x77','\x64\x77\x61\x66\x46','\x4d\x6d\x4c\x67\x52','\x46\x71\x76\x62\x45','\x71\x4c\x4f\x43\x6f','\x61\x64\x45\x68\x59','\x42\x55\x49\x4c\x44\x49\x4e\x47','\x47\x7a\x6b\x58\x57','\x6d\x6a\x43\x5a\x74','\x56\x65\x63\x74\x6f\x72\x32','\x4f\x48\x6e\x6e\x79','\x65\x56\x55\x78\x41','\x70\x6c\x61\x79\x42\x47\x4d','\x6c\x6f\x6f\x6b\x41\x74','\x76\x6b\x41\x6c\x73','\x46\x49\x52\x53\x54\x41\x49\x44','\x79\x57\x4d\x52\x62','\x42\x44\x77\x71\x56','\x57\x6a\x4a\x7a\x6d','\x67\x65\x74\x44\x65\x6c\x74\x61','\x57\x4d\x6a\x69\x53','\x43\x65\x62\x6c\x6f','\x63\x75\x6d\x42\x45','\x75\x54\x63\x65\x6f','\x55\x63\x57\x56\x76','\x75\x70\x64\x61\x74\x65\x50\x72\x6f\x6a\x65\x63\x74\x69\x6f\x6e\x4d\x61\x74\x72\x69\x78','\uc7a5\uc804\x20\uc644\ub8cc\x21','\x32\x34\x38\x30\x34\x39\x30\x63\x76\x77\x53\x69\x59','\x77\x4a\x46\x4e\x79','\x70\x6f\x72\x74\x72\x61\x69\x74\x2d\x77\x61\x72\x6e\x69\x6e\x67','\x61\x49\x4f\x68\x79','\x4b\x65\x79\x51','\x78\x6a\x59\x51\x54','\x23\x66\x66\x65\x30\x38\x32','\x4b\x65\x79\x56','\x73\x74\x79\x6c\x65','\x76\x48\x73\x7a\x42','\x6c\x69\x6e\x65\x57\x69\x64\x74\x68','\x66\x4a\x71\x56\x77','\x4d\x48\x4b\x4e\x61','\x6c\x69\x66\x65','\x67\x72\x65\x6e\x61\x64\x65\x73','\x6c\x6f\x6f\x70','\x43\x6f\x64\x4a\x6e','\x69\x64\x65\x6e\x74\x69\x66\x69\x65\x72','\x6d\x61\x78','\x61\x70\x4f\x59\x70','\x6d\x61\x78\x54\x6f\x75\x63\x68\x50\x6f\x69\x6e\x74\x73','\x4b\x65\x79\x53','\x74\x6f\x75\x63\x68\x65\x73','\x6c\x61\x6e\x64\x73\x63\x61\x70\x65','\x69\x41\x42\x71\x77','\x43\x53\x46\x68\x76','\x4f\x6d\x63\x6b\x51','\x50\x44\x58\x75\x67','\x43\x4a\x6d\x72\x4b','\x58\x45\x49\x6d\x48','\x61\x76\x6f\x69\x64\x44\x69\x72','\ud83e\ude9f\x20\ucc3d\ubb38\x20\ub118\uae30\x21','\x76\x71\x6d\x4c\x71','\x4c\x74\x75\x6c\x6a','\x71\x44\x69\x51\x79','\x4a\x78\x61\x66\x4a','\x63\x72\x65\x61\x74\x65\x45\x6c\x65\x6d\x65\x6e\x74','\x43\x52\x41\x54\x45','\x4f\x5a\x66\x75\x61','\x63\x68\x69\x6c\x64\x72\x65\x6e','\x66\x67\x50\x43\x44','\x72\x65\x6d\x6f\x76\x65\x45\x76\x65\x6e\x74\x4c\x69\x73\x74\x65\x6e\x65\x72','\x6c\x6f\x77\x70\x61\x73\x73','\x4c\x4f\x6e\x6b\x55','\x4d\x57\x71\x79\x7a','\x51\x72\x79\x71\x50','\x66\x73\x77\x78\x4e','\x51\x67\x48\x49\x51','\x6b\x76\x63\x4a\x78','\x6c\x6f\x6f\x74','\x4c\x56\x50\x66\x69','\x4c\x63\x6d\x54\x5a','\x4f\x69\x45\x4f\x43','\x70\x6a\x52\x41\x7a','\x73\x6d\x46\x52\x66','\x4d\x65\x73\x68','\x50\x77\x75\x44\x77','\x76\x65\x6c\x58','\x72\x67\x62\x61\x28\x30\x2c\x35\x30\x2c\x32\x35\x35\x2c\x30\x2e\x32\x29','\x64\x5a\x59\x7a\x44','\x5a\x7a\x67\x4b\x51','\x62\x4b\x78\x6f\x68','\x67\x6c\x62\x75\x4d','\x43\x6f\x6c\x6f\x72','\x61\x6e\x67\x6c\x65','\x31\x31\x37\x32\x30\x35\x39\x65\x68\x50\x4a\x73\x63','\x74\x69\x65\x72','\x44\x4a\x63\x45\x67','\x4d\x71\x56\x72\x67','\x6c\x76\x66\x4e\x6e','\x50\x6f\x63\x58\x61','\x6e\x7a\x4c\x77\x54','\x47\x5a\x44\x4f\x51','\x70\x6c\x61\x79\x47\x75\x6e\x73\x68\x6f\x74','\x49\x72\x63\x47\x57','\x62\x73\x55\x6c\x73','\x7a\x6f\x6e\x65\x2d\x69\x6e\x66\x6f','\x57\x64\x4f\x6c\x44','\x47\x63\x53\x4d\x6a','\x6e\x6d\x4a\x59\x7a','\x69\x76\x79\x49\x75','\x6b\x54\x42\x52\x6f','\x41\x76\x56\x43\x6b','\ub9e8\uc8fc\uba39','\x63\x72\x65\x61\x74\x65\x42\x75\x66\x66\x65\x72\x53\x6f\x75\x72\x63\x65','\x4f\x6f\x67\x42\x64','\x47\x72\x6f\x75\x70','\x61\x64\x64','\x62\x4c\x45\x6a\x58','\x55\x61\x6f\x42\x58','\x6d\x61\x67','\x4c\x72\x50\x46\x65','\x76\x7a\x52\x76\x79','\x70\x6c\x61\x79\x50\x75\x6e\x63\x68','\x79\x54\x57\x46\x50','\x54\x55\x43\x70\x42','\x47\x6c\x44\x50\x50','\x42\x72\x4d\x42\x4b','\x54\x47\x6a\x6f\x76','\x4d\x46\x50\x79\x57','\x62\x6c\x75\x65\x7a\x6f\x6e\x65\x50\x75\x6c\x73\x65\x20\x32\x73\x20\x69\x6e\x66\x69\x6e\x69\x74\x65\x20\x65\x61\x73\x65\x2d\x69\x6e\x2d\x6f\x75\x74','\x79\x70\x56\x6f\x70','\x30\x7c\x34\x7c\x33\x7c\x31\x7c\x32','\x53\x64\x6a\x6f\x72','\x42\x46\x68\x6c\x6c','\x73\x65\x65\x64','\x70\x61\x72\x61\x63\x68\x75\x74\x65\x42\x61\x67','\x41\x4d\x4d\x4f\x5f','\x45\x57\x63\x4b\x5a','\x57\x41\x48\x7a\x56','\x46\x49\x66\x56\x4f','\x56\x6c\x64\x58\x6e','\x68\x45\x4d\x62\x58','\x63\x4c\x49\x72\x6e','\x77\x6b\x55\x46\x56','\uac00\ubc29\x20\uacf5\uac04\x20\ubd80\uc871\uc73c\ub85c\x20\uad6c\uae09\uc0c1\uc790\ub97c\x20\uc90d\uc9c0\x20\ubabb\ud588\uc2b5\ub2c8\ub2e4\x2e','\x66\x6c\x65\x78','\x65\x6e\x61\x62\x6c\x65\x64','\x7a\x77\x41\x62\x73','\x75\x4c\x65\x4b\x51','\x5a\x4b\x42\x4b\x4a','\x5a\x64\x61\x4f\x61','\x74\x45\x63\x49\x71','\x76\x6e\x45\x66\x72','\x72\x6f\x74\x61\x74\x65\x58','\x64\x56\x65\x6b\x75','\x6d\x6f\x75\x73\x65\x6c\x65\x61\x76\x65','\x74\x72\x61\x76\x65\x72\x73\x65','\x73\x65\x74\x46\x72\x6f\x6d\x50\x6f\x69\x6e\x74\x73','\x63\x6f\x6c\x75\x6d\x6e','\x63\x69\x56\x57\x74','\x66\x61\x72','\x41\x62\x67\x51\x71','\x45\x48\x6f\x52\x79','\x78\x4e\x58\x68\x4e','\x67\x58\x6d\x4d\x58','\x6d\x61\x74\x65\x72\x69\x61\x6c','\x3c\x62\x72\x3e\ud0c4\uc57d\x20\uaddc\uaca9\x3a\x20\x3c\x73\x70\x61\x6e\x20\x73\x74\x79\x6c\x65\x3d\x22\x63\x6f\x6c\x6f\x72\x3a\x23\x30\x30\x66\x66\x63\x63\x22\x3e','\x6a\x74\x74\x64\x51','\x6b\x50\x59\x43\x49','\x6b\x69\x6c\x6c\x2d\x63\x6f\x75\x6e\x74','\x6c\x72\x74\x43\x57','\x56\x48\x6a\x7a\x67','\x50\x63\x46\x44\x46','\x59\x50\x46\x57\x4e','\x69\x69\x51\x7a\x42','\x43\x6d\x58\x6e\x79','\x51\x66\x6a\x46\x77','\x7a\x63\x59\x4d\x4b','\x53\x69\x7a\x54\x76','\x68\x69\x49\x4f\x76','\x62\x74\x6e\x2d\x74\x6f\x67\x67\x6c\x65\x2d\x73\x66\x78','\x64\x44\x4a\x68\x44','\x68\x5a\x41\x74\x6d','\x71\x4e\x67\x44\x48','\x50\x4c\x41\x59\x45\x52','\x66\x69\x6c\x6c\x53\x74\x79\x6c\x65','\x6f\x70\x61\x63\x69\x74\x79','\x68\x6a\x77\x47\x71','\x70\x70\x48\x79\x74','\x62\x69\x61\x73','\x72\x66\x45\x55\x72','\x4e\x61\x4e\x6f\x43','\x66\x63\x42\x59\x6f','\x68\x65\x6c\x6d\x65\x74','\x79\x55\x59\x6c\x6a','\x70\x6c\x61\x6e\x65\x2d\x73\x65\x61\x74\x2d\x6d\x61\x70','\x70\x61\x72\x61\x63\x68\x75\x74\x65','\x6a\x6d\x6b\x4d\x76','\x44\x57\x47\x72\x75','\x4c\x50\x69\x44\x50','\x70\x61\x6e\x69\x63\x54\x69\x6d\x65','\x6e\x53\x6b\x68\x75','\x42\x69\x4f\x48\x79','\x3c\x2f\x73\x74\x72\x6f\x6e\x67\x3e\x20\ud0ac','\x66\x49\x6f\x64\x72','\x6d\x54\x6a\x62\x63','\x63\x55\x76\x55\x6d','\x52\x44\x46\x72\x75','\x59\x4d\x51\x57\x6a','\x6d\x61\x78\x5a','\x61\x6b\x66\x4b\x71','\x48\x45\x4c\x4d\x45\x54','\x78\x6c\x44\x71\x67','\x41\x65\x42\x55\x68','\x74\x69\x6d\x65','\x4f\x44\x56\x59\x5a','\u26a0\ufe0f\x20\uc12c\uc744\x20\ubc97\uc5b4\ub098\x20\uac15\uc81c\x20\ub099\ud558\ud569\ub2c8\ub2e4\x21\x20\x28\x48\x50\x20\x35\x30\x25\x20\uac10\uc18c\x29','\x6f\x57\x4a\x68\x46','\x65\x45\x74\x79\x50','\x73\x74\x61\x74\x65','\x44\x62\x4e\x6a\x4a','\x58\x50\x43\x6f\x79','\x6a\x7a\x74\x43\x65','\x63\x71\x4f\x46\x58','\x6d\x59\x47\x77\x46','\x4e\x73\x72\x61\x66','\x48\x4a\x67\x56\x6b','\x45\x50\x51\x74\x55','\x41\x4f\x49\x78\x4d','\x48\x4d\x4f\x6b\x71','\x6d\x4e\x54\x6a\x47','\x51\x75\x61\x74\x65\x72\x6e\x69\x6f\x6e','\x6e\x47\x65\x68\x63','\x4a\x4f\x44\x49\x59','\x78\x59\x67\x43\x51','\uc5ce\ub4dc\ub9ac\uae30\x20\x28\x50\x72\x6f\x6e\x65\x29','\x32\x7c\x30\x7c\x35\x7c\x31\x33\x7c\x37\x7c\x31\x31\x7c\x31\x30\x7c\x36\x7c\x33\x7c\x34\x7c\x31\x32\x7c\x31\x7c\x31\x34\x7c\x38\x7c\x39\x7c\x31\x35','\x74\x69\x6d\x65\x6f\x75\x74\x49\x64','\x48\x58\x7a\x6e\x46','\x6a\x66\x44\x55\x42','\x67\x50\x75\x71\x45','\x72\x65\x73\x69\x7a\x65','\x71\x59\x63\x69\x74','\x6c\x65\x66\x74\x41\x72\x6d','\x73\x65\x74\x46\x72\x6f\x6d\x45\x75\x6c\x65\x72','\x77\x65\x61\x70\x6f\x6e\x43\x6f\x6e\x74\x61\x69\x6e\x65\x72','\x69\x6e\x6e\x65\x72\x57\x69\x64\x74\x68','\x63\x6f\x73','\x4b\x65\x79\x5a','\x70\x79\x4b\x6b\x49','\x74\x55\x58\x65\x65','\x62\x74\x6e\x2d\x74\x70\x70','\x43\x58\x67\x77\x79','\x74\x6f\x70\x2d\x6c\x65\x66\x74\x2d\x75\x69','\x76\x55\x42\x6f\x44','\x73\x6d\x6f\x6b\x65','\x66\x6f\x72\x45\x61\x63\x68','\x79\x6a\x54\x63\x57','\x5a\x78\x42\x67\x70','\x7a\x6f\x6e\x65\x2d\x74\x65\x78\x74','\x53\x43\x67\x68\x72','\x57\x48\x6f\x4e\x64','\x6d\x62\x41\x55\x6c','\x65\x65\x6a\x6c\x70','\x50\x62\x59\x5a\x6c','\x74\x6d\x70\x7a\x47','\x53\x4d\x62\x70\x77','\x59\x59\x71\x59\x52','\x78\x43\x74\x52\x64','\x69\x6e\x76\x2d\x77\x65\x61\x70\x6f\x6e\x2d\x76\x61\x6c','\x72\x69\x67\x68\x74\x4b\x6e\x65\x65','\x65\x43\x54\x72\x58','\x62\x69\x54\x51\x75','\x69\x6e\x76\x2d\x61\x6d\x6d\x6f\x2d\x72\x69\x66\x6c\x65','\x6c\x63\x6a\x77\x71','\x4d\x78\x5a\x72\x72','\x73\x70\x6f\x74\x58','\x76\x47\x58\x56\x4a','\x68\x70\x2d\x62\x67\x2d','\x6c\x6f\x61\x64\x69\x6e\x67\x2d\x73\x63\x72\x65\x65\x6e','\x45\x57\x50\x70\x67','\x63\x68\x61\x72\x43\x6f\x64\x65\x41\x74','\x58\x41\x62\x6a\x6a','\x59\x56\x73\x4d\x67','\x47\x63\x6e\x49\x6b','\x6b\x65\x79\x64\x6f\x77\x6e','\x69\x73\x4d\x65\x73\x68','\x4d\x57\x6a\x4a\x41','\x69\x69\x71\x4d\x50','\x4a\x45\x46\x49\x42','\x42\x4e\x50\x79\x67','\uc9c0\uc0c1\uc5d0\x20\ub3c4\ucc29\ud588\uc2b5\ub2c8\ub2e4\x2e\x20\ud30c\ubc0d\uc744\x20\uc2dc\uc791\ud558\uc138\uc694\x21','\x44\x6f\x59\x56\x46','\x31\x32\uac8c\uc774\uc9c0\x20\uc0b0\ud0c4','\x68\x4a\x51\x5a\x4b','\x6b\x66\x66\x74\x6a','\x58\x62\x4a\x52\x65','\x45\x46\x53\x41\x65','\x50\x77\x6f\x74\x6a','\x6e\x58\x75\x58\x6a','\x63\x73\x47\x67\x51','\x74\x46\x57\x5a\x4e','\x54\x45\x45\x4b\x66','\x31\uc778\uce6d','\x6d\x66\x69\x55\x59','\x53\x63\x65\x6e\x65','\x69\x68\x67\x6c\x52','\x58\x53\x77\x66\x47','\x52\x73\x5a\x48\x58','\x75\x74\x77\x56\x42','\x7a\x6f\x6c\x45\x66','\x4c\x56\x32','\x73\x4e\x61\x6f\x6c','\x45\x68\x56\x66\x47','\x56\x78\x57\x64\x78','\x4b\x70\x62\x4d\x64','\x51\x44\x43\x77\x64','\x6a\x46\x68\x47\x41','\x52\x55\x79\x56\x76','\x73\x75\x62\x2d\x74\x69\x74\x6c\x65','\x44\x45\x46\x45\x41\x54','\x78\x4d\x59\x59\x47','\x63\x41\x79\x57\x6d','\x79\x4c\x47\x52\x42','\x65\x67\x63\x71\x61','\x59\x47\x6b\x5a\x74','\x56\x65\x63\x74\x6f\x72\x33','\x57\x73\x4b\x74\x71','\x58\x51\x62\x7a\x54','\uad6c\uae09\uc0c1\uc790\uac00\x20\uc5c6\uc2b5\ub2c8\ub2e4\x21','\x31\x32\uac8c\uc774\uc9c0\x20\ud0c4\ucc3d\x20\ud68d\ub4dd\x21\x20\x28\x2b\x31\x30\ubc1c\x29','\x73\x70\x6c\x69\x74','\x6d\x75\x7a\x7a\x6c\x65\x66\x6c\x61\x73\x68','\x6f\x62\x53\x7a\x77','\x69\x45\x72\x78\x61','\x62\x6c\x55\x59\x4e','\x61\x75\x77\x76\x56','\x63\x48\x48\x58\x4f','\x7a\x48\x49\x43\x59','\x68\x49\x69\x6b\x42','\x50\x70\x72\x79\x70','\x63\x6f\x70\x79','\x46\x76\x6d\x6a\x61','\x53\x46\x4b\x43\x43','\x48\x46\x65\x45\x50','\x76\x69\x63\x74\x6f\x72\x79\x2d\x63\x6f\x6e\x74\x69\x6e\x75\x65\x2d\x62\x74\x6e','\x57\x6a\x4e\x55\x59','\uc7a5\ucc29\x20\ubb34\uae30\x3a\x20\x3c\x73\x70\x61\x6e\x20\x73\x74\x79\x6c\x65\x3d\x22\x63\x6f\x6c\x6f\x72\x3a\x23\x66\x66\x62\x33\x30\x30\x3b\x20\x66\x6f\x6e\x74\x2d\x77\x65\x69\x67\x68\x74\x3a\x62\x6f\x6c\x64\x3b\x22\x3e','\x6f\x62\x58\x75\x72','\ub3cc\uaca9\uc18c\ucd1d','\x55\x59\x4b\x65\x4c','\x77\x61\x6e\x64\x65\x72\x54\x69\x6d\x65','\x62\x6f\x75\x6e\x63\x65\x73','\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64','\x79\x65\x70\x46\x73','\x57\x4f\x4c\x64\x4b','\x61\x78\x56\x50\x64','\uad6c\uae09\uc0c1\uc790\x20\x31\uac1c\x20\ubc84\ub9bc','\x44\x6e\x75\x64\x73','\x52\x71\x75\x49\x78','\x53\x70\x61\x63\x65','\x64\x52\x65\x47\x5a','\x65\x43\x4b\x6f\x4f','\x61\x64\x64\x45\x76\x65\x6e\x74\x4c\x69\x73\x74\x65\x6e\x65\x72','\x70\x6c\x61\x6e\x65\x2d\x73\x65\x61\x74\x2d\x64\x6f\x74\x2d','\x4d\x58\x6d\x6b\x72','\x63\x6f\x75\x6e\x74','\x4d\x6e\x51\x4c\x48','\x6f\x56\x47\x74\x66','\x68\x4a\x5a\x52\x53','\x41\x6c\x7a\x56\x4c','\x66\x5a\x4f\x4f\x46','\x61\x6d\x61\x43\x46','\u2620\ufe0f\x20\ub2f9\uc2e0\uc740\x20\ucc98\uce58\ub418\uc5c8\uc2b5\ub2c8\ub2e4','\x6c\x6f\x63\x6b','\x74\x42\x6a\x57\x42','\x68\x61\x4f\x53\x4d','\x41\x45\x50\x7a\x73','\x44\x69\x72\x65\x63\x74\x69\x6f\x6e\x61\x6c\x4c\x69\x67\x68\x74','\uac00\ubc29\x20\x4c\x65\x76\x65\x6c\x20\x31','\x67\x65\x74\x4f\x62\x6a\x65\x63\x74\x42\x79\x4e\x61\x6d\x65','\x5d\x20\uc7a5\ucc29\x20\uc644\ub8cc\x21','\x66\x64\x72\x6b\x4c','\x43\x4d\x51\x54\x78','\x4b\x65\x79\x41','\x4c\x69\x6e\x65\x42\x61\x73\x69\x63\x4d\x61\x74\x65\x72\x69\x61\x6c','\x53\x68\x69\x66\x74\x4c\x65\x66\x74','\x52\x71\x44\x54\x77','\x72\x65\x71\x75\x65\x73\x74\x50\x6f\x69\x6e\x74\x65\x72\x4c\x6f\x63\x6b','\x70\x6f\x69\x6e\x74\x65\x72\x6c\x6f\x63\x6b\x63\x68\x61\x6e\x67\x65','\x70\x6c\x61\x79\x50\x61\x69\x6e\x53\x6f\x75\x6e\x64','\x74\x4e\x57\x58\x4f','\x69\x6e\x76\x2d\x68\x65\x6c\x6d\x65\x74\x2d\x64\x72\x6f\x70\x2d\x62\x74\x6e','\u26a0\ufe0f\x20\uc790\uc138\x20\ubcc0\uacbd\uc73c\ub85c\x20\uad6c\uae09\uc0c1\uc790\x20\uc0ac\uc6a9\x20\ucde8\uc18c\x21','\x59\x6d\x4f\x78\x6d','\x41\x70\x45\x4c\x45','\x61\x72\x63','\x74\x6e\x58\x75\x77','\x44\x57\x77\x50\x53','\x42\x65\x76\x66\x47','\x76\x79\x49\x4f\x6a','\x6f\x6c\x73\x55\x41','\x42\x42\x62\x5a\x72','\x72\x65\x71\x75\x65\x73\x74\x46\x75\x6c\x6c\x73\x63\x72\x65\x65\x6e','\x77\x49\x5a\x6b\x61','\x55\x63\x74\x46\x48','\x62\x6f\x78\x53\x68\x61\x64\x6f\x77','\x73\x69\x6e\x65','\x74\x69\x6d\x65\x72','\x42\x52\x5a\x5a\x6e','\x67\x4c\x66\x76\x53','\x6b\x62\x6b\x51\x70','\x70\x57\x4c\x65\x4f','\x44\x6f\x64\x65\x63\x61\x68\x65\x64\x72\x6f\x6e\x47\x65\x6f\x6d\x65\x74\x72\x79','\x4b\x65\x79\x52','\ud83c\udfb5\x20\x42\x47\x4d\x3a\x20\x4f\x46\x46','\x63\x6f\x6d\x70\x75\x74\x65\x56\x65\x72\x74\x65\x78\x4e\x6f\x72\x6d\x61\x6c\x73','\x4d\x4a\x5a\x78\x75','\x72\x62\x66\x6f\x50','\x56\x78\x53\x55\x54','\x73\x70\x6c\x69\x63\x65','\uc5f0\ub9c9\ud0c4\x20','\x49\x69\x41\x6b\x49','\x57\x45\x41\x50\x4f\x4e','\x57\x4b\x6a\x49\x61','\x35\x2e\x35\x36\x6d\x6d\x20\ud0c4\ucc3d','\x43\x66\x68\x69\x70','\x45\x68\x74\x69\x6d','\x4f\x6a\x59\x52\x65','\x4c\x56\x31','\x23\x66\x66\x62\x33\x30\x30','\x4a\x53\x55\x74\x4b','\x53\x52\x6a\x51\x65','\x42\x52\x4f\x57\x4e','\x6c\x65\x67\x4c','\x46\x6c\x50\x7a\x6b','\x70\x61\x64\x64\x69\x6e\x67','\x4a\x65\x70\x4b\x62','\ud83d\udd0a\x20\x53\x46\x58\x3a\x20\x4f\x4e','\uc548\uc804\uc9c0\ub300\x20\ub300\uae30\uc911','\x68\x68\x69\x6b\x71','\x78\x47\x5a\x41\x66','\x63\x61\x73\x74\x53\x68\x61\x64\x6f\x77','\x67\x43\x55\x4c\x51','\uc0c1\uc790\uac00\x20\ube44\uc5b4\uc788\uc2b5\ub2c8\ub2e4\x2e','\x6e\x6b\x53\x6d\x71','\x43\x75\x5a\x43\x6f','\x62\x61\x63\x6b\x70\x61\x63\x6b\x47\x72\x6f\x75\x70','\x6c\x69\x6e\x65\x61\x72\x52\x61\x6d\x70\x54\x6f\x56\x61\x6c\x75\x65\x41\x74\x54\x69\x6d\x65','\x46\x64\x46\x6a\x54','\x74\x58\x4c\x55\x51','\x53\x65\x48\x5a\x6a','\x6d\x49\x63\x44\x73','\x6c\x51\x51\x6f\x44','\x6c\x7a\x4b\x6a\x49','\x61\x62\x73','\x6f\x77\x6e\x65\x72','\x62\x65\x66\x6f\x72\x65\x75\x6e\x6c\x6f\x61\x64','\x55\x41\x7a\x4d\x68','\x43\x7a\x51\x54\x6c'];a0_0x5f29=function(){return _0x31daae;};return a0_0x5f29();}let isTPP=!![];const playerPos=new a0_0xe98f69[(a0_0x460254(0x691))](0x0,1.8,0x0),playerSoldier=createSoldierModel(0x3d5c3d,0xffccaa),myPlayerGroup=playerSoldier[a0_0x460254(0x8ba)];scene[a0_0x460254(0x5bf)](myPlayerGroup),myPlayerGroup[a0_0x460254(0x7cf)]=!![],parachute['\x70\x6f\x73\x69\x74\x69\x6f\x6e'][a0_0x460254(0x2d5)](0x0,5.5,0x0),myPlayerGroup['\x61\x64\x64'](parachute);const actionBtn=document[a0_0x460254(0x6ac)]('\x61\x63\x74\x69\x6f\x6e\x2d\x62\x74\x6e'),noticeBox=document[a0_0x460254(0x6ac)](a0_0x460254(0x71e));function showNotice(_0x1270ff,_0x48ff3a=0x9c4){const _0x258490=a0_0x460254,_0x5325db={'\x75\x74\x77\x56\x42':'\x6e\x6f\x6e\x65','\x6b\x4b\x68\x73\x63':function(_0x33ac80,_0x5e8817,_0x52352d){return _0x33ac80(_0x5e8817,_0x52352d);}};noticeBox[_0x258490(0x2d8)]=_0x1270ff,noticeBox['\x73\x74\x79\x6c\x65'][_0x258490(0x2bf)]='\x62\x6c\x6f\x63\x6b',_0x5325db[_0x258490(0x531)](setTimeout,()=>{const _0xd95565=_0x258490;noticeBox[_0xd95565(0x570)][_0xd95565(0x2bf)]=_0x5325db[_0xd95565(0x680)];},_0x48ff3a);}function togglePerspective(){const _0x553f24=a0_0x460254,_0x480797={'\x54\x5a\x63\x63\x66':_0x553f24(0x67a),'\x4c\x64\x4d\x73\x5a':_0x553f24(0x329),'\x51\x48\x70\x42\x62':function(_0x24cf3b,_0x28ce98,_0x223efd){return _0x24cf3b(_0x28ce98,_0x223efd);},'\x77\x44\x4e\x58\x77':_0x553f24(0x30c),'\x79\x4c\x4c\x46\x54':_0x553f24(0x386)};isTPP=!isTPP;if(isTouchDevice)document[_0x553f24(0x6ac)](_0x553f24(0x646))['\x69\x6e\x6e\x65\x72\x54\x65\x78\x74']=isTPP?_0x480797['\x54\x5a\x63\x63\x66']:_0x480797['\x4c\x64\x4d\x73\x5a'];_0x480797[_0x553f24(0xf6)](showNotice,isTPP?_0x480797[_0x553f24(0x78f)]:_0x480797['\x79\x4c\x4c\x46\x54'],0x5dc);}actionBtn[a0_0x460254(0x6b6)](a0_0x460254(0x32e),_0x43ded0=>{const _0x55598d=a0_0x460254,_0x4a5937={'\x42\x65\x76\x66\x47':function(_0x530a2b){return _0x530a2b();}};_0x43ded0['\x70\x72\x65\x76\x65\x6e\x74\x44\x65\x66\x61\x75\x6c\x74'](),_0x4a5937[_0x55598d(0x6da)](handleActionBtn);},{'\x70\x61\x73\x73\x69\x76\x65':![]}),actionBtn['\x61\x64\x64\x45\x76\x65\x6e\x74\x4c\x69\x73\x74\x65\x6e\x65\x72']('\x63\x6c\x69\x63\x6b',()=>{const _0x3cf4e6=a0_0x460254,_0x3d6121={'\x63\x74\x44\x4f\x75':function(_0x4d3b54){return _0x4d3b54();}};_0x3d6121[_0x3cf4e6(0x3f1)](handleActionBtn);});function handleActionBtn(){const _0x5b85d9=a0_0x460254,_0x57f716={'\x6c\x75\x4f\x61\x4a':function(_0x18795f,_0x32546c){return _0x18795f===_0x32546c;},'\x51\x49\x53\x76\x51':_0x5b85d9(0x84c),'\x62\x4c\x45\x6a\x58':_0x5b85d9(0x3ba),'\x72\x75\x67\x4e\x4b':'\ud83e\ude82\x20\ub099\ud558\uc0b0\x20\ud3b4\uae30','\x67\x61\x6e\x63\x46':_0x5b85d9(0x8b4),'\x66\x71\x66\x66\x50':_0x5b85d9(0x3ad)};if(_0x57f716[_0x5b85d9(0x52f)](gameState,_0x57f716[_0x5b85d9(0x79d)]))gameState=_0x57f716[_0x5b85d9(0x5c0)],actionBtn[_0x5b85d9(0x2d8)]=isTouchDevice?_0x57f716['\x72\x75\x67\x4e\x4b']:_0x5b85d9(0x1bd),SoundSystem['\x73\x74\x6f\x70\x50\x6c\x61\x6e\x65\x53\x6f\x75\x6e\x64'](),SoundSystem[_0x5b85d9(0x869)]();else gameState==='\x46\x41\x4c\x4c\x49\x4e\x47'&&(gameState=_0x57f716[_0x5b85d9(0x315)],parachute['\x76\x69\x73\x69\x62\x6c\x65']=!![],actionBtn['\x73\x74\x79\x6c\x65'][_0x5b85d9(0x2bf)]=_0x57f716[_0x5b85d9(0x507)],SoundSystem[_0x5b85d9(0x379)]());}let playerHp=0x64,killCount=0x0,totalAlive=0x32,currentWeapon=WEAPONS[a0_0x460254(0x195)],currentScope=SCOPES['\x58\x32'];playerInventory[a0_0x460254(0x285)]=WEAPONS[a0_0x460254(0x195)],playerInventory['\x73\x63\x6f\x70\x65']=SCOPES['\x58\x32'],updateVisualEquip(playerSoldier,currentWeapon,currentScope);let isHealing=![],healTimer=0x0;const HEAL_DURATION=0x6;function startHealing(){const _0x4ed50f=a0_0x460254,_0x34cd4b={'\x61\x57\x5a\x4c\x6f':_0x4ed50f(0x7d4),'\x56\x59\x55\x47\x45':function(_0x5b841d,_0x5291de){return _0x5b841d(_0x5291de);},'\x6c\x4b\x79\x6b\x4e':_0x4ed50f(0x694),'\x51\x47\x46\x49\x6b':function(_0x40130d,_0x323908){return _0x40130d!==_0x323908;},'\x47\x61\x79\x4f\x70':function(_0x28149b,_0x5cf67b){return _0x28149b<=_0x5cf67b;},'\x6b\x6d\x74\x58\x5a':function(_0x362a75){return _0x362a75();},'\x69\x69\x6a\x71\x4c':_0x4ed50f(0x7a5),'\x6c\x4a\x6b\x74\x6a':_0x4ed50f(0x22c),'\x75\x72\x55\x51\x4b':function(_0x3cb805,_0x2c1a75){return _0x3cb805(_0x2c1a75);},'\x67\x56\x55\x46\x55':_0x4ed50f(0x4ff)},_0x89d83f=_0x34cd4b[_0x4ed50f(0x31b)][_0x4ed50f(0x696)]('\x7c');let _0x317f46=0x0;while(!![]){switch(_0x89d83f[_0x317f46++]){case'\x30':healTimer=0x0;continue;case'\x31':if(playerInventory[_0x4ed50f(0x132)]<=0x0){_0x34cd4b['\x56\x59\x55\x47\x45'](showNotice,_0x34cd4b['\x6c\x4b\x79\x6b\x4e']);return;}continue;case'\x32':if(_0x34cd4b['\x51\x47\x46\x49\x6b'](gameState,'\x50\x4c\x41\x59\x49\x4e\x47')||_0x34cd4b[_0x4ed50f(0x3be)](playerHp,0x0))return;continue;case'\x33':isInventoryOpen&&_0x34cd4b[_0x4ed50f(0x8dc)](toggleInventory);continue;case'\x34':_0x34cd4b[_0x4ed50f(0x3cc)](showNotice,_0x34cd4b[_0x4ed50f(0x4d7)]);continue;case'\x35':if(isHealing)return;continue;case'\x36':isHealing=!![];continue;case'\x37':document[_0x4ed50f(0x6ac)](_0x34cd4b[_0x4ed50f(0x540)])[_0x4ed50f(0x570)][_0x4ed50f(0x2bf)]=_0x4ed50f(0x87b);continue;case'\x38':if(playerHp>=0x4b){_0x34cd4b[_0x4ed50f(0x348)](showNotice,_0x34cd4b[_0x4ed50f(0x301)]);return;}continue;}break;}}function updateSkydivePose(_0x6f4973,_0xabde77,_0x44ef8a,_0x35d9ce){const _0x254d44=a0_0x460254,_0x13a515={'\x43\x6a\x42\x50\x67':function(_0x3506c2,_0x58957a){return _0x3506c2-_0x58957a;},'\x66\x6a\x43\x6d\x59':function(_0x36e26c,_0xf46632){return _0x36e26c+_0xf46632;},'\x4e\x76\x56\x46\x79':function(_0x1614f7,_0x15ead0){return _0x1614f7<_0x15ead0;},'\x6b\x66\x66\x74\x6a':function(_0x2b3bca,_0x1658bb){return _0x2b3bca+_0x1658bb;},'\x47\x71\x66\x76\x47':function(_0x1cf54a,_0x3baf14){return _0x1cf54a/_0x3baf14;},'\x46\x6c\x50\x7a\x6b':function(_0xe45900,_0x3aad88){return _0xe45900>_0x3aad88;},'\x6e\x59\x4b\x46\x43':function(_0x14b8a1,_0x5c6215){return _0x14b8a1-_0x5c6215;},'\x48\x58\x7a\x6e\x46':function(_0x1193a9,_0xaace4c){return _0x1193a9/_0xaace4c;},'\x4d\x72\x6d\x4a\x41':function(_0x47ab34,_0xa094a){return _0x47ab34*_0xa094a;},'\x73\x49\x4c\x64\x75':function(_0x27636e,_0x38d078){return _0x27636e-_0x38d078;},'\x54\x78\x43\x4e\x58':function(_0x32e355,_0x548751){return _0x32e355<_0x548751;},'\x63\x7a\x51\x58\x70':function(_0x54ca6f,_0x514588){return _0x54ca6f-_0x514588;},'\x62\x4a\x63\x6b\x6d':function(_0x2cb4af,_0xa0e8dc){return _0x2cb4af>_0xa0e8dc;},'\x57\x75\x55\x66\x6b':function(_0x33e779,_0x89f068){return _0x33e779-_0x89f068;},'\x6a\x4a\x4a\x72\x71':function(_0x5f222f,_0x5eec87){return _0x5f222f-_0x5eec87;},'\x74\x64\x4b\x42\x63':function(_0x3c3a07,_0x2a4b5e){return _0x3c3a07-_0x2a4b5e;},'\x78\x59\x67\x43\x51':function(_0x1214d6,_0x166d2e){return _0x1214d6*_0x166d2e;},'\x4e\x6a\x42\x52\x4f':function(_0x478f59,_0x48c484){return _0x478f59*_0x48c484;},'\x47\x46\x72\x63\x4f':function(_0x12d3f0,_0x31fb46){return _0x12d3f0+_0x31fb46;}};let _0xccae8b,_0xd3b59f,_0x141e6a,_0x1a7492,_0x28fa9d,_0x3e2402;if(_0x35d9ce){_0xccae8b=_0x13a515[_0x254d44(0x116)](Math['\x50\x49'],0.3),_0xd3b59f=0.2,_0x141e6a=-0.15,_0x1a7492=_0x13a515['\x66\x6a\x43\x6d\x59'](Math['\x50\x49'],0.3),_0x28fa9d=-0.2,_0x3e2402=0.15;if(_0x13a515[_0x254d44(0x134)](_0x44ef8a,-0.2))_0xccae8b=_0x13a515[_0x254d44(0x672)](_0x13a515['\x47\x71\x66\x76\x47'](Math['\x50\x49'],0x2),0.2),_0xd3b59f=0.6,_0x141e6a=-0.5;else _0x13a515[_0x254d44(0x6fe)](_0x44ef8a,0.2)&&(_0x1a7492=_0x13a515[_0x254d44(0x242)](_0x13a515[_0x254d44(0x639)](Math['\x50\x49'],0x2),0.2),_0x28fa9d=-0.6,_0x3e2402=0.5);}else{const _0x5bf566=_0x13a515[_0x254d44(0x886)](Math['\x73\x69\x6e'](_0x13a515[_0x254d44(0x886)](clock[_0x254d44(0x3b0)](),0x1a)),0.08);_0xccae8b=1.9-_0x5bf566,_0xd3b59f=0.3,_0x141e6a=-0.2,_0x1a7492=_0x13a515['\x73\x49\x4c\x64\x75'](1.9,_0x5bf566),_0x28fa9d=-0.3,_0x3e2402=0.2;if(_0x13a515['\x54\x78\x43\x4e\x58'](_0x44ef8a,-0.2))_0xccae8b=_0x13a515['\x43\x6a\x42\x50\x67'](0.8,_0x5bf566),_0xd3b59f=0.4;else{if(_0x13a515[_0x254d44(0x6fe)](_0x44ef8a,0.2))_0x1a7492=_0x13a515['\x63\x7a\x51\x58\x70'](0.8,_0x5bf566),_0x28fa9d=-0.4;else{if(_0x13a515[_0x254d44(0x42b)](_0xabde77,0.2))_0xccae8b=_0x13a515[_0x254d44(0x75d)](2.3,_0x5bf566),_0xd3b59f=0.1,_0x1a7492=_0x13a515['\x73\x49\x4c\x64\x75'](2.3,_0x5bf566),_0x28fa9d=-0.1;else _0x13a515[_0x254d44(0x134)](_0xabde77,-0.2)&&(_0xccae8b=_0x13a515[_0x254d44(0x30f)](0.6,_0x5bf566),_0xd3b59f=0.3,_0x1a7492=_0x13a515[_0x254d44(0x14a)](0.6,_0x5bf566),_0x28fa9d=-0.3);}}_0x6f4973[_0x254d44(0x86b)][_0x254d44(0x14f)][_0x254d44(0x2d5)](_0x13a515['\x6b\x66\x66\x74\x6a'](0.3,_0x13a515[_0x254d44(0x635)](_0x5bf566,0.5)),0x0,0x0),_0x6f4973[_0x254d44(0x331)][_0x254d44(0x14f)][_0x254d44(0x2d5)](0.3-_0x13a515[_0x254d44(0x72c)](_0x5bf566,0.5),0x0,0x0),_0x6f4973[_0x254d44(0x1ea)][_0x254d44(0x14f)]['\x73\x65\x74'](_0x13a515[_0x254d44(0x13b)](0.6,_0x5bf566),0x0,0x0),_0x6f4973[_0x254d44(0x659)][_0x254d44(0x14f)][_0x254d44(0x2d5)](_0x13a515['\x74\x64\x4b\x42\x63'](0.6,_0x5bf566),0x0,0x0);}_0x6f4973['\x6c\x65\x66\x74\x41\x72\x6d']['\x72\x6f\x74\x61\x74\x69\x6f\x6e'][_0x254d44(0x2d5)](_0xccae8b,_0xd3b59f,_0x141e6a),_0x6f4973[_0x254d44(0x500)][_0x254d44(0x14f)][_0x254d44(0x2d5)](_0x1a7492,_0x28fa9d,_0x3e2402),_0x6f4973[_0x254d44(0x840)][_0x254d44(0x8a6)]['\x79']=0.95,_0x6f4973[_0x254d44(0x750)][_0x254d44(0x8a6)]['\x79']=1.45,_0x6f4973[_0x254d44(0x63e)]['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x79']=1.25,_0x6f4973['\x72\x69\x67\x68\x74\x41\x72\x6d'][_0x254d44(0x8a6)]['\x79']=1.25;}function tryInteractDoor(){const _0x322175=a0_0x460254,_0x11d6de={'\x48\x49\x69\x75\x53':function(_0x24b7b4,_0x3b6d87){return _0x24b7b4<_0x3b6d87;},'\x73\x56\x53\x72\x74':_0x322175(0x113),'\x4e\x55\x48\x6e\x64':function(_0x499d65,_0x3c0d08){return _0x499d65/_0x3c0d08;},'\x6b\x54\x46\x6a\x70':_0x322175(0x339),'\x7a\x69\x48\x63\x52':function(_0x2fefee,_0x3778ed){return _0x2fefee(_0x3778ed);},'\x63\x75\x6d\x42\x45':_0x322175(0x32f)};if(gameState!==_0x11d6de[_0x322175(0x22b)]||playerHp<=0x0)return![];let _0x5354f3=null,_0x3e1f7f=2.5;doorsList[_0x322175(0x64b)](_0x52f6fc=>{const _0x20c48e=_0x322175,_0x596327=playerPos[_0x20c48e(0x3cf)](_0x52f6fc[_0x20c48e(0x41f)]);_0x11d6de[_0x20c48e(0x11c)](_0x596327,_0x3e1f7f)&&(_0x5354f3=_0x52f6fc,_0x3e1f7f=_0x596327);});if(_0x5354f3)return _0x5354f3[_0x322175(0x7e5)]=!_0x5354f3['\x69\x73\x4f\x70\x65\x6e'],_0x5354f3[_0x322175(0x7e5)]?(_0x5354f3['\x70\x69\x76\x6f\x74'][_0x322175(0x14f)]['\x79']=_0x11d6de['\x4e\x55\x48\x6e\x64'](Math['\x50\x49'],0x2),showNotice(_0x11d6de[_0x322175(0x7ce)])):(_0x5354f3[_0x322175(0x2dc)][_0x322175(0x14f)]['\x79']=0x0,_0x11d6de[_0x322175(0x318)](showNotice,_0x11d6de[_0x322175(0x563)])),!![];return![];}function tryVaultWindow(){const _0x8d42=a0_0x460254,_0x32869c={'\x52\x64\x54\x53\x77':function(_0x5eb99b,_0x26b6f2){return _0x5eb99b<_0x26b6f2;},'\x53\x69\x43\x72\x42':function(_0x24b2a7,_0x86d73b){return _0x24b2a7!==_0x86d73b;},'\x44\x62\x4e\x6a\x4a':_0x8d42(0x113),'\x78\x45\x46\x45\x79':function(_0x18285d,_0x675afa){return _0x18285d<=_0x675afa;},'\x70\x57\x4c\x65\x4f':function(_0x213367,_0x280da3){return _0x213367>_0x280da3;},'\x57\x4e\x54\x53\x6a':function(_0xd83958,_0x28966f){return _0xd83958-_0x28966f;},'\x61\x6b\x66\x4b\x71':function(_0x1e630a,_0x5912ae){return _0x1e630a-_0x5912ae;},'\x43\x66\x68\x69\x70':function(_0x471e5a,_0x34c804){return _0x471e5a(_0x34c804);},'\x72\x49\x45\x53\x76':_0x8d42(0x587)};if(isVaulting||_0x32869c[_0x8d42(0x447)](gameState,_0x32869c[_0x8d42(0x627)])||_0x32869c['\x78\x45\x46\x45\x79'](playerHp,0x0))return![];let _0x1c856a=null,_0x2c2005=0x2;windowSpots['\x66\x6f\x72\x45\x61\x63\x68'](_0x51f4e8=>{const _0x2a6dbe=_0x8d42,_0x3f2177=playerPos[_0x2a6dbe(0x3cf)](new a0_0xe98f69[(_0x2a6dbe(0x691))](_0x51f4e8['\x78'],playerPos['\x79'],_0x51f4e8['\x7a']));_0x32869c[_0x2a6dbe(0x44e)](_0x3f2177,_0x2c2005)&&(_0x1c856a=_0x51f4e8,_0x2c2005=_0x3f2177);});if(_0x1c856a){isVaulting=!![],vaultStartTime=clock['\x67\x65\x74\x45\x6c\x61\x70\x73\x65\x64\x54\x69\x6d\x65'](),vaultStartPos[_0x8d42(0x6a0)](playerPos);const _0x865c41=new a0_0xe98f69[(_0x8d42(0x691))](0x1,0x0,0x0)[_0x8d42(0x4c2)](new a0_0xe98f69[(_0x8d42(0x691))](0x0,0x1,0x0),_0x1c856a[_0x8d42(0x5a8)]),_0x3e3951=new a0_0xe98f69[(_0x8d42(0x691))]()['\x73\x75\x62\x56\x65\x63\x74\x6f\x72\x73'](playerPos,new a0_0xe98f69[(_0x8d42(0x691))](_0x1c856a['\x78'],playerPos['\x79'],_0x1c856a['\x7a'])),_0x127089=_0x3e3951[_0x8d42(0x2ce)](_0x865c41),_0x16ca50=_0x32869c[_0x8d42(0x6e7)](_0x127089,0x0)?-1.6:1.6;return vaultEndPos[_0x8d42(0x6a0)](new a0_0xe98f69[(_0x8d42(0x691))](_0x1c856a['\x78'],_0x32869c[_0x8d42(0x345)](_0x1c856a['\x79'],1.3),_0x1c856a['\x7a']))[_0x8d42(0x42e)](_0x865c41,_0x16ca50),vaultEndPos['\x79']=getElevation(vaultEndPos['\x78'],vaultEndPos['\x7a'],_0x32869c[_0x8d42(0x61d)](_0x1c856a['\x79'],1.3)),_0x32869c[_0x8d42(0x6f5)](showNotice,_0x32869c[_0x8d42(0xe3)]),!![];}return![];}let isInventoryOpen=![];function updateInventoryUI(){const _0x3a048a=a0_0x460254,_0x1cbfc1={'\x45\x7a\x63\x73\x4e':_0x3a048a(0x853),'\x52\x62\x47\x74\x6b':_0x3a048a(0x54d),'\x56\x53\x47\x65\x5a':function(_0x11b9bc,_0x38118b){return _0x11b9bc<_0x38118b;},'\x50\x74\x51\x6e\x6e':function(_0x50d389,_0x14bb37,_0x25d04c){return _0x50d389(_0x14bb37,_0x25d04c);},'\x6c\x56\x7a\x77\x66':_0x3a048a(0x285),'\x6d\x62\x41\x55\x6c':function(_0x22afac,_0x4be7ed){return _0x22afac!==_0x4be7ed;},'\x75\x55\x55\x45\x4a':function(_0x348c80,_0x37953b,_0x4192ba){return _0x348c80(_0x37953b,_0x4192ba);},'\x4a\x43\x6c\x78\x4a':_0x3a048a(0x83e),'\x6a\x6e\x72\x5a\x71':function(_0x4a8edf,_0x12ff74,_0x5af796){return _0x4a8edf(_0x12ff74,_0x5af796);},'\x63\x70\x69\x46\x50':_0x3a048a(0x60c),'\x63\x46\x6f\x4d\x71':function(_0x1545c0,_0x5dc53b){return _0x1545c0>_0x5dc53b;},'\x69\x73\x41\x6f\x6a':function(_0x4d84b9,_0x26a720,_0x5afa21){return _0x4d84b9(_0x26a720,_0x5afa21);},'\x6f\x71\x58\x64\x55':_0x3a048a(0x506),'\x58\x45\x51\x78\x45':function(_0x3ccdb7,_0x1449e8){return _0x3ccdb7>_0x1449e8;},'\x41\x6b\x5a\x6a\x44':function(_0x20f777,_0x498f77,_0x29d9d7){return _0x20f777(_0x498f77,_0x29d9d7);},'\x4a\x45\x46\x49\x42':_0x3a048a(0x4ed),'\x76\x75\x6a\x4c\x45':function(_0x550f71,_0x2c13ad,_0x4b3b9b){return _0x550f71(_0x2c13ad,_0x4b3b9b);},'\x76\x7a\x52\x76\x79':_0x3a048a(0x64a),'\x63\x62\x55\x77\x59':'\x61\x6d\x6d\x6f','\x42\x56\x53\x51\x4d':_0x3a048a(0x658),'\x48\x68\x6f\x72\x50':_0x3a048a(0x2c1),'\x68\x4c\x51\x7a\x53':_0x3a048a(0x544),'\x64\x42\x41\x6b\x43':function(_0x3ef3f3,_0x376de3){return _0x3ef3f3!==_0x376de3;},'\x57\x61\x4c\x70\x72':_0x3a048a(0x3ad),'\x61\x6d\x51\x4e\x4f':'\x69\x6e\x76\x2d\x68\x65\x6c\x6d\x65\x74\x2d\x76\x61\x6c','\x45\x75\x53\x72\x74':_0x3a048a(0x6d3),'\x48\x4e\x53\x4d\x52':_0x3a048a(0x7f1),'\x41\x7a\x5a\x58\x72':_0x3a048a(0x27d),'\x6a\x4c\x6e\x55\x62':_0x3a048a(0x141),'\x6e\x53\x6b\x68\x75':_0x3a048a(0x858),'\x70\x6a\x52\x41\x7a':_0x3a048a(0x187),'\x49\x66\x65\x55\x66':_0x3a048a(0x271),'\x4e\x6d\x6c\x54\x55':function(_0x290941,_0x24d910){return _0x290941>_0x24d910;},'\x53\x43\x6d\x46\x77':_0x3a048a(0x502),'\x73\x53\x48\x6f\x41':_0x3a048a(0x5dc),'\x4f\x56\x55\x51\x7a':_0x3a048a(0x1b5),'\x57\x54\x45\x51\x77':_0x3a048a(0x848),'\x49\x46\x66\x41\x7a':function(_0x3efb54,_0x2fb925){return _0x3efb54===_0x2fb925;},'\x6f\x47\x41\x6a\x4a':_0x3a048a(0x26d),'\x42\x70\x55\x54\x52':'\x50\x4c\x41\x59\x49\x4e\x47','\x77\x73\x42\x49\x53':'\x62\x6c\x6f\x63\x6b'};document[_0x3a048a(0x6ac)](_0x1cbfc1[_0x3a048a(0x7f8)])['\x69\x6e\x6e\x65\x72\x54\x65\x78\x74']=playerInventory[_0x3a048a(0x285)][_0x3a048a(0x74e)],document[_0x3a048a(0x6ac)](_0x1cbfc1[_0x3a048a(0x53f)])['\x73\x74\x79\x6c\x65'][_0x3a048a(0x2bf)]=_0x1cbfc1[_0x3a048a(0x651)](playerInventory[_0x3a048a(0x285)],WEAPONS[_0x3a048a(0x181)])?_0x1cbfc1['\x68\x4c\x51\x7a\x53']:_0x3a048a(0x3ad),document[_0x3a048a(0x6ac)](_0x3a048a(0x1ed))['\x69\x6e\x6e\x65\x72\x54\x65\x78\x74']=playerInventory[_0x3a048a(0x83e)][_0x3a048a(0x74e)],document[_0x3a048a(0x6ac)](_0x3a048a(0x7be))['\x73\x74\x79\x6c\x65']['\x64\x69\x73\x70\x6c\x61\x79']=_0x1cbfc1[_0x3a048a(0x7b2)](playerInventory[_0x3a048a(0x83e)],SCOPES[_0x3a048a(0x878)])?_0x1cbfc1[_0x3a048a(0x25c)]:_0x1cbfc1['\x57\x61\x4c\x70\x72'],document[_0x3a048a(0x6ac)](_0x1cbfc1[_0x3a048a(0x4b2)])['\x69\x6e\x6e\x65\x72\x54\x65\x78\x74']=playerInventory[_0x3a048a(0x60c)]?playerInventory[_0x3a048a(0x60c)][_0x3a048a(0x74e)]:'\uc5c6\uc74c',document[_0x3a048a(0x6ac)](_0x1cbfc1[_0x3a048a(0x13c)])[_0x3a048a(0x570)][_0x3a048a(0x2bf)]=playerInventory[_0x3a048a(0x60c)]?_0x1cbfc1['\x68\x4c\x51\x7a\x53']:_0x1cbfc1[_0x3a048a(0x102)],document[_0x3a048a(0x6ac)]('\x69\x6e\x76\x2d\x62\x61\x67\x2d\x76\x61\x6c')[_0x3a048a(0x2d8)]=playerInventory['\x62\x61\x67']?playerInventory[_0x3a048a(0x4e5)]['\x6e\x61\x6d\x65']:'\uc5c6\uc74c',document[_0x3a048a(0x6ac)](_0x1cbfc1['\x48\x4e\x53\x4d\x52'])[_0x3a048a(0x570)][_0x3a048a(0x2bf)]=playerInventory[_0x3a048a(0x4e5)]?_0x1cbfc1[_0x3a048a(0x25c)]:_0x1cbfc1[_0x3a048a(0x102)],document[_0x3a048a(0x6ac)](_0x1cbfc1['\x41\x7a\x5a\x58\x72'])['\x69\x6e\x6e\x65\x72\x54\x65\x78\x74']=playerInventory['\x66\x69\x72\x73\x74\x61\x69\x64\x73'],document[_0x3a048a(0x6ac)](_0x1cbfc1[_0x3a048a(0x816)])['\x69\x6e\x6e\x65\x72\x54\x65\x78\x74']=playerInventory['\x67\x72\x65\x6e\x61\x64\x65\x73'],document['\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64'](_0x1cbfc1[_0x3a048a(0x614)])[_0x3a048a(0x2d8)]=playerInventory[_0x3a048a(0x4b0)],document['\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64'](_0x3a048a(0x811))[_0x3a048a(0x2d8)]=playerInventory[_0x3a048a(0x24f)][_0x3a048a(0x1b7)],document[_0x3a048a(0x6ac)](_0x1cbfc1[_0x3a048a(0x59d)])['\x69\x6e\x6e\x65\x72\x54\x65\x78\x74']=playerInventory[_0x3a048a(0x24f)][_0x3a048a(0x305)],document['\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64'](_0x3a048a(0x65c))['\x69\x6e\x6e\x65\x72\x54\x65\x78\x74']=playerInventory['\x61\x6d\x6d\x6f'][_0x3a048a(0x195)],document['\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64']('\x69\x6e\x76\x2d\x61\x6d\x6d\x6f\x2d\x73\x6e\x69\x70\x65\x72')['\x69\x6e\x6e\x65\x72\x54\x65\x78\x74']=playerInventory[_0x3a048a(0x24f)][_0x3a048a(0x536)];isTouchDevice&&(document[_0x3a048a(0x6ac)](_0x1cbfc1['\x49\x66\x65\x55\x66'])[_0x3a048a(0x570)][_0x3a048a(0x2bf)]=_0x1cbfc1[_0x3a048a(0x1be)](playerInventory[_0x3a048a(0x132)],0x0)?'\x66\x6c\x65\x78':_0x1cbfc1[_0x3a048a(0x102)],document[_0x3a048a(0x6ac)](_0x1cbfc1[_0x3a048a(0x7fd)])[_0x3a048a(0x570)][_0x3a048a(0x2bf)]=_0x1cbfc1[_0x3a048a(0x441)]);document[_0x3a048a(0x6ac)](_0x1cbfc1[_0x3a048a(0x1a7)])['\x69\x6e\x6e\x65\x72\x54\x65\x78\x74']=_0x3a048a(0x7c9)+playerInventory['\x67\x72\x65\x6e\x61\x64\x65\x73']+'\x29',document[_0x3a048a(0x6ac)](_0x1cbfc1['\x57\x54\x45\x51\x77'])[_0x3a048a(0x2d8)]=_0x3a048a(0x1a8)+playerInventory[_0x3a048a(0x4b0)]+'\x29';const _0x307c16=document[_0x3a048a(0x6ac)](_0x3a048a(0x819));_0x307c16['\x69\x6e\x6e\x65\x72\x48\x54\x4d\x4c']='';let _0x1a9ba5=0x0;lootBoxes[_0x3a048a(0x64b)]((_0x13479c,_0x4c1928)=>{const _0x26a631=_0x3a048a,_0x1fcd64=playerPos[_0x26a631(0x3cf)](_0x13479c[_0x26a631(0x48f)][_0x26a631(0x8a6)]);if(_0x1cbfc1['\x56\x53\x47\x65\x5a'](_0x1fcd64,3.5)){if(_0x13479c[_0x26a631(0x814)]){let _0x5c3055=![];const _0x150afc=(_0x432c84,_0x1574f2)=>{const _0x368366=_0x26a631;_0x5c3055=!![],_0x1a9ba5++;const _0x46d4cc=document['\x63\x72\x65\x61\x74\x65\x45\x6c\x65\x6d\x65\x6e\x74'](_0x1cbfc1['\x45\x7a\x63\x73\x4e']);_0x46d4cc[_0x368366(0xf0)]=_0x1cbfc1[_0x368366(0x50d)],_0x46d4cc[_0x368366(0x2dd)]=_0x368366(0x82d)+_0x432c84+'\x20\x5b\uc2dc\uccb4\x5d\x3c\x2f\x73\x70\x61\x6e\x3e\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x3c\x62\x75\x74\x74\x6f\x6e\x20\x63\x6c\x61\x73\x73\x3d\x22\x6c\x6f\x6f\x74\x2d\x62\x74\x6e\x22\x20\x6f\x6e\x74\x6f\x75\x63\x68\x73\x74\x61\x72\x74\x3d\x22\x77\x69\x6e\x64\x6f\x77\x2e\x70\x69\x63\x6b\x75\x70\x49\x74\x65\x6d\x28'+_0x4c1928+_0x368366(0x11a)+_0x1574f2+_0x368366(0x78d)+_0x4c1928+_0x368366(0x11a)+_0x1574f2+_0x368366(0x18d),_0x307c16['\x61\x70\x70\x65\x6e\x64\x43\x68\x69\x6c\x64'](_0x46d4cc);};_0x13479c[_0x26a631(0x285)]&&_0x1cbfc1[_0x26a631(0x1e4)](_0x150afc,_0x13479c['\x77\x65\x61\x70\x6f\x6e']['\x6e\x61\x6d\x65'],_0x1cbfc1['\x6c\x56\x7a\x77\x66']);_0x13479c[_0x26a631(0x83e)]&&_0x1cbfc1[_0x26a631(0x651)](_0x13479c[_0x26a631(0x83e)],SCOPES[_0x26a631(0x878)])&&_0x1cbfc1[_0x26a631(0x2c4)](_0x150afc,_0x13479c[_0x26a631(0x83e)]['\x6e\x61\x6d\x65'],_0x1cbfc1[_0x26a631(0x7af)]);_0x13479c[_0x26a631(0x60c)]&&_0x1cbfc1[_0x26a631(0x4ac)](_0x150afc,_0x13479c['\x68\x65\x6c\x6d\x65\x74']['\x6e\x61\x6d\x65'],_0x1cbfc1[_0x26a631(0x2b1)]);_0x13479c[_0x26a631(0x4e5)]&&_0x1cbfc1['\x75\x55\x55\x45\x4a'](_0x150afc,_0x13479c[_0x26a631(0x4e5)][_0x26a631(0x74e)],_0x26a631(0x4e5));_0x13479c[_0x26a631(0x132)]&&_0x1cbfc1[_0x26a631(0x1d5)](_0x13479c['\x66\x69\x72\x73\x74\x61\x69\x64\x73'],0x0)&&_0x1cbfc1[_0x26a631(0x79f)](_0x150afc,'\uad6c\uae09\uc0c1\uc790\x20'+_0x13479c[_0x26a631(0x132)]+'\uac1c',_0x1cbfc1[_0x26a631(0x514)]);_0x13479c[_0x26a631(0x576)]&&_0x1cbfc1[_0x26a631(0xf7)](_0x13479c['\x67\x72\x65\x6e\x61\x64\x65\x73'],0x0)&&_0x1cbfc1['\x41\x6b\x5a\x6a\x44'](_0x150afc,_0x26a631(0x2b3)+_0x13479c[_0x26a631(0x576)]+'\uac1c',_0x1cbfc1[_0x26a631(0x66c)]);_0x13479c[_0x26a631(0x4b0)]&&_0x13479c[_0x26a631(0x4b0)]>0x0&&_0x1cbfc1[_0x26a631(0x199)](_0x150afc,_0x26a631(0x6f0)+_0x13479c[_0x26a631(0x4b0)]+'\uac1c',_0x1cbfc1[_0x26a631(0x5c4)]);_0x13479c[_0x26a631(0x4cc)]&&_0x13479c[_0x26a631(0x4cc)]>0x0&&_0x13479c[_0x26a631(0x877)]&&_0x1cbfc1['\x69\x73\x41\x6f\x6a'](_0x150afc,getAmmoName(_0x13479c[_0x26a631(0x877)])+'\x20'+_0x13479c['\x61\x6d\x6d\x6f\x43\x6f\x75\x6e\x74']+'\ubc1c',_0x1cbfc1[_0x26a631(0x4bb)]);if(!_0x5c3055){_0x1a9ba5++;const _0x13f290=document[_0x26a631(0x58c)](_0x1cbfc1['\x45\x7a\x63\x73\x4e']);_0x13f290[_0x26a631(0xf0)]=_0x1cbfc1[_0x26a631(0x50d)],_0x13f290['\x69\x6e\x6e\x65\x72\x48\x54\x4d\x4c']=_0x26a631(0x3f3),_0x307c16['\x61\x70\x70\x65\x6e\x64\x43\x68\x69\x6c\x64'](_0x13f290);}}else{_0x1a9ba5++;const _0x1abe40=document[_0x26a631(0x58c)](_0x1cbfc1[_0x26a631(0x3d2)]);_0x1abe40[_0x26a631(0xf0)]='\x6c\x6f\x6f\x74\x2d\x69\x74\x65\x6d\x2d\x72\x6f\x77';const _0x7808d6=_0x13479c[_0x26a631(0x3ab)][_0x26a631(0x74e)]||_0x13479c[_0x26a631(0x488)];_0x1abe40['\x69\x6e\x6e\x65\x72\x48\x54\x4d\x4c']=_0x26a631(0x1f0)+_0x7808d6+_0x26a631(0x4a4)+_0x4c1928+_0x26a631(0x33e)+_0x4c1928+_0x26a631(0x446),_0x307c16[_0x26a631(0xe5)](_0x1abe40);}}}),_0x1cbfc1[_0x3a048a(0x443)](_0x1a9ba5,0x0)?(_0x307c16['\x69\x6e\x6e\x65\x72\x48\x54\x4d\x4c']=_0x3a048a(0x38d),document[_0x3a048a(0x6ac)](_0x1cbfc1['\x6f\x47\x41\x6a\x4a'])[_0x3a048a(0x570)][_0x3a048a(0x2bf)]='\x6e\x6f\x6e\x65'):!isInventoryOpen&&gameState===_0x1cbfc1[_0x3a048a(0x421)]?document['\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64'](_0x1cbfc1[_0x3a048a(0x76d)])[_0x3a048a(0x570)][_0x3a048a(0x2bf)]=_0x1cbfc1[_0x3a048a(0x344)]:document[_0x3a048a(0x6ac)](_0x1cbfc1[_0x3a048a(0x76d)])[_0x3a048a(0x570)]['\x64\x69\x73\x70\x6c\x61\x79']=_0x1cbfc1[_0x3a048a(0x102)];}function toggleInventory(){const _0x3b889d=a0_0x460254,_0x15ab08={'\x6a\x79\x6c\x68\x45':function(_0x555ef9,_0x194a23){return _0x555ef9!==_0x194a23;},'\x71\x6d\x47\x66\x6e':_0x3b889d(0x113),'\x6a\x43\x41\x64\x6d':function(_0x525866,_0x5878c1){return _0x525866<=_0x5878c1;},'\x6d\x47\x4c\x6f\x70':_0x3b889d(0x8ae),'\x5a\x4a\x53\x78\x50':_0x3b889d(0x5dc),'\x67\x45\x77\x64\x4f':function(_0x59dbf0){return _0x59dbf0();}};if(_0x15ab08[_0x3b889d(0x740)](gameState,_0x15ab08[_0x3b889d(0x745)])||_0x15ab08[_0x3b889d(0x273)](playerHp,0x0))return;isInventoryOpen=!isInventoryOpen;const _0x372296=document[_0x3b889d(0x6ac)](_0x15ab08[_0x3b889d(0x373)]);if(isInventoryOpen)_0x372296[_0x3b889d(0x570)][_0x3b889d(0x2bf)]=_0x15ab08[_0x3b889d(0xee)],document[_0x3b889d(0x205)](),_0x15ab08[_0x3b889d(0x368)](updateInventoryUI);else{_0x372296['\x73\x74\x79\x6c\x65'][_0x3b889d(0x2bf)]='\x6e\x6f\x6e\x65';try{document[_0x3b889d(0x840)][_0x3b889d(0x6cf)]();}catch(_0xff0b3a){}}}window['\x70\x69\x63\x6b\x75\x70\x49\x74\x65\x6d']=function(_0x468ddd,_0x2617f2=null){const _0x10543f=a0_0x460254,_0x52eca2={'\x71\x4e\x67\x44\x48':function(_0x1dc29e,_0x20b75a){return _0x1dc29e<_0x20b75a;},'\x75\x76\x58\x63\x65':function(_0x3f2500,_0x58efe7){return _0x3f2500+_0x58efe7;},'\x63\x65\x44\x4d\x75':function(_0x7fd507,_0x33f81b){return _0x7fd507>_0x33f81b;},'\x4d\x48\x4b\x4e\x61':function(_0x2bacae,_0x33c2b7){return _0x2bacae>_0x33c2b7;},'\x68\x79\x49\x48\x4f':_0x10543f(0x4ed),'\x63\x72\x4c\x6a\x79':function(_0x209102,_0x855c11){return _0x209102>_0x855c11;},'\x6f\x78\x4f\x74\x44':'\x73\x6d\x6f\x6b\x65','\x59\x59\x71\x59\x52':function(_0x43a5d6,_0x372484){return _0x43a5d6!==_0x372484;},'\x63\x55\x76\x55\x6d':_0x10543f(0x60c),'\x65\x61\x64\x75\x65':function(_0x57cc89,_0x2d714f){return _0x57cc89===_0x2d714f;},'\x42\x71\x67\x4c\x43':_0x10543f(0x285),'\x59\x55\x4b\x54\x4c':function(_0x14ebf1,_0x2d5f32){return _0x14ebf1(_0x2d5f32);},'\x48\x7a\x4e\x43\x51':_0x10543f(0x6f2),'\x59\x43\x50\x42\x4d':_0x10543f(0x83e),'\x70\x72\x6c\x6c\x75':function(_0x2c3f18,_0x3b3720){return _0x2c3f18(_0x3b3720);},'\x69\x79\x48\x4c\x63':function(_0x59061c,_0x397913){return _0x59061c!==_0x397913;},'\x50\x70\x72\x79\x70':_0x10543f(0x267),'\x4a\x53\x55\x74\x4b':function(_0x392fb5,_0xa33e2f,_0xbe6a6a,_0x1a08bd){return _0x392fb5(_0xa33e2f,_0xbe6a6a,_0x1a08bd);},'\x77\x4a\x46\x4e\x79':_0x10543f(0x61e),'\x79\x6c\x51\x49\x4c':function(_0x1cedbd,_0x30f93d){return _0x1cedbd===_0x30f93d;},'\x64\x67\x79\x4c\x52':'\x62\x61\x67','\x71\x4c\x4f\x43\x6f':function(_0x122710,_0x58733f){return _0x122710===_0x58733f;},'\x4d\x57\x66\x42\x57':'\x66\x69\x72\x73\x74\x61\x69\x64','\x49\x6e\x59\x54\x57':function(_0x366317,_0x5c4d12){return _0x366317-_0x5c4d12;},'\x62\x75\x4b\x4f\x44':_0x10543f(0x5db),'\x74\x42\x6a\x57\x42':function(_0xcbb8ba,_0x3f19ee){return _0xcbb8ba>_0x3f19ee;},'\x4c\x6b\x67\x46\x44':function(_0x44ee74,_0x1cbde9){return _0x44ee74+_0x1cbde9;},'\x62\x71\x75\x69\x43':_0x10543f(0x7a4),'\x69\x54\x4d\x67\x4f':function(_0x4f4a1a,_0x170850){return _0x4f4a1a>_0x170850;},'\x4e\x52\x74\x63\x79':function(_0x4ce2dd,_0xe0aae4){return _0x4ce2dd>_0xe0aae4;},'\x46\x71\x76\x62\x45':_0x10543f(0x8df),'\x42\x7a\x4b\x67\x46':function(_0x913e2c,_0x5425ae){return _0x913e2c===_0x5425ae;},'\x63\x4b\x6d\x77\x48':_0x10543f(0x24f),'\x7a\x4f\x41\x48\x6c':function(_0x3074e6,_0x5ca9bb){return _0x3074e6>_0x5ca9bb;},'\x5a\x72\x6c\x4a\x49':function(_0x892b33,_0x8817c8){return _0x892b33>_0x8817c8;},'\x4e\x79\x4f\x6c\x47':function(_0x5ec2d2,_0x20b35d){return _0x5ec2d2>_0x20b35d;},'\x6a\x49\x6e\x48\x67':function(_0x4b8b38,_0x590b65){return _0x4b8b38>_0x590b65;},'\x56\x48\x6a\x7a\x67':function(_0x1f1892){return _0x1f1892();},'\x65\x65\x58\x62\x73':_0x10543f(0x707),'\x46\x43\x4e\x4e\x4a':function(_0x30a541,_0x43121f){return _0x30a541===_0x43121f;},'\x5a\x67\x47\x72\x77':function(_0x83ffc,_0x2aec65){return _0x83ffc!==_0x2aec65;},'\x57\x73\x74\x61\x59':function(_0x104d3a,_0x400039,_0xb5b4,_0x38c3bf){return _0x104d3a(_0x400039,_0xb5b4,_0x38c3bf);},'\x73\x54\x56\x4c\x69':function(_0x1c6d90,_0x18096e){return _0x1c6d90!==_0x18096e;},'\x4b\x51\x4d\x65\x45':function(_0x318561,_0xb418fb){return _0x318561===_0xb418fb;},'\x4a\x64\x73\x71\x68':function(_0x2f8c5d,_0x56210a){return _0x2f8c5d===_0x56210a;},'\x65\x54\x71\x6e\x42':'\x42\x41\x47','\x47\x69\x42\x74\x52':function(_0x4b9ce6,_0x1adec9){return _0x4b9ce6(_0x1adec9);},'\x59\x61\x70\x49\x65':function(_0x124288,_0x4ea57a,_0x56cf4e,_0x9b15ba){return _0x124288(_0x4ea57a,_0x56cf4e,_0x9b15ba);},'\x6e\x5a\x7a\x4a\x62':_0x10543f(0x3a0),'\x59\x46\x56\x61\x55':_0x10543f(0x1ba),'\x6b\x5a\x43\x72\x44':function(_0x43e86c,_0x130088){return _0x43e86c>=_0x130088;},'\x78\x59\x73\x72\x4d':function(_0xfacba,_0xf36ed4){return _0xfacba===_0xf36ed4;},'\x61\x64\x45\x68\x59':_0x10543f(0x7b7),'\x56\x64\x6f\x68\x57':'\x46\x49\x52\x53\x54\x41\x49\x44','\x5a\x53\x6f\x43\x6f':_0x10543f(0x51b),'\x55\x46\x4d\x4e\x6a':_0x10543f(0x1b1),'\x73\x4e\x61\x6f\x6c':'\x41\x4d\x4d\x4f\x5f\x50\x49\x53\x54\x4f\x4c','\x4e\x7a\x67\x73\x46':function(_0xe62f1b,_0x4e7888){return _0xe62f1b===_0x4e7888;},'\x65\x45\x6c\x63\x6a':function(_0x39adae,_0x20a75a){return _0x39adae===_0x20a75a;},'\x58\x50\x43\x6f\x79':_0x10543f(0x2f9),'\x49\x66\x4c\x5a\x46':_0x10543f(0x2b4)};if(_0x52eca2[_0x10543f(0x602)](_0x468ddd,0x0)||_0x468ddd>=lootBoxes[_0x10543f(0x88b)])return;const _0x1c3f7c=lootBoxes[_0x468ddd],_0x270f4a=_0x52eca2['\x75\x76\x58\x63\x65'](playerInventory[_0x10543f(0x576)]+playerInventory[_0x10543f(0x4b0)],playerInventory['\x66\x69\x72\x73\x74\x61\x69\x64\x73']),_0x5108a6=playerInventory[_0x10543f(0x4e5)]?playerInventory['\x62\x61\x67']['\x63\x61\x70\x61\x63\x69\x74\x79']:0x2;if(_0x1c3f7c['\x69\x73\x43\x72\x61\x74\x65']){let _0x59fbce=![],_0x2cd80a=_0x2617f2;if(!_0x2cd80a){if(_0x1c3f7c[_0x10543f(0x4cc)]&&_0x52eca2[_0x10543f(0x275)](_0x1c3f7c[_0x10543f(0x4cc)],0x0))_0x2cd80a='\x61\x6d\x6d\x6f';else{if(_0x1c3f7c[_0x10543f(0x132)]&&_0x52eca2[_0x10543f(0x574)](_0x1c3f7c['\x66\x69\x72\x73\x74\x61\x69\x64\x73'],0x0))_0x2cd80a=_0x10543f(0x506);else{if(_0x1c3f7c[_0x10543f(0x576)]&&_0x52eca2['\x4d\x48\x4b\x4e\x61'](_0x1c3f7c[_0x10543f(0x576)],0x0))_0x2cd80a=_0x52eca2[_0x10543f(0x4eb)];else{if(_0x1c3f7c['\x73\x6d\x6f\x6b\x65\x73']&&_0x52eca2[_0x10543f(0x140)](_0x1c3f7c['\x73\x6d\x6f\x6b\x65\x73'],0x0))_0x2cd80a=_0x52eca2[_0x10543f(0x191)];else{if(_0x1c3f7c['\x77\x65\x61\x70\x6f\x6e'])_0x2cd80a=_0x10543f(0x285);else{if(_0x1c3f7c['\x73\x63\x6f\x70\x65']&&_0x52eca2['\x59\x59\x71\x59\x52'](_0x1c3f7c[_0x10543f(0x83e)],SCOPES[_0x10543f(0x878)]))_0x2cd80a='\x73\x63\x6f\x70\x65';else{if(_0x1c3f7c[_0x10543f(0x60c)])_0x2cd80a=_0x52eca2[_0x10543f(0x619)];else{if(_0x1c3f7c[_0x10543f(0x4e5)])_0x2cd80a='\x62\x61\x67';}}}}}}}}if(_0x52eca2[_0x10543f(0x1a2)](_0x2cd80a,_0x52eca2['\x42\x71\x67\x4c\x43'])&&_0x1c3f7c[_0x10543f(0x285)]){const _0x30fa03=playerInventory[_0x10543f(0x285)];playerInventory['\x77\x65\x61\x70\x6f\x6e']=_0x1c3f7c[_0x10543f(0x285)],currentWeapon=_0x1c3f7c[_0x10543f(0x285)],_0x1c3f7c[_0x10543f(0x285)]=null,_0x59fbce=!![],_0x52eca2[_0x10543f(0x1bf)](showNotice,'\uc2dc\uccb4\uc0c1\uc790\uc5d0\uc11c\x20\x5b'+currentWeapon['\x6e\x61\x6d\x65']+'\x5d\x20\ud68d\ub4dd\x21'),_0x52eca2[_0x10543f(0x656)](_0x30fa03,WEAPONS['\x50\x55\x4e\x43\x48'])&&spawnGroundItem(playerPos[_0x10543f(0x31f)](),_0x52eca2[_0x10543f(0x7b6)],_0x30fa03);}else{if(_0x52eca2[_0x10543f(0x1a2)](_0x2cd80a,_0x52eca2[_0x10543f(0x216)])&&_0x1c3f7c['\x73\x63\x6f\x70\x65']&&_0x1c3f7c['\x73\x63\x6f\x70\x65']!==SCOPES[_0x10543f(0x878)]){const _0x5c63e6=playerInventory['\x73\x63\x6f\x70\x65'];playerInventory[_0x10543f(0x83e)]=_0x1c3f7c['\x73\x63\x6f\x70\x65'],currentScope=_0x1c3f7c[_0x10543f(0x83e)],_0x1c3f7c[_0x10543f(0x83e)]=null,_0x59fbce=!![],_0x52eca2['\x70\x72\x6c\x6c\x75'](showNotice,_0x10543f(0x14b)+currentScope[_0x10543f(0x74e)]+_0x10543f(0x145)),_0x52eca2['\x69\x79\x48\x4c\x63'](_0x5c63e6,SCOPES[_0x10543f(0x878)])&&spawnGroundItem(playerPos[_0x10543f(0x31f)](),_0x52eca2[_0x10543f(0x69f)],_0x5c63e6);}else{if(_0x2cd80a===_0x10543f(0x60c)&&_0x1c3f7c[_0x10543f(0x60c)]){const _0x109f12=playerInventory[_0x10543f(0x60c)];playerInventory[_0x10543f(0x60c)]=_0x1c3f7c[_0x10543f(0x60c)],_0x1c3f7c[_0x10543f(0x60c)]=null,_0x59fbce=!![],_0x52eca2[_0x10543f(0x1bf)](showNotice,'\uc2dc\uccb4\uc0c1\uc790\uc5d0\uc11c\x20\x5b'+playerInventory[_0x10543f(0x60c)][_0x10543f(0x74e)]+_0x10543f(0x145)),playerSoldier[_0x10543f(0x1c5)](playerInventory['\x68\x65\x6c\x6d\x65\x74']),_0x109f12&&_0x52eca2[_0x10543f(0x6fa)](spawnGroundItem,playerPos[_0x10543f(0x31f)](),_0x52eca2[_0x10543f(0x569)],_0x109f12);}else{if(_0x52eca2['\x79\x6c\x51\x49\x4c'](_0x2cd80a,_0x52eca2[_0x10543f(0x291)])&&_0x1c3f7c['\x62\x61\x67']){const _0x5ea04f=playerInventory[_0x10543f(0x4e5)];playerInventory[_0x10543f(0x4e5)]=_0x1c3f7c[_0x10543f(0x4e5)],_0x1c3f7c[_0x10543f(0x4e5)]=null,_0x59fbce=!![],_0x52eca2[_0x10543f(0x1bf)](showNotice,_0x10543f(0x14b)+playerInventory['\x62\x61\x67'][_0x10543f(0x74e)]+_0x10543f(0x145)),playerSoldier[_0x10543f(0x2a4)](playerInventory[_0x10543f(0x4e5)]),_0x5ea04f&&_0x52eca2[_0x10543f(0x6fa)](spawnGroundItem,playerPos['\x63\x6c\x6f\x6e\x65'](),_0x10543f(0x719),_0x5ea04f);}else{if(_0x52eca2[_0x10543f(0x551)](_0x2cd80a,_0x52eca2[_0x10543f(0x8c7)])&&_0x1c3f7c[_0x10543f(0x132)]&&_0x52eca2[_0x10543f(0x140)](_0x1c3f7c[_0x10543f(0x132)],0x0)){const _0x1b368e=_0x52eca2[_0x10543f(0x281)](_0x5108a6,_0x52eca2[_0x10543f(0x757)](_0x52eca2[_0x10543f(0x757)](playerInventory[_0x10543f(0x576)],playerInventory[_0x10543f(0x4b0)]),playerInventory[_0x10543f(0x132)]));if(_0x52eca2[_0x10543f(0x140)](_0x1b368e,0x0)){const _0x44b69a=Math[_0x10543f(0x19c)](_0x1c3f7c['\x66\x69\x72\x73\x74\x61\x69\x64\x73'],_0x1b368e);_0x1c3f7c['\x66\x69\x72\x73\x74\x61\x69\x64\x73']-=_0x44b69a,playerInventory['\x66\x69\x72\x73\x74\x61\x69\x64\x73']+=_0x44b69a,_0x59fbce=!![],_0x52eca2['\x70\x72\x6c\x6c\x75'](showNotice,'\uc2dc\uccb4\uc0c1\uc790\uc5d0\uc11c\x20\x5b\uad6c\uae09\uc0c1\uc790\x5d\x20'+_0x44b69a+_0x10543f(0x1d4));}else _0x52eca2[_0x10543f(0x7e9)](showNotice,_0x52eca2[_0x10543f(0x279)]);}else{if(_0x52eca2[_0x10543f(0x1a2)](_0x2cd80a,_0x52eca2[_0x10543f(0x4eb)])&&_0x1c3f7c[_0x10543f(0x576)]&&_0x52eca2[_0x10543f(0x6c2)](_0x1c3f7c[_0x10543f(0x576)],0x0)){const _0x1a2586=_0x5108a6-_0x52eca2[_0x10543f(0x473)](_0x52eca2[_0x10543f(0x473)](playerInventory['\x67\x72\x65\x6e\x61\x64\x65\x73'],playerInventory[_0x10543f(0x4b0)]),playerInventory[_0x10543f(0x132)]);_0x1a2586>0x0?(_0x1c3f7c[_0x10543f(0x576)]--,playerInventory[_0x10543f(0x576)]++,_0x59fbce=!![],_0x52eca2[_0x10543f(0x7e9)](showNotice,_0x52eca2[_0x10543f(0x765)])):_0x52eca2['\x59\x55\x4b\x54\x4c'](showNotice,_0x10543f(0x408));}else{if(_0x2cd80a===_0x52eca2[_0x10543f(0x191)]&&_0x1c3f7c[_0x10543f(0x4b0)]&&_0x52eca2[_0x10543f(0x2b0)](_0x1c3f7c[_0x10543f(0x4b0)],0x0)){const _0x4e2d2c=_0x52eca2[_0x10543f(0x281)](_0x5108a6,playerInventory[_0x10543f(0x576)]+playerInventory[_0x10543f(0x4b0)]+playerInventory[_0x10543f(0x132)]);_0x52eca2[_0x10543f(0x4af)](_0x4e2d2c,0x0)?(_0x1c3f7c[_0x10543f(0x4b0)]--,playerInventory[_0x10543f(0x4b0)]++,_0x59fbce=!![],_0x52eca2[_0x10543f(0x1bf)](showNotice,_0x52eca2[_0x10543f(0x550)])):_0x52eca2[_0x10543f(0x1bf)](showNotice,_0x10543f(0x32d));}else{if(_0x52eca2['\x42\x7a\x4b\x67\x46'](_0x2cd80a,_0x52eca2[_0x10543f(0x1a5)])&&_0x1c3f7c[_0x10543f(0x4cc)]&&_0x52eca2['\x7a\x4f\x41\x48\x6c'](_0x1c3f7c[_0x10543f(0x4cc)],0x0)){const _0x5b3245=_0x10543f(0x7c5)[_0x10543f(0x696)]('\x7c');let _0x15bc8a=0x0;while(!![]){switch(_0x5b3245[_0x15bc8a++]){case'\x30':_0x1c3f7c[_0x10543f(0x4cc)]=0x0;continue;case'\x31':_0x1c3f7c[_0x10543f(0x877)]=null;continue;case'\x32':_0x59fbce=!![];continue;case'\x33':playerInventory[_0x10543f(0x24f)][_0x1c3f7c[_0x10543f(0x877)]]+=_0x1c3f7c[_0x10543f(0x4cc)];continue;case'\x34':_0x52eca2[_0x10543f(0x1bf)](showNotice,_0x10543f(0x14b)+_0x52eca2[_0x10543f(0x7e9)](getAmmoName,_0x1c3f7c[_0x10543f(0x877)])+'\x5d\x20'+_0x1c3f7c[_0x10543f(0x4cc)]+'\ubc1c\x20\ud68d\ub4dd\x21');continue;}break;}}}}}}}}}const _0x2db75b=!!_0x1c3f7c[_0x10543f(0x285)],_0x15f192=_0x1c3f7c[_0x10543f(0x83e)]&&_0x1c3f7c[_0x10543f(0x83e)]!==SCOPES[_0x10543f(0x878)],_0x1eb59c=!!_0x1c3f7c[_0x10543f(0x60c)],_0x5bf72e=!!_0x1c3f7c['\x62\x61\x67'],_0x4e350b=_0x1c3f7c[_0x10543f(0x132)]&&_0x52eca2[_0x10543f(0x26c)](_0x1c3f7c[_0x10543f(0x132)],0x0),_0x30105b=_0x1c3f7c['\x67\x72\x65\x6e\x61\x64\x65\x73']&&_0x52eca2[_0x10543f(0x1fd)](_0x1c3f7c['\x67\x72\x65\x6e\x61\x64\x65\x73'],0x0),_0x242961=_0x1c3f7c[_0x10543f(0x4b0)]&&_0x52eca2[_0x10543f(0x1bc)](_0x1c3f7c[_0x10543f(0x4b0)],0x0),_0x14267a=_0x1c3f7c['\x61\x6d\x6d\x6f\x43\x6f\x75\x6e\x74']&&_0x1c3f7c[_0x10543f(0x4cc)]>0x0;!_0x2db75b&&!_0x15f192&&!_0x1eb59c&&!_0x5bf72e&&!_0x4e350b&&!_0x30105b&&!_0x242961&&!_0x14267a&&(scene[_0x10543f(0x2b8)](_0x1c3f7c['\x6d\x65\x73\x68']),lootBoxes['\x73\x70\x6c\x69\x63\x65'](_0x468ddd,0x1)),_0x59fbce?(_0x52eca2[_0x10543f(0x5f6)](updateEquipUI),updateVisualEquip(playerSoldier,currentWeapon,currentScope),SoundSystem['\x70\x6c\x61\x79\x4c\x6f\x6f\x74\x53\x6f\x75\x6e\x64']()):_0x52eca2[_0x10543f(0x1bf)](showNotice,_0x52eca2[_0x10543f(0x3fb)]);}else{if(_0x52eca2[_0x10543f(0x418)](_0x1c3f7c[_0x10543f(0x488)],_0x52eca2[_0x10543f(0x7b6)])){const _0x380ce7=playerInventory[_0x10543f(0x285)];playerInventory['\x77\x65\x61\x70\x6f\x6e']=_0x1c3f7c['\x76\x61\x6c'],currentWeapon=_0x1c3f7c['\x76\x61\x6c'],_0x52eca2[_0x10543f(0x1bf)](showNotice,'\x5b'+currentWeapon['\x6e\x61\x6d\x65']+_0x10543f(0x50a)),scene[_0x10543f(0x2b8)](_0x1c3f7c[_0x10543f(0x48f)]),lootBoxes[_0x10543f(0x6ef)](_0x468ddd,0x1),_0x52eca2['\x5a\x67\x47\x72\x77'](_0x380ce7,WEAPONS[_0x10543f(0x181)])&&_0x52eca2[_0x10543f(0x21f)](spawnGroundItem,playerPos[_0x10543f(0x31f)](),_0x52eca2[_0x10543f(0x7b6)],_0x380ce7);}else{if(_0x1c3f7c[_0x10543f(0x488)]===_0x52eca2[_0x10543f(0x69f)]){const _0x41a627=playerInventory[_0x10543f(0x83e)];playerInventory['\x73\x63\x6f\x70\x65']=_0x1c3f7c['\x76\x61\x6c'],currentScope=_0x1c3f7c['\x76\x61\x6c'],_0x52eca2[_0x10543f(0x1bf)](showNotice,'\x5b'+currentScope[_0x10543f(0x74e)]+_0x10543f(0x6c8)),scene[_0x10543f(0x2b8)](_0x1c3f7c[_0x10543f(0x48f)]),lootBoxes[_0x10543f(0x6ef)](_0x468ddd,0x1),_0x52eca2[_0x10543f(0x4c3)](_0x41a627,SCOPES[_0x10543f(0x878)])&&spawnGroundItem(playerPos[_0x10543f(0x31f)](),_0x52eca2['\x50\x70\x72\x79\x70'],_0x41a627);}else{if(_0x52eca2[_0x10543f(0x789)](_0x1c3f7c[_0x10543f(0x488)],_0x52eca2[_0x10543f(0x569)])){const _0x1aafd9=playerInventory[_0x10543f(0x60c)];playerInventory['\x68\x65\x6c\x6d\x65\x74']=_0x1c3f7c[_0x10543f(0x3ab)],showNotice('\x5b'+_0x1c3f7c[_0x10543f(0x3ab)][_0x10543f(0x74e)]+_0x10543f(0x6c8)),scene[_0x10543f(0x2b8)](_0x1c3f7c[_0x10543f(0x48f)]),lootBoxes[_0x10543f(0x6ef)](_0x468ddd,0x1),playerSoldier['\x75\x70\x64\x61\x74\x65\x48\x65\x6c\x6d\x65\x74\x56\x69\x73\x75\x61\x6c'](playerInventory[_0x10543f(0x60c)]),_0x1aafd9&&_0x52eca2[_0x10543f(0x6fa)](spawnGroundItem,playerPos[_0x10543f(0x31f)](),_0x10543f(0x61e),_0x1aafd9);}else{if(_0x52eca2[_0x10543f(0x1af)](_0x1c3f7c['\x74\x79\x70\x65'],_0x52eca2[_0x10543f(0x154)])){const _0x452444=playerInventory[_0x10543f(0x4e5)];playerInventory[_0x10543f(0x4e5)]=_0x1c3f7c[_0x10543f(0x3ab)],_0x52eca2['\x47\x69\x42\x74\x52'](showNotice,'\x5b'+_0x1c3f7c[_0x10543f(0x3ab)][_0x10543f(0x74e)]+_0x10543f(0x6c8)),scene['\x72\x65\x6d\x6f\x76\x65'](_0x1c3f7c[_0x10543f(0x48f)]),lootBoxes[_0x10543f(0x6ef)](_0x468ddd,0x1),playerSoldier[_0x10543f(0x2a4)](playerInventory['\x62\x61\x67']),_0x452444&&_0x52eca2[_0x10543f(0x17c)](spawnGroundItem,playerPos[_0x10543f(0x31f)](),'\x42\x41\x47',_0x452444);}else{if(_0x1c3f7c[_0x10543f(0x488)]===_0x52eca2[_0x10543f(0x347)]){const _0x4cd6f4=_0x52eca2[_0x10543f(0x4b7)][_0x10543f(0x696)]('\x7c');let _0x18ca27=0x0;while(!![]){switch(_0x4cd6f4[_0x18ca27++]){case'\x30':showNotice('\uc218\ub958\ud0c4\x20\ud68d\ub4dd\x21');continue;case'\x31':lootBoxes[_0x10543f(0x6ef)](_0x468ddd,0x1);continue;case'\x32':if(_0x52eca2[_0x10543f(0x7fc)](_0x270f4a,_0x5108a6)){showNotice(_0x10543f(0x1b1));return;}continue;case'\x33':scene[_0x10543f(0x2b8)](_0x1c3f7c['\x6d\x65\x73\x68']);continue;case'\x34':playerInventory['\x67\x72\x65\x6e\x61\x64\x65\x73']++;continue;}break;}}else{if(_0x52eca2['\x78\x59\x73\x72\x4d'](_0x1c3f7c[_0x10543f(0x488)],_0x10543f(0x7eb))){const _0x5ee25b=_0x52eca2[_0x10543f(0x552)][_0x10543f(0x696)]('\x7c');let _0x343f32=0x0;while(!![]){switch(_0x5ee25b[_0x343f32++]){case'\x30':_0x52eca2['\x47\x69\x42\x74\x52'](showNotice,'\uc5f0\ub9c9\ud0c4\x20\ud68d\ub4dd\x21');continue;case'\x31':scene[_0x10543f(0x2b8)](_0x1c3f7c[_0x10543f(0x48f)]);continue;case'\x32':playerInventory[_0x10543f(0x4b0)]++;continue;case'\x33':if(_0x270f4a>=_0x5108a6){_0x52eca2[_0x10543f(0x29c)](showNotice,_0x10543f(0x1b1));return;}continue;case'\x34':lootBoxes[_0x10543f(0x6ef)](_0x468ddd,0x1);continue;}break;}}else{if(_0x52eca2[_0x10543f(0x551)](_0x1c3f7c[_0x10543f(0x488)],_0x52eca2[_0x10543f(0x223)])){const _0xa41acc=_0x52eca2['\x5a\x53\x6f\x43\x6f'][_0x10543f(0x696)]('\x7c');let _0x382eb9=0x0;while(!![]){switch(_0xa41acc[_0x382eb9++]){case'\x30':showNotice(_0x10543f(0x200));continue;case'\x31':if(_0x52eca2[_0x10543f(0x7fc)](_0x270f4a,_0x5108a6)){showNotice(_0x52eca2['\x55\x46\x4d\x4e\x6a']);return;}continue;case'\x32':scene[_0x10543f(0x2b8)](_0x1c3f7c[_0x10543f(0x48f)]);continue;case'\x33':playerInventory['\x66\x69\x72\x73\x74\x61\x69\x64\x73']++;continue;case'\x34':lootBoxes[_0x10543f(0x6ef)](_0x468ddd,0x1);continue;}break;}}else{if(_0x52eca2[_0x10543f(0x1af)](_0x1c3f7c[_0x10543f(0x488)],_0x52eca2[_0x10543f(0x683)]))playerInventory['\x61\x6d\x6d\x6f'][_0x10543f(0x1b7)]+=0x1e,showNotice(_0x10543f(0x4e9)),scene[_0x10543f(0x2b8)](_0x1c3f7c[_0x10543f(0x48f)]),lootBoxes[_0x10543f(0x6ef)](_0x468ddd,0x1);else{if(_0x52eca2[_0x10543f(0x7a8)](_0x1c3f7c[_0x10543f(0x488)],'\x41\x4d\x4d\x4f\x5f\x53\x48\x4f\x54\x47\x55\x4e'))playerInventory[_0x10543f(0x24f)][_0x10543f(0x305)]+=0xa,_0x52eca2[_0x10543f(0x29c)](showNotice,_0x10543f(0x695)),scene[_0x10543f(0x2b8)](_0x1c3f7c[_0x10543f(0x48f)]),lootBoxes[_0x10543f(0x6ef)](_0x468ddd,0x1);else{if(_0x52eca2[_0x10543f(0x442)](_0x1c3f7c[_0x10543f(0x488)],_0x52eca2[_0x10543f(0x628)]))playerInventory['\x61\x6d\x6d\x6f'][_0x10543f(0x195)]+=0x3c,_0x52eca2[_0x10543f(0x7e9)](showNotice,_0x10543f(0x894)),scene['\x72\x65\x6d\x6f\x76\x65'](_0x1c3f7c[_0x10543f(0x48f)]),lootBoxes[_0x10543f(0x6ef)](_0x468ddd,0x1);else _0x52eca2[_0x10543f(0x442)](_0x1c3f7c[_0x10543f(0x488)],_0x52eca2[_0x10543f(0x19a)])&&(playerInventory['\x61\x6d\x6d\x6f']['\x53\x4e\x49\x50\x45\x52']+=0xf,_0x52eca2[_0x10543f(0x29c)](showNotice,'\x37\x2e\x36\x32\x6d\x6d\x20\ud0c4\ucc3d\x20\ud68d\ub4dd\x21\x20\x28\x2b\x31\x35\ubc1c\x29'),scene[_0x10543f(0x2b8)](_0x1c3f7c['\x6d\x65\x73\x68']),lootBoxes['\x73\x70\x6c\x69\x63\x65'](_0x468ddd,0x1));}}}}}}}}}updateEquipUI(),updateVisualEquip(playerSoldier,currentWeapon,currentScope),SoundSystem[_0x10543f(0x29d)]();}_0x52eca2['\x56\x48\x6a\x7a\x67'](updateInventoryUI);},setTimeout(()=>{const _0x50448f=a0_0x460254,_0x4e21d2={'\x4c\x4d\x45\x51\x53':function(_0x22aa66,_0xc700ca,_0x3e0e24,_0x5e1d71){return _0x22aa66(_0xc700ca,_0x3e0e24,_0x5e1d71);},'\x6a\x74\x74\x64\x51':_0x50448f(0x6f2),'\x54\x4d\x6f\x62\x56':function(_0x1d68cf){return _0x1d68cf();},'\x59\x51\x4e\x55\x4d':function(_0x5c7eb3,_0x43bdae){return _0x5c7eb3===_0x43bdae;},'\x68\x6c\x78\x52\x44':_0x50448f(0x267),'\x41\x70\x45\x4c\x45':function(_0x5e406d,_0x1264dd){return _0x5e406d(_0x1264dd);},'\x5a\x58\x76\x51\x62':_0x50448f(0x61e),'\x62\x50\x51\x70\x74':function(_0x134c09,_0x58f72e){return _0x134c09(_0x58f72e);},'\x51\x74\x6e\x68\x66':function(_0x5edc65,_0x25861a,_0x553475,_0xd3d968){return _0x5edc65(_0x25861a,_0x553475,_0xd3d968);},'\x65\x41\x73\x6e\x4c':'\x42\x41\x47','\x76\x61\x4c\x47\x49':function(_0x3702d5,_0x17d3c8){return _0x3702d5>_0x17d3c8;},'\x79\x56\x61\x54\x6c':_0x50448f(0x55c),'\x58\x46\x51\x52\x4c':function(_0x2ec147,_0x23e5bc){return _0x2ec147>_0x23e5bc;},'\x5a\x64\x61\x4f\x61':function(_0x2c042f,_0x3fc6d7,_0x1999b9,_0x3e6909){return _0x2c042f(_0x3fc6d7,_0x1999b9,_0x3e6909);},'\x54\x41\x4b\x73\x4b':'\x47\x52\x45\x4e\x41\x44\x45','\x43\x4c\x43\x44\x4b':_0x50448f(0x111),'\x59\x41\x65\x79\x44':function(_0x50248a,_0x37d145,_0x5713c1,_0x2cc74c){return _0x50248a(_0x37d145,_0x5713c1,_0x2cc74c);},'\x69\x68\x67\x6c\x52':'\x53\x4d\x4f\x4b\x45','\x70\x53\x4f\x6c\x49':_0x50448f(0x2ec),'\x56\x77\x69\x62\x64':function(_0x505314){return _0x505314();},'\x5a\x70\x75\x63\x43':'\x33\x7c\x31\x7c\x36\x7c\x34\x7c\x35\x7c\x30\x7c\x32','\x67\x6e\x6b\x49\x71':function(_0x171361,_0x40f72b){return _0x171361<=_0x40f72b;},'\x65\x4a\x70\x62\x48':function(_0x536688){return _0x536688();},'\x49\x43\x55\x63\x57':function(_0x74ee70,_0x4451f2,_0x517b9c,_0x2949b5){return _0x74ee70(_0x4451f2,_0x517b9c,_0x2949b5);},'\x6c\x52\x78\x6c\x64':_0x50448f(0x80d),'\x75\x54\x4c\x73\x44':function(_0x51e86c,_0x19522b){return _0x51e86c(_0x19522b);},'\x57\x45\x57\x68\x65':_0x50448f(0x6b0),'\x68\x54\x76\x46\x65':'\x31\x7c\x34\x7c\x33\x7c\x35\x7c\x36\x7c\x30\x7c\x32','\x62\x6c\x55\x59\x4e':function(_0x306665){return _0x306665();},'\x53\x69\x7a\x54\x76':function(_0x97b0d4,_0x4ecab8){return _0x97b0d4<=_0x4ecab8;},'\x4b\x65\x42\x59\x49':function(_0x40d86b,_0x440b60){return _0x40d86b<=_0x440b60;},'\x6d\x68\x6d\x4f\x6c':_0x50448f(0x74d),'\x52\x73\x5a\x48\x58':_0x50448f(0x2c1),'\x73\x74\x69\x59\x79':_0x50448f(0x6d3),'\x4c\x48\x4e\x52\x42':'\x69\x6e\x76\x2d\x62\x61\x67\x2d\x64\x72\x6f\x70\x2d\x62\x74\x6e','\x65\x5a\x54\x70\x72':_0x50448f(0x470),'\x5a\x6c\x71\x6d\x6d':'\x69\x6e\x76\x2d\x66\x69\x72\x73\x74\x61\x69\x64\x2d\x64\x72\x6f\x70\x2d\x62\x74\x6e','\x6e\x58\x75\x58\x6a':'\x69\x6e\x76\x2d\x67\x72\x65\x6e\x61\x64\x65\x2d\x64\x72\x6f\x70\x2d\x62\x74\x6e','\x55\x51\x69\x58\x4b':_0x50448f(0x1b5),'\x67\x73\x62\x41\x4f':_0x50448f(0x848)};document[_0x50448f(0x6ac)](_0x4e21d2[_0x50448f(0x67f)])[_0x50448f(0x193)]=_0x2286eb=>{const _0x554e77=_0x50448f;if(_0x2286eb)_0x2286eb[_0x554e77(0x26f)]();if(playerInventory['\x77\x65\x61\x70\x6f\x6e']===WEAPONS[_0x554e77(0x181)])return;const _0x9e1649=playerInventory[_0x554e77(0x285)];playerInventory[_0x554e77(0x285)]=WEAPONS[_0x554e77(0x181)],currentWeapon=WEAPONS['\x50\x55\x4e\x43\x48'],_0x4e21d2[_0x554e77(0x7ba)](spawnGroundItem,playerPos[_0x554e77(0x31f)](),_0x4e21d2[_0x554e77(0x5f2)],_0x9e1649),showNotice('\x5b'+_0x9e1649[_0x554e77(0x74e)]+_0x554e77(0x485)),_0x4e21d2[_0x554e77(0x4f5)](updateEquipUI),_0x4e21d2['\x4c\x4d\x45\x51\x53'](updateVisualEquip,playerSoldier,currentWeapon,currentScope),SoundSystem[_0x554e77(0x29d)](),updateInventoryUI();},document[_0x50448f(0x6ac)](_0x50448f(0x7be))[_0x50448f(0x193)]=_0x1153f4=>{const _0x1213b7=_0x50448f;if(_0x1153f4)_0x1153f4[_0x1213b7(0x26f)]();if(_0x4e21d2['\x59\x51\x4e\x55\x4d'](playerInventory[_0x1213b7(0x83e)],SCOPES[_0x1213b7(0x878)]))return;const _0x84f498=playerInventory[_0x1213b7(0x83e)];playerInventory[_0x1213b7(0x83e)]=SCOPES[_0x1213b7(0x878)],currentScope=SCOPES[_0x1213b7(0x878)],_0x4e21d2['\x4c\x4d\x45\x51\x53'](spawnGroundItem,playerPos['\x63\x6c\x6f\x6e\x65'](),_0x4e21d2[_0x1213b7(0x7e4)],_0x84f498),_0x4e21d2[_0x1213b7(0x6d6)](showNotice,'\x5b'+_0x84f498['\x6e\x61\x6d\x65']+_0x1213b7(0x485)),updateEquipUI(),updateVisualEquip(playerSoldier,currentWeapon,currentScope),SoundSystem['\x70\x6c\x61\x79\x4c\x6f\x6f\x74\x53\x6f\x75\x6e\x64'](),_0x4e21d2[_0x1213b7(0x4f5)](updateInventoryUI);},document[_0x50448f(0x6ac)](_0x4e21d2[_0x50448f(0x138)])['\x6f\x6e\x63\x6c\x69\x63\x6b']=_0x588dfd=>{const _0x2bf6fb=_0x50448f;if(_0x588dfd)_0x588dfd[_0x2bf6fb(0x26f)]();if(!playerInventory[_0x2bf6fb(0x60c)])return;const _0x1c9abe=playerInventory['\x68\x65\x6c\x6d\x65\x74'];playerInventory['\x68\x65\x6c\x6d\x65\x74']=null,_0x4e21d2[_0x2bf6fb(0x7ba)](spawnGroundItem,playerPos['\x63\x6c\x6f\x6e\x65'](),_0x4e21d2[_0x2bf6fb(0x3a7)],_0x1c9abe),_0x4e21d2[_0x2bf6fb(0x817)](showNotice,'\x5b'+_0x1c9abe[_0x2bf6fb(0x74e)]+_0x2bf6fb(0x485)),playerSoldier['\x75\x70\x64\x61\x74\x65\x48\x65\x6c\x6d\x65\x74\x56\x69\x73\x75\x61\x6c'](null),SoundSystem[_0x2bf6fb(0x29d)](),updateInventoryUI();},document[_0x50448f(0x6ac)](_0x4e21d2[_0x50448f(0xf8)])[_0x50448f(0x193)]=_0x53dcfe=>{const _0x2dd008=_0x50448f;if(_0x53dcfe)_0x53dcfe[_0x2dd008(0x26f)]();if(!playerInventory['\x62\x61\x67'])return;const _0x2b1399=playerInventory[_0x2dd008(0x4e5)];playerInventory[_0x2dd008(0x4e5)]=null,_0x4e21d2[_0x2dd008(0x3e5)](spawnGroundItem,playerPos['\x63\x6c\x6f\x6e\x65'](),_0x4e21d2['\x65\x41\x73\x6e\x4c'],_0x2b1399),showNotice('\x5b'+_0x2b1399[_0x2dd008(0x74e)]+_0x2dd008(0x485)),playerSoldier['\x75\x70\x64\x61\x74\x65\x42\x61\x67\x56\x69\x73\x75\x61\x6c'](null),SoundSystem[_0x2dd008(0x29d)]();let _0x98c1d3=playerInventory[_0x2dd008(0x576)]+playerInventory[_0x2dd008(0x4b0)]+playerInventory[_0x2dd008(0x132)];while(_0x4e21d2[_0x2dd008(0x39f)](_0x98c1d3,0x2)){if(_0x4e21d2['\x76\x61\x4c\x47\x49'](playerInventory[_0x2dd008(0x132)],0x0))playerInventory['\x66\x69\x72\x73\x74\x61\x69\x64\x73']--,_0x4e21d2['\x4c\x4d\x45\x51\x53'](spawnGroundItem,playerPos[_0x2dd008(0x31f)](),_0x4e21d2['\x79\x56\x61\x54\x6c'],{'\x6e\x61\x6d\x65':_0x2dd008(0x80d)});else{if(_0x4e21d2['\x58\x46\x51\x52\x4c'](playerInventory[_0x2dd008(0x576)],0x0))playerInventory[_0x2dd008(0x576)]--,_0x4e21d2[_0x2dd008(0x5e1)](spawnGroundItem,playerPos[_0x2dd008(0x31f)](),_0x4e21d2[_0x2dd008(0x8c3)],{'\x6e\x61\x6d\x65':_0x4e21d2[_0x2dd008(0x54a)]});else _0x4e21d2[_0x2dd008(0x37d)](playerInventory[_0x2dd008(0x4b0)],0x0)&&(playerInventory[_0x2dd008(0x4b0)]--,_0x4e21d2[_0x2dd008(0x458)](spawnGroundItem,playerPos[_0x2dd008(0x31f)](),_0x4e21d2[_0x2dd008(0x67d)],{'\x6e\x61\x6d\x65':_0x4e21d2[_0x2dd008(0x3bc)]}));}_0x98c1d3--;}updateInventoryUI();},document[_0x50448f(0x6ac)](_0x4e21d2['\x65\x5a\x54\x70\x72'])[_0x50448f(0x193)]=_0x455770=>{const _0x15558a=_0x50448f;if(_0x455770)_0x455770[_0x15558a(0x26f)]();_0x4e21d2[_0x15558a(0x169)](startHealing);},document[_0x50448f(0x6ac)](_0x4e21d2['\x5a\x6c\x71\x6d\x6d'])[_0x50448f(0x193)]=_0x3e3e98=>{const _0x20bc63=_0x50448f,_0x40aee3=_0x4e21d2['\x5a\x70\x75\x63\x43']['\x73\x70\x6c\x69\x74']('\x7c');let _0x522884=0x0;while(!![]){switch(_0x40aee3[_0x522884++]){case'\x30':SoundSystem[_0x20bc63(0x29d)]();continue;case'\x31':if(_0x4e21d2[_0x20bc63(0x82c)](playerInventory['\x66\x69\x72\x73\x74\x61\x69\x64\x73'],0x0))return;continue;case'\x32':_0x4e21d2['\x65\x4a\x70\x62\x48'](updateInventoryUI);continue;case'\x33':if(_0x3e3e98)_0x3e3e98[_0x20bc63(0x26f)]();continue;case'\x34':_0x4e21d2[_0x20bc63(0xe1)](spawnGroundItem,playerPos[_0x20bc63(0x31f)](),_0x4e21d2[_0x20bc63(0x84d)],{'\x6e\x61\x6d\x65':_0x4e21d2[_0x20bc63(0x165)]});continue;case'\x35':_0x4e21d2[_0x20bc63(0x465)](showNotice,_0x4e21d2[_0x20bc63(0x2c3)]);continue;case'\x36':playerInventory[_0x20bc63(0x132)]--;continue;}break;}},document['\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64'](_0x4e21d2[_0x50448f(0x676)])[_0x50448f(0x193)]=_0x19c322=>{const _0x2ad317=_0x50448f,_0x2dc372=_0x4e21d2[_0x2ad317(0x16c)][_0x2ad317(0x696)]('\x7c');let _0x124415=0x0;while(!![]){switch(_0x2dc372[_0x124415++]){case'\x30':SoundSystem[_0x2ad317(0x29d)]();continue;case'\x31':if(_0x19c322)_0x19c322[_0x2ad317(0x26f)]();continue;case'\x32':_0x4e21d2[_0x2ad317(0x69a)](updateInventoryUI);continue;case'\x33':playerInventory['\x67\x72\x65\x6e\x61\x64\x65\x73']--;continue;case'\x34':if(_0x4e21d2[_0x2ad317(0x5fd)](playerInventory[_0x2ad317(0x576)],0x0))return;continue;case'\x35':_0x4e21d2[_0x2ad317(0xe1)](spawnGroundItem,playerPos[_0x2ad317(0x31f)](),_0x4e21d2[_0x2ad317(0x8c3)],{'\x6e\x61\x6d\x65':_0x4e21d2[_0x2ad317(0x54a)]});continue;case'\x36':_0x4e21d2[_0x2ad317(0x465)](showNotice,'\uc218\ub958\ud0c4\x20\x31\uac1c\x20\ubc84\ub9bc');continue;}break;}},document[_0x50448f(0x6ac)]('\x69\x6e\x76\x2d\x73\x6d\x6f\x6b\x65\x2d\x64\x72\x6f\x70\x2d\x62\x74\x6e')[_0x50448f(0x193)]=_0x36bd4f=>{const _0x2c6926=_0x50448f;if(_0x36bd4f)_0x36bd4f['\x73\x74\x6f\x70\x50\x72\x6f\x70\x61\x67\x61\x74\x69\x6f\x6e']();if(_0x4e21d2['\x4b\x65\x42\x59\x49'](playerInventory[_0x2c6926(0x4b0)],0x0))return;playerInventory[_0x2c6926(0x4b0)]--,spawnGroundItem(playerPos[_0x2c6926(0x31f)](),_0x2c6926(0x7eb),{'\x6e\x61\x6d\x65':_0x4e21d2['\x70\x53\x4f\x6c\x49']}),showNotice(_0x4e21d2[_0x2c6926(0x874)]),SoundSystem[_0x2c6926(0x29d)](),updateInventoryUI();},document[_0x50448f(0x6ac)](_0x4e21d2[_0x50448f(0x15e)])[_0x50448f(0x193)]=()=>{const _0x241d9a=_0x50448f;_0x4e21d2[_0x241d9a(0x6d6)](throwThrowable,_0x4e21d2[_0x241d9a(0x8c3)]);},document[_0x50448f(0x6ac)](_0x4e21d2[_0x50448f(0xf1)])[_0x50448f(0x193)]=()=>{const _0x5e4f20=_0x50448f;_0x4e21d2['\x75\x54\x4c\x73\x44'](throwThrowable,_0x4e21d2[_0x5e4f20(0x67d)]);};},0x64);function throwThrowable(_0x16a571){const _0x37a7e8=a0_0x460254,_0x277212={'\x44\x4a\x63\x45\x67':'\x50\x4c\x41\x59\x49\x4e\x47','\x77\x65\x6e\x71\x4e':function(_0x54c923,_0x796fb6){return _0x54c923<=_0x796fb6;},'\x49\x68\x4b\x6c\x6e':function(_0xb38b0d,_0x2702a2){return _0xb38b0d===_0x2702a2;},'\x6a\x72\x79\x77\x65':_0x37a7e8(0x3a0),'\x55\x61\x69\x71\x6f':function(_0x650bb7,_0x49eb6d){return _0x650bb7(_0x49eb6d);},'\x58\x79\x4c\x62\x59':_0x37a7e8(0x20c),'\x42\x4b\x61\x4c\x66':function(_0x5c7118,_0x4db0d6){return _0x5c7118===_0x4db0d6;},'\x6a\x75\x4d\x79\x48':'\x53\x4d\x4f\x4b\x45','\x76\x54\x7a\x4b\x6b':function(_0x352601,_0x5f5b43){return _0x352601<=_0x5f5b43;},'\x6d\x6c\x5a\x6d\x48':function(_0x1a2c93,_0x2a0fd6){return _0x1a2c93(_0x2a0fd6);},'\x61\x65\x54\x61\x61':_0x37a7e8(0x8ac),'\x4c\x55\x4c\x6b\x6a':function(_0x12d21d){return _0x12d21d();},'\x4a\x63\x52\x4c\x55':function(_0x5d27c5,_0x2ea518){return _0x5d27c5===_0x2ea518;},'\x4b\x41\x4a\x71\x72':function(_0x173d98,_0x2fc866){return _0x173d98===_0x2fc866;},'\x4a\x5a\x65\x52\x51':function(_0xe994d6,_0x5b4013){return _0xe994d6(_0x5b4013);},'\x72\x64\x45\x52\x63':_0x37a7e8(0x111),'\x4b\x50\x78\x43\x78':_0x37a7e8(0x2ec)};if(gameState!==_0x277212[_0x37a7e8(0x5ab)]||_0x277212['\x77\x65\x6e\x71\x4e'](playerHp,0x0))return;if(_0x277212[_0x37a7e8(0x115)](_0x16a571,_0x277212[_0x37a7e8(0x3a4)])){if(playerInventory[_0x37a7e8(0x576)]<=0x0){_0x277212[_0x37a7e8(0x40f)](showNotice,_0x277212[_0x37a7e8(0x39a)]);return;}playerInventory[_0x37a7e8(0x576)]--;}else{if(_0x277212[_0x37a7e8(0x1cd)](_0x16a571,_0x277212['\x6a\x75\x4d\x79\x48'])){if(_0x277212['\x76\x54\x7a\x4b\x6b'](playerInventory['\x73\x6d\x6f\x6b\x65\x73'],0x0)){_0x277212['\x6d\x6c\x5a\x6d\x48'](showNotice,_0x277212[_0x37a7e8(0x278)]);return;}playerInventory[_0x37a7e8(0x4b0)]--;}}_0x277212[_0x37a7e8(0x48d)](updateInventoryUI);const _0x503cf6=playerPos['\x63\x6c\x6f\x6e\x65']()[_0x37a7e8(0x5bf)](new a0_0xe98f69[(_0x37a7e8(0x691))](0x0,1.5,0x0)),_0x3da32a=new a0_0xe98f69[(_0x37a7e8(0x691))](0x0,0x0,-0x1)[_0x37a7e8(0x2da)](camera[_0x37a7e8(0x1fe)]);_0x3da32a['\x79']+=0.25,_0x3da32a[_0x37a7e8(0x872)]();const _0x5484da=_0x3da32a['\x6d\x75\x6c\x74\x69\x70\x6c\x79\x53\x63\x61\x6c\x61\x72'](0x16);let _0x29c119;if(_0x277212[_0x37a7e8(0x51d)](_0x16a571,_0x277212[_0x37a7e8(0x3a4)])){const _0xb94d58=new a0_0xe98f69[(_0x37a7e8(0x8a3))]({'\x63\x6f\x6c\x6f\x72':0x3e503c,'\x6d\x65\x74\x61\x6c\x6e\x65\x73\x73':0.5,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.6});_0x29c119=new a0_0xe98f69[(_0x37a7e8(0x59f))](new a0_0xe98f69[(_0x37a7e8(0x6e8))](0.12),_0xb94d58);}else{const _0x1db7db=new a0_0xe98f69['\x4d\x65\x73\x68\x53\x74\x61\x6e\x64\x61\x72\x64\x4d\x61\x74\x65\x72\x69\x61\x6c']({'\x63\x6f\x6c\x6f\x72':0x888888,'\x6d\x65\x74\x61\x6c\x6e\x65\x73\x73':0.7,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.4}),_0x5e3375=new a0_0xe98f69[(_0x37a7e8(0x5be))](),_0xe0aecd=new a0_0xe98f69[(_0x37a7e8(0x59f))](new a0_0xe98f69['\x43\x79\x6c\x69\x6e\x64\x65\x72\x47\x65\x6f\x6d\x65\x74\x72\x79'](0.07,0.07,0.22,0x8),_0x1db7db);_0x5e3375[_0x37a7e8(0x5bf)](_0xe0aecd);const _0x4f0053=new a0_0xe98f69[(_0x37a7e8(0x59f))](new a0_0xe98f69[(_0x37a7e8(0x7b9))](0.072,0.072,0.04,0x8),new a0_0xe98f69[(_0x37a7e8(0x8a3))]({'\x63\x6f\x6c\x6f\x72':0xffffff}));_0x4f0053[_0x37a7e8(0x8a6)]['\x79']=0.05,_0x5e3375['\x61\x64\x64'](_0x4f0053),_0x29c119=_0x5e3375;}_0x29c119[_0x37a7e8(0x8a6)][_0x37a7e8(0x6a0)](_0x503cf6),_0x29c119[_0x37a7e8(0x705)]=!![],scene[_0x37a7e8(0x5bf)](_0x29c119),activeThrowables[_0x37a7e8(0x1a4)]({'\x74\x79\x70\x65':_0x16a571,'\x70\x6f\x73':_0x503cf6,'\x76\x65\x6c':_0x5484da,'\x6d\x65\x73\x68':_0x29c119,'\x74\x69\x6d\x65\x72':_0x277212[_0x37a7e8(0x71f)](_0x16a571,_0x277212[_0x37a7e8(0x3a4)])?0x3:0x4}),_0x277212[_0x37a7e8(0x158)](showNotice,(_0x16a571===_0x277212[_0x37a7e8(0x3a4)]?_0x277212[_0x37a7e8(0x47f)]:_0x277212[_0x37a7e8(0x235)])+_0x37a7e8(0x1ff));}function updateEquipUI(){const _0x2294ec=a0_0x460254,_0x329acd={'\x70\x77\x72\x71\x67':function(_0x300897,_0x43886d){return _0x300897!==_0x43886d;},'\x53\x44\x4d\x51\x56':'\x50\x49\x53\x54\x4f\x4c','\x56\x77\x71\x55\x71':function(_0x14deeb,_0xda4af5){return _0x14deeb===_0xda4af5;},'\x73\x44\x79\x4f\x61':'\x53\x48\x4f\x54\x47\x55\x4e','\x63\x48\x48\x58\x4f':_0x2294ec(0x6a8),'\x65\x72\x47\x51\x45':_0x2294ec(0x195),'\x66\x75\x50\x55\x44':_0x2294ec(0x536),'\x4b\x55\x44\x6e\x74':_0x2294ec(0xea),'\x4b\x55\x47\x4a\x68':function(_0x4a3cb3,_0x42f330){return _0x4a3cb3===_0x42f330;},'\x50\x65\x78\x5a\x6c':_0x2294ec(0x670),'\x69\x53\x50\x6f\x70':_0x2294ec(0x772),'\x55\x4b\x45\x56\x72':_0x2294ec(0x349),'\x42\x71\x56\x6a\x6e':'\x65\x71\x75\x69\x70\x70\x65\x64\x2d\x69\x6e\x66\x6f','\x68\x6a\x77\x47\x71':_0x2294ec(0x434),'\x6c\x71\x4d\x76\x78':function(_0x42ad9d,_0x53d697){return _0x42ad9d!==_0x53d697;},'\x6e\x56\x51\x6d\x6e':_0x2294ec(0x3ad)};let _0x5e1924='';if(_0x329acd[_0x2294ec(0x4ea)](currentWeapon,WEAPONS[_0x2294ec(0x181)])){const _0x22f940=currentWeapon['\x6e\x61\x6d\x65']==='\uad8c\ucd1d'?_0x329acd[_0x2294ec(0x1c4)]:_0x329acd[_0x2294ec(0x42f)](currentWeapon[_0x2294ec(0x74e)],'\uc0f7\uac74')?_0x329acd[_0x2294ec(0x52b)]:_0x329acd[_0x2294ec(0x42f)](currentWeapon[_0x2294ec(0x74e)],_0x329acd[_0x2294ec(0x69c)])?_0x329acd[_0x2294ec(0x253)]:_0x329acd[_0x2294ec(0x2ef)],_0x1bf26b=playerInventory[_0x2294ec(0x491)][_0x22f940],_0x4eee7a=playerInventory[_0x2294ec(0x24f)][_0x22f940],_0x4b5185=_0x329acd['\x56\x77\x71\x55\x71'](currentWeapon[_0x2294ec(0x74e)],'\uad8c\ucd1d')?_0x329acd[_0x2294ec(0x8b3)]:_0x329acd[_0x2294ec(0x299)](currentWeapon['\x6e\x61\x6d\x65'],'\uc0f7\uac74')?_0x329acd[_0x2294ec(0x856)]:_0x329acd[_0x2294ec(0x42f)](currentWeapon[_0x2294ec(0x74e)],_0x329acd[_0x2294ec(0x69c)])?_0x329acd['\x69\x53\x50\x6f\x70']:_0x329acd[_0x2294ec(0x33c)];_0x5e1924=_0x2294ec(0x5f1)+_0x4b5185+_0x2294ec(0x11b)+_0x1bf26b+_0x2294ec(0x282)+_0x4eee7a;}else _0x5e1924=_0x2294ec(0x3b7);document[_0x2294ec(0x6ac)](_0x329acd['\x42\x71\x56\x6a\x6e'])['\x69\x6e\x6e\x65\x72\x48\x54\x4d\x4c']=_0x2294ec(0x6a6)+currentWeapon['\x6e\x61\x6d\x65']+'\x3c\x2f\x73\x70\x61\x6e\x3e'+_0x5e1924+'\x3c\x62\x72\x3e\uc870\uc900\uacbd\x3a\x20\x3c\x73\x70\x61\x6e\x20\x73\x74\x79\x6c\x65\x3d\x22\x63\x6f\x6c\x6f\x72\x3a\x23\x66\x66\x65\x62\x33\x62\x22\x3e'+currentScope[_0x2294ec(0x74e)]+_0x2294ec(0x2c6);const _0x45ed74=document[_0x2294ec(0x6ac)](_0x329acd[_0x2294ec(0x606)]);_0x45ed74&&(_0x329acd[_0x2294ec(0x898)](currentWeapon,WEAPONS[_0x2294ec(0x181)])?_0x45ed74[_0x2294ec(0x570)][_0x2294ec(0x2bf)]=_0x2294ec(0x5dc):_0x45ed74[_0x2294ec(0x570)][_0x2294ec(0x2bf)]=_0x329acd[_0x2294ec(0x38f)]);}let victoryChicken=null;function spawnVictoryChicken(){const _0x2021b8=a0_0x460254,_0x25227d={'\x54\x76\x5a\x45\x42':function(_0x47f3a8,_0xcecc33){return _0x47f3a8<=_0xcecc33;},'\x41\x65\x6e\x53\x53':function(_0x45cab3,_0x1c031e){return _0x45cab3*_0x1c031e;},'\x4e\x73\x64\x58\x49':function(_0x59ba84,_0x43bccd){return _0x59ba84/_0x43bccd;},'\x71\x54\x53\x46\x55':function(_0x5cbc51,_0x2b25d4){return _0x5cbc51/_0x2b25d4;},'\x7a\x6f\x6c\x45\x66':function(_0x594223,_0x119060){return _0x594223/_0x119060;},'\x56\x6e\x62\x67\x42':function(_0x2474bb,_0x3cb287){return _0x2474bb/_0x3cb287;},'\x76\x5a\x55\x64\x43':function(_0x344aa3,_0x356c58){return _0x344aa3*_0x356c58;},'\x58\x4e\x48\x73\x6c':function(_0x3795cc,_0x1e0f00){return _0x3795cc+_0x1e0f00;},'\x62\x4f\x4d\x73\x55':function(_0x1adad4,_0x42ed9a){return _0x1adad4-_0x42ed9a;},'\x4b\x7a\x65\x75\x49':function(_0x195736,_0x491fb0,_0x1fdd81){return _0x195736(_0x491fb0,_0x1fdd81);}},_0x2c2f55=new a0_0xe98f69['\x47\x72\x6f\x75\x70'](),_0x2fea39=new a0_0xe98f69[(_0x2021b8(0x8a3))]({'\x63\x6f\x6c\x6f\x72':0xc6691c,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.45,'\x6d\x65\x74\x61\x6c\x6e\x65\x73\x73':0.1}),_0x1b6334=new a0_0xe98f69['\x4d\x65\x73\x68\x53\x74\x61\x6e\x64\x61\x72\x64\x4d\x61\x74\x65\x72\x69\x61\x6c']({'\x63\x6f\x6c\x6f\x72':0xf5eedc,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.8}),_0x144bf2=new a0_0xe98f69[(_0x2021b8(0x5be))](),_0x53c7cf=new a0_0xe98f69[(_0x2021b8(0x59f))](new a0_0xe98f69[(_0x2021b8(0x718))](1.2,0x18,0x18),_0x2fea39);_0x53c7cf[_0x2021b8(0x7ef)][_0x2021b8(0x2d5)](1.4,0.9,0.9),_0x53c7cf[_0x2021b8(0x705)]=!![],_0x144bf2['\x61\x64\x64'](_0x53c7cf);const _0x9ce71e=new a0_0xe98f69['\x4d\x65\x73\x68'](new a0_0xe98f69[(_0x2021b8(0x718))](0.8,0x10,0x10),_0x2fea39);_0x9ce71e[_0x2021b8(0x8a6)]['\x73\x65\x74'](0.2,0.3,0x0),_0x9ce71e[_0x2021b8(0x7ef)]['\x73\x65\x74'](1.1,0.8,1.2),_0x144bf2['\x61\x64\x64'](_0x9ce71e);const _0x3299c6=new a0_0xe98f69[(_0x2021b8(0x59f))](new a0_0xe98f69[(_0x2021b8(0x718))](0.4,0x10,0x10),_0x2fea39);_0x3299c6['\x70\x6f\x73\x69\x74\x69\x6f\x6e'][_0x2021b8(0x2d5)](1.4,0.1,0x0),_0x3299c6[_0x2021b8(0x7ef)][_0x2021b8(0x2d5)](0.7,0x1,0x1),_0x144bf2[_0x2021b8(0x5bf)](_0x3299c6),_0x2c2f55[_0x2021b8(0x5bf)](_0x144bf2);for(let _0x3eb724=-0x1;_0x25227d[_0x2021b8(0x7ad)](_0x3eb724,0x1);_0x3eb724+=0x2){const _0x57b021=new a0_0xe98f69['\x47\x72\x6f\x75\x70']();_0x57b021[_0x2021b8(0x8a6)][_0x2021b8(0x2d5)](-0.5,-0.2,_0x25227d[_0x2021b8(0x463)](_0x3eb724,0.7));const _0x280ed4=new a0_0xe98f69['\x4d\x65\x73\x68'](new a0_0xe98f69[(_0x2021b8(0x718))](0.55,0x10,0x10),_0x2fea39);_0x280ed4[_0x2021b8(0x7ef)][_0x2021b8(0x2d5)](1.3,0.9,0.9),_0x280ed4[_0x2021b8(0x14f)]['\x79']=_0x25227d[_0x2021b8(0x48e)](-_0x3eb724*Math['\x50\x49'],0x6),_0x280ed4[_0x2021b8(0x14f)]['\x7a']=_0x25227d['\x71\x54\x53\x46\x55'](-Math['\x50\x49'],0x8),_0x57b021[_0x2021b8(0x5bf)](_0x280ed4);const _0x1e2d21=new a0_0xe98f69['\x4d\x65\x73\x68'](new a0_0xe98f69[(_0x2021b8(0x7b9))](0.09,0.09,0.8,0xc),_0x1b6334);_0x1e2d21[_0x2021b8(0x8a6)][_0x2021b8(0x2d5)](-0.7,-0.4,_0x25227d['\x41\x65\x6e\x53\x53'](-_0x3eb724,0.1)),_0x1e2d21[_0x2021b8(0x14f)]['\x7a']=_0x25227d[_0x2021b8(0x48e)](Math['\x50\x49'],0x3),_0x1e2d21[_0x2021b8(0x14f)]['\x79']=_0x25227d[_0x2021b8(0x681)](_0x25227d[_0x2021b8(0x463)](_0x3eb724,Math['\x50\x49']),0xc),_0x57b021[_0x2021b8(0x5bf)](_0x1e2d21);const _0x57430f=new a0_0xe98f69[(_0x2021b8(0x59f))](new a0_0xe98f69['\x53\x70\x68\x65\x72\x65\x47\x65\x6f\x6d\x65\x74\x72\x79'](0.11,0xa,0xa),_0x1b6334);_0x57430f[_0x2021b8(0x8a6)][_0x2021b8(0x2d5)](-0.07,-0.4,-0.01),_0x1e2d21[_0x2021b8(0x5bf)](_0x57430f);const _0xd67d1d=new a0_0xe98f69['\x4d\x65\x73\x68'](new a0_0xe98f69[(_0x2021b8(0x718))](0.11,0xa,0xa),_0x1b6334);_0xd67d1d[_0x2021b8(0x8a6)][_0x2021b8(0x2d5)](0.07,-0.4,-0.01),_0x1e2d21[_0x2021b8(0x5bf)](_0xd67d1d),_0x2c2f55['\x61\x64\x64'](_0x57b021);}for(let _0x28db73=-0x1;_0x25227d['\x54\x76\x5a\x45\x42'](_0x28db73,0x1);_0x28db73+=0x2){const _0x59f94f=new a0_0xe98f69[(_0x2021b8(0x5be))]();_0x59f94f[_0x2021b8(0x8a6)][_0x2021b8(0x2d5)](0.4,0.3,_0x28db73*0.85);const _0x38b55f=new a0_0xe98f69[(_0x2021b8(0x59f))](new a0_0xe98f69[(_0x2021b8(0x718))](0.45,0xc,0xc),_0x2fea39);_0x38b55f[_0x2021b8(0x7ef)][_0x2021b8(0x2d5)](1.2,0.7,0.7),_0x38b55f[_0x2021b8(0x14f)]['\x7a']=_0x25227d[_0x2021b8(0x459)](-Math['\x50\x49'],0x6),_0x59f94f['\x61\x64\x64'](_0x38b55f);const _0x5d9d6d=new a0_0xe98f69[(_0x2021b8(0x59f))](new a0_0xe98f69[(_0x2021b8(0x718))](0.32,0xc,0xc),_0x2fea39);_0x5d9d6d[_0x2021b8(0x8a6)][_0x2021b8(0x2d5)](-0.35,-0.15,_0x28db73*0.1),_0x5d9d6d[_0x2021b8(0x7ef)][_0x2021b8(0x2d5)](1.3,0.5,0.8),_0x5d9d6d[_0x2021b8(0x14f)]['\x7a']=_0x25227d['\x7a\x6f\x6c\x45\x66'](Math['\x50\x49'],0x4),_0x59f94f['\x61\x64\x64'](_0x5d9d6d);const _0x4ce827=new a0_0xe98f69[(_0x2021b8(0x59f))](new a0_0xe98f69[(_0x2021b8(0x137))](0.15,0.5,0xc),_0x2fea39);_0x4ce827[_0x2021b8(0x8a6)][_0x2021b8(0x2d5)](-0.8,-0.3,_0x28db73*0.15),_0x4ce827[_0x2021b8(0x14f)]['\x7a']=_0x25227d[_0x2021b8(0x79a)](Math['\x50\x49'],0x3),_0x4ce827[_0x2021b8(0x14f)]['\x78']=_0x25227d['\x4e\x73\x64\x58\x49'](_0x25227d[_0x2021b8(0x71d)](-_0x28db73,Math['\x50\x49']),0xc),_0x59f94f['\x61\x64\x64'](_0x4ce827),_0x2c2f55['\x61\x64\x64'](_0x59f94f);}const _0xf89ca6=new a0_0xe98f69[(_0x2021b8(0x691))](0x0,0x0,-0x1)[_0x2021b8(0x2da)](camera['\x71\x75\x61\x74\x65\x72\x6e\x69\x6f\x6e']);_0xf89ca6['\x79']=0x0,_0xf89ca6['\x6e\x6f\x72\x6d\x61\x6c\x69\x7a\x65']();const _0x2d91b5=playerPos[_0x2021b8(0x31f)]()[_0x2021b8(0x42e)](_0xf89ca6,0x5);_0x2d91b5['\x79']=_0x25227d[_0x2021b8(0x117)](playerPos['\x79'],0x28),_0x2c2f55['\x70\x6f\x73\x69\x74\x69\x6f\x6e'][_0x2021b8(0x6a0)](_0x2d91b5),_0x2c2f55[_0x2021b8(0x7ef)][_0x2021b8(0x2d5)](3.5,3.5,3.5),scene['\x61\x64\x64'](_0x2c2f55),victoryChicken={'\x67\x72\x6f\x75\x70':_0x2c2f55,'\x76\x65\x6c\x59':-0x16,'\x76\x65\x6c\x58':_0x25227d[_0x2021b8(0x71d)](Math[_0x2021b8(0x81e)]()-0.5,0x6),'\x76\x65\x6c\x5a':_0x25227d[_0x2021b8(0x7f3)](Math[_0x2021b8(0x81e)](),0.5)*0x6,'\x74\x61\x72\x67\x65\x74\x59':_0x25227d[_0x2021b8(0x244)](getElevation,_0x2d91b5['\x78'],_0x2d91b5['\x7a']),'\x62\x6f\x75\x6e\x63\x65\x73':0x0,'\x6c\x61\x6e\x64\x65\x64':![]};}function createLiveChickenMesh(_0x17c096='\x57\x48\x49\x54\x45'){const _0xb311ce=a0_0x460254,_0xd331f7={'\x42\x53\x62\x51\x4f':function(_0x208b5b,_0x10c813){return _0x208b5b===_0x10c813;},'\x6f\x59\x51\x7a\x56':_0xb311ce(0x6fc),'\x77\x61\x77\x5a\x69':_0xb311ce(0x167),'\x73\x51\x71\x6a\x55':function(_0x1cc37e,_0x53cc30){return _0x1cc37e/_0x53cc30;},'\x4b\x45\x77\x70\x58':_0xb311ce(0x815),'\x63\x41\x79\x57\x6d':function(_0x546ff2,_0x4dc798){return _0x546ff2!==_0x4dc798;},'\x55\x59\x4b\x65\x4c':function(_0x1eafe2,_0x5132d6){return _0x1eafe2/_0x5132d6;},'\x77\x43\x71\x4e\x75':_0xb311ce(0x35b),'\x6a\x4e\x4d\x66\x64':_0xb311ce(0x411)},_0x5f30e1=new a0_0xe98f69[(_0xb311ce(0x5be))]();_0x5f30e1[_0xb311ce(0x3dd)]={'\x74\x79\x70\x65':_0x17c096};let _0x461b5c=0xffffff,_0x3b5862=0x1;if(_0xd331f7[_0xb311ce(0x108)](_0x17c096,_0xd331f7['\x6f\x59\x51\x7a\x56']))_0x461b5c=0x9c5e2d;else _0xd331f7['\x42\x53\x62\x51\x4f'](_0x17c096,_0xd331f7[_0xb311ce(0x513)])&&(_0x461b5c=0xffeb3b,_0x3b5862=0.55);const _0x35cb01=new a0_0xe98f69[(_0xb311ce(0x8a3))]({'\x63\x6f\x6c\x6f\x72':_0x461b5c,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.8}),_0x3edafa=new a0_0xe98f69[(_0xb311ce(0x8a3))]({'\x63\x6f\x6c\x6f\x72':0xff3333,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.6}),_0x3e55ea=new a0_0xe98f69['\x4d\x65\x73\x68\x53\x74\x61\x6e\x64\x61\x72\x64\x4d\x61\x74\x65\x72\x69\x61\x6c']({'\x63\x6f\x6c\x6f\x72':0xffb300,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.5}),_0x3759cf=new a0_0xe98f69[(_0xb311ce(0x8a3))]({'\x63\x6f\x6c\x6f\x72':0x111111,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.5}),_0x44efe5=new a0_0xe98f69[(_0xb311ce(0x59f))](new a0_0xe98f69[(_0xb311ce(0x718))](0.3,0x10,0x10),_0x35cb01);_0x44efe5[_0xb311ce(0x7ef)][_0xb311ce(0x2d5)](1.3,0x1,0x1),_0x44efe5[_0xb311ce(0x8a6)]['\x79']=0.4,_0x44efe5['\x63\x61\x73\x74\x53\x68\x61\x64\x6f\x77']=!![],_0x5f30e1['\x61\x64\x64'](_0x44efe5);const _0x1aa85a=new a0_0xe98f69[(_0xb311ce(0x59f))](new a0_0xe98f69[(_0xb311ce(0x7b9))](0.08,0.1,0.25,0x8),_0x35cb01);_0x1aa85a[_0xb311ce(0x8a6)][_0xb311ce(0x2d5)](0.22,0.52,0x0),_0x1aa85a[_0xb311ce(0x14f)]['\x7a']=_0xd331f7[_0xb311ce(0x3a1)](-Math['\x50\x49'],0x6),_0x1aa85a[_0xb311ce(0x705)]=!![],_0x5f30e1[_0xb311ce(0x5bf)](_0x1aa85a);const _0x30c270=new a0_0xe98f69[(_0xb311ce(0x59f))](new a0_0xe98f69[(_0xb311ce(0x718))](0.15,0xc,0xc),_0x35cb01);_0x30c270['\x6e\x61\x6d\x65']=_0xd331f7['\x4b\x45\x77\x70\x58'],_0x30c270[_0xb311ce(0x8a6)][_0xb311ce(0x2d5)](0.32,0.65,0x0),_0x30c270[_0xb311ce(0x705)]=!![],_0x5f30e1[_0xb311ce(0x5bf)](_0x30c270);const _0x1ef7ad=new a0_0xe98f69[(_0xb311ce(0x59f))](new a0_0xe98f69['\x43\x6f\x6e\x65\x47\x65\x6f\x6d\x65\x74\x72\x79'](0.04,0.1,0x8),_0x3e55ea);_0x1ef7ad[_0xb311ce(0x8a6)]['\x73\x65\x74'](0.46,0.63,0x0),_0x1ef7ad[_0xb311ce(0x14f)]['\x7a']=_0xd331f7[_0xb311ce(0x3a1)](-Math['\x50\x49'],0x2),_0x1ef7ad[_0xb311ce(0x705)]=!![],_0x5f30e1['\x61\x64\x64'](_0x1ef7ad);if(_0xd331f7[_0xb311ce(0x68d)](_0x17c096,_0xd331f7[_0xb311ce(0x513)])){const _0xbb21ee=new a0_0xe98f69[(_0xb311ce(0x59f))](new a0_0xe98f69[(_0xb311ce(0x8c2))](0.03,0.08,0.12),_0x3edafa);_0xbb21ee[_0xb311ce(0x8a6)][_0xb311ce(0x2d5)](0.3,0.77,0x0),_0xbb21ee['\x72\x6f\x74\x61\x74\x69\x6f\x6e']['\x7a']=_0xd331f7['\x55\x59\x4b\x65\x4c'](Math['\x50\x49'],0xc),_0xbb21ee[_0xb311ce(0x705)]=!![],_0x5f30e1[_0xb311ce(0x5bf)](_0xbb21ee);}const _0x6fe094=new a0_0xe98f69[(_0xb311ce(0x59f))](new a0_0xe98f69['\x53\x70\x68\x65\x72\x65\x47\x65\x6f\x6d\x65\x74\x72\x79'](0.025,0x8,0x8),_0x3759cf);_0x6fe094[_0xb311ce(0x8a6)][_0xb311ce(0x2d5)](0.36,0.67,0.09),_0x5f30e1[_0xb311ce(0x5bf)](_0x6fe094);const _0xd86c7e=new a0_0xe98f69[(_0xb311ce(0x59f))](new a0_0xe98f69[(_0xb311ce(0x718))](0.025,0x8,0x8),_0x3759cf);_0xd86c7e[_0xb311ce(0x8a6)][_0xb311ce(0x2d5)](0.36,0.67,-0.09),_0x5f30e1[_0xb311ce(0x5bf)](_0xd86c7e);const _0x384916=new a0_0xe98f69[(_0xb311ce(0x59f))](new a0_0xe98f69[(_0xb311ce(0x718))](0.18,0xc,0xc),_0x35cb01);_0x384916['\x6e\x61\x6d\x65']=_0xd331f7[_0xb311ce(0x221)],_0x384916[_0xb311ce(0x7ef)][_0xb311ce(0x2d5)](1.4,0.7,0.3),_0x384916[_0xb311ce(0x8a6)][_0xb311ce(0x2d5)](-0.05,0.42,0.28),_0x384916[_0xb311ce(0x14f)]['\x78']=Math['\x50\x49']/0xc,_0x5f30e1[_0xb311ce(0x5bf)](_0x384916);const _0x4ea239=new a0_0xe98f69[(_0xb311ce(0x59f))](new a0_0xe98f69['\x53\x70\x68\x65\x72\x65\x47\x65\x6f\x6d\x65\x74\x72\x79'](0.18,0xc,0xc),_0x35cb01);_0x4ea239[_0xb311ce(0x74e)]=_0xd331f7['\x6a\x4e\x4d\x66\x64'],_0x4ea239['\x73\x63\x61\x6c\x65']['\x73\x65\x74'](1.4,0.7,0.3),_0x4ea239['\x70\x6f\x73\x69\x74\x69\x6f\x6e'][_0xb311ce(0x2d5)](-0.05,0.42,-0.28),_0x4ea239[_0xb311ce(0x14f)]['\x78']=_0xd331f7[_0xb311ce(0x6a9)](-Math['\x50\x49'],0xc),_0x5f30e1[_0xb311ce(0x5bf)](_0x4ea239);const _0x53ab28=new a0_0xe98f69['\x47\x72\x6f\x75\x70']();_0x53ab28['\x6e\x61\x6d\x65']=_0xb311ce(0x6fd),_0x53ab28[_0xb311ce(0x8a6)][_0xb311ce(0x2d5)](-0.05,0.3,0.12);const _0x5959bf=new a0_0xe98f69[(_0xb311ce(0x59f))](new a0_0xe98f69[(_0xb311ce(0x7b9))](0.02,0.02,0.3,0x8),_0x3e55ea);_0x5959bf[_0xb311ce(0x8a6)]['\x79']=-0.15,_0x5959bf['\x63\x61\x73\x74\x53\x68\x61\x64\x6f\x77']=!![],_0x53ab28[_0xb311ce(0x5bf)](_0x5959bf);const _0x3942ff=new a0_0xe98f69[(_0xb311ce(0x59f))](new a0_0xe98f69[(_0xb311ce(0x8c2))](0.15,0.02,0.08),_0x3e55ea);_0x3942ff[_0xb311ce(0x8a6)]['\x73\x65\x74'](0.07,-0.3,0x0),_0x53ab28[_0xb311ce(0x5bf)](_0x3942ff),_0x5f30e1[_0xb311ce(0x5bf)](_0x53ab28);const _0x57cc99=new a0_0xe98f69['\x47\x72\x6f\x75\x70']();_0x57cc99['\x6e\x61\x6d\x65']='\x6c\x65\x67\x52',_0x57cc99['\x70\x6f\x73\x69\x74\x69\x6f\x6e'][_0xb311ce(0x2d5)](-0.05,0.3,-0.12);const _0x4805f0=new a0_0xe98f69[(_0xb311ce(0x59f))](new a0_0xe98f69[(_0xb311ce(0x7b9))](0.02,0.02,0.3,0x8),_0x3e55ea);_0x4805f0[_0xb311ce(0x8a6)]['\x79']=-0.15,_0x4805f0[_0xb311ce(0x705)]=!![],_0x57cc99[_0xb311ce(0x5bf)](_0x4805f0);const _0x382469=new a0_0xe98f69[(_0xb311ce(0x59f))](new a0_0xe98f69[(_0xb311ce(0x8c2))](0.15,0.02,0.08),_0x3e55ea);return _0x382469[_0xb311ce(0x8a6)][_0xb311ce(0x2d5)](0.07,-0.3,0x0),_0x57cc99['\x61\x64\x64'](_0x382469),_0x5f30e1[_0xb311ce(0x5bf)](_0x57cc99),_0x5f30e1[_0xb311ce(0x7ef)][_0xb311ce(0x2d5)](_0x3b5862,_0x3b5862,_0x3b5862),_0x5f30e1;}function createRoastedChickenMesh(){const _0xb45a64=a0_0x460254,_0x347df0={'\x41\x65\x42\x55\x68':function(_0x734259,_0x549902){return _0x734259<=_0x549902;},'\x77\x65\x73\x72\x65':function(_0xc3bf26,_0x1cdbb0){return _0xc3bf26*_0x1cdbb0;},'\x6a\x6e\x6e\x45\x6e':function(_0xabcb9d,_0x446f53){return _0xabcb9d/_0x446f53;},'\x61\x49\x4f\x68\x79':function(_0x1c7ac6,_0x1faefa){return _0x1c7ac6/_0x1faefa;},'\x63\x4c\x49\x72\x6e':function(_0xe77638,_0x411bf3){return _0xe77638*_0x411bf3;},'\x63\x72\x61\x76\x44':function(_0x3eaa79,_0x2677ae){return _0x3eaa79<=_0x2677ae;},'\x50\x63\x46\x44\x46':function(_0x417877,_0x2da73d){return _0x417877/_0x2da73d;}},_0x4a1bd1=new a0_0xe98f69[(_0xb45a64(0x5be))](),_0x4bf2e2=new a0_0xe98f69[(_0xb45a64(0x8a3))]({'\x63\x6f\x6c\x6f\x72':0xc6691c,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.45,'\x6d\x65\x74\x61\x6c\x6e\x65\x73\x73':0.1}),_0x53ea9b=new a0_0xe98f69[(_0xb45a64(0x8a3))]({'\x63\x6f\x6c\x6f\x72':0xf5eedc,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.8}),_0x435450=new a0_0xe98f69['\x47\x72\x6f\x75\x70'](),_0x1bdd30=new a0_0xe98f69[(_0xb45a64(0x59f))](new a0_0xe98f69[(_0xb45a64(0x718))](0.35,0x10,0x10),_0x4bf2e2);_0x1bdd30[_0xb45a64(0x7ef)][_0xb45a64(0x2d5)](1.4,0.9,0.9),_0x1bdd30['\x63\x61\x73\x74\x53\x68\x61\x64\x6f\x77']=!![],_0x435450['\x61\x64\x64'](_0x1bdd30);const _0x1fc2ae=new a0_0xe98f69[(_0xb45a64(0x59f))](new a0_0xe98f69['\x53\x70\x68\x65\x72\x65\x47\x65\x6f\x6d\x65\x74\x72\x79'](0.24,0xc,0xc),_0x4bf2e2);_0x1fc2ae['\x70\x6f\x73\x69\x74\x69\x6f\x6e'][_0xb45a64(0x2d5)](0.06,0.09,0x0),_0x1fc2ae[_0xb45a64(0x7ef)][_0xb45a64(0x2d5)](1.1,0.8,1.2),_0x435450['\x61\x64\x64'](_0x1fc2ae);const _0x3d616f=new a0_0xe98f69[(_0xb45a64(0x59f))](new a0_0xe98f69['\x53\x70\x68\x65\x72\x65\x47\x65\x6f\x6d\x65\x74\x72\x79'](0.12,0xc,0xc),_0x4bf2e2);_0x3d616f['\x70\x6f\x73\x69\x74\x69\x6f\x6e'][_0xb45a64(0x2d5)](0.42,0.03,0x0),_0x3d616f[_0xb45a64(0x7ef)]['\x73\x65\x74'](0.7,0x1,0x1),_0x435450['\x61\x64\x64'](_0x3d616f),_0x4a1bd1[_0xb45a64(0x5bf)](_0x435450);for(let _0x16fa1a=-0x1;_0x347df0[_0xb45a64(0x620)](_0x16fa1a,0x1);_0x16fa1a+=0x2){const _0x1cb239=new a0_0xe98f69[(_0xb45a64(0x5be))]();_0x1cb239[_0xb45a64(0x8a6)][_0xb45a64(0x2d5)](-0.15,-0.06,_0x347df0[_0xb45a64(0x4f9)](_0x16fa1a,0.2));const _0x4723eb=new a0_0xe98f69['\x4d\x65\x73\x68'](new a0_0xe98f69[(_0xb45a64(0x718))](0.16,0xc,0xc),_0x4bf2e2);_0x4723eb['\x73\x63\x61\x6c\x65'][_0xb45a64(0x2d5)](1.3,0.9,0.9),_0x4723eb[_0xb45a64(0x14f)]['\x79']=_0x347df0[_0xb45a64(0x283)](-_0x16fa1a*Math['\x50\x49'],0x6),_0x4723eb[_0xb45a64(0x14f)]['\x7a']=_0x347df0[_0xb45a64(0x56b)](-Math['\x50\x49'],0x8),_0x1cb239[_0xb45a64(0x5bf)](_0x4723eb);const _0x808410=new a0_0xe98f69['\x4d\x65\x73\x68'](new a0_0xe98f69[(_0xb45a64(0x7b9))](0.026,0.026,0.24,0x8),_0x53ea9b);_0x808410[_0xb45a64(0x8a6)][_0xb45a64(0x2d5)](-0.21,-0.12,-_0x16fa1a*0.03),_0x808410[_0xb45a64(0x14f)]['\x7a']=Math['\x50\x49']/0x3,_0x808410[_0xb45a64(0x14f)]['\x79']=_0x347df0[_0xb45a64(0x283)](_0x347df0[_0xb45a64(0x5d9)](_0x16fa1a,Math['\x50\x49']),0xc),_0x1cb239['\x61\x64\x64'](_0x808410);const _0x5823a7=new a0_0xe98f69[(_0xb45a64(0x59f))](new a0_0xe98f69[(_0xb45a64(0x718))](0.032,0x8,0x8),_0x53ea9b);_0x5823a7[_0xb45a64(0x8a6)]['\x73\x65\x74'](-0.02,-0.12,-0.003),_0x808410[_0xb45a64(0x5bf)](_0x5823a7);const _0x417c41=new a0_0xe98f69[(_0xb45a64(0x59f))](new a0_0xe98f69[(_0xb45a64(0x718))](0.032,0x8,0x8),_0x53ea9b);_0x417c41['\x70\x6f\x73\x69\x74\x69\x6f\x6e'][_0xb45a64(0x2d5)](0.02,-0.12,-0.003),_0x808410[_0xb45a64(0x5bf)](_0x417c41),_0x4a1bd1[_0xb45a64(0x5bf)](_0x1cb239);}for(let _0x1e9008=-0x1;_0x347df0[_0xb45a64(0x121)](_0x1e9008,0x1);_0x1e9008+=0x2){const _0x5af4e3=new a0_0xe98f69[(_0xb45a64(0x5be))]();_0x5af4e3[_0xb45a64(0x8a6)][_0xb45a64(0x2d5)](0.12,0.09,_0x347df0[_0xb45a64(0x5d9)](_0x1e9008,0.25));const _0xa32f3c=new a0_0xe98f69[(_0xb45a64(0x59f))](new a0_0xe98f69['\x53\x70\x68\x65\x72\x65\x47\x65\x6f\x6d\x65\x74\x72\x79'](0.135,0x8,0x8),_0x4bf2e2);_0xa32f3c[_0xb45a64(0x7ef)][_0xb45a64(0x2d5)](1.2,0.7,0.7),_0xa32f3c['\x72\x6f\x74\x61\x74\x69\x6f\x6e']['\x7a']=_0x347df0[_0xb45a64(0x56b)](-Math['\x50\x49'],0x6),_0x5af4e3['\x61\x64\x64'](_0xa32f3c);const _0x58ffa9=new a0_0xe98f69['\x4d\x65\x73\x68'](new a0_0xe98f69[(_0xb45a64(0x718))](0.096,0x8,0x8),_0x4bf2e2);_0x58ffa9[_0xb45a64(0x8a6)][_0xb45a64(0x2d5)](-0.1,-0.045,_0x1e9008*0.03),_0x58ffa9[_0xb45a64(0x7ef)][_0xb45a64(0x2d5)](1.3,0.5,0.8),_0x58ffa9[_0xb45a64(0x14f)]['\x7a']=_0x347df0[_0xb45a64(0x5f7)](Math['\x50\x49'],0x4),_0x5af4e3[_0xb45a64(0x5bf)](_0x58ffa9),_0x4a1bd1['\x61\x64\x64'](_0x5af4e3);}return _0x4a1bd1;}function transformCratesIntoChickens(){const _0x24258d=a0_0x460254,_0x173cd8={'\x49\x47\x48\x41\x45':function(_0x5a6a70,_0x2893fb){return _0x5a6a70-_0x2893fb;},'\x69\x46\x70\x72\x73':function(_0x21380d,_0x18df2d){return _0x21380d>=_0x18df2d;},'\x4c\x4d\x41\x76\x6b':_0x24258d(0x58d),'\x67\x62\x72\x4a\x76':'\x57\x48\x49\x54\x45','\x71\x76\x70\x58\x4f':_0x24258d(0x6fc),'\x53\x43\x54\x66\x70':_0x24258d(0x167),'\x57\x4d\x6a\x69\x53':function(_0xe72717,_0x4ac3dc){return _0xe72717(_0x4ac3dc);},'\x73\x48\x77\x64\x5a':function(_0x25657d,_0xf5680f){return _0x25657d*_0xf5680f;}};for(let _0x416882=_0x173cd8['\x49\x47\x48\x41\x45'](lootBoxes[_0x24258d(0x88b)],0x1);_0x173cd8['\x69\x46\x70\x72\x73'](_0x416882,0x0);_0x416882--){const _0x2823bd=lootBoxes[_0x416882];if(_0x2823bd['\x74\x79\x70\x65']===_0x173cd8['\x4c\x4d\x41\x76\x6b']){scene[_0x24258d(0x2b8)](_0x2823bd[_0x24258d(0x48f)]);const _0x1d5559=[_0x173cd8[_0x24258d(0xfc)],_0x173cd8[_0x24258d(0x2a9)],_0x173cd8[_0x24258d(0x4d9)]],_0x5e7424=_0x1d5559[Math[_0x24258d(0x773)](Math[_0x24258d(0x81e)]()*_0x1d5559[_0x24258d(0x88b)])],_0x556aee=_0x173cd8[_0x24258d(0x561)](createLiveChickenMesh,_0x5e7424);_0x556aee[_0x24258d(0x8a6)][_0x24258d(0x6a0)](_0x2823bd[_0x24258d(0x48f)][_0x24258d(0x8a6)]),_0x556aee[_0x24258d(0x8a6)]['\x79']=getElevation(_0x556aee['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x78'],_0x556aee[_0x24258d(0x8a6)]['\x7a']),scene[_0x24258d(0x5bf)](_0x556aee),liveChickens[_0x24258d(0x1a4)]({'\x6d\x65\x73\x68':_0x556aee,'\x70\x6f\x73':_0x556aee[_0x24258d(0x8a6)]['\x63\x6c\x6f\x6e\x65'](),'\x64\x69\x72':new a0_0xe98f69[(_0x24258d(0x691))](Math[_0x24258d(0x81e)]()-0.5,0x0,Math[_0x24258d(0x81e)]()-0.5)[_0x24258d(0x872)](),'\x73\x70\x65\x65\x64':0x1,'\x77\x61\x6e\x64\x65\x72\x54\x69\x6d\x65':0x0,'\x70\x61\x6e\x69\x63\x54\x69\x6d\x65':0x0,'\x61\x6e\x69\x6d\x61\x74\x69\x6f\x6e\x54\x69\x6d\x65':_0x173cd8[_0x24258d(0x269)](Math[_0x24258d(0x81e)](),0xa)}),lootBoxes['\x73\x70\x6c\x69\x63\x65'](_0x416882,0x1);}}}function createShockwave(_0x8d34ea){const _0x1ee9b4=a0_0x460254,_0x3136ce={'\x4d\x42\x51\x4b\x64':function(_0x30e20c,_0x2e71b2){return _0x30e20c*_0x2e71b2;},'\x66\x4f\x76\x67\x42':function(_0x14ceeb,_0x1ae76e){return _0x14ceeb(_0x1ae76e);},'\x76\x56\x4a\x54\x46':function(_0x564f86,_0xa1ab9b){return _0x564f86/_0xa1ab9b;},'\x69\x4a\x4f\x42\x69':function(_0x4eef39,_0x4a4f0e){return _0x4eef39+_0x4a4f0e;},'\x44\x57\x77\x50\x53':function(_0x5dbd35,_0x41d12a,_0x30ab45){return _0x5dbd35(_0x41d12a,_0x30ab45);},'\x6d\x6a\x43\x5a\x74':function(_0x1e05c1,_0x35b63f,_0x2e16d4){return _0x1e05c1(_0x35b63f,_0x2e16d4);}},_0x33d656=new a0_0xe98f69[(_0x1ee9b4(0x4d1))]({'\x63\x6f\x6c\x6f\x72':0xffffff,'\x73\x69\x64\x65':a0_0xe98f69[_0x1ee9b4(0x328)],'\x74\x72\x61\x6e\x73\x70\x61\x72\x65\x6e\x74':!![],'\x6f\x70\x61\x63\x69\x74\x79':0.8}),_0x5e9a66=new a0_0xe98f69['\x4d\x65\x73\x68'](new a0_0xe98f69['\x52\x69\x6e\x67\x47\x65\x6f\x6d\x65\x74\x72\x79'](0.1,0.3,0x10),_0x33d656);_0x5e9a66[_0x1ee9b4(0x14f)]['\x78']=_0x3136ce[_0x1ee9b4(0x7ee)](-Math['\x50\x49'],0x2),_0x5e9a66[_0x1ee9b4(0x8a6)][_0x1ee9b4(0x6a0)](_0x8d34ea),_0x5e9a66[_0x1ee9b4(0x8a6)]['\x79']=_0x3136ce[_0x1ee9b4(0x20d)](_0x3136ce[_0x1ee9b4(0x6d9)](getElevation,_0x8d34ea['\x78'],_0x8d34ea['\x7a']),0.1),scene['\x61\x64\x64'](_0x5e9a66);let _0x3eb0fa=0x0;const _0x2239f6=_0x3136ce[_0x1ee9b4(0x555)](setInterval,()=>{const _0xbdf195=_0x1ee9b4;_0x3eb0fa+=0.05;const _0x33cf15=_0x3136ce[_0xbdf195(0x748)](_0x3eb0fa,0x23);_0x5e9a66[_0xbdf195(0x7ef)][_0xbdf195(0x2d5)](_0x33cf15,_0x33cf15,_0x33cf15),_0x33d656['\x6f\x70\x61\x63\x69\x74\x79']=0.8-_0x3eb0fa,_0x3eb0fa>=0.8&&(_0x3136ce[_0xbdf195(0x41e)](clearInterval,_0x2239f6),scene[_0xbdf195(0x2b8)](_0x5e9a66),_0x5e9a66[_0xbdf195(0x1ce)][_0xbdf195(0x838)](),_0x33d656['\x64\x69\x73\x70\x6f\x73\x65']());},0x1e);}let hasWonMatch=![],victoryTimer=0x0,defeatTimer=0x0;function checkVictory(){const _0x31a02a=a0_0x460254,_0x2ad706={'\x4e\x48\x4a\x45\x70':function(_0x4b748d,_0x2f3d4e){return _0x4b748d===_0x2f3d4e;},'\x53\x48\x6a\x6b\x4b':function(_0x5f0605,_0x4e1789){return _0x5f0605>_0x4e1789;},'\x77\x41\x66\x6a\x4c':function(_0x29f657){return _0x29f657();},'\x76\x79\x56\x7a\x53':_0x31a02a(0x2cf),'\x49\x6f\x5a\x59\x68':_0x31a02a(0x5b4)};if(_0x2ad706[_0x31a02a(0x521)](totalAlive,0x1)&&_0x2ad706[_0x31a02a(0x760)](playerHp,0x0)&&!hasWonMatch){hasWonMatch=!![],victoryTimer=0x3,SoundSystem[_0x31a02a(0x535)](),SoundSystem[_0x31a02a(0x8b6)](!![]),_0x2ad706[_0x31a02a(0x14e)](spawnVictoryChicken),showNotice(_0x2ad706[_0x31a02a(0x19f)],0xbb8);if(zoneMesh)zoneMesh['\x76\x69\x73\x69\x62\x6c\x65']=![];const _0x1b5ba1=document[_0x31a02a(0x6ac)](_0x2ad706['\x49\x6f\x5a\x59\x68']);if(_0x1b5ba1)_0x1b5ba1[_0x31a02a(0x570)][_0x31a02a(0x2bf)]=_0x31a02a(0x3ad);}}function showVictoryUI(){const _0x5a09f3=a0_0x460254,_0xc45be5={'\x42\x54\x66\x46\x61':function(_0x4fd63a){return _0x4fd63a();},'\x59\x51\x55\x51\x61':_0x5a09f3(0x3dc),'\x56\x6c\x64\x58\x6e':'\x76\x69\x63\x74\x6f\x72\x79\x2d\x73\x74\x61\x74\x73','\x78\x79\x6b\x6c\x4a':_0x5a09f3(0x87b),'\x45\x4d\x6b\x4c\x6a':_0x5a09f3(0x6a4)};document[_0x5a09f3(0x205)]();const _0x3d5f3a=document[_0x5a09f3(0x6ac)](_0xc45be5[_0x5a09f3(0x7f9)]),_0x40c69b=document['\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64'](_0xc45be5[_0x5a09f3(0x5d7)]);_0x40c69b&&(_0x40c69b['\x69\x6e\x6e\x65\x72\x48\x54\x4d\x4c']=_0x5a09f3(0x2ac)+killCount+_0x5a09f3(0x616));_0x3d5f3a&&(_0x3d5f3a['\x73\x74\x79\x6c\x65'][_0x5a09f3(0x2bf)]=_0xc45be5[_0x5a09f3(0x498)]);const _0x74e49f=document['\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64']('\x76\x69\x63\x74\x6f\x72\x79\x2d\x72\x65\x73\x74\x61\x72\x74\x2d\x62\x74\x6e');_0x74e49f&&(_0x74e49f[_0x5a09f3(0x193)]=()=>window[_0x5a09f3(0x738)][_0x5a09f3(0x2ae)]());const _0x44fdd3=document[_0x5a09f3(0x6ac)](_0xc45be5[_0x5a09f3(0x8b9)]);_0x44fdd3&&(_0x44fdd3[_0x5a09f3(0x193)]=()=>{const _0x44241a=_0x5a09f3;_0x3d5f3a[_0x44241a(0x570)][_0x44241a(0x2bf)]='\x6e\x6f\x6e\x65',_0xc45be5[_0x44241a(0x520)](transformCratesIntoChickens);const _0x7ee70d=document[_0x44241a(0x6ac)](_0x44241a(0x109));_0x7ee70d&&(_0x7ee70d[_0x44241a(0x570)][_0x44241a(0x2bf)]=_0x44241a(0x87b),_0x7ee70d['\x6f\x6e\x63\x6c\x69\x63\x6b']=()=>window['\x6c\x6f\x63\x61\x74\x69\x6f\x6e'][_0x44241a(0x2ae)]());try{document[_0x44241a(0x840)][_0x44241a(0x6cf)]();}catch(_0x11a1ec){}});}function showDefeatUI(){const _0x18a752=a0_0x460254,_0x485a47={'\x77\x67\x78\x63\x7a':function(_0x30ecaf,_0x28b6cd){return _0x30ecaf&&_0x28b6cd;},'\x54\x4a\x52\x4c\x69':function(_0x24404d,_0x3d30ae){return _0x24404d+_0x3d30ae;},'\x6d\x49\x63\x44\x73':_0x18a752(0x755),'\x67\x78\x4b\x69\x4e':_0x18a752(0x787),'\x54\x66\x69\x58\x65':_0x18a752(0x289),'\x67\x59\x59\x69\x47':_0x18a752(0x5dc),'\x59\x4d\x51\x57\x6a':_0x18a752(0x6c0),'\x46\x41\x6e\x46\x54':_0x18a752(0x10d),'\x75\x50\x65\x64\x6c':_0x18a752(0x68a),'\x72\x74\x70\x44\x6a':_0x18a752(0x202),'\x4f\x66\x73\x4b\x54':'\x6e\x6f\x6e\x65','\x76\x74\x65\x45\x6f':function(_0x593727,_0x4a5a11,_0x18e6bd){return _0x593727(_0x4a5a11,_0x18e6bd);}};document[_0x18a752(0x205)]();if(_0x485a47[_0x18a752(0x492)](audioCtx,sfxVolumeNode))try{sfxVolumeNode[_0x18a752(0x7ae)]['\x63\x61\x6e\x63\x65\x6c\x53\x63\x68\x65\x64\x75\x6c\x65\x64\x56\x61\x6c\x75\x65\x73'](audioCtx[_0x18a752(0x23b)]),sfxVolumeNode[_0x18a752(0x7ae)]['\x73\x65\x74\x56\x61\x6c\x75\x65\x41\x74\x54\x69\x6d\x65'](sfxVolumeNode[_0x18a752(0x7ae)]['\x76\x61\x6c\x75\x65'],audioCtx[_0x18a752(0x23b)]),sfxVolumeNode[_0x18a752(0x7ae)][_0x18a752(0x2f5)](0.001,_0x485a47[_0x18a752(0x4cd)](audioCtx['\x63\x75\x72\x72\x65\x6e\x74\x54\x69\x6d\x65'],2.5));}catch(_0x16a12d){}bgmEnabled=!![];const _0x1fba5e=document[_0x18a752(0x6ac)](_0x485a47[_0x18a752(0x70f)]);if(_0x1fba5e)_0x1fba5e[_0x18a752(0x2d8)]=_0x485a47[_0x18a752(0x35c)];SoundSystem[_0x18a752(0x559)](),document[_0x18a752(0x6ac)](_0x485a47[_0x18a752(0x758)])[_0x18a752(0x570)]['\x64\x69\x73\x70\x6c\x61\x79']=_0x485a47['\x67\x59\x59\x69\x47'],document[_0x18a752(0x6ac)]('\x6d\x61\x69\x6e\x2d\x74\x69\x74\x6c\x65')['\x69\x6e\x6e\x65\x72\x54\x65\x78\x74']=_0x485a47[_0x18a752(0x61b)],document[_0x18a752(0x6ac)]('\x6d\x61\x69\x6e\x2d\x74\x69\x74\x6c\x65')[_0x18a752(0x570)][_0x18a752(0x3ee)]=_0x485a47[_0x18a752(0x78b)],document[_0x18a752(0x6ac)](_0x485a47[_0x18a752(0xec)])[_0x18a752(0x570)][_0x18a752(0x2bf)]=_0x18a752(0x3ad),document[_0x18a752(0x6ac)](_0x18a752(0x239))[_0x18a752(0x2dd)]=_0x18a752(0x43e)+totalAlive+_0x18a752(0x7bb)+killCount+_0x18a752(0x438),document[_0x18a752(0x6ac)](_0x485a47['\x72\x74\x70\x44\x6a'])[_0x18a752(0x570)]['\x64\x69\x73\x70\x6c\x61\x79']=_0x485a47['\x4f\x66\x73\x4b\x54'],_0x485a47[_0x18a752(0x803)](setTimeout,()=>{const _0x5dbebd=_0x18a752,_0x9959a0=document[_0x5dbebd(0x6ac)](_0x5dbebd(0x27b));if(_0x9959a0)_0x9959a0[_0x5dbebd(0x6b6)]('\x63\x6c\x69\x63\x6b',()=>window[_0x5dbebd(0x738)][_0x5dbebd(0x2ae)]());},0x64);}const enemyHpContainer=document['\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64'](a0_0x460254(0x3ae));function createEnemyHpBar(_0x269cc1){const _0x482245=a0_0x460254,_0x15ebbc={'\x51\x57\x74\x58\x4e':_0x482245(0x853),'\x55\x41\x7a\x4d\x68':_0x482245(0x8d1),'\x76\x6a\x77\x55\x52':function(_0x506e3b,_0x533e6f){return _0x506e3b+_0x533e6f;},'\x4f\x70\x79\x58\x7a':_0x482245(0x661),'\x46\x52\x70\x4f\x67':'\x31\x35\x70\x78','\x50\x4c\x48\x45\x64':_0x482245(0x3ad),'\x54\x79\x64\x72\x47':_0x482245(0x777),'\x6d\x4e\x54\x6a\x47':_0x482245(0x47b),'\x6e\x42\x4b\x46\x51':_0x482245(0x423),'\x5a\x67\x5a\x51\x66':'\x31\x70\x78','\x6b\x44\x7a\x54\x6d':function(_0x114b1e,_0x17b75a){return _0x114b1e+_0x17b75a;},'\x4f\x66\x76\x44\x47':_0x482245(0x7d2),'\x66\x63\x42\x59\x6f':'\x62\x6f\x6c\x64','\x4e\x69\x56\x4c\x74':'\x77\x68\x69\x74\x65','\x75\x6d\x71\x79\x41':_0x482245(0x8b5),'\x4e\x4e\x67\x41\x51':_0x482245(0x7c4),'\x55\x6a\x6f\x62\x47':'\x32\x70\x78'},_0x1f688b=document['\x63\x72\x65\x61\x74\x65\x45\x6c\x65\x6d\x65\x6e\x74'](_0x15ebbc[_0x482245(0x8a8)]);_0x1f688b[_0x482245(0xf0)]=_0x15ebbc[_0x482245(0x715)],_0x1f688b['\x69\x64']=_0x15ebbc[_0x482245(0x8af)](_0x15ebbc[_0x482245(0x2ca)],_0x269cc1),_0x1f688b[_0x482245(0x570)][_0x482245(0x1a1)]='\x37\x32\x70\x78',_0x1f688b[_0x482245(0x570)][_0x482245(0x4da)]=_0x15ebbc[_0x482245(0x3d7)],_0x1f688b['\x73\x74\x79\x6c\x65'][_0x482245(0x2bf)]=_0x15ebbc[_0x482245(0x431)],_0x1f688b['\x73\x74\x79\x6c\x65']['\x66\x6c\x65\x78\x44\x69\x72\x65\x63\x74\x69\x6f\x6e']=_0x482245(0x5e9),_0x1f688b[_0x482245(0x570)][_0x482245(0x786)]='\x63\x65\x6e\x74\x65\x72',_0x1f688b['\x73\x74\x79\x6c\x65']['\x6a\x75\x73\x74\x69\x66\x79\x43\x6f\x6e\x74\x65\x6e\x74']=_0x482245(0x359),_0x1f688b[_0x482245(0x570)][_0x482245(0x43a)]=_0x15ebbc[_0x482245(0x88f)],_0x1f688b['\x73\x74\x79\x6c\x65'][_0x482245(0x338)]=_0x15ebbc[_0x482245(0x631)],_0x1f688b[_0x482245(0x570)][_0x482245(0x101)]=_0x15ebbc[_0x482245(0x360)],_0x1f688b['\x73\x74\x79\x6c\x65'][_0x482245(0x6ff)]=_0x15ebbc['\x5a\x67\x5a\x51\x66'];const _0xe5ffc6=document['\x63\x72\x65\x61\x74\x65\x45\x6c\x65\x6d\x65\x6e\x74'](_0x15ebbc[_0x482245(0x8a8)]);_0xe5ffc6['\x69\x64']=_0x15ebbc[_0x482245(0x25a)](_0x15ebbc['\x4f\x66\x76\x44\x47'],_0x269cc1),_0xe5ffc6['\x73\x74\x79\x6c\x65'][_0x482245(0x3d4)]=_0x482245(0x2b5),_0xe5ffc6[_0x482245(0x570)][_0x482245(0x1ac)]=_0x15ebbc[_0x482245(0x60b)],_0xe5ffc6[_0x482245(0x570)]['\x63\x6f\x6c\x6f\x72']=_0x15ebbc[_0x482245(0x139)],_0xe5ffc6[_0x482245(0x570)][_0x482245(0x4f3)]=_0x15ebbc[_0x482245(0x4b8)],_0xe5ffc6[_0x482245(0x2d8)]='';const _0x216ffc=document[_0x482245(0x58c)](_0x15ebbc['\x51\x57\x74\x58\x4e']);return _0x216ffc['\x63\x6c\x61\x73\x73\x4e\x61\x6d\x65']='\x65\x6e\x65\x6d\x79\x2d\x68\x70\x2d\x62\x61\x72\x2d\x66\x69\x6c\x6c',_0x216ffc['\x69\x64']=_0x15ebbc[_0x482245(0x8af)](_0x15ebbc['\x75\x6d\x71\x79\x41'],_0x269cc1),_0x216ffc[_0x482245(0x570)][_0x482245(0x4da)]=_0x482245(0x423),_0x216ffc[_0x482245(0x570)][_0x482245(0x1a1)]=_0x15ebbc[_0x482245(0x312)],_0x216ffc[_0x482245(0x570)]['\x62\x6f\x72\x64\x65\x72\x52\x61\x64\x69\x75\x73']=_0x15ebbc[_0x482245(0x84e)],_0x1f688b[_0x482245(0xe5)](_0xe5ffc6),_0x1f688b[_0x482245(0xe5)](_0x216ffc),enemyHpContainer['\x61\x70\x70\x65\x6e\x64\x43\x68\x69\x6c\x64'](_0x1f688b),{'\x62\x67':_0x1f688b,'\x66\x69\x6c\x6c':_0x216ffc,'\x6c\x61\x62\x65\x6c':_0xe5ffc6};}function updatePlayerHp(_0x168c40,_0x28dd06=null){const _0x2248e0=a0_0x460254,_0x5e4b33={'\x43\x4f\x47\x56\x4a':'\x6e\x6f\x6e\x65','\x65\x7a\x76\x64\x71':function(_0x122543,_0x1f52b0){return _0x122543>_0x1f52b0;},'\x41\x74\x79\x48\x67':_0x2248e0(0x2ab),'\x70\x54\x49\x68\x43':function(_0x2ca09b,_0x18929f){return _0x2ca09b+_0x18929f;},'\x6d\x52\x68\x73\x42':_0x2248e0(0x21c),'\x46\x66\x45\x44\x65':_0x2248e0(0x311),'\x42\x69\x4f\x48\x79':function(_0x965511,_0x54a906){return _0x965511+_0x54a906;},'\x76\x75\x76\x70\x6a':function(_0x34f4d8,_0x20ce3e){return _0x34f4d8<_0x20ce3e;},'\x44\x50\x7a\x6b\x45':_0x2248e0(0x734),'\x76\x6b\x41\x6c\x73':_0x2248e0(0x87b),'\x63\x71\x67\x79\x77':function(_0x33cf04,_0x111ab8){return _0x33cf04*_0x111ab8;},'\x5a\x70\x4f\x58\x53':function(_0x2406d6,_0x3a2667){return _0x2406d6%_0x3a2667;},'\x43\x53\x46\x68\x76':_0x2248e0(0x7da),'\x4b\x4f\x61\x54\x56':'\x74\x72\x61\x6e\x73\x70\x61\x72\x65\x6e\x74','\x55\x52\x77\x49\x79':'\x69\x6e\x73\x65\x74\x20\x30\x20\x30\x20\x31\x35\x30\x70\x78\x20\x72\x67\x62\x61\x28\x32\x35\x35\x2c\x30\x2c\x30\x2c\x30\x2e\x39\x29','\x41\x59\x53\x47\x66':_0x2248e0(0x378),'\x41\x48\x48\x63\x4a':function(_0x4a3487,_0x216300){return _0x4a3487(_0x216300);},'\x78\x69\x64\x45\x75':function(_0x4fb273,_0x2f9947,_0x24b66d){return _0x4fb273(_0x2f9947,_0x24b66d);},'\x79\x65\x70\x46\x73':function(_0x4ac0b9,_0x184ddf){return _0x4ac0b9(_0x184ddf);},'\x43\x62\x71\x43\x59':_0x2248e0(0x135),'\x52\x43\x65\x51\x4b':function(_0x393788,_0x4a6a96){return _0x393788!==_0x4a6a96;},'\x75\x64\x49\x6d\x51':_0x2248e0(0x46d),'\x49\x51\x4c\x54\x43':'\x34\x7c\x32\x7c\x36\x7c\x35\x7c\x31\x7c\x30\x7c\x33','\x4e\x66\x5a\x6c\x56':function(_0x27df47,_0x1a5430,_0x537b51){return _0x27df47(_0x1a5430,_0x537b51);},'\x41\x71\x6d\x55\x4e':_0x2248e0(0x68b),'\x4b\x4f\x4c\x63\x75':_0x2248e0(0xfa)};if(playerHp<=0x0)return;playerHp+=_0x168c40;if(playerHp<0x0)playerHp=0x0;if(_0x5e4b33[_0x2248e0(0x3c4)](playerHp,0x64))playerHp=0x64;document[_0x2248e0(0x6ac)](_0x5e4b33['\x41\x74\x79\x48\x67'])[_0x2248e0(0x2d8)]=_0x5e4b33[_0x2248e0(0x237)](_0x5e4b33[_0x2248e0(0x873)],Math['\x63\x65\x69\x6c'](playerHp)),document[_0x2248e0(0x6ac)](_0x5e4b33[_0x2248e0(0x8d8)])[_0x2248e0(0x570)][_0x2248e0(0x1a1)]=_0x5e4b33[_0x2248e0(0x615)](playerHp,'\x25');if(_0x5e4b33['\x76\x75\x76\x70\x6a'](_0x168c40,0x0)){SoundSystem[_0x2248e0(0x6d1)]();const _0x5b0817=document['\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64'](_0x5e4b33[_0x2248e0(0x4fd)]);_0x5b0817['\x73\x74\x79\x6c\x65'][_0x2248e0(0x2bf)]=_0x5e4b33[_0x2248e0(0x55b)];if(_0x28dd06){const _0x4983f3=new a0_0xe98f69[(_0x2248e0(0x691))](0x0,0x0,-0x1)['\x61\x70\x70\x6c\x79\x51\x75\x61\x74\x65\x72\x6e\x69\x6f\x6e'](camera[_0x2248e0(0x1fe)]);_0x4983f3['\x79']=0x0,_0x4983f3[_0x2248e0(0x872)]();const _0x248d43=new a0_0xe98f69[(_0x2248e0(0x691))](0x1,0x0,0x0)[_0x2248e0(0x2da)](camera[_0x2248e0(0x1fe)]);_0x248d43['\x79']=0x0,_0x248d43['\x6e\x6f\x72\x6d\x61\x6c\x69\x7a\x65']();const _0x5080b1=new a0_0xe98f69[(_0x2248e0(0x691))]()['\x73\x75\x62\x56\x65\x63\x74\x6f\x72\x73'](_0x28dd06,playerPos);_0x5080b1['\x79']=0x0,_0x5080b1[_0x2248e0(0x872)]();const _0x34d0c7=_0x5080b1[_0x2248e0(0x2ce)](_0x4983f3),_0x3bb756=_0x5080b1[_0x2248e0(0x2ce)](_0x248d43);let _0x39e57b=_0x5e4b33[_0x2248e0(0x4de)](Math['\x61\x74\x61\x6e\x32'](_0x3bb756,_0x34d0c7),0xb4/Math['\x50\x49']);_0x39e57b=_0x5e4b33[_0x2248e0(0x304)](_0x5e4b33[_0x2248e0(0x237)](_0x39e57b,0x168),0x168);const _0x2e7726=_0x5e4b33[_0x2248e0(0x237)](_0x39e57b-0xb4,0x168)%0x168;_0x5b0817[_0x2248e0(0x570)]['\x62\x61\x63\x6b\x67\x72\x6f\x75\x6e\x64']='\x63\x6f\x6e\x69\x63\x2d\x67\x72\x61\x64\x69\x65\x6e\x74\x28\x66\x72\x6f\x6d\x20'+_0x2e7726+_0x2248e0(0x351),_0x5b0817[_0x2248e0(0x570)][_0x2248e0(0x6e1)]=_0x5e4b33[_0x2248e0(0x581)];}else _0x5b0817[_0x2248e0(0x570)]['\x62\x61\x63\x6b\x67\x72\x6f\x75\x6e\x64']=_0x5e4b33[_0x2248e0(0x8bb)],_0x5b0817[_0x2248e0(0x570)]['\x62\x6f\x78\x53\x68\x61\x64\x6f\x77']=_0x5e4b33[_0x2248e0(0x467)];_0x5b0817['\x73\x74\x79\x6c\x65'][_0x2248e0(0x73f)]=_0x2248e0(0x3ad),_0x5b0817[_0x2248e0(0x880)],_0x5b0817[_0x2248e0(0x570)][_0x2248e0(0x73f)]=_0x5e4b33[_0x2248e0(0x7c7)];if(_0x5b0817[_0x2248e0(0x638)])_0x5e4b33[_0x2248e0(0x7b4)](clearTimeout,_0x5b0817['\x74\x69\x6d\x65\x6f\x75\x74\x49\x64']);_0x5b0817[_0x2248e0(0x638)]=_0x5e4b33[_0x2248e0(0x893)](setTimeout,()=>{const _0x4451f0=_0x2248e0;_0x5b0817['\x73\x74\x79\x6c\x65'][_0x4451f0(0x2bf)]=_0x5e4b33['\x43\x4f\x47\x56\x4a'];},0x4b0),isHealing&&(isHealing=![],document['\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64']('\x68\x65\x61\x6c\x2d\x70\x72\x6f\x67\x72\x65\x73\x73\x2d\x63\x6f\x6e\x74\x61\x69\x6e\x65\x72')['\x73\x74\x79\x6c\x65'][_0x2248e0(0x2bf)]=_0x5e4b33[_0x2248e0(0x249)],_0x5e4b33[_0x2248e0(0x6ad)](showNotice,_0x5e4b33['\x43\x62\x71\x43\x59']));}if(playerHp<=0x0&&_0x5e4b33['\x52\x43\x65\x51\x4b'](gameState,_0x2248e0(0x68b))&&gameState!==_0x5e4b33[_0x2248e0(0x547)]){const _0x112d66=_0x5e4b33[_0x2248e0(0x852)][_0x2248e0(0x696)]('\x7c');let _0x187e74=0x0;while(!![]){switch(_0x112d66[_0x187e74++]){case'\x30':SoundSystem['\x70\x6c\x61\x79\x4d\x61\x74\x63\x68\x45\x6e\x64\x53\x6f\x75\x6e\x64'](![]);continue;case'\x31':SoundSystem['\x73\x74\x6f\x70\x42\x47\x4d']();continue;case'\x32':defeatTimer=0x3;continue;case'\x33':_0x5e4b33[_0x2248e0(0x87e)](showNotice,'\u2620\ufe0f\x20\ub2f9\uc2e0\uc740\x20\ucc98\uce58\ub418\uc5c8\uc2b5\ub2c8\ub2e4\x2e\x2e\x2e',0xbb8);continue;case'\x34':gameState=_0x5e4b33[_0x2248e0(0x4c7)];continue;case'\x35':document[_0x2248e0(0x6ac)](_0x5e4b33['\x4b\x4f\x4c\x63\x75'])[_0x2248e0(0x570)][_0x2248e0(0x2bf)]=_0x5e4b33[_0x2248e0(0x249)];continue;case'\x36':document[_0x2248e0(0x205)]();continue;}break;}}}function addKillLog(_0x41b4fd){const _0x562791=a0_0x460254,_0x2123a9={'\x50\x69\x65\x57\x73':_0x562791(0x2db),'\x69\x69\x51\x7a\x42':_0x562791(0x853),'\x74\x66\x70\x54\x4f':_0x562791(0x3a5),'\x58\x61\x48\x4e\x53':function(_0x56dd1f,_0x13a228,_0x3bf34a){return _0x56dd1f(_0x13a228,_0x3bf34a);},'\x4f\x6d\x63\x6b\x51':'\x61\x6c\x69\x76\x65\x2d\x63\x6f\x75\x6e\x74'},_0x43fea3=document['\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64'](_0x2123a9[_0x562791(0x534)]),_0x7deda5=document['\x63\x72\x65\x61\x74\x65\x45\x6c\x65\x6d\x65\x6e\x74'](_0x2123a9[_0x562791(0x5f9)]);_0x7deda5[_0x562791(0xf0)]=_0x2123a9['\x74\x66\x70\x54\x4f'],_0x7deda5[_0x562791(0x2d8)]=_0x41b4fd,_0x43fea3[_0x562791(0xe5)](_0x7deda5),_0x2123a9['\x58\x61\x48\x4e\x53'](setTimeout,()=>{const _0x54c9b7=_0x562791;if(_0x7deda5['\x70\x61\x72\x65\x6e\x74\x4e\x6f\x64\x65'])_0x7deda5['\x70\x61\x72\x65\x6e\x74\x4e\x6f\x64\x65'][_0x54c9b7(0x741)](_0x7deda5);},0xfa0),document[_0x562791(0x6ac)](_0x2123a9[_0x562791(0x582)])[_0x562791(0x2d8)]=totalAlive;}const activeThrowables=[],activeSmokeClouds=[];for(let i=0x1;i<0x32;i++){const soldier=createSoldierModel(0x4a5a4a,0xffd0b0),group=soldier[a0_0x460254(0x8ba)],eParachute=parachute[a0_0x460254(0x31f)]();eParachute[a0_0x460254(0x7cf)]=![],eParachute['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x73\x65\x74'](0x0,5.5,0x0),group[a0_0x460254(0x5bf)](eParachute),group[a0_0x460254(0x8a6)][a0_0x460254(0x6a0)](planeGroup[a0_0x460254(0x8a6)]),scene[a0_0x460254(0x5bf)](group);const randTier=Math[a0_0x460254(0x81e)]();let tier=a0_0x460254(0x240),maxHp=0x55,selectedHelmet=null,selectedBag=null;if(randTier<0.6)tier=a0_0x460254(0x240),maxHp=0x55,selectedHelmet=Math['\x72\x61\x6e\x64\x6f\x6d']()>0.6?HELMETS['\x4c\x56\x31']:null,selectedBag=Math[a0_0x460254(0x81e)]()>0.6?BAGS[a0_0x460254(0x6f8)]:null;else{if(randTier<0.9)tier=a0_0x460254(0x828),maxHp=0x64,selectedHelmet=Math[a0_0x460254(0x81e)]()>0.3?Math[a0_0x460254(0x81e)]()>0.5?HELMETS[a0_0x460254(0x682)]:HELMETS[a0_0x460254(0x6f8)]:null,selectedBag=Math[a0_0x460254(0x81e)]()>0.3?Math['\x72\x61\x6e\x64\x6f\x6d']()>0.5?BAGS[a0_0x460254(0x682)]:BAGS[a0_0x460254(0x6f8)]:null;else{tier=a0_0x460254(0x3b5),maxHp=0x96,selectedHelmet=HELMETS[a0_0x460254(0x2af)],selectedBag=BAGS['\x4c\x56\x33'];const hackerTorsoMat=new a0_0xe98f69['\x4d\x65\x73\x68\x53\x74\x61\x6e\x64\x61\x72\x64\x4d\x61\x74\x65\x72\x69\x61\x6c']({'\x63\x6f\x6c\x6f\x72':0xff3333,'\x6d\x65\x74\x61\x6c\x6e\x65\x73\x73':0.9,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.1,'\x65\x6d\x69\x73\x73\x69\x76\x65':0x330000}),hackerLimbMat=new a0_0xe98f69['\x4d\x65\x73\x68\x53\x74\x61\x6e\x64\x61\x72\x64\x4d\x61\x74\x65\x72\x69\x61\x6c']({'\x63\x6f\x6c\x6f\x72':0xffd700,'\x6d\x65\x74\x61\x6c\x6e\x65\x73\x73':0.9,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.1,'\x65\x6d\x69\x73\x73\x69\x76\x65':0x332200});if(soldier[a0_0x460254(0x840)])soldier[a0_0x460254(0x840)][a0_0x460254(0x5f0)]=hackerTorsoMat;soldier[a0_0x460254(0x750)]&&soldier[a0_0x460254(0x750)][a0_0x460254(0x58f)][0x0]&&(soldier[a0_0x460254(0x750)][a0_0x460254(0x58f)][0x0][a0_0x460254(0x5f0)]=new a0_0xe98f69[(a0_0x460254(0x8a3))]({'\x63\x6f\x6c\x6f\x72':0xff4444,'\x6d\x65\x74\x61\x6c\x6e\x65\x73\x73':0.5,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.2,'\x65\x6d\x69\x73\x73\x69\x76\x65':0x220000}));if(soldier[a0_0x460254(0x63e)]&&soldier[a0_0x460254(0x63e)][a0_0x460254(0x58f)][0x0])soldier['\x6c\x65\x66\x74\x41\x72\x6d'][a0_0x460254(0x58f)][0x0]['\x6d\x61\x74\x65\x72\x69\x61\x6c']=hackerLimbMat;if(soldier[a0_0x460254(0x500)]&&soldier[a0_0x460254(0x500)][a0_0x460254(0x58f)][0x0])soldier[a0_0x460254(0x500)][a0_0x460254(0x58f)][0x0][a0_0x460254(0x5f0)]=hackerLimbMat;if(soldier[a0_0x460254(0x79e)]&&soldier[a0_0x460254(0x79e)][a0_0x460254(0x58f)][0x0])soldier[a0_0x460254(0x79e)][a0_0x460254(0x58f)][0x0][a0_0x460254(0x5f0)]=hackerLimbMat;if(soldier['\x72\x69\x67\x68\x74\x4c\x65\x67']&&soldier[a0_0x460254(0x7c6)]['\x63\x68\x69\x6c\x64\x72\x65\x6e'][0x0])soldier[a0_0x460254(0x7c6)][a0_0x460254(0x58f)][0x0][a0_0x460254(0x5f0)]=hackerLimbMat;}}if(selectedHelmet)soldier['\x75\x70\x64\x61\x74\x65\x48\x65\x6c\x6d\x65\x74\x56\x69\x73\x75\x61\x6c'](selectedHelmet);soldier[a0_0x460254(0x5d2)][a0_0x460254(0x7cf)]=!![];const eid=a0_0x460254(0x130)+i,hpUI=createEnemyHpBar(eid);updateVisualEquip(soldier,WEAPONS['\x50\x55\x4e\x43\x48'],SCOPES['\x4e\x4f\x4e\x45']),enemies[a0_0x460254(0x1a4)]({'\x69\x64':eid,'\x6d\x65\x73\x68':group,'\x73\x6f\x6c\x64\x69\x65\x72':soldier,'\x68\x70':maxHp,'\x6d\x61\x78\x48\x70':maxHp,'\x73\x74\x61\x74\x65':'\x49\x4e\x5f\x50\x4c\x41\x4e\x45','\x70\x61\x72\x61\x63\x68\x75\x74\x65':eParachute,'\x68\x70\x55\x49':hpUI,'\x74\x69\x65\x72':tier,'\x6a\x75\x6d\x70\x54\x69\x6d\x65':3.5+Math[a0_0x460254(0x81e)]()*9.5,'\x77\x65\x61\x70\x6f\x6e':WEAPONS[a0_0x460254(0x181)],'\x68\x65\x6c\x6d\x65\x74':selectedHelmet,'\x62\x61\x67':selectedBag,'\x6c\x61\x73\x74\x53\x68\x6f\x74':0x0,'\x6c\x61\x73\x74\x48\x69\x74\x54\x69\x6d\x65':0x0,'\x64\x72\x69\x66\x74\x41\x6e\x67\x6c\x65':Math[a0_0x460254(0x81e)]()*Math['\x50\x49']*0x2,'\x64\x72\x69\x66\x74\x53\x70\x65\x65\x64':0xa+Math['\x72\x61\x6e\x64\x6f\x6d']()*0xf,'\x72\x65\x63\x6f\x69\x6c\x54\x69\x6d\x65':0x0,'\x61\x76\x6f\x69\x64\x61\x6e\x63\x65\x54\x69\x6d\x65\x72':0x0,'\x61\x76\x6f\x69\x64\x44\x69\x72':new a0_0xe98f69[(a0_0x460254(0x691))]()}),hpUI['\x6c\x61\x62\x65\x6c']['\x69\x6e\x6e\x65\x72\x54\x65\x78\x74']='\x5b'+tier+'\x5d\x20'+eid;if(tier===a0_0x460254(0x240))hpUI[a0_0x460254(0x387)][a0_0x460254(0x570)][a0_0x460254(0x722)]='\x23\x38\x31\x63\x37\x38\x34',hpUI[a0_0x460254(0x203)]['\x73\x74\x79\x6c\x65'][a0_0x460254(0x3ee)]='\x23\x61\x35\x64\x36\x61\x37';else tier==='\x50\x72\x6f'?(hpUI[a0_0x460254(0x387)][a0_0x460254(0x570)][a0_0x460254(0x722)]=a0_0x460254(0x85b),hpUI[a0_0x460254(0x203)][a0_0x460254(0x570)]['\x63\x6f\x6c\x6f\x72']=a0_0x460254(0x56e)):(hpUI['\x66\x69\x6c\x6c'][a0_0x460254(0x570)][a0_0x460254(0x722)]='\x23\x66\x66\x33\x64\x30\x30',hpUI[a0_0x460254(0x203)][a0_0x460254(0x570)][a0_0x460254(0x3ee)]=a0_0x460254(0x31c),hpUI[a0_0x460254(0x203)]['\x73\x74\x79\x6c\x65'][a0_0x460254(0x1e6)]=a0_0x460254(0x3ff));}function getAmmoName(_0x48d68d){const _0x280533=a0_0x460254,_0x55bab7={'\x68\x4a\x5a\x52\x53':_0x280533(0x10b),'\x51\x58\x4a\x4e\x54':_0x280533(0x1b7),'\x53\x74\x6b\x65\x4f':_0x280533(0x1f4),'\x45\x7a\x66\x77\x65':function(_0x527e5c,_0x5ee345){return _0x527e5c===_0x5ee345;},'\x6c\x58\x76\x6c\x49':_0x280533(0x305),'\x42\x52\x5a\x5a\x6e':_0x280533(0x406),'\x72\x79\x75\x42\x7a':function(_0x55ec9f,_0x35d11a){return _0x55ec9f===_0x35d11a;},'\x44\x6a\x4d\x4f\x53':_0x280533(0x536),'\x6b\x4a\x6d\x4a\x72':_0x280533(0x4df)},_0x2b5e3e=_0x55bab7[_0x280533(0x6bc)][_0x280533(0x696)]('\x7c');let _0x5b9979=0x0;while(!![]){switch(_0x2b5e3e[_0x5b9979++]){case'\x30':if(_0x48d68d===_0x55bab7[_0x280533(0x367)])return _0x55bab7[_0x280533(0x47a)];continue;case'\x31':return'';case'\x32':if(_0x55bab7[_0x280533(0x163)](_0x48d68d,_0x55bab7['\x6c\x58\x76\x6c\x49']))return _0x55bab7[_0x280533(0x6e4)];continue;case'\x33':if(_0x55bab7[_0x280533(0x80e)](_0x48d68d,_0x55bab7[_0x280533(0x846)]))return _0x55bab7[_0x280533(0x3ea)];continue;case'\x34':if(_0x55bab7[_0x280533(0x163)](_0x48d68d,'\x52\x49\x46\x4c\x45'))return _0x280533(0x6f4);continue;}break;}}function createAmmoBoxMesh(_0x122db6){const _0x2669d7=a0_0x460254,_0x12d79b=new a0_0xe98f69[(_0x2669d7(0x5be))](),_0x58f63d=new a0_0xe98f69[(_0x2669d7(0x59f))](new a0_0xe98f69[(_0x2669d7(0x8c2))](0.35,0.18,0.25),new a0_0xe98f69[(_0x2669d7(0x8a3))]({'\x63\x6f\x6c\x6f\x72':_0x122db6,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.6}));_0x58f63d[_0x2669d7(0x705)]=!![],_0x12d79b[_0x2669d7(0x5bf)](_0x58f63d);const _0x2afe99=new a0_0xe98f69[(_0x2669d7(0x59f))](new a0_0xe98f69['\x42\x6f\x78\x47\x65\x6f\x6d\x65\x74\x72\x79'](0.2,0.19,0.05),new a0_0xe98f69[(_0x2669d7(0x4d1))]({'\x63\x6f\x6c\x6f\x72':0xffffff}));return _0x2afe99[_0x2669d7(0x8a6)][_0x2669d7(0x2d5)](0x0,0x0,0.13),_0x12d79b[_0x2669d7(0x5bf)](_0x2afe99),_0x12d79b;}function spawnGroundItem(_0x21d6cf,_0x1a8fb4,_0x55b7c3){const _0xa151f3=a0_0x460254,_0x1e8499={'\x76\x47\x6b\x58\x57':function(_0x3ab548,_0x4dee58){return _0x3ab548===_0x4dee58;},'\x51\x48\x58\x43\x73':_0xa151f3(0x6f2),'\x73\x4c\x4e\x4c\x59':function(_0x3133fe,_0x1e10ff,_0x212b2b){return _0x3133fe(_0x1e10ff,_0x212b2b);},'\x49\x4d\x72\x6b\x79':function(_0x1d57bf,_0xfc37b1){return _0x1d57bf===_0xfc37b1;},'\x6c\x47\x64\x5a\x6e':function(_0x2912e2,_0x3e6743){return _0x2912e2*_0x3e6743;},'\x55\x75\x77\x43\x73':function(_0x5c4c6c,_0x3216df){return _0x5c4c6c*_0x3216df;},'\x73\x6d\x7a\x50\x66':function(_0x537773,_0x30b946){return _0x537773/_0x30b946;},'\x56\x4a\x6d\x6e\x61':function(_0x165c29,_0x3ffcdf){return _0x165c29===_0x3ffcdf;},'\x4e\x66\x47\x67\x70':function(_0x4a8c68,_0x5c3307){return _0x4a8c68===_0x5c3307;},'\x6c\x70\x78\x4a\x58':function(_0x1a0767,_0x530c54){return _0x1a0767===_0x530c54;},'\x4c\x61\x6a\x4d\x7a':function(_0x12e5bb,_0x27374f){return _0x12e5bb===_0x27374f;},'\x6d\x71\x66\x76\x74':'\x53\x4d\x4f\x4b\x45','\x73\x69\x76\x76\x70':_0xa151f3(0x55c),'\x50\x4a\x7a\x5a\x79':function(_0x1e16bc,_0x805358){return _0x1e16bc/_0x805358;},'\x62\x73\x55\x6c\x73':_0xa151f3(0x476),'\x44\x45\x77\x64\x74':function(_0x41740d,_0x521886){return _0x41740d(_0x521886);},'\x6c\x63\x6a\x77\x71':function(_0x19fab6,_0x27c9d2){return _0x19fab6===_0x27c9d2;},'\x5a\x59\x4c\x45\x46':_0xa151f3(0x214),'\x76\x63\x64\x4e\x59':function(_0x40a1d0,_0x1221ae){return _0x40a1d0(_0x1221ae);},'\x65\x6e\x53\x4c\x50':function(_0x1c0f56,_0x1b9b15){return _0x1c0f56(_0x1b9b15);},'\x51\x6c\x75\x69\x42':function(_0x508776,_0xc41e45){return _0x508776(_0xc41e45);},'\x4b\x46\x6b\x50\x51':function(_0x57527a,_0x13518d,_0x592c96,_0x36c319){return _0x57527a(_0x13518d,_0x592c96,_0x36c319);}},_0x16cf16=new a0_0xe98f69['\x47\x72\x6f\x75\x70']();let _0xac5d92;if(_0x1e8499[_0xa151f3(0x812)](_0x1a8fb4,_0x1e8499[_0xa151f3(0x2d3)]))_0xac5d92=_0x1e8499[_0xa151f3(0x4a8)](createWeaponMesh,_0x55b7c3,SCOPES['\x4e\x4f\x4e\x45']),_0xac5d92&&(_0x55b7c3&&_0x1e8499[_0xa151f3(0x309)](_0x55b7c3[_0xa151f3(0x74e)],'\uad8c\ucd1d')?_0xac5d92['\x70\x6f\x73\x69\x74\x69\x6f\x6e'][_0xa151f3(0x2d5)](0x0,0.03,-0.01):_0xac5d92[_0xa151f3(0x8a6)][_0xa151f3(0x2d5)](0x0,0.11,-0.01),_0xac5d92[_0xa151f3(0x7ef)]['\x73\x65\x74'](3.5,3.5,3.5),_0xac5d92[_0xa151f3(0x14f)][_0xa151f3(0x2d5)](0x0,_0x1e8499[_0xa151f3(0x11e)](_0x1e8499[_0xa151f3(0x80c)](Math[_0xa151f3(0x81e)](),Math['\x50\x49']),0x2),Math['\x50\x49']/0x2));else{if(_0x1a8fb4===_0xa151f3(0x267)){const _0x5990b9=new a0_0xe98f69[(_0xa151f3(0x8a3))]({'\x63\x6f\x6c\x6f\x72':0x2e5c30,'\x6d\x65\x74\x61\x6c\x6e\x65\x73\x73':0.8,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.3}),_0x5cea57=new a0_0xe98f69[(_0xa151f3(0x4d1))]({'\x63\x6f\x6c\x6f\x72':0xffff}),_0x560ecc=new a0_0xe98f69[(_0xa151f3(0x5be))](),_0x58627f=new a0_0xe98f69[(_0xa151f3(0x59f))](new a0_0xe98f69[(_0xa151f3(0x7b9))](0.12,0.12,0.4),_0x5990b9);_0x58627f['\x72\x6f\x74\x61\x74\x69\x6f\x6e']['\x78']=_0x1e8499[_0xa151f3(0x48a)](Math['\x50\x49'],0x2),_0x560ecc[_0xa151f3(0x5bf)](_0x58627f);const _0x321f31=new a0_0xe98f69[(_0xa151f3(0x59f))](new a0_0xe98f69[(_0xa151f3(0x7b9))](0.1,0.1,0.02),_0x5cea57);_0x321f31[_0xa151f3(0x14f)]['\x78']=Math['\x50\x49']/0x2,_0x321f31[_0xa151f3(0x8a6)]['\x7a']=0.201,_0x560ecc[_0xa151f3(0x5bf)](_0x321f31),_0xac5d92=_0x560ecc,_0xac5d92[_0xa151f3(0x7ef)][_0xa151f3(0x2d5)](0x2,0x2,0x2);}else{if(_0x1e8499['\x56\x4a\x6d\x6e\x61'](_0x1a8fb4,'\x48\x45\x4c\x4d\x45\x54')){const _0x2418ac=_0x1e8499[_0xa151f3(0x812)](_0x55b7c3,HELMETS['\x4c\x56\x31'])?0x4caf50:_0x1e8499['\x4e\x66\x47\x67\x70'](_0x55b7c3,HELMETS[_0xa151f3(0x682)])?0x9688:0x212121,_0x41fef7=new a0_0xe98f69['\x4d\x65\x73\x68\x53\x74\x61\x6e\x64\x61\x72\x64\x4d\x61\x74\x65\x72\x69\x61\x6c']({'\x63\x6f\x6c\x6f\x72':_0x2418ac,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.8,'\x73\x69\x64\x65':a0_0xe98f69[_0xa151f3(0x328)]}),_0xb58db6=new a0_0xe98f69[(_0xa151f3(0x5be))](),_0x30adf3=new a0_0xe98f69[(_0xa151f3(0x59f))](new a0_0xe98f69[(_0xa151f3(0x718))](0.26,0x10,0xa,0x0,Math['\x50\x49']*0x2,0x0,Math['\x50\x49']/0x2),_0x41fef7);_0x30adf3[_0xa151f3(0x14f)]['\x78']=_0x1e8499[_0xa151f3(0x48a)](-Math['\x50\x49'],0x2),_0x30adf3[_0xa151f3(0x705)]=!![],_0xb58db6[_0xa151f3(0x5bf)](_0x30adf3);if(_0x1e8499[_0xa151f3(0x309)](_0x55b7c3,HELMETS[_0xa151f3(0x2af)])){const _0x5041fa=new a0_0xe98f69['\x4d\x65\x73\x68'](new a0_0xe98f69[(_0xa151f3(0x8c2))](0.24,0.08,0.08),new a0_0xe98f69['\x4d\x65\x73\x68\x53\x74\x61\x6e\x64\x61\x72\x64\x4d\x61\x74\x65\x72\x69\x61\x6c']({'\x63\x6f\x6c\x6f\x72':0x111111,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.1}));_0x5041fa[_0xa151f3(0x8a6)][_0xa151f3(0x2d5)](0x0,-0.06,0.2),_0xb58db6[_0xa151f3(0x5bf)](_0x5041fa);}_0xac5d92=_0xb58db6,_0xac5d92[_0xa151f3(0x7ef)][_0xa151f3(0x2d5)](1.5,1.5,1.5);}else{if(_0x1e8499[_0xa151f3(0x171)](_0x1a8fb4,'\x42\x41\x47')){const _0xa6dbfc=_0x1e8499[_0xa151f3(0x812)](_0x55b7c3,BAGS[_0xa151f3(0x6f8)])?0x8d6e63:_0x1e8499[_0xa151f3(0x429)](_0x55b7c3,BAGS[_0xa151f3(0x682)])?0x5d4037:0x3e2723,_0xa3d8e=new a0_0xe98f69[(_0xa151f3(0x8a3))]({'\x63\x6f\x6c\x6f\x72':_0xa6dbfc,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.8}),_0x1169b9=new a0_0xe98f69['\x47\x72\x6f\x75\x70'](),_0x15860a=new a0_0xe98f69[(_0xa151f3(0x59f))](new a0_0xe98f69[(_0xa151f3(0x8c2))](0.25,0.35,0.14),_0xa3d8e);_0x1169b9[_0xa151f3(0x5bf)](_0x15860a);const _0x4aa361=new a0_0xe98f69[(_0xa151f3(0x4d1))]({'\x63\x6f\x6c\x6f\x72':0x111111}),_0x2850be=new a0_0xe98f69[(_0xa151f3(0x59f))](new a0_0xe98f69['\x42\x6f\x78\x47\x65\x6f\x6d\x65\x74\x72\x79'](0.03,0.37,0.02),_0x4aa361);_0x2850be[_0xa151f3(0x8a6)][_0xa151f3(0x2d5)](-0.08,0x0,0.075);const _0x4c4d58=new a0_0xe98f69[(_0xa151f3(0x59f))](new a0_0xe98f69[(_0xa151f3(0x8c2))](0.03,0.37,0.02),_0x4aa361);_0x4c4d58[_0xa151f3(0x8a6)][_0xa151f3(0x2d5)](0.08,0x0,0.075),_0x1169b9[_0xa151f3(0x5bf)](_0x2850be),_0x1169b9[_0xa151f3(0x5bf)](_0x4c4d58),_0xac5d92=_0x1169b9,_0xac5d92[_0xa151f3(0x7ef)][_0xa151f3(0x2d5)](0x2,0x2,0x2);}else{if(_0x1e8499[_0xa151f3(0x355)](_0x1a8fb4,_0xa151f3(0x3a0))){const _0x15ecf2=new a0_0xe98f69[(_0xa151f3(0x8a3))]({'\x63\x6f\x6c\x6f\x72':0x3e503c,'\x6d\x65\x74\x61\x6c\x6e\x65\x73\x73':0.5,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.6}),_0x5a402e=new a0_0xe98f69[(_0xa151f3(0x59f))](new a0_0xe98f69[(_0xa151f3(0x6e8))](0.12),_0x15ecf2);_0xac5d92=_0x5a402e,_0xac5d92['\x73\x63\x61\x6c\x65']['\x73\x65\x74'](1.8,1.8,1.8);}else{if(_0x1e8499[_0xa151f3(0x849)](_0x1a8fb4,_0x1e8499[_0xa151f3(0x337)])){const _0x4e9338=new a0_0xe98f69[(_0xa151f3(0x8a3))]({'\x63\x6f\x6c\x6f\x72':0x888888,'\x6d\x65\x74\x61\x6c\x6e\x65\x73\x73':0.7,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.4}),_0x320f82=new a0_0xe98f69[(_0xa151f3(0x5be))](),_0x1d9e6b=new a0_0xe98f69[(_0xa151f3(0x59f))](new a0_0xe98f69['\x43\x79\x6c\x69\x6e\x64\x65\x72\x47\x65\x6f\x6d\x65\x74\x72\x79'](0.07,0.07,0.22,0x8),_0x4e9338);_0x320f82[_0xa151f3(0x5bf)](_0x1d9e6b);const _0x54599d=new a0_0xe98f69[(_0xa151f3(0x59f))](new a0_0xe98f69[(_0xa151f3(0x7b9))](0.075,0.075,0.03,0x8),new a0_0xe98f69[(_0xa151f3(0x4d1))]({'\x63\x6f\x6c\x6f\x72':0xff00}));_0x54599d[_0xa151f3(0x8a6)]['\x79']=0.04,_0x320f82[_0xa151f3(0x5bf)](_0x54599d),_0xac5d92=_0x320f82,_0xac5d92[_0xa151f3(0x7ef)]['\x73\x65\x74'](0x2,0x2,0x2);}else{if(_0x1a8fb4===_0x1e8499['\x73\x69\x76\x76\x70']){const _0x2ed43f=new a0_0xe98f69['\x4d\x65\x73\x68\x53\x74\x61\x6e\x64\x61\x72\x64\x4d\x61\x74\x65\x72\x69\x61\x6c']({'\x63\x6f\x6c\x6f\x72':0xffffff,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.5}),_0x50d795=new a0_0xe98f69[(_0xa151f3(0x4d1))]({'\x63\x6f\x6c\x6f\x72':0xff0000}),_0x12b977=new a0_0xe98f69['\x47\x72\x6f\x75\x70'](),_0x56b6a3=new a0_0xe98f69['\x4d\x65\x73\x68'](new a0_0xe98f69['\x42\x6f\x78\x47\x65\x6f\x6d\x65\x74\x72\x79'](0.35,0.25,0.15),_0x2ed43f);_0x12b977['\x61\x64\x64'](_0x56b6a3);const _0x127fee=new a0_0xe98f69[(_0xa151f3(0x59f))](new a0_0xe98f69[(_0xa151f3(0x8c2))](0.18,0.05,0.02),_0x50d795);_0x127fee[_0xa151f3(0x8a6)]['\x7a']=0.076,_0x12b977[_0xa151f3(0x5bf)](_0x127fee);const _0x1f9212=new a0_0xe98f69[(_0xa151f3(0x59f))](new a0_0xe98f69['\x42\x6f\x78\x47\x65\x6f\x6d\x65\x74\x72\x79'](0.05,0.18,0.02),_0x50d795);_0x1f9212['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x7a']=0.076,_0x12b977['\x61\x64\x64'](_0x1f9212),_0xac5d92=_0x12b977,_0xac5d92[_0xa151f3(0x7ef)]['\x73\x65\x74'](0x2,0x2,0x2),_0xac5d92[_0xa151f3(0x14f)]['\x78']=_0x1e8499[_0xa151f3(0x21d)](-Math['\x50\x49'],0x2);}else{if(_0x1a8fb4===_0x1e8499[_0xa151f3(0x5b3)])_0xac5d92=_0x1e8499[_0xa151f3(0x456)](createAmmoBoxMesh,0xbbbb22),_0xac5d92[_0xa151f3(0x7ef)]['\x73\x65\x74'](1.5,1.5,1.5);else{if(_0x1e8499[_0xa151f3(0x65d)](_0x1a8fb4,_0x1e8499['\x5a\x59\x4c\x45\x46']))_0xac5d92=_0x1e8499[_0xa151f3(0x380)](createAmmoBoxMesh,0xcc2222),_0xac5d92[_0xa151f3(0x7ef)][_0xa151f3(0x2d5)](1.5,1.5,1.5);else{if(_0x1a8fb4===_0xa151f3(0x2f9))_0xac5d92=_0x1e8499['\x65\x6e\x53\x4c\x50'](createAmmoBoxMesh,0x22aa22),_0xac5d92[_0xa151f3(0x7ef)][_0xa151f3(0x2d5)](1.5,1.5,1.5);else _0x1a8fb4==='\x41\x4d\x4d\x4f\x5f\x53\x4e\x49\x50\x45\x52'&&(_0xac5d92=_0x1e8499['\x51\x6c\x75\x69\x42'](createAmmoBoxMesh,0x2222bb),_0xac5d92[_0xa151f3(0x7ef)]['\x73\x65\x74'](1.5,1.5,1.5));}}}}}}}}}if(_0xac5d92)_0xac5d92[_0xa151f3(0x5e7)](_0x1671e7=>{const _0x4dc446=_0xa151f3;_0x1671e7[_0x4dc446(0x669)]&&(_0x1671e7[_0x4dc446(0x705)]=!![],_0x1671e7[_0x4dc446(0x7e1)]=!![]);}),_0x16cf16[_0xa151f3(0x5bf)](_0xac5d92);else{const _0x260a9d=new a0_0xe98f69[(_0xa151f3(0x59f))](new a0_0xe98f69[(_0xa151f3(0x8c2))](0.5,0.5,0.5),new a0_0xe98f69[(_0xa151f3(0x8a3))]({'\x63\x6f\x6c\x6f\x72':0xff0000}));_0x16cf16[_0xa151f3(0x5bf)](_0x260a9d);}_0x16cf16[_0xa151f3(0x8a6)]['\x63\x6f\x70\x79'](_0x21d6cf),_0x16cf16['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x79']=_0x1e8499[_0xa151f3(0x77e)](getElevation,_0x21d6cf['\x78'],_0x21d6cf['\x7a'],_0x21d6cf['\x79'])+0.8,scene['\x61\x64\x64'](_0x16cf16),lootBoxes[_0xa151f3(0x1a4)]({'\x6d\x65\x73\x68':_0x16cf16,'\x74\x79\x70\x65':_0x1a8fb4,'\x76\x61\x6c':_0x55b7c3,'\x69\x73\x43\x72\x61\x74\x65':![]});}function spawnCorpseBox(_0x21f157,_0x427e10,_0x1ce722,_0xb6d87b=null,_0x4e549f=null){const _0x3a9dc3=a0_0x460254,_0x12359c={'\x63\x44\x74\x72\x68':_0x3a9dc3(0x5bb),'\x58\x4d\x53\x75\x6f':function(_0x267bf5,_0x120af1,_0x292753,_0x58c1de){return _0x267bf5(_0x120af1,_0x292753,_0x58c1de);},'\x56\x52\x71\x6a\x6e':function(_0x3dbbaa,_0x588f27){return _0x3dbbaa<_0x588f27;},'\x42\x57\x55\x75\x54':_0x3a9dc3(0x1b7),'\x65\x45\x44\x53\x64':function(_0x7d7756,_0x1dccb3){return _0x7d7756+_0x1dccb3;},'\x52\x49\x44\x67\x64':function(_0x26c0b2,_0x461d5e){return _0x26c0b2===_0x461d5e;},'\x5a\x73\x48\x77\x68':_0x3a9dc3(0x305),'\x75\x70\x6a\x70\x56':_0x3a9dc3(0x195),'\x73\x6f\x70\x64\x43':function(_0x280833,_0x13ebea){return _0x280833*_0x13ebea;},'\x78\x46\x64\x67\x49':function(_0x373028,_0xc88899){return _0x373028===_0xc88899;},'\x46\x4d\x70\x41\x5a':_0x3a9dc3(0x830),'\x6f\x4b\x4b\x56\x76':_0x3a9dc3(0x536),'\x63\x70\x74\x63\x65':function(_0x457f8b,_0x10cbdf){return _0x457f8b+_0x10cbdf;},'\x78\x46\x69\x4a\x57':'\x43\x52\x41\x54\x45'},_0x5f59e7=_0x427e10&&_0x427e10[_0x3a9dc3(0x74e)]!=='\uc8fc\uba39'&&_0x427e10[_0x3a9dc3(0x74e)]!==_0x12359c[_0x3a9dc3(0x40c)]?_0x427e10:null,_0x346e46=_0x5f59e7?_0x1ce722:null,_0x5ab144=new a0_0xe98f69[(_0x3a9dc3(0x5be))](),_0x517fb8=new a0_0xe98f69['\x4d\x65\x73\x68\x53\x74\x61\x6e\x64\x61\x72\x64\x4d\x61\x74\x65\x72\x69\x61\x6c']({'\x63\x6f\x6c\x6f\x72':0x5c4033,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.9}),_0xc60304=new a0_0xe98f69[(_0x3a9dc3(0x8a3))]({'\x63\x6f\x6c\x6f\x72':0x3d2b22,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.9}),_0x2c3d6f=new a0_0xe98f69[(_0x3a9dc3(0x59f))](new a0_0xe98f69['\x42\x6f\x78\x47\x65\x6f\x6d\x65\x74\x72\x79'](1.2,0.8,0.8),_0x517fb8);_0x2c3d6f[_0x3a9dc3(0x8a6)]['\x79']=0.4,_0x2c3d6f[_0x3a9dc3(0x705)]=!![],_0x5ab144[_0x3a9dc3(0x5bf)](_0x2c3d6f);const _0x5719b3=new a0_0xe98f69[(_0x3a9dc3(0x59f))](new a0_0xe98f69[(_0x3a9dc3(0x8c2))](1.24,0.15,0.84),_0xc60304);_0x5719b3[_0x3a9dc3(0x8a6)]['\x79']=0.85,_0x5719b3[_0x3a9dc3(0x705)]=!![],_0x5ab144[_0x3a9dc3(0x5bf)](_0x5719b3);const _0x5a6364=new a0_0xe98f69['\x4d\x65\x73\x68\x53\x74\x61\x6e\x64\x61\x72\x64\x4d\x61\x74\x65\x72\x69\x61\x6c']({'\x63\x6f\x6c\x6f\x72':0xffeb3b,'\x65\x6d\x69\x73\x73\x69\x76\x65':0x333300}),_0x49a65b=new a0_0xe98f69[(_0x3a9dc3(0x59f))](new a0_0xe98f69['\x42\x6f\x78\x47\x65\x6f\x6d\x65\x74\x72\x79'](0.15,0.82,0.82),_0x5a6364);_0x49a65b[_0x3a9dc3(0x8a6)]['\x79']=0.4,_0x5ab144['\x61\x64\x64'](_0x49a65b),_0x5ab144['\x70\x6f\x73\x69\x74\x69\x6f\x6e'][_0x3a9dc3(0x6a0)](_0x21f157),_0x5ab144[_0x3a9dc3(0x8a6)]['\x79']=_0x12359c[_0x3a9dc3(0x350)](getElevation,_0x21f157['\x78'],_0x21f157['\x7a'],_0x21f157['\x79']),scene[_0x3a9dc3(0x5bf)](_0x5ab144);const _0x5ef82a=_0x12359c[_0x3a9dc3(0x475)](Math[_0x3a9dc3(0x81e)](),0.45)?0x1:_0x12359c[_0x3a9dc3(0x475)](Math[_0x3a9dc3(0x81e)](),0.15)?0x2:0x0,_0x33c59a=Math[_0x3a9dc3(0x81e)]()<0.3?0x1:0x0,_0x28aa49=_0x12359c[_0x3a9dc3(0x475)](Math['\x72\x61\x6e\x64\x6f\x6d'](),0.3)?0x1:0x0;let _0x96d6e5=null,_0x38eab6=0x0;if(_0x5f59e7){const _0xe8fba1=_0x5f59e7[_0x3a9dc3(0x74e)];if(_0xe8fba1==='\uad8c\ucd1d')_0x96d6e5=_0x12359c['\x42\x57\x55\x75\x54'],_0x38eab6=_0x12359c[_0x3a9dc3(0x255)](Math[_0x3a9dc3(0x773)](Math[_0x3a9dc3(0x81e)]()*0x1e),0xf);else{if(_0x12359c[_0x3a9dc3(0x300)](_0xe8fba1,'\uc0f7\uac74'))_0x96d6e5=_0x12359c[_0x3a9dc3(0x42d)],_0x38eab6=Math['\x66\x6c\x6f\x6f\x72'](Math['\x72\x61\x6e\x64\x6f\x6d']()*0xa)+0x5;else{if(_0xe8fba1===_0x3a9dc3(0x6a8))_0x96d6e5=_0x12359c[_0x3a9dc3(0x44c)],_0x38eab6=Math[_0x3a9dc3(0x773)](_0x12359c[_0x3a9dc3(0x896)](Math[_0x3a9dc3(0x81e)](),0x3c))+0x1e;else _0x12359c[_0x3a9dc3(0x790)](_0xe8fba1,_0x12359c['\x46\x4d\x70\x41\x5a'])&&(_0x96d6e5=_0x12359c[_0x3a9dc3(0x4e8)],_0x38eab6=_0x12359c[_0x3a9dc3(0x478)](Math[_0x3a9dc3(0x773)](Math[_0x3a9dc3(0x81e)]()*0xf),0x5));}}}lootBoxes[_0x3a9dc3(0x1a4)]({'\x6d\x65\x73\x68':_0x5ab144,'\x74\x79\x70\x65':_0x12359c[_0x3a9dc3(0x80f)],'\x77\x65\x61\x70\x6f\x6e':_0x5f59e7,'\x73\x63\x6f\x70\x65':_0x346e46,'\x68\x65\x6c\x6d\x65\x74':_0xb6d87b,'\x62\x61\x67':_0x4e549f,'\x66\x69\x72\x73\x74\x61\x69\x64\x73':_0x5ef82a,'\x67\x72\x65\x6e\x61\x64\x65\x73':_0x33c59a,'\x73\x6d\x6f\x6b\x65\x73':_0x28aa49,'\x61\x6d\x6d\x6f\x54\x79\x70\x65':_0x96d6e5,'\x61\x6d\x6d\x6f\x43\x6f\x75\x6e\x74':_0x38eab6,'\x69\x73\x43\x72\x61\x74\x65':!![]});}for(let i=0x0;i<0xfa;i++){let rX=0x0,rZ=0x0,ok=![];for(let retries=0x0;retries<0x96;retries++){rX=(Math[a0_0x460254(0x81e)]()-0.5)*0x1cc,rZ=(Math['\x72\x61\x6e\x64\x6f\x6d']()-0.5)*0x1cc;if(getElevation(rX,rZ,![])>WATER_LEVEL+0.5){ok=!![];break;}}if(!ok)continue;const pos=new a0_0xe98f69[(a0_0x460254(0x691))](rX,0x0,rZ),randVal=Math[a0_0x460254(0x81e)]();if(randVal<0.2){const weapon=wPool[Math[a0_0x460254(0x773)](Math[a0_0x460254(0x81e)]()*wPool[a0_0x460254(0x88b)])];spawnGroundItem(pos,a0_0x460254(0x6f2),weapon);const wKey=weapon[a0_0x460254(0x74e)]==='\uad8c\ucd1d'?a0_0x460254(0x1b7):weapon['\x6e\x61\x6d\x65']==='\uc0f7\uac74'?a0_0x460254(0x305):weapon[a0_0x460254(0x74e)]===a0_0x460254(0x6a8)?'\x52\x49\x46\x4c\x45':'\x53\x4e\x49\x50\x45\x52',ammoType=a0_0x460254(0x5d3)+wKey,offsetPos=pos[a0_0x460254(0x31f)]()[a0_0x460254(0x5bf)](new a0_0xe98f69[(a0_0x460254(0x691))]((Math['\x72\x61\x6e\x64\x6f\x6d']()-0.5)*1.9,0x0,(Math[a0_0x460254(0x81e)]()-0.5)*1.9));spawnGroundItem(offsetPos,ammoType,{'\x6e\x61\x6d\x65':getAmmoName(wKey)});}else{if(randVal<0.35)spawnGroundItem(pos,'\x53\x43\x4f\x50\x45',sPool[Math[a0_0x460254(0x773)](Math[a0_0x460254(0x81e)]()*sPool[a0_0x460254(0x88b)])]);else{if(randVal<0.5)spawnGroundItem(pos,a0_0x460254(0x61e),hPool[Math[a0_0x460254(0x773)](Math[a0_0x460254(0x81e)]()*hPool[a0_0x460254(0x88b)])]);else{if(randVal<0.65)spawnGroundItem(pos,'\x42\x41\x47',bPool[Math[a0_0x460254(0x773)](Math['\x72\x61\x6e\x64\x6f\x6d']()*bPool[a0_0x460254(0x88b)])]);else{if(randVal<0.73)spawnGroundItem(pos,'\x47\x52\x45\x4e\x41\x44\x45',{'\x6e\x61\x6d\x65':'\uc218\ub958\ud0c4'});else{if(randVal<0.81)spawnGroundItem(pos,a0_0x460254(0x7eb),{'\x6e\x61\x6d\x65':a0_0x460254(0x2ec)});else{if(randVal<0.89)spawnGroundItem(pos,'\x46\x49\x52\x53\x54\x41\x49\x44',{'\x6e\x61\x6d\x65':a0_0x460254(0x80d)});else{const wKeys=[a0_0x460254(0x1b7),a0_0x460254(0x305),a0_0x460254(0x195),'\x53\x4e\x49\x50\x45\x52'],wKey=wKeys[Math[a0_0x460254(0x773)](Math[a0_0x460254(0x81e)]()*0x4)],ammoType=a0_0x460254(0x5d3)+wKey;spawnGroundItem(pos,ammoType,{'\x6e\x61\x6d\x65':getAmmoName(wKey)});}}}}}}}}let currentZoneRadius=0x1f4,playZoneRadius=0x12c,zoneState='\x57\x41\x49\x54\x49\x4e\x47',zoneTimer=0x23,shrinkSpeed=0x0;const zoneMesh=new a0_0xe98f69[(a0_0x460254(0x59f))](new a0_0xe98f69[(a0_0x460254(0x7b9))](0x1f4,0x1f4,0xc8,0x30,0x1,!![]),new a0_0xe98f69['\x4d\x65\x73\x68\x42\x61\x73\x69\x63\x4d\x61\x74\x65\x72\x69\x61\x6c']({'\x63\x6f\x6c\x6f\x72':0x44ff,'\x74\x72\x61\x6e\x73\x70\x61\x72\x65\x6e\x74':!![],'\x6f\x70\x61\x63\x69\x74\x79':0.35,'\x73\x69\x64\x65':a0_0xe98f69['\x44\x6f\x75\x62\x6c\x65\x53\x69\x64\x65'],'\x64\x65\x70\x74\x68\x57\x72\x69\x74\x65':![]}));zoneMesh['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x79']=0x32,scene[a0_0x460254(0x5bf)](zoneMesh);function drawMinimap(){const _0x169fe4=a0_0x460254,_0x481951={'\x66\x4b\x42\x47\x46':function(_0x170fb9,_0x114fba){return _0x170fb9>_0x114fba;},'\x75\x69\x56\x6c\x50':function(_0x336f30,_0x4d10ae){return _0x336f30-_0x4d10ae;},'\x57\x57\x6d\x65\x4a':function(_0x2748ec,_0x234aec){return _0x2748ec+_0x234aec;},'\x79\x55\x59\x6c\x6a':function(_0x51bbc4,_0x313f38){return _0x51bbc4*_0x313f38;},'\x48\x58\x73\x41\x65':function(_0x23c234,_0x5d958e){return _0x23c234<_0x5d958e;},'\x4b\x46\x4a\x6b\x48':function(_0x5ac632,_0x4756fe){return _0x5ac632/_0x4756fe;},'\x6e\x58\x79\x77\x62':function(_0x4ffd84,_0x2323c1){return _0x4ffd84-_0x2323c1;},'\x69\x69\x71\x4d\x50':function(_0x429f97,_0x45aa93){return _0x429f97+_0x45aa93;},'\x73\x70\x61\x74\x68':function(_0x437831,_0x2c00b9){return _0x437831*_0x2c00b9;},'\x4d\x45\x44\x74\x68':function(_0x219474,_0x81793e){return _0x219474-_0x81793e;},'\x64\x44\x4a\x68\x44':function(_0x2fec5a,_0x58fa4f){return _0x2fec5a-_0x58fa4f;},'\x6a\x44\x63\x70\x61':function(_0x3a43d9,_0x58fef5){return _0x3a43d9*_0x58fef5;},'\x64\x43\x64\x75\x73':function(_0x58b887,_0x215e5b){return _0x58b887+_0x215e5b;},'\x4d\x46\x50\x79\x57':function(_0x2082c8,_0x21139f){return _0x2082c8*_0x21139f;},'\x7a\x7a\x70\x4a\x54':function(_0xd3cd7d,_0x596b0e){return _0xd3cd7d*_0x596b0e;},'\x76\x53\x6a\x41\x69':function(_0x388faf,_0x1ca46b){return _0x388faf/_0x1ca46b;},'\x70\x44\x71\x70\x52':_0x169fe4(0x5a2),'\x58\x42\x6e\x4b\x53':_0x169fe4(0x2bd),'\x55\x62\x48\x53\x77':function(_0x141b6d,_0x16565b){return _0x141b6d+_0x16565b;},'\x4d\x7a\x46\x59\x47':function(_0x3bd30a,_0x27113c){return _0x3bd30a*_0x27113c;},'\x47\x54\x6c\x6f\x77':function(_0x2f21c1,_0xfa17c8){return _0x2f21c1*_0xfa17c8;},'\x78\x4d\x50\x74\x48':_0x169fe4(0x72e)};try{const _0x360be1=document[_0x169fe4(0x6ac)](_0x169fe4(0x783));if(!_0x360be1)return;const _0x4c72b8=_0x360be1[_0x169fe4(0x272)]('\x32\x64');_0x4c72b8[_0x169fe4(0x1c7)](0x0,0x0,0x82,0x82);const _0x34e1b6=_0x481951[_0x169fe4(0x74c)](0x82,mapSize),_0x3b31b7=0x41,_0x178965=0x41;_0x4c72b8[_0x169fe4(0x52a)](),_0x4c72b8['\x61\x72\x63'](_0x3b31b7,_0x178965,currentZoneRadius*_0x34e1b6,0x0,Math['\x50\x49']*0x2),_0x4c72b8[_0x169fe4(0x604)]=_0x481951[_0x169fe4(0x8ab)],_0x4c72b8[_0x169fe4(0x387)](),_0x4c72b8[_0x169fe4(0x572)]=0x1,_0x4c72b8[_0x169fe4(0x370)]=_0x481951[_0x169fe4(0x7df)],_0x4c72b8['\x73\x74\x72\x6f\x6b\x65'](),_0x4c72b8[_0x169fe4(0x52a)](),_0x4c72b8[_0x169fe4(0x6d7)](_0x481951[_0x169fe4(0x739)](_0x3b31b7,_0x481951[_0x169fe4(0x85e)](playerPos['\x78'],_0x34e1b6)),_0x481951[_0x169fe4(0x739)](_0x178965,_0x481951[_0x169fe4(0x3c2)](playerPos['\x7a'],_0x34e1b6)),0x3,0x0,_0x481951[_0x169fe4(0x3fd)](Math['\x50\x49'],0x2)),_0x4c72b8[_0x169fe4(0x604)]=_0x481951[_0x169fe4(0x471)],_0x4c72b8[_0x169fe4(0x387)]();const _0x8e27ba=clock[_0x169fe4(0x3b0)]();recentGunshots[_0x169fe4(0x64b)]((_0xb0c036,_0x3f8e8a)=>{const _0x2ab056=_0x169fe4;if(_0x481951['\x66\x4b\x42\x47\x46'](_0x481951[_0x2ab056(0x4c9)](_0x8e27ba,_0xb0c036['\x74\x69\x6d\x65']),_0xb0c036[_0x2ab056(0x575)])){recentGunshots[_0x2ab056(0x6ef)](_0x3f8e8a,0x1);return;}const _0x2e1e54=_0xb0c036[_0x2ab056(0x215)]['\x78']-playerPos['\x78'],_0xbc278c=_0x481951[_0x2ab056(0x4c9)](_0xb0c036[_0x2ab056(0x215)]['\x7a'],playerPos['\x7a']),_0x5bc92f=Math[_0x2ab056(0x16d)](_0x481951[_0x2ab056(0x2ea)](_0x481951[_0x2ab056(0x60d)](_0x2e1e54,_0x2e1e54),_0x481951[_0x2ab056(0x60d)](_0xbc278c,_0xbc278c)));if(_0x481951['\x48\x58\x73\x41\x65'](_0x5bc92f,0xc8)){const _0xe47832=0x1-_0x481951[_0x2ab056(0x369)](_0x481951[_0x2ab056(0x4f8)](_0x8e27ba,_0xb0c036[_0x2ab056(0x621)]),_0xb0c036[_0x2ab056(0x575)]),_0x555602=_0x481951[_0x2ab056(0x66b)](_0x3b31b7,_0x481951['\x73\x70\x61\x74\x68'](_0x2e1e54,_0x34e1b6)),_0xacd05=_0x178965+_0x481951[_0x2ab056(0x60d)](_0xbc278c,_0x34e1b6),_0x4df169=_0x481951[_0x2ab056(0x40a)](_0x555602,_0x3b31b7),_0x3c5493=_0x481951[_0x2ab056(0x600)](_0xacd05,_0x178965),_0x249191=Math[_0x2ab056(0x16d)](_0x481951[_0x2ab056(0x66b)](_0x481951[_0x2ab056(0x489)](_0x4df169,_0x4df169),_0x481951[_0x2ab056(0x489)](_0x3c5493,_0x3c5493)));_0x4c72b8[_0x2ab056(0x52a)]();if(_0x249191<0x3c)_0x4c72b8[_0x2ab056(0x6d7)](_0x555602,_0xacd05,0x4,0x0,_0x481951[_0x2ab056(0x7e3)](Math['\x50\x49'],0x2)),_0x4c72b8[_0x2ab056(0x604)]=_0x2ab056(0x10e)+_0xe47832+'\x29',_0x4c72b8['\x66\x69\x6c\x6c']();else{const _0x2302de=Math[_0x2ab056(0x15d)](_0x3c5493,_0x4df169);_0x4c72b8[_0x2ab056(0x6d7)](_0x481951[_0x2ab056(0x243)](_0x3b31b7,_0x481951[_0x2ab056(0x5cb)](Math[_0x2ab056(0x642)](_0x2302de),0x3c)),_0x178965+_0x481951[_0x2ab056(0x7e3)](Math[_0x2ab056(0x19e)](_0x2302de),0x3c),0x3,0x0,_0x481951[_0x2ab056(0x85e)](Math['\x50\x49'],0x2)),_0x4c72b8[_0x2ab056(0x604)]=_0x2ab056(0x10e)+_0xe47832+'\x29',_0x4c72b8['\x66\x69\x6c\x6c']();}}});}catch(_0xf63ad0){}}setInterval(()=>{const _0x300cea=a0_0x460254,_0x3366e7={'\x45\x79\x6c\x5a\x71':_0x300cea(0x113),'\x77\x52\x43\x59\x6b':function(_0x50cc68,_0x19703b){return _0x50cc68<=_0x19703b;},'\x75\x58\x68\x4c\x69':function(_0x1e6193,_0x5505d2){return _0x1e6193===_0x5505d2;},'\x41\x4a\x74\x59\x46':'\x57\x41\x49\x54\x49\x4e\x47','\x6c\x69\x4a\x73\x67':_0x300cea(0x825),'\x67\x6c\x62\x75\x4d':_0x300cea(0x64e),'\x77\x77\x5a\x71\x53':'\u26a0\ufe0f\x20\uc790\uae30\uc7a5\x20\ucd95\uc18c\uc911\x21','\x44\x61\x66\x67\x43':function(_0x34eca1,_0x628b77){return _0x34eca1/_0x628b77;},'\x4d\x78\x5a\x72\x72':function(_0x3e0b8a,_0x16fb87){return _0x3e0b8a-_0x16fb87;},'\x6b\x69\x48\x70\x68':_0x300cea(0x10d),'\x4c\x6b\x76\x4f\x4f':'\x53\x48\x52\x49\x4e\x4b\x49\x4e\x47','\x69\x4a\x51\x6b\x59':_0x300cea(0x702),'\x6c\x79\x75\x55\x73':'\x23\x34\x63\x61\x66\x35\x30','\x78\x71\x58\x68\x72':_0x300cea(0x327)};if(gameState!==_0x3366e7[_0x300cea(0x28a)]||playerHp<=0x0||hasWonMatch)return;zoneTimer--;if(_0x3366e7[_0x300cea(0x415)](zoneTimer,0x0)){if(_0x3366e7[_0x300cea(0x2bb)](zoneState,_0x3366e7[_0x300cea(0x1f6)])){const _0x41fc45=_0x3366e7[_0x300cea(0x319)]['\x73\x70\x6c\x69\x74']('\x7c');let _0x58d8b5=0x0;while(!![]){switch(_0x41fc45[_0x58d8b5++]){case'\x30':document[_0x300cea(0x6ac)](_0x3366e7[_0x300cea(0x5a6)])['\x69\x6e\x6e\x65\x72\x54\x65\x78\x74']=_0x3366e7[_0x300cea(0x7bc)];continue;case'\x31':showNotice(_0x300cea(0x254));continue;case'\x32':zoneTimer=0x14;continue;case'\x33':shrinkSpeed=_0x3366e7[_0x300cea(0x1ee)](_0x3366e7[_0x300cea(0x65e)](currentZoneRadius,playZoneRadius),0x14);continue;case'\x34':document[_0x300cea(0x6ac)](_0x3366e7['\x67\x6c\x62\x75\x4d'])[_0x300cea(0x570)]['\x63\x6f\x6c\x6f\x72']=_0x3366e7[_0x300cea(0x8d7)];continue;case'\x35':playZoneRadius=Math[_0x300cea(0x57a)](0x28,_0x3366e7[_0x300cea(0x65e)](playZoneRadius,0x50));continue;case'\x36':zoneState=_0x3366e7[_0x300cea(0x206)];continue;}break;}}else zoneState=_0x3366e7[_0x300cea(0x1f6)],zoneTimer=0x23,document[_0x300cea(0x6ac)](_0x300cea(0x64e))['\x69\x6e\x6e\x65\x72\x54\x65\x78\x74']=_0x3366e7['\x69\x4a\x51\x6b\x59'],document[_0x300cea(0x6ac)](_0x3366e7[_0x300cea(0x5a6)])['\x73\x74\x79\x6c\x65'][_0x300cea(0x3ee)]=_0x3366e7['\x6c\x79\x75\x55\x73'];}document[_0x300cea(0x6ac)](_0x3366e7[_0x300cea(0xf4)])[_0x300cea(0x2d8)]=zoneTimer;},0x3e8);function tryFastLoot(){const _0x2fc034=a0_0x460254,_0x43cdbe={'\x57\x61\x70\x4c\x4e':_0x2fc034(0x113),'\x67\x4d\x71\x71\x5a':function(_0x5a3ed0,_0x497933){return _0x5a3ed0<=_0x497933;},'\x6d\x54\x6a\x62\x63':function(_0x359ad2,_0x5c6835){return _0x359ad2<_0x5c6835;},'\x67\x4c\x66\x76\x53':function(_0x471efd,_0x5e1f1c){return _0x471efd<_0x5e1f1c;},'\x52\x62\x59\x46\x68':function(_0x2f2215,_0x53d62d){return _0x2f2215<_0x53d62d;},'\x76\x67\x72\x70\x73':function(_0x339bcc,_0x3b2752){return _0x339bcc!==_0x3b2752;},'\x45\x48\x6f\x52\x79':function(_0x523548){return _0x523548();}};if(gameState!==_0x43cdbe['\x57\x61\x70\x4c\x4e']||_0x43cdbe[_0x2fc034(0x3ec)](playerHp,0x0)||isInventoryOpen)return![];let _0x40be06=-0x1,_0x490704=3.5,_0x521125=-0x1,_0x2fe488=3.5;for(let _0x2a2abf=0x0;_0x43cdbe[_0x2fc034(0x618)](_0x2a2abf,lootBoxes[_0x2fc034(0x88b)]);_0x2a2abf++){const _0x3df0e4=lootBoxes[_0x2a2abf],_0x5b3546=playerPos[_0x2fc034(0x3cf)](_0x3df0e4[_0x2fc034(0x48f)][_0x2fc034(0x8a6)]);_0x3df0e4[_0x2fc034(0x814)]?_0x43cdbe[_0x2fc034(0x6e5)](_0x5b3546,_0x2fe488)&&(_0x2fe488=_0x5b3546,_0x521125=_0x2a2abf):_0x43cdbe[_0x2fc034(0x3df)](_0x5b3546,_0x490704)&&(_0x490704=_0x5b3546,_0x40be06=_0x2a2abf);}if(_0x43cdbe['\x76\x67\x72\x70\x73'](_0x40be06,-0x1))return window[_0x2fc034(0x879)](_0x40be06),!![];else{if(_0x43cdbe[_0x2fc034(0x2c7)](_0x521125,-0x1))return _0x43cdbe[_0x2fc034(0x5ed)](toggleInventory),!![];}return![];}let isZooming=![];function updateScopeOverlay(){const _0x2c16c4=a0_0x460254,_0x4c8778={'\x61\x70\x4f\x59\x70':_0x2c16c4(0x377),'\x55\x4f\x62\x53\x47':_0x2c16c4(0x883),'\x79\x66\x45\x52\x50':function(_0x48281e,_0x139590){return _0x48281e>_0x139590;},'\x56\x78\x53\x55\x54':'\x6e\x6f\x6e\x65'},_0x4241ce=document[_0x2c16c4(0x6ac)](_0x4c8778[_0x2c16c4(0x57b)]),_0x2af656=document['\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64'](_0x4c8778[_0x2c16c4(0x2a5)]),_0x2efd97=currentScope||SCOPES[_0x2c16c4(0x878)];if(isZooming&&_0x2efd97&&_0x4c8778[_0x2c16c4(0x440)](_0x2efd97[_0x2c16c4(0x5c2)],0x1)){_0x4241ce['\x73\x74\x79\x6c\x65'][_0x2c16c4(0x2bf)]='\x62\x6c\x6f\x63\x6b';if(_0x2af656)_0x2af656[_0x2c16c4(0x2d8)]=_0x2efd97[_0x2c16c4(0x74e)];}else _0x4241ce[_0x2c16c4(0x570)][_0x2c16c4(0x2bf)]=_0x4c8778[_0x2c16c4(0x6ee)];}let playerRecoilTime=0x0;const BulletCache={'\x67\x65\x6f\x6d\x65\x74\x72\x69\x65\x73':{},'\x6d\x61\x74\x65\x72\x69\x61\x6c\x73':{},'\x67\x65\x74\x4f\x72\x43\x72\x65\x61\x74\x65'(_0x5d498b){const _0xdb4e9a=a0_0x460254,_0x1d450f={'\x74\x50\x50\x4e\x56':_0xdb4e9a(0x1b7),'\x59\x52\x53\x4d\x72':_0xdb4e9a(0x305),'\x4c\x6c\x69\x51\x66':function(_0x610e5f,_0x39279b){return _0x610e5f===_0x39279b;},'\x50\x4f\x4b\x71\x44':_0xdb4e9a(0x195),'\x48\x58\x79\x63\x49':_0xdb4e9a(0x1db),'\x4d\x6a\x4f\x78\x53':_0xdb4e9a(0x536)};let _0x5757cf=_0xdb4e9a(0x7ff),_0x528795=0xffaa00,_0x16824e=0.04,_0x51ecb3=0.4;if(_0x5d498b==='\uad8c\ucd1d')_0x5757cf=_0x1d450f[_0xdb4e9a(0x396)],_0x528795=0xeeee00,_0x16824e=0.03,_0x51ecb3=0.3;else{if(_0x5d498b==='\uc0f7\uac74')_0x5757cf=_0x1d450f[_0xdb4e9a(0x313)],_0x528795=0xff3300,_0x16824e=0.04,_0x51ecb3=0.15;else{if(_0x1d450f['\x4c\x6c\x69\x51\x66'](_0x5d498b,_0xdb4e9a(0x6a8)))_0x5757cf=_0x1d450f[_0xdb4e9a(0x875)],_0x528795=0xff44,_0x16824e=0.04,_0x51ecb3=0.5;else _0x5d498b===_0x1d450f[_0xdb4e9a(0x36b)]&&(_0x5757cf=_0x1d450f[_0xdb4e9a(0x2c0)],_0x528795=0xffff,_0x16824e=0.05,_0x51ecb3=0.8);}}return!this[_0xdb4e9a(0x89e)][_0x5757cf]&&(this[_0xdb4e9a(0x89e)][_0x5757cf]=new a0_0xe98f69[(_0xdb4e9a(0x8c2))](_0x16824e,_0x16824e,_0x51ecb3),this[_0xdb4e9a(0x7bd)][_0x5757cf]=new a0_0xe98f69[(_0xdb4e9a(0x4d1))]({'\x63\x6f\x6c\x6f\x72':_0x528795})),{'\x67\x65\x6f\x6d':this[_0xdb4e9a(0x89e)][_0x5757cf],'\x6d\x61\x74':this[_0xdb4e9a(0x7bd)][_0x5757cf]};},'\x64\x69\x73\x70\x6f\x73\x65\x41\x6c\x6c'(){const _0x3bf02e=a0_0x460254;for(let _0x373599 in this[_0x3bf02e(0x89e)]){this['\x67\x65\x6f\x6d\x65\x74\x72\x69\x65\x73'][_0x373599][_0x3bf02e(0x838)]();}for(let _0xa6d294 in this['\x6d\x61\x74\x65\x72\x69\x61\x6c\x73']){this[_0x3bf02e(0x7bd)][_0xa6d294][_0x3bf02e(0x838)]();}this[_0x3bf02e(0x89e)]={},this[_0x3bf02e(0x7bd)]={};}};function fireBullet(_0x4fa0dd,_0x6ea5b5,_0x254c45,_0x1b6f5e,_0x23c26d=0x0){const _0x4f7f14=a0_0x460254,_0x5e69be={'\x6a\x7a\x74\x43\x65':function(_0x545353,_0x1dbaee){return _0x545353-_0x1dbaee;},'\x4a\x77\x42\x65\x4c':function(_0x2fac4a,_0x7f3cce){return _0x2fac4a*_0x7f3cce;},'\x42\x6e\x6f\x55\x56':'\x62\x75\x6c\x6c\x65\x74','\x46\x5a\x4e\x57\x48':function(_0x2d6bd5,_0x5bf742){return _0x2d6bd5===_0x5bf742;},'\x43\x51\x77\x43\x65':function(_0x5399fd,_0x252d38){return _0x5399fd!==_0x252d38;},'\x44\x57\x47\x72\x75':_0x4f7f14(0x603),'\x68\x6d\x4f\x52\x41':_0x4f7f14(0x240),'\x64\x52\x50\x54\x72':function(_0x30fb55,_0x3da787){return _0x30fb55===_0x3da787;},'\x4e\x75\x4f\x73\x46':_0x4f7f14(0x828),'\x52\x56\x72\x48\x6f':function(_0x2e5790,_0x1e0744){return _0x2e5790/_0x1e0744;},'\x75\x66\x69\x52\x6e':'\x50\x49\x53\x54\x4f\x4c','\x63\x71\x4f\x46\x58':function(_0x8df3f9,_0x5f3856){return _0x8df3f9===_0x5f3856;},'\x50\x63\x79\x6c\x55':'\x53\x48\x4f\x54\x47\x55\x4e','\x53\x41\x47\x5a\x79':_0x4f7f14(0x6a8),'\x70\x56\x58\x45\x75':_0x4f7f14(0x536),'\x4b\x43\x71\x55\x66':function(_0x260b2e,_0x1d9d1b){return _0x260b2e(_0x1d9d1b);},'\x47\x49\x56\x47\x62':function(_0x17eb69,_0x3c3358){return _0x17eb69/_0x3c3358;},'\x6f\x4d\x4f\x51\x58':function(_0x5023c8,_0x1d1f61){return _0x5023c8>_0x1d1f61;}},_0x152520=new a0_0xe98f69['\x56\x65\x63\x74\x6f\x72\x33']()[_0x4f7f14(0x107)](_0x6ea5b5,_0x4fa0dd)[_0x4f7f14(0x872)](),_0x36a89e=_0x5e69be['\x6a\x7a\x74\x43\x65'](Math[_0x4f7f14(0x81e)](),0.5)*_0x23c26d,_0x5e6b46=_0x5e69be[_0x4f7f14(0x629)](Math['\x72\x61\x6e\x64\x6f\x6d'](),0.5)*_0x23c26d,_0x17bb1a=_0x5e69be['\x4a\x77\x42\x65\x4c'](_0x5e69be['\x6a\x7a\x74\x43\x65'](Math[_0x4f7f14(0x81e)](),0.5),_0x23c26d),_0x14a527=_0x152520[_0x4f7f14(0x31f)]()[_0x4f7f14(0x5bf)](new a0_0xe98f69['\x56\x65\x63\x74\x6f\x72\x33'](_0x36a89e,_0x5e6b46,_0x17bb1a))[_0x4f7f14(0x872)](),_0x223675=BulletCache[_0x4f7f14(0x4ab)](_0x254c45[_0x4f7f14(0x74e)]),_0x5ad3f9=new a0_0xe98f69['\x4d\x65\x73\x68'](_0x223675['\x67\x65\x6f\x6d'],_0x223675['\x6d\x61\x74']);_0x5ad3f9[_0x4f7f14(0x74e)]=_0x5e69be[_0x4f7f14(0x2ee)],_0x5ad3f9[_0x4f7f14(0x8a6)][_0x4f7f14(0x6a0)](_0x4fa0dd),_0x5ad3f9[_0x4f7f14(0x55a)](_0x4fa0dd[_0x4f7f14(0x31f)]()['\x61\x64\x64'](_0x14a527)),scene[_0x4f7f14(0x5bf)](_0x5ad3f9);let _0x57c499=_0x254c45['\x64\x6d\x67'];if(_0x5e69be[_0x4f7f14(0x1bb)](_0x254c45[_0x4f7f14(0x74e)],'\uc0f7\uac74'))_0x57c499=_0x254c45['\x64\x6d\x67']/0x8;if(_0x5e69be['\x43\x51\x77\x43\x65'](_0x1b6f5e,_0x5e69be[_0x4f7f14(0x611)])){const _0xfe363d=enemies[_0x4f7f14(0x1ae)](_0x3f3872=>_0x3f3872['\x69\x64']===_0x1b6f5e);if(_0xfe363d){const _0x1e7f40=_0x5e69be[_0x4f7f14(0x1bb)](_0xfe363d['\x74\x69\x65\x72'],_0x5e69be['\x68\x6d\x4f\x52\x41'])?0.8:_0x5e69be[_0x4f7f14(0x176)](_0xfe363d[_0x4f7f14(0x5aa)],_0x5e69be['\x4e\x75\x4f\x73\x46'])?0x1:1.4;_0x57c499=_0x5e69be['\x4a\x77\x42\x65\x4c'](_0x254c45[_0x4f7f14(0x40d)],_0x1e7f40);}}const _0x5ee60c=_0x5e69be[_0x4f7f14(0x18b)](_0x254c45[_0x4f7f14(0x190)],0x3c);enemyBullets[_0x4f7f14(0x1a4)]({'\x6d\x65\x73\x68':_0x5ad3f9,'\x64\x69\x72':_0x14a527,'\x6c\x69\x66\x65':_0x5ee60c,'\x64\x6d\x67':_0x57c499,'\x6f\x77\x6e\x65\x72':_0x1b6f5e,'\x73\x68\x6f\x6f\x74\x65\x72\x50\x6f\x73':_0x4fa0dd[_0x4f7f14(0x31f)]()});const _0x278c4f=_0x5e69be['\x46\x5a\x4e\x57\x48'](_0x254c45['\x6e\x61\x6d\x65'],'\uad8c\ucd1d')?_0x5e69be[_0x4f7f14(0x3fe)]:_0x5e69be[_0x4f7f14(0x62a)](_0x254c45[_0x4f7f14(0x74e)],'\uc0f7\uac74')?_0x5e69be['\x50\x63\x79\x6c\x55']:_0x254c45[_0x4f7f14(0x74e)]===_0x5e69be['\x53\x41\x47\x5a\x79']?_0x4f7f14(0x195):_0x5e69be['\x70\x56\x58\x45\x75'];if(_0x1b6f5e!==_0x5e69be[_0x4f7f14(0x611)]){recentGunshots['\x70\x75\x73\x68']({'\x70\x6f\x73':_0x4fa0dd[_0x4f7f14(0x31f)](),'\x74\x69\x6d\x65':clock[_0x4f7f14(0x3b0)](),'\x6c\x69\x66\x65':1.5});const _0x2c353e=enemies[_0x4f7f14(0x1ae)](_0x5927b5=>_0x5927b5['\x69\x64']===_0x1b6f5e);_0x2c353e&&_0x2c353e['\x73\x6f\x6c\x64\x69\x65\x72']&&(_0x5e69be[_0x4f7f14(0x4e0)](triggerMuzzleFlash,_0x2c353e[_0x4f7f14(0x127)][_0x4f7f14(0x640)]),_0x2c353e[_0x4f7f14(0x435)]=0.15);const _0xb97b41=playerPos[_0x4f7f14(0x3cf)](_0x4fa0dd),_0x1ce5dc=Math[_0x4f7f14(0x57a)](0x0,0x1-_0x5e69be[_0x4f7f14(0x7aa)](_0xb97b41,0xdc));if(_0x5e69be['\x6f\x4d\x4f\x51\x58'](_0x1ce5dc,0.01)){const _0x68af90=new a0_0xe98f69['\x56\x65\x63\x74\x6f\x72\x33'](0x0,0x0,-0x1)[_0x4f7f14(0x2da)](camera[_0x4f7f14(0x1fe)]);_0x68af90['\x79']=0x0,_0x68af90[_0x4f7f14(0x872)]();const _0x1fc268=new a0_0xe98f69['\x56\x65\x63\x74\x6f\x72\x33']()[_0x4f7f14(0x107)](_0x4fa0dd,playerPos);_0x1fc268['\x79']=0x0,_0x1fc268[_0x4f7f14(0x872)]();const _0x2d3ee1=new a0_0xe98f69['\x56\x65\x63\x74\x6f\x72\x33']()[_0x4f7f14(0x512)](new a0_0xe98f69[(_0x4f7f14(0x691))](0x0,0x1,0x0),_0x68af90),_0x28e71a=_0x1fc268['\x64\x6f\x74'](_0x2d3ee1);SoundSystem[_0x4f7f14(0x5b1)](_0x278c4f,_0x1ce5dc,_0x28e71a);}}else _0x5e69be[_0x4f7f14(0x4e0)](triggerMuzzleFlash,playerSoldier[_0x4f7f14(0x640)]),playerRecoilTime=0.15,SoundSystem[_0x4f7f14(0x5b1)](_0x278c4f,0x1,0x0);}let isReloading=![];const maxClipSizes={'\x50\x49\x53\x54\x4f\x4c':0x7,'\x53\x48\x4f\x54\x47\x55\x4e':0x5,'\x52\x49\x46\x4c\x45':0x1e,'\x53\x4e\x49\x50\x45\x52':0x5};function startReload(){const _0x20ee9e=a0_0x460254,_0x3ec0b7={'\x41\x6e\x52\x56\x75':function(_0x20e922,_0x4f4591){return _0x20e922!==_0x4f4591;},'\x61\x67\x45\x74\x47':_0x20ee9e(0x113),'\x56\x58\x51\x48\x49':function(_0x2a0e03,_0x328076){return _0x2a0e03<=_0x328076;},'\x54\x43\x6e\x4f\x57':function(_0x3b8ae8,_0x232199){return _0x3b8ae8===_0x232199;},'\x66\x64\x72\x6b\x4c':function(_0x15c648,_0x276fc4){return _0x15c648-_0x276fc4;},'\x75\x59\x4e\x5a\x53':_0x20ee9e(0x567),'\x44\x6d\x49\x70\x46':function(_0x24b9c6){return _0x24b9c6();},'\x45\x76\x73\x7a\x71':function(_0x5915f0,_0x5d769e){return _0x5915f0<=_0x5d769e;},'\x6e\x6d\x4a\x59\x7a':function(_0x141df2,_0x2e30c6){return _0x141df2===_0x2e30c6;},'\x62\x69\x54\x51\x75':function(_0x6f8d42,_0x18b5e1){return _0x6f8d42===_0x18b5e1;},'\x6e\x4f\x63\x59\x5a':_0x20ee9e(0x1b7),'\x47\x65\x73\x43\x6e':_0x20ee9e(0x305),'\x78\x43\x74\x52\x64':function(_0x567158,_0x2fb8ee){return _0x567158===_0x2fb8ee;},'\x58\x41\x62\x6a\x6a':'\ub3cc\uaca9\uc18c\ucd1d','\x46\x74\x59\x42\x6c':_0x20ee9e(0x195),'\x63\x6e\x53\x54\x65':_0x20ee9e(0x536),'\x43\x75\x5a\x43\x6f':function(_0x672e9c,_0x275ad5){return _0x672e9c>=_0x275ad5;},'\x73\x66\x68\x44\x74':function(_0x288afd,_0x44f239){return _0x288afd(_0x44f239);},'\x73\x56\x45\x78\x41':_0x20ee9e(0x1d6),'\x78\x58\x41\x61\x50':'\u26a0\ufe0f\x20\uc5ec\ubd84\x20\ud0c4\uc57d\uc774\x20\uc5c6\uc2b5\ub2c8\ub2e4\x21','\x53\x65\x48\x5a\x6a':function(_0x44fd48,_0x33fed1){return _0x44fd48(_0x33fed1);},'\x6e\x65\x78\x49\x55':_0x20ee9e(0x3e2),'\x74\x46\x57\x5a\x4e':function(_0x56957e,_0x15aa9a,_0x11a4f0){return _0x56957e(_0x15aa9a,_0x11a4f0);}};if(_0x3ec0b7[_0x20ee9e(0x32a)](gameState,'\x50\x4c\x41\x59\x49\x4e\x47')||_0x3ec0b7['\x45\x76\x73\x7a\x71'](playerHp,0x0))return;if(_0x3ec0b7[_0x20ee9e(0x5b7)](currentWeapon,WEAPONS[_0x20ee9e(0x181)]))return;if(isReloading)return;const _0x2e0bae=_0x3ec0b7[_0x20ee9e(0x65b)](currentWeapon[_0x20ee9e(0x74e)],'\uad8c\ucd1d')?_0x3ec0b7[_0x20ee9e(0x120)]:_0x3ec0b7[_0x20ee9e(0x65b)](currentWeapon[_0x20ee9e(0x74e)],'\uc0f7\uac74')?_0x3ec0b7[_0x20ee9e(0x796)]:_0x3ec0b7[_0x20ee9e(0x657)](currentWeapon['\x6e\x61\x6d\x65'],_0x3ec0b7[_0x20ee9e(0x665)])?_0x3ec0b7[_0x20ee9e(0x49a)]:_0x3ec0b7[_0x20ee9e(0x160)],_0xeaf5b0=maxClipSizes[_0x2e0bae],_0x1ea3bb=playerInventory[_0x20ee9e(0x491)][_0x2e0bae],_0x207b5f=playerInventory['\x61\x6d\x6d\x6f'][_0x2e0bae];if(_0x3ec0b7[_0x20ee9e(0x709)](_0x1ea3bb,_0xeaf5b0)){_0x3ec0b7['\x73\x66\x68\x44\x74'](showNotice,_0x3ec0b7[_0x20ee9e(0x8a2)]);return;}if(_0x3ec0b7['\x45\x76\x73\x7a\x71'](_0x207b5f,0x0)){_0x3ec0b7['\x73\x66\x68\x44\x74'](showNotice,_0x3ec0b7['\x78\x58\x41\x61\x50']);return;}isReloading=!![],SoundSystem[_0x20ee9e(0x827)](currentWeapon[_0x20ee9e(0x74e)]),_0x3ec0b7[_0x20ee9e(0x70e)](showNotice,_0x3ec0b7['\x6e\x65\x78\x49\x55']),_0x3ec0b7[_0x20ee9e(0x678)](setTimeout,()=>{const _0x4812ac=_0x20ee9e;if(_0x3ec0b7[_0x4812ac(0x32a)](gameState,_0x3ec0b7[_0x4812ac(0x2b9)])||_0x3ec0b7['\x56\x58\x51\x48\x49'](playerHp,0x0)||_0x3ec0b7[_0x4812ac(0x297)](currentWeapon,WEAPONS[_0x4812ac(0x181)])){isReloading=![];return;}const _0x4974dc=_0x3ec0b7[_0x4812ac(0x6c9)](_0xeaf5b0,playerInventory[_0x4812ac(0x491)][_0x2e0bae]),_0x27c640=Math['\x6d\x69\x6e'](_0x4974dc,playerInventory[_0x4812ac(0x24f)][_0x2e0bae]);playerInventory[_0x4812ac(0x491)][_0x2e0bae]+=_0x27c640,playerInventory['\x61\x6d\x6d\x6f'][_0x2e0bae]-=_0x27c640,isReloading=![],showNotice(_0x3ec0b7[_0x4812ac(0x4dd)]),_0x3ec0b7[_0x4812ac(0x50f)](updateEquipUI);},0x5dc);}const centerMouse=new a0_0xe98f69[(a0_0x460254(0x556))](0x0,0x0),raycaster=new a0_0xe98f69[(a0_0x460254(0x77b))]();let playerPunchTime=0x0,punchSide=a0_0x460254(0x8bc);function performPlayerAttack(){const _0x411ca7=a0_0x460254,_0x4f1bea={'\x55\x62\x72\x50\x7a':function(_0x3835c3,_0xf44062){return _0x3835c3<=_0xf44062;},'\x59\x65\x6c\x75\x56':function(_0x28e75f,_0x48cc8f){return _0x28e75f!==_0x48cc8f;},'\x50\x4f\x48\x5a\x7a':_0x411ca7(0x113),'\x48\x53\x45\x7a\x64':function(_0x49f644,_0x35824d){return _0x49f644>_0x35824d;},'\x50\x57\x6d\x4e\x45':function(_0x13e347,_0x2f06bc){return _0x13e347!==_0x2f06bc;},'\x71\x49\x4f\x54\x53':function(_0x537d8d,_0xe2560f){return _0x537d8d>=_0xe2560f;},'\x41\x77\x6a\x46\x5a':function(_0xa1cf6b,_0x5c6462){return _0xa1cf6b-_0x5c6462;},'\x64\x68\x71\x59\x65':function(_0x38d0b3,_0x19ccec,_0x37c89c){return _0x38d0b3(_0x19ccec,_0x37c89c);},'\x6f\x77\x69\x6a\x76':function(_0x43253d,_0x2648a8,_0xcb2d45,_0x1ca07f){return _0x43253d(_0x2648a8,_0xcb2d45,_0x1ca07f);},'\x61\x75\x73\x4b\x57':function(_0x5e2c44,_0x446c68){return _0x5e2c44(_0x446c68);},'\x68\x69\x77\x75\x4b':'\u26a0\ufe0f\x20\ubb3c\uc18d\uc5d0\uc11c\ub294\x20\uacf5\uaca9\ud560\x20\uc218\x20\uc5c6\uc2b5\ub2c8\ub2e4\x21','\x78\x6c\x44\x71\x67':function(_0x57b27c,_0x3e1bfe){return _0x57b27c===_0x3e1bfe;},'\x4d\x68\x52\x56\x74':_0x411ca7(0x1b7),'\x71\x64\x78\x67\x4e':'\x53\x48\x4f\x54\x47\x55\x4e','\x6d\x44\x7a\x76\x61':'\ub3cc\uaca9\uc18c\ucd1d','\x68\x6d\x64\x44\x72':'\x52\x49\x46\x4c\x45','\x41\x45\x70\x46\x55':_0x411ca7(0x536),'\x66\x71\x67\x71\x4b':function(_0x2f697a,_0x4a6cde){return _0x2f697a<=_0x4a6cde;},'\x46\x4a\x48\x6b\x70':_0x411ca7(0x211),'\x77\x53\x59\x4f\x4a':function(_0x12211a){return _0x12211a();},'\x58\x62\x4a\x52\x65':function(_0x5d2e2f,_0x9929d8){return _0x5d2e2f===_0x9929d8;},'\x6a\x64\x49\x48\x6f':_0x411ca7(0x8bc),'\x4c\x6f\x55\x45\x50':function(_0xc67d1e,_0x23050b){return _0xc67d1e(_0x23050b);},'\x78\x4c\x50\x7a\x54':_0x411ca7(0x450),'\x7a\x6f\x59\x6a\x72':function(_0x1d146a,_0x3ab9a8){return _0x1d146a<=_0x3ab9a8;},'\x53\x52\x6a\x51\x65':_0x411ca7(0x864),'\x6b\x44\x71\x43\x45':function(_0x44b620){return _0x44b620();},'\x68\x41\x75\x54\x4a':function(_0x74c502,_0x25ea99){return _0x74c502(_0x25ea99);},'\x68\x51\x66\x73\x65':function(_0x125580,_0x1dcb15,_0x22895f,_0x2d8ae0,_0x247dc8,_0x5848d7){return _0x125580(_0x1dcb15,_0x22895f,_0x2d8ae0,_0x247dc8,_0x5848d7);},'\x63\x73\x47\x67\x51':_0x411ca7(0x5f4),'\x5a\x73\x44\x46\x76':_0x411ca7(0x3ad),'\x50\x6f\x63\x58\x61':_0x411ca7(0x697),'\x48\x64\x51\x44\x51':function(_0x251da9,_0x363c3d){return _0x251da9<_0x363c3d;},'\x42\x64\x70\x4b\x5a':function(_0x26a463,_0x10705b){return _0x26a463||_0x10705b;},'\x50\x4d\x4c\x73\x4a':function(_0x245cf4,_0x211180,_0xc91d41,_0x5ebbff,_0x3c3259,_0x3f3dde){return _0x245cf4(_0x211180,_0xc91d41,_0x5ebbff,_0x3c3259,_0x3f3dde);}};if(_0x4f1bea[_0x411ca7(0x375)](gameState,_0x4f1bea['\x50\x4f\x48\x5a\x7a'])||playerHp<=0x0)return;if(isReloading)return;const _0x3c6bf4=_0x4f1bea[_0x411ca7(0x343)](_0x4f1bea['\x41\x77\x6a\x46\x5a'](_0x4f1bea[_0x411ca7(0x128)](getWaterLevel,playerPos['\x78'],playerPos['\x7a']),_0x4f1bea[_0x411ca7(0x15b)](getElevation,playerPos['\x78'],playerPos['\x7a'],![])),0.55);if(_0x3c6bf4){_0x4f1bea[_0x411ca7(0x865)](showNotice,_0x4f1bea[_0x411ca7(0x12c)]);return;}if(currentWeapon!==WEAPONS[_0x411ca7(0x181)]){const _0x468cab=_0x4f1bea[_0x411ca7(0x61f)](currentWeapon[_0x411ca7(0x74e)],'\uad8c\ucd1d')?_0x4f1bea[_0x411ca7(0x1fc)]:_0x4f1bea[_0x411ca7(0x61f)](currentWeapon[_0x411ca7(0x74e)],'\uc0f7\uac74')?_0x4f1bea[_0x411ca7(0x172)]:currentWeapon['\x6e\x61\x6d\x65']===_0x4f1bea[_0x411ca7(0x37e)]?_0x4f1bea[_0x411ca7(0x436)]:_0x4f1bea['\x41\x45\x70\x46\x55'];if(_0x4f1bea[_0x411ca7(0x897)](playerInventory[_0x411ca7(0x491)][_0x468cab],0x0)){SoundSystem[_0x411ca7(0x538)](),showNotice(_0x4f1bea['\x46\x4a\x48\x6b\x70']);return;}playerInventory[_0x411ca7(0x491)][_0x468cab]--,_0x4f1bea[_0x411ca7(0x52e)](updateEquipUI);}if(_0x4f1bea[_0x411ca7(0x61f)](currentWeapon,WEAPONS[_0x411ca7(0x181)])){playerPunchTime=0.2,punchSide=_0x4f1bea[_0x411ca7(0x673)](punchSide,_0x411ca7(0x8bc))?_0x411ca7(0x7a9):_0x4f1bea[_0x411ca7(0x519)],raycaster[_0x411ca7(0x469)](centerMouse,camera);let _0x525478=null,_0x1a04c2=currentWeapon[_0x411ca7(0x190)];enemies[_0x411ca7(0x64b)](_0x4d3574=>{const _0x5685d7=_0x411ca7;if(_0x4f1bea[_0x5685d7(0x213)](_0x4d3574['\x68\x70'],0x0)||_0x4f1bea[_0x5685d7(0x262)](_0x4d3574[_0x5685d7(0x626)],_0x4f1bea['\x50\x4f\x48\x5a\x7a']))return;const _0x23099b=playerPos[_0x5685d7(0x3cf)](_0x4d3574[_0x5685d7(0x48f)][_0x5685d7(0x8a6)]);if(_0x4f1bea[_0x5685d7(0x213)](_0x23099b,_0x1a04c2)){const _0x1fa2fe=new a0_0xe98f69[(_0x5685d7(0x691))]()[_0x5685d7(0x107)](_0x4d3574['\x6d\x65\x73\x68'][_0x5685d7(0x8a6)],playerPos)[_0x5685d7(0x872)](),_0x3887e7=new a0_0xe98f69[(_0x5685d7(0x691))](0x0,0x0,-0x1)[_0x5685d7(0x2da)](camera[_0x5685d7(0x1fe)]);_0x3887e7['\x79']=0x0,_0x3887e7[_0x5685d7(0x872)](),_0x1fa2fe['\x79']=0x0,_0x1fa2fe[_0x5685d7(0x872)]();const _0x609e92=_0x3887e7['\x64\x6f\x74'](_0x1fa2fe);_0x4f1bea[_0x5685d7(0x8e3)](_0x609e92,0.7)&&(_0x525478=_0x4d3574,_0x1a04c2=_0x23099b);}});if(_0x525478){_0x525478['\x68\x70']-=currentWeapon[_0x411ca7(0x40d)],_0x525478[_0x411ca7(0x1c0)]=clock[_0x411ca7(0x3b0)](),_0x4f1bea[_0x411ca7(0x44b)](showNotice,_0x4f1bea['\x78\x4c\x50\x7a\x54']),SoundSystem[_0x411ca7(0x5c5)](!![]);if(_0x4f1bea[_0x411ca7(0x2fb)](_0x525478['\x68\x70'],0x0)){const _0x344382=_0x4f1bea[_0x411ca7(0x6fb)][_0x411ca7(0x696)]('\x7c');let _0xe79ad9=0x0;while(!![]){switch(_0x344382[_0xe79ad9++]){case'\x30':_0x4f1bea[_0x411ca7(0x742)](checkVictory);continue;case'\x31':_0x4f1bea['\x68\x41\x75\x54\x4a'](showNotice,_0x411ca7(0x330));continue;case'\x32':_0x4f1bea[_0x411ca7(0x542)](spawnCorpseBox,_0x525478[_0x411ca7(0x48f)][_0x411ca7(0x8a6)],_0x525478[_0x411ca7(0x285)],_0x4f1bea[_0x411ca7(0x8e3)](Math['\x72\x61\x6e\x64\x6f\x6d'](),0.5)?SCOPES['\x58\x32']:SCOPES[_0x411ca7(0x878)],_0x525478[_0x411ca7(0x60c)],_0x525478['\x62\x61\x67']);continue;case'\x33':document[_0x411ca7(0x6ac)](_0x4f1bea[_0x411ca7(0x677)])['\x69\x6e\x6e\x65\x72\x54\x65\x78\x74']=killCount;continue;case'\x34':_0x525478[_0x411ca7(0x839)]['\x62\x67'][_0x411ca7(0x570)][_0x411ca7(0x2bf)]=_0x4f1bea[_0x411ca7(0x747)];continue;case'\x35':totalAlive--;continue;case'\x36':scene['\x72\x65\x6d\x6f\x76\x65'](_0x525478[_0x411ca7(0x48f)]);continue;case'\x37':_0x4f1bea[_0x411ca7(0x44b)](addKillLog,_0x411ca7(0x8d3)+_0x525478['\x69\x64']+_0x411ca7(0x53c));continue;case'\x38':killCount++;continue;}break;}}}else SoundSystem['\x70\x6c\x61\x79\x50\x75\x6e\x63\x68'](![]);return;}raycaster[_0x411ca7(0x469)](centerMouse,camera);let _0x4cc484=null;const _0x17579f=raycaster[_0x411ca7(0x1b2)](scene[_0x411ca7(0x58f)],!![]);let _0x52cae1=currentWeapon['\x72\x61\x6e\x67\x65']||0x78;if(_0x4f1bea['\x48\x53\x45\x7a\x64'](_0x17579f[_0x411ca7(0x88b)],0x0))for(let _0x1a0c18 of _0x17579f){let _0x568b96=_0x1a0c18[_0x411ca7(0x1a9)],_0xeda131=![];while(_0x568b96){if(_0x568b96===myPlayerGroup||_0x4f1bea[_0x411ca7(0x61f)](_0x568b96[_0x411ca7(0x74e)],_0x411ca7(0x530))||_0x4f1bea['\x78\x6c\x44\x71\x67'](_0x568b96[_0x411ca7(0x74e)],_0x4f1bea[_0x411ca7(0x5ae)])){_0xeda131=!![];break;}_0x568b96=_0x568b96[_0x411ca7(0x76f)];}!_0xeda131&&_0x4f1bea[_0x411ca7(0x4cf)](_0x1a0c18[_0x411ca7(0x2e1)],_0x52cae1)&&(_0x52cae1=_0x1a0c18['\x64\x69\x73\x74\x61\x6e\x63\x65'],_0x4cc484=_0x1a0c18['\x70\x6f\x69\x6e\x74']);}!_0x4cc484&&(_0x4cc484=camera[_0x411ca7(0x8a6)][_0x411ca7(0x31f)]()[_0x411ca7(0x5bf)](raycaster[_0x411ca7(0x490)][_0x411ca7(0x86a)]['\x63\x6c\x6f\x6e\x65']()['\x6d\x75\x6c\x74\x69\x70\x6c\x79\x53\x63\x61\x6c\x61\x72'](currentWeapon[_0x411ca7(0x190)]||0x78)));const _0x399dcd=_0x4f1bea[_0x411ca7(0x2d4)](!isTPP,isZooming)?camera[_0x411ca7(0x8a6)][_0x411ca7(0x31f)]():playerPos[_0x411ca7(0x31f)]()[_0x411ca7(0x5bf)](new a0_0xe98f69[(_0x411ca7(0x691))](0x0,1.2,0x0));if(_0x4f1bea[_0x411ca7(0x673)](currentWeapon['\x6e\x61\x6d\x65'],'\uc0f7\uac74'))for(let _0x20fc07=0x0;_0x4f1bea[_0x411ca7(0x4cf)](_0x20fc07,0x8);_0x20fc07++){fireBullet(_0x399dcd,_0x4cc484,currentWeapon,_0x411ca7(0x603),0.15);}else _0x4f1bea['\x50\x4d\x4c\x73\x4a'](fireBullet,_0x399dcd,_0x4cc484,currentWeapon,_0x411ca7(0x603),0.015);}const moveState={'\x66\x77\x64':![],'\x62\x77\x64':![],'\x6c\x66\x74':![],'\x72\x67\x74':![],'\x73\x68\x69\x66\x74':![],'\x6a\x58':0x0,'\x6a\x59':0x0},leanState={'\x6c\x65\x66\x74':![],'\x72\x69\x67\x68\x74':![]};let currentLean=0x0,isLocked=![];const startBtn=document['\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64'](a0_0x460254(0x202));startBtn[a0_0x460254(0x2d8)]=isTouchDevice?a0_0x460254(0x256):a0_0x460254(0x3c7);const handleStartMatch=_0x58d308=>{const _0x4c5f68=a0_0x460254,_0x2e4290={'\x4c\x72\x50\x46\x65':_0x4c5f68(0x57f),'\x52\x71\x44\x54\x77':function(_0x594c99,_0x1760bc){return _0x594c99!==_0x1760bc;},'\x47\x71\x57\x45\x6c':'\x6f\x76\x65\x72\x6c\x61\x79','\x61\x6d\x48\x48\x6d':'\x6e\x6f\x6e\x65','\x55\x63\x74\x46\x48':_0x4c5f68(0x84c),'\x4d\x63\x66\x70\x73':function(_0x2f3f81){return _0x2f3f81();},'\x6e\x45\x41\x70\x67':_0x4c5f68(0x60e),'\x4a\x64\x64\x69\x77':_0x4c5f68(0x5dc),'\x45\x57\x50\x70\x67':_0x4c5f68(0x87b),'\x65\x71\x41\x7a\x42':_0x4c5f68(0x372)};_0x58d308&&(_0x58d308[_0x4c5f68(0x252)](),_0x58d308[_0x4c5f68(0x26f)]());if(_0x2e4290[_0x4c5f68(0x6ce)](gameState,_0x4c5f68(0x79c)))return;document[_0x4c5f68(0x6ac)](_0x2e4290[_0x4c5f68(0x33f)])[_0x4c5f68(0x570)][_0x4c5f68(0x2bf)]=_0x2e4290[_0x4c5f68(0x8dd)],document[_0x4c5f68(0x6ac)](_0x4c5f68(0x7dd))[_0x4c5f68(0x570)][_0x4c5f68(0x2bf)]=_0x2e4290[_0x4c5f68(0x8dd)],initAudio(),SoundSystem[_0x4c5f68(0x535)]();const _0x38cf3c=document[_0x4c5f68(0x7e7)],_0x5f10bf=_0x38cf3c[_0x4c5f68(0x6de)]||_0x38cf3c[_0x4c5f68(0x3af)]||_0x38cf3c[_0x4c5f68(0x3e0)]||_0x38cf3c[_0x4c5f68(0x74b)];_0x5f10bf?_0x5f10bf[_0x4c5f68(0x728)](_0x38cf3c)['\x74\x68\x65\x6e'](()=>{const _0x40a731=_0x4c5f68;screen['\x6f\x72\x69\x65\x6e\x74\x61\x74\x69\x6f\x6e']&&screen[_0x40a731(0x3aa)]['\x6c\x6f\x63\x6b']&&screen[_0x40a731(0x3aa)][_0x40a731(0x6c1)](_0x2e4290[_0x40a731(0x5c3)])[_0x40a731(0x484)](_0x4ec129=>{const _0x462843=_0x40a731;console[_0x462843(0x48c)](_0x462843(0x25b)+_0x4ec129[_0x462843(0x8a1)]);});})[_0x4c5f68(0x484)](_0x11422b=>{const _0x4f9348=_0x4c5f68;console[_0x4f9348(0x48c)](_0x4f9348(0x8c8)+_0x11422b[_0x4f9348(0x8a1)]);}):screen[_0x4c5f68(0x3aa)]&&screen[_0x4c5f68(0x3aa)][_0x4c5f68(0x6c1)]&&screen[_0x4c5f68(0x3aa)]['\x6c\x6f\x63\x6b'](_0x2e4290[_0x4c5f68(0x5c3)])[_0x4c5f68(0x484)](_0x269bb0=>console[_0x4c5f68(0x48c)](_0x269bb0));gameState=_0x2e4290[_0x4c5f68(0x6e0)],_0x2e4290[_0x4c5f68(0x751)](initPlaneSeatsUI),document[_0x4c5f68(0x6ac)](_0x2e4290[_0x4c5f68(0x7d3)])[_0x4c5f68(0x570)]['\x64\x69\x73\x70\x6c\x61\x79']=_0x2e4290[_0x4c5f68(0x302)],actionBtn[_0x4c5f68(0x570)]['\x64\x69\x73\x70\x6c\x61\x79']=_0x2e4290[_0x4c5f68(0x302)],actionBtn[_0x4c5f68(0x2d8)]=isTouchDevice?_0x4c5f68(0x177):'\ud83e\ude82\x20\ub6f0\uc5b4\ub0b4\ub9ac\uae30\x20\x28\uc88c\ud074\ub9ad\x2f\x46\x29',playerSoldier[_0x4c5f68(0x5d2)][_0x4c5f68(0x7cf)]=!![],SoundSystem[_0x4c5f68(0x8de)](),playerPos[_0x4c5f68(0x6a0)](planeGroup[_0x4c5f68(0x8a6)]),playerInventory[_0x4c5f68(0x285)]=WEAPONS[_0x4c5f68(0x181)],playerInventory[_0x4c5f68(0x83e)]=SCOPES['\x4e\x4f\x4e\x45'],playerInventory[_0x4c5f68(0x576)]=0x0,playerInventory['\x73\x6d\x6f\x6b\x65\x73']=0x0,playerInventory[_0x4c5f68(0x132)]=0x0,currentWeapon=WEAPONS[_0x4c5f68(0x181)],currentScope=SCOPES[_0x4c5f68(0x878)],updateVisualEquip(playerSoldier,currentWeapon,currentScope),myPlayerGroup[_0x4c5f68(0x7cf)]=![],myPlayerGroup['\x72\x6f\x74\x61\x74\x69\x6f\x6e']['\x73\x65\x74'](0x0,0x0,0x0);const _0xe3e9f=new a0_0xe98f69[(_0x4c5f68(0x691))](0x1,0x0,0x1)[_0x4c5f68(0x872)]();camera['\x70\x6f\x73\x69\x74\x69\x6f\x6e'][_0x4c5f68(0x6a0)](planeGroup['\x70\x6f\x73\x69\x74\x69\x6f\x6e'])[_0x4c5f68(0x83c)](_0xe3e9f[_0x4c5f68(0x31f)]()[_0x4c5f68(0x1a6)](0x32))[_0x4c5f68(0x5bf)](new a0_0xe98f69[(_0x4c5f68(0x691))](0x0,0xf,0x0)),camera[_0x4c5f68(0x55a)](planeGroup[_0x4c5f68(0x8a6)]);if(isTouchDevice)document[_0x4c5f68(0x6ac)](_0x4c5f68(0x78c))[_0x4c5f68(0x570)]['\x64\x69\x73\x70\x6c\x61\x79']=_0x4c5f68(0x87b),document[_0x4c5f68(0x6ac)](_0x4c5f68(0x89f))[_0x4c5f68(0x570)]['\x64\x69\x73\x70\x6c\x61\x79']=_0x2e4290['\x45\x57\x50\x70\x67'];else{document['\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64'](_0x4c5f68(0x89f))[_0x4c5f68(0x570)][_0x4c5f68(0x2bf)]=_0x2e4290[_0x4c5f68(0x663)],document[_0x4c5f68(0x6ac)](_0x2e4290['\x65\x71\x41\x7a\x42'])[_0x4c5f68(0x570)][_0x4c5f68(0x2bf)]=_0x2e4290[_0x4c5f68(0x663)];try{document[_0x4c5f68(0x840)][_0x4c5f68(0x6cf)]();}catch(_0x516efc){}}document['\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64'](_0x4c5f68(0x648))[_0x4c5f68(0x570)][_0x4c5f68(0x2bf)]=_0x2e4290[_0x4c5f68(0x302)],document[_0x4c5f68(0x6ac)](_0x4c5f68(0x24c))['\x73\x74\x79\x6c\x65'][_0x4c5f68(0x2bf)]=_0x2e4290[_0x4c5f68(0x663)];};startBtn[a0_0x460254(0x6b6)](a0_0x460254(0x22a),handleStartMatch),startBtn[a0_0x460254(0x6b6)](a0_0x460254(0x32e),handleStartMatch);if(isTouchDevice){const joyContainer=document['\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64'](a0_0x460254(0x46b)),joyStick=document['\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64'](a0_0x460254(0x1b6));let joyId=null,startX=0x0,startY=0x0;document[a0_0x460254(0x6ac)](a0_0x460254(0x4f4))[a0_0x460254(0x6b6)]('\x74\x6f\x75\x63\x68\x73\x74\x61\x72\x74',_0xd3de30=>{const _0xd3e367=a0_0x460254,_0x39944d={'\x79\x43\x49\x46\x4d':function(_0x2e294c,_0x3e7fde){return _0x2e294c===_0x3e7fde;},'\x51\x65\x66\x57\x65':'\x4c\x4f\x42\x42\x59','\x56\x6f\x5a\x73\x41':function(_0x576b0e,_0x3bf930){return _0x576b0e!==_0x3bf930;},'\x6b\x50\x59\x43\x49':function(_0x560d70,_0x1e8ab0){return _0x560d70+_0x1e8ab0;},'\x64\x4e\x47\x73\x71':_0xd3e367(0x87b),'\x58\x75\x6a\x49\x4e':_0xd3e367(0x4e4)};if(_0x39944d[_0xd3e367(0x720)](gameState,_0x39944d[_0xd3e367(0x71b)]))return;if(_0x39944d[_0xd3e367(0x3c6)](joyId,null))return;const _0x5314b1=_0xd3de30[_0xd3e367(0x8c5)][0x0];joyId=_0x5314b1['\x69\x64\x65\x6e\x74\x69\x66\x69\x65\x72'],startX=_0x5314b1[_0xd3e367(0x3c1)],startY=_0x5314b1['\x63\x6c\x69\x65\x6e\x74\x59'],joyContainer[_0xd3e367(0x570)][_0xd3e367(0x774)]=_0x39944d['\x6b\x50\x59\x43\x49'](startX,'\x70\x78'),joyContainer[_0xd3e367(0x570)][_0xd3e367(0x51e)]=_0x39944d[_0xd3e367(0x5f3)](startY,'\x70\x78'),joyContainer[_0xd3e367(0x570)]['\x64\x69\x73\x70\x6c\x61\x79']=_0x39944d[_0xd3e367(0x3b6)],joyStick[_0xd3e367(0x570)][_0xd3e367(0x774)]=_0x39944d[_0xd3e367(0x392)],joyStick[_0xd3e367(0x570)][_0xd3e367(0x51e)]=_0x39944d[_0xd3e367(0x392)];},{'\x70\x61\x73\x73\x69\x76\x65':!![]}),window['\x61\x64\x64\x45\x76\x65\x6e\x74\x4c\x69\x73\x74\x65\x6e\x65\x72'](a0_0x460254(0x79b),_0x306107=>{const _0x1c809f=a0_0x460254,_0x53d302={'\x42\x46\x68\x6c\x6c':function(_0x4c48bd,_0x5234de){return _0x4c48bd===_0x5234de;},'\x71\x78\x72\x69\x43':function(_0x510174,_0x12e0da){return _0x510174<_0x12e0da;},'\x4c\x65\x64\x58\x76':function(_0x4f89b5,_0x4d8835){return _0x4f89b5===_0x4d8835;},'\x64\x6b\x72\x70\x55':function(_0xa8816d,_0x41e6ea){return _0xa8816d-_0x41e6ea;},'\x51\x4a\x42\x65\x51':function(_0x21948e,_0x196f76){return _0x21948e-_0x196f76;},'\x61\x6a\x66\x46\x76':function(_0x42da22,_0x5aa89d){return _0x42da22+_0x5aa89d;},'\x4e\x78\x62\x70\x4f':function(_0x316bdf,_0x20b3f2){return _0x316bdf*_0x20b3f2;},'\x4f\x50\x55\x69\x41':function(_0x28b397,_0x57bb40){return _0x28b397+_0x57bb40;},'\x65\x6c\x6a\x69\x75':function(_0x17a1b7,_0x3986b1){return _0x17a1b7+_0x3986b1;},'\x76\x45\x47\x43\x79':function(_0x5c5393,_0x223f14){return _0x5c5393*_0x223f14;},'\x4f\x4e\x44\x67\x63':function(_0x3c1c25,_0x53142f){return _0x3c1c25/_0x53142f;}};if(_0x53d302[_0x1c809f(0x5d0)](joyId,null))return;let _0x4de4f=null;for(let _0x23867c=0x0;_0x53d302['\x71\x78\x72\x69\x43'](_0x23867c,_0x306107['\x74\x6f\x75\x63\x68\x65\x73']['\x6c\x65\x6e\x67\x74\x68']);_0x23867c++)if(_0x53d302[_0x1c809f(0x84a)](_0x306107['\x74\x6f\x75\x63\x68\x65\x73'][_0x23867c][_0x1c809f(0x579)],joyId))_0x4de4f=_0x306107[_0x1c809f(0x57e)][_0x23867c];if(!_0x4de4f)return;const _0x4268d5=_0x53d302[_0x1c809f(0x33a)](_0x4de4f[_0x1c809f(0x3c1)],startX),_0x4d9fe4=_0x53d302[_0x1c809f(0x761)](_0x4de4f[_0x1c809f(0xfb)],startY),_0x3477fc=Math['\x6d\x69\x6e'](0x32,Math[_0x1c809f(0x16d)](_0x53d302[_0x1c809f(0x8be)](_0x4268d5*_0x4268d5,_0x53d302[_0x1c809f(0x118)](_0x4d9fe4,_0x4d9fe4)))),_0x3f9768=Math['\x61\x74\x61\x6e\x32'](_0x4d9fe4,_0x4268d5);joyStick[_0x1c809f(0x570)]['\x6c\x65\x66\x74']=_0x53d302[_0x1c809f(0x1f5)](_0x53d302[_0x1c809f(0x1f5)](0x32,Math[_0x1c809f(0x642)](_0x3f9768)*_0x3477fc),'\x70\x78'),joyStick[_0x1c809f(0x570)][_0x1c809f(0x51e)]=_0x53d302[_0x1c809f(0x8be)](_0x53d302[_0x1c809f(0x3fc)](0x32,_0x53d302[_0x1c809f(0x4ad)](Math[_0x1c809f(0x19e)](_0x3f9768),_0x3477fc)),'\x70\x78'),moveState['\x6a\x58']=_0x53d302['\x4f\x4e\x44\x67\x63'](Math[_0x1c809f(0x642)](_0x3f9768)*_0x3477fc,0x32),moveState['\x6a\x59']=_0x53d302['\x4f\x4e\x44\x67\x63'](-(Math[_0x1c809f(0x19e)](_0x3f9768)*_0x3477fc),0x32);},{'\x70\x61\x73\x73\x69\x76\x65':!![]}),window[a0_0x460254(0x6b6)](a0_0x460254(0x2e8),_0x228eaf=>{const _0x341659=a0_0x460254,_0x57ee23={'\x53\x50\x6a\x5a\x53':function(_0x21bf34,_0x2c56be){return _0x21bf34<_0x2c56be;},'\x7a\x56\x56\x73\x53':function(_0x4959b8,_0x4405f5){return _0x4959b8===_0x4405f5;},'\x63\x79\x70\x41\x6e':'\x6e\x6f\x6e\x65'};for(let _0x107db7=0x0;_0x57ee23[_0x341659(0x4b1)](_0x107db7,_0x228eaf[_0x341659(0x8c5)][_0x341659(0x88b)]);_0x107db7++){_0x57ee23['\x7a\x56\x56\x73\x53'](_0x228eaf[_0x341659(0x8c5)][_0x107db7]['\x69\x64\x65\x6e\x74\x69\x66\x69\x65\x72'],joyId)&&(joyId=null,moveState['\x6a\x58']=0x0,moveState['\x6a\x59']=0x0,joyContainer['\x73\x74\x79\x6c\x65']['\x64\x69\x73\x70\x6c\x61\x79']=_0x57ee23[_0x341659(0x430)]);}});const lookZone=document['\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64'](a0_0x460254(0x2f3));let lookTouchId=null,prevX=0x0,prevY=0x0;lookZone['\x61\x64\x64\x45\x76\x65\x6e\x74\x4c\x69\x73\x74\x65\x6e\x65\x72'](a0_0x460254(0x32e),_0x48bb7d=>{const _0x1cb825=a0_0x460254,_0x3d4d3a={'\x45\x74\x56\x79\x73':function(_0x515e5f,_0x42315a){return _0x515e5f!==_0x42315a;}};if(_0x3d4d3a[_0x1cb825(0x726)](lookTouchId,null))return;const _0x55058c=_0x48bb7d['\x63\x68\x61\x6e\x67\x65\x64\x54\x6f\x75\x63\x68\x65\x73'][0x0];lookTouchId=_0x55058c[_0x1cb825(0x579)],prevX=_0x55058c['\x63\x6c\x69\x65\x6e\x74\x58'],prevY=_0x55058c[_0x1cb825(0xfb)];},{'\x70\x61\x73\x73\x69\x76\x65':!![]}),lookZone[a0_0x460254(0x6b6)]('\x74\x6f\x75\x63\x68\x6d\x6f\x76\x65',_0x334cba=>{const _0x4f507c=a0_0x460254,_0xf179dc={'\x7a\x6a\x50\x78\x79':function(_0x1fc905,_0x36eb89){return _0x1fc905===_0x36eb89;},'\x5a\x47\x6a\x49\x5a':function(_0x40847e,_0x4d9a21){return _0x40847e<_0x4d9a21;},'\x41\x49\x61\x64\x75':function(_0x3d7eaa,_0x2c1c0c){return _0x3d7eaa===_0x2c1c0c;},'\x7a\x4c\x55\x44\x5a':function(_0x214060,_0x3a2903){return _0x214060-_0x3a2903;},'\x7a\x77\x41\x62\x73':_0x4f507c(0x4bc),'\x73\x4e\x49\x6d\x61':function(_0x20b9a3,_0x47cbda){return _0x20b9a3*_0x47cbda;}};if(_0xf179dc[_0x4f507c(0x7dc)](lookTouchId,null))return;let _0x2f5d7b=null;for(let _0xf26259=0x0;_0xf179dc[_0x4f507c(0x7b5)](_0xf26259,_0x334cba[_0x4f507c(0x57e)][_0x4f507c(0x88b)]);_0xf26259++){if(_0xf179dc['\x41\x49\x61\x64\x75'](_0x334cba['\x74\x6f\x75\x63\x68\x65\x73'][_0xf26259]['\x69\x64\x65\x6e\x74\x69\x66\x69\x65\x72'],lookTouchId))_0x2f5d7b=_0x334cba[_0x4f507c(0x57e)][_0xf26259];}if(!_0x2f5d7b)return;const _0xe99918=_0x2f5d7b[_0x4f507c(0x3c1)]-prevX,_0x2f3f7b=_0xf179dc[_0x4f507c(0x7c0)](_0x2f5d7b[_0x4f507c(0xfb)],prevY);prevX=_0x2f5d7b[_0x4f507c(0x3c1)],prevY=_0x2f5d7b[_0x4f507c(0xfb)];const _0x5bc7e2=new a0_0xe98f69[(_0x4f507c(0x210))](0x0,0x0,0x0,_0xf179dc[_0x4f507c(0x5de)]);_0x5bc7e2[_0x4f507c(0x314)](camera[_0x4f507c(0x1fe)]);const _0x104b76=isZooming?0.004/currentScope[_0x4f507c(0x5c2)]:0.008;_0x5bc7e2['\x79']-=_0xf179dc[_0x4f507c(0x4ae)](_0xe99918,_0x104b76),_0x5bc7e2['\x78']-=_0xf179dc[_0x4f507c(0x4ae)](_0x2f3f7b,_0x104b76),_0x5bc7e2['\x78']=Math[_0x4f507c(0x57a)](-1.5,Math[_0x4f507c(0x19c)](1.5,_0x5bc7e2['\x78'])),camera['\x71\x75\x61\x74\x65\x72\x6e\x69\x6f\x6e'][_0x4f507c(0x63f)](_0x5bc7e2);},{'\x70\x61\x73\x73\x69\x76\x65':!![]}),lookZone[a0_0x460254(0x6b6)](a0_0x460254(0x2e8),_0x329d03=>{const _0x38b9b6=a0_0x460254,_0x10b94b={'\x43\x65\x62\x6c\x6f':function(_0x1f4093,_0x16e207){return _0x1f4093<_0x16e207;},'\x78\x6a\x59\x51\x54':function(_0x391e92,_0x2e108e){return _0x391e92===_0x2e108e;}};for(let _0x30cdcb=0x0;_0x10b94b[_0x38b9b6(0x562)](_0x30cdcb,_0x329d03[_0x38b9b6(0x8c5)]['\x6c\x65\x6e\x67\x74\x68']);_0x30cdcb++){_0x10b94b[_0x38b9b6(0x56d)](_0x329d03['\x63\x68\x61\x6e\x67\x65\x64\x54\x6f\x75\x63\x68\x65\x73'][_0x30cdcb][_0x38b9b6(0x579)],lookTouchId)&&(lookTouchId=null);}});function makeButtonTrackLook(_0x37b4eb,_0x26088f){const _0x236c89=a0_0x460254,_0x4a2f83={'\x58\x51\x62\x7a\x54':function(_0x2eb7f0,_0x32e158){return _0x2eb7f0===_0x32e158;}},_0x4b3e0a=document[_0x236c89(0x6ac)](_0x37b4eb);if(!_0x4b3e0a)return;_0x4b3e0a[_0x236c89(0x6b6)](_0x236c89(0x32e),_0xa5a958=>{const _0xc056f6=_0x236c89;_0xa5a958['\x70\x72\x65\x76\x65\x6e\x74\x44\x65\x66\x61\x75\x6c\x74']();if(_0x26088f)_0x26088f(_0xa5a958);if(_0x4a2f83[_0xc056f6(0x693)](lookTouchId,null)){const _0x542870=_0xa5a958[_0xc056f6(0x8c5)][0x0];lookTouchId=_0x542870['\x69\x64\x65\x6e\x74\x69\x66\x69\x65\x72'],prevX=_0x542870[_0xc056f6(0x3c1)],prevY=_0x542870[_0xc056f6(0xfb)];}});}makeButtonTrackLook('\x62\x74\x6e\x2d\x61\x74\x74\x61\x63\x6b',()=>performPlayerAttack()),makeButtonTrackLook(a0_0x460254(0x434),()=>startReload()),makeButtonTrackLook('\x62\x74\x6e\x2d\x61\x69\x6d',()=>{const _0x119df2=a0_0x460254,_0x3adf47={'\x6d\x76\x76\x77\x50':function(_0x4a6a3d,_0x5cd54d){return _0x4a6a3d!==_0x5cd54d;},'\x4f\x53\x4b\x51\x64':function(_0x4b2492){return _0x4b2492();}};_0x3adf47['\x6d\x76\x76\x77\x50'](currentWeapon,WEAPONS['\x50\x55\x4e\x43\x48'])&&(isZooming=!isZooming,_0x3adf47[_0x119df2(0xed)](updateScopeOverlay));}),makeButtonTrackLook(a0_0x460254(0x646),()=>togglePerspective()),makeButtonTrackLook(a0_0x460254(0x502),()=>toggleInventory()),makeButtonTrackLook(a0_0x460254(0x4d2),()=>{const _0x30bbdf=a0_0x460254,_0x5221af={'\x6d\x46\x5a\x44\x54':function(_0xc9495a,_0x350b3d){return _0xc9495a===_0x350b3d;},'\x6e\x76\x58\x68\x73':_0x30bbdf(0x113),'\x6a\x54\x49\x54\x78':function(_0x507251,_0xf2da69){return _0x507251>_0xf2da69;},'\x50\x79\x78\x67\x75':'\x43\x52\x4f\x55\x43\x48','\x74\x6a\x68\x64\x47':function(_0x227df2,_0x43f49a,_0x26fbba){return _0x227df2(_0x43f49a,_0x26fbba);},'\x41\x71\x64\x4f\x73':_0x30bbdf(0x27e),'\x71\x4c\x4a\x55\x44':_0x30bbdf(0x3ad)};_0x5221af[_0x30bbdf(0x733)](gameState,_0x5221af[_0x30bbdf(0x721)])&&_0x5221af[_0x30bbdf(0x7b3)](playerHp,0x0)&&!isVaulting&&(playerStance=_0x5221af[_0x30bbdf(0x733)](playerStance,_0x5221af[_0x30bbdf(0x841)])?'\x53\x54\x41\x4e\x44':_0x5221af[_0x30bbdf(0x841)],_0x5221af[_0x30bbdf(0x77d)](showNotice,_0x5221af[_0x30bbdf(0x733)](playerStance,_0x30bbdf(0x3ce))?_0x5221af[_0x30bbdf(0x3bf)]:'\uc11c\uae30\x20\x28\x53\x74\x61\x6e\x64\x29',0x5dc),isHealing&&(isHealing=![],document[_0x30bbdf(0x6ac)](_0x30bbdf(0x22c))['\x73\x74\x79\x6c\x65']['\x64\x69\x73\x70\x6c\x61\x79']=_0x5221af['\x71\x4c\x4a\x55\x44']));}),makeButtonTrackLook(a0_0x460254(0x8e2),()=>{const _0x4c82d4=a0_0x460254,_0xe9b00c={'\x4f\x6f\x67\x42\x64':function(_0x207882,_0x562940){return _0x207882===_0x562940;},'\x77\x48\x4f\x57\x4f':_0x4c82d4(0x113),'\x65\x52\x59\x64\x62':function(_0x53afa6,_0x38962e){return _0x53afa6>_0x38962e;},'\x72\x78\x4c\x42\x64':_0x4c82d4(0x493),'\x6a\x49\x6a\x68\x4b':_0x4c82d4(0x51a),'\x61\x47\x45\x67\x4c':function(_0x2a6a53,_0x10fb74,_0x41c159){return _0x2a6a53(_0x10fb74,_0x41c159);},'\x69\x74\x48\x69\x63':_0x4c82d4(0x636),'\x4b\x75\x71\x6b\x50':_0x4c82d4(0x18a),'\x58\x63\x6f\x54\x77':'\x68\x65\x61\x6c\x2d\x70\x72\x6f\x67\x72\x65\x73\x73\x2d\x63\x6f\x6e\x74\x61\x69\x6e\x65\x72','\x6c\x76\x66\x4e\x6e':_0x4c82d4(0x3ad)};_0xe9b00c[_0x4c82d4(0x5bd)](gameState,_0xe9b00c[_0x4c82d4(0x112)])&&_0xe9b00c['\x65\x52\x59\x64\x62'](playerHp,0x0)&&!isVaulting&&(playerStance=playerStance===_0xe9b00c[_0x4c82d4(0x8db)]?_0xe9b00c[_0x4c82d4(0x3ed)]:'\x50\x52\x4f\x4e\x45',_0xe9b00c['\x61\x47\x45\x67\x4c'](showNotice,playerStance===_0xe9b00c['\x72\x78\x4c\x42\x64']?_0xe9b00c[_0x4c82d4(0x201)]:_0xe9b00c['\x4b\x75\x71\x6b\x50'],0x5dc),isHealing&&(isHealing=![],document[_0x4c82d4(0x6ac)](_0xe9b00c[_0x4c82d4(0x402)])[_0x4c82d4(0x570)]['\x64\x69\x73\x70\x6c\x61\x79']=_0xe9b00c[_0x4c82d4(0x5ad)]));}),makeButtonTrackLook('\x62\x74\x6e\x2d\x6a\x75\x6d\x70',()=>{const _0xf04cde=a0_0x460254,_0x47b762={'\x45\x42\x69\x77\x49':function(_0x25cca6,_0x1deaa3){return _0x25cca6===_0x1deaa3;},'\x71\x5a\x68\x63\x74':_0xf04cde(0x113),'\x62\x4a\x51\x78\x73':function(_0x61df8f){return _0x61df8f();},'\x70\x70\x48\x79\x74':function(_0x2880c3,_0x3a6fa0){return _0x2880c3&&_0x3a6fa0;},'\x6e\x73\x75\x6c\x4d':_0xf04cde(0x51a),'\x44\x52\x4b\x49\x69':_0xf04cde(0x22c),'\x48\x65\x62\x44\x63':_0xf04cde(0x3ad)};if(_0x47b762['\x45\x42\x69\x77\x49'](gameState,_0x47b762[_0xf04cde(0x7d5)])&&playerHp>0x0&&!isVaulting){const _0x3c3978=_0x47b762[_0xf04cde(0x385)](tryVaultWindow);_0x47b762[_0xf04cde(0x607)](!_0x3c3978,isGrounded)&&(playerVelocityY=7.2,isGrounded=![],playerStance=_0x47b762[_0xf04cde(0x146)],isHealing&&(isHealing=![],document[_0xf04cde(0x6ac)](_0x47b762[_0xf04cde(0x356)])[_0xf04cde(0x570)][_0xf04cde(0x2bf)]=_0x47b762[_0xf04cde(0x36d)]));}}),makeButtonTrackLook(a0_0x460254(0x271),()=>startHealing()),makeButtonTrackLook(a0_0x460254(0x871),()=>{const _0x309995=a0_0x460254,_0x5ca420={'\x48\x4a\x67\x56\x6b':function(_0xa02a0d,_0x2abef8){return _0xa02a0d===_0x2abef8;},'\x4a\x43\x71\x72\x70':_0x309995(0x113),'\x54\x67\x43\x68\x6e':function(_0x105482){return _0x105482();},'\x73\x65\x65\x47\x70':function(_0x429a1f){return _0x429a1f();}};if(_0x5ca420[_0x309995(0x62d)](gameState,_0x5ca420[_0x309995(0x861)])){const _0x347a01=_0x5ca420['\x54\x67\x43\x68\x6e'](tryFastLoot);if(!_0x347a01)_0x5ca420[_0x309995(0x3b3)](tryInteractDoor);}});}else document['\x61\x64\x64\x45\x76\x65\x6e\x74\x4c\x69\x73\x74\x65\x6e\x65\x72'](a0_0x460254(0x6d0),()=>{const _0x4719e4=a0_0x460254,_0x4bfa04={'\x71\x63\x45\x71\x41':function(_0x152339,_0xdd9e19){return _0x152339===_0xdd9e19;}};isLocked=_0x4bfa04[_0x4719e4(0x724)](document[_0x4719e4(0x8bf)],document[_0x4719e4(0x840)]);}),document[a0_0x460254(0x6b6)](a0_0x460254(0x22a),_0x568325=>{const _0x152c46=a0_0x460254,_0x315598={'\x6c\x62\x52\x61\x6d':'\x76\x69\x63\x74\x6f\x72\x79\x2d\x62\x6f\x78','\x53\x6b\x6e\x6c\x4d':function(_0x27a633,_0x45df62){return _0x27a633===_0x45df62;},'\x74\x43\x57\x41\x49':'\x62\x6c\x6f\x63\x6b','\x76\x58\x68\x6b\x4f':function(_0x5da9f6,_0x4445dc){return _0x5da9f6>_0x4445dc;}};if(document[_0x152c46(0x6ac)](_0x315598[_0x152c46(0x35e)])&&_0x315598['\x53\x6b\x6e\x6c\x4d'](document['\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64'](_0x315598[_0x152c46(0x35e)])['\x73\x74\x79\x6c\x65'][_0x152c46(0x2bf)],_0x315598[_0x152c46(0x1a0)]))return;if(_0x315598[_0x152c46(0x49c)](gameState,_0x152c46(0x113))&&!isLocked&&_0x315598['\x76\x58\x68\x6b\x4f'](playerHp,0x0))try{document[_0x152c46(0x840)]['\x72\x65\x71\x75\x65\x73\x74\x50\x6f\x69\x6e\x74\x65\x72\x4c\x6f\x63\x6b']();}catch(_0x53b5a4){}}),document[a0_0x460254(0x6b6)]('\x6d\x6f\x75\x73\x65\x6d\x6f\x76\x65',_0x5ddd0b=>{const _0x5b87ea=a0_0x460254,_0x225780={'\x74\x59\x69\x69\x41':function(_0x18a120,_0x2f8d46){return _0x18a120-_0x2f8d46;},'\x6d\x59\x47\x77\x46':function(_0x33f9f3,_0x1f146b){return _0x33f9f3-_0x1f146b;},'\x62\x77\x74\x6e\x65':function(_0x366a9e,_0x5cec7b){return _0x366a9e*_0x5cec7b;},'\x69\x65\x63\x73\x71':_0x5b87ea(0x4bc),'\x71\x65\x56\x52\x50':function(_0xc49aa6,_0x475a7a){return _0xc49aa6/_0x475a7a;}};if(gameState===_0x5b87ea(0x79c)){if(isLobbyDragging){const _0x13063b=_0x225780[_0x5b87ea(0x2de)](_0x5ddd0b['\x63\x6c\x69\x65\x6e\x74\x58'],prevLobbyMouseX),_0x1c7618=_0x225780[_0x5b87ea(0x62b)](_0x5ddd0b[_0x5b87ea(0xfb)],prevLobbyMouseY);prevLobbyMouseX=_0x5ddd0b[_0x5b87ea(0x3c1)],prevLobbyMouseY=_0x5ddd0b[_0x5b87ea(0xfb)],lobbyAngle-=_0x225780['\x62\x77\x74\x6e\x65'](_0x13063b,0.005),lobbyPitch+=_0x225780['\x62\x77\x74\x6e\x65'](_0x1c7618,0.005),lobbyPitch=Math['\x6d\x61\x78'](-0.05,Math[_0x5b87ea(0x19c)](1.2,lobbyPitch));}return;}if(!isLocked)return;const _0xfc97c8=new a0_0xe98f69['\x45\x75\x6c\x65\x72'](0x0,0x0,0x0,_0x225780[_0x5b87ea(0x424)]);_0xfc97c8[_0x5b87ea(0x314)](camera['\x71\x75\x61\x74\x65\x72\x6e\x69\x6f\x6e']);const _0x5c6af6=isZooming?_0x225780[_0x5b87ea(0x4b3)](0.002,currentScope[_0x5b87ea(0x5c2)]):0.002;_0xfc97c8['\x79']-=_0x225780[_0x5b87ea(0x233)](_0x5ddd0b['\x6d\x6f\x76\x65\x6d\x65\x6e\x74\x58'],_0x5c6af6),_0xfc97c8['\x78']-=_0x5ddd0b[_0x5b87ea(0x8ce)]*_0x5c6af6;const _0x862d07=isZooming?-1.5:-0x1;_0xfc97c8['\x78']=Math['\x6d\x61\x78'](_0x862d07,Math['\x6d\x69\x6e'](1.5,_0xfc97c8['\x78'])),_0xfc97c8['\x78']=Math[_0x5b87ea(0x57a)](-1.5,Math[_0x5b87ea(0x19c)](1.5,_0xfc97c8['\x78'])),camera[_0x5b87ea(0x1fe)]['\x73\x65\x74\x46\x72\x6f\x6d\x45\x75\x6c\x65\x72'](_0xfc97c8),camera[_0x5b87ea(0x1fe)][_0x5b87ea(0x63f)](_0xfc97c8);}),document['\x61\x64\x64\x45\x76\x65\x6e\x74\x4c\x69\x73\x74\x65\x6e\x65\x72'](a0_0x460254(0x1f7),_0x578f31=>{const _0x517cd2=a0_0x460254,_0x3ac48={'\x4e\x48\x67\x74\x55':_0x517cd2(0x3dc),'\x63\x46\x78\x68\x63':function(_0xf05130,_0x1e160e){return _0xf05130===_0x1e160e;},'\x65\x43\x4b\x6f\x4f':_0x517cd2(0x87b),'\x43\x6d\x58\x6e\x79':_0x517cd2(0x79c),'\x6c\x56\x4d\x59\x65':'\x41\x49\x52\x50\x4c\x41\x4e\x45','\x54\x54\x48\x43\x6d':_0x517cd2(0x3ba),'\x68\x4e\x4c\x44\x6d':function(_0x4827de){return _0x4827de();},'\x6c\x70\x79\x42\x77':function(_0x489918,_0xd29bd0){return _0x489918!==_0xd29bd0;},'\x71\x6f\x65\x4d\x64':function(_0x124488){return _0x124488();}};if(document[_0x517cd2(0x6ac)](_0x3ac48[_0x517cd2(0x88d)])&&_0x3ac48[_0x517cd2(0x822)](document[_0x517cd2(0x6ac)]('\x76\x69\x63\x74\x6f\x72\x79\x2d\x62\x6f\x78')[_0x517cd2(0x570)][_0x517cd2(0x2bf)],_0x3ac48[_0x517cd2(0x6b5)]))return;if(_0x3ac48[_0x517cd2(0x822)](gameState,_0x3ac48[_0x517cd2(0x5fa)])){isLobbyDragging=!![],prevLobbyMouseX=_0x578f31[_0x517cd2(0x3c1)],prevLobbyMouseY=_0x578f31[_0x517cd2(0xfb)];return;}if(gameState===_0x3ac48[_0x517cd2(0x3bb)]||_0x3ac48[_0x517cd2(0x822)](gameState,_0x3ac48[_0x517cd2(0x800)])){handleActionBtn();return;}if(!isLocked)return;if(_0x3ac48['\x63\x46\x78\x68\x63'](_0x578f31[_0x517cd2(0x3fa)],0x0))_0x3ac48[_0x517cd2(0x122)](performPlayerAttack);_0x578f31[_0x517cd2(0x3fa)]===0x2&&_0x3ac48[_0x517cd2(0x358)](currentWeapon,WEAPONS[_0x517cd2(0x181)])&&(isZooming=!![],_0x3ac48[_0x517cd2(0x1e9)](updateScopeOverlay));}),document['\x61\x64\x64\x45\x76\x65\x6e\x74\x4c\x69\x73\x74\x65\x6e\x65\x72']('\x6d\x6f\x75\x73\x65\x75\x70',_0x5d699a=>{const _0x52d1ba=a0_0x460254,_0x43f9d4={'\x73\x4a\x52\x71\x4f':_0x52d1ba(0x79c),'\x7a\x49\x43\x62\x6a':function(_0x5b80ea){return _0x5b80ea();}};if(gameState===_0x43f9d4['\x73\x4a\x52\x71\x4f']){isLobbyDragging=![];return;}_0x5d699a['\x62\x75\x74\x74\x6f\x6e']===0x2&&(isZooming=![],_0x43f9d4['\x7a\x49\x43\x62\x6a'](updateScopeOverlay));}),document[a0_0x460254(0x6b6)](a0_0x460254(0x5e6),()=>{const _0x249192=a0_0x460254,_0x4fc2e2={'\x69\x4c\x49\x56\x51':function(_0x30379e,_0x16dbf0){return _0x30379e===_0x16dbf0;},'\x58\x76\x72\x58\x63':_0x249192(0x79c)};_0x4fc2e2[_0x249192(0xfe)](gameState,_0x4fc2e2[_0x249192(0x831)])&&(isLobbyDragging=![]);}),document[a0_0x460254(0x6b6)](a0_0x460254(0x1c3),_0x494ab5=>{const _0x1a3593=a0_0x460254,_0xb03180={'\x54\x53\x66\x4b\x44':function(_0x28d8d0,_0x35dd2c){return _0x28d8d0===_0x35dd2c;},'\x64\x61\x58\x76\x65':_0x1a3593(0x79c),'\x6f\x74\x63\x4d\x6f':function(_0x5c132f,_0x561af1){return _0x5c132f*_0x561af1;}};_0xb03180[_0x1a3593(0x4e7)](gameState,_0xb03180[_0x1a3593(0x468)])&&(lobbyDistance+=_0xb03180[_0x1a3593(0x4a9)](_0x494ab5['\x64\x65\x6c\x74\x61\x59'],0.005),lobbyDistance=Math[_0x1a3593(0x57a)](1.8,Math['\x6d\x69\x6e'](0x8,lobbyDistance)));},{'\x70\x61\x73\x73\x69\x76\x65':!![]}),document[a0_0x460254(0x6b6)](a0_0x460254(0x668),_0xb2bf51=>{const _0x1d7e83=a0_0x460254,_0xf1e7ee={'\x53\x4d\x62\x70\x77':_0x1d7e83(0x854),'\x6a\x47\x61\x64\x77':_0x1d7e83(0x57d),'\x6c\x41\x79\x68\x79':function(_0x2b20c5,_0x3237bb){return _0x2b20c5===_0x3237bb;},'\x68\x61\x54\x68\x74':_0x1d7e83(0x6cb),'\x64\x6a\x61\x52\x48':function(_0x65cee8,_0x128e09){return _0x65cee8===_0x128e09;},'\x61\x77\x75\x48\x59':_0x1d7e83(0x88e),'\x57\x51\x47\x54\x6c':function(_0x25cb81,_0x236026){return _0x25cb81===_0x236026;},'\x63\x51\x72\x53\x57':_0x1d7e83(0x6cd),'\x51\x44\x76\x63\x4e':function(_0xcdc76f,_0x5a8dcf){return _0xcdc76f===_0x5a8dcf;},'\x6f\x47\x78\x4b\x41':function(_0x2c4302,_0x4d9c9a){return _0x2c4302===_0x4d9c9a;},'\x6a\x4c\x57\x52\x44':_0x1d7e83(0x399),'\x6e\x59\x65\x41\x4b':_0x1d7e83(0x84c),'\x41\x4b\x45\x62\x75':'\x46\x41\x4c\x4c\x49\x4e\x47','\x73\x58\x58\x43\x47':'\x50\x4c\x41\x59\x49\x4e\x47','\x54\x45\x6b\x48\x5a':function(_0x36a058){return _0x36a058();},'\x44\x5a\x51\x4f\x4a':_0x1d7e83(0x56f),'\x75\x54\x63\x65\x6f':function(_0x5d151c,_0x45d7f9){return _0x5d151c===_0x45d7f9;},'\x4c\x56\x55\x41\x52':_0x1d7e83(0x24d),'\x6e\x42\x4f\x68\x69':_0x1d7e83(0x524),'\x6b\x68\x58\x57\x61':function(_0x20f85a,_0x43c8bc){return _0x20f85a(_0x43c8bc);},'\x7a\x63\x59\x4d\x4b':_0x1d7e83(0x3a0),'\x43\x58\x67\x77\x79':_0x1d7e83(0x1b9),'\x62\x6b\x66\x6b\x64':function(_0x557ee2,_0x49696e){return _0x557ee2===_0x49696e;},'\x4f\x69\x45\x4f\x43':_0x1d7e83(0x6e9),'\x4a\x6b\x57\x54\x41':_0x1d7e83(0x403),'\x68\x69\x49\x4f\x76':function(_0x1da184,_0x2b2411){return _0x1da184>_0x2b2411;},'\x55\x78\x44\x61\x43':_0x1d7e83(0x51a),'\x6e\x50\x4a\x49\x41':_0x1d7e83(0x3ce),'\x63\x54\x65\x4c\x65':function(_0xaf2658,_0x1d1876,_0x3a7e99){return _0xaf2658(_0x1d1876,_0x3a7e99);},'\x63\x4a\x55\x58\x4f':function(_0xe85f3a,_0x58095d){return _0xe85f3a===_0x58095d;},'\x4d\x57\x6d\x52\x6e':_0x1d7e83(0x27e),'\x49\x74\x6d\x58\x52':_0x1d7e83(0x6d4),'\x41\x45\x6c\x43\x53':_0x1d7e83(0x643),'\x62\x6c\x59\x4c\x78':_0x1d7e83(0x493),'\x5a\x63\x4d\x67\x61':function(_0x472014,_0x56e0e3,_0x42bafa){return _0x472014(_0x56e0e3,_0x42bafa);},'\x7a\x4d\x76\x75\x52':_0x1d7e83(0x636),'\x68\x68\x69\x6b\x71':_0x1d7e83(0x3ad),'\x70\x78\x6d\x4a\x59':function(_0x3d8057,_0x397aac){return _0x3d8057===_0x397aac;},'\x4b\x4f\x4a\x46\x69':_0x1d7e83(0x6b3),'\x4d\x6e\x51\x4c\x48':function(_0x23f82f,_0x1f1c73){return _0x23f82f===_0x1f1c73;},'\x58\x42\x6a\x48\x75':function(_0x4f7351,_0xc5318f){return _0x4f7351&&_0xc5318f;},'\x57\x74\x4c\x61\x6b':_0x1d7e83(0x522)};if(_0xb2bf51[_0x1d7e83(0xf3)]===_0xf1e7ee[_0x1d7e83(0x655)])moveState[_0x1d7e83(0x83b)]=!![];if(_0xb2bf51[_0x1d7e83(0xf3)]===_0xf1e7ee[_0x1d7e83(0x333)])moveState['\x62\x77\x64']=!![];if(_0xf1e7ee[_0x1d7e83(0x899)](_0xb2bf51[_0x1d7e83(0xf3)],_0xf1e7ee[_0x1d7e83(0x1eb)]))moveState['\x6c\x66\x74']=!![];if(_0xf1e7ee[_0x1d7e83(0x19d)](_0xb2bf51[_0x1d7e83(0xf3)],_0xf1e7ee[_0x1d7e83(0x7ca)]))moveState[_0x1d7e83(0x2b6)]=!![];if(_0xf1e7ee[_0x1d7e83(0x268)](_0xb2bf51[_0x1d7e83(0xf3)],_0xf1e7ee[_0x1d7e83(0x7f6)])||_0xf1e7ee['\x51\x44\x76\x63\x4e'](_0xb2bf51['\x63\x6f\x64\x65'],_0x1d7e83(0x40b)))moveState[_0x1d7e83(0x245)]=!![];if(_0xf1e7ee[_0x1d7e83(0x381)](_0xb2bf51[_0x1d7e83(0xf3)],_0x1d7e83(0x56c)))leanState[_0x1d7e83(0x774)]=!![];if(_0xb2bf51['\x63\x6f\x64\x65']===_0x1d7e83(0x4e6))leanState['\x72\x69\x67\x68\x74']=!![];if(_0xb2bf51[_0x1d7e83(0xf3)]===_0xf1e7ee[_0x1d7e83(0x4c8)]){if(gameState===_0xf1e7ee[_0x1d7e83(0x87f)]||_0xf1e7ee[_0x1d7e83(0x19d)](gameState,_0xf1e7ee[_0x1d7e83(0x224)]))handleActionBtn();else{if(gameState===_0xf1e7ee[_0x1d7e83(0x14d)]){const _0x54007d=_0xf1e7ee['\x54\x45\x6b\x48\x5a'](tryFastLoot);!_0x54007d&&_0xf1e7ee[_0x1d7e83(0x12b)](tryInteractDoor);}}}if(_0xf1e7ee['\x57\x51\x47\x54\x6c'](_0xb2bf51[_0x1d7e83(0xf3)],_0xf1e7ee[_0x1d7e83(0x7fb)]))togglePerspective();_0xf1e7ee[_0x1d7e83(0x564)](_0xb2bf51[_0x1d7e83(0xf3)],_0xf1e7ee[_0x1d7e83(0x53b)])&&(_0xb2bf51[_0x1d7e83(0x252)](),_0xf1e7ee[_0x1d7e83(0x12b)](toggleInventory));if(_0xf1e7ee['\x51\x44\x76\x63\x4e'](_0xb2bf51[_0x1d7e83(0xf3)],_0xf1e7ee['\x6e\x42\x4f\x68\x69']))_0xf1e7ee[_0x1d7e83(0x8c1)](throwThrowable,_0xf1e7ee[_0x1d7e83(0x5fc)]);if(_0xf1e7ee[_0x1d7e83(0x899)](_0xb2bf51[_0x1d7e83(0xf3)],_0xf1e7ee[_0x1d7e83(0x647)]))throwThrowable('\x53\x4d\x4f\x4b\x45');if(_0xf1e7ee[_0x1d7e83(0x3e4)](_0xb2bf51[_0x1d7e83(0xf3)],_0xf1e7ee[_0x1d7e83(0x59c)]))_0xf1e7ee[_0x1d7e83(0x12b)](startReload);_0xf1e7ee[_0x1d7e83(0x564)](_0xb2bf51['\x63\x6f\x64\x65'],_0xf1e7ee[_0x1d7e83(0x82e)])&&(_0xf1e7ee[_0x1d7e83(0x19d)](gameState,_0xf1e7ee[_0x1d7e83(0x14d)])&&_0xf1e7ee['\x68\x69\x49\x4f\x76'](playerHp,0x0)&&!isVaulting&&(playerStance=_0xf1e7ee[_0x1d7e83(0x381)](playerStance,'\x43\x52\x4f\x55\x43\x48')?_0xf1e7ee[_0x1d7e83(0x481)]:_0xf1e7ee[_0x1d7e83(0x4ca)],_0xf1e7ee[_0x1d7e83(0x39e)](showNotice,_0xf1e7ee[_0x1d7e83(0x813)](playerStance,_0xf1e7ee[_0x1d7e83(0x4ca)])?_0xf1e7ee[_0x1d7e83(0x2fc)]:_0x1d7e83(0x18a),0x5dc),isHealing&&(isHealing=![],document[_0x1d7e83(0x6ac)](_0x1d7e83(0x22c))[_0x1d7e83(0x570)]['\x64\x69\x73\x70\x6c\x61\x79']='\x6e\x6f\x6e\x65',_0xf1e7ee['\x6b\x68\x58\x57\x61'](showNotice,_0xf1e7ee['\x49\x74\x6d\x58\x52']))));_0xf1e7ee['\x6c\x41\x79\x68\x79'](_0xb2bf51['\x63\x6f\x64\x65'],_0xf1e7ee[_0x1d7e83(0x40e)])&&(_0xf1e7ee[_0x1d7e83(0x3e4)](gameState,_0xf1e7ee[_0x1d7e83(0x14d)])&&_0xf1e7ee[_0x1d7e83(0x5fe)](playerHp,0x0)&&!isVaulting&&(playerStance=_0xf1e7ee[_0x1d7e83(0x813)](playerStance,_0xf1e7ee['\x62\x6c\x59\x4c\x78'])?'\x53\x54\x41\x4e\x44':_0xf1e7ee[_0x1d7e83(0x86e)],_0xf1e7ee['\x5a\x63\x4d\x67\x61'](showNotice,_0xf1e7ee['\x62\x6b\x66\x6b\x64'](playerStance,_0xf1e7ee[_0x1d7e83(0x86e)])?_0xf1e7ee['\x7a\x4d\x76\x75\x52']:_0x1d7e83(0x18a),0x5dc),isHealing&&(isHealing=![],document['\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64']('\x68\x65\x61\x6c\x2d\x70\x72\x6f\x67\x72\x65\x73\x73\x2d\x63\x6f\x6e\x74\x61\x69\x6e\x65\x72')[_0x1d7e83(0x570)][_0x1d7e83(0x2bf)]=_0xf1e7ee[_0x1d7e83(0x703)],_0xf1e7ee[_0x1d7e83(0x8c1)](showNotice,_0xf1e7ee['\x49\x74\x6d\x58\x52']))));if(_0xf1e7ee[_0x1d7e83(0x29b)](_0xb2bf51['\x63\x6f\x64\x65'],_0xf1e7ee[_0x1d7e83(0x4f0)])){if(_0xf1e7ee[_0x1d7e83(0x6ba)](gameState,_0x1d7e83(0x113))&&_0xf1e7ee[_0x1d7e83(0x5fe)](playerHp,0x0)&&!isVaulting){const _0x59043f=tryVaultWindow();_0xf1e7ee['\x58\x42\x6a\x48\x75'](!_0x59043f,isGrounded)&&(playerVelocityY=7.2,isGrounded=![],playerStance=_0x1d7e83(0x51a),isHealing&&(isHealing=![],document[_0x1d7e83(0x6ac)]('\x68\x65\x61\x6c\x2d\x70\x72\x6f\x67\x72\x65\x73\x73\x2d\x63\x6f\x6e\x74\x61\x69\x6e\x65\x72')['\x73\x74\x79\x6c\x65']['\x64\x69\x73\x70\x6c\x61\x79']=_0xf1e7ee[_0x1d7e83(0x703)],showNotice(_0xf1e7ee['\x57\x74\x4c\x61\x6b'])));}}}),document[a0_0x460254(0x6b6)](a0_0x460254(0x479),_0x2decc9=>{const _0x415d77=a0_0x460254,_0x564e28={'\x51\x79\x6b\x78\x67':_0x415d77(0x43c),'\x54\x47\x58\x48\x55':function(_0x71f32,_0x15c6e0){return _0x71f32===_0x15c6e0;},'\x45\x48\x73\x71\x63':_0x415d77(0x56c),'\x4a\x79\x6e\x55\x77':function(_0x382d3e,_0x3a48b6){return _0x382d3e===_0x3a48b6;},'\x70\x62\x65\x73\x4d':_0x415d77(0x6cb),'\x45\x68\x56\x66\x47':function(_0x280220,_0x4da612){return _0x280220===_0x4da612;},'\x67\x6c\x52\x72\x4a':'\x53\x68\x69\x66\x74\x52\x69\x67\x68\x74','\x68\x5a\x41\x74\x6d':function(_0x37fa61,_0x1b303c){return _0x37fa61===_0x1b303c;},'\x78\x75\x65\x51\x79':'\x4b\x65\x79\x57','\x6e\x65\x50\x4f\x49':'\x4b\x65\x79\x45','\x6d\x66\x69\x55\x59':_0x415d77(0x57d)},_0x4911f8=_0x564e28['\x51\x79\x6b\x78\x67'][_0x415d77(0x696)]('\x7c');let _0x1e50ee=0x0;while(!![]){switch(_0x4911f8[_0x1e50ee++]){case'\x30':if(_0x2decc9[_0x415d77(0xf3)]===_0x415d77(0x88e))moveState['\x72\x67\x74']=![];continue;case'\x31':if(_0x564e28[_0x415d77(0x27c)](_0x2decc9[_0x415d77(0xf3)],_0x564e28[_0x415d77(0x184)]))leanState[_0x415d77(0x774)]=![];continue;case'\x32':if(_0x564e28[_0x415d77(0x189)](_0x2decc9['\x63\x6f\x64\x65'],_0x564e28['\x70\x62\x65\x73\x4d']))moveState[_0x415d77(0x405)]=![];continue;case'\x33':if(_0x564e28['\x45\x68\x56\x66\x47'](_0x2decc9[_0x415d77(0xf3)],_0x415d77(0x6cd))||_0x564e28[_0x415d77(0x684)](_0x2decc9[_0x415d77(0xf3)],_0x564e28['\x67\x6c\x52\x72\x4a']))moveState['\x73\x68\x69\x66\x74']=![];continue;case'\x34':if(_0x564e28[_0x415d77(0x601)](_0x2decc9['\x63\x6f\x64\x65'],_0x564e28['\x78\x75\x65\x51\x79']))moveState[_0x415d77(0x83b)]=![];continue;case'\x35':if(_0x2decc9[_0x415d77(0xf3)]===_0x564e28['\x6e\x65\x50\x4f\x49'])leanState['\x72\x69\x67\x68\x74']=![];continue;case'\x36':if(_0x564e28['\x68\x5a\x41\x74\x6d'](_0x2decc9[_0x415d77(0xf3)],_0x564e28[_0x415d77(0x67b)]))moveState['\x62\x77\x64']=![];continue;}break;}});const clock=new a0_0xe98f69['\x43\x6c\x6f\x63\x6b']();let flightTime=0x0,bobbingTime=0x0,bobIntensity=0x0;function animate(){const _0x3629e4=a0_0x460254,_0x14abc9={'\x62\x4b\x78\x6f\x68':function(_0x5d77c,_0x11e334){return _0x5d77c*_0x11e334;},'\x48\x41\x4c\x78\x6e':function(_0x1e25e6,_0x1c3fbc){return _0x1e25e6===_0x1c3fbc;},'\x6a\x51\x6d\x46\x45':function(_0x1f5244,_0x525b34){return _0x1f5244%_0x525b34;},'\x6c\x4b\x4d\x6b\x5a':function(_0x1ebb44,_0x54e878,_0x3e395b,_0x317d8f){return _0x1ebb44(_0x54e878,_0x3e395b,_0x317d8f);},'\x4d\x4a\x5a\x78\x75':function(_0xb7172a,_0x20f9ff){return _0xb7172a-_0x20f9ff;},'\x69\x75\x48\x6e\x64':function(_0x35e9fc,_0x5e203b){return _0x35e9fc-_0x5e203b;},'\x51\x51\x58\x74\x6a':function(_0x4d9341,_0x3176b8,_0x672f43,_0x3ce2a9){return _0x4d9341(_0x3176b8,_0x672f43,_0x3ce2a9);},'\x50\x41\x72\x41\x6e':function(_0x10fe60,_0x34449d){return _0x10fe60+_0x34449d;},'\x59\x54\x70\x73\x64':function(_0x4c17f4,_0x47ab3d){return _0x4c17f4/_0x47ab3d;},'\x64\x4f\x65\x6d\x47':function(_0x1f7db1,_0x7dc199){return _0x1f7db1*_0x7dc199;},'\x47\x69\x47\x57\x46':function(_0x1f80a2,_0x41e9b8){return _0x1f80a2-_0x41e9b8;},'\x76\x78\x49\x45\x6d':function(_0x50edd4,_0x33c492){return _0x50edd4*_0x33c492;},'\x76\x71\x6d\x4c\x71':function(_0x36b70a,_0x1d9624){return _0x36b70a>_0x1d9624;},'\x6e\x74\x5a\x71\x49':function(_0x29ee78,_0x47ca32){return _0x29ee78*_0x47ca32;},'\x79\x4c\x47\x52\x42':function(_0x581875,_0x1c89a9){return _0x581875-_0x1c89a9;},'\x47\x63\x53\x4d\x6a':function(_0x4fe25c,_0xf063ea){return _0x4fe25c*_0xf063ea;},'\x49\x65\x76\x4b\x71':function(_0x305973,_0x4149a8){return _0x305973<_0x4149a8;},'\x74\x4b\x51\x6d\x71':function(_0x3f14df,_0x4dfde1){return _0x3f14df-_0x4dfde1;},'\x67\x44\x4a\x50\x6a':function(_0x3bbab1,_0xbeab5){return _0x3bbab1/_0xbeab5;},'\x59\x56\x73\x4d\x67':function(_0x8f31e9,_0x1ce174){return _0x8f31e9||_0x1ce174;},'\x63\x52\x76\x51\x66':'\x54\x52\x45\x45','\x63\x4b\x46\x54\x53':_0x3629e4(0x164),'\x6c\x7a\x51\x6c\x65':function(_0x8033d7,_0x120bd3){return _0x8033d7-_0x120bd3;},'\x66\x70\x4a\x52\x64':function(_0x3576d5,_0x357464){return _0x3576d5*_0x357464;},'\x47\x4a\x53\x57\x47':function(_0x3a0b62,_0x111bf8){return _0x3a0b62*_0x111bf8;},'\x6d\x55\x6c\x4a\x41':_0x3629e4(0x553),'\x47\x75\x72\x46\x4c':function(_0x4776e0,_0x27e297){return _0x4776e0===_0x27e297;},'\x57\x6b\x71\x74\x75':function(_0x3fdd49,_0x439e36){return _0x3fdd49*_0x439e36;},'\x6f\x48\x67\x54\x64':function(_0x4680b0,_0x2223fe){return _0x4680b0+_0x2223fe;},'\x61\x78\x56\x50\x64':function(_0x57fb78,_0x1122dc){return _0x57fb78*_0x1122dc;},'\x49\x69\x41\x6b\x49':function(_0x186d09,_0x5329ac){return _0x186d09/_0x5329ac;},'\x4c\x71\x67\x47\x57':function(_0x4303d4,_0x5a4e34){return _0x4303d4*_0x5a4e34;},'\x77\x5a\x4d\x41\x4e':function(_0x336768,_0x505f33){return _0x336768/_0x505f33;},'\x55\x68\x4c\x63\x6b':_0x3629e4(0x35b),'\x57\x45\x73\x71\x46':_0x3629e4(0x411),'\x78\x4d\x59\x59\x47':_0x3629e4(0x6fd),'\x48\x5a\x75\x57\x6a':'\x6c\x65\x67\x52','\x59\x4d\x54\x57\x63':_0x3629e4(0x5ce),'\x78\x4e\x58\x68\x4e':function(_0x39d131,_0x5576cf){return _0x39d131*_0x5576cf;},'\x47\x7a\x6b\x58\x57':function(_0x5bb2cb,_0x58df81){return _0x5bb2cb+_0x58df81;},'\x77\x6a\x6c\x72\x7a':function(_0x304e3f,_0x1e4404){return _0x304e3f*_0x1e4404;},'\x6b\x76\x53\x6b\x61':function(_0x7dba22,_0x4e9470){return _0x7dba22*_0x4e9470;},'\x73\x72\x59\x4a\x6d':function(_0x50e7e1,_0x4c18a0){return _0x50e7e1/_0x4c18a0;},'\x48\x7a\x49\x6d\x6f':function(_0x495e27,_0x5acaa8){return _0x495e27<=_0x5acaa8;},'\x4f\x61\x49\x4e\x4b':function(_0x5c6f00,_0x1ef5d6,_0x1faf4e){return _0x5c6f00(_0x1ef5d6,_0x1faf4e);},'\x54\x54\x54\x77\x53':function(_0x5008a9,_0x4ac3ff){return _0x5008a9+_0x4ac3ff;},'\x54\x6d\x54\x50\x56':function(_0x36140b,_0x5649c5){return _0x36140b*_0x5649c5;},'\x78\x78\x76\x4f\x72':function(_0x25cde3,_0x5031e8){return _0x25cde3<_0x5031e8;},'\x44\x6a\x4c\x53\x4c':function(_0x4de535,_0x4a050a){return _0x4de535===_0x4a050a;},'\x4b\x50\x55\x6b\x54':function(_0x1946ae,_0x3ee336){return _0x1946ae*_0x3ee336;},'\x4c\x47\x61\x66\x51':function(_0x5b4326,_0x55882e){return _0x5b4326+_0x55882e;},'\x58\x64\x71\x50\x6d':function(_0x4e101c,_0x417ad0){return _0x4e101c<_0x417ad0;},'\x4f\x76\x4a\x69\x46':function(_0x4f6e48,_0x25d2d4){return _0x4f6e48!==_0x25d2d4;},'\x76\x63\x71\x72\x42':_0x3629e4(0x113),'\x7a\x48\x49\x43\x59':function(_0x5cea5f,_0xaab58d){return _0x5cea5f<_0xaab58d;},'\x63\x4e\x61\x5a\x5a':function(_0x480f69,_0x48d059){return _0x480f69<_0x48d059;},'\x6a\x76\x79\x49\x74':function(_0x5eb77e,_0x39fa7b){return _0x5eb77e<_0x39fa7b;},'\x77\x53\x4e\x50\x56':function(_0x1bc355,_0xda3e21){return _0x1bc355*_0xda3e21;},'\x6c\x7a\x4b\x6a\x49':_0x3629e4(0x5dc),'\x63\x69\x56\x57\x74':function(_0x532983,_0x38f5b0){return _0x532983*_0x38f5b0;},'\x4e\x77\x48\x45\x4c':function(_0x208f3b,_0x2f43d0){return _0x208f3b*_0x2f43d0;},'\x4a\x45\x43\x6a\x55':function(_0x32e8d2,_0xe9c2db){return _0x32e8d2+_0xe9c2db;},'\x59\x4e\x75\x54\x71':function(_0x191123,_0x237045){return _0x191123+_0x237045;},'\x62\x69\x6d\x76\x64':function(_0x134aa8,_0x292028){return _0x134aa8*_0x292028;},'\x72\x66\x45\x55\x72':'\x6e\x6f\x6e\x65','\x79\x52\x71\x57\x6a':function(_0x3be898,_0x2de62b){return _0x3be898===_0x2de62b;},'\x55\x53\x6f\x45\x52':'\x49\x4e\x5f\x50\x4c\x41\x4e\x45','\x4c\x65\x62\x4c\x69':function(_0x7448fa,_0x2c4c19){return _0x7448fa>_0x2c4c19;},'\x45\x4d\x72\x79\x43':_0x3629e4(0x3ba),'\x6c\x44\x41\x63\x47':function(_0x187fb4,_0x2be961){return _0x187fb4+_0x2be961;},'\x59\x75\x62\x4d\x4d':function(_0x576a30,_0xd57889){return _0x576a30*_0xd57889;},'\x58\x79\x5a\x68\x78':function(_0x4c48a4,_0x2d0aac){return _0x4c48a4*_0x2d0aac;},'\x57\x4f\x55\x43\x7a':function(_0x24a6ea,_0x313e56){return _0x24a6ea*_0x313e56;},'\x76\x55\x42\x6f\x44':function(_0x12ca1c,_0x170787){return _0x12ca1c-_0x170787;},'\x51\x49\x6e\x4b\x57':function(_0x440922,_0x4aadf5){return _0x440922*_0x4aadf5;},'\x73\x6e\x79\x69\x4a':function(_0x577a16,_0x310564){return _0x577a16*_0x310564;},'\x72\x57\x6c\x65\x71':function(_0x1fdbb0,_0x4bed38){return _0x1fdbb0*_0x4bed38;},'\x6d\x49\x78\x48\x46':_0x3629e4(0x4bc),'\x51\x52\x68\x50\x58':function(_0x2cd246,_0x49b85b,_0x38ab1a,_0x16c081,_0x30d488){return _0x2cd246(_0x49b85b,_0x38ab1a,_0x16c081,_0x30d488);},'\x6f\x54\x55\x66\x46':_0x3629e4(0x8b4),'\x72\x59\x62\x61\x71':function(_0x5663d4,_0x5e0d64){return _0x5663d4===_0x5e0d64;},'\x47\x4c\x4e\x63\x6b':function(_0x4f6191,_0x2a2ade){return _0x4f6191*_0x2a2ade;},'\x4a\x4a\x71\x6d\x57':function(_0x299e7e,_0x117ff4){return _0x299e7e*_0x117ff4;},'\x66\x77\x56\x4e\x57':function(_0x5c5371,_0x3e1b5b){return _0x5c5371*_0x3e1b5b;},'\x53\x63\x57\x49\x51':function(_0x218ad0,_0x108a2c){return _0x218ad0+_0x108a2c;},'\x50\x77\x62\x75\x68':function(_0x4fd066,_0x1671f0){return _0x4fd066*_0x1671f0;},'\x4e\x43\x52\x6b\x72':function(_0x2e311a,_0x1ac43e){return _0x2e311a*_0x1ac43e;},'\x71\x4f\x62\x67\x42':function(_0xbec8de,_0x2a2b3a){return _0xbec8de*_0x2a2b3a;},'\x63\x65\x61\x54\x58':function(_0xef463c,_0x3a9edf){return _0xef463c*_0x3a9edf;},'\x5a\x4b\x42\x4b\x4a':function(_0x3391d1,_0x5220fb,_0x44aaf3,_0x4b7765){return _0x3391d1(_0x5220fb,_0x44aaf3,_0x4b7765);},'\x70\x4f\x49\x72\x67':function(_0x5106cc,_0x3c11ef){return _0x5106cc===_0x3c11ef;},'\x79\x57\x4d\x52\x62':function(_0x1f0248,_0x3bc196){return _0x1f0248>=_0x3bc196;},'\x4b\x4b\x51\x72\x4f':function(_0x38639b,_0x141608,_0x3a2dce,_0xf9758e){return _0x38639b(_0x141608,_0x3a2dce,_0xf9758e);},'\x6b\x64\x45\x73\x6a':function(_0x516270,_0x36a26d){return _0x516270+_0x36a26d;},'\x65\x62\x69\x54\x54':function(_0x40d5eb,_0x4e4c84){return _0x40d5eb**_0x4e4c84;},'\x73\x54\x70\x6b\x64':function(_0x192a86,_0x363977){return _0x192a86-_0x363977;},'\x4d\x44\x43\x58\x6a':function(_0x1c3a11,_0x5a6576){return _0x1c3a11>_0x5a6576;},'\x69\x42\x76\x41\x4a':function(_0x774de7){return _0x774de7();},'\x4c\x64\x63\x5a\x41':function(_0x5bc652,_0x9352ff,_0x59df72,_0xae839a,_0x428fc5,_0x20ee06){return _0x5bc652(_0x9352ff,_0x59df72,_0xae839a,_0x428fc5,_0x20ee06);},'\x71\x77\x55\x45\x65':function(_0x316262,_0x3aa386){return _0x316262>_0x3aa386;},'\x74\x72\x5a\x6a\x59':function(_0x1b75e4,_0x525b4d){return _0x1b75e4(_0x525b4d);},'\x63\x78\x6e\x6e\x4d':function(_0x827469,_0x2344ea){return _0x827469<_0x2344ea;},'\x6e\x75\x77\x77\x41':function(_0x5ac34e,_0x417da5){return _0x5ac34e*_0x417da5;},'\x69\x6d\x61\x68\x6e':function(_0x43d361,_0x12548c){return _0x43d361*_0x12548c;},'\x58\x42\x6d\x4c\x48':function(_0x211c66,_0x3ffc08){return _0x211c66<_0x3ffc08;},'\x54\x47\x65\x47\x6d':'\x50\x72\x6f','\x77\x67\x4d\x78\x7a':function(_0x2f2ad5,_0x2e3b8a){return _0x2f2ad5!==_0x2e3b8a;},'\x4c\x4f\x6e\x6b\x55':function(_0x27ed33,_0x1d6bbc){return _0x27ed33*_0x1d6bbc;},'\x6a\x4e\x73\x68\x71':function(_0x135d0b,_0x22c58b){return _0x135d0b**_0x22c58b;},'\x6f\x62\x58\x75\x72':function(_0x2b76c7,_0x30e372){return _0x2b76c7*_0x30e372;},'\x73\x51\x62\x4c\x68':function(_0x5dadc2,_0x122fed){return _0x5dadc2*_0x122fed;},'\x6a\x4d\x72\x56\x68':'\x4e\x6f\x6f\x62','\x6d\x4c\x74\x62\x54':function(_0x466a25,_0x5142df){return _0x466a25===_0x5142df;},'\x62\x58\x72\x76\x79':function(_0x5a9e38,_0x56b3db){return _0x5a9e38===_0x56b3db;},'\x76\x47\x58\x56\x4a':function(_0x5ab6ed,_0x5125b5){return _0x5ab6ed-_0x5125b5;},'\x6e\x6a\x46\x6a\x57':function(_0x34831f,_0x3e4569){return _0x34831f*_0x3e4569;},'\x55\x42\x68\x56\x76':function(_0x43c9e2,_0x36e4f0){return _0x43c9e2*_0x36e4f0;},'\x43\x6b\x48\x41\x4a':function(_0x520a1a,_0x3512c9){return _0x520a1a-_0x3512c9;},'\x6c\x78\x70\x57\x50':function(_0xab56c4,_0x59d560){return _0xab56c4>=_0x59d560;},'\x59\x4d\x62\x47\x7a':function(_0x2092ee,_0x57fdac){return _0x2092ee-_0x57fdac;},'\x6e\x50\x47\x6b\x6a':function(_0x3fc5c3,_0x321377){return _0x3fc5c3<=_0x321377;},'\x4d\x53\x56\x79\x4d':function(_0x7a5314,_0x277c0e){return _0x7a5314+_0x277c0e;},'\x55\x67\x46\x58\x64':function(_0x380337,_0x3310c2){return _0x380337<=_0x3310c2;},'\x77\x72\x4b\x4a\x6f':function(_0x3ae571,_0x1c30d7){return _0x3ae571+_0x1c30d7;},'\x56\x55\x51\x75\x63':function(_0x325d9d,_0x234f4b){return _0x325d9d&&_0x234f4b;},'\x72\x52\x4b\x61\x57':function(_0x40f10b,_0x3e1bf7,_0x2d974f,_0x4b687c){return _0x40f10b(_0x3e1bf7,_0x2d974f,_0x4b687c);},'\x57\x6a\x52\x79\x73':function(_0x374dfe,_0x2806ea){return _0x374dfe>_0x2806ea;},'\x51\x76\x78\x63\x78':function(_0x554733,_0x2091b1){return _0x554733*_0x2091b1;},'\x57\x43\x4a\x4e\x44':function(_0x4f10d5,_0xc72f27){return _0x4f10d5*_0xc72f27;},'\x49\x4a\x75\x54\x69':function(_0x22d583,_0x2fe8cb){return _0x22d583*_0x2fe8cb;},'\x4c\x56\x65\x66\x55':function(_0x4cc604,_0x17132c){return _0x4cc604===_0x17132c;},'\x55\x4c\x56\x77\x43':function(_0x5f41cf,_0xd057c7){return _0x5f41cf===_0xd057c7;},'\x47\x73\x6c\x53\x4f':function(_0x3bec1e,_0x180ed9){return _0x3bec1e-_0x180ed9;},'\x4c\x50\x5a\x75\x68':function(_0x6abe1,_0xf3175c){return _0x6abe1+_0xf3175c;},'\x74\x6e\x58\x75\x77':function(_0x4e9c15,_0x1de3d7){return _0x4e9c15*_0x1de3d7;},'\x77\x7a\x4c\x6e\x6c':function(_0x2f4e3a,_0x194b04){return _0x2f4e3a>_0x194b04;},'\x78\x56\x66\x68\x4a':function(_0x34a8f8,_0x50c364){return _0x34a8f8/_0x50c364;},'\x78\x69\x76\x76\x70':function(_0x1e7d65,_0x1c1a93){return _0x1e7d65===_0x1c1a93;},'\x4f\x45\x47\x66\x41':function(_0x566fd1,_0x223228){return _0x566fd1>_0x223228;},'\x4e\x52\x4b\x75\x43':function(_0x3a49ac,_0x106c44){return _0x3a49ac-_0x106c44;},'\x6f\x77\x48\x6e\x47':function(_0x2ffed2,_0x56e4a4){return _0x2ffed2-_0x56e4a4;},'\x5a\x75\x43\x59\x4a':function(_0x2b5dcd,_0x35cb7e){return _0x2b5dcd*_0x35cb7e;},'\x4f\x57\x7a\x70\x75':function(_0x3ff7f2,_0x1de9a5){return _0x3ff7f2-_0x1de9a5;},'\x46\x5a\x79\x42\x73':function(_0x172aa0,_0x4368ee){return _0x172aa0>_0x4368ee;},'\x4e\x43\x49\x5a\x76':function(_0x9a3eb5,_0x443676){return _0x9a3eb5*_0x443676;},'\x57\x6a\x4e\x55\x59':function(_0x8069f1,_0x538ca6){return _0x8069f1*_0x538ca6;},'\x59\x50\x46\x57\x4e':function(_0x4d4ea0,_0x130548){return _0x4d4ea0===_0x130548;},'\x6a\x49\x51\x43\x61':function(_0x5e819e,_0x211e4f){return _0x5e819e>_0x211e4f;},'\x6f\x59\x71\x62\x64':function(_0x96ce0e,_0x29473e){return _0x96ce0e**_0x29473e;},'\x5a\x78\x42\x67\x70':function(_0x2d6584,_0x3bb03a){return _0x2d6584*_0x3bb03a;},'\x51\x48\x61\x5a\x6b':function(_0x1529a5,_0x2cef12){return _0x1529a5*_0x2cef12;},'\x4d\x67\x42\x79\x71':function(_0x32d57c,_0x577b25){return _0x32d57c*_0x577b25;},'\x7a\x4a\x6d\x41\x67':function(_0x247084,_0x1d95e6){return _0x247084===_0x1d95e6;},'\x72\x49\x64\x6c\x7a':function(_0x2c5cc6,_0x19ad76){return _0x2c5cc6-_0x19ad76;},'\x70\x68\x6e\x43\x42':function(_0x14f5a6,_0x1cf38b){return _0x14f5a6<=_0x1cf38b;},'\x71\x76\x48\x66\x71':function(_0x34e293,_0x1286d3){return _0x34e293-_0x1286d3;},'\x69\x76\x79\x49\x75':function(_0x36a75b,_0x3ea560){return _0x36a75b-_0x3ea560;},'\x50\x53\x4f\x44\x6a':function(_0x10593d,_0x16c71a){return _0x10593d+_0x16c71a;},'\x56\x71\x6d\x62\x53':function(_0x4298f6,_0x3928fd){return _0x4298f6**_0x3928fd;},'\x66\x6d\x4a\x6e\x6d':function(_0x3be6b3,_0x26c803){return _0x3be6b3-_0x26c803;},'\x68\x6e\x78\x71\x70':function(_0x43238b,_0x282127){return _0x43238b+_0x282127;},'\x78\x6e\x42\x56\x78':function(_0x2f6078,_0x2777e9){return _0x2f6078**_0x2777e9;},'\x71\x59\x63\x69\x74':function(_0x3e1c5a,_0x51a233){return _0x3e1c5a+_0x51a233;},'\x45\x58\x4e\x56\x4d':function(_0x4b68af,_0x49fe2c){return _0x4b68af>_0x49fe2c;},'\x71\x62\x49\x44\x4b':function(_0x5aee2f,_0xef0eff){return _0x5aee2f<=_0xef0eff;},'\x50\x5a\x6d\x79\x63':function(_0x45c67d,_0x30ade7){return _0x45c67d>_0x30ade7;},'\x4e\x42\x49\x55\x46':function(_0x3c342a,_0x1cdf6b){return _0x3c342a>_0x1cdf6b;},'\x6a\x44\x6b\x51\x78':function(_0x1a397a,_0x3df760){return _0x1a397a*_0x3df760;},'\x53\x62\x53\x72\x50':function(_0x5505a9,_0x2e7686){return _0x5505a9>_0x2e7686;},'\x68\x67\x4c\x63\x42':function(_0x265b1d,_0x2af7e8){return _0x265b1d>=_0x2af7e8;},'\x62\x49\x6a\x4f\x74':function(_0x438121,_0x3327b3){return _0x438121/_0x3327b3;},'\x6a\x4c\x77\x61\x7a':function(_0x11a3cf,_0x3daa3a){return _0x11a3cf/_0x3daa3a;},'\x52\x4c\x4f\x4b\x50':function(_0x387af4,_0xcf4198){return _0x387af4*_0xcf4198;},'\x4d\x51\x56\x6e\x58':function(_0x4f231f,_0x5b7b46){return _0x4f231f/_0x5b7b46;},'\x64\x71\x50\x67\x53':function(_0x5dd6c9,_0xaba830){return _0x5dd6c9*_0xaba830;},'\x57\x73\x4b\x74\x71':function(_0x5ba1a2,_0x25ef48){return _0x5ba1a2+_0x25ef48;},'\x68\x6d\x75\x66\x55':function(_0x3b6a3a,_0x3405a1){return _0x3b6a3a+_0x3405a1;},'\x41\x71\x67\x7a\x70':function(_0xba6f1d,_0x16352e){return _0xba6f1d*_0x16352e;},'\x6c\x4d\x75\x76\x77':function(_0x58f5c2,_0x98216f){return _0x58f5c2+_0x98216f;},'\x68\x67\x49\x68\x77':function(_0x3badb4,_0x5cb8f8){return _0x3badb4*_0x5cb8f8;},'\x41\x61\x56\x73\x65':function(_0x10dfe7,_0x392f80,_0x1eb6af){return _0x10dfe7(_0x392f80,_0x1eb6af);},'\x53\x64\x6a\x6f\x72':function(_0x543a2f,_0x136acd){return _0x543a2f-_0x136acd;},'\x42\x47\x6a\x49\x53':function(_0xdf6260,_0x590953,_0x2a27a2,_0x591bef,_0x2ee395,_0x27ab4c){return _0xdf6260(_0x590953,_0x2a27a2,_0x591bef,_0x2ee395,_0x27ab4c);},'\x52\x52\x43\x65\x4c':function(_0x51d20d,_0x20ddeb){return _0x51d20d-_0x20ddeb;},'\x45\x68\x74\x69\x6d':function(_0x8e773b,_0x3351d9){return _0x8e773b===_0x3351d9;},'\x61\x71\x6b\x70\x4d':'\x46\x41\x44\x45\x5f\x49\x4e','\x45\x50\x51\x74\x55':function(_0x4328f5,_0xb847a8){return _0x4328f5*_0xb847a8;},'\x6c\x76\x73\x61\x74':_0x3629e4(0x75c),'\x76\x58\x77\x47\x78':function(_0x459050,_0x11b172){return _0x459050*_0x11b172;},'\x54\x55\x43\x70\x42':function(_0x2d58cd,_0x3692e6){return _0x2d58cd>_0x3692e6;},'\x74\x52\x56\x78\x50':function(_0x5477c1,_0x19e519){return _0x5477c1===_0x19e519;},'\x6e\x49\x74\x65\x73':function(_0x19adcf,_0x3c69a4){return _0x19adcf%_0x3c69a4;},'\x75\x48\x62\x43\x55':function(_0x2d76ae,_0x380c5b){return _0x2d76ae===_0x380c5b;},'\x57\x4b\x6a\x49\x61':_0x3629e4(0x79c),'\x64\x77\x61\x66\x46':function(_0x3057bc,_0x37e9b8,_0x24b3c2,_0x2bcf2d){return _0x3057bc(_0x37e9b8,_0x24b3c2,_0x2bcf2d);},'\x68\x49\x69\x6b\x42':function(_0x38b7a2,_0x4d1296){return _0x38b7a2*_0x4d1296;},'\x51\x4b\x41\x6b\x4f':function(_0x20b212,_0x2c1c0f){return _0x20b212+_0x2c1c0f;},'\x47\x56\x43\x59\x6d':function(_0x21ca9f,_0x26320f){return _0x21ca9f*_0x26320f;},'\x4e\x61\x4e\x6f\x43':function(_0x794e18,_0x457f4c){return _0x794e18+_0x457f4c;},'\x58\x45\x49\x6d\x48':function(_0x4d1d4b,_0x5413a0){return _0x4d1d4b<=_0x5413a0;},'\x59\x6d\x4f\x78\x6d':function(_0x482dcc,_0x3d3a62){return _0x482dcc*_0x3d3a62;},'\x78\x4e\x63\x6e\x67':function(_0x1d3439,_0x5d78ce){return _0x1d3439*_0x5d78ce;},'\x61\x67\x64\x73\x70':function(_0x1fe20e,_0x38c593){return _0x1fe20e+_0x38c593;},'\x65\x43\x54\x72\x58':function(_0x1c3abe,_0x29742d){return _0x1c3abe<=_0x29742d;},'\x42\x72\x4d\x42\x4b':function(_0x1ecec8,_0x1a93e){return _0x1ecec8<_0x1a93e;},'\x68\x45\x49\x61\x6b':function(_0x556b9e,_0x212d92){return _0x556b9e-_0x212d92;},'\x4c\x68\x4b\x6c\x69':function(_0x127d23,_0xcd833b){return _0x127d23*_0xcd833b;},'\x5a\x43\x78\x4c\x4b':function(_0x3393a8,_0x3674f1){return _0x3393a8(_0x3674f1);},'\x4d\x49\x50\x61\x6f':function(_0x2fba8d,_0x266bfb){return _0x2fba8d===_0x266bfb;},'\x50\x77\x6f\x74\x6a':'\x44\x45\x46\x45\x41\x54','\x76\x75\x49\x58\x78':function(_0x26b8ae,_0xbfa940){return _0x26b8ae(_0xbfa940);},'\x62\x65\x67\x66\x67':function(_0x22e791,_0x21ad2a){return _0x22e791-_0x21ad2a;},'\x64\x56\x65\x6b\x75':function(_0x1989cb,_0x54798a){return _0x1989cb*_0x54798a;},'\x4a\x43\x74\x67\x41':function(_0x272ce3,_0xeaa98){return _0x272ce3*_0xeaa98;},'\x78\x4f\x54\x69\x75':function(_0x579219,_0x48c8bc){return _0x579219*_0x48c8bc;},'\x51\x66\x6a\x46\x77':function(_0x477283,_0x106918){return _0x477283*_0x106918;},'\x4e\x57\x57\x72\x4f':function(_0x3ecb0d,_0x5a74e3){return _0x3ecb0d*_0x5a74e3;},'\x56\x53\x63\x6a\x4d':function(_0x3a05ad,_0x4fe7cf){return _0x3a05ad-_0x4fe7cf;},'\x5a\x7a\x67\x4b\x51':function(_0x306236,_0x2db4ef){return _0x306236-_0x2db4ef;},'\x63\x6a\x6d\x43\x63':function(_0xa9c1f1,_0x14589c){return _0xa9c1f1*_0x14589c;},'\x4d\x57\x6a\x4a\x41':function(_0x3845d1,_0x487fd7){return _0x3845d1+_0x487fd7;},'\x6a\x46\x68\x47\x41':function(_0x4e4449,_0x53fa3b){return _0x4e4449*_0x53fa3b;},'\x46\x55\x6a\x54\x4a':function(_0x375f33,_0x6ad433){return _0x375f33+_0x6ad433;},'\x53\x55\x66\x41\x59':function(_0x42af23,_0x56c51c){return _0x42af23*_0x56c51c;},'\x64\x77\x69\x41\x4e':function(_0x2d4b81){return _0x2d4b81();},'\x59\x63\x45\x71\x61':'\x46\x49\x4e\x49\x53\x48\x45\x44','\x5a\x4c\x42\x42\x72':function(_0x445e06,_0x26818f){return _0x445e06-_0x26818f;},'\x47\x63\x6e\x49\x6b':function(_0x1a267d,_0x2fdabb){return _0x1a267d*_0x2fdabb;},'\x66\x67\x50\x43\x44':function(_0x6de69,_0x2b61b1){return _0x6de69!==_0x2b61b1;},'\x66\x50\x66\x62\x61':function(_0x47f199,_0x4a3b45){return _0x47f199<_0x4a3b45;},'\x55\x6b\x57\x44\x75':function(_0x308d2e,_0x3a65f6){return _0x308d2e*_0x3a65f6;},'\x4d\x61\x7a\x64\x66':_0x3629e4(0x84c),'\x61\x6d\x61\x43\x46':function(_0x567e25,_0x4cec6f,_0x2dcc3c){return _0x567e25(_0x4cec6f,_0x2dcc3c);},'\x4c\x56\x50\x66\x69':_0x3629e4(0x623),'\x57\x48\x6f\x4e\x64':_0x3629e4(0x532),'\x4d\x6d\x4c\x67\x52':_0x3629e4(0x1bd),'\x6d\x74\x6c\x5a\x44':function(_0x509b17,_0x2e41ec){return _0x509b17*_0x2e41ec;},'\x55\x6b\x53\x76\x6c':function(_0x1b3f57,_0x113447){return _0x1b3f57-_0x113447;},'\x42\x42\x62\x5a\x72':function(_0x3831d9,_0x2f081c){return _0x3831d9!==_0x2f081c;},'\x67\x69\x4a\x41\x53':function(_0xb17d69,_0x53414f){return _0xb17d69!==_0x53414f;},'\x4b\x78\x45\x57\x48':function(_0x5d60a8,_0x308a54){return _0x5d60a8*_0x308a54;},'\x71\x45\x71\x73\x4b':function(_0x3f9c72,_0x24e05c){return _0x3f9c72*_0x24e05c;},'\x6f\x48\x45\x76\x6c':function(_0x198ea2,_0x17e4ef,_0x1744b1,_0x2c57ac){return _0x198ea2(_0x17e4ef,_0x1744b1,_0x2c57ac);},'\x64\x44\x46\x55\x49':function(_0x142a05,_0x420a04){return _0x142a05===_0x420a04;},'\x43\x43\x41\x67\x74':function(_0x1a18ab,_0x2c29aa){return _0x1a18ab*_0x2c29aa;},'\x4e\x51\x78\x75\x46':function(_0x4d4fb2,_0x1f130f){return _0x4d4fb2-_0x1f130f;},'\x4d\x4c\x67\x5a\x4d':function(_0x3fd437,_0x1db517){return _0x3fd437!==_0x1db517;},'\x42\x4d\x53\x55\x6b':function(_0xba0873,_0x4f2ab0){return _0xba0873*_0x4f2ab0;},'\x54\x75\x4b\x44\x50':function(_0x1eb71a,_0x3bf187){return _0x1eb71a*_0x3bf187;},'\x6c\x48\x4e\x67\x63':function(_0x4708ce,_0x24aa63){return _0x4708ce*_0x24aa63;},'\x74\x4d\x6d\x50\x52':function(_0x2f950d,_0x189cc5){return _0x2f950d*_0x189cc5;},'\x55\x78\x62\x57\x76':function(_0xcbac67,_0x5856fb,_0x58ee11,_0x8f08ce){return _0xcbac67(_0x5856fb,_0x58ee11,_0x8f08ce);},'\x69\x47\x47\x6b\x58':_0x3629e4(0x364),'\x6e\x72\x55\x58\x58':'\x62\x6c\x6f\x63\x6b','\x6e\x7a\x4c\x77\x54':_0x3629e4(0x66e),'\x6b\x4c\x68\x48\x4b':'\x74\x68\x72\x6f\x77\x2d\x73\x68\x6f\x72\x74\x63\x75\x74\x73','\x4c\x74\x75\x6c\x6a':function(_0x2b16fa,_0x506b84){return _0x2b16fa/_0x506b84;},'\x67\x50\x75\x71\x45':function(_0x438c61,_0x44c979){return _0x438c61-_0x44c979;},'\x6e\x7a\x6d\x51\x43':function(_0x300c95,_0x286652){return _0x300c95!==_0x286652;},'\x49\x52\x52\x61\x62':function(_0x1b74d2,_0x5c4fa7){return _0x1b74d2!==_0x5c4fa7;},'\x46\x49\x66\x56\x4f':_0x3629e4(0x8d5),'\x74\x69\x6b\x68\x79':function(_0x5b2823,_0x2f082d){return _0x5b2823*_0x2f082d;},'\x6d\x44\x4d\x6f\x71':function(_0x2adda2,_0x264101){return _0x2adda2*_0x264101;},'\x75\x58\x6c\x57\x43':function(_0x901810,_0x19d6bf){return _0x901810*_0x19d6bf;},'\x65\x5a\x45\x71\x46':_0x3629e4(0x3ce),'\x57\x71\x61\x6c\x62':function(_0x310ba6,_0x1ddf70){return _0x310ba6===_0x1ddf70;},'\x53\x6e\x4f\x70\x4b':_0x3629e4(0x493),'\x41\x50\x57\x74\x79':_0x3629e4(0x51a),'\x5a\x5a\x76\x59\x44':function(_0x47126a,_0x2c902c){return _0x47126a*_0x2c902c;},'\x59\x63\x7a\x66\x6b':function(_0x363afe,_0x39dabb){return _0x363afe*_0x39dabb;},'\x47\x44\x70\x6f\x6b':function(_0x4dab23,_0x1e3d9d){return _0x4dab23*_0x1e3d9d;},'\x57\x4e\x67\x51\x79':function(_0x476874,_0x451dd5,_0x1f023e,_0x4e11ef){return _0x476874(_0x451dd5,_0x1f023e,_0x4e11ef);},'\x4e\x73\x72\x61\x66':_0x3629e4(0x603),'\x42\x44\x77\x71\x56':function(_0x24616d,_0xb57867,_0x26e0cb,_0x5c154f){return _0x24616d(_0xb57867,_0x26e0cb,_0x5c154f);},'\x66\x70\x63\x43\x56':function(_0x579b63,_0x5bb6cf){return _0x579b63-_0x5bb6cf;},'\x71\x44\x69\x51\x79':function(_0xc4c69f,_0x1a9c14){return _0xc4c69f<=_0x1a9c14;},'\x49\x6b\x66\x4b\x6d':function(_0x38fea5,_0xecc9ed){return _0x38fea5-_0xecc9ed;},'\x55\x52\x78\x46\x4c':'\x68\x65\x61\x6c\x2d\x70\x72\x6f\x67\x72\x65\x73\x73\x2d\x62\x61\x72','\x6c\x77\x5a\x59\x41':_0x3629e4(0x22c),'\x41\x59\x62\x47\x66':_0x3629e4(0x2d2),'\x41\x77\x75\x75\x6d':_0x3629e4(0x637),'\x6c\x49\x4b\x41\x51':function(_0xd657bd,_0x4e5311){return _0xd657bd>=_0x4e5311;},'\x50\x77\x75\x44\x77':function(_0x1c8356,_0x4dbe54){return _0x1c8356/_0x4dbe54;},'\x53\x64\x4d\x75\x57':function(_0x512f93,_0x58bc01){return _0x512f93*_0x58bc01;},'\x65\x55\x52\x4c\x61':function(_0x3a6180,_0xa9147a){return _0x3a6180*_0xa9147a;},'\x79\x47\x68\x6c\x46':function(_0x5df8e0,_0x59cd30){return _0x5df8e0/_0x59cd30;},'\x64\x5a\x59\x7a\x44':function(_0x4ea6c3,_0x5d4aee){return _0x4ea6c3*_0x5d4aee;},'\x48\x50\x48\x49\x77':function(_0x59671a,_0x38ab19){return _0x59671a+_0x38ab19;},'\x50\x65\x73\x4e\x78':function(_0x5b51e6,_0x49cf34){return _0x5b51e6*_0x49cf34;},'\x5a\x70\x42\x64\x63':function(_0x5b8298,_0x53692c){return _0x5b8298*_0x53692c;},'\x42\x72\x41\x79\x50':function(_0x357e03,_0x1f6acf){return _0x357e03/_0x1f6acf;},'\x78\x69\x6b\x52\x4d':function(_0x1830fd,_0x5c4cff){return _0x1830fd/_0x5c4cff;},'\x51\x72\x46\x6c\x63':function(_0x59daea,_0x26e78c){return _0x59daea-_0x26e78c;},'\x78\x47\x5a\x41\x66':function(_0x33b7f0,_0x1bfcbd){return _0x33b7f0*_0x1bfcbd;},'\x67\x6a\x45\x6d\x67':function(_0x1ccab4,_0x1f26d9){return _0x1ccab4*_0x1f26d9;},'\x52\x66\x67\x79\x71':function(_0x31bab1,_0x40aa1f){return _0x31bab1+_0x40aa1f;},'\x55\x5a\x44\x4b\x4e':function(_0xfb3901,_0x2b3e85){return _0xfb3901*_0x2b3e85;},'\x53\x61\x73\x52\x6e':function(_0x5594e3,_0x4e4d2a){return _0x5594e3*_0x4e4d2a;},'\x4f\x6e\x65\x52\x54':function(_0x2a934d,_0x3e9f65){return _0x2a934d*_0x3e9f65;},'\x59\x58\x66\x45\x62':function(_0x446f2e,_0x478431){return _0x446f2e>_0x478431;},'\x69\x55\x49\x4e\x44':function(_0x33dab5,_0x19536a){return _0x33dab5===_0x19536a;},'\x5a\x67\x45\x54\x6b':function(_0x3cce6e,_0x5b6644){return _0x3cce6e+_0x5b6644;},'\x5a\x63\x73\x5a\x5a':function(_0x263c30,_0x2934b2){return _0x263c30+_0x2934b2;},'\x6f\x62\x53\x7a\x77':function(_0x1bbf42,_0x5d5a65){return _0x1bbf42!==_0x5d5a65;},'\x63\x42\x6a\x66\x70':function(_0x56fa45,_0x49f038){return _0x56fa45===_0x49f038;},'\x78\x72\x57\x69\x74':function(_0x1db5c3,_0x27359f){return _0x1db5c3*_0x27359f;},'\x4b\x41\x44\x68\x70':function(_0x4af113,_0x5aee72){return _0x4af113*_0x5aee72;},'\x4c\x62\x55\x66\x50':function(_0x30e1f5,_0x23d31c){return _0x30e1f5===_0x23d31c;},'\x6a\x66\x44\x55\x42':function(_0x41f77d,_0x27cb37){return _0x41f77d-_0x27cb37;},'\x48\x46\x65\x45\x50':function(_0x7b1d8f,_0x4183aa){return _0x7b1d8f-_0x4183aa;},'\x5a\x44\x51\x4d\x74':function(_0x990c2b,_0x53c30d){return _0x990c2b*_0x53c30d;},'\x74\x6d\x70\x7a\x47':function(_0x4a2f8e,_0x349343){return _0x4a2f8e*_0x349343;},'\x6f\x57\x4a\x68\x46':function(_0x17aaf8,_0x17b306){return _0x17aaf8/_0x17b306;},'\x76\x6e\x45\x66\x72':function(_0x1f0f1e,_0x2f00f8){return _0x1f0f1e*_0x2f00f8;},'\x4e\x4f\x61\x51\x4b':function(_0x5ad91a,_0x99a15d){return _0x5ad91a-_0x99a15d;},'\x65\x45\x74\x79\x50':function(_0xb0929c,_0x82d891){return _0xb0929c+_0x82d891;},'\x45\x66\x5a\x4b\x7a':function(_0x33b59e,_0x8cba53){return _0x33b59e*_0x8cba53;},'\x45\x59\x74\x52\x42':function(_0x304274,_0x113313){return _0x304274-_0x113313;},'\x59\x4d\x4c\x78\x4d':function(_0x41d81e,_0x2e08d7){return _0x41d81e!==_0x2e08d7;},'\x6c\x63\x42\x41\x73':function(_0x5ac5ad,_0xe00140){return _0x5ac5ad+_0xe00140;},'\x44\x47\x51\x7a\x44':function(_0x326e62,_0x376e0a){return _0x326e62*_0x376e0a;},'\x47\x5a\x44\x4f\x51':function(_0x2fe6f0,_0x559575){return _0x2fe6f0===_0x559575;},'\x64\x52\x65\x47\x5a':function(_0x2c5642,_0x3918a5){return _0x2c5642===_0x3918a5;},'\x66\x5a\x4f\x4f\x46':function(_0x5e4c3f,_0x188daa){return _0x5e4c3f===_0x188daa;},'\x4f\x65\x56\x45\x42':function(_0x26550a,_0x1846b0){return _0x26550a*_0x1846b0;},'\x4b\x7a\x52\x4a\x61':function(_0x4f0e7b,_0x4d7b3a){return _0x4f0e7b-_0x4d7b3a;},'\x69\x58\x62\x68\x68':function(_0x5893e5,_0x585c4d){return _0x5893e5*_0x585c4d;},'\x6c\x5a\x68\x59\x66':function(_0x38d05b,_0x27a570,_0x4638c1){return _0x38d05b(_0x27a570,_0x4638c1);},'\x6d\x42\x58\x41\x6b':function(_0x169bf5,_0x57d8b0){return _0x169bf5+_0x57d8b0;},'\x4f\x6a\x59\x52\x65':function(_0x411e41,_0x4c2543){return _0x411e41*_0x4c2543;},'\x53\x56\x4c\x6e\x61':function(_0x1d7dfd,_0xb49c3d){return _0x1d7dfd!==_0xb49c3d;},'\x74\x41\x59\x4f\x75':_0x3629e4(0x1ec),'\x68\x4a\x51\x6d\x64':function(_0x559908,_0xc7dcc1){return _0x559908(_0xc7dcc1);},'\x67\x42\x62\x62\x4e':_0x3629e4(0x287),'\x63\x69\x65\x77\x70':function(_0x583af8,_0x2b730e){return _0x583af8*_0x2b730e;},'\x43\x52\x42\x6e\x59':function(_0x256b83,_0x4e7ed1){return _0x256b83+_0x4e7ed1;},'\x4a\x77\x57\x46\x72':function(_0x1a9733,_0x5a4051,_0x30cbf0){return _0x1a9733(_0x5a4051,_0x30cbf0);},'\x57\x6e\x46\x42\x70':'\x62\x6c\x75\x65\x7a\x6f\x6e\x65\x2d\x6f\x76\x65\x72\x6c\x61\x79','\x79\x4f\x6f\x4f\x6c':function(_0x291eb9,_0x3641e7){return _0x291eb9<_0x3641e7;},'\x70\x56\x5a\x73\x45':_0x3629e4(0x26d),'\x4f\x66\x50\x69\x77':_0x3629e4(0x871),'\x72\x4c\x53\x78\x41':_0x3629e4(0x34d),'\x69\x63\x4b\x49\x44':function(_0x4d86bf,_0x39d831){return _0x4d86bf>=_0x39d831;},'\x64\x66\x67\x4a\x62':function(_0x11f4f0,_0x6668){return _0x11f4f0*_0x6668;},'\x6d\x4f\x6a\x64\x4f':'\x66\x75\x6e\x63\x74\x69\x6f\x6e','\x64\x64\x67\x6e\x4e':function(_0x4c75cc,_0x2c6111){return _0x4c75cc>=_0x2c6111;},'\x4d\x58\x6d\x6b\x72':function(_0x1fceb8,_0x5d2c3c){return _0x1fceb8-_0x5d2c3c;},'\x4c\x78\x57\x49\x62':function(_0x94be17,_0x10208e){return _0x94be17*_0x10208e;},'\x77\x57\x5a\x46\x4d':function(_0x14a8f8,_0xaa10c6){return _0x14a8f8===_0xaa10c6;},'\x54\x7a\x55\x54\x5a':function(_0x449f1d,_0x473612){return _0x449f1d/_0x473612;},'\x64\x55\x62\x62\x64':function(_0x1d346a,_0x398a4b){return _0x1d346a>=_0x398a4b;},'\x67\x6f\x48\x4e\x44':function(_0x2c4edf,_0x11ed54){return _0x2c4edf-_0x11ed54;},'\x4a\x42\x46\x59\x53':function(_0x4c8833,_0x4bc541){return _0x4c8833<=_0x4bc541;},'\x43\x4d\x51\x54\x78':function(_0x3cfb6b,_0x18ee92){return _0x3cfb6b<=_0x18ee92;},'\x46\x6c\x4b\x6d\x73':function(_0x9542df,_0x25195f){return _0x9542df-_0x25195f;},'\x68\x61\x4f\x53\x4d':function(_0x521bac,_0x669a42){return _0x521bac/_0x669a42;},'\x6b\x56\x56\x78\x63':function(_0x43f28d,_0x367835){return _0x43f28d+_0x367835;},'\x41\x6c\x51\x48\x59':function(_0xe5f952,_0x2ced9a){return _0xe5f952<=_0x2ced9a;},'\x79\x75\x76\x61\x69':function(_0x4fe7a3,_0x43d704){return _0x4fe7a3<=_0x43d704;},'\x4d\x61\x70\x4a\x63':function(_0x29e4f8,_0x35bc03){return _0x29e4f8+_0x35bc03;},'\x49\x4e\x64\x6f\x4c':function(_0x5ad53d,_0x353fa7){return _0x5ad53d*_0x353fa7;},'\x66\x6f\x6b\x78\x45':function(_0x55ab53,_0x244049){return _0x55ab53+_0x244049;},'\x4f\x68\x59\x73\x67':function(_0x2964e5,_0x3b3e7f){return _0x2964e5>=_0x3b3e7f;},'\x7a\x57\x6d\x76\x56':function(_0x31b6ce,_0x4dc327){return _0x31b6ce-_0x4dc327;},'\x4a\x49\x71\x79\x70':function(_0x32598a,_0x19d41d){return _0x32598a-_0x19d41d;},'\x69\x4b\x76\x70\x6f':function(_0x5763a4,_0x214729){return _0x5763a4*_0x214729;},'\x4a\x78\x61\x66\x4a':function(_0x4b3d03,_0x22a8d1){return _0x4b3d03-_0x22a8d1;},'\x6a\x4f\x5a\x69\x67':function(_0x21b164,_0x9f7efc){return _0x21b164===_0x9f7efc;},'\x68\x45\x4d\x62\x58':_0x3629e4(0x167),'\x42\x53\x70\x4e\x59':function(_0x2649a5,_0x476812){return _0x2649a5<_0x476812;},'\x43\x6f\x64\x4a\x6e':function(_0x45e4d2,_0x1a2ea3){return _0x45e4d2+_0x1a2ea3;},'\x52\x71\x75\x49\x78':function(_0x5c3a58,_0x5b33c2){return _0x5c3a58(_0x5b33c2);},'\x48\x74\x51\x61\x79':function(_0x4aecfc,_0x480807){return _0x4aecfc-_0x480807;},'\x71\x73\x49\x6c\x53':function(_0x2e4889,_0x48c9ad,_0x13d951){return _0x2e4889(_0x48c9ad,_0x13d951);},'\x6f\x56\x47\x74\x66':function(_0x1dde88,_0x19263f){return _0x1dde88>_0x19263f;},'\x41\x46\x64\x7a\x55':function(_0x4f8c99,_0x55f8b0){return _0x4f8c99!==_0x55f8b0;},'\x48\x5a\x4d\x68\x42':function(_0x25e657,_0x12c317){return _0x25e657!==_0x12c317;},'\x69\x4e\x51\x44\x47':function(_0x1eda7d,_0x511bd6){return _0x1eda7d-_0x511bd6;},'\x54\x48\x48\x62\x50':function(_0x1ed04f,_0x2d7646){return _0x1ed04f===_0x2d7646;},'\x76\x54\x6f\x69\x6a':_0x3629e4(0x735),'\x64\x4f\x69\x42\x65':function(_0x514bfd,_0x555a42){return _0x514bfd<=_0x555a42;},'\x46\x74\x56\x4b\x63':function(_0x32da50,_0x595e20){return _0x32da50===_0x595e20;},'\x79\x6c\x5a\x54\x57':_0x3629e4(0x5f4),'\x51\x71\x50\x4f\x6c':function(_0x542bbf,_0x2f6a22,_0x12faf6,_0x2073a4,_0x2d5dfb,_0x2bb085){return _0x542bbf(_0x2f6a22,_0x12faf6,_0x2073a4,_0x2d5dfb,_0x2bb085);},'\x6e\x64\x4c\x72\x43':function(_0x1e3c16,_0x116a2f){return _0x1e3c16>_0x116a2f;},'\x63\x55\x64\x72\x74':function(_0x5d85ee,_0x353cc8){return _0x5d85ee===_0x353cc8;},'\x64\x4b\x57\x49\x4c':_0x3629e4(0x756),'\x61\x61\x74\x7a\x57':function(_0x317bb1){return _0x317bb1();},'\x76\x6b\x56\x74\x53':function(_0x22daab,_0x5940e1){return _0x22daab<=_0x5940e1;},'\x59\x62\x47\x47\x54':function(_0x9622a0,_0x58298a){return _0x9622a0(_0x58298a);},'\x69\x45\x72\x78\x61':function(_0x229eee,_0x5d1913){return _0x229eee>=_0x5d1913;},'\x61\x68\x43\x6f\x47':function(_0x7a885b,_0x4f1b29){return _0x7a885b*_0x4f1b29;},'\x67\x61\x64\x67\x46':function(_0x19f3d0,_0x3e5532){return _0x19f3d0===_0x3e5532;},'\x46\x75\x58\x75\x66':function(_0x387c56,_0x3c631e){return _0x387c56-_0x3c631e;},'\x4f\x75\x43\x72\x6b':function(_0xd6c46c,_0x47f5f8,_0x461340){return _0xd6c46c(_0x47f5f8,_0x461340);},'\x65\x6c\x44\x55\x6e':_0x3629e4(0x1a3),'\x52\x6e\x69\x4f\x63':function(_0x3585a6,_0x508f35){return _0x3585a6===_0x508f35;},'\x5a\x68\x55\x74\x69':function(_0x57a16b,_0x1f4a0f){return _0x57a16b-_0x1f4a0f;},'\x73\x6d\x46\x52\x66':function(_0x20eae4,_0xd4d97a){return _0x20eae4*_0xd4d97a;},'\x66\x73\x77\x78\x4e':function(_0x33a541,_0x3c66ea){return _0x33a541-_0x3c66ea;},'\x79\x70\x56\x6f\x70':function(_0x1a5e6e,_0x320d64){return _0x1a5e6e*_0x320d64;},'\x72\x75\x6d\x65\x70':function(_0x5df1a5,_0x299802){return _0x5df1a5+_0x299802;},'\x62\x73\x4b\x70\x43':function(_0x9d9e1a,_0x55c4fc){return _0x9d9e1a*_0x55c4fc;},'\x75\x52\x4c\x63\x44':function(_0x1cf912,_0x426f35){return _0x1cf912*_0x426f35;},'\x42\x46\x78\x57\x6c':function(_0x2afa6e,_0x35f6c6){return _0x2afa6e-_0x35f6c6;},'\x74\x4f\x65\x64\x4d':function(_0x345468,_0x3d7d28){return _0x345468-_0x3d7d28;},'\x51\x4d\x62\x5a\x55':function(_0x2498aa,_0xaad3b){return _0x2498aa>=_0xaad3b;},'\x43\x6a\x49\x65\x46':function(_0x39295f){return _0x39295f();}};requestAnimationFrame(animate);let _0x3a9af6=clock['\x67\x65\x74\x44\x65\x6c\x74\x61']();if(_0x3a9af6>0.1)_0x3a9af6=0.1;_0x14abc9[_0x3629e4(0x29a)](updatePlaneSeatsUI);planePropellers&&planePropellers['\x6c\x65\x6e\x67\x74\x68']>0x0&&planePropellers[_0x3629e4(0x64b)](_0x54241c=>{const _0x5884b9=_0x3629e4;_0x54241c[_0x5884b9(0x14f)]['\x7a']+=_0x14abc9['\x62\x4b\x78\x6f\x68'](0x19,_0x3a9af6);});if(planeNavLights&&_0x14abc9[_0x3629e4(0x5c7)](planeNavLights[_0x3629e4(0x88b)],0x0)){const _0x54973d=_0x14abc9['\x74\x52\x56\x78\x50'](_0x14abc9[_0x3629e4(0x39c)](Math[_0x3629e4(0x773)](_0x14abc9[_0x3629e4(0x24e)](clock[_0x3629e4(0x3b0)](),0x4)),0x2),0x0);planeNavLights[_0x3629e4(0x64b)]((_0x1c2112,_0x127374)=>{const _0x19e5db=_0x3629e4;_0x14abc9[_0x19e5db(0x8a9)](_0x127374,0x2)?_0x1c2112[_0x19e5db(0x7cf)]=_0x14abc9[_0x19e5db(0x8a9)](_0x14abc9[_0x19e5db(0x186)](Math['\x66\x6c\x6f\x6f\x72'](clock[_0x19e5db(0x3b0)]()*0x8),0x2),0x0):_0x1c2112[_0x19e5db(0x7cf)]=_0x54973d;});}const _0x47201f=(_0x267b73,_0x248f26)=>{const _0x18b757=_0x3629e4,_0x2125bb=0.5,_0xe83194=_0x14abc9['\x6c\x4b\x4d\x6b\x5a'](getElevation,_0x14abc9[_0x18b757(0x6ec)](_0x267b73,_0x2125bb),_0x248f26,![]),_0x9c186b=getElevation(_0x267b73+_0x2125bb,_0x248f26,![]),_0x4a33d6=getElevation(_0x267b73,_0x14abc9[_0x18b757(0x86f)](_0x248f26,_0x2125bb),![]),_0x3a64cd=_0x14abc9[_0x18b757(0x153)](getElevation,_0x267b73,_0x14abc9['\x50\x41\x72\x41\x6e'](_0x248f26,_0x2125bb),![]),_0x1479f8=_0x14abc9[_0x18b757(0x197)](Math['\x73\x71\x72\x74'](_0x14abc9['\x50\x41\x72\x41\x6e'](_0x14abc9[_0x18b757(0x51c)](_0x14abc9[_0x18b757(0x829)](_0x9c186b,_0xe83194),_0x14abc9[_0x18b757(0x86f)](_0x9c186b,_0xe83194)),_0x14abc9[_0x18b757(0x4fa)](_0x14abc9[_0x18b757(0x86f)](_0x3a64cd,_0x4a33d6),_0x14abc9[_0x18b757(0x6ec)](_0x3a64cd,_0x4a33d6)))),_0x14abc9[_0x18b757(0x51c)](0x2,_0x2125bb));return _0x14abc9[_0x18b757(0x588)](_0x1479f8,0.15)?_0x14abc9[_0x18b757(0x247)](_0x1479f8-0.15,0.38):0x0;};if(_0x14abc9['\x75\x48\x62\x43\x55'](gameState,_0x14abc9[_0x3629e4(0x6f3)])){const _0x54a7ee=_0x14abc9[_0x3629e4(0x54e)](getElevation,0x0,0x0,0x0);playerPos[_0x3629e4(0x2d5)](0x0,_0x54a7ee,0x0),myPlayerGroup[_0x3629e4(0x8a6)]['\x63\x6f\x70\x79'](playerPos),myPlayerGroup[_0x3629e4(0x14f)][_0x3629e4(0x2d5)](0x0,0x0,0x0);!isLobbyDragging&&(lobbyAngle+=_0x14abc9['\x47\x4c\x4e\x63\x6b'](_0x3a9af6,0.15));const _0x34a36b=_0x14abc9[_0x3629e4(0x69e)](lobbyDistance,Math[_0x3629e4(0x642)](lobbyPitch)),_0x2d9b43=lobbyDistance*Math['\x73\x69\x6e'](lobbyPitch);camera[_0x3629e4(0x8a6)][_0x3629e4(0x2d5)](_0x14abc9[_0x3629e4(0x7f0)](playerPos['\x78'],_0x14abc9[_0x3629e4(0x867)](Math[_0x3629e4(0x642)](lobbyAngle),_0x34a36b)),_0x14abc9[_0x3629e4(0x60a)](playerPos['\x79'],1.1)+_0x2d9b43,_0x14abc9['\x47\x7a\x6b\x58\x57'](playerPos['\x7a'],_0x14abc9[_0x3629e4(0x85a)](Math[_0x3629e4(0x19e)](lobbyAngle),_0x34a36b)));const _0x23e05b=getElevation(camera[_0x3629e4(0x8a6)]['\x78'],camera['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x7a'],![]);_0x14abc9[_0x3629e4(0x4d6)](camera[_0x3629e4(0x8a6)]['\x79'],_0x23e05b+0.3)&&(camera[_0x3629e4(0x8a6)]['\x79']=_0x14abc9[_0x3629e4(0x63d)](_0x23e05b,0.3));camera['\x6c\x6f\x6f\x6b\x41\x74'](playerPos['\x78'],playerPos['\x79']+0.95,playerPos['\x7a']),playerSoldier['\x72\x69\x67\x68\x74\x41\x72\x6d'][_0x3629e4(0x14f)][_0x3629e4(0x2d5)](0.5,-0.15,0.05),playerSoldier[_0x3629e4(0x354)][_0x3629e4(0x14f)]['\x73\x65\x74'](0.6,0.08,0x0),playerSoldier[_0x3629e4(0x63e)][_0x3629e4(0x14f)][_0x3629e4(0x2d5)](0.35,0.25,0.05),playerSoldier['\x6c\x65\x66\x74\x45\x6c\x62\x6f\x77']['\x72\x6f\x74\x61\x74\x69\x6f\x6e'][_0x3629e4(0x2d5)](0.65,-0.1,0x0),playerSoldier['\x6c\x65\x66\x74\x54\x68\x69\x67\x68']['\x72\x6f\x74\x61\x74\x69\x6f\x6e'][_0x3629e4(0x2d5)](0x0,0x0,0x0),playerSoldier[_0x3629e4(0x331)][_0x3629e4(0x14f)][_0x3629e4(0x2d5)](0x0,0x0,0x0),playerSoldier[_0x3629e4(0x1ea)]['\x72\x6f\x74\x61\x74\x69\x6f\x6e'][_0x3629e4(0x2d5)](0x0,0x0,0x0),playerSoldier[_0x3629e4(0x659)][_0x3629e4(0x14f)][_0x3629e4(0x2d5)](0x0,0x0,0x0),renderer[_0x3629e4(0x10c)](scene,camera);return;}if(hasWonMatch){_0x14abc9[_0x3629e4(0x452)](victoryTimer,0x0)&&(_0x3a9af6*=0.2,victoryTimer-=clock['\x67\x65\x74\x44\x65\x6c\x74\x61']()||0.016,_0x14abc9[_0x3629e4(0x585)](victoryTimer,0x0)&&showVictoryUI());if(victoryChicken){const _0x429ff7=_0x14abc9[_0x3629e4(0x323)](victoryTimer,0x0)?_0x14abc9['\x78\x56\x66\x68\x4a'](_0x3a9af6,0.2):_0x3a9af6;if(!victoryChicken[_0x3629e4(0x3d8)]){victoryChicken[_0x3629e4(0x119)]-=_0x14abc9['\x47\x4a\x53\x57\x47'](0x2d,_0x429ff7);_0x14abc9[_0x3629e4(0x323)](victoryChicken[_0x3629e4(0x6ab)],0x0)&&(victoryChicken[_0x3629e4(0x5a1)]*=Math['\x65\x78\x70'](_0x14abc9['\x64\x71\x50\x67\x53'](-0x2,_0x429ff7)),victoryChicken[_0x3629e4(0x325)]*=Math[_0x3629e4(0x509)](_0x14abc9[_0x3629e4(0x6d5)](-0x2,_0x429ff7)));victoryChicken[_0x3629e4(0x8ba)][_0x3629e4(0x8a6)]['\x79']+=_0x14abc9[_0x3629e4(0x593)](victoryChicken[_0x3629e4(0x119)],_0x429ff7),victoryChicken['\x67\x72\x6f\x75\x70'][_0x3629e4(0x8a6)]['\x78']+=_0x14abc9['\x64\x71\x50\x67\x53'](victoryChicken['\x76\x65\x6c\x58'],_0x429ff7),victoryChicken['\x67\x72\x6f\x75\x70'][_0x3629e4(0x8a6)]['\x7a']+=_0x14abc9['\x73\x6e\x79\x69\x4a'](victoryChicken[_0x3629e4(0x325)],_0x429ff7);_0x14abc9['\x58\x64\x71\x50\x6d'](victoryChicken[_0x3629e4(0x6ab)],0x3)&&(victoryChicken[_0x3629e4(0x8ba)][_0x3629e4(0x14f)]['\x78']+=_0x14abc9['\x4e\x43\x52\x6b\x72'](_0x429ff7,0x8),victoryChicken['\x67\x72\x6f\x75\x70'][_0x3629e4(0x14f)]['\x79']+=_0x14abc9[_0x3629e4(0x501)](_0x429ff7,0x6));const _0x5435d5=1.9;obstacles['\x66\x6f\x72\x45\x61\x63\x68'](_0x11742d=>{const _0x1ba891=_0x3629e4;if(_0x11742d['\x74\x79\x70\x65']===_0x14abc9[_0x1ba891(0x891)]||_0x14abc9[_0x1ba891(0x8a9)](_0x11742d[_0x1ba891(0x488)],_0x14abc9['\x63\x4b\x46\x54\x53'])){const _0x2e46a0=victoryChicken[_0x1ba891(0x8ba)]['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x78']-_0x11742d['\x78'],_0x21a229=_0x14abc9[_0x1ba891(0x250)](victoryChicken[_0x1ba891(0x8ba)][_0x1ba891(0x8a6)]['\x7a'],_0x11742d['\x7a']),_0x4776a7=Math[_0x1ba891(0x16d)](_0x14abc9['\x50\x41\x72\x41\x6e'](_0x14abc9[_0x1ba891(0x7f4)](_0x2e46a0,_0x2e46a0),_0x14abc9[_0x1ba891(0x247)](_0x21a229,_0x21a229))),_0xaa4cef=_0x14abc9[_0x1ba891(0x770)](_0x11742d['\x72\x61\x64\x69\x75\x73'],_0x5435d5);if(_0x4776a7<_0xaa4cef&&Math[_0x1ba891(0x712)](victoryChicken['\x67\x72\x6f\x75\x70'][_0x1ba891(0x8a6)]['\x79']-_0x11742d['\x73\x70\x6f\x74\x59'])<0x6){const _0x340888=_0x14abc9[_0x1ba891(0x197)](_0x2e46a0,_0x14abc9['\x59\x56\x73\x4d\x67'](_0x4776a7,0x1))*0xc,_0x13fba7=_0x14abc9[_0x1ba891(0x47e)](_0x21a229/(_0x4776a7||0x1),0xc);victoryChicken[_0x1ba891(0x5a1)]=_0x340888,victoryChicken[_0x1ba891(0x325)]=_0x13fba7,victoryChicken[_0x1ba891(0x119)]=Math['\x6d\x61\x78'](0x8,_0x14abc9[_0x1ba891(0x7f4)](-victoryChicken[_0x1ba891(0x119)],0.35)),SoundSystem['\x70\x6c\x61\x79\x50\x75\x6e\x63\x68'](![]);}}else _0x14abc9[_0x1ba891(0x8a9)](_0x11742d[_0x1ba891(0x488)],_0x14abc9[_0x1ba891(0x10f)])&&_0x11742d[_0x1ba891(0x8b8)][_0x1ba891(0x64b)](_0x55a3d4=>{const _0x290f6c=_0x1ba891,_0xb06e52=Math['\x6d\x61\x78'](_0x55a3d4[_0x290f6c(0x192)],Math['\x6d\x69\x6e'](victoryChicken[_0x290f6c(0x8ba)][_0x290f6c(0x8a6)]['\x78'],_0x55a3d4[_0x290f6c(0x3e7)])),_0x3ddf24=Math['\x6d\x61\x78'](_0x55a3d4['\x6d\x69\x6e\x5a'],Math[_0x290f6c(0x19c)](victoryChicken[_0x290f6c(0x8ba)]['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x7a'],_0x55a3d4[_0x290f6c(0x61c)])),_0x5cddbb=_0x14abc9[_0x290f6c(0x68e)](victoryChicken[_0x290f6c(0x8ba)][_0x290f6c(0x8a6)]['\x78'],_0xb06e52),_0x5f48d1=victoryChicken[_0x290f6c(0x8ba)][_0x290f6c(0x8a6)]['\x7a']-_0x3ddf24,_0x3ee577=Math[_0x290f6c(0x16d)](_0x14abc9[_0x290f6c(0x5b6)](_0x5cddbb,_0x5cddbb)+_0x14abc9[_0x290f6c(0x51c)](_0x5f48d1,_0x5f48d1));if(_0x14abc9['\x49\x65\x76\x4b\x71'](_0x3ee577,_0x5435d5)&&_0x14abc9[_0x290f6c(0x445)](Math[_0x290f6c(0x712)](_0x14abc9[_0x290f6c(0x8c6)](victoryChicken[_0x290f6c(0x8ba)][_0x290f6c(0x8a6)]['\x79'],_0x11742d[_0x290f6c(0x820)])),0x6)){const _0x5d68c7=_0x14abc9[_0x290f6c(0x2b2)](_0x5cddbb,_0x3ee577||0x1)*0xe,_0x55f433=_0x14abc9[_0x290f6c(0x2b2)](_0x5f48d1,_0x14abc9['\x59\x56\x73\x4d\x67'](_0x3ee577,0x1))*0xe;victoryChicken[_0x290f6c(0x5a1)]=_0x5d68c7,victoryChicken[_0x290f6c(0x325)]=_0x55f433,victoryChicken['\x76\x65\x6c\x59']=Math[_0x290f6c(0x57a)](0x8,_0x14abc9[_0x290f6c(0x51c)](-victoryChicken[_0x290f6c(0x119)],0.35)),SoundSystem['\x70\x6c\x61\x79\x50\x75\x6e\x63\x68'](![]);}});});const _0x2f8873=_0x14abc9[_0x3629e4(0x4cb)](getElevation,victoryChicken[_0x3629e4(0x8ba)][_0x3629e4(0x8a6)]['\x78'],victoryChicken[_0x3629e4(0x8ba)][_0x3629e4(0x8a6)]['\x7a'],victoryChicken[_0x3629e4(0x8ba)][_0x3629e4(0x8a6)]['\x79']),_0x2a33de=_0x14abc9['\x61\x67\x64\x73\x70'](_0x2f8873,4.2);if(_0x14abc9[_0x3629e4(0x65a)](victoryChicken[_0x3629e4(0x8ba)]['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x79'],_0x2a33de)){victoryChicken[_0x3629e4(0x8ba)][_0x3629e4(0x8a6)]['\x79']=_0x2a33de;if(_0x14abc9['\x42\x72\x4d\x42\x4b'](victoryChicken[_0x3629e4(0x6ab)],0x3)){const _0xa8994d=_0x3629e4(0x1e2)[_0x3629e4(0x696)]('\x7c');let _0x131b64=0x0;while(!![]){switch(_0xa8994d[_0x131b64++]){case'\x30':victoryChicken[_0x3629e4(0x119)]=_0x14abc9['\x73\x51\x62\x4c\x68'](-victoryChicken[_0x3629e4(0x119)],0.45);continue;case'\x31':victoryChicken['\x62\x6f\x75\x6e\x63\x65\x73']++;continue;case'\x32':SoundSystem[_0x3629e4(0x5c5)](![]);continue;case'\x33':victoryChicken[_0x3629e4(0x5a1)]=_0x14abc9['\x68\x45\x49\x61\x6b'](Math[_0x3629e4(0x81e)](),0.5)*0xe;continue;case'\x34':victoryChicken['\x76\x65\x6c\x5a']=_0x14abc9[_0x3629e4(0x85f)](Math[_0x3629e4(0x81e)]()-0.5,0xe);continue;case'\x35':_0x14abc9[_0x3629e4(0x265)](createShockwave,victoryChicken[_0x3629e4(0x8ba)][_0x3629e4(0x8a6)][_0x3629e4(0x31f)]());continue;}break;}}else victoryChicken['\x6c\x61\x6e\x64\x65\x64']=!![],victoryChicken['\x67\x72\x6f\x75\x70']['\x72\x6f\x74\x61\x74\x69\x6f\x6e'][_0x3629e4(0x2d5)](0x0,0x0,0x0),_0x14abc9['\x5a\x43\x78\x4c\x4b'](createShockwave,victoryChicken[_0x3629e4(0x8ba)][_0x3629e4(0x8a6)]['\x63\x6c\x6f\x6e\x65']()),SoundSystem['\x70\x6c\x61\x79\x50\x75\x6e\x63\x68'](![]);}}else{victoryChicken[_0x3629e4(0x5a1)]*=Math['\x65\x78\x70'](-0x4*_0x429ff7),victoryChicken[_0x3629e4(0x325)]*=Math['\x65\x78\x70'](_0x14abc9[_0x3629e4(0x5ea)](-0x4,_0x429ff7)),victoryChicken['\x67\x72\x6f\x75\x70'][_0x3629e4(0x8a6)]['\x78']+=_0x14abc9[_0x3629e4(0x47e)](victoryChicken[_0x3629e4(0x5a1)],_0x429ff7),victoryChicken[_0x3629e4(0x8ba)][_0x3629e4(0x8a6)]['\x7a']+=victoryChicken[_0x3629e4(0x325)]*_0x429ff7;const _0x2da1ff=1.9;obstacles[_0x3629e4(0x64b)](_0x22469e=>{const _0x4784b7=_0x3629e4;if(_0x14abc9[_0x4784b7(0x394)](_0x22469e[_0x4784b7(0x488)],_0x14abc9[_0x4784b7(0x891)])||_0x14abc9[_0x4784b7(0x8a9)](_0x22469e[_0x4784b7(0x488)],_0x14abc9[_0x4784b7(0x412)])){const _0x548432=victoryChicken[_0x4784b7(0x8ba)][_0x4784b7(0x8a6)]['\x78']-_0x22469e['\x78'],_0x3a4a92=_0x14abc9[_0x4784b7(0x68e)](victoryChicken[_0x4784b7(0x8ba)][_0x4784b7(0x8a6)]['\x7a'],_0x22469e['\x7a']),_0x2282f2=Math['\x73\x71\x72\x74'](_0x14abc9[_0x4784b7(0x21b)](_0x548432,_0x548432)+_0x14abc9['\x66\x70\x4a\x52\x64'](_0x3a4a92,_0x3a4a92)),_0x4f5233=_0x14abc9[_0x4784b7(0x47c)](_0x22469e[_0x4784b7(0x85d)],_0x2da1ff);if(_0x14abc9[_0x4784b7(0x445)](_0x2282f2,_0x4f5233)){const _0x1a5ef1=_0x14abc9[_0x4784b7(0x86f)](_0x4f5233,_0x2282f2);victoryChicken[_0x4784b7(0x8ba)][_0x4784b7(0x8a6)]['\x78']+=_0x14abc9[_0x4784b7(0x6af)](_0x14abc9['\x49\x69\x41\x6b\x49'](_0x548432,_0x14abc9[_0x4784b7(0x666)](_0x2282f2,0x1)),_0x1a5ef1),victoryChicken[_0x4784b7(0x8ba)][_0x4784b7(0x8a6)]['\x7a']+=_0x14abc9[_0x4784b7(0x75e)](_0x14abc9['\x77\x5a\x4d\x41\x4e'](_0x3a4a92,_0x14abc9[_0x4784b7(0x666)](_0x2282f2,0x1)),_0x1a5ef1),victoryChicken['\x76\x65\x6c\x58']=0x0,victoryChicken[_0x4784b7(0x325)]=0x0;}}});const _0x5cebfd=_0x14abc9['\x4b\x4b\x51\x72\x4f'](getElevation,victoryChicken[_0x3629e4(0x8ba)][_0x3629e4(0x8a6)]['\x78'],victoryChicken[_0x3629e4(0x8ba)][_0x3629e4(0x8a6)]['\x7a'],victoryChicken[_0x3629e4(0x8ba)][_0x3629e4(0x8a6)]['\x79']);victoryChicken[_0x3629e4(0x8ba)][_0x3629e4(0x8a6)]['\x79']=_0x5cebfd+4.2;}}liveChickens[_0x3629e4(0x64b)](_0x576351=>{const _0x4878f1=_0x3629e4;_0x576351['\x77\x61\x6e\x64\x65\x72\x54\x69\x6d\x65']-=_0x3a9af6;const _0x8555c4=_0x576351[_0x4878f1(0x613)]>0x0?0x19:0x6;_0x576351[_0x4878f1(0x3b2)]+=_0x14abc9[_0x4878f1(0x4fa)](_0x3a9af6,_0x8555c4);const _0x471e4c=_0x576351['\x6d\x65\x73\x68'][_0x4878f1(0x6c7)](_0x14abc9[_0x4878f1(0x725)]),_0x185aaf=_0x576351[_0x4878f1(0x48f)][_0x4878f1(0x6c7)](_0x14abc9[_0x4878f1(0x3ef)]),_0x54ec83=_0x576351[_0x4878f1(0x48f)][_0x4878f1(0x6c7)](_0x4878f1(0x815)),_0x2cf5ad=_0x576351['\x6d\x65\x73\x68']['\x67\x65\x74\x4f\x62\x6a\x65\x63\x74\x42\x79\x4e\x61\x6d\x65'](_0x14abc9[_0x4878f1(0x68c)]),_0x5dfa5b=_0x576351[_0x4878f1(0x48f)][_0x4878f1(0x6c7)](_0x14abc9[_0x4878f1(0x54c)]);if(_0x576351[_0x4878f1(0x613)]>0x0){const _0x240b10=_0x14abc9['\x59\x4d\x54\x57\x63'][_0x4878f1(0x696)]('\x7c');let _0x4d2d3b=0x0;while(!![]){switch(_0x240b10[_0x4d2d3b++]){case'\x30':_0x576351['\x70\x61\x6e\x69\x63\x54\x69\x6d\x65']-=_0x3a9af6;continue;case'\x31':_0x185aaf&&(_0x185aaf[_0x4878f1(0x14f)]['\x7a']=_0x14abc9['\x69\x75\x48\x6e\x64'](-0.4,Math[_0x4878f1(0x19e)](_0x576351[_0x4878f1(0x3b2)])*0.9),_0x185aaf[_0x4878f1(0x14f)]['\x78']=-0.2-Math[_0x4878f1(0x642)](_0x576351['\x61\x6e\x69\x6d\x61\x74\x69\x6f\x6e\x54\x69\x6d\x65'])*0.3);continue;case'\x32':_0x54ec83&&(_0x54ec83['\x72\x6f\x74\x61\x74\x69\x6f\x6e']['\x7a']=_0x14abc9[_0x4878f1(0x5ee)](Math[_0x4878f1(0x19e)](_0x14abc9['\x47\x4a\x53\x57\x47'](_0x576351[_0x4878f1(0x3b2)],1.5)),0.45),_0x54ec83[_0x4878f1(0x14f)]['\x78']=_0x14abc9['\x47\x4a\x53\x57\x47'](Math[_0x4878f1(0x642)](_0x576351['\x61\x6e\x69\x6d\x61\x74\x69\x6f\x6e\x54\x69\x6d\x65']),0.2));continue;case'\x33':_0x471e4c&&(_0x471e4c[_0x4878f1(0x14f)]['\x7a']=0.4+_0x14abc9[_0x4878f1(0x247)](Math['\x73\x69\x6e'](_0x576351[_0x4878f1(0x3b2)]),0.9),_0x471e4c['\x72\x6f\x74\x61\x74\x69\x6f\x6e']['\x78']=_0x14abc9['\x47\x7a\x6b\x58\x57'](0.2,_0x14abc9['\x77\x6a\x6c\x72\x7a'](Math[_0x4878f1(0x642)](_0x576351[_0x4878f1(0x3b2)]),0.3)));continue;case'\x34':_0x576351[_0x4878f1(0x798)]=4.8;continue;}break;}}else _0x576351[_0x4878f1(0x798)]=0.8,_0x471e4c&&(_0x471e4c[_0x4878f1(0x14f)]['\x7a']=_0x14abc9[_0x4878f1(0x6af)](Math[_0x4878f1(0x19e)](_0x14abc9[_0x4878f1(0x457)](_0x576351[_0x4878f1(0x3b2)],0.5)),0.1),_0x471e4c[_0x4878f1(0x14f)]['\x78']=_0x14abc9['\x73\x72\x59\x4a\x6d'](Math['\x50\x49'],0xc)),_0x185aaf&&(_0x185aaf[_0x4878f1(0x14f)]['\x7a']=-Math[_0x4878f1(0x19e)](_0x14abc9[_0x4878f1(0x51c)](_0x576351[_0x4878f1(0x3b2)],0.5))*0.1,_0x185aaf[_0x4878f1(0x14f)]['\x78']=_0x14abc9[_0x4878f1(0x6f1)](-Math['\x50\x49'],0xc)),_0x54ec83&&_0x54ec83[_0x4878f1(0x14f)][_0x4878f1(0x2d5)](0x0,0x0,0x0);if(_0x2cf5ad&&_0x5dfa5b){const _0x4b64d1=Math[_0x4878f1(0x19e)](_0x576351[_0x4878f1(0x3b2)])*(_0x14abc9[_0x4878f1(0x588)](_0x576351['\x70\x61\x6e\x69\x63\x54\x69\x6d\x65'],0x0)?0.7:0.35);_0x2cf5ad['\x72\x6f\x74\x61\x74\x69\x6f\x6e']['\x7a']=_0x4b64d1,_0x5dfa5b['\x72\x6f\x74\x61\x74\x69\x6f\x6e']['\x7a']=-_0x4b64d1;}_0x14abc9[_0x4878f1(0x3a3)](_0x576351[_0x4878f1(0x6aa)],0x0)&&(_0x576351[_0x4878f1(0x6aa)]=_0x14abc9[_0x4878f1(0x770)](_0x14abc9[_0x4878f1(0x6af)](Math[_0x4878f1(0x81e)](),0x3),0x2),_0x576351['\x64\x69\x72']['\x73\x65\x74'](Math[_0x4878f1(0x81e)]()-0.5,0x0,Math[_0x4878f1(0x81e)]()-0.5)[_0x4878f1(0x872)]());_0x14abc9[_0x4878f1(0x472)](resolveCollisions,_0x576351[_0x4878f1(0x215)],0.4);const _0x4c75a5=_0x576351[_0x4878f1(0x27a)][_0x4878f1(0x31f)]()[_0x4878f1(0x1a6)](_0x14abc9[_0x4878f1(0x5a5)](_0x576351[_0x4878f1(0x798)],_0x3a9af6));_0x576351[_0x4878f1(0x215)][_0x4878f1(0x5bf)](_0x4c75a5),_0x576351[_0x4878f1(0x48f)][_0x4878f1(0x8a6)][_0x4878f1(0x6a0)](_0x576351[_0x4878f1(0x215)]);const _0x4f71ce=_0x14abc9[_0x4878f1(0x588)](_0x576351[_0x4878f1(0x613)],0x0)?_0x14abc9[_0x4878f1(0x75e)](Math[_0x4878f1(0x712)](Math[_0x4878f1(0x19e)](_0x576351[_0x4878f1(0x3b2)]*0.8)),0.28):0x0;_0x576351[_0x4878f1(0x48f)][_0x4878f1(0x8a6)]['\x79']=getElevation(_0x576351[_0x4878f1(0x215)]['\x78'],_0x576351[_0x4878f1(0x215)]['\x7a'])+_0x4f71ce;const _0x5d0cce=Math['\x61\x74\x61\x6e\x32'](_0x576351[_0x4878f1(0x27a)]['\x78'],_0x576351[_0x4878f1(0x27a)]['\x7a']);_0x576351[_0x4878f1(0x48f)][_0x4878f1(0x14f)]['\x79']=_0x14abc9['\x79\x4c\x47\x52\x42'](_0x5d0cce,_0x14abc9[_0x4878f1(0x7ed)](Math['\x50\x49'],0x2));const _0x10b7a6=_0x14abc9[_0x4878f1(0x6af)](Math[_0x4878f1(0x19e)](_0x576351[_0x4878f1(0x3b2)]),0.03);_0x576351[_0x4878f1(0x48f)][_0x4878f1(0x58f)][0x0][_0x4878f1(0x8a6)]['\x79']=_0x14abc9[_0x4878f1(0x554)](0.4,_0x10b7a6);});}else{if(_0x14abc9['\x4d\x49\x50\x61\x6f'](gameState,_0x14abc9[_0x3629e4(0x675)])){myPlayerGroup['\x76\x69\x73\x69\x62\x6c\x65']=!![],playerSoldier[_0x3629e4(0x750)][_0x3629e4(0x7cf)]=!![];if(playerSoldier[_0x3629e4(0x840)])playerSoldier['\x62\x6f\x64\x79'][_0x3629e4(0x7cf)]=!![];if(playerSoldier[_0x3629e4(0x70a)])playerSoldier[_0x3629e4(0x70a)][_0x3629e4(0x7cf)]=!![];playerSoldier[_0x3629e4(0x500)][_0x3629e4(0x8a6)][_0x3629e4(0x2d5)](0.38,1.25,0x0),playerSoldier[_0x3629e4(0x63e)]['\x70\x6f\x73\x69\x74\x69\x6f\x6e'][_0x3629e4(0x2d5)](-0.38,1.25,0x0),playerSoldier[_0x3629e4(0x500)][_0x3629e4(0x14f)][_0x3629e4(0x2d5)](0.2,0x0,0.2),playerSoldier[_0x3629e4(0x63e)][_0x3629e4(0x14f)][_0x3629e4(0x2d5)](0.2,0x0,-0.2),playerSoldier[_0x3629e4(0x354)][_0x3629e4(0x14f)][_0x3629e4(0x2d5)](0.3,0x0,0x0),playerSoldier[_0x3629e4(0x4aa)][_0x3629e4(0x14f)][_0x3629e4(0x2d5)](0.3,0x0,0x0),_0x14abc9[_0x3629e4(0x2bc)](updateSoldierJoints,playerSoldier),_0x3a9af6*=0.2,defeatTimer-=clock[_0x3629e4(0x560)]()||0.016;const _0x5c3dd=Math['\x6d\x69\x6e'](0x1,_0x14abc9['\x62\x65\x67\x66\x67'](0x3,defeatTimer)/0x3);myPlayerGroup[_0x3629e4(0x14f)]['\x78']=_0x14abc9[_0x3629e4(0x5e5)](_0x14abc9['\x76\x58\x77\x47\x78'](_0x5c3dd,Math['\x50\x49']),1.5),myPlayerGroup[_0x3629e4(0x14f)]['\x79']=_0x14abc9[_0x3629e4(0x306)](_0x5c3dd*Math['\x50\x49'],0x2),myPlayerGroup[_0x3629e4(0x14f)]['\x7a']=_0x14abc9[_0x3629e4(0x451)](_0x14abc9[_0x3629e4(0x76b)](_0x5c3dd,Math['\x50\x49']),0.5);const _0x7c4114=_0x14abc9[_0x3629e4(0x499)](_0x14abc9[_0x3629e4(0x398)](Math['\x61\x62\x73'](Math[_0x3629e4(0x19e)](_0x14abc9[_0x3629e4(0x5fb)](_0x14abc9[_0x3629e4(0x510)](_0x5c3dd,Math['\x50\x49']),2.5))),0.85),_0x14abc9[_0x3629e4(0x794)](0x1,_0x5c3dd));myPlayerGroup[_0x3629e4(0x8a6)][_0x3629e4(0x6a0)](playerPos),myPlayerGroup[_0x3629e4(0x8a6)]['\x79']=_0x14abc9[_0x3629e4(0x770)](_0x14abc9[_0x3629e4(0x692)](getElevation(playerPos['\x78'],playerPos['\x7a'],playerPos['\x79']),Math[_0x3629e4(0x57a)](0.48,_0x14abc9[_0x3629e4(0x13a)](0.95,_0x14abc9[_0x3629e4(0x5a4)](0x1,_0x5c3dd)))),_0x7c4114);const _0x516f2a=_0x14abc9[_0x3629e4(0x85a)](_0x14abc9[_0x3629e4(0x799)](_0x5c3dd,Math['\x50\x49']),1.5),_0x5d1644=0x5;camera[_0x3629e4(0x8a6)][_0x3629e4(0x2d5)](_0x14abc9['\x4d\x57\x6a\x4a\x41'](playerPos['\x78'],_0x14abc9[_0x3629e4(0x688)](Math[_0x3629e4(0x642)](_0x516f2a),_0x5d1644)),_0x14abc9[_0x3629e4(0x42a)](_0x14abc9['\x46\x55\x6a\x54\x4a'](playerPos['\x79'],1.8),_0x14abc9[_0x3629e4(0x6af)](Math['\x73\x69\x6e'](_0x14abc9['\x53\x55\x66\x41\x59'](_0x5c3dd,Math['\x50\x49'])),0x1)),_0x14abc9[_0x3629e4(0x410)](playerPos['\x7a'],_0x14abc9['\x61\x78\x56\x50\x64'](Math[_0x3629e4(0x19e)](_0x516f2a),_0x5d1644))),camera[_0x3629e4(0x55a)](playerPos['\x78'],_0x14abc9[_0x3629e4(0x63d)](playerPos['\x79'],0.3),playerPos['\x7a']),_0x14abc9[_0x3629e4(0x52c)](defeatTimer,0x0)&&(_0x14abc9['\x64\x77\x69\x41\x4e'](showDefeatUI),gameState=_0x14abc9[_0x3629e4(0x7f5)]);}}const _0x1557e3=isZooming?0x41/currentScope['\x6d\x61\x67']:0x41;Math[_0x3629e4(0x712)](_0x14abc9['\x5a\x4c\x42\x42\x72'](camera[_0x3629e4(0x75a)],_0x1557e3))>0.5&&(camera[_0x3629e4(0x75a)]+=_0x14abc9[_0x3629e4(0x336)](_0x14abc9[_0x3629e4(0x667)](_0x14abc9[_0x3629e4(0x250)](_0x1557e3,camera[_0x3629e4(0x75a)]),0xf),_0x3a9af6),camera[_0x3629e4(0x566)]());const _0x2372e7=clock[_0x3629e4(0x3b0)]();lootBoxes['\x66\x6f\x72\x45\x61\x63\x68'](_0x5b5485=>{const _0x3b4c2a=_0x3629e4;!_0x5b5485['\x69\x73\x43\x72\x61\x74\x65']&&(_0x5b5485[_0x3b4c2a(0x48f)]['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x79']=_0x14abc9[_0x3b4c2a(0x554)](_0x14abc9[_0x3b4c2a(0x4e2)](_0x14abc9[_0x3b4c2a(0x208)](getElevation,_0x5b5485[_0x3b4c2a(0x48f)][_0x3b4c2a(0x8a6)]['\x78'],_0x5b5485[_0x3b4c2a(0x48f)][_0x3b4c2a(0x8a6)]['\x7a'],_0x5b5485[_0x3b4c2a(0x48f)][_0x3b4c2a(0x8a6)]['\x79']),0.8),Math[_0x3b4c2a(0x19e)](_0x14abc9[_0x3b4c2a(0x336)](_0x2372e7,0x3))*0.15));});if(_0x14abc9[_0x3629e4(0x590)](gameState,_0x3629e4(0x79c))){if(_0x14abc9[_0x3629e4(0x749)](planeGroup[_0x3629e4(0x8a6)]['\x7a'],0x4b0))planeGroup[_0x3629e4(0x8a6)]['\x61\x64\x64'](new a0_0xe98f69[(_0x3629e4(0x691))](0x1,0x0,0x1)[_0x3629e4(0x872)]()[_0x3629e4(0x1a6)](_0x14abc9[_0x3629e4(0x1c1)](0x28,_0x3a9af6))),flightTime+=_0x3a9af6;else planeGroup[_0x3629e4(0x7cf)]&&(planeGroup['\x76\x69\x73\x69\x62\x6c\x65']=![]);}if(_0x14abc9[_0x3629e4(0x8a9)](gameState,_0x14abc9[_0x3629e4(0x44a)])){playerPos[_0x3629e4(0x6a0)](planeGroup['\x70\x6f\x73\x69\x74\x69\x6f\x6e']);const _0x4ddb84=new a0_0xe98f69[(_0x3629e4(0x691))](0x0,0xf,0x32);_0x4ddb84['\x61\x70\x70\x6c\x79\x51\x75\x61\x74\x65\x72\x6e\x69\x6f\x6e'](camera[_0x3629e4(0x1fe)]),camera[_0x3629e4(0x8a6)][_0x3629e4(0x6a0)](planeGroup[_0x3629e4(0x8a6)])['\x61\x64\x64'](_0x4ddb84);if(planeGroup['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x7a']>=0xfa){const _0x1ada65='\x30\x7c\x33\x7c\x34\x7c\x32\x7c\x31'[_0x3629e4(0x696)]('\x7c');let _0x3c34e0=0x0;while(!![]){switch(_0x1ada65[_0x3c34e0++]){case'\x30':gameState=_0x14abc9[_0x3629e4(0x863)];continue;case'\x31':SoundSystem[_0x3629e4(0x270)]();continue;case'\x32':_0x14abc9[_0x3629e4(0x6bf)](showNotice,_0x14abc9[_0x3629e4(0x59a)],0xfa0);continue;case'\x33':_0x14abc9[_0x3629e4(0x807)](updatePlayerHp,-0x32,null);continue;case'\x34':actionBtn['\x69\x6e\x6e\x65\x72\x54\x65\x78\x74']=isTouchDevice?_0x14abc9[_0x3629e4(0x650)]:_0x14abc9[_0x3629e4(0x54f)];continue;}break;}}}else{if(_0x14abc9[_0x3629e4(0x394)](gameState,'\x46\x41\x4c\x4c\x49\x4e\x47')){myPlayerGroup[_0x3629e4(0x7cf)]=!![],playerPos['\x79']-=_0x14abc9[_0x3629e4(0x12f)](0x14,_0x3a9af6);let _0x12eea9=moveState['\x6a\x59'],_0x526c23=moveState['\x6a\x58'];!isTouchDevice&&(_0x12eea9=_0x14abc9[_0x3629e4(0x3b9)](moveState['\x66\x77\x64']?0x1:0x0,moveState['\x62\x77\x64']?0x1:0x0),_0x526c23=_0x14abc9['\x55\x6b\x53\x76\x6c'](moveState[_0x3629e4(0x2b6)]?0x1:0x0,moveState['\x6c\x66\x74']?0x1:0x0));const _0x2529bd=new a0_0xe98f69[(_0x3629e4(0x691))](0x0,0x0,-0x1)[_0x3629e4(0x2da)](camera[_0x3629e4(0x1fe)]);_0x2529bd['\x79']=0x0,_0x2529bd[_0x3629e4(0x872)]();const _0x30df30=new a0_0xe98f69[(_0x3629e4(0x691))]()[_0x3629e4(0x512)](_0x2529bd,new a0_0xe98f69[(_0x3629e4(0x691))](0x0,0x1,0x0))[_0x3629e4(0x872)]();let _0x536ff7=0x16;_0x14abc9[_0x3629e4(0x6dd)](_0x12eea9,0x0)||_0x14abc9['\x67\x69\x4a\x41\x53'](_0x526c23,0x0)?(playerPos[_0x3629e4(0x5bf)](_0x2529bd[_0x3629e4(0x1a6)](_0x14abc9[_0x3629e4(0x257)](_0x12eea9,_0x536ff7)*_0x3a9af6)),playerPos[_0x3629e4(0x5bf)](_0x30df30[_0x3629e4(0x1a6)](_0x14abc9[_0x3629e4(0x64d)](_0x14abc9[_0x3629e4(0x17d)](_0x526c23,_0x536ff7),_0x3a9af6)))):playerPos[_0x3629e4(0x5bf)](_0x2529bd['\x6d\x75\x6c\x74\x69\x70\x6c\x79\x53\x63\x61\x6c\x61\x72'](_0x14abc9[_0x3629e4(0x28d)](0x8,_0x3a9af6)));myPlayerGroup[_0x3629e4(0x8a6)][_0x3629e4(0x6a0)](playerPos),myPlayerGroup[_0x3629e4(0x14f)]['\x79']=new a0_0xe98f69[(_0x3629e4(0x210))]()[_0x3629e4(0x314)](camera['\x71\x75\x61\x74\x65\x72\x6e\x69\x6f\x6e'],_0x3629e4(0x4bc))['\x79'],myPlayerGroup[_0x3629e4(0x14f)]['\x78']=_0x14abc9['\x78\x4e\x63\x6e\x67'](-Math['\x50\x49'],0.45);const _0x5d6c62=new a0_0xe98f69[(_0x3629e4(0x691))](0x0,3.5,0xa);_0x5d6c62[_0x3629e4(0x2da)](camera[_0x3629e4(0x1fe)]),camera[_0x3629e4(0x8a6)][_0x3629e4(0x6a0)](playerPos)[_0x3629e4(0x5bf)](_0x5d6c62),updateSkydivePose(playerSoldier,_0x12eea9,_0x526c23,![]),_0x14abc9[_0x3629e4(0xe0)](playerPos['\x79'],_0x14abc9[_0x3629e4(0x60a)](_0x14abc9[_0x3629e4(0x1cf)](getElevation,playerPos['\x78'],playerPos['\x7a'],playerPos['\x79']),0x1e))&&(gameState=_0x14abc9[_0x3629e4(0x7d0)],parachute[_0x3629e4(0x7cf)]=!![],actionBtn[_0x3629e4(0x570)][_0x3629e4(0x2bf)]='\x6e\x6f\x6e\x65',SoundSystem[_0x3629e4(0x379)]());}else{if(_0x14abc9[_0x3629e4(0x737)](gameState,_0x14abc9[_0x3629e4(0x7d0)])){playerPos['\x79']-=_0x14abc9['\x43\x43\x41\x67\x74'](0x7,_0x3a9af6);let _0x18c2e7=moveState['\x6a\x59'],_0x3e5189=moveState['\x6a\x58'];!isTouchDevice&&(_0x18c2e7=_0x14abc9[_0x3629e4(0x829)](moveState[_0x3629e4(0x83b)]?0x1:0x0,moveState['\x62\x77\x64']?0x1:0x0),_0x3e5189=_0x14abc9[_0x3629e4(0x178)](moveState[_0x3629e4(0x2b6)]?0x1:0x0,moveState[_0x3629e4(0x405)]?0x1:0x0));const _0xe29987=new a0_0xe98f69['\x56\x65\x63\x74\x6f\x72\x33'](0x0,0x0,-0x1)[_0x3629e4(0x2da)](camera[_0x3629e4(0x1fe)]);_0xe29987['\x79']=0x0,_0xe29987[_0x3629e4(0x872)]();const _0x325d72=new a0_0xe98f69[(_0x3629e4(0x691))]()[_0x3629e4(0x512)](_0xe29987,new a0_0xe98f69[(_0x3629e4(0x691))](0x0,0x1,0x0))[_0x3629e4(0x872)]();let _0x2a56c9=0xe;_0x18c2e7!==0x0||_0x14abc9['\x4d\x4c\x67\x5a\x4d'](_0x3e5189,0x0)?(playerPos['\x61\x64\x64'](_0xe29987['\x6d\x75\x6c\x74\x69\x70\x6c\x79\x53\x63\x61\x6c\x61\x72'](_0x14abc9['\x42\x4d\x53\x55\x6b'](_0x18c2e7*_0x2a56c9,_0x3a9af6))),playerPos['\x61\x64\x64'](_0x325d72[_0x3629e4(0x1a6)](_0x14abc9[_0x3629e4(0x688)](_0x14abc9[_0x3629e4(0x729)](_0x3e5189,_0x2a56c9),_0x3a9af6)))):playerPos['\x61\x64\x64'](_0xe29987[_0x3629e4(0x1a6)](_0x14abc9['\x6c\x48\x4e\x67\x63'](0x5,_0x3a9af6)));myPlayerGroup[_0x3629e4(0x8a6)][_0x3629e4(0x6a0)](playerPos),myPlayerGroup[_0x3629e4(0x14f)]['\x79']=new a0_0xe98f69[(_0x3629e4(0x210))]()['\x73\x65\x74\x46\x72\x6f\x6d\x51\x75\x61\x74\x65\x72\x6e\x69\x6f\x6e'](camera['\x71\x75\x61\x74\x65\x72\x6e\x69\x6f\x6e'],_0x14abc9[_0x3629e4(0x71c)])['\x79'];const _0x4807e8=Math[_0x3629e4(0x19e)](_0x14abc9[_0x3629e4(0x2df)](clock[_0x3629e4(0x3b0)](),4.2))*0.14,_0x3b8c60=Math['\x63\x6f\x73'](_0x14abc9[_0x3629e4(0x85f)](clock['\x67\x65\x74\x45\x6c\x61\x70\x73\x65\x64\x54\x69\x6d\x65'](),3.2))*0.08;myPlayerGroup['\x72\x6f\x74\x61\x74\x69\x6f\x6e']['\x78']=_0x4807e8,myPlayerGroup[_0x3629e4(0x14f)]['\x7a']=_0x3b8c60,parachute[_0x3629e4(0x14f)][_0x3629e4(0x2d5)](0x0,0x0,0x0);const _0x5bd84e=new a0_0xe98f69['\x56\x65\x63\x74\x6f\x72\x33'](0x0,3.5,0xa);_0x5bd84e[_0x3629e4(0x2da)](camera[_0x3629e4(0x1fe)]),camera['\x70\x6f\x73\x69\x74\x69\x6f\x6e'][_0x3629e4(0x6a0)](playerPos)[_0x3629e4(0x5bf)](_0x5bd84e),updateSkydivePose(playerSoldier,_0x18c2e7,_0x3e5189,!![]);const _0x2807da=_0x14abc9['\x55\x78\x62\x57\x76'](getElevation,playerPos['\x78'],playerPos['\x7a'],playerPos['\x79']);_0x14abc9['\x48\x7a\x49\x6d\x6f'](playerPos['\x79'],_0x2807da)&&(playerPos['\x79']=_0x2807da,gameState=_0x14abc9[_0x3629e4(0x37f)],parachute[_0x3629e4(0x7cf)]=![],SoundSystem[_0x3629e4(0x7a7)](),myPlayerGroup[_0x3629e4(0x14f)]['\x78']=0x0,myPlayerGroup['\x72\x6f\x74\x61\x74\x69\x6f\x6e']['\x7a']=0x0,playerSoldier[_0x3629e4(0x5d2)][_0x3629e4(0x7cf)]=![],playerSoldier['\x75\x70\x64\x61\x74\x65\x42\x61\x67\x56\x69\x73\x75\x61\x6c'](playerInventory[_0x3629e4(0x4e5)]),isTouchDevice&&(document[_0x3629e4(0x6ac)](_0x14abc9['\x69\x47\x47\x6b\x58'])['\x73\x74\x79\x6c\x65'][_0x3629e4(0x2bf)]=_0x14abc9[_0x3629e4(0x711)],document['\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64'](_0x3629e4(0x372))[_0x3629e4(0x570)][_0x3629e4(0x2bf)]=_0x14abc9[_0x3629e4(0x3cb)]),_0x14abc9['\x61\x6d\x61\x43\x46'](showNotice,_0x14abc9[_0x3629e4(0x5af)],0xbb8),document[_0x3629e4(0x6ac)](_0x14abc9['\x6b\x4c\x68\x48\x4b'])[_0x3629e4(0x570)][_0x3629e4(0x2bf)]=_0x14abc9['\x6c\x7a\x4b\x6a\x49']);}else{if(_0x14abc9[_0x3629e4(0x394)](gameState,_0x14abc9[_0x3629e4(0x37f)])&&playerHp>0x0){let _0x4d991b=0x0;if(isVaulting){const _0x284ceb=_0x14abc9['\x4c\x74\x75\x6c\x6a'](_0x14abc9[_0x3629e4(0x63b)](clock['\x67\x65\x74\x45\x6c\x61\x70\x73\x65\x64\x54\x69\x6d\x65'](),vaultStartTime),VAULT_DURATION);_0x284ceb>=0x1?(isVaulting=![],playerPos[_0x3629e4(0x6a0)](vaultEndPos),playerPos['\x79']=_0x14abc9[_0x3629e4(0x809)](getElevation,playerPos['\x78'],playerPos['\x7a'],playerPos['\x79'])):(playerPos['\x6c\x65\x72\x70\x56\x65\x63\x74\x6f\x72\x73'](vaultStartPos,vaultEndPos,_0x284ceb),playerPos['\x79']+=_0x14abc9[_0x3629e4(0x76b)](Math[_0x3629e4(0x19e)](_0x284ceb*Math['\x50\x49']),1.5)),myPlayerGroup[_0x3629e4(0x8a6)][_0x3629e4(0x6a0)](playerPos),myPlayerGroup[_0x3629e4(0x14f)]['\x79']=new a0_0xe98f69[(_0x3629e4(0x210))]()[_0x3629e4(0x314)](camera[_0x3629e4(0x1fe)],_0x14abc9[_0x3629e4(0x71c)])['\x79'],playerSoldier[_0x3629e4(0x63e)][_0x3629e4(0x14f)][_0x3629e4(0x2d5)](-0x2,0.2,-0.4),playerSoldier[_0x3629e4(0x500)][_0x3629e4(0x14f)][_0x3629e4(0x2d5)](-0x2,-0.2,0.4),playerSoldier[_0x3629e4(0x86b)]['\x72\x6f\x74\x61\x74\x69\x6f\x6e'][_0x3629e4(0x2d5)](-0.8,0x0,0x0),playerSoldier[_0x3629e4(0x331)][_0x3629e4(0x14f)]['\x73\x65\x74'](-0.3,0x0,0x0),playerSoldier[_0x3629e4(0x1ea)][_0x3629e4(0x14f)][_0x3629e4(0x2d5)](1.2,0x0,0x0),playerSoldier[_0x3629e4(0x659)]['\x72\x6f\x74\x61\x74\x69\x6f\x6e']['\x73\x65\x74'](0.6,0x0,0x0);}else{let _0x2b108a=moveState['\x6a\x59'],_0x769155=moveState['\x6a\x58'];!isTouchDevice&&(_0x2b108a=_0x14abc9[_0x3629e4(0x7fe)](moveState[_0x3629e4(0x83b)]?0x1:0x0,moveState[_0x3629e4(0x3e1)]?0x1:0x0),_0x769155=(moveState[_0x3629e4(0x2b6)]?0x1:0x0)-(moveState[_0x3629e4(0x405)]?0x1:0x0));let _0x18d1a2=_0x14abc9[_0x3629e4(0x196)](_0x2b108a,0x0)||_0x14abc9[_0x3629e4(0x2eb)](_0x769155,0x0);_0x18d1a2&&(SoundSystem[_0x3629e4(0x4d0)](moveState[_0x3629e4(0x245)]),isHealing&&(isHealing=![],document[_0x3629e4(0x6ac)](_0x3629e4(0x22c))[_0x3629e4(0x570)][_0x3629e4(0x2bf)]='\x6e\x6f\x6e\x65',showNotice(_0x14abc9[_0x3629e4(0x5d6)])));bobIntensity+=_0x14abc9[_0x3629e4(0x218)](_0x18d1a2?0x1:-0x1,_0x3a9af6)*0x5,bobIntensity=Math['\x6d\x61\x78'](0x0,Math[_0x3629e4(0x19c)](0x1,bobIntensity));const _0x4cbd9f=isZooming?0x7:moveState['\x73\x68\x69\x66\x74']?0x16:0xf;bobbingTime+=_0x14abc9['\x6d\x44\x4d\x6f\x71'](_0x3a9af6,_0x4cbd9f),_0x4d991b=_0x14abc9['\x75\x58\x6c\x57\x43'](Math['\x73\x69\x6e'](bobbingTime)*0.05,bobIntensity);const _0x2c8fa8=new a0_0xe98f69[(_0x3629e4(0x691))](0x0,0x0,-0x1)['\x61\x70\x70\x6c\x79\x51\x75\x61\x74\x65\x72\x6e\x69\x6f\x6e'](camera['\x71\x75\x61\x74\x65\x72\x6e\x69\x6f\x6e']);_0x2c8fa8['\x79']=0x0,_0x2c8fa8[_0x3629e4(0x872)]();const _0x456caf=new a0_0xe98f69[(_0x3629e4(0x691))]()['\x63\x72\x6f\x73\x73\x56\x65\x63\x74\x6f\x72\x73'](_0x2c8fa8,new a0_0xe98f69[(_0x3629e4(0x691))](0x0,0x1,0x0))[_0x3629e4(0x872)](),_0x13b384=_0x14abc9[_0x3629e4(0x54e)](getElevation,playerPos['\x78'],playerPos['\x7a'],playerPos['\x79']),_0x5777a3=_0x14abc9[_0x3629e4(0x6bf)](getWaterLevel,playerPos['\x78'],playerPos['\x7a']),_0x14f37e=_0x14abc9['\x79\x57\x4d\x52\x62'](_0x5777a3-getElevation(playerPos['\x78'],playerPos['\x7a'],![]),0.55);let _0x3fba9e=0x1;if(_0x14f37e)_0x3fba9e=0.3;else{if(_0x14abc9[_0x3629e4(0x7de)](playerStance,_0x14abc9[_0x3629e4(0x805)]))_0x3fba9e=0.55;else{if(_0x14abc9[_0x3629e4(0x449)](playerStance,_0x14abc9[_0x3629e4(0x81a)]))_0x3fba9e=0.22;}}const _0x125b69=moveState['\x73\x68\x69\x66\x74']&&playerStance===_0x14abc9[_0x3629e4(0x417)]&&!isZooming&&!_0x14f37e?8.5:5.5,_0x1b32f0=isZooming?2.2:_0x14abc9[_0x3629e4(0x806)](_0x125b69,_0x3fba9e);playerPos[_0x3629e4(0x5bf)](_0x2c8fa8[_0x3629e4(0x1a6)](_0x14abc9['\x59\x63\x7a\x66\x6b'](_0x14abc9[_0x3629e4(0x593)](_0x2b108a,_0x1b32f0),_0x3a9af6))),playerPos[_0x3629e4(0x5bf)](_0x456caf[_0x3629e4(0x1a6)](_0x14abc9[_0x3629e4(0x16b)](_0x14abc9[_0x3629e4(0x4be)](_0x769155,_0x1b32f0),_0x3a9af6))),_0x14abc9[_0x3629e4(0x39b)](resolveCollisions,playerPos,0.55,_0x14abc9[_0x3629e4(0x62c)]);if(!isGrounded){playerVelocityY-=_0x14abc9[_0x3629e4(0x806)](9.8,2.2)*_0x3a9af6,playerPos['\x79']+=_0x14abc9['\x51\x48\x61\x5a\x6b'](playerVelocityY,_0x3a9af6);const _0x4c4b67=_0x14abc9[_0x3629e4(0x55e)](getElevation,playerPos['\x78'],playerPos['\x7a'],playerPos['\x79']),_0x556d90=_0x14abc9[_0x3629e4(0x7d7)](_0x14abc9[_0x3629e4(0x1cf)](getElevation,playerPos['\x78'],playerPos['\x7a'],![]),_0x5777a3);if(_0x556d90&&_0x14abc9[_0x3629e4(0x7a3)](playerPos['\x79'],_0x14abc9['\x66\x70\x63\x43\x56'](_0x5777a3,0.55)))playerPos['\x79']=_0x14abc9[_0x3629e4(0x5b8)](_0x5777a3,0.55),playerVelocityY=0x0,isGrounded=!![];else _0x14abc9[_0x3629e4(0x58a)](playerPos['\x79'],_0x4c4b67)&&(playerPos['\x79']=_0x4c4b67,playerVelocityY=0x0,isGrounded=!![]);}else playerPos['\x79']=_0x14f37e?_0x14abc9[_0x3629e4(0x24a)](_0x5777a3,0.55):_0x13b384;if(isHealing){healTimer+=_0x3a9af6;const _0x2c7b9b=Math['\x6d\x69\x6e'](0x64,_0x14abc9['\x4e\x43\x49\x5a\x76'](_0x14abc9[_0x3629e4(0x7ed)](healTimer,HEAL_DURATION),0x64)),_0x5acef4=document['\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64'](_0x14abc9[_0x3629e4(0x52d)]);if(_0x5acef4)_0x5acef4[_0x3629e4(0x570)][_0x3629e4(0x1a1)]=_0x14abc9[_0x3629e4(0x324)](_0x2c7b9b,'\x25');if(healTimer>=HEAL_DURATION){isHealing=![];const _0x350903=document['\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64'](_0x14abc9[_0x3629e4(0x474)]);if(_0x350903)_0x350903[_0x3629e4(0x570)][_0x3629e4(0x2bf)]=_0x14abc9[_0x3629e4(0x609)];playerInventory['\x66\x69\x72\x73\x74\x61\x69\x64\x73']--,playerHp=0x4b,updatePlayerHp(0x0),SoundSystem[_0x3629e4(0x4e1)](),showNotice(_0x14abc9['\x41\x59\x62\x47\x66']),updateInventoryUI();}}if(isHealing){const _0x2aca14=_0x14abc9[_0x3629e4(0x80b)]['\x73\x70\x6c\x69\x74']('\x7c');let _0x145c23=0x0;while(!![]){switch(_0x2aca14[_0x145c23++]){case'\x30':playerSoldier[_0x3629e4(0x840)][_0x3629e4(0x8a6)][_0x3629e4(0x2d5)](0x0,0.55,0x0);continue;case'\x31':playerSoldier[_0x3629e4(0x659)][_0x3629e4(0x14f)]['\x78']=1.8;continue;case'\x32':playerSoldier[_0x3629e4(0x840)][_0x3629e4(0x14f)]['\x78']=0x0;continue;case'\x33':playerSoldier['\x6c\x65\x66\x74\x54\x68\x69\x67\x68'][_0x3629e4(0x14f)]['\x78']=-0x1;continue;case'\x34':playerSoldier[_0x3629e4(0x331)][_0x3629e4(0x14f)]['\x78']=-0x1;continue;case'\x35':playerSoldier[_0x3629e4(0x750)][_0x3629e4(0x8a6)][_0x3629e4(0x2d5)](0x0,1.05,0x0);continue;case'\x36':playerSoldier[_0x3629e4(0x7c6)]['\x70\x6f\x73\x69\x74\x69\x6f\x6e'][_0x3629e4(0x2d5)](0.16,0.3,0x0);continue;case'\x37':playerSoldier[_0x3629e4(0x63e)][_0x3629e4(0x8a6)][_0x3629e4(0x2d5)](-0.38,0.85,0x0);continue;case'\x38':playerSoldier[_0x3629e4(0x500)][_0x3629e4(0x14f)][_0x3629e4(0x2d5)](-0.5,-0.4,0x0);continue;case'\x39':playerSoldier[_0x3629e4(0x70a)]&&(playerSoldier[_0x3629e4(0x70a)][_0x3629e4(0x8a6)][_0x3629e4(0x2d5)](0x0,0.55,0.16),playerSoldier[_0x3629e4(0x70a)][_0x3629e4(0x14f)]['\x78']=0x0);continue;case'\x31\x30':playerSoldier[_0x3629e4(0x79e)][_0x3629e4(0x8a6)][_0x3629e4(0x2d5)](-0.16,0.3,0x0);continue;case'\x31\x31':playerSoldier[_0x3629e4(0x500)][_0x3629e4(0x8a6)][_0x3629e4(0x2d5)](0.38,0.85,0x0);continue;case'\x31\x32':playerSoldier[_0x3629e4(0x1ea)][_0x3629e4(0x14f)]['\x78']=1.8;continue;case'\x31\x33':playerSoldier[_0x3629e4(0x750)][_0x3629e4(0x14f)]['\x78']=0x0;continue;case'\x31\x34':playerSoldier['\x6c\x65\x66\x74\x41\x72\x6d'][_0x3629e4(0x14f)][_0x3629e4(0x2d5)](-0.5,0.4,0x0);continue;case'\x31\x35':playerSoldier[_0x3629e4(0x5d2)]&&(playerSoldier['\x70\x61\x72\x61\x63\x68\x75\x74\x65\x42\x61\x67'][_0x3629e4(0x8a6)][_0x3629e4(0x2d5)](0x0,0.55,0.16),playerSoldier[_0x3629e4(0x5d2)][_0x3629e4(0x14f)]['\x78']=0x0);continue;}break;}}else{const _0x11d219=_0x14abc9['\x6c\x49\x4b\x41\x51'](_0x14abc9[_0x3629e4(0x660)](_0x14abc9['\x41\x61\x56\x73\x65'](getWaterLevel,playerPos['\x78'],playerPos['\x7a']),_0x14abc9[_0x3629e4(0x55e)](getElevation,playerPos['\x78'],playerPos['\x7a'],![])),0.55);if(_0x11d219){playerSoldier[_0x3629e4(0x840)][_0x3629e4(0x14f)]['\x78']=_0x14abc9['\x49\x69\x41\x6b\x49'](Math['\x50\x49'],2.2),playerSoldier['\x62\x6f\x64\x79'][_0x3629e4(0x8a6)][_0x3629e4(0x2d5)](0x0,0.25,0x0),playerSoldier[_0x3629e4(0x750)][_0x3629e4(0x8a6)][_0x3629e4(0x2d5)](0x0,0.35,-0.4),playerSoldier[_0x3629e4(0x750)]['\x72\x6f\x74\x61\x74\x69\x6f\x6e']['\x78']=_0x14abc9[_0x3629e4(0x197)](-Math['\x50\x49'],0x4),playerSoldier['\x6c\x65\x66\x74\x41\x72\x6d'][_0x3629e4(0x8a6)][_0x3629e4(0x2d5)](-0.35,0.3,-0.2),playerSoldier['\x72\x69\x67\x68\x74\x41\x72\x6d'][_0x3629e4(0x8a6)][_0x3629e4(0x2d5)](0.35,0.3,-0.2),playerSoldier[_0x3629e4(0x79e)][_0x3629e4(0x8a6)][_0x3629e4(0x2d5)](-0.16,0.25,0.3),playerSoldier['\x72\x69\x67\x68\x74\x4c\x65\x67']['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x73\x65\x74'](0.16,0.25,0.3);playerSoldier[_0x3629e4(0x70a)]&&(playerSoldier['\x62\x61\x63\x6b\x70\x61\x63\x6b\x47\x72\x6f\x75\x70'][_0x3629e4(0x8a6)][_0x3629e4(0x2d5)](0x0,0.25,0.16),playerSoldier[_0x3629e4(0x70a)][_0x3629e4(0x14f)]['\x78']=Math['\x50\x49']/2.2);playerSoldier[_0x3629e4(0x5d2)]&&(playerSoldier[_0x3629e4(0x5d2)][_0x3629e4(0x8a6)]['\x73\x65\x74'](0x0,0.25,0.16),playerSoldier[_0x3629e4(0x5d2)][_0x3629e4(0x14f)]['\x78']=_0x14abc9[_0x3629e4(0x5a0)](Math['\x50\x49'],2.2));const _0x4159af=Math[_0x3629e4(0x19e)](_0x14abc9[_0x3629e4(0x261)](bobbingTime,0.4));playerSoldier[_0x3629e4(0x63e)]['\x72\x6f\x74\x61\x74\x69\x6f\x6e']['\x73\x65\x74'](_0x14abc9[_0x3629e4(0x77a)](_0x14abc9[_0x3629e4(0x495)](Math['\x50\x49'],0x2),_0x14abc9[_0x3629e4(0x1aa)](_0x4159af,0.9)),0.4,-0.2),playerSoldier[_0x3629e4(0x500)][_0x3629e4(0x14f)]['\x73\x65\x74'](_0x14abc9[_0x3629e4(0x6f1)](Math['\x50\x49'],0x2)-_0x14abc9[_0x3629e4(0x3c9)](_0x4159af,0.9),-0.4,0.2),playerSoldier['\x6c\x65\x66\x74\x54\x68\x69\x67\x68'][_0x3629e4(0x14f)][_0x3629e4(0x2d5)](_0x14abc9[_0x3629e4(0x15c)](_0x14abc9[_0x3629e4(0x589)](-Math['\x50\x49'],2.2),_0x14abc9[_0x3629e4(0x69e)](_0x4159af,0.4)),0x0,0.1),playerSoldier[_0x3629e4(0x331)][_0x3629e4(0x14f)][_0x3629e4(0x2d5)](_0x14abc9[_0x3629e4(0x7e8)](-Math['\x50\x49'],2.2)-_0x14abc9[_0x3629e4(0x5a3)](_0x4159af,0.4),0x0,-0.1);const _0x542e59=_0x14abc9[_0x3629e4(0x730)](0.3,_0x14abc9['\x66\x70\x4a\x52\x64'](Math[_0x3629e4(0x19e)](_0x14abc9[_0x3629e4(0x3eb)](bobbingTime,0.4)-_0x14abc9[_0x3629e4(0xe9)](Math['\x50\x49'],0x2)),0.25)),_0x23ab57=_0x14abc9[_0x3629e4(0x7f0)](0.3,_0x14abc9['\x63\x69\x56\x57\x74'](Math[_0x3629e4(0x19e)](_0x14abc9['\x77\x72\x4b\x4a\x6f'](_0x14abc9[_0x3629e4(0x398)](bobbingTime,0.4),_0x14abc9[_0x3629e4(0x788)](Math['\x50\x49'],0x2))),0.25));playerSoldier[_0x3629e4(0x1ea)]['\x72\x6f\x74\x61\x74\x69\x6f\x6e'][_0x3629e4(0x2d5)](_0x542e59,0x0,0x0),playerSoldier[_0x3629e4(0x659)]['\x72\x6f\x74\x61\x74\x69\x6f\x6e'][_0x3629e4(0x2d5)](_0x23ab57,0x0,0x0);}else{if(_0x14abc9[_0x3629e4(0x33d)](playerStance,_0x14abc9[_0x3629e4(0x81a)])){playerSoldier['\x62\x6f\x64\x79'][_0x3629e4(0x14f)]['\x78']=_0x14abc9[_0x3629e4(0x129)](Math['\x50\x49'],0x2),playerSoldier[_0x3629e4(0x840)]['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x73\x65\x74'](0x0,0.15,0x0),playerSoldier[_0x3629e4(0x750)][_0x3629e4(0x8a6)][_0x3629e4(0x2d5)](0x0,0.15,-0.45),playerSoldier[_0x3629e4(0x750)][_0x3629e4(0x14f)]['\x78']=0x0,playerSoldier['\x6c\x65\x66\x74\x41\x72\x6d']['\x70\x6f\x73\x69\x74\x69\x6f\x6e'][_0x3629e4(0x2d5)](-0.35,0.15,-0.2),playerSoldier[_0x3629e4(0x500)][_0x3629e4(0x8a6)]['\x73\x65\x74'](0.35,0.15,-0.2),playerSoldier[_0x3629e4(0x79e)]['\x70\x6f\x73\x69\x74\x69\x6f\x6e'][_0x3629e4(0x2d5)](-0.16,0.15,0.3),playerSoldier['\x72\x69\x67\x68\x74\x4c\x65\x67'][_0x3629e4(0x8a6)][_0x3629e4(0x2d5)](0.16,0.15,0.3);playerSoldier[_0x3629e4(0x70a)]&&(playerSoldier[_0x3629e4(0x70a)]['\x70\x6f\x73\x69\x74\x69\x6f\x6e'][_0x3629e4(0x2d5)](0x0,0.15,0.16),playerSoldier[_0x3629e4(0x70a)][_0x3629e4(0x14f)]['\x78']=Math['\x50\x49']/0x2);playerSoldier['\x70\x61\x72\x61\x63\x68\x75\x74\x65\x42\x61\x67']&&(playerSoldier[_0x3629e4(0x5d2)][_0x3629e4(0x8a6)][_0x3629e4(0x2d5)](0x0,0.15,0.16),playerSoldier[_0x3629e4(0x5d2)][_0x3629e4(0x14f)]['\x78']=Math['\x50\x49']/0x2);const _0x19d402=_0x14abc9[_0x3629e4(0x6a7)](Math[_0x3629e4(0x19e)](_0x14abc9[_0x3629e4(0x2b7)](bobbingTime,0.8))*0.15,bobIntensity);playerSoldier[_0x3629e4(0x840)][_0x3629e4(0x14f)]['\x79']=_0x19d402,playerSoldier[_0x3629e4(0x86b)][_0x3629e4(0x14f)][_0x3629e4(0x2d5)](_0x14abc9[_0x3629e4(0x8c9)](-Math['\x50\x49'],0x2)+0.2,0x0,0.1),playerSoldier[_0x3629e4(0x331)][_0x3629e4(0x14f)][_0x3629e4(0x2d5)](_0x14abc9[_0x3629e4(0x32c)](-Math['\x50\x49'],0x2)+0.2,0x0,-0.1),playerSoldier['\x6c\x65\x66\x74\x4b\x6e\x65\x65'][_0x3629e4(0x14f)][_0x3629e4(0x2d5)](0x0,0x0,0x0),playerSoldier['\x72\x69\x67\x68\x74\x4b\x6e\x65\x65'][_0x3629e4(0x14f)][_0x3629e4(0x2d5)](0x0,0x0,0x0),playerSoldier[_0x3629e4(0x63e)]['\x72\x6f\x74\x61\x74\x69\x6f\x6e']['\x73\x65\x74'](_0x14abc9[_0x3629e4(0x8e4)](_0x14abc9[_0x3629e4(0x8c9)](Math['\x50\x49'],0x2),Math[_0x3629e4(0x19e)](bobbingTime)*0.4*bobIntensity),0.2,-0.1),playerSoldier['\x72\x69\x67\x68\x74\x41\x72\x6d']['\x72\x6f\x74\x61\x74\x69\x6f\x6e'][_0x3629e4(0x2d5)](_0x14abc9['\x78\x56\x66\x68\x4a'](Math['\x50\x49'],0x2)+_0x14abc9[_0x3629e4(0x5b6)](Math[_0x3629e4(0x19e)](bobbingTime),0.4)*bobIntensity,-0.2,0.1);}else{if(playerStance===_0x14abc9[_0x3629e4(0x805)]){playerSoldier[_0x3629e4(0x840)][_0x3629e4(0x14f)]['\x78']=0x0,playerSoldier[_0x3629e4(0x840)][_0x3629e4(0x8a6)][_0x3629e4(0x2d5)](0x0,0.55,0x0),playerSoldier[_0x3629e4(0x750)][_0x3629e4(0x8a6)][_0x3629e4(0x2d5)](0x0,1.05,0x0),playerSoldier[_0x3629e4(0x750)][_0x3629e4(0x14f)]['\x78']=0x0,playerSoldier[_0x3629e4(0x63e)][_0x3629e4(0x8a6)][_0x3629e4(0x2d5)](-0.38,0.85,0x0),playerSoldier[_0x3629e4(0x500)]['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x73\x65\x74'](0.38,0.85,0x0),playerSoldier[_0x3629e4(0x79e)][_0x3629e4(0x8a6)]['\x73\x65\x74'](-0.16,0.3,0x0),playerSoldier['\x72\x69\x67\x68\x74\x4c\x65\x67'][_0x3629e4(0x8a6)][_0x3629e4(0x2d5)](0.16,0.3,0x0);playerSoldier[_0x3629e4(0x70a)]&&(playerSoldier[_0x3629e4(0x70a)]['\x70\x6f\x73\x69\x74\x69\x6f\x6e'][_0x3629e4(0x2d5)](0x0,0.55,0.16),playerSoldier['\x62\x61\x63\x6b\x70\x61\x63\x6b\x47\x72\x6f\x75\x70'][_0x3629e4(0x14f)]['\x78']=0x0);playerSoldier[_0x3629e4(0x5d2)]&&(playerSoldier['\x70\x61\x72\x61\x63\x68\x75\x74\x65\x42\x61\x67'][_0x3629e4(0x8a6)][_0x3629e4(0x2d5)](0x0,0.55,0.16),playerSoldier[_0x3629e4(0x5d2)][_0x3629e4(0x14f)]['\x78']=0x0);playerSoldier[_0x3629e4(0x86b)][_0x3629e4(0x14f)]['\x78']=0x1,playerSoldier[_0x3629e4(0x331)]['\x72\x6f\x74\x61\x74\x69\x6f\x6e']['\x78']=0x1,playerSoldier[_0x3629e4(0x1ea)]['\x72\x6f\x74\x61\x74\x69\x6f\x6e']['\x78']=-1.5,playerSoldier[_0x3629e4(0x659)][_0x3629e4(0x14f)]['\x78']=-1.5;const _0x155830=_0x14abc9[_0x3629e4(0x704)](_0x14abc9[_0x3629e4(0x546)](Math['\x73\x69\x6e'](bobbingTime),0.35),bobIntensity);playerSoldier['\x6c\x65\x66\x74\x54\x68\x69\x67\x68'][_0x3629e4(0x14f)]['\x78']+=_0x155830,playerSoldier[_0x3629e4(0x331)][_0x3629e4(0x14f)]['\x78']-=_0x155830;if(currentWeapon!==WEAPONS['\x50\x55\x4e\x43\x48']){const _0x5e9e53=new a0_0xe98f69[(_0x3629e4(0x210))](0x0,0x0,0x0,_0x14abc9[_0x3629e4(0x71c)])['\x73\x65\x74\x46\x72\x6f\x6d\x51\x75\x61\x74\x65\x72\x6e\x69\x6f\x6e'](camera['\x71\x75\x61\x74\x65\x72\x6e\x69\x6f\x6e']);playerSoldier[_0x3629e4(0x500)][_0x3629e4(0x14f)]['\x78']=_0x14abc9[_0x3629e4(0x788)](Math['\x50\x49'],0x2)+_0x5e9e53['\x78'],_0x14abc9['\x75\x48\x62\x43\x55'](currentWeapon[_0x3629e4(0x74e)],'\uad8c\ucd1d')?(playerSoldier[_0x3629e4(0x63e)][_0x3629e4(0x14f)]['\x78']=_0x14abc9['\x52\x66\x67\x79\x71'](Math['\x50\x49']/0x2,_0x5e9e53['\x78']),playerSoldier['\x6c\x65\x66\x74\x41\x72\x6d']['\x72\x6f\x74\x61\x74\x69\x6f\x6e']['\x79']=0.4,playerSoldier[_0x3629e4(0x63e)][_0x3629e4(0x8a6)]['\x73\x65\x74'](-0.25,0.85,-0.1)):(playerSoldier['\x6c\x65\x66\x74\x41\x72\x6d'][_0x3629e4(0x14f)]['\x78']=_0x14abc9[_0x3629e4(0x42c)](1.1,_0x5e9e53['\x78']*0.5),playerSoldier['\x6c\x65\x66\x74\x41\x72\x6d'][_0x3629e4(0x14f)]['\x79']=-0.4,playerSoldier[_0x3629e4(0x63e)][_0x3629e4(0x8a6)][_0x3629e4(0x2d5)](-0.35,0.8,-0.2));}else playerSoldier[_0x3629e4(0x63e)]['\x72\x6f\x74\x61\x74\x69\x6f\x6e']['\x78']=_0x14abc9[_0x3629e4(0x4fa)](_0x155830,0.6),playerSoldier[_0x3629e4(0x500)][_0x3629e4(0x14f)]['\x78']=_0x14abc9[_0x3629e4(0x166)](-_0x155830,0.6),playerSoldier['\x6c\x65\x66\x74\x41\x72\x6d']['\x72\x6f\x74\x61\x74\x69\x6f\x6e']['\x79']=0x0,playerSoldier[_0x3629e4(0x500)]['\x72\x6f\x74\x61\x74\x69\x6f\x6e']['\x79']=0x0;}else{playerSoldier[_0x3629e4(0x840)]['\x72\x6f\x74\x61\x74\x69\x6f\x6e']['\x78']=0x0,playerSoldier[_0x3629e4(0x840)][_0x3629e4(0x8a6)]['\x73\x65\x74'](0x0,0.95,0x0),playerSoldier['\x68\x65\x61\x64\x47\x72\x6f\x75\x70'][_0x3629e4(0x8a6)][_0x3629e4(0x2d5)](0x0,1.45,0x0),playerSoldier[_0x3629e4(0x750)][_0x3629e4(0x14f)]['\x78']=0x0,playerSoldier[_0x3629e4(0x63e)][_0x3629e4(0x8a6)][_0x3629e4(0x2d5)](-0.38,1.25,0x0),playerSoldier[_0x3629e4(0x500)][_0x3629e4(0x8a6)][_0x3629e4(0x2d5)](0.38,1.25,0x0),playerSoldier[_0x3629e4(0x79e)][_0x3629e4(0x8a6)][_0x3629e4(0x2d5)](-0.16,0.6,0x0),playerSoldier['\x72\x69\x67\x68\x74\x4c\x65\x67'][_0x3629e4(0x8a6)][_0x3629e4(0x2d5)](0.16,0.6,0x0);playerSoldier[_0x3629e4(0x70a)]&&(playerSoldier[_0x3629e4(0x70a)][_0x3629e4(0x8a6)]['\x73\x65\x74'](0x0,0.95,0.16),playerSoldier[_0x3629e4(0x70a)]['\x72\x6f\x74\x61\x74\x69\x6f\x6e']['\x78']=0x0);playerSoldier[_0x3629e4(0x5d2)]&&(playerSoldier[_0x3629e4(0x5d2)]['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x73\x65\x74'](0x0,0.95,0.16),playerSoldier[_0x3629e4(0x5d2)]['\x72\x6f\x74\x61\x74\x69\x6f\x6e']['\x78']=0x0);const _0x4115f0=_0x14abc9[_0x3629e4(0x477)](_0x14abc9['\x4f\x6e\x65\x52\x54'](Math[_0x3629e4(0x19e)](bobbingTime),0.6),bobIntensity);playerSoldier['\x6c\x65\x66\x74\x54\x68\x69\x67\x68'][_0x3629e4(0x14f)]['\x78']=-_0x4115f0,playerSoldier['\x72\x69\x67\x68\x74\x54\x68\x69\x67\x68'][_0x3629e4(0x14f)]['\x78']=_0x4115f0,playerSoldier[_0x3629e4(0x1ea)][_0x3629e4(0x14f)]['\x78']=_0x14abc9[_0x3629e4(0x227)](_0x4115f0,0x0)?-_0x4115f0*1.2:0x0,playerSoldier['\x72\x69\x67\x68\x74\x4b\x6e\x65\x65']['\x72\x6f\x74\x61\x74\x69\x6f\x6e']['\x78']=_0x14abc9[_0x3629e4(0x4d6)](_0x4115f0,0x0)?_0x4115f0*1.2:0x0;if(playerRecoilTime>0x0)playerRecoilTime-=_0x3a9af6;const _0x356052=playerRecoilTime>0x0?0.3:0x0;if(_0x14abc9[_0x3629e4(0x323)](playerPunchTime,0x0)){playerPunchTime-=_0x3a9af6;const _0x1a9916=new a0_0xe98f69['\x45\x75\x6c\x65\x72'](0x0,0x0,0x0,_0x14abc9[_0x3629e4(0x71c)])['\x73\x65\x74\x46\x72\x6f\x6d\x51\x75\x61\x74\x65\x72\x6e\x69\x6f\x6e'](camera[_0x3629e4(0x1fe)]);_0x14abc9[_0x3629e4(0x7cd)](punchSide,_0x3629e4(0x8bc))?(playerSoldier[_0x3629e4(0x63e)]['\x72\x6f\x74\x61\x74\x69\x6f\x6e']['\x78']=_0x14abc9['\x5a\x67\x45\x54\x6b'](_0x14abc9[_0x3629e4(0x324)](_0x14abc9['\x77\x5a\x4d\x41\x4e'](Math['\x50\x49'],0x2),0.5),_0x1a9916['\x78']),playerSoldier[_0x3629e4(0x500)][_0x3629e4(0x14f)]['\x78']=0x0):(playerSoldier[_0x3629e4(0x500)]['\x72\x6f\x74\x61\x74\x69\x6f\x6e']['\x78']=_0x14abc9[_0x3629e4(0x802)](Math['\x50\x49']/0x2+0.5,_0x1a9916['\x78']),playerSoldier[_0x3629e4(0x63e)][_0x3629e4(0x14f)]['\x78']=0x0),playerSoldier['\x6c\x65\x66\x74\x41\x72\x6d'][_0x3629e4(0x14f)]['\x79']=0x0,playerSoldier[_0x3629e4(0x500)][_0x3629e4(0x14f)]['\x79']=0x0;}else{if(_0x14abc9[_0x3629e4(0x698)](currentWeapon,WEAPONS['\x50\x55\x4e\x43\x48'])){const _0x3f8804=new a0_0xe98f69['\x45\x75\x6c\x65\x72'](0x0,0x0,0x0,'\x59\x58\x5a')[_0x3629e4(0x314)](camera[_0x3629e4(0x1fe)]);playerSoldier['\x72\x69\x67\x68\x74\x41\x72\x6d'][_0x3629e4(0x14f)]['\x78']=_0x14abc9[_0x3629e4(0x50b)](_0x14abc9[_0x3629e4(0x60a)](_0x14abc9[_0x3629e4(0x32c)](Math['\x50\x49'],0x2),_0x3f8804['\x78']),_0x356052),_0x14abc9[_0x3629e4(0x45c)](currentWeapon['\x6e\x61\x6d\x65'],'\uad8c\ucd1d')?(playerSoldier[_0x3629e4(0x63e)][_0x3629e4(0x14f)]['\x78']=_0x14abc9[_0x3629e4(0x60a)](Math['\x50\x49']/0x2,_0x3f8804['\x78']),playerSoldier[_0x3629e4(0x63e)][_0x3629e4(0x14f)]['\x79']=0.4,playerSoldier[_0x3629e4(0x63e)]['\x70\x6f\x73\x69\x74\x69\x6f\x6e'][_0x3629e4(0x2d5)](-0.25,1.25,-0.1)):(playerSoldier['\x6c\x65\x66\x74\x41\x72\x6d'][_0x3629e4(0x14f)]['\x78']=1.1+_0x14abc9[_0x3629e4(0x36f)](_0x3f8804['\x78'],0.5),playerSoldier[_0x3629e4(0x63e)]['\x72\x6f\x74\x61\x74\x69\x6f\x6e']['\x79']=-0.4,playerSoldier[_0x3629e4(0x63e)][_0x3629e4(0x8a6)][_0x3629e4(0x2d5)](-0.35,1.2,-0.2));}else playerSoldier['\x6c\x65\x66\x74\x41\x72\x6d']['\x72\x6f\x74\x61\x74\x69\x6f\x6e']['\x78']=_0x4115f0*0.8,playerSoldier[_0x3629e4(0x500)][_0x3629e4(0x14f)]['\x78']=_0x14abc9[_0x3629e4(0x390)](-_0x4115f0,0.8),playerSoldier['\x6c\x65\x66\x74\x41\x72\x6d'][_0x3629e4(0x14f)]['\x79']=0x0,playerSoldier[_0x3629e4(0x500)]['\x72\x6f\x74\x61\x74\x69\x6f\x6e']['\x79']=0x0;}}}}}}const _0x36bd08=isZooming&&_0x14abc9[_0x3629e4(0x290)](currentScope,SCOPES[_0x3629e4(0x878)])&&currentWeapon!==WEAPONS[_0x3629e4(0x181)];ironSightWeight+=_0x14abc9[_0x3629e4(0x5b6)](_0x14abc9[_0x3629e4(0x188)](_0x36bd08?0x1:-0x1,0xf),_0x3a9af6),ironSightWeight=Math[_0x3629e4(0x57a)](0x0,Math[_0x3629e4(0x19c)](0x1,ironSightWeight));if(!isTPP||isZooming){const _0xca4128=_0x14abc9[_0x3629e4(0x5a4)](currentEyeY,1.25);let _0x17e83d=0.15,_0x37e442=_0x14abc9[_0x3629e4(0x63a)](_0xca4128,0.2),_0x35b723=-0.3;ironSightWeight>0x0&&(_0x17e83d=a0_0xe98f69['\x4d\x61\x74\x68\x55\x74\x69\x6c\x73']['\x6c\x65\x72\x70'](_0x17e83d,-0.22,ironSightWeight),_0x37e442=a0_0xe98f69[_0x3629e4(0x53d)]['\x6c\x65\x72\x70'](_0x37e442,_0x14abc9[_0x3629e4(0x6a3)](_0xca4128,0.38),ironSightWeight),_0x35b723=a0_0xe98f69[_0x3629e4(0x53d)]['\x6c\x65\x72\x70'](_0x35b723,-0.45,ironSightWeight),playerSoldier[_0x3629e4(0x500)][_0x3629e4(0x14f)]['\x78']-=_0x14abc9['\x5a\x44\x51\x4d\x74'](0.18,ironSightWeight));const _0x5cab2d=_0x14abc9['\x59\x58\x66\x45\x62'](playerRecoilTime,0x0)?_0x14abc9[_0x3629e4(0x654)](_0x14abc9[_0x3629e4(0x624)](playerRecoilTime,0.15),0.16):0x0;playerSoldier['\x72\x69\x67\x68\x74\x41\x72\x6d'][_0x3629e4(0x8a6)]['\x78']+=_0x17e83d,playerSoldier[_0x3629e4(0x500)][_0x3629e4(0x8a6)]['\x79']+=_0x37e442,playerSoldier[_0x3629e4(0x500)]['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x7a']+=_0x14abc9[_0x3629e4(0x63d)](_0x35b723,_0x5cab2d),playerSoldier['\x6c\x65\x66\x74\x41\x72\x6d'][_0x3629e4(0x8a6)]['\x78']+=_0x14abc9[_0x3629e4(0x60a)](_0x14abc9[_0x3629e4(0x5e3)](0.25,0x1-ironSightWeight),_0x14abc9[_0x3629e4(0x247)](0.12,ironSightWeight)),playerSoldier[_0x3629e4(0x63e)][_0x3629e4(0x8a6)]['\x79']+=_0x14abc9[_0x3629e4(0x131)](_0x14abc9[_0x3629e4(0x4f2)](_0xca4128,0.2),_0x14abc9[_0x3629e4(0x363)](0x1,ironSightWeight))+(_0xca4128-0.32)*ironSightWeight,playerSoldier[_0x3629e4(0x63e)][_0x3629e4(0x8a6)]['\x7a']+=_0x14abc9[_0x3629e4(0x625)](_0x14abc9[_0x3629e4(0x3d9)](-0.2,_0x14abc9[_0x3629e4(0x194)](0x1,ironSightWeight))-0.4*ironSightWeight,_0x5cab2d);}const _0xca048a=new a0_0xe98f69[(_0x3629e4(0x210))](0x0,0x0,0x0,_0x14abc9[_0x3629e4(0x71c)])[_0x3629e4(0x314)](camera['\x71\x75\x61\x74\x65\x72\x6e\x69\x6f\x6e']);_0xca048a['\x7a']=0x0,camera['\x71\x75\x61\x74\x65\x72\x6e\x69\x6f\x6e'][_0x3629e4(0x63f)](_0xca048a);const _0x1915b6=_0x14abc9[_0x3629e4(0x1df)](playerStance,_0x14abc9[_0x3629e4(0x81a)])||_0x14abc9['\x59\x4d\x4c\x78\x4d'](gameState,_0x14abc9[_0x3629e4(0x37f)])?0x0:_0x14abc9['\x6c\x63\x42\x41\x73'](leanState[_0x3629e4(0x774)]?-0x1:0x0,leanState[_0x3629e4(0x13e)]?0x1:0x0);currentLean+=_0x14abc9[_0x3629e4(0x5e5)](_0x14abc9['\x44\x47\x51\x7a\x44'](_0x1915b6-currentLean,0xa),_0x3a9af6);if(_0x14abc9[_0x3629e4(0x5b0)](gameState,_0x14abc9[_0x3629e4(0x37f)])){playerSoldier[_0x3629e4(0x750)][_0x3629e4(0x14f)]['\x7a']=-currentLean*0.15;if(playerSoldier[_0x3629e4(0x840)])playerSoldier[_0x3629e4(0x840)]['\x72\x6f\x74\x61\x74\x69\x6f\x6e']['\x7a']=_0x14abc9[_0x3629e4(0x729)](-currentLean,0.1);}else{playerSoldier['\x68\x65\x61\x64\x47\x72\x6f\x75\x70'][_0x3629e4(0x14f)]['\x7a']=0x0;if(playerSoldier[_0x3629e4(0x840)])playerSoldier[_0x3629e4(0x840)][_0x3629e4(0x14f)]['\x7a']=0x0;}const _0x657ad0=_0x14abc9[_0x3629e4(0x6b4)](playerStance,_0x3629e4(0x51a))?1.5:_0x14abc9[_0x3629e4(0x6be)](playerStance,_0x14abc9[_0x3629e4(0x805)])?0.9:0.25,_0x32e4cc=playerStance===_0x14abc9[_0x3629e4(0x417)]?1.6:playerStance===_0x3629e4(0x3ce)?0x1:0.4;currentEyeY+=_0x14abc9[_0x3629e4(0x2e0)](_0x14abc9[_0x3629e4(0x3c9)](_0x14abc9[_0x3629e4(0x39d)](_0x657ad0,currentEyeY),0xa),_0x3a9af6),currentTppY+=_0x14abc9[_0x3629e4(0x2e0)](_0x14abc9[_0x3629e4(0x114)](_0x14abc9[_0x3629e4(0x1d3)](_0x32e4cc,currentTppY),0xa),_0x3a9af6);if(_0x14abc9[_0x3629e4(0x832)](isTPP,!isZooming)){myPlayerGroup[_0x3629e4(0x7cf)]=!![],playerSoldier['\x68\x65\x61\x64\x47\x72\x6f\x75\x70'][_0x3629e4(0x7cf)]=!![],playerSoldier[_0x3629e4(0x840)]['\x76\x69\x73\x69\x62\x6c\x65']=!![];if(playerSoldier[_0x3629e4(0x70a)])playerSoldier[_0x3629e4(0x70a)]['\x76\x69\x73\x69\x62\x6c\x65']=!![];myPlayerGroup[_0x3629e4(0x8a6)][_0x3629e4(0x6a0)](playerPos),myPlayerGroup[_0x3629e4(0x8a6)]['\x79']+=_0x14abc9[_0x3629e4(0x780)](_0x47201f,playerPos['\x78'],playerPos['\x7a']),myPlayerGroup[_0x3629e4(0x14f)]['\x79']=new a0_0xe98f69['\x45\x75\x6c\x65\x72']()[_0x3629e4(0x314)](camera[_0x3629e4(0x1fe)],_0x14abc9[_0x3629e4(0x71c)])['\x79'];const _0x41c9af=new a0_0xe98f69[(_0x3629e4(0x691))](_0x14abc9[_0x3629e4(0x625)](0.6,_0x14abc9[_0x3629e4(0x501)](currentLean,0.5)),_0x14abc9[_0x3629e4(0xeb)](currentTppY,_0x4d991b),3.5);_0x41c9af[_0x3629e4(0x2da)](camera[_0x3629e4(0x1fe)]),camera[_0x3629e4(0x8a6)][_0x3629e4(0x6a0)](playerPos)['\x61\x64\x64'](_0x41c9af),camera[_0x3629e4(0x1fe)][_0x3629e4(0x8aa)](new a0_0xe98f69[(_0x3629e4(0x632))]()[_0x3629e4(0x7ec)](new a0_0xe98f69[(_0x3629e4(0x691))](0x0,0x0,0x1),_0x14abc9[_0x3629e4(0x6f7)](-currentLean,0.08)));}else{const _0x2f8e3c=new a0_0xe98f69[(_0x3629e4(0x691))](0x1,0x0,0x0)['\x61\x70\x70\x6c\x79\x51\x75\x61\x74\x65\x72\x6e\x69\x6f\x6e'](camera['\x71\x75\x61\x74\x65\x72\x6e\x69\x6f\x6e'])[_0x3629e4(0x1a6)](_0x14abc9[_0x3629e4(0x5e3)](currentLean,0.45));camera[_0x3629e4(0x8a6)][_0x3629e4(0x6a0)](playerPos)[_0x3629e4(0x5bf)](new a0_0xe98f69[(_0x3629e4(0x691))](0x0,_0x14abc9['\x5a\x63\x73\x5a\x5a'](currentEyeY,_0x4d991b),0x0))[_0x3629e4(0x5bf)](_0x2f8e3c),camera[_0x3629e4(0x1fe)][_0x3629e4(0x8aa)](new a0_0xe98f69[(_0x3629e4(0x632))]()[_0x3629e4(0x7ec)](new a0_0xe98f69['\x56\x65\x63\x74\x6f\x72\x33'](0x0,0x0,0x1),_0x14abc9[_0x3629e4(0x28d)](-currentLean,0.08)));if(isZooming&&_0x14abc9[_0x3629e4(0x50c)](currentScope,SCOPES[_0x3629e4(0x878)]))myPlayerGroup[_0x3629e4(0x7cf)]=![];else{const _0x219d18=_0x14abc9[_0x3629e4(0x21e)]['\x73\x70\x6c\x69\x74']('\x7c');let _0x53edd5=0x0;while(!![]){switch(_0x219d18[_0x53edd5++]){case'\x30':playerSoldier['\x68\x65\x61\x64\x47\x72\x6f\x75\x70']['\x76\x69\x73\x69\x62\x6c\x65']=![];continue;case'\x31':myPlayerGroup[_0x3629e4(0x8a6)]['\x79']+=_0x14abc9[_0x3629e4(0x780)](_0x47201f,playerPos['\x78'],playerPos['\x7a']);continue;case'\x32':if(playerSoldier['\x62\x61\x63\x6b\x70\x61\x63\x6b\x47\x72\x6f\x75\x70'])playerSoldier['\x62\x61\x63\x6b\x70\x61\x63\x6b\x47\x72\x6f\x75\x70'][_0x3629e4(0x7cf)]=![];continue;case'\x33':myPlayerGroup['\x76\x69\x73\x69\x62\x6c\x65']=!![];continue;case'\x34':playerSoldier[_0x3629e4(0x840)][_0x3629e4(0x7cf)]=![];continue;case'\x35':myPlayerGroup[_0x3629e4(0x8a6)][_0x3629e4(0x6a0)](playerPos);continue;case'\x36':myPlayerGroup['\x72\x6f\x74\x61\x74\x69\x6f\x6e']['\x79']=new a0_0xe98f69['\x45\x75\x6c\x65\x72']()[_0x3629e4(0x314)](camera[_0x3629e4(0x1fe)],_0x3629e4(0x4bc))['\x79'];continue;}break;}}}_0x14abc9['\x68\x4a\x51\x6d\x64'](updateSoldierJoints,playerSoldier);let _0x34332f=![];if(!hasWonMatch){if(zoneState===_0x14abc9[_0x3629e4(0x53a)]){currentZoneRadius-=_0x14abc9[_0x3629e4(0x266)](shrinkSpeed,_0x3a9af6);if(_0x14abc9[_0x3629e4(0xe0)](currentZoneRadius,playZoneRadius))currentZoneRadius=playZoneRadius;zoneMesh[_0x3629e4(0x7ef)][_0x3629e4(0x2d5)](_0x14abc9['\x49\x69\x41\x6b\x49'](currentZoneRadius,0x1f4),0x1,_0x14abc9[_0x3629e4(0x5a0)](currentZoneRadius,0x1f4));}_0x14abc9['\x71\x77\x55\x45\x65'](Math[_0x3629e4(0x16d)](_0x14abc9[_0x3629e4(0x37a)](_0x14abc9[_0x3629e4(0x334)](playerPos['\x78'],0x2),_0x14abc9[_0x3629e4(0x334)](playerPos['\x7a'],0x2))),currentZoneRadius)&&(_0x14abc9[_0x3629e4(0x8ca)](updatePlayerHp,-0x3*_0x3a9af6,null),_0x34332f=!![]);}else{if(zoneMesh[_0x3629e4(0x7cf)])zoneMesh['\x76\x69\x73\x69\x62\x6c\x65']=![];}const _0x287895=document[_0x3629e4(0x6ac)](_0x14abc9['\x57\x6e\x46\x42\x70']);_0x287895&&(_0x34332f&&gameState===_0x14abc9[_0x3629e4(0x37f)]?(_0x287895[_0x3629e4(0x570)][_0x3629e4(0x2bf)]=_0x14abc9[_0x3629e4(0x3cb)],_0x287895['\x73\x74\x79\x6c\x65'][_0x3629e4(0x73f)]=_0x3629e4(0x5cc)):(_0x287895[_0x3629e4(0x570)]['\x64\x69\x73\x70\x6c\x61\x79']=_0x14abc9[_0x3629e4(0x609)],_0x287895['\x73\x74\x79\x6c\x65'][_0x3629e4(0x73f)]=_0x14abc9[_0x3629e4(0x609)]));let _0x53dd70=![];for(let _0xcca2ee=0x0;_0x14abc9['\x63\x4e\x61\x5a\x5a'](_0xcca2ee,lootBoxes[_0x3629e4(0x88b)]);_0xcca2ee++){if(_0x14abc9[_0x3629e4(0x82f)](playerPos[_0x3629e4(0x3cf)](lootBoxes[_0xcca2ee][_0x3629e4(0x48f)][_0x3629e4(0x8a6)]),3.5)){_0x53dd70=!![];break;}}_0x53dd70?(!isInventoryOpen&&(document[_0x3629e4(0x6ac)](_0x3629e4(0x26d))['\x73\x74\x79\x6c\x65'][_0x3629e4(0x2bf)]=_0x3629e4(0x87b)),isInventoryOpen&&_0x14abc9[_0x3629e4(0x17a)](Math[_0x3629e4(0x81e)](),0.05)&&_0x14abc9[_0x3629e4(0x29a)](updateInventoryUI)):document['\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64'](_0x14abc9[_0x3629e4(0x4c0)])['\x73\x74\x79\x6c\x65'][_0x3629e4(0x2bf)]=_0x14abc9[_0x3629e4(0x609)];if(isTouchDevice){const _0x4436dd=document[_0x3629e4(0x6ac)](_0x14abc9[_0x3629e4(0x518)]);if(_0x4436dd){let _0x143cae=null,_0x1317ff=2.5;doorsList[_0x3629e4(0x64b)](_0x364df3=>{const _0x4ac390=_0x3629e4,_0x2186bc=playerPos[_0x4ac390(0x3cf)](_0x364df3[_0x4ac390(0x41f)]);_0x14abc9[_0x4ac390(0x7d7)](_0x2186bc,_0x1317ff)&&(_0x143cae=_0x364df3,_0x1317ff=_0x2186bc);});if(_0x143cae)_0x4436dd[_0x3629e4(0x570)][_0x3629e4(0x2bf)]=_0x3629e4(0x5dc),_0x4436dd[_0x3629e4(0x2d8)]=_0x143cae[_0x3629e4(0x7e5)]?'\ud83d\udeaa\x20\ub2eb\uae30':_0x14abc9[_0x3629e4(0x2f0)];else _0x53dd70?(_0x4436dd['\x73\x74\x79\x6c\x65'][_0x3629e4(0x2bf)]=_0x14abc9[_0x3629e4(0x711)],_0x4436dd[_0x3629e4(0x2d8)]='\ud83d\udce6\x20\uc90d\uae30'):_0x4436dd[_0x3629e4(0x570)][_0x3629e4(0x2bf)]=_0x14abc9['\x72\x66\x45\x55\x72'];}}}}}}enemies[_0x3629e4(0x64b)](_0x1a9a4a=>{const _0x45a255=_0x3629e4,_0x48258d={'\x77\x6b\x55\x46\x56':function(_0x42587f,_0x2f88b8){return _0x14abc9['\x4f\x76\x4a\x69\x46'](_0x42587f,_0x2f88b8);},'\x67\x6e\x70\x4b\x49':function(_0x9c5c48,_0x30dd3f){const _0x45c8e2=a0_0x4e57;return _0x14abc9[_0x45c8e2(0x528)](_0x9c5c48,_0x30dd3f);},'\x69\x41\x42\x71\x77':_0x14abc9[_0x45a255(0x37f)],'\x78\x57\x43\x58\x5a':function(_0x187e61,_0x1aae82){const _0x2a2391=_0x45a255;return _0x14abc9[_0x2a2391(0x69d)](_0x187e61,_0x1aae82);},'\x6a\x6d\x6b\x4d\x76':function(_0xb32374,_0x5ca9ac){return _0x14abc9['\x76\x71\x6d\x4c\x71'](_0xb32374,_0x5ca9ac);},'\x48\x4d\x4f\x6b\x71':function(_0x4988c1,_0x4cc432){const _0x2c0a09=_0x45a255;return _0x14abc9[_0x2c0a09(0x4d6)](_0x4988c1,_0x4cc432);},'\x7a\x4e\x54\x76\x49':function(_0x3d7bf8,_0x1fbbe0){const _0x1f6c67=_0x45a255;return _0x14abc9[_0x1f6c67(0x89a)](_0x3d7bf8,_0x1fbbe0);},'\x47\x63\x59\x57\x50':function(_0x4e3ffa,_0x16f089){return _0x14abc9['\x69\x75\x48\x6e\x64'](_0x4e3ffa,_0x16f089);},'\x67\x43\x55\x4c\x51':function(_0x2ea160,_0x1a19f0){const _0x458e53=_0x45a255;return _0x14abc9[_0x458e53(0x455)](_0x2ea160,_0x1a19f0);},'\x51\x63\x47\x64\x41':function(_0x3b5944,_0x2778d0){const _0x3aab3f=_0x45a255;return _0x14abc9[_0x3aab3f(0x770)](_0x3b5944,_0x2778d0);},'\x4e\x55\x69\x65\x47':function(_0x2f9839,_0x398197){return _0x14abc9['\x59\x54\x70\x73\x64'](_0x2f9839,_0x398197);},'\x52\x4f\x63\x48\x41':function(_0x4a95ae,_0x12b885){return _0x4a95ae>_0x12b885;},'\x72\x6b\x49\x65\x6f':function(_0x1a97d8,_0x309647){const _0x23b5e9=_0x45a255;return _0x14abc9[_0x23b5e9(0x89a)](_0x1a97d8,_0x309647);},'\x4f\x43\x41\x78\x65':function(_0x3719c6,_0x32b6ca){return _0x3719c6>_0x32b6ca;}};if(_0x14abc9[_0x45a255(0x3a3)](_0x1a9a4a['\x68\x70'],0x0))return;let _0x3269=![];if(_0x1a9a4a[_0x45a255(0x626)]===_0x14abc9[_0x45a255(0x37f)]&&_0x14abc9[_0x45a255(0x68e)](clock[_0x45a255(0x3b0)](),_0x1a9a4a['\x6c\x61\x73\x74\x48\x69\x74\x54\x69\x6d\x65'])<0x5){const _0x5df40e=_0x1a9a4a[_0x45a255(0x48f)][_0x45a255(0x8a6)][_0x45a255(0x31f)]()[_0x45a255(0x5bf)](new a0_0xe98f69[(_0x45a255(0x691))](0x0,2.2,0x0));_0x5df40e['\x70\x72\x6f\x6a\x65\x63\x74'](camera),_0x14abc9[_0x45a255(0x445)](_0x5df40e['\x7a'],0x1)?(_0x1a9a4a[_0x45a255(0x839)]['\x62\x67'][_0x45a255(0x570)][_0x45a255(0x2bf)]=_0x14abc9[_0x45a255(0x711)],_0x1a9a4a[_0x45a255(0x839)]['\x62\x67']['\x73\x74\x79\x6c\x65'][_0x45a255(0x774)]=_0x14abc9[_0x45a255(0x5ea)](_0x14abc9['\x4e\x77\x48\x45\x4c'](_0x5df40e['\x78'],0.5)+0.5,window[_0x45a255(0x641)])+'\x70\x78',_0x1a9a4a[_0x45a255(0x839)]['\x62\x67'][_0x45a255(0x570)][_0x45a255(0x51e)]=_0x14abc9[_0x45a255(0x50b)](_0x14abc9[_0x45a255(0x75e)](_0x14abc9[_0x45a255(0x42a)](_0x14abc9[_0x45a255(0x15a)](_0x5df40e['\x79'],-0.5),0.5),window[_0x45a255(0x126)]),'\x70\x78'),_0x1a9a4a[_0x45a255(0x839)][_0x45a255(0x387)][_0x45a255(0x570)]['\x77\x69\x64\x74\x68']=_0x14abc9['\x4c\x47\x61\x66\x51'](_0x14abc9[_0x45a255(0x455)](_0x14abc9[_0x45a255(0x2b2)](_0x1a9a4a['\x68\x70'],_0x1a9a4a[_0x45a255(0x785)]),0x64),'\x25')):_0x1a9a4a[_0x45a255(0x839)]['\x62\x67'][_0x45a255(0x570)][_0x45a255(0x2bf)]=_0x14abc9[_0x45a255(0x609)];}else _0x1a9a4a[_0x45a255(0x839)]['\x62\x67']['\x73\x74\x79\x6c\x65'][_0x45a255(0x2bf)]=_0x14abc9[_0x45a255(0x609)];if(_0x14abc9['\x79\x52\x71\x57\x6a'](_0x1a9a4a['\x73\x74\x61\x74\x65'],_0x14abc9[_0x45a255(0x376)])){_0x1a9a4a['\x6d\x65\x73\x68']['\x70\x6f\x73\x69\x74\x69\x6f\x6e'][_0x45a255(0x6a0)](planeGroup[_0x45a255(0x8a6)]),_0x1a9a4a['\x6d\x65\x73\x68'][_0x45a255(0x14f)][_0x45a255(0x6a0)](planeGroup[_0x45a255(0x14f)]),_0x1a9a4a[_0x45a255(0x48f)][_0x45a255(0x14f)]['\x79']+=Math['\x50\x49'];if(_0x14abc9['\x4c\x65\x62\x4c\x69'](flightTime,_0x1a9a4a[_0x45a255(0x20b)]))_0x1a9a4a[_0x45a255(0x626)]=_0x45a255(0x3ba);}else{if(_0x14abc9['\x47\x75\x72\x46\x4c'](_0x1a9a4a[_0x45a255(0x626)],_0x14abc9[_0x45a255(0x863)])){const _0x4b3066=Math[_0x45a255(0x16d)](_0x14abc9[_0x45a255(0x42c)](_0x14abc9[_0x45a255(0x76b)](_0x1a9a4a[_0x45a255(0x48f)]['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x78'],_0x1a9a4a[_0x45a255(0x48f)][_0x45a255(0x8a6)]['\x78']),_0x14abc9[_0x45a255(0x4fe)](_0x1a9a4a[_0x45a255(0x48f)]['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x7a'],_0x1a9a4a[_0x45a255(0x48f)][_0x45a255(0x8a6)]['\x7a'])));_0x4b3066>0xdc&&(_0x1a9a4a[_0x45a255(0x3b4)]=Math['\x61\x74\x61\x6e\x32'](-_0x1a9a4a['\x6d\x65\x73\x68'][_0x45a255(0x8a6)]['\x7a'],-_0x1a9a4a[_0x45a255(0x48f)]['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x78'])+_0x14abc9[_0x45a255(0x84b)](_0x14abc9[_0x45a255(0x649)](Math[_0x45a255(0x81e)](),0.5),0.4));_0x1a9a4a['\x6d\x65\x73\x68'][_0x45a255(0x8a6)]['\x79']-=_0x14abc9[_0x45a255(0x147)](0x14,_0x3a9af6);const _0x294b4a=_0x14abc9[_0x45a255(0x457)](_0x14abc9[_0x45a255(0x15f)](Math[_0x45a255(0x642)](_0x1a9a4a['\x64\x72\x69\x66\x74\x41\x6e\x67\x6c\x65']),_0x1a9a4a[_0x45a255(0x2a1)]),_0x3a9af6),_0x92b58e=_0x14abc9[_0x45a255(0x860)](_0x14abc9[_0x45a255(0x247)](Math[_0x45a255(0x19e)](_0x1a9a4a[_0x45a255(0x3b4)]),_0x1a9a4a[_0x45a255(0x2a1)]),_0x3a9af6);_0x1a9a4a[_0x45a255(0x48f)]['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x78']+=_0x294b4a,_0x1a9a4a['\x6d\x65\x73\x68'][_0x45a255(0x8a6)]['\x7a']+=_0x92b58e,_0x1a9a4a[_0x45a255(0x48f)][_0x45a255(0x14f)][_0x45a255(0x2d5)](_0x14abc9[_0x45a255(0x1dc)](-Math['\x50\x49'],0.45),_0x1a9a4a[_0x45a255(0x3b4)]+Math['\x50\x49'],0x0,_0x14abc9[_0x45a255(0x71c)]),_0x14abc9['\x51\x52\x68\x50\x58'](updateSkydivePose,_0x1a9a4a['\x73\x6f\x6c\x64\x69\x65\x72'],0x0,0x0,![]),_0x1a9a4a['\x6d\x65\x73\x68'][_0x45a255(0x8a6)]['\x79']<_0x14abc9[_0x45a255(0x42c)](_0x14abc9[_0x45a255(0x153)](getElevation,_0x1a9a4a[_0x45a255(0x48f)][_0x45a255(0x8a6)]['\x78'],_0x1a9a4a['\x6d\x65\x73\x68'][_0x45a255(0x8a6)]['\x7a'],_0x1a9a4a[_0x45a255(0x48f)]['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x79']),0x1e)&&(_0x1a9a4a['\x73\x74\x61\x74\x65']=_0x14abc9[_0x45a255(0x7d0)],_0x1a9a4a[_0x45a255(0x60f)]['\x76\x69\x73\x69\x62\x6c\x65']=!![]);}else{if(_0x14abc9[_0x45a255(0x219)](_0x1a9a4a[_0x45a255(0x626)],_0x14abc9['\x6f\x54\x55\x66\x46'])){_0x1a9a4a[_0x45a255(0x48f)]['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x79']-=0x7*_0x3a9af6;const _0x1be904=Math[_0x45a255(0x16d)](_0x14abc9['\x47\x4c\x4e\x63\x6b'](_0x1a9a4a[_0x45a255(0x48f)][_0x45a255(0x8a6)]['\x78'],_0x1a9a4a[_0x45a255(0x48f)]['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x78'])+_0x1a9a4a[_0x45a255(0x48f)][_0x45a255(0x8a6)]['\x7a']*_0x1a9a4a[_0x45a255(0x48f)]['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x7a']);_0x14abc9[_0x45a255(0x824)](_0x1be904,0xdc)&&(_0x1a9a4a['\x64\x72\x69\x66\x74\x41\x6e\x67\x6c\x65']=_0x14abc9[_0x45a255(0x150)](Math[_0x45a255(0x15d)](-_0x1a9a4a[_0x45a255(0x48f)][_0x45a255(0x8a6)]['\x7a'],-_0x1a9a4a['\x6d\x65\x73\x68'][_0x45a255(0x8a6)]['\x78']),_0x14abc9['\x4a\x4a\x71\x6d\x57'](Math[_0x45a255(0x81e)]()-0.5,0.4)));const _0x520fdf=_0x14abc9[_0x45a255(0x147)](Math[_0x45a255(0x19e)](clock['\x67\x65\x74\x45\x6c\x61\x70\x73\x65\x64\x54\x69\x6d\x65']()*4.2+_0x1a9a4a[_0x45a255(0x3b4)]),0.14),_0x32883e=_0x14abc9[_0x45a255(0x3db)](Math[_0x45a255(0x642)](_0x14abc9[_0x45a255(0x238)](_0x14abc9[_0x45a255(0x7f4)](clock[_0x45a255(0x3b0)](),3.2),_0x1a9a4a['\x64\x72\x69\x66\x74\x41\x6e\x67\x6c\x65'])),0.08);_0x1a9a4a[_0x45a255(0x48f)][_0x45a255(0x14f)]['\x78']=_0x520fdf,_0x1a9a4a[_0x45a255(0x48f)]['\x72\x6f\x74\x61\x74\x69\x6f\x6e']['\x7a']=_0x32883e,_0x1a9a4a[_0x45a255(0x60f)][_0x45a255(0x14f)]['\x78']=_0x14abc9[_0x45a255(0xff)](_0x520fdf,0.4),_0x1a9a4a[_0x45a255(0x60f)][_0x45a255(0x14f)]['\x7a']=_0x14abc9['\x4e\x43\x52\x6b\x72'](_0x32883e,0.4);const _0xbc1bf2=_0x14abc9[_0x45a255(0x860)](Math[_0x45a255(0x642)](_0x1a9a4a[_0x45a255(0x3b4)])*_0x14abc9[_0x45a255(0x455)](_0x1a9a4a[_0x45a255(0x2a1)],0.8),_0x3a9af6),_0x5c8d4e=_0x14abc9[_0x45a255(0x24e)](Math[_0x45a255(0x19e)](_0x1a9a4a['\x64\x72\x69\x66\x74\x41\x6e\x67\x6c\x65'])*_0x14abc9[_0x45a255(0x13a)](_0x1a9a4a[_0x45a255(0x2a1)],0.8),_0x3a9af6);_0x1a9a4a[_0x45a255(0x48f)][_0x45a255(0x8a6)]['\x78']+=_0xbc1bf2,_0x1a9a4a[_0x45a255(0x48f)]['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x7a']+=_0x5c8d4e,_0x1a9a4a[_0x45a255(0x48f)][_0x45a255(0x14f)]['\x79']=_0x14abc9[_0x45a255(0x42c)](_0x1a9a4a[_0x45a255(0x3b4)],Math['\x50\x49']),updateSkydivePose(_0x1a9a4a['\x73\x6f\x6c\x64\x69\x65\x72'],0x0,0x0,!![]);const _0x457c15=_0x14abc9[_0x45a255(0x5e0)](getElevation,_0x1a9a4a['\x6d\x65\x73\x68'][_0x45a255(0x8a6)]['\x78'],_0x1a9a4a[_0x45a255(0x48f)][_0x45a255(0x8a6)]['\x7a'],_0x1a9a4a[_0x45a255(0x48f)][_0x45a255(0x8a6)]['\x79']);if(_0x1a9a4a['\x6d\x65\x73\x68'][_0x45a255(0x8a6)]['\x79']<=_0x457c15){const _0x224d25=_0x45a255(0x2f8)[_0x45a255(0x696)]('\x7c');let _0x39d0ce=0x0;while(!![]){switch(_0x224d25[_0x39d0ce++]){case'\x30':if(_0x1a9a4a['\x62\x61\x67'])_0x1a9a4a[_0x45a255(0x127)][_0x45a255(0x2a4)](_0x1a9a4a[_0x45a255(0x4e5)]);continue;case'\x31':_0x1a9a4a[_0x45a255(0x48f)][_0x45a255(0x8a6)]['\x79']=_0x457c15;continue;case'\x32':_0x1a9a4a[_0x45a255(0x48f)][_0x45a255(0x14f)]['\x7a']=0x0;continue;case'\x33':_0x1a9a4a[_0x45a255(0x60f)][_0x45a255(0x7cf)]=![];continue;case'\x34':_0x1a9a4a['\x73\x74\x61\x74\x65']=_0x14abc9[_0x45a255(0x37f)];continue;case'\x35':_0x1a9a4a['\x6d\x65\x73\x68'][_0x45a255(0x14f)]['\x78']=0x0;continue;case'\x36':_0x1a9a4a[_0x45a255(0x127)][_0x45a255(0x5d2)][_0x45a255(0x7cf)]=![];continue;}break;}}}else{if(_0x14abc9[_0x45a255(0x7a6)](_0x1a9a4a['\x73\x74\x61\x74\x65'],_0x14abc9[_0x45a255(0x37f)])){_0x3269=_0x14abc9['\x79\x57\x4d\x52\x62'](getWaterLevel(_0x1a9a4a['\x6d\x65\x73\x68'][_0x45a255(0x8a6)]['\x78'],_0x1a9a4a[_0x45a255(0x48f)]['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x7a'])-_0x14abc9[_0x45a255(0x4cb)](getElevation,_0x1a9a4a[_0x45a255(0x48f)][_0x45a255(0x8a6)]['\x78'],_0x1a9a4a[_0x45a255(0x48f)]['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x7a'],![]),0.55);const _0x5f0739=Math[_0x45a255(0x16d)](_0x14abc9[_0x45a255(0x410)](_0x14abc9[_0x45a255(0x84f)](_0x1a9a4a[_0x45a255(0x48f)][_0x45a255(0x8a6)]['\x78'],0x2),_0x1a9a4a[_0x45a255(0x48f)]['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x7a']**0x2)),_0x56c86b=_0x14abc9[_0x45a255(0x588)](_0x5f0739,_0x14abc9[_0x45a255(0x4fb)](currentZoneRadius,0xa));if(_0x56c86b&&_0x14abc9[_0x45a255(0x323)](_0x1a9a4a['\x68\x70'],0x0)){_0x1a9a4a['\x68\x70']-=_0x14abc9[_0x45a255(0x5a5)](1.5,_0x3a9af6);if(_0x14abc9[_0x45a255(0x3a3)](_0x1a9a4a['\x68\x70'],0x0)){const _0x50abcf='\x31\x7c\x36\x7c\x33\x7c\x32\x7c\x35\x7c\x30\x7c\x34'[_0x45a255(0x696)]('\x7c');let _0x379715=0x0;while(!![]){switch(_0x50abcf[_0x379715++]){case'\x30':_0x14abc9[_0x45a255(0x29a)](checkVictory);continue;case'\x31':totalAlive--;continue;case'\x32':scene[_0x45a255(0x2b8)](_0x1a9a4a['\x6d\x65\x73\x68']);continue;case'\x33':_0x14abc9[_0x45a255(0x8a5)](spawnCorpseBox,_0x1a9a4a['\x6d\x65\x73\x68']['\x70\x6f\x73\x69\x74\x69\x6f\x6e'],_0x1a9a4a[_0x45a255(0x285)],_0x14abc9[_0x45a255(0x49f)](Math[_0x45a255(0x81e)](),0.5)?SCOPES['\x58\x32']:SCOPES[_0x45a255(0x878)],_0x1a9a4a['\x68\x65\x6c\x6d\x65\x74'],_0x1a9a4a['\x62\x61\x67']);continue;case'\x34':return;case'\x35':_0x1a9a4a['\x68\x70\x55\x49']['\x62\x67'][_0x45a255(0x570)][_0x45a255(0x2bf)]=_0x14abc9[_0x45a255(0x609)];continue;case'\x36':_0x14abc9['\x74\x72\x5a\x6a\x59'](addKillLog,_0x1a9a4a['\x69\x64']+_0x45a255(0x53e));continue;}break;}}}const _0x41156f=_0x14abc9[_0x45a255(0x51c)](Math[_0x45a255(0x19e)](_0x14abc9['\x77\x6a\x6c\x72\x7a'](clock[_0x45a255(0x3b0)](),0xc)),0.5);_0x1a9a4a['\x73\x6f\x6c\x64\x69\x65\x72'][_0x45a255(0x86b)][_0x45a255(0x14f)]['\x78']=_0x41156f,_0x1a9a4a['\x73\x6f\x6c\x64\x69\x65\x72'][_0x45a255(0x331)][_0x45a255(0x14f)]['\x78']=-_0x41156f,_0x1a9a4a[_0x45a255(0x127)][_0x45a255(0x1ea)][_0x45a255(0x14f)]['\x78']=_0x14abc9[_0x45a255(0x3d6)](_0x41156f,0x0)?_0x14abc9['\x6e\x75\x77\x77\x41'](_0x41156f,1.2):0x0,_0x1a9a4a[_0x45a255(0x127)][_0x45a255(0x659)][_0x45a255(0x14f)]['\x78']=-_0x41156f<0x0?_0x14abc9[_0x45a255(0x393)](-_0x41156f,1.2):0x0;let _0x4f0f77=null,_0x339990=0x0,_0x4877c5=null,_0xdc40d5=0x270f,_0x426cf9=null;if(_0x14abc9[_0x45a255(0x49f)](playerHp,0x0)){let _0x288370=![];for(let _0x43e53c of activeSmokeClouds){if(_0x14abc9[_0x45a255(0x7d7)](playerPos[_0x45a255(0x3cf)](_0x43e53c[_0x45a255(0x8ba)][_0x45a255(0x8a6)]),6.5)){_0x288370=!![];break;}const _0xa7e176=_0x43e53c[_0x45a255(0x8ba)][_0x45a255(0x8a6)][_0x45a255(0x3cf)](_0x1a9a4a['\x6d\x65\x73\x68'][_0x45a255(0x8a6)]);if(_0x14abc9[_0x45a255(0x18e)](_0xa7e176,0x4b)){const _0x565ac5=new a0_0xe98f69[(_0x45a255(0x691))]()[_0x45a255(0x107)](playerPos,_0x1a9a4a['\x6d\x65\x73\x68'][_0x45a255(0x8a6)]),_0x2a4e2f=new a0_0xe98f69['\x56\x65\x63\x74\x6f\x72\x33']()[_0x45a255(0x107)](_0x43e53c[_0x45a255(0x8ba)]['\x70\x6f\x73\x69\x74\x69\x6f\x6e'],_0x1a9a4a['\x6d\x65\x73\x68'][_0x45a255(0x8a6)]),_0x43ac8a=_0x2a4e2f[_0x45a255(0x2ce)](_0x565ac5[_0x45a255(0x31f)]()[_0x45a255(0x872)]());if(_0x43ac8a>0x0&&_0x14abc9[_0x45a255(0x17a)](_0x43ac8a,_0x565ac5['\x6c\x65\x6e\x67\x74\x68']())){const _0x59bb33=_0x1a9a4a[_0x45a255(0x48f)][_0x45a255(0x8a6)][_0x45a255(0x31f)]()[_0x45a255(0x42e)](_0x565ac5[_0x45a255(0x31f)]()[_0x45a255(0x872)](),_0x43ac8a);if(_0x14abc9[_0x45a255(0x69d)](_0x59bb33[_0x45a255(0x3cf)](_0x43e53c[_0x45a255(0x8ba)]['\x70\x6f\x73\x69\x74\x69\x6f\x6e']),6.5)){_0x288370=!![];break;}}}}!_0x288370&&(_0xdc40d5=_0x1a9a4a[_0x45a255(0x48f)][_0x45a255(0x8a6)]['\x64\x69\x73\x74\x61\x6e\x63\x65\x54\x6f'](playerPos),_0x426cf9=playerPos['\x63\x6c\x6f\x6e\x65']());}enemies['\x66\x6f\x72\x45\x61\x63\x68'](_0x266cb3=>{const _0x35a20a=_0x45a255;if(_0x48258d[_0x35a20a(0x5da)](_0x266cb3['\x69\x64'],_0x1a9a4a['\x69\x64'])&&_0x266cb3['\x68\x70']>0x0&&_0x48258d[_0x35a20a(0x8ad)](_0x266cb3[_0x35a20a(0x626)],_0x48258d[_0x35a20a(0x580)])){let _0x2af380=![];for(let _0x3e49ac of activeSmokeClouds){if(_0x48258d[_0x35a20a(0x2a6)](_0x266cb3[_0x35a20a(0x48f)][_0x35a20a(0x8a6)][_0x35a20a(0x3cf)](_0x3e49ac[_0x35a20a(0x8ba)][_0x35a20a(0x8a6)]),6.5)){_0x2af380=!![];break;}const _0xbd26b=_0x3e49ac[_0x35a20a(0x8ba)][_0x35a20a(0x8a6)]['\x64\x69\x73\x74\x61\x6e\x63\x65\x54\x6f'](_0x1a9a4a[_0x35a20a(0x48f)]['\x70\x6f\x73\x69\x74\x69\x6f\x6e']);if(_0x48258d[_0x35a20a(0x2a6)](_0xbd26b,0x4b)){const _0x53ef2c=new a0_0xe98f69[(_0x35a20a(0x691))]()[_0x35a20a(0x107)](_0x266cb3['\x6d\x65\x73\x68'][_0x35a20a(0x8a6)],_0x1a9a4a[_0x35a20a(0x48f)]['\x70\x6f\x73\x69\x74\x69\x6f\x6e']),_0x3d2653=new a0_0xe98f69[(_0x35a20a(0x691))]()['\x73\x75\x62\x56\x65\x63\x74\x6f\x72\x73'](_0x3e49ac[_0x35a20a(0x8ba)]['\x70\x6f\x73\x69\x74\x69\x6f\x6e'],_0x1a9a4a['\x6d\x65\x73\x68'][_0x35a20a(0x8a6)]),_0x11cde6=_0x3d2653['\x64\x6f\x74'](_0x53ef2c['\x63\x6c\x6f\x6e\x65']()['\x6e\x6f\x72\x6d\x61\x6c\x69\x7a\x65']());if(_0x48258d[_0x35a20a(0x610)](_0x11cde6,0x0)&&_0x48258d['\x48\x4d\x4f\x6b\x71'](_0x11cde6,_0x53ef2c[_0x35a20a(0x88b)]())){const _0x5f2dda=_0x1a9a4a[_0x35a20a(0x48f)]['\x70\x6f\x73\x69\x74\x69\x6f\x6e'][_0x35a20a(0x31f)]()['\x61\x64\x64\x53\x63\x61\x6c\x65\x64\x56\x65\x63\x74\x6f\x72'](_0x53ef2c[_0x35a20a(0x31f)]()[_0x35a20a(0x872)](),_0x11cde6);if(_0x48258d[_0x35a20a(0x630)](_0x5f2dda[_0x35a20a(0x3cf)](_0x3e49ac['\x67\x72\x6f\x75\x70']['\x70\x6f\x73\x69\x74\x69\x6f\x6e']),6.5)){_0x2af380=!![];break;}}}}if(!_0x2af380){const _0x4f73a0=_0x1a9a4a['\x6d\x65\x73\x68'][_0x35a20a(0x8a6)][_0x35a20a(0x3cf)](_0x266cb3[_0x35a20a(0x48f)]['\x70\x6f\x73\x69\x74\x69\x6f\x6e']);_0x48258d['\x7a\x4e\x54\x76\x49'](_0x4f73a0,_0xdc40d5)&&(_0xdc40d5=_0x4f73a0,_0x426cf9=_0x266cb3[_0x35a20a(0x48f)]['\x70\x6f\x73\x69\x74\x69\x6f\x6e'][_0x35a20a(0x31f)]());}}});const _0x3f8778=_0x1a9a4a['\x74\x69\x65\x72']===_0x45a255(0x240)?0x37:_0x14abc9[_0x45a255(0x8a9)](_0x1a9a4a['\x74\x69\x65\x72'],_0x14abc9['\x54\x47\x65\x47\x6d'])?0x55:0x78,_0x2a7d6c=_0x426cf9&&_0xdc40d5<_0x3f8778&&_0x14abc9[_0x45a255(0x427)](_0x1a9a4a[_0x45a255(0x285)],WEAPONS[_0x45a255(0x181)]),_0x517815=_0x56c86b||_0x5f0739>_0x14abc9[_0x45a255(0x593)](currentZoneRadius,0.75)||_0x14abc9[_0x45a255(0x219)](zoneState,_0x45a255(0x287))&&_0x5f0739>_0x14abc9[_0x45a255(0x46f)](playZoneRadius,0.85);if(_0x56c86b){if(!_0x1a9a4a[_0x45a255(0x2f1)]||Math[_0x45a255(0x16d)](_0x14abc9[_0x45a255(0x334)](_0x1a9a4a['\x73\x61\x66\x65\x5a\x6f\x6e\x65\x54\x61\x72\x67\x65\x74']['\x78'],0x2)+_0x1a9a4a[_0x45a255(0x2f1)]['\x7a']**0x2)>_0x14abc9[_0x45a255(0x28d)](playZoneRadius,0.8)){const _0x487678=_0x14abc9[_0x45a255(0x6a7)](Math[_0x45a255(0x81e)]()*Math['\x50\x49'],0x2),_0x5cd7c3=_0x14abc9[_0x45a255(0x3db)](Math[_0x45a255(0x81e)]()*playZoneRadius,0.7);_0x1a9a4a['\x73\x61\x66\x65\x5a\x6f\x6e\x65\x54\x61\x72\x67\x65\x74']=new a0_0xe98f69['\x56\x65\x63\x74\x6f\x72\x33'](_0x14abc9[_0x45a255(0x3cd)](Math['\x63\x6f\x73'](_0x487678),_0x5cd7c3),_0x1a9a4a['\x6d\x65\x73\x68']['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x79'],Math[_0x45a255(0x19e)](_0x487678)*_0x5cd7c3);}_0x4f0f77=new a0_0xe98f69[(_0x45a255(0x691))]()['\x73\x75\x62\x56\x65\x63\x74\x6f\x72\x73'](_0x1a9a4a[_0x45a255(0x2f1)],_0x1a9a4a[_0x45a255(0x48f)][_0x45a255(0x8a6)])['\x6e\x6f\x72\x6d\x61\x6c\x69\x7a\x65'](),_0x339990=_0x14abc9[_0x45a255(0x7a6)](_0x1a9a4a[_0x45a255(0x5aa)],_0x14abc9[_0x45a255(0x340)])?3.5:_0x14abc9[_0x45a255(0x1df)](_0x1a9a4a[_0x45a255(0x5aa)],_0x14abc9[_0x45a255(0x332)])?4.5:5.5;if(_0x2a7d6c){_0x4877c5=_0x426cf9;const _0x6a2d67=_0x426cf9[_0x45a255(0x31f)]();_0x6a2d67['\x79']=_0x1a9a4a['\x6d\x65\x73\x68'][_0x45a255(0x8a6)]['\x79'],_0x1a9a4a[_0x45a255(0x48f)][_0x45a255(0x55a)](_0x6a2d67),_0x1a9a4a[_0x45a255(0x48f)][_0x45a255(0x14f)]['\x79']+=Math['\x50\x49'],_0x1a9a4a[_0x45a255(0x127)]['\x72\x69\x67\x68\x74\x41\x72\x6d'][_0x45a255(0x14f)]['\x78']=Math['\x50\x49']/0x2+(_0x1a9a4a[_0x45a255(0x435)]>0x0?0.3:0x0),_0x1a9a4a[_0x45a255(0x127)][_0x45a255(0x63e)][_0x45a255(0x14f)]['\x78']=1.1,_0x1a9a4a[_0x45a255(0x127)][_0x45a255(0x63e)][_0x45a255(0x14f)]['\x79']=-0.4;const _0x478322=_0x14abc9['\x72\x59\x62\x61\x71'](_0x1a9a4a[_0x45a255(0x5aa)],_0x14abc9['\x6a\x4d\x72\x56\x68'])?0x16:_0x14abc9[_0x45a255(0x219)](_0x1a9a4a['\x74\x69\x65\x72'],_0x14abc9['\x54\x47\x65\x47\x6d'])?0x26:0x41,_0x2232e6=_0x14abc9['\x70\x4f\x49\x72\x67'](_0x1a9a4a[_0x45a255(0x5aa)],_0x14abc9[_0x45a255(0x340)])?3.2:_0x14abc9[_0x45a255(0x4f1)](_0x1a9a4a['\x74\x69\x65\x72'],_0x14abc9[_0x45a255(0x332)])?1.8:0.75;if(_0xdc40d5<=_0x478322&&_0x14abc9['\x47\x69\x47\x57\x46'](clock[_0x45a255(0x3b0)](),_0x1a9a4a['\x6c\x61\x73\x74\x53\x68\x6f\x74'])>_0x2232e6&&!_0x3269){const _0x17ff43=_0x14abc9['\x6d\x4c\x74\x62\x54'](_0x1a9a4a[_0x45a255(0x5aa)],_0x14abc9[_0x45a255(0x340)])?0.2:_0x14abc9[_0x45a255(0x30e)](_0x1a9a4a[_0x45a255(0x5aa)],_0x14abc9[_0x45a255(0x332)])?0.1:0.03,_0x2ae658=_0x426cf9[_0x45a255(0x31f)]()['\x61\x64\x64'](new a0_0xe98f69[(_0x45a255(0x691))](_0x14abc9[_0x45a255(0x247)](_0x14abc9[_0x45a255(0x5ee)](_0x14abc9[_0x45a255(0x6ec)](Math[_0x45a255(0x81e)](),0.5),_0x17ff43),_0xdc40d5),_0x14abc9['\x76\x47\x58\x56\x4a'](Math['\x72\x61\x6e\x64\x6f\x6d'](),0.5)*0x3,_0x14abc9['\x6e\x6a\x46\x6a\x57'](_0x14abc9['\x55\x42\x68\x56\x76'](Math[_0x45a255(0x81e)]()-0.5,_0x17ff43),_0xdc40d5)));fireBullet(_0x1a9a4a[_0x45a255(0x48f)][_0x45a255(0x8a6)]['\x63\x6c\x6f\x6e\x65']()[_0x45a255(0x5bf)](new a0_0xe98f69[(_0x45a255(0x691))](0x0,1.2,0x0)),_0x2ae658,_0x1a9a4a[_0x45a255(0x285)],_0x1a9a4a['\x69\x64']),_0x1a9a4a[_0x45a255(0x2a3)]=clock[_0x45a255(0x3b0)]();}}else _0x1a9a4a[_0x45a255(0x127)][_0x45a255(0x63e)][_0x45a255(0x14f)][_0x45a255(0x2d5)](0x0,0x0,0x0),_0x1a9a4a['\x73\x6f\x6c\x64\x69\x65\x72'][_0x45a255(0x500)][_0x45a255(0x14f)][_0x45a255(0x2d5)](0x0,0x0,0x0);}else{if(_0x1a9a4a[_0x45a255(0x285)]===WEAPONS[_0x45a255(0x181)]){_0x1a9a4a[_0x45a255(0x127)][_0x45a255(0x63e)][_0x45a255(0x14f)]['\x73\x65\x74'](0x0,0x0,0x0),_0x1a9a4a[_0x45a255(0x127)]['\x72\x69\x67\x68\x74\x41\x72\x6d']['\x72\x6f\x74\x61\x74\x69\x6f\x6e'][_0x45a255(0x2d5)](0x0,0x0,0x0);let _0x3933d0=null,_0x452351=0x270f;for(let _0x3a8417=0x0;_0x3a8417<lootBoxes[_0x45a255(0x88b)];_0x3a8417++){const _0x385311=lootBoxes[_0x3a8417];if(_0x14abc9['\x70\x4f\x49\x72\x67'](_0x385311[_0x45a255(0x488)],_0x45a255(0x6f2))||_0x385311[_0x45a255(0x814)]&&_0x385311[_0x45a255(0x285)]){const _0xf39b45=_0x14abc9[_0x45a255(0x208)](getElevation,_0x385311['\x6d\x65\x73\x68']['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x78'],_0x385311['\x6d\x65\x73\x68']['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x7a'],![]),_0x274cf7=Math['\x61\x62\x73'](_0x14abc9['\x43\x6b\x48\x41\x4a'](_0x385311['\x6d\x65\x73\x68']['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x79'],_0x14abc9[_0x45a255(0x770)](_0xf39b45,0.8)))<1.5;let _0x50900f=![];for(let _0x1bc3e0=0x0;_0x14abc9[_0x45a255(0x89a)](_0x1bc3e0,buildingSpots[_0x45a255(0x88b)]);_0x1bc3e0++){const _0x416ed2=buildingSpots[_0x1bc3e0],_0xf55818=_0x14abc9[_0x45a255(0x6f1)](_0x416ed2['\x77'],0x2),_0xe6620b=_0x14abc9['\x67\x44\x4a\x50\x6a'](_0x416ed2['\x64'],0x2);if(_0x14abc9[_0x45a255(0x857)](_0x385311[_0x45a255(0x48f)][_0x45a255(0x8a6)]['\x78'],_0x14abc9[_0x45a255(0x1d3)](_0x416ed2['\x78'],_0xf55818))&&_0x14abc9[_0x45a255(0x371)](_0x385311['\x6d\x65\x73\x68']['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x78'],_0x14abc9[_0x45a255(0x821)](_0x416ed2['\x78'],_0xf55818))&&_0x14abc9['\x79\x57\x4d\x52\x62'](_0x385311[_0x45a255(0x48f)]['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x7a'],_0x14abc9[_0x45a255(0x660)](_0x416ed2['\x7a'],_0xe6620b))&&_0x14abc9['\x55\x67\x46\x58\x64'](_0x385311[_0x45a255(0x48f)][_0x45a255(0x8a6)]['\x7a'],_0x14abc9[_0x45a255(0x7c3)](_0x416ed2['\x7a'],_0xe6620b))){_0x50900f=!![];break;}}if(_0x14abc9[_0x45a255(0x832)](_0x274cf7,!_0x50900f)){const _0x1ea6e9=_0x1a9a4a[_0x45a255(0x48f)][_0x45a255(0x8a6)][_0x45a255(0x3cf)](_0x385311[_0x45a255(0x48f)][_0x45a255(0x8a6)]);_0x14abc9[_0x45a255(0x445)](_0x1ea6e9,_0x452351)&&(_0x452351=_0x1ea6e9,_0x3933d0={'\x6c\x6f\x6f\x74':_0x385311,'\x69\x6e\x64\x65\x78':_0x3a8417});}}}if(_0x3933d0){_0x4f0f77=new a0_0xe98f69['\x56\x65\x63\x74\x6f\x72\x33']()[_0x45a255(0x107)](_0x3933d0['\x6c\x6f\x6f\x74'][_0x45a255(0x48f)][_0x45a255(0x8a6)],_0x1a9a4a['\x6d\x65\x73\x68'][_0x45a255(0x8a6)])[_0x45a255(0x872)](),_0x339990=4.8,_0x4877c5=_0x3933d0[_0x45a255(0x599)]['\x6d\x65\x73\x68']['\x70\x6f\x73\x69\x74\x69\x6f\x6e'];if(_0x452351<0x3){_0x3933d0['\x6c\x6f\x6f\x74'][_0x45a255(0x814)]?(_0x1a9a4a['\x77\x65\x61\x70\x6f\x6e']=_0x3933d0[_0x45a255(0x599)]['\x77\x65\x61\x70\x6f\x6e'],_0x3933d0[_0x45a255(0x599)][_0x45a255(0x285)]=null):(_0x1a9a4a[_0x45a255(0x285)]=_0x3933d0[_0x45a255(0x599)]['\x76\x61\x6c'],scene['\x72\x65\x6d\x6f\x76\x65'](_0x3933d0[_0x45a255(0x599)][_0x45a255(0x48f)]),lootBoxes[_0x45a255(0x6ef)](_0x3933d0['\x69\x6e\x64\x65\x78'],0x1));_0x14abc9[_0x45a255(0x809)](updateVisualEquip,_0x1a9a4a[_0x45a255(0x127)],_0x1a9a4a[_0x45a255(0x285)],SCOPES[_0x45a255(0x878)]);if(isInventoryOpen)_0x14abc9[_0x45a255(0x29a)](updateInventoryUI);}}else{if(_0x517815){if(!_0x1a9a4a[_0x45a255(0x2f1)]||_0x14abc9[_0x45a255(0x452)](Math['\x73\x71\x72\x74'](_0x14abc9[_0x45a255(0x238)](_0x1a9a4a[_0x45a255(0x2f1)]['\x78']**0x2,_0x14abc9[_0x45a255(0x84f)](_0x1a9a4a[_0x45a255(0x2f1)]['\x7a'],0x2))),_0x14abc9[_0x45a255(0x47e)](playZoneRadius,0.8))){const _0x5c8fd5=_0x14abc9[_0x45a255(0x7ab)](_0x14abc9[_0x45a255(0x5ea)](Math['\x72\x61\x6e\x64\x6f\x6d'](),Math['\x50\x49']),0x2),_0x1aec36=_0x14abc9[_0x45a255(0x593)](_0x14abc9['\x55\x42\x68\x56\x76'](Math['\x72\x61\x6e\x64\x6f\x6d'](),playZoneRadius),0.7);_0x1a9a4a[_0x45a255(0x2f1)]=new a0_0xe98f69[(_0x45a255(0x691))](_0x14abc9[_0x45a255(0x16a)](Math[_0x45a255(0x642)](_0x5c8fd5),_0x1aec36),_0x1a9a4a[_0x45a255(0x48f)][_0x45a255(0x8a6)]['\x79'],_0x14abc9['\x49\x4a\x75\x54\x69'](Math[_0x45a255(0x19e)](_0x5c8fd5),_0x1aec36));}_0x4f0f77=new a0_0xe98f69['\x56\x65\x63\x74\x6f\x72\x33']()['\x73\x75\x62\x56\x65\x63\x74\x6f\x72\x73'](_0x1a9a4a[_0x45a255(0x2f1)],_0x1a9a4a[_0x45a255(0x48f)]['\x70\x6f\x73\x69\x74\x69\x6f\x6e'])[_0x45a255(0x872)](),_0x339990=_0x14abc9[_0x45a255(0x1d9)](_0x1a9a4a[_0x45a255(0x5aa)],_0x14abc9['\x6a\x4d\x72\x56\x68'])?3.5:_0x14abc9['\x55\x4c\x56\x77\x43'](_0x1a9a4a[_0x45a255(0x5aa)],_0x14abc9[_0x45a255(0x332)])?4.5:5.5;}else(!_0x1a9a4a[_0x45a255(0x217)]||!_0x1a9a4a[_0x45a255(0x2d7)]||_0x1a9a4a[_0x45a255(0x2d7)]<=0x0)&&(_0x1a9a4a[_0x45a255(0x217)]=new a0_0xe98f69[(_0x45a255(0x691))](_0x14abc9['\x47\x73\x6c\x53\x4f'](Math[_0x45a255(0x81e)](),0.5),0x0,_0x14abc9[_0x45a255(0x829)](Math[_0x45a255(0x81e)](),0.5))[_0x45a255(0x872)](),_0x1a9a4a[_0x45a255(0x2d7)]=_0x14abc9[_0x45a255(0x49b)](0x2,_0x14abc9[_0x45a255(0x6d8)](Math[_0x45a255(0x81e)](),1.5))),_0x1a9a4a[_0x45a255(0x2d7)]-=_0x3a9af6,_0x4f0f77=_0x1a9a4a[_0x45a255(0x217)],_0x339990=1.5;}}else{if(_0x2a7d6c){const _0x1a8a14=_0x426cf9[_0x45a255(0x31f)]();_0x1a8a14['\x79']=_0x1a9a4a[_0x45a255(0x48f)][_0x45a255(0x8a6)]['\x79'];_0x14abc9['\x77\x7a\x4c\x6e\x6c'](_0x1a9a4a[_0x45a255(0x48f)]['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x64\x69\x73\x74\x61\x6e\x63\x65\x54\x6f'](_0x1a8a14),0.65)&&(_0x1a9a4a['\x6d\x65\x73\x68'][_0x45a255(0x55a)](_0x1a8a14),_0x1a9a4a['\x6d\x65\x73\x68'][_0x45a255(0x14f)]['\x79']+=Math['\x50\x49']);_0x1a9a4a['\x73\x6f\x6c\x64\x69\x65\x72'][_0x45a255(0x500)][_0x45a255(0x14f)]['\x78']=_0x14abc9[_0x45a255(0x238)](_0x14abc9[_0x45a255(0xe9)](Math['\x50\x49'],0x2),_0x14abc9[_0x45a255(0x49f)](_0x1a9a4a[_0x45a255(0x435)],0x0)?0.3:0x0),_0x1a9a4a['\x73\x6f\x6c\x64\x69\x65\x72'][_0x45a255(0x63e)]['\x72\x6f\x74\x61\x74\x69\x6f\x6e']['\x78']=1.1,_0x1a9a4a[_0x45a255(0x127)][_0x45a255(0x63e)]['\x72\x6f\x74\x61\x74\x69\x6f\x6e']['\x79']=-0.4;const _0x3d5df0=_0x14abc9[_0x45a255(0x7a6)](_0x1a9a4a[_0x45a255(0x5aa)],_0x14abc9[_0x45a255(0x340)])?0x16:_0x1a9a4a[_0x45a255(0x5aa)]===_0x14abc9[_0x45a255(0x332)]?0x26:0x41,_0xb70c91=_0x1a9a4a[_0x45a255(0x5aa)]==='\x4e\x6f\x6f\x62'?3.2:_0x14abc9[_0x45a255(0x83f)](_0x1a9a4a[_0x45a255(0x5aa)],_0x14abc9[_0x45a255(0x332)])?1.8:0.75;if(_0xdc40d5<=_0x3d5df0&&_0x14abc9['\x4f\x45\x47\x66\x41'](_0x14abc9['\x43\x6b\x48\x41\x4a'](clock[_0x45a255(0x3b0)](),_0x1a9a4a[_0x45a255(0x2a3)]),_0xb70c91)&&!_0x3269){const _0x13f6b2=_0x14abc9[_0x45a255(0x7a6)](_0x1a9a4a[_0x45a255(0x5aa)],'\x4e\x6f\x6f\x62')?0.2:_0x14abc9[_0x45a255(0x4f1)](_0x1a9a4a[_0x45a255(0x5aa)],_0x14abc9[_0x45a255(0x332)])?0.1:0.03,_0x30b754=_0x426cf9[_0x45a255(0x31f)]()[_0x45a255(0x5bf)](new a0_0xe98f69[(_0x45a255(0x691))](_0x14abc9[_0x45a255(0x457)](_0x14abc9[_0x45a255(0x548)](_0x14abc9['\x4e\x52\x4b\x75\x43'](Math['\x72\x61\x6e\x64\x6f\x6d'](),0.5),_0x13f6b2),_0xdc40d5),_0x14abc9[_0x45a255(0x7bf)](Math[_0x45a255(0x81e)](),0.5)*0x3,_0x14abc9[_0x45a255(0x7ab)](_0x14abc9[_0x45a255(0x322)](_0x14abc9[_0x45a255(0x3b9)](Math[_0x45a255(0x81e)](),0.5),_0x13f6b2),_0xdc40d5)));_0x14abc9[_0x45a255(0x7b0)](fireBullet,_0x1a9a4a[_0x45a255(0x48f)]['\x70\x6f\x73\x69\x74\x69\x6f\x6e'][_0x45a255(0x31f)]()['\x61\x64\x64'](new a0_0xe98f69[(_0x45a255(0x691))](0x0,1.2,0x0)),_0x30b754,_0x1a9a4a['\x77\x65\x61\x70\x6f\x6e'],_0x1a9a4a['\x69\x64']),_0x1a9a4a[_0x45a255(0x2a3)]=clock[_0x45a255(0x3b0)]();}if(_0x517815){if(!_0x1a9a4a[_0x45a255(0x2f1)]||_0x14abc9[_0x45a255(0x155)](Math[_0x45a255(0x16d)](_0x14abc9[_0x45a255(0x334)](_0x1a9a4a[_0x45a255(0x2f1)]['\x78'],0x2)+_0x14abc9[_0x45a255(0x334)](_0x1a9a4a[_0x45a255(0x2f1)]['\x7a'],0x2)),_0x14abc9['\x55\x42\x68\x56\x76'](playZoneRadius,0.8))){const _0xd5613d=_0x14abc9[_0x45a255(0x4bf)](_0x14abc9['\x63\x69\x56\x57\x74'](Math[_0x45a255(0x81e)](),Math['\x50\x49']),0x2),_0xa7e535=_0x14abc9[_0x45a255(0x6a5)](Math[_0x45a255(0x81e)](),playZoneRadius)*0.7;_0x1a9a4a[_0x45a255(0x2f1)]=new a0_0xe98f69['\x56\x65\x63\x74\x6f\x72\x33'](Math[_0x45a255(0x642)](_0xd5613d)*_0xa7e535,_0x1a9a4a[_0x45a255(0x48f)][_0x45a255(0x8a6)]['\x79'],Math[_0x45a255(0x19e)](_0xd5613d)*_0xa7e535);}_0x4f0f77=new a0_0xe98f69['\x56\x65\x63\x74\x6f\x72\x33']()[_0x45a255(0x107)](_0x1a9a4a[_0x45a255(0x2f1)],_0x1a9a4a[_0x45a255(0x48f)][_0x45a255(0x8a6)])[_0x45a255(0x872)](),_0x339990=_0x1a9a4a[_0x45a255(0x5aa)]===_0x14abc9[_0x45a255(0x340)]?3.5:_0x14abc9[_0x45a255(0x5f8)](_0x1a9a4a['\x74\x69\x65\x72'],'\x50\x72\x6f')?4.5:5.5,_0x4877c5=_0x426cf9;}else{const _0x1128ef=_0x1a9a4a['\x74\x69\x65\x72']===_0x45a255(0x240)?0x16:_0x1a9a4a['\x74\x69\x65\x72']===_0x45a255(0x828)?0x23:0x37;_0x14abc9[_0x45a255(0x31d)](_0xdc40d5,_0x1128ef)&&(_0x4f0f77=new a0_0xe98f69[(_0x45a255(0x691))]()[_0x45a255(0x107)](_0x426cf9,_0x1a9a4a['\x6d\x65\x73\x68'][_0x45a255(0x8a6)])[_0x45a255(0x872)](),_0x339990=_0x14abc9[_0x45a255(0x394)](_0x1a9a4a['\x74\x69\x65\x72'],_0x45a255(0x240))?0x3:_0x14abc9[_0x45a255(0x5f8)](_0x1a9a4a[_0x45a255(0x5aa)],_0x14abc9[_0x45a255(0x332)])?4.2:5.2),_0x4877c5=_0x426cf9;}}else{if(_0x517815){_0x1a9a4a[_0x45a255(0x127)]['\x6c\x65\x66\x74\x41\x72\x6d']['\x72\x6f\x74\x61\x74\x69\x6f\x6e'][_0x45a255(0x2d5)](0x0,0x0,0x0),_0x1a9a4a['\x73\x6f\x6c\x64\x69\x65\x72'][_0x45a255(0x500)][_0x45a255(0x14f)]['\x73\x65\x74'](0x0,0x0,0x0);if(!_0x1a9a4a[_0x45a255(0x2f1)]||_0x14abc9[_0x45a255(0x824)](Math[_0x45a255(0x16d)](_0x14abc9['\x6a\x4e\x73\x68\x71'](_0x1a9a4a[_0x45a255(0x2f1)]['\x78'],0x2)+_0x14abc9[_0x45a255(0x45e)](_0x1a9a4a[_0x45a255(0x2f1)]['\x7a'],0x2)),_0x14abc9['\x5a\x78\x42\x67\x70'](playZoneRadius,0.8))){const _0x3b0c84=_0x14abc9[_0x45a255(0x85a)](_0x14abc9['\x4e\x77\x48\x45\x4c'](Math[_0x45a255(0x81e)](),Math['\x50\x49']),0x2),_0x3cce48=_0x14abc9[_0x45a255(0x6a5)](_0x14abc9[_0x45a255(0x104)](Math[_0x45a255(0x81e)](),playZoneRadius),0.7);_0x1a9a4a[_0x45a255(0x2f1)]=new a0_0xe98f69[(_0x45a255(0x691))](_0x14abc9[_0x45a255(0x6d8)](Math[_0x45a255(0x642)](_0x3b0c84),_0x3cce48),_0x1a9a4a[_0x45a255(0x48f)][_0x45a255(0x8a6)]['\x79'],_0x14abc9['\x4c\x4f\x6e\x6b\x55'](Math[_0x45a255(0x19e)](_0x3b0c84),_0x3cce48));}_0x4f0f77=new a0_0xe98f69[(_0x45a255(0x691))]()[_0x45a255(0x107)](_0x1a9a4a[_0x45a255(0x2f1)],_0x1a9a4a['\x6d\x65\x73\x68'][_0x45a255(0x8a6)])['\x6e\x6f\x72\x6d\x61\x6c\x69\x7a\x65'](),_0x339990=_0x14abc9['\x7a\x4a\x6d\x41\x67'](_0x1a9a4a['\x74\x69\x65\x72'],_0x14abc9[_0x45a255(0x340)])?3.5:_0x1a9a4a[_0x45a255(0x5aa)]===_0x14abc9['\x54\x47\x65\x47\x6d']?4.5:5.5;}else{_0x1a9a4a[_0x45a255(0x127)][_0x45a255(0x63e)][_0x45a255(0x14f)][_0x45a255(0x2d5)](0x0,0x0,0x0),_0x1a9a4a[_0x45a255(0x127)]['\x72\x69\x67\x68\x74\x41\x72\x6d'][_0x45a255(0x14f)]['\x73\x65\x74'](0x0,0x0,0x0);if(_0x14abc9[_0x45a255(0x1f3)](_0x5f0739,currentZoneRadius*0.7)){const _0xde8d00=new a0_0xe98f69[(_0x45a255(0x691))](-_0x1a9a4a['\x6d\x65\x73\x68'][_0x45a255(0x8a6)]['\x78'],0x0,-_0x1a9a4a['\x6d\x65\x73\x68'][_0x45a255(0x8a6)]['\x7a'])[_0x45a255(0x872)]();_0xde8d00['\x78']+=_0x14abc9['\x72\x49\x64\x6c\x7a'](Math['\x72\x61\x6e\x64\x6f\x6d'](),0.5)*0.3,_0xde8d00['\x7a']+=_0x14abc9['\x4c\x4f\x6e\x6b\x55'](Math[_0x45a255(0x81e)]()-0.5,0.3),_0x4f0f77=_0xde8d00[_0x45a255(0x872)](),_0x339990=0x4;}else(!_0x1a9a4a[_0x45a255(0x217)]||!_0x1a9a4a[_0x45a255(0x2d7)]||_0x14abc9['\x70\x68\x6e\x43\x42'](_0x1a9a4a['\x77\x61\x6e\x64\x65\x72\x54\x69\x6d\x65\x72'],0x0))&&(_0x1a9a4a[_0x45a255(0x217)]=new a0_0xe98f69[(_0x45a255(0x691))](_0x14abc9[_0x45a255(0xe8)](Math[_0x45a255(0x81e)](),0.5),0x0,_0x14abc9[_0x45a255(0x5b8)](Math[_0x45a255(0x81e)](),0.5))[_0x45a255(0x872)](),_0x1a9a4a[_0x45a255(0x2d7)]=_0x14abc9[_0x45a255(0x7cb)](0x2,Math[_0x45a255(0x81e)]()*1.5)),_0x1a9a4a['\x77\x61\x6e\x64\x65\x72\x54\x69\x6d\x65\x72']-=_0x3a9af6,_0x4f0f77=_0x1a9a4a[_0x45a255(0x217)],_0x339990=1.5;}}}}if(_0x1a9a4a[_0x45a255(0x1b4)]>0x0){_0x1a9a4a['\x61\x76\x6f\x69\x64\x61\x6e\x63\x65\x54\x69\x6d\x65\x72']-=_0x3a9af6,_0x4f0f77=_0x1a9a4a[_0x45a255(0x586)];if(_0x339990===0x0)_0x339990=0x4;}if(_0x3269){let _0x478fef=null;const _0x3416f4=Math[_0x45a255(0x16d)](_0x14abc9['\x56\x71\x6d\x62\x53'](_0x14abc9[_0x45a255(0x7fe)](_0x1a9a4a[_0x45a255(0x48f)][_0x45a255(0x8a6)]['\x78'],0x3c),0x2)+_0x14abc9[_0x45a255(0x334)](_0x14abc9[_0x45a255(0x2a8)](_0x1a9a4a[_0x45a255(0x48f)][_0x45a255(0x8a6)]['\x7a'],0x50),0x2));_0x14abc9[_0x45a255(0x69d)](_0x3416f4,_0x14abc9[_0x45a255(0x7cc)](0x19,0x2))&&(_0x478fef=new a0_0xe98f69[(_0x45a255(0x691))](0x3c,_0x1a9a4a['\x6d\x65\x73\x68'][_0x45a255(0x8a6)]['\x79'],0x50));const _0xf64777=Math['\x73\x71\x72\x74'](_0x14abc9[_0x45a255(0x11d)](_0x14abc9[_0x45a255(0x238)](_0x1a9a4a[_0x45a255(0x48f)][_0x45a255(0x8a6)]['\x78'],0x50),0x2)+_0x14abc9[_0x45a255(0x11d)](_0x1a9a4a['\x6d\x65\x73\x68'][_0x45a255(0x8a6)]['\x7a']+0x3c,0x2));_0xf64777<_0x14abc9['\x71\x59\x63\x69\x74'](0x14,0x2)&&(_0x478fef=new a0_0xe98f69['\x56\x65\x63\x74\x6f\x72\x33'](-0x50,_0x1a9a4a['\x6d\x65\x73\x68'][_0x45a255(0x8a6)]['\x79'],-0x3c)),_0x478fef&&(_0x4f0f77=new a0_0xe98f69[(_0x45a255(0x691))]()[_0x45a255(0x107)](_0x1a9a4a['\x6d\x65\x73\x68'][_0x45a255(0x8a6)],_0x478fef),_0x4f0f77['\x79']=0x0,_0x4f0f77[_0x45a255(0x872)](),_0x339990=1.6);}_0x4f0f77&&_0x339990>0x0&&buildingSpots[_0x45a255(0x64b)](_0x9da2d0=>{const _0x85c6aa=_0x45a255,_0x597cff=_0x1a9a4a[_0x85c6aa(0x48f)][_0x85c6aa(0x8a6)]['\x78']-_0x9da2d0['\x78'],_0x277ae4=_0x48258d[_0x85c6aa(0x212)](_0x1a9a4a[_0x85c6aa(0x48f)][_0x85c6aa(0x8a6)]['\x7a'],_0x9da2d0['\x7a']),_0x1c7fd6=Math['\x73\x71\x72\x74'](_0x48258d[_0x85c6aa(0x706)](_0x597cff,_0x597cff)+_0x48258d['\x67\x43\x55\x4c\x51'](_0x277ae4,_0x277ae4)),_0x1c6294=Math['\x6d\x61\x78'](_0x9da2d0['\x77'],_0x9da2d0['\x64']),_0xfa3293=_0x48258d[_0x85c6aa(0x2f6)](_0x48258d[_0x85c6aa(0x11f)](_0x1c6294,0x2),4.5);if(_0x1c7fd6<_0xfa3293&&_0x48258d[_0x85c6aa(0x30d)](_0x1c7fd6,0.5)){const _0x5ccdc2=new a0_0xe98f69[(_0x85c6aa(0x691))](_0x597cff,0x0,_0x277ae4),_0x2dc8fb=_0x5ccdc2[_0x85c6aa(0x31f)]()[_0x85c6aa(0x872)]();if(_0x48258d[_0x85c6aa(0x460)](_0x4f0f77[_0x85c6aa(0x2ce)](_0x2dc8fb),-0.15)){const _0x421bd1=new a0_0xe98f69['\x56\x65\x63\x74\x6f\x72\x33'](-_0x2dc8fb['\x7a'],0x0,_0x2dc8fb['\x78']),_0x461f27=new a0_0xe98f69[(_0x85c6aa(0x691))](_0x2dc8fb['\x7a'],0x0,-_0x2dc8fb['\x78']),_0x3778f6=_0x48258d[_0x85c6aa(0x72d)](_0x421bd1[_0x85c6aa(0x2ce)](_0x4f0f77),_0x461f27[_0x85c6aa(0x2ce)](_0x4f0f77))?_0x421bd1:_0x461f27;_0x4f0f77[_0x85c6aa(0x6a0)](_0x3778f6)['\x6d\x75\x6c\x74\x69\x70\x6c\x79\x53\x63\x61\x6c\x61\x72'](0.85)[_0x85c6aa(0x42e)](_0x2dc8fb,0.15)[_0x85c6aa(0x872)]();}}});if(_0x4f0f77&&_0x14abc9[_0x45a255(0x72f)](_0x339990,0x0)){const _0x3b7fac=new a0_0xe98f69[(_0x45a255(0x691))]();obstacles['\x66\x6f\x72\x45\x61\x63\x68'](_0xd6153b=>{const _0x1433b2=_0x45a255;if(_0x14abc9[_0x1433b2(0x528)](_0xd6153b[_0x1433b2(0x488)],_0x14abc9[_0x1433b2(0x891)])||_0xd6153b[_0x1433b2(0x488)]===_0x14abc9[_0x1433b2(0x412)]){const _0xd45e35=_0x14abc9['\x79\x4c\x47\x52\x42'](_0x1a9a4a['\x6d\x65\x73\x68'][_0x1433b2(0x8a6)]['\x78'],_0xd6153b['\x78']),_0x390173=_0x14abc9[_0x1433b2(0x86f)](_0x1a9a4a[_0x1433b2(0x48f)][_0x1433b2(0x8a6)]['\x7a'],_0xd6153b['\x7a']),_0x504a9b=Math[_0x1433b2(0x16d)](_0x14abc9['\x47\x7a\x6b\x58\x57'](_0x14abc9[_0x1433b2(0x28d)](_0xd45e35,_0xd45e35),_0x390173*_0x390173)),_0x38a481=_0x14abc9[_0x1433b2(0x150)](_0xd6153b[_0x1433b2(0x85d)],0x4);if(_0x14abc9[_0x1433b2(0x17a)](_0x504a9b,_0x38a481)&&_0x14abc9[_0x1433b2(0x588)](_0x504a9b,0.1)){const _0x18d964=_0x14abc9[_0x1433b2(0x51c)](0x1-_0x14abc9[_0x1433b2(0x129)](_0x504a9b,_0x38a481),3.5);_0x3b7fac[_0x1433b2(0x5bf)](new a0_0xe98f69['\x56\x65\x63\x74\x6f\x72\x33'](_0xd45e35,0x0,_0x390173)[_0x1433b2(0x872)]()[_0x1433b2(0x1a6)](_0x18d964));}}}),_0x4f0f77[_0x45a255(0x5bf)](_0x3b7fac)[_0x45a255(0x872)]();}if(_0x4f0f77&&_0x339990>0x0){if(_0x4877c5){const _0x427073=_0x4877c5[_0x45a255(0x31f)]();_0x427073['\x79']=_0x1a9a4a['\x6d\x65\x73\x68'][_0x45a255(0x8a6)]['\x79'],_0x1a9a4a[_0x45a255(0x48f)][_0x45a255(0x55a)](_0x427073),_0x1a9a4a[_0x45a255(0x48f)][_0x45a255(0x14f)]['\x79']+=Math['\x50\x49'];}else{if(_0x14abc9[_0x45a255(0x52c)](_0x1a9a4a[_0x45a255(0x1b4)],0x0)){const _0x3a2312=_0x1a9a4a[_0x45a255(0x48f)][_0x45a255(0x8a6)][_0x45a255(0x31f)]()[_0x45a255(0x5bf)](_0x4f0f77);_0x3a2312['\x79']=_0x1a9a4a['\x6d\x65\x73\x68']['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x79'],_0x1a9a4a[_0x45a255(0x48f)]['\x6c\x6f\x6f\x6b\x41\x74'](_0x3a2312),_0x1a9a4a[_0x45a255(0x48f)]['\x72\x6f\x74\x61\x74\x69\x6f\x6e']['\x79']+=Math['\x50\x49'];}else{const _0x5679b8=_0x1a9a4a[_0x45a255(0x48f)]['\x70\x6f\x73\x69\x74\x69\x6f\x6e'][_0x45a255(0x31f)]()[_0x45a255(0x5bf)](_0x4f0f77);_0x5679b8['\x79']=_0x1a9a4a[_0x45a255(0x48f)][_0x45a255(0x8a6)]['\x79'],_0x1a9a4a[_0x45a255(0x48f)][_0x45a255(0x55a)](_0x5679b8),_0x1a9a4a[_0x45a255(0x48f)]['\x72\x6f\x74\x61\x74\x69\x6f\x6e']['\x79']+=Math['\x50\x49'];}}_0x1a9a4a[_0x45a255(0x48f)]['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x61\x64\x64'](_0x4f0f77[_0x45a255(0x31f)]()[_0x45a255(0x1a6)](_0x339990*_0x3a9af6));const _0xb1170=new a0_0xe98f69[(_0x45a255(0x691))](),_0x2e3dea=resolveCollisions(_0x1a9a4a['\x6d\x65\x73\x68'][_0x45a255(0x8a6)],0.55,_0x1a9a4a['\x69\x64'],_0xb1170);if(_0x2e3dea){const _0x33767a=clock[_0x45a255(0x3b0)]();if(!_0x1a9a4a[_0x45a255(0x487)]||_0x33767a-_0x1a9a4a[_0x45a255(0x487)]>0.15){_0x1a9a4a[_0x45a255(0x487)]=_0x33767a;const _0x267a2f=_0x4f0f77?_0x4f0f77['\x63\x6c\x6f\x6e\x65']():new a0_0xe98f69[(_0x45a255(0x691))](0x0,0x0,-0x1)[_0x45a255(0x2da)](_0x1a9a4a['\x6d\x65\x73\x68'][_0x45a255(0x1fe)])['\x6e\x6f\x72\x6d\x61\x6c\x69\x7a\x65']();let _0x16c17c=new a0_0xe98f69['\x56\x65\x63\x74\x6f\x72\x33']();if(_0x14abc9[_0x45a255(0x179)](_0xb1170[_0x45a255(0x8e5)](),0.1)){const _0x4d0108=new a0_0xe98f69[(_0x45a255(0x691))](-_0xb1170['\x7a'],0x0,_0xb1170['\x78']),_0x576641=new a0_0xe98f69['\x56\x65\x63\x74\x6f\x72\x33'](_0xb1170['\x7a'],0x0,-_0xb1170['\x78']);_0x16c17c[_0x45a255(0x6a0)](_0x14abc9['\x4e\x42\x49\x55\x46'](_0x4d0108[_0x45a255(0x2ce)](_0x267a2f),_0x576641['\x64\x6f\x74'](_0x267a2f))?_0x4d0108:_0x576641)[_0x45a255(0x872)]();}else{const _0x22e955=Math[_0x45a255(0x81e)]()<0.5?_0x14abc9['\x77\x5a\x4d\x41\x4e'](Math['\x50\x49'],0x2):_0x14abc9[_0x45a255(0x6f1)](-Math['\x50\x49'],0x2);_0x16c17c[_0x45a255(0x6a0)](_0x267a2f)[_0x45a255(0x4c2)](new a0_0xe98f69[(_0x45a255(0x691))](0x0,0x1,0x0),_0x22e955)[_0x45a255(0x872)]();}_0x1a9a4a['\x61\x76\x6f\x69\x64\x61\x6e\x63\x65\x54\x69\x6d\x65\x72']=1.5+_0x14abc9[_0x45a255(0x4b4)](Math['\x72\x61\x6e\x64\x6f\x6d'](),0.7),_0x1a9a4a[_0x45a255(0x586)]['\x63\x6f\x70\x79'](_0x16c17c),_0x1a9a4a[_0x45a255(0x217)]=_0x16c17c[_0x45a255(0x31f)](),_0x1a9a4a[_0x45a255(0x2d7)]=_0x14abc9[_0x45a255(0x410)](_0x1a9a4a[_0x45a255(0x1b4)],0x1),_0x4f0f77[_0x45a255(0x6a0)](_0x16c17c);}}}if(_0x14abc9[_0x45a255(0x763)](_0x1a9a4a[_0x45a255(0x435)],0x0))_0x1a9a4a['\x72\x65\x63\x6f\x69\x6c\x54\x69\x6d\x65']-=_0x3a9af6;const _0xc4979e=_0x14abc9[_0x45a255(0x809)](getElevation,_0x1a9a4a[_0x45a255(0x48f)][_0x45a255(0x8a6)]['\x78'],_0x1a9a4a[_0x45a255(0x48f)]['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x7a'],_0x1a9a4a['\x6d\x65\x73\x68'][_0x45a255(0x8a6)]['\x79']);_0x3269=_0x14abc9[_0x45a255(0x17f)](_0x14abc9['\x66\x6d\x4a\x6e\x6d'](_0x14abc9[_0x45a255(0x472)](getWaterLevel,_0x1a9a4a[_0x45a255(0x48f)][_0x45a255(0x8a6)]['\x78'],_0x1a9a4a[_0x45a255(0x48f)]['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x7a']),_0xc4979e),0.55);if(_0x3269){_0x1a9a4a[_0x45a255(0x48f)]['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x79']=_0x14abc9[_0x45a255(0x86f)](getWaterLevel(_0x1a9a4a[_0x45a255(0x48f)][_0x45a255(0x8a6)]['\x78'],_0x1a9a4a['\x6d\x65\x73\x68'][_0x45a255(0x8a6)]['\x7a']),0.55);if(_0x339990>0x0)_0x339990=1.3;_0x1a9a4a[_0x45a255(0x127)][_0x45a255(0x840)][_0x45a255(0x14f)]['\x78']=_0x14abc9[_0x45a255(0x788)](Math['\x50\x49'],2.2),_0x1a9a4a[_0x45a255(0x127)][_0x45a255(0x840)][_0x45a255(0x8a6)][_0x45a255(0x2d5)](0x0,0.25,0x0),_0x1a9a4a['\x73\x6f\x6c\x64\x69\x65\x72'][_0x45a255(0x750)][_0x45a255(0x8a6)]['\x73\x65\x74'](0x0,0.35,-0.4),_0x1a9a4a[_0x45a255(0x127)][_0x45a255(0x750)][_0x45a255(0x14f)]['\x78']=-Math['\x50\x49']/0x4,_0x1a9a4a[_0x45a255(0x127)][_0x45a255(0x63e)][_0x45a255(0x8a6)]['\x73\x65\x74'](-0.35,0.3,-0.2),_0x1a9a4a[_0x45a255(0x127)][_0x45a255(0x500)]['\x70\x6f\x73\x69\x74\x69\x6f\x6e'][_0x45a255(0x2d5)](0.35,0.3,-0.2),_0x1a9a4a[_0x45a255(0x127)][_0x45a255(0x79e)]['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x73\x65\x74'](-0.16,0.25,0.3),_0x1a9a4a['\x73\x6f\x6c\x64\x69\x65\x72']['\x72\x69\x67\x68\x74\x4c\x65\x67'][_0x45a255(0x8a6)][_0x45a255(0x2d5)](0.16,0.25,0.3);const _0x2c5b80=Math[_0x45a255(0x19e)](_0x14abc9[_0x45a255(0x410)](_0x14abc9['\x62\x69\x6d\x76\x64'](clock[_0x45a255(0x3b0)](),0x4),_0x1a9a4a['\x69\x64']['\x63\x68\x61\x72\x43\x6f\x64\x65\x41\x74'](0x3)));_0x1a9a4a[_0x45a255(0x127)][_0x45a255(0x63e)][_0x45a255(0x14f)][_0x45a255(0x2d5)](_0x14abc9['\x47\x7a\x6b\x58\x57'](_0x14abc9['\x6a\x4c\x77\x61\x7a'](Math['\x50\x49'],0x2),_0x14abc9[_0x45a255(0x4bf)](_0x2c5b80,0.9)),0.4,-0.2),_0x1a9a4a[_0x45a255(0x127)][_0x45a255(0x500)][_0x45a255(0x14f)][_0x45a255(0x2d5)](Math['\x50\x49']/0x2-_0x14abc9[_0x45a255(0x188)](_0x2c5b80,0.9),-0.4,0.2),_0x1a9a4a['\x73\x6f\x6c\x64\x69\x65\x72'][_0x45a255(0x86b)][_0x45a255(0x14f)][_0x45a255(0x2d5)](_0x14abc9[_0x45a255(0x7cc)](_0x14abc9[_0x45a255(0x495)](-Math['\x50\x49'],2.2),_0x14abc9[_0x45a255(0x322)](_0x2c5b80,0.4)),0x0,0.1),_0x1a9a4a[_0x45a255(0x127)][_0x45a255(0x331)][_0x45a255(0x14f)]['\x73\x65\x74'](_0x14abc9[_0x45a255(0x2b2)](-Math['\x50\x49'],2.2)-_0x14abc9['\x64\x71\x50\x67\x53'](_0x2c5b80,0.4),0x0,-0.1);const _0x658af7=_0x14abc9[_0x45a255(0x692)](0.3,_0x14abc9[_0x45a255(0x28d)](Math[_0x45a255(0x19e)](_0x14abc9[_0x45a255(0x324)](_0x14abc9[_0x45a255(0x47e)](clock['\x67\x65\x74\x45\x6c\x61\x70\x73\x65\x64\x54\x69\x6d\x65'](),0x4),_0x1a9a4a['\x69\x64'][_0x45a255(0x664)](0x3))-Math['\x50\x49']/0x2),0.25)),_0xa573d3=0.3+_0x14abc9['\x41\x71\x67\x7a\x70'](Math[_0x45a255(0x19e)](_0x14abc9[_0x45a255(0x47c)](_0x14abc9[_0x45a255(0x15c)](_0x14abc9[_0x45a255(0x2c8)](clock[_0x45a255(0x3b0)](),0x4),_0x1a9a4a['\x69\x64'][_0x45a255(0x664)](0x3)),Math['\x50\x49']/0x2)),0.25);_0x1a9a4a[_0x45a255(0x127)][_0x45a255(0x1ea)]['\x72\x6f\x74\x61\x74\x69\x6f\x6e']['\x73\x65\x74'](_0x658af7,0x0,0x0),_0x1a9a4a[_0x45a255(0x127)][_0x45a255(0x659)][_0x45a255(0x14f)][_0x45a255(0x2d5)](_0xa573d3,0x0,0x0);}else{const _0x563cde=_0x45a255(0x382)['\x73\x70\x6c\x69\x74']('\x7c');let _0xbdb8f1=0x0;while(!![]){switch(_0x563cde[_0xbdb8f1++]){case'\x30':_0x1a9a4a[_0x45a255(0x127)][_0x45a255(0x63e)][_0x45a255(0x8a6)]['\x73\x65\x74'](-0.38,1.25,0x0);continue;case'\x31':_0x1a9a4a[_0x45a255(0x127)][_0x45a255(0x7c6)][_0x45a255(0x8a6)][_0x45a255(0x2d5)](0.16,0.6,0x0);continue;case'\x32':_0x1a9a4a['\x73\x6f\x6c\x64\x69\x65\x72'][_0x45a255(0x79e)][_0x45a255(0x8a6)][_0x45a255(0x2d5)](-0.16,0.6,0x0);continue;case'\x33':_0x1a9a4a[_0x45a255(0x127)][_0x45a255(0x750)][_0x45a255(0x8a6)][_0x45a255(0x2d5)](0x0,1.45,0x0);continue;case'\x34':_0x1a9a4a[_0x45a255(0x48f)][_0x45a255(0x8a6)]['\x79']=_0x14abc9[_0x45a255(0x7cb)](_0xc4979e,_0x14abc9['\x41\x61\x56\x73\x65'](_0x47201f,_0x1a9a4a[_0x45a255(0x48f)][_0x45a255(0x8a6)]['\x78'],_0x1a9a4a[_0x45a255(0x48f)][_0x45a255(0x8a6)]['\x7a']));continue;case'\x35':_0x1a9a4a[_0x45a255(0x127)][_0x45a255(0x840)][_0x45a255(0x14f)]['\x78']=0x0;continue;case'\x36':_0x1a9a4a[_0x45a255(0x127)][_0x45a255(0x500)][_0x45a255(0x8a6)][_0x45a255(0x2d5)](0.38,1.25,0x0);continue;case'\x37':_0x1a9a4a[_0x45a255(0x127)]['\x62\x6f\x64\x79']['\x70\x6f\x73\x69\x74\x69\x6f\x6e'][_0x45a255(0x2d5)](0x0,0.95,0x0);continue;}break;}}_0x14abc9[_0x45a255(0x220)](updateSoldierJoints,_0x1a9a4a[_0x45a255(0x127)]);}}}}});function _0x339ba8(_0x178b5b){const _0x1f9f2b=_0x3629e4;_0x178b5b&&_0x178b5b[_0x1f9f2b(0x48f)]&&scene[_0x1f9f2b(0x2b8)](_0x178b5b[_0x1f9f2b(0x48f)]);}function _0x235ce7(_0x14626e){const _0x16e767=_0x3629e4;if(!_0x14626e)return;_0x14626e[_0x16e767(0x5e7)](_0x4d0c5b=>{const _0x42f9e0=_0x16e767;if(_0x4d0c5b['\x69\x73\x4d\x65\x73\x68']){if(_0x4d0c5b[_0x42f9e0(0x1ce)])_0x4d0c5b['\x67\x65\x6f\x6d\x65\x74\x72\x79'][_0x42f9e0(0x838)]();_0x4d0c5b['\x6d\x61\x74\x65\x72\x69\x61\x6c']&&(Array[_0x42f9e0(0x28f)](_0x4d0c5b['\x6d\x61\x74\x65\x72\x69\x61\x6c'])?_0x4d0c5b[_0x42f9e0(0x5f0)][_0x42f9e0(0x64b)](_0x39155c=>_0x39155c[_0x42f9e0(0x838)]()):_0x4d0c5b[_0x42f9e0(0x5f0)][_0x42f9e0(0x838)]());}});}for(let _0xb6e792=_0x14abc9[_0x3629e4(0x6ec)](enemyBullets['\x6c\x65\x6e\x67\x74\x68'],0x1);_0x14abc9[_0x3629e4(0x23c)](_0xb6e792,0x0);_0xb6e792--){const _0x2e0084=enemyBullets[_0xb6e792],_0xba010e=_0x2e0084['\x6d\x65\x73\x68'][_0x3629e4(0x8a6)][_0x3629e4(0x31f)](),_0x4c03b1=_0x2e0084[_0x3629e4(0x27a)][_0x3629e4(0x31f)]()[_0x3629e4(0x1a6)](_0x14abc9[_0x3629e4(0x1fb)](0x3c,_0x3a9af6));_0x2e0084[_0x3629e4(0x48f)][_0x3629e4(0x8a6)][_0x3629e4(0x5bf)](_0x4c03b1),_0x2e0084[_0x3629e4(0x575)]-=_0x3a9af6;let _0x4ba8ff=![];const _0x378796=0x8;for(let _0xc2408c=0x1;_0x14abc9[_0x3629e4(0x7a3)](_0xc2408c,_0x378796);_0xc2408c++){const _0x8335fc=_0xba010e['\x63\x6c\x6f\x6e\x65']()[_0x3629e4(0x42e)](_0x4c03b1,_0x14abc9['\x59\x54\x70\x73\x64'](_0xc2408c,_0x378796)),_0x43f0ef=_0x2e0084[_0x3629e4(0x850)]&&_0x14abc9['\x64\x44\x46\x55\x49'](typeof _0x2e0084['\x73\x68\x6f\x6f\x74\x65\x72\x50\x6f\x73'][_0x3629e4(0x3cf)],_0x14abc9[_0x3629e4(0x3c0)])?_0x8335fc[_0x3629e4(0x3cf)](_0x2e0084[_0x3629e4(0x850)]):0x3e7;if(_0x14abc9[_0x3629e4(0x3e8)](_0x43f0ef,0x2)){for(let _0x215d87 of obstacles){if(_0x14abc9[_0x3629e4(0x5b0)](_0x215d87[_0x3629e4(0x488)],_0x14abc9[_0x3629e4(0x891)])||_0x14abc9['\x62\x58\x72\x76\x79'](_0x215d87[_0x3629e4(0x488)],_0x14abc9[_0x3629e4(0x412)])){const _0x4e9a57=_0x8335fc['\x78']-_0x215d87['\x78'],_0x4d84e2=_0x14abc9[_0x3629e4(0x6b8)](_0x8335fc['\x7a'],_0x215d87['\x7a']),_0x2c5081=Math['\x73\x71\x72\x74'](_0x14abc9['\x5a\x63\x73\x5a\x5a'](_0x14abc9['\x4c\x78\x57\x49\x62'](_0x4e9a57,_0x4e9a57),_0x14abc9[_0x3629e4(0x7f2)](_0x4d84e2,_0x4d84e2)));if(_0x14abc9[_0x3629e4(0x69d)](_0x2c5081,_0x215d87[_0x3629e4(0x85d)])){_0x4ba8ff=!![];break;}}else{if(_0x14abc9[_0x3629e4(0x7a0)](_0x215d87['\x74\x79\x70\x65'],_0x3629e4(0x553))){const _0x2dc357=_0x8335fc['\x78'],_0xa83548=_0x8335fc['\x7a'],_0x3b416f=_0x8335fc['\x79'],_0x551b40=_0x14abc9[_0x3629e4(0x8e1)](_0x215d87['\x77'],0x2),_0x16c7c4=_0x215d87['\x64']/0x2;if(_0x14abc9['\x64\x55\x62\x62\x64'](_0x2dc357,_0x14abc9['\x69\x76\x79\x49\x75'](_0x215d87[_0x3629e4(0x65f)],_0x551b40))&&_0x2dc357<=_0x14abc9['\x77\x72\x4b\x4a\x6f'](_0x215d87[_0x3629e4(0x65f)],_0x551b40)&&_0x14abc9['\x68\x67\x4c\x63\x42'](_0xa83548,_0x14abc9[_0x3629e4(0x17b)](_0x215d87[_0x3629e4(0x889)],_0x16c7c4))&&_0x14abc9[_0x3629e4(0x23a)](_0xa83548,_0x14abc9[_0x3629e4(0x692)](_0x215d87[_0x3629e4(0x889)],_0x16c7c4))&&_0x3b416f>=_0x215d87[_0x3629e4(0x820)]&&_0x14abc9[_0x3629e4(0x6ca)](_0x3b416f,_0x215d87['\x73\x70\x6f\x74\x59']+5.5)){_0x4ba8ff=!![];break;}}}}if(!_0x4ba8ff)for(let _0x347426 of doorsList){if(!_0x347426[_0x3629e4(0x7e5)]){const _0x3c3954=_0x14abc9[_0x3629e4(0x31e)](_0x347426['\x78'],_0x14abc9[_0x3629e4(0x6c3)](_0x347426['\x77'],0x2)),_0x32fd4d=_0x14abc9['\x6b\x56\x56\x78\x63'](_0x347426['\x78'],_0x14abc9['\x6a\x4c\x77\x61\x7a'](_0x347426['\x77'],0x2)),_0x3ca7c7=_0x347426['\x7a']-_0x14abc9['\x78\x56\x66\x68\x4a'](_0x347426['\x64'],0x2),_0x2d67e4=_0x347426['\x7a']+_0x347426['\x64']/0x2,_0x4b6188=_0x8335fc['\x78'],_0x4cf7a8=_0x8335fc['\x7a'],_0x212924=_0x8335fc['\x79'],_0x12e4ab=getElevation(_0x347426['\x78'],_0x347426['\x7a']);if(_0x14abc9[_0x3629e4(0x17f)](_0x4b6188,_0x3c3954)&&_0x14abc9[_0x3629e4(0x38b)](_0x4b6188,_0x32fd4d)&&_0x4cf7a8>=_0x3ca7c7&&_0x14abc9['\x79\x75\x76\x61\x69'](_0x4cf7a8,_0x2d67e4)&&_0x212924>=_0x12e4ab&&_0x212924<=_0x14abc9[_0x3629e4(0x754)](_0x12e4ab,0x3)){_0x4ba8ff=!![];break;}}}}if(!_0x4ba8ff){if(victoryChicken&&victoryChicken[_0x3629e4(0x8ba)]){const _0x4b8690=_0x8335fc[_0x3629e4(0x3cf)](victoryChicken['\x67\x72\x6f\x75\x70']['\x70\x6f\x73\x69\x74\x69\x6f\x6e']);if(_0x4b8690<3.2){const _0x43a75a=0xf;victoryChicken[_0x3629e4(0x5a1)]+=_0x14abc9['\x53\x61\x73\x52\x6e'](_0x2e0084[_0x3629e4(0x27a)]['\x78'],_0x43a75a),victoryChicken['\x76\x65\x6c\x5a']+=_0x14abc9['\x49\x4e\x64\x6f\x4c'](_0x2e0084[_0x3629e4(0x27a)]['\x7a'],_0x43a75a),victoryChicken[_0x3629e4(0x119)]=Math[_0x3629e4(0x57a)](0x8,_0x14abc9['\x66\x6f\x6b\x78\x45'](victoryChicken['\x76\x65\x6c\x59'],0x8)),victoryChicken['\x6c\x61\x6e\x64\x65\x64']=![],_0x14abc9[_0x3629e4(0x539)](victoryChicken[_0x3629e4(0x6ab)],0x3)&&(victoryChicken[_0x3629e4(0x6ab)]=0x2),_0x4ba8ff=!![],SoundSystem['\x70\x6c\x61\x79\x50\x75\x6e\x63\x68'](![]);}}}if(!_0x4ba8ff)for(let _0x47c32d=_0x14abc9['\x7a\x57\x6d\x76\x56'](liveChickens['\x6c\x65\x6e\x67\x74\x68'],0x1);_0x47c32d>=0x0;_0x47c32d--){const _0x1215e1=liveChickens[_0x47c32d],_0x3a542b=_0x8335fc['\x78']-_0x1215e1['\x70\x6f\x73']['\x78'],_0x4b6a40=_0x14abc9[_0x3629e4(0x45f)](_0x8335fc['\x7a'],_0x1215e1[_0x3629e4(0x215)]['\x7a']),_0x3678c2=Math[_0x3629e4(0x16d)](_0x14abc9[_0x3629e4(0x18f)](_0x3a542b,_0x3a542b)+_0x14abc9['\x69\x4b\x76\x70\x6f'](_0x4b6a40,_0x4b6a40)),_0x48fdf0=Math[_0x3629e4(0x712)](_0x14abc9[_0x3629e4(0x58b)](_0x8335fc['\x79'],_0x1215e1[_0x3629e4(0x48f)][_0x3629e4(0x8a6)]['\x79']+0.22)),_0x51442d=_0x14abc9[_0x3629e4(0x41c)](_0x1215e1[_0x3629e4(0x48f)][_0x3629e4(0x3dd)][_0x3629e4(0x488)],_0x14abc9[_0x3629e4(0x5d8)])?0.28:0.45,_0x784f37=_0x14abc9[_0x3629e4(0x83f)](_0x1215e1[_0x3629e4(0x48f)][_0x3629e4(0x3dd)][_0x3629e4(0x488)],_0x14abc9[_0x3629e4(0x5d8)])?0.3:0.5;if(_0x3678c2<_0x51442d&&_0x14abc9[_0x3629e4(0x759)](_0x48fdf0,_0x784f37)){_0x1215e1[_0x3629e4(0x613)]=2.5,_0x1215e1[_0x3629e4(0x27a)]['\x63\x6f\x70\x79'](_0x2e0084[_0x3629e4(0x27a)])['\x73\x65\x74\x59'](0x0)[_0x3629e4(0x872)](),_0x4ba8ff=!![],SoundSystem[_0x3629e4(0x5c5)](![]);if(_0x1215e1[_0x3629e4(0x226)]===undefined)_0x1215e1[_0x3629e4(0x226)]=0x0;_0x1215e1[_0x3629e4(0x226)]++;if(_0x14abc9['\x64\x64\x67\x6e\x4e'](_0x1215e1[_0x3629e4(0x226)],0x5)){scene[_0x3629e4(0x2b8)](_0x1215e1[_0x3629e4(0x48f)]);const _0x473476=createRoastedChickenMesh();let _0x16546a=_0x1215e1[_0x3629e4(0x48f)][_0x3629e4(0x3dd)][_0x3629e4(0x488)]===_0x3629e4(0x167)?0.55:0x1;_0x473476[_0x3629e4(0x7ef)]['\x73\x65\x74'](_0x16546a,_0x16546a,_0x16546a),_0x473476['\x70\x6f\x73\x69\x74\x69\x6f\x6e'][_0x3629e4(0x6a0)](_0x1215e1[_0x3629e4(0x215)]);const _0x53b618=_0x1215e1[_0x3629e4(0x48f)]['\x75\x73\x65\x72\x44\x61\x74\x61'][_0x3629e4(0x488)]===_0x14abc9[_0x3629e4(0x5d8)]?0.12:0.22;_0x473476[_0x3629e4(0x8a6)]['\x79']=_0x14abc9[_0x3629e4(0x578)](getElevation(_0x1215e1[_0x3629e4(0x215)]['\x78'],_0x1215e1[_0x3629e4(0x215)]['\x7a']),_0x53b618),scene[_0x3629e4(0x5bf)](_0x473476),_0x473476[_0x3629e4(0x705)]=!![],_0x473476[_0x3629e4(0x7e1)]=!![],SoundSystem[_0x3629e4(0x5c5)](!![]),liveChickens['\x73\x70\x6c\x69\x63\x65'](_0x47c32d,0x1),_0x14abc9[_0x3629e4(0x6b2)](createShockwave,_0x1215e1[_0x3629e4(0x215)]);}break;}}if(_0x4ba8ff)break;}if(_0x4ba8ff){_0x339ba8(_0x2e0084),enemyBullets['\x73\x70\x6c\x69\x63\x65'](_0xb6e792,0x1);continue;}if(playerHp>0x0&&_0x2e0084[_0x3629e4(0x713)]!==_0x3629e4(0x603)){const _0x110b5d=playerPos[_0x3629e4(0x31f)]()['\x61\x64\x64'](new a0_0xe98f69[(_0x3629e4(0x691))](0x0,currentEyeY,0x0)),_0x2a8648=playerPos['\x63\x6c\x6f\x6e\x65']()['\x61\x64\x64'](new a0_0xe98f69[(_0x3629e4(0x691))](0x0,_0x14abc9[_0x3629e4(0x263)](currentEyeY,0.7),0x0)),_0x3824e9=_0x2e0084[_0x3629e4(0x48f)][_0x3629e4(0x8a6)][_0x3629e4(0x3cf)](_0x110b5d),_0x40c010=_0x2e0084[_0x3629e4(0x48f)][_0x3629e4(0x8a6)][_0x3629e4(0x3cf)](_0x2a8648);if(_0x14abc9[_0x3629e4(0x5c9)](_0x3824e9,0.3)||_0x40c010<0.6){let _0x5c508f=_0x14abc9[_0x3629e4(0x3d6)](_0x3824e9,0.3),_0x3645d4=_0x2e0084['\x64\x6d\x67'];_0x5c508f&&(_0x3645d4*=2.5,playerInventory[_0x3629e4(0x60c)]&&(_0x3645d4*=0x1-playerInventory['\x68\x65\x6c\x6d\x65\x74']['\x72\x65\x64\x75\x63\x74\x69\x6f\x6e'])),_0x14abc9['\x71\x73\x49\x6c\x53'](updatePlayerHp,-_0x3645d4,_0x2e0084[_0x3629e4(0x850)]),_0x4ba8ff=!![];}}if(!_0x4ba8ff)for(let _0x1e2121 of enemies){if(_0x14abc9[_0x3629e4(0x6bb)](_0x1e2121['\x68\x70'],0x0)&&_0x1e2121[_0x3629e4(0x626)]===_0x14abc9[_0x3629e4(0x37f)]&&_0x14abc9[_0x3629e4(0x10a)](_0x2e0084['\x6f\x77\x6e\x65\x72'],_0x1e2121['\x69\x64'])){const _0x2cf1ab=_0x1e2121[_0x3629e4(0x48f)][_0x3629e4(0x8a6)][_0x3629e4(0x31f)]()['\x61\x64\x64'](new a0_0xe98f69['\x56\x65\x63\x74\x6f\x72\x33'](0x0,1.5,0x0)),_0x884785=_0x1e2121[_0x3629e4(0x48f)]['\x70\x6f\x73\x69\x74\x69\x6f\x6e'][_0x3629e4(0x31f)]()[_0x3629e4(0x5bf)](new a0_0xe98f69[(_0x3629e4(0x691))](0x0,0.8,0x0)),_0x5c40e8=_0x2e0084[_0x3629e4(0x48f)][_0x3629e4(0x8a6)][_0x3629e4(0x3cf)](_0x2cf1ab),_0x213ba1=_0x2e0084[_0x3629e4(0x48f)]['\x70\x6f\x73\x69\x74\x69\x6f\x6e'][_0x3629e4(0x3cf)](_0x884785);if(_0x14abc9[_0x3629e4(0x69d)](_0x5c40e8,0.3)||_0x213ba1<0.6){let _0x21f716=_0x14abc9[_0x3629e4(0x18e)](_0x5c40e8,0.3),_0xed1d0b=_0x2e0084[_0x3629e4(0x40d)];_0x14abc9[_0x3629e4(0x2e7)](_0x2e0084[_0x3629e4(0x713)],_0x14abc9[_0x3629e4(0x62c)])&&(_0xed1d0b*=0.25);if(_0x21f716){_0xed1d0b*=2.5;_0x1e2121[_0x3629e4(0x60c)]&&(_0xed1d0b*=_0x14abc9[_0x3629e4(0x288)](0x1,_0x1e2121[_0x3629e4(0x60c)][_0x3629e4(0x124)]));if(_0x14abc9['\x54\x48\x48\x62\x50'](_0x2e0084[_0x3629e4(0x713)],'\x50\x4c\x41\x59\x45\x52'))showNotice(_0x14abc9[_0x3629e4(0x2e9)],0x3e8);}_0x1e2121['\x68\x70']-=_0xed1d0b,_0x4ba8ff=!![];_0x2e0084[_0x3629e4(0x713)]===_0x14abc9[_0x3629e4(0x62c)]&&(_0x1e2121[_0x3629e4(0x1c0)]=clock['\x67\x65\x74\x45\x6c\x61\x70\x73\x65\x64\x54\x69\x6d\x65']());if(_0x14abc9['\x64\x4f\x69\x42\x65'](_0x1e2121['\x68\x70'],0x0)){const _0x18c8f5=_0x3629e4(0x34e)[_0x3629e4(0x696)]('\x7c');let _0x5ea774=0x0;while(!![]){switch(_0x18c8f5[_0x5ea774++]){case'\x30':_0x1e2121['\x68\x70\x55\x49']['\x62\x67'][_0x3629e4(0x570)][_0x3629e4(0x2bf)]=_0x14abc9['\x72\x66\x45\x55\x72'];continue;case'\x31':totalAlive--;continue;case'\x32':scene[_0x3629e4(0x2b8)](_0x1e2121[_0x3629e4(0x48f)]);continue;case'\x33':_0x14abc9[_0x3629e4(0x842)](_0x2e0084['\x6f\x77\x6e\x65\x72'],_0x14abc9[_0x3629e4(0x62c)])&&(killCount++,document[_0x3629e4(0x6ac)](_0x14abc9[_0x3629e4(0x81f)])[_0x3629e4(0x2d8)]=killCount);continue;case'\x34':_0x14abc9[_0x3629e4(0x24b)](spawnCorpseBox,_0x1e2121[_0x3629e4(0x48f)][_0x3629e4(0x8a6)],_0x1e2121[_0x3629e4(0x285)],_0x14abc9['\x6e\x64\x4c\x72\x43'](Math[_0x3629e4(0x81e)](),0.5)?SCOPES['\x58\x32']:SCOPES[_0x3629e4(0x878)],_0x1e2121[_0x3629e4(0x60c)],_0x1e2121[_0x3629e4(0x4e5)]);continue;case'\x35':_0x14abc9['\x52\x71\x75\x49\x78'](addKillLog,(_0x14abc9[_0x3629e4(0x4a5)](_0x2e0084['\x6f\x77\x6e\x65\x72'],_0x14abc9[_0x3629e4(0x62c)])?'\ub2f9\uc2e0':_0x2e0084['\x6f\x77\x6e\x65\x72'])+_0x3629e4(0x72b)+_0x1e2121['\x69\x64']+_0x3629e4(0x2fe)+(_0x21f716?_0x14abc9['\x64\x4b\x57\x49\x4c']:''));continue;case'\x36':_0x14abc9['\x61\x61\x74\x7a\x57'](checkVictory);continue;}break;}}break;}}}(_0x4ba8ff||_0x14abc9[_0x3629e4(0x207)](_0x2e0084[_0x3629e4(0x575)],0x0))&&(_0x14abc9[_0x3629e4(0x75f)](_0x339ba8,_0x2e0084),enemyBullets[_0x3629e4(0x6ef)](_0xb6e792,0x1));}for(let _0x3deb6c=_0x14abc9[_0x3629e4(0x5cf)](activeThrowables[_0x3629e4(0x88b)],0x1);_0x14abc9[_0x3629e4(0x699)](_0x3deb6c,0x0);_0x3deb6c--){const _0x2a2238=activeThrowables[_0x3deb6c];_0x2a2238['\x74\x69\x6d\x65\x72']-=_0x3a9af6,_0x2a2238[_0x3629e4(0x73d)]['\x79']-=_0x14abc9[_0x3629e4(0x451)](_0x14abc9[_0x3629e4(0x7d9)](9.8,0x2),_0x3a9af6),_0x2a2238[_0x3629e4(0x215)]['\x61\x64\x64\x53\x63\x61\x6c\x65\x64\x56\x65\x63\x74\x6f\x72'](_0x2a2238[_0x3629e4(0x73d)],_0x3a9af6),_0x2a2238[_0x3629e4(0x48f)][_0x3629e4(0x8a6)][_0x3629e4(0x6a0)](_0x2a2238['\x70\x6f\x73']);const _0x2f2c35=_0x14abc9[_0x3629e4(0x6bf)](getElevation,_0x2a2238['\x70\x6f\x73']['\x78'],_0x2a2238[_0x3629e4(0x215)]['\x7a']);_0x2a2238[_0x3629e4(0x215)]['\x79']<=_0x2f2c35&&(_0x2a2238['\x70\x6f\x73']['\x79']=_0x2f2c35,_0x2a2238['\x76\x65\x6c']['\x79']=_0x14abc9['\x63\x69\x65\x77\x70'](-_0x2a2238[_0x3629e4(0x73d)]['\x79'],0.4),_0x2a2238[_0x3629e4(0x73d)]['\x78']*=0.6,_0x2a2238[_0x3629e4(0x73d)]['\x7a']*=0.6);if(_0x2a2238[_0x3629e4(0x6e3)]<=0x0){scene[_0x3629e4(0x2b8)](_0x2a2238[_0x3629e4(0x48f)]),_0x235ce7(_0x2a2238['\x6d\x65\x73\x68']);if(_0x14abc9[_0x3629e4(0x1de)](_0x2a2238['\x74\x79\x70\x65'],_0x3629e4(0x3a0))){const _0x541fef=new a0_0xe98f69[(_0x3629e4(0x4d1))]({'\x63\x6f\x6c\x6f\x72':0xffaa00,'\x74\x72\x61\x6e\x73\x70\x61\x72\x65\x6e\x74':!![],'\x6f\x70\x61\x63\x69\x74\x79':0.9}),_0x53ce75=new a0_0xe98f69[(_0x3629e4(0x59f))](new a0_0xe98f69[(_0x3629e4(0x718))](0.1,0x10,0x10),_0x541fef);_0x53ce75[_0x3629e4(0x8a6)]['\x63\x6f\x70\x79'](_0x2a2238[_0x3629e4(0x215)]),scene[_0x3629e4(0x5bf)](_0x53ce75);const _0x199bbe=playerPos['\x64\x69\x73\x74\x61\x6e\x63\x65\x54\x6f'](_0x2a2238[_0x3629e4(0x215)]),_0x1fecc3=Math[_0x3629e4(0x57a)](0x0,0x1-_0x14abc9[_0x3629e4(0x6c3)](_0x199bbe,0x96));_0x14abc9['\x53\x62\x53\x72\x50'](_0x1fecc3,0.01)&&SoundSystem['\x70\x6c\x61\x79\x45\x78\x70\x6c\x6f\x73\x69\x6f\x6e'](_0x1fecc3);const _0x18faf9=0x12;if(_0x14abc9[_0x3629e4(0x17a)](_0x199bbe,_0x18faf9)&&_0x14abc9['\x45\x58\x4e\x56\x4d'](playerHp,0x0)){let _0x49f35f=_0x14abc9[_0x3629e4(0x247)](_0x14abc9[_0x3629e4(0x4fc)](0x1,_0x199bbe/_0x18faf9),0xb4);if(playerInventory[_0x3629e4(0x60c)])_0x49f35f*=_0x14abc9[_0x3629e4(0x125)](0x1,playerInventory['\x68\x65\x6c\x6d\x65\x74'][_0x3629e4(0x124)]);_0x14abc9[_0x3629e4(0x76c)](updatePlayerHp,-_0x49f35f,_0x2a2238[_0x3629e4(0x215)]),_0x14abc9[_0x3629e4(0x220)](showNotice,_0x14abc9[_0x3629e4(0x523)]);}enemies[_0x3629e4(0x64b)](_0x501af6=>{const _0xf453b2=_0x3629e4;if(_0x501af6['\x68\x70']>0x0&&_0x501af6[_0xf453b2(0x626)]===_0x14abc9[_0xf453b2(0x37f)]){const _0xaf6c86=_0x501af6[_0xf453b2(0x48f)][_0xf453b2(0x8a6)]['\x64\x69\x73\x74\x61\x6e\x63\x65\x54\x6f'](_0x2a2238[_0xf453b2(0x215)]);if(_0x14abc9[_0xf453b2(0x3d6)](_0xaf6c86,_0x18faf9)){let _0x534b9e=_0x14abc9[_0xf453b2(0x8e6)](0x1,_0xaf6c86/_0x18faf9)*0xb4;if(_0x501af6['\x68\x65\x6c\x6d\x65\x74'])_0x534b9e*=_0x14abc9['\x53\x64\x6a\x6f\x72'](0x1,_0x501af6[_0xf453b2(0x60c)][_0xf453b2(0x124)]);_0x501af6['\x68\x70']-=_0x534b9e,_0x501af6[_0xf453b2(0x1c0)]=clock['\x67\x65\x74\x45\x6c\x61\x70\x73\x65\x64\x54\x69\x6d\x65'](),_0x501af6['\x68\x70']<=0x0&&(totalAlive--,scene[_0xf453b2(0x2b8)](_0x501af6[_0xf453b2(0x48f)]),_0x501af6[_0xf453b2(0x839)]['\x62\x67'][_0xf453b2(0x570)][_0xf453b2(0x2bf)]=_0x14abc9[_0xf453b2(0x609)],_0x14abc9[_0xf453b2(0x31a)](spawnCorpseBox,_0x501af6['\x6d\x65\x73\x68'][_0xf453b2(0x8a6)],_0x501af6[_0xf453b2(0x285)],_0x14abc9[_0xf453b2(0x72f)](Math['\x72\x61\x6e\x64\x6f\x6d'](),0.5)?SCOPES['\x58\x32']:SCOPES[_0xf453b2(0x878)],_0x501af6['\x68\x65\x6c\x6d\x65\x74'],_0x501af6[_0xf453b2(0x4e5)]),_0x14abc9[_0xf453b2(0x220)](addKillLog,_0xf453b2(0x76e)+_0x501af6['\x69\x64']+'\x20\ucc98\uce58'),killCount++,document['\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64'](_0xf453b2(0x5f4))[_0xf453b2(0x2d8)]=killCount,_0x14abc9[_0xf453b2(0x29a)](checkVictory));}}});let _0x2202be=0x0;const _0x1dda11=_0x14abc9['\x4f\x61\x49\x4e\x4b'](setInterval,()=>{const _0xdd0efe=_0x3629e4;_0x2202be+=0.04;const _0x7142e0=_0x14abc9[_0xdd0efe(0x47e)](_0x2202be,0x2d);_0x53ce75[_0xdd0efe(0x7ef)][_0xdd0efe(0x2d5)](_0x7142e0,_0x7142e0,_0x7142e0),_0x541fef[_0xdd0efe(0x605)]=_0x14abc9[_0xdd0efe(0x727)](0x1,_0x14abc9[_0xdd0efe(0x2b2)](_0x2202be,0.6)),_0x14abc9[_0xdd0efe(0x55d)](_0x2202be,0.6)&&(clearInterval(_0x1dda11),scene[_0xdd0efe(0x2b8)](_0x53ce75),_0x53ce75[_0xdd0efe(0x1ce)][_0xdd0efe(0x838)](),_0x541fef[_0xdd0efe(0x838)]());},0x28);}else{if(_0x14abc9[_0x3629e4(0x8e0)](_0x2a2238[_0x3629e4(0x488)],'\x53\x4d\x4f\x4b\x45')){const _0x464c3d=new a0_0xe98f69['\x47\x72\x6f\x75\x70']();_0x464c3d['\x70\x6f\x73\x69\x74\x69\x6f\x6e']['\x63\x6f\x70\x79'](_0x2a2238[_0x3629e4(0x215)]),scene['\x61\x64\x64'](_0x464c3d);const _0x4a7646=playerPos[_0x3629e4(0x3cf)](_0x2a2238[_0x3629e4(0x215)]),_0xd722be=Math['\x6d\x61\x78'](0x0,_0x14abc9[_0x3629e4(0x32b)](0x1,_0x14abc9[_0x3629e4(0x5a0)](_0x4a7646,0x64)));_0x14abc9[_0x3629e4(0x151)](_0xd722be,0.01)&&SoundSystem[_0x3629e4(0x198)](_0xd722be);const _0x520ffe=0xc,_0x552cb3=[],_0x1cacd1=new a0_0xe98f69['\x4d\x65\x73\x68\x53\x74\x61\x6e\x64\x61\x72\x64\x4d\x61\x74\x65\x72\x69\x61\x6c']({'\x63\x6f\x6c\x6f\x72':0xdddddd,'\x74\x72\x61\x6e\x73\x70\x61\x72\x65\x6e\x74':!![],'\x6f\x70\x61\x63\x69\x74\x79':0x0,'\x72\x6f\x75\x67\x68\x6e\x65\x73\x73':0.9,'\x64\x65\x70\x74\x68\x57\x72\x69\x74\x65':![]});for(let _0xa9691f=0x0;_0x14abc9[_0x3629e4(0x759)](_0xa9691f,_0x520ffe);_0xa9691f++){const _0x30b505=new a0_0xe98f69[(_0x3629e4(0x59f))](new a0_0xe98f69[(_0x3629e4(0x718))](0x1,0x8,0x8),_0x1cacd1);_0x30b505[_0x3629e4(0x8a6)]['\x73\x65\x74'](_0x14abc9[_0x3629e4(0x59e)](_0x14abc9[_0x3629e4(0x596)](Math[_0x3629e4(0x81e)](),0.5),0x2),_0x14abc9[_0x3629e4(0x66a)](_0x14abc9[_0x3629e4(0x5cd)](_0x14abc9[_0x3629e4(0x8e6)](Math[_0x3629e4(0x81e)](),0.5),0x1),0x1),_0x14abc9[_0x3629e4(0x593)](Math[_0x3629e4(0x81e)]()-0.5,0x2)),_0x464c3d[_0x3629e4(0x5bf)](_0x30b505),_0x552cb3[_0x3629e4(0x1a4)]({'\x6d\x65\x73\x68':_0x30b505,'\x73\x63\x61\x6c\x65':0x1+Math[_0x3629e4(0x81e)]()*0x2,'\x74\x61\x72\x67\x65\x74\x53\x63\x61\x6c\x65':_0x14abc9['\x72\x75\x6d\x65\x70'](0x5,_0x14abc9[_0x3629e4(0x296)](Math['\x72\x61\x6e\x64\x6f\x6d'](),0x4)),'\x64\x72\x69\x66\x74':new a0_0xe98f69[(_0x3629e4(0x691))](_0x14abc9[_0x3629e4(0x4a0)](_0x14abc9['\x42\x46\x78\x57\x6c'](Math['\x72\x61\x6e\x64\x6f\x6d'](),0.5),0.2),_0x14abc9[_0x3629e4(0x266)](Math[_0x3629e4(0x81e)](),0.1),_0x14abc9[_0x3629e4(0x4f2)](Math[_0x3629e4(0x81e)](),0.5)*0.2)});}activeSmokeClouds[_0x3629e4(0x1a4)]({'\x67\x72\x6f\x75\x70':_0x464c3d,'\x70\x75\x66\x66\x73':_0x552cb3,'\x6d\x61\x74\x65\x72\x69\x61\x6c':_0x1cacd1,'\x74\x69\x6d\x65\x72':0xf,'\x70\x68\x61\x73\x65':_0x14abc9[_0x3629e4(0x4b5)]});}}activeThrowables[_0x3629e4(0x6ef)](_0x3deb6c,0x1);}}for(let _0xc5b328=_0x14abc9['\x74\x4f\x65\x64\x4d'](activeSmokeClouds[_0x3629e4(0x88b)],0x1);_0x14abc9[_0x3629e4(0x173)](_0xc5b328,0x0);_0xc5b328--){const _0x457ac8=activeSmokeClouds[_0xc5b328];_0x457ac8[_0x3629e4(0x6e3)]-=_0x3a9af6,_0x457ac8[_0x3629e4(0x1e5)][_0x3629e4(0x64b)](_0x38382f=>{const _0x5f022f=_0x3629e4;if(_0x14abc9[_0x5f022f(0x6f6)](_0x457ac8['\x70\x68\x61\x73\x65'],_0x14abc9[_0x5f022f(0x4b5)])){_0x38382f['\x6d\x65\x73\x68'][_0x5f022f(0x7ef)][_0x5f022f(0x4ee)](new a0_0xe98f69['\x56\x65\x63\x74\x6f\x72\x33'](_0x38382f[_0x5f022f(0x144)],_0x38382f['\x74\x61\x72\x67\x65\x74\x53\x63\x61\x6c\x65'],_0x38382f[_0x5f022f(0x144)]),_0x14abc9[_0x5f022f(0x62e)](_0x3a9af6,0x2)),_0x457ac8[_0x5f022f(0x5f0)]['\x6f\x70\x61\x63\x69\x74\x79']=Math[_0x5f022f(0x19c)](0.85,_0x457ac8[_0x5f022f(0x5f0)][_0x5f022f(0x605)]+_0x3a9af6*0.5);if(_0x14abc9[_0x5f022f(0x55d)](_0x457ac8['\x6d\x61\x74\x65\x72\x69\x61\x6c'][_0x5f022f(0x605)],0.8))_0x457ac8['\x70\x68\x61\x73\x65']=_0x14abc9['\x6c\x76\x73\x61\x74'];}else _0x457ac8[_0x5f022f(0x6e3)]<0x3&&(_0x457ac8['\x6d\x61\x74\x65\x72\x69\x61\x6c'][_0x5f022f(0x605)]=Math[_0x5f022f(0x57a)](0x0,_0x457ac8['\x6d\x61\x74\x65\x72\x69\x61\x6c'][_0x5f022f(0x605)]-_0x14abc9[_0x5f022f(0x4be)](_0x3a9af6,0.3)));_0x38382f['\x6d\x65\x73\x68'][_0x5f022f(0x8a6)][_0x5f022f(0x42e)](_0x38382f['\x64\x72\x69\x66\x74'],_0x3a9af6);}),_0x14abc9[_0x3629e4(0x207)](_0x457ac8[_0x3629e4(0x6e3)],0x0)&&(_0x457ac8[_0x3629e4(0x8ba)]['\x74\x72\x61\x76\x65\x72\x73\x65'](_0x246a23=>{const _0x2ce488=_0x3629e4;if(_0x246a23[_0x2ce488(0x669)]){if(_0x246a23[_0x2ce488(0x1ce)])_0x246a23[_0x2ce488(0x1ce)][_0x2ce488(0x838)]();if(_0x246a23[_0x2ce488(0x5f0)]){if(Array[_0x2ce488(0x28f)](_0x246a23[_0x2ce488(0x5f0)]))_0x246a23[_0x2ce488(0x5f0)][_0x2ce488(0x64b)](_0x21f53d=>_0x21f53d[_0x2ce488(0x838)]());else _0x246a23[_0x2ce488(0x5f0)][_0x2ce488(0x838)]();}}}),scene[_0x3629e4(0x2b8)](_0x457ac8['\x67\x72\x6f\x75\x70']),activeSmokeClouds[_0x3629e4(0x6ef)](_0xc5b328,0x1));}_0x14abc9['\x43\x6a\x49\x65\x46'](drawMinimap),renderer[_0x3629e4(0x10c)](scene,camera);}animate();const loadingScreen=document[a0_0x460254(0x6ac)](a0_0x460254(0x662));loadingScreen&&setTimeout(()=>{const _0x38b068=a0_0x460254,_0xd01874={'\x63\x58\x57\x4a\x6e':function(_0x2af018,_0x501348,_0x275f8d){return _0x2af018(_0x501348,_0x275f8d);}};loadingScreen['\x73\x74\x79\x6c\x65'][_0x38b068(0x605)]='\x30',_0xd01874[_0x38b068(0x4bd)](setTimeout,()=>{const _0xed9ddb=_0x38b068;loadingScreen[_0xed9ddb(0x570)][_0xed9ddb(0x2bf)]=_0xed9ddb(0x3ad);},0x1f4);},0x1f4);function checkOrientation(){const _0x2881f0=a0_0x460254,_0x54d062={'\x66\x49\x55\x44\x41':_0x2881f0(0x56a),'\x55\x74\x5a\x79\x6a':'\x6e\x6f\x6e\x65'};isTouchDevice&&window[_0x2881f0(0x126)]>window[_0x2881f0(0x641)]?document[_0x2881f0(0x6ac)](_0x54d062['\x66\x49\x55\x44\x41'])[_0x2881f0(0x570)][_0x2881f0(0x2bf)]='\x66\x6c\x65\x78':document[_0x2881f0(0x6ac)](_0x2881f0(0x56a))[_0x2881f0(0x570)]['\x64\x69\x73\x70\x6c\x61\x79']=_0x54d062[_0x2881f0(0x43f)];}window[a0_0x460254(0x6b6)](a0_0x460254(0x63c),()=>{const _0x18fe3b=a0_0x460254,_0x4faf94={'\x4c\x71\x56\x42\x56':function(_0x40b28f,_0xc2c1d6){return _0x40b28f/_0xc2c1d6;},'\x71\x4a\x52\x51\x6a':function(_0x57d1a3){return _0x57d1a3();}};camera[_0x18fe3b(0x4c6)]=_0x4faf94[_0x18fe3b(0x20a)](window['\x69\x6e\x6e\x65\x72\x57\x69\x64\x74\x68'],window[_0x18fe3b(0x126)]),camera[_0x18fe3b(0x566)](),renderer[_0x18fe3b(0x422)](window['\x69\x6e\x6e\x65\x72\x57\x69\x64\x74\x68'],window[_0x18fe3b(0x126)]),_0x4faf94[_0x18fe3b(0x515)](checkOrientation);}),window['\x61\x64\x64\x45\x76\x65\x6e\x74\x4c\x69\x73\x74\x65\x6e\x65\x72']('\x6f\x72\x69\x65\x6e\x74\x61\x74\x69\x6f\x6e\x63\x68\x61\x6e\x67\x65',checkOrientation),checkOrientation(),window[a0_0x460254(0x6b6)](a0_0x460254(0x714),()=>{const _0x5849a5=a0_0x460254,_0x27bf7b={'\x58\x53\x78\x59\x4c':function(_0x1512ad,_0x456d58){return _0x1512ad!==_0x456d58;},'\x74\x4e\x57\x58\x4f':'\x75\x6e\x64\x65\x66\x69\x6e\x65\x64','\x59\x44\x7a\x4d\x75':function(_0x3bedb8,_0x206b6c){return _0x3bedb8!==_0x206b6c;},'\x6b\x76\x63\x4a\x78':function(_0x1cdb14,_0x5d112d){return _0x1cdb14!==_0x5d112d;},'\x72\x4e\x4c\x63\x42':function(_0x5a47f9,_0x544f14){return _0x5a47f9!==_0x544f14;},'\x59\x47\x73\x6a\x66':function(_0x2b97cf,_0x4f68e2){return _0x2b97cf!==_0x4f68e2;}};if(_0x27bf7b[_0x5849a5(0x1fa)](typeof BulletCache,_0x27bf7b['\x74\x4e\x57\x58\x4f'])&&BulletCache)BulletCache['\x64\x69\x73\x70\x6f\x73\x65\x41\x6c\x6c']();if(_0x27bf7b[_0x5849a5(0x779)](typeof muzzleFlashConeGeo,_0x27bf7b[_0x5849a5(0x6d2)])&&muzzleFlashConeGeo)muzzleFlashConeGeo[_0x5849a5(0x838)]();if(_0x27bf7b[_0x5849a5(0x779)](typeof muzzleFlashSphereGeo,_0x27bf7b[_0x5849a5(0x6d2)])&&muzzleFlashSphereGeo)muzzleFlashSphereGeo[_0x5849a5(0x838)]();if(_0x27bf7b[_0x5849a5(0x598)](typeof muzzleFlashConeMat,_0x5849a5(0x3a6))&&muzzleFlashConeMat)muzzleFlashConeMat[_0x5849a5(0x838)]();if(_0x27bf7b[_0x5849a5(0x87a)](typeof muzzleFlashSphereMat,_0x27bf7b[_0x5849a5(0x6d2)])&&muzzleFlashSphereMat)muzzleFlashSphereMat[_0x5849a5(0x838)]();_0x27bf7b[_0x5849a5(0x508)](typeof scene,_0x27bf7b[_0x5849a5(0x6d2)])&&scene&&scene[_0x5849a5(0x5e7)](_0x21baa0=>{const _0x2c5920=_0x5849a5;if(_0x21baa0[_0x2c5920(0x1ce)])_0x21baa0[_0x2c5920(0x1ce)][_0x2c5920(0x838)]();if(_0x21baa0['\x6d\x61\x74\x65\x72\x69\x61\x6c']){if(Array[_0x2c5920(0x28f)](_0x21baa0[_0x2c5920(0x5f0)]))_0x21baa0[_0x2c5920(0x5f0)][_0x2c5920(0x64b)](_0x302d56=>_0x302d56['\x64\x69\x73\x70\x6f\x73\x65']());else _0x21baa0[_0x2c5920(0x5f0)][_0x2c5920(0x838)]();}}),_0x27bf7b[_0x5849a5(0x1fa)](typeof renderer,_0x27bf7b[_0x5849a5(0x6d2)])&&renderer&&renderer[_0x5849a5(0x838)]();});
+
+    import * as THREE from 'three';
+
+    document.getElementById('btn-close-inv').addEventListener('touchstart', (e) => { 
+      e.preventDefault(); 
+      toggleInventory(); 
+    });
+    document.getElementById('btn-close-inv').addEventListener('click', () => { 
+      toggleInventory(); 
+    });
+
+
+    document.addEventListener('contextmenu', event => event.preventDefault());
+    const isTouchDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+    
+    function initPlaneSeatsUI() {
+      const grid = document.getElementById('seats-grid');
+      if (!grid) return;
+      grid.innerHTML = '';
+      
+      for (let i = 0; i < 50; i++) {
+        const dot = document.createElement('div');
+        dot.id = `plane-seat-dot-${i}`;
+        dot.style.width = '6px';
+        dot.style.height = '6px';
+        dot.style.borderRadius = '50%';
+        dot.style.background = '#ff3333';
+        dot.style.boxShadow = '0 0 4px #ff3333';
+        dot.style.transition = 'all 0.3s ease';
+        grid.appendChild(dot);
+      }
+    }
+
+    function updatePlaneSeatsUI() {
+      const seatMap = document.getElementById('plane-seat-map');
+      if (!seatMap || gameState !== 'AIRPLANE') {
+        if (seatMap) seatMap.style.display = 'none';
+        return;
+      }
+      
+      seatMap.style.display = 'flex';
+      
+      const playerInPlane = (gameState === 'AIRPLANE');
+      let occupantsCount = playerInPlane ? 1 : 0;
+      
+      const playerSeatDot = document.getElementById('plane-seat-dot-0');
+      if (playerSeatDot) {
+        if (playerInPlane) {
+          playerSeatDot.style.background = '#ffeb3b';
+          playerSeatDot.style.boxShadow = '0 0 6px #ffeb3b';
+        } else {
+          playerSeatDot.style.background = 'rgba(255, 255, 255, 0.15)';
+          playerSeatDot.style.boxShadow = 'none';
+        }
+      }
+      
+      for (let i = 0; i < 49; i++) {
+        const enemy = enemies[i];
+        const enemySeatDot = document.getElementById(`plane-seat-dot-${i + 1}`);
+        if (enemy && enemySeatDot) {
+          const inPlane = (enemy.state === 'IN_PLANE');
+          if (inPlane) {
+            occupantsCount++;
+            enemySeatDot.style.background = '#ff3333';
+            enemySeatDot.style.boxShadow = '0 0 4px #ff3333';
+          } else {
+            enemySeatDot.style.background = 'rgba(255, 255, 255, 0.15)';
+            enemySeatDot.style.boxShadow = 'none';
+          }
+        }
+      }
+      
+      const occupantsCountEl = document.getElementById('plane-occupants-count');
+      if (occupantsCountEl) occupantsCountEl.innerText = occupantsCount;
+    }
+
+    if (isTouchDevice) {
+      document.body.classList.add('touch-device');
+      document.getElementById('loot-prompt').innerHTML = '📦 주변에 아이템이 있습니다. 줍기 버튼을 눌러 획득하세요!';
+    }
+
+    document.getElementById('loot-prompt').addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      tryFastLoot();
+    });
+    document.getElementById('loot-prompt').addEventListener('click', () => {
+      tryFastLoot();
+    });
+
+
+    // --- [사운드 시스템 (Web Audio API 기반 합성)] ---
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    let audioCtx = null;
+    let sfxVolumeNode = null;
+    
+    let skydiveWindNode = null;
+    let skydiveWindGain = null;
+    let skydiveWindOsc = null;
+
+    function initAudio() {
+      if (audioCtx) {
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+        return;
+      }
+      try {
+        audioCtx = new AudioContext();
+        sfxVolumeNode = audioCtx.createGain();
+        sfxVolumeNode.gain.setValueAtTime(1.0, audioCtx.currentTime);
+        sfxVolumeNode.connect(audioCtx.destination);
+      } catch (e) {
+        console.error("Web Audio API not supported", e);
+      }
+    }
+
+    function getSfxDestination() {
+      initAudio();
+      return sfxVolumeNode || audioCtx.destination;
+    }
+
+    let bgmInterval = null;
+    let bgmNodes = [];
+    let planeNodes = [];
+    let planePropellers = [];
+    let planeNavLights = [];
+
+    let bgmEnabled = false;
+    let sfxEnabled = true;
+
+    const SoundSystem = {
+      playBGM() {
+        if (!bgmEnabled) return;
+        initAudio();
+        if (!audioCtx) return;
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+        this.stopBGM();
+
+        try {
+          const masterGain = audioCtx.createGain();
+          masterGain.gain.setValueAtTime(0, audioCtx.currentTime);
+          masterGain.gain.linearRampToValueAtTime(0.55, audioCtx.currentTime + 3.0);
+          masterGain.connect(audioCtx.destination);
+
+          // 드론 베이스 (웅장한 긴장감)
+          const droneOsc = audioCtx.createOscillator();
+          droneOsc.type = 'sawtooth';
+          droneOsc.frequency.setValueAtTime(41.20, audioCtx.currentTime); // E1
+          const droneFilter = audioCtx.createBiquadFilter();
+          droneFilter.type = 'lowpass';
+          droneFilter.frequency.value = 140;
+          const droneGain = audioCtx.createGain();
+          droneGain.gain.value = 0.35;
+          droneOsc.connect(droneFilter).connect(droneGain).connect(masterGain);
+          droneOsc.start();
+          bgmNodes.push(droneOsc, droneGain, droneFilter);
+
+          // 타악기 및 오케스트라 효과 재생기
+          const playImpact = (type = 'HIT', freq = 120) => {
+            if (!audioCtx) return;
+            const now = audioCtx.currentTime;
+            
+            if (type === 'HIT') {
+                // 킥 드럼 펀치
+                const kickOsc = audioCtx.createOscillator();
+                kickOsc.type = 'sine';
+                kickOsc.frequency.setValueAtTime(freq, now);
+                kickOsc.frequency.exponentialRampToValueAtTime(10, now + 0.6);
+                const kickGain = audioCtx.createGain();
+                kickGain.gain.setValueAtTime(0.85, now);
+                kickGain.gain.exponentialRampToValueAtTime(0.001, now + 0.6);
+                kickOsc.connect(kickGain).connect(masterGain);
+                kickOsc.start(now); kickOsc.stop(now + 0.6);
+                
+                // 브라스 찌르기 (Brass stab)
+                const brassOsc = audioCtx.createOscillator();
+                brassOsc.type = 'square';
+                brassOsc.frequency.setValueAtTime(freq * 0.66, now); 
+                const brassFilter = audioCtx.createBiquadFilter();
+                brassFilter.type = 'lowpass';
+                brassFilter.frequency.setValueAtTime(1800, now);
+                brassFilter.frequency.exponentialRampToValueAtTime(100, now + 0.5);
+                const brassGain = audioCtx.createGain();
+                brassGain.gain.setValueAtTime(0.2, now);
+                brassGain.gain.exponentialRampToValueAtTime(0.001, now + 0.5);
+                brassOsc.connect(brassFilter).connect(brassGain).connect(masterGain);
+                brassOsc.start(now); brassOsc.stop(now + 0.5);
+            } else if (type === 'PERC') {
+                // 노이즈 기반 타악기 (Snare/Rim)
+                const bufferSize = audioCtx.sampleRate * 0.1;
+                const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+                const data = buffer.getChannelData(0);
+                for(let i=0; i<bufferSize; i++) data[i] = Math.random()*2-1;
+                const noise = audioCtx.createBufferSource();
+                noise.buffer = buffer;
+                const filter = audioCtx.createBiquadFilter();
+                filter.type = 'bandpass'; filter.frequency.value = 1400;
+                const g = audioCtx.createGain();
+                g.gain.setValueAtTime(0.12, now);
+                g.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
+                noise.connect(filter).connect(g).connect(masterGain);
+                noise.start(now);
+            } else if (type === 'HAT') {
+                // High-pass noise for hi-hat
+                const bufferSize = audioCtx.sampleRate * 0.04;
+                const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+                const data = buffer.getChannelData(0);
+                for(let i=0; i<bufferSize; i++) data[i] = Math.random()*2-1;
+                const noise = audioCtx.createBufferSource();
+                noise.buffer = buffer;
+                const filter = audioCtx.createBiquadFilter();
+                filter.type = 'highpass'; filter.frequency.value = 8000;
+                const g = audioCtx.createGain();
+                g.gain.setValueAtTime(0.04, now);
+                g.gain.exponentialRampToValueAtTime(0.001, now + 0.03);
+                noise.connect(filter).connect(g).connect(masterGain);
+                noise.start(now);
+            } else if (type === 'CHORD') {
+                // 웅장한 패드 코드
+                [freq, freq*1.2, freq*1.5].forEach(f => {
+                    const osc = audioCtx.createOscillator();
+                    osc.type = 'sawtooth'; osc.frequency.value = f * 0.5;
+                    const lpf = audioCtx.createBiquadFilter();
+                    lpf.type = 'lowpass'; lpf.frequency.value = 450;
+                    const g = audioCtx.createGain();
+                    g.gain.setValueAtTime(0, now);
+                    g.gain.linearRampToValueAtTime(0.12, now + 0.6);
+                    g.gain.linearRampToValueAtTime(0, now + 2.8);
+                    osc.connect(lpf).connect(g).connect(masterGain);
+                    osc.start(now); osc.stop(now + 2.8);
+                });
+            }
+          };
+
+          // 멜로디/베이스/리드 재생 헬퍼
+          const playBass = (freq) => {
+            if (!audioCtx) return;
+            const now = audioCtx.currentTime;
+            const osc = audioCtx.createOscillator();
+            osc.type = 'sawtooth';
+            osc.frequency.setValueAtTime(freq * 2.0, now);
+            const filter = audioCtx.createBiquadFilter();
+            filter.type = 'lowpass';
+            filter.frequency.setValueAtTime(380, now);
+            filter.frequency.exponentialRampToValueAtTime(100, now + 0.18);
+            const gain = audioCtx.createGain();
+            gain.gain.setValueAtTime(0.18, now);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
+            osc.connect(filter).connect(gain).connect(masterGain);
+            osc.start(now); osc.stop(now + 0.18);
+          };
+
+          const playLead = (freq) => {
+            if (!audioCtx) return;
+            const now = audioCtx.currentTime;
+            const osc1 = audioCtx.createOscillator();
+            const osc2 = audioCtx.createOscillator();
+            osc1.type = 'sawtooth';
+            osc1.frequency.setValueAtTime(freq, now);
+            osc2.type = 'triangle';
+            osc2.frequency.setValueAtTime(freq * 1.005, now);
+            const filter = audioCtx.createBiquadFilter();
+            filter.type = 'bandpass';
+            filter.frequency.setValueAtTime(1100, now);
+            filter.Q.value = 1.0;
+            const gain = audioCtx.createGain();
+            gain.gain.setValueAtTime(0.08, now);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
+            osc1.connect(filter);
+            osc2.connect(filter);
+            filter.connect(gain).connect(masterGain);
+            osc1.start(now); osc1.stop(now + 0.35);
+            osc2.start(now); osc2.stop(now + 0.35);
+          };
+
+          const bassNotes = [
+            41.20, 41.20, 48.99, 41.20, 55.00, 41.20, 48.99, 41.20,
+            41.20, 41.20, 48.99, 41.20, 55.00, 41.20, 58.27, 41.20,
+            32.70, 32.70, 38.89, 32.70, 43.65, 32.70, 38.89, 32.70,
+            36.71, 36.71, 43.65, 36.71, 48.99, 36.71, 55.00, 48.99,
+            36.71, 36.71, 43.65, 36.71, 48.99, 36.71, 43.65, 36.71,
+            36.71, 36.71, 43.65, 36.71, 48.99, 36.71, 55.00, 36.71,
+            48.99, 48.99, 58.27, 48.99, 65.41, 48.99, 58.27, 48.99,
+            55.00, 55.00, 65.41, 55.00, 73.42, 65.41, 55.00, 41.20
+          ];
+
+          const leadNotes = [
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0,
+            164.81, 0, 196.00, 220.00, 0, 246.94, 220.00, 196.00,
+            164.81, 0, 196.00, 220.00, 0, 293.66, 246.94, 220.00,
+            261.63, 0, 293.66, 329.63, 0, 392.00, 329.63, 293.66,
+            293.66, 0, 329.63, 349.23, 0, 440.00, 392.00, 349.23
+          ];
+
+          let beatCount = 0;
+          bgmInterval = setInterval(() => {
+            const cycle = beatCount % 64;
+            
+            // 메인 킥 리듬
+            if (cycle === 0 || cycle === 3 || cycle === 4 || cycle === 8 || cycle === 11 || cycle === 12 || 
+                cycle === 16 || cycle === 19 || cycle === 20 || cycle === 24 || cycle === 27 || cycle === 28 ||
+                cycle === 32 || cycle === 35 || cycle === 36 || cycle === 40 || cycle === 43 || cycle === 44 ||
+                cycle === 48 || cycle === 51 || cycle === 52 || cycle === 56 || cycle === 59 || cycle === 60) {
+              playImpact('HIT', cycle >= 32 ? 95 : 110);
+            }
+            
+            // 박자감을 주는 추가 타악기 (Snare/Rim)
+            if (cycle % 4 === 2 || cycle % 8 === 7) {
+              playImpact('PERC');
+            }
+
+            // 하이햇 업비트
+            if (cycle % 2 === 1) {
+              playImpact('HAT');
+            }
+
+            // 드라이빙 베이스 런
+            const bNote = bassNotes[cycle];
+            if (bNote > 0) {
+              playBass(bNote);
+            }
+
+            // 고조되는 부분의 리드 멜로디
+            const lNote = leadNotes[cycle];
+            if (lNote > 0) {
+              playLead(lNote);
+            }
+
+            // 코드 연출 (16박자마다 오케스트라 패드)
+            if (cycle === 0) playImpact('CHORD', 82.41);
+            if (cycle === 16) playImpact('CHORD', 65.41);
+            if (cycle === 32) playImpact('CHORD', 73.42);
+            if (cycle === 48) playImpact('CHORD', 98.00);
+
+            // 드론 피치 변주
+            if (cycle === 0) droneOsc.frequency.exponentialRampToValueAtTime(41.20, audioCtx.currentTime + 0.8);
+            if (cycle === 16) droneOsc.frequency.exponentialRampToValueAtTime(32.70, audioCtx.currentTime + 0.8);
+            if (cycle === 32) droneOsc.frequency.exponentialRampToValueAtTime(36.71, audioCtx.currentTime + 0.8);
+            if (cycle === 48) droneOsc.frequency.exponentialRampToValueAtTime(48.99, audioCtx.currentTime + 0.8);
+
+            beatCount++;
+          }, 240); // 240ms 간격으로 더 속도감 있고 힘찬 리듬
+        } catch (err) {}
+      },
+
+      stopBGM() {
+        if (bgmInterval) {
+          clearInterval(bgmInterval);
+          bgmInterval = null;
+        }
+        bgmNodes.forEach(node => {
+          try { node.stop(); } catch(e) {}
+          try { node.disconnect(); } catch(e) {}
+        });
+        bgmNodes = [];
+      },
+
+      playPlaneSound() {
+        if (!sfxEnabled) return;
+        initAudio();
+        if (!audioCtx) return;
+        
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+
+        this.stopPlaneSound();
+        try {
+          const osc1 = audioCtx.createOscillator();
+          const osc2 = audioCtx.createOscillator();
+          const filter = audioCtx.createBiquadFilter();
+          const gainNode = audioCtx.createGain();
+
+          osc1.type = 'sawtooth';
+          osc1.frequency.setValueAtTime(50, audioCtx.currentTime);
+          
+          osc2.type = 'sine';
+          osc2.frequency.setValueAtTime(40, audioCtx.currentTime);
+
+          filter.type = 'lowpass';
+          filter.frequency.setValueAtTime(120, audioCtx.currentTime);
+
+          gainNode.gain.setValueAtTime(0.15, audioCtx.currentTime);
+
+          osc1.connect(filter);
+          osc2.connect(filter);
+          filter.connect(gainNode);
+          gainNode.connect(getSfxDestination());
+
+          osc1.start();
+          osc2.start();
+
+          planeNodes.push(osc1, osc2, gainNode);
+        } catch(e) {}
+      },
+
+      stopPlaneSound() {
+        planeNodes.forEach(node => {
+          try { node.stop(); } catch(e) {}
+          try { node.disconnect(); } catch(e) {}
+        });
+        planeNodes = [];
+      },
+
+      playSkydiveWindSound() {
+        if (!sfxEnabled) return;
+        initAudio();
+        if (!audioCtx) return;
+        this.stopSkydiveWindSound();
+        try {
+          const bufferSize = audioCtx.sampleRate * 2.0;
+          const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+          const data = buffer.getChannelData(0);
+          for (let i = 0; i < bufferSize; i++) {
+            data[i] = Math.random() * 2 - 1;
+          }
+          
+          const noise = audioCtx.createBufferSource();
+          noise.buffer = buffer;
+          noise.loop = true;
+          
+          const filter = audioCtx.createBiquadFilter();
+          filter.type = 'lowpass';
+          filter.frequency.setValueAtTime(400, audioCtx.currentTime);
+          
+          const osc = audioCtx.createOscillator();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(1.5, audioCtx.currentTime);
+          const oscGain = audioCtx.createGain();
+          oscGain.gain.setValueAtTime(150, audioCtx.currentTime);
+          
+          osc.connect(oscGain);
+          oscGain.connect(filter.frequency);
+          
+          const gain = audioCtx.createGain();
+          gain.gain.setValueAtTime(0.001, audioCtx.currentTime);
+          gain.gain.linearRampToValueAtTime(0.4, audioCtx.currentTime + 1.0);
+          
+          noise.connect(filter).connect(gain).connect(getSfxDestination());
+          
+          osc.start();
+          noise.start();
+          
+          skydiveWindNode = noise;
+          skydiveWindGain = gain;
+          skydiveWindOsc = osc;
+        } catch(e) {}
+      },
+
+      stopSkydiveWindSound() {
+        try {
+          if (skydiveWindGain) {
+            const now = audioCtx.currentTime;
+            skydiveWindGain.gain.cancelScheduledValues(now);
+            skydiveWindGain.gain.setValueAtTime(skydiveWindGain.gain.value, now);
+            skydiveWindGain.gain.exponentialRampToValueAtTime(0.001, now + 0.3);
+            const node = skydiveWindNode;
+            const osc = skydiveWindOsc;
+            setTimeout(() => {
+              try { node.stop(); node.disconnect(); } catch(e) {}
+              try { osc.stop(); osc.disconnect(); } catch(e) {}
+            }, 350);
+          }
+        } catch(e) {}
+        skydiveWindNode = null;
+        skydiveWindGain = null;
+        skydiveWindOsc = null;
+      },
+
+      playParachuteSound() {
+        if (!sfxEnabled) return;
+        initAudio();
+        if (!audioCtx) return;
+        this.stopSkydiveWindSound();
+        
+        const now = audioCtx.currentTime;
+        try {
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(320, now);
+          osc.frequency.exponentialRampToValueAtTime(75, now + 0.8);
+          
+          gain.gain.setValueAtTime(0.35, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.8);
+          
+          const filter = audioCtx.createBiquadFilter();
+          filter.type = 'lowpass';
+          filter.frequency.setValueAtTime(300, now);
+          
+          osc.connect(filter).connect(gain).connect(getSfxDestination());
+          osc.start(now);
+          osc.stop(now + 0.8);
+          
+          for (let i = 0; i < 4; i++) {
+            const burstTime = now + i * 0.12;
+            const dur = 0.25;
+            
+            const bufferSize = audioCtx.sampleRate * dur;
+            const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+            const data = buffer.getChannelData(0);
+            for (let j = 0; j < bufferSize; j++) {
+              data[j] = Math.random() * 2 - 1;
+            }
+            
+            const noise = audioCtx.createBufferSource();
+            noise.buffer = buffer;
+            
+            const nFilter = audioCtx.createBiquadFilter();
+            nFilter.type = 'bandpass';
+            nFilter.frequency.setValueAtTime(400 - i * 50, burstTime);
+            nFilter.Q.setValueAtTime(2.0, burstTime);
+            
+            const nGain = audioCtx.createGain();
+            nGain.gain.setValueAtTime(0, burstTime);
+            nGain.gain.linearRampToValueAtTime(0.20 - i * 0.03, burstTime + 0.05);
+            nGain.gain.exponentialRampToValueAtTime(0.001, burstTime + dur);
+            
+            noise.connect(nFilter).connect(nGain).connect(getSfxDestination());
+            noise.start(burstTime);
+            noise.stop(burstTime + dur);
+          }
+        } catch(e) {}
+      },
+      playDryClick() {
+        if (!sfxEnabled) return;
+        initAudio();
+        if (!audioCtx) return;
+        const now = audioCtx.currentTime;
+        try {
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(1600, now);
+          osc.frequency.exponentialRampToValueAtTime(800, now + 0.04);
+          gain.gain.setValueAtTime(0.08, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.04);
+          osc.connect(gain).connect(audioCtx.destination);
+          osc.start(now); osc.stop(now + 0.04);
+        } catch(e) {}
+      },
+
+      playReloadSound(weaponName) {
+        if (!sfxEnabled) return;
+        initAudio();
+        if (!audioCtx) return;
+        const now = audioCtx.currentTime;
+        try {
+          // 금속 래치 노이즈 함수
+          const playClick = (time, freq, dur, vol) => {
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = 'triangle';
+            osc.frequency.setValueAtTime(freq, time);
+            osc.frequency.exponentialRampToValueAtTime(freq / 2, time + dur);
+            gain.gain.setValueAtTime(vol, time);
+            gain.gain.exponentialRampToValueAtTime(0.001, time + dur);
+            
+            // 고주파 노이즈 스크래치 추가 (금속성 마찰감)
+            const noise = audioCtx.createBufferSource();
+            const bufSize = audioCtx.sampleRate * dur;
+            const buf = audioCtx.createBuffer(1, bufSize, audioCtx.sampleRate);
+            const data = buf.getChannelData(0);
+            for(let i=0; i<bufSize; i++) data[i] = Math.random()*2-1;
+            noise.buffer = buf;
+            
+            const filter = audioCtx.createBiquadFilter();
+            filter.type = 'bandpass';
+            filter.frequency.setValueAtTime(2500, time);
+            const nGain = audioCtx.createGain();
+            nGain.gain.setValueAtTime(vol * 0.4, time);
+            nGain.gain.exponentialRampToValueAtTime(0.001, time + dur);
+            
+            osc.connect(gain).connect(audioCtx.destination);
+            noise.connect(filter).connect(nGain).connect(audioCtx.destination);
+            
+            osc.start(time); osc.stop(time + dur);
+            noise.start(time); noise.stop(time + dur);
+          };
+
+          if (weaponName === '권총') {
+            // 권총 장전: 철컥 (2단계 탄창 제거 및 래킹)
+            playClick(now, 800, 0.08, 0.08); // 탄창 해제
+            playClick(now + 0.15, 1100, 0.12, 0.10); // 슬라이드 폐쇄
+          } else if (weaponName === '저격총') {
+            // 저격총: 4단계 볼트액션 장전 (들고, 당기고, 밀고, 닫고)
+            playClick(now, 450, 0.12, 0.10); // 볼트 상승
+            playClick(now + 0.25, 300, 0.15, 0.08); // 볼트 당김
+            playClick(now + 0.55, 380, 0.12, 0.08); // 볼트 전진
+            playClick(now + 0.75, 600, 0.10, 0.12); // 볼트 잠금
+          } else if (weaponName === '샷건') {
+            // 샷건: 철컥, 슥, 슥 (탄피 배출 및 약실 장전)
+            playClick(now, 500, 0.12, 0.12); // 펌프 당김
+            playClick(now + 0.20, 750, 0.10, 0.10); // 펌프 전진
+            playClick(now + 0.45, 350, 0.18, 0.06); // 포어엔드 복귀 마찰음
+          } else {
+            // 돌격소총: 탄창 제거, 새 탄창 장착, 볼트 노리쇠 폐쇄
+            playClick(now, 600, 0.10, 0.10); // 탄창 제거
+            playClick(now + 0.25, 450, 0.14, 0.12); // 새 탄창 삽입
+            playClick(now + 0.55, 750, 0.12, 0.14); // 노리쇠 전진 철컥
+          }
+        } catch(e) {}
+      },
+
+      playGunshot(weaponId, volume = 1.0, pan = 0) {
+        if (!sfxEnabled) return;
+        initAudio();
+        if (!audioCtx) return;
+        const now = audioCtx.currentTime;
+
+        try {
+          const masterGain = audioCtx.createGain();
+          masterGain.gain.value = volume;
+          
+          const panner = audioCtx.createStereoPanner();
+          panner.pan.setValueAtTime(pan, now);
+          
+          panner.connect(getSfxDestination());
+          masterGain.connect(panner);
+
+          // 화이트 노이즈 버퍼 생성 (고주파 파열음 및 잔향)
+          const bufferSize = audioCtx.sampleRate * 0.8;
+          const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+          const data = buffer.getChannelData(0);
+          for (let i = 0; i < bufferSize; i++) {
+            data[i] = Math.random() * 2 - 1;
+          }
+
+          const noiseNode = audioCtx.createBufferSource();
+          noiseNode.buffer = buffer;
+
+          const noiseFilter = audioCtx.createBiquadFilter();
+          const noiseGain = audioCtx.createGain();
+
+          // 묵직한 가스 팽창 압력 사운드 (저주파 Sine Sweep)
+          const osc = audioCtx.createOscillator();
+          const oscGain = audioCtx.createGain();
+          osc.type = 'sine';
+
+          let duration = 0.3;
+          let baseNoiseVol = 0.18;
+          let baseOscVol = 0.30;
+
+          if (weaponId === 'PISTOL') {
+            noiseFilter.type = 'bandpass';
+            noiseFilter.frequency.setValueAtTime(1000, now);
+            noiseFilter.Q.setValueAtTime(2.0, now);
+            noiseGain.gain.setValueAtTime(baseNoiseVol * 0.6, now);
+            noiseGain.gain.exponentialRampToValueAtTime(0.001, now + 0.15);
+
+            osc.frequency.setValueAtTime(220, now);
+            osc.frequency.exponentialRampToValueAtTime(50, now + 0.08);
+            oscGain.gain.setValueAtTime(baseOscVol * 0.6, now);
+            oscGain.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
+            duration = 0.2;
+          } else if (weaponId === 'SHOTGUN') {
+            // 산탄총: 폭발적인 분산 파열음 (저주파 thud 극대화)
+            noiseFilter.type = 'lowpass';
+            noiseFilter.frequency.setValueAtTime(1000, now);
+            noiseGain.gain.setValueAtTime(baseNoiseVol * 2.8, now);
+            noiseGain.gain.exponentialRampToValueAtTime(0.001, now + 0.45);
+
+            osc.frequency.setValueAtTime(95, now);
+            osc.frequency.exponentialRampToValueAtTime(10, now + 0.25);
+            oscGain.gain.setValueAtTime(baseOscVol * 2.4, now);
+            oscGain.gain.exponentialRampToValueAtTime(0.001, now + 0.30);
+            duration = 0.5;
+          } else if (weaponId === 'RIFLE') {
+            // 돌격소총: 날카로운 파열음과 컴팩트한 잔향
+            noiseFilter.type = 'bandpass';
+            noiseFilter.frequency.setValueAtTime(1200, now);
+            noiseFilter.Q.setValueAtTime(1.5, now);
+            noiseGain.gain.setValueAtTime(baseNoiseVol * 1.3, now);
+            noiseGain.gain.exponentialRampToValueAtTime(0.001, now + 0.26);
+
+            osc.frequency.setValueAtTime(180, now);
+            osc.frequency.exponentialRampToValueAtTime(30, now + 0.12);
+            oscGain.gain.setValueAtTime(baseOscVol * 1.2, now);
+            oscGain.gain.exponentialRampToValueAtTime(0.001, now + 0.20);
+            duration = 0.35;
+          } else if (weaponId === 'SNIPER') {
+            // 저격총: 대포 수준의 웅장한 가스 폭발과 엄청난 잔향 피드백
+            noiseFilter.type = 'lowpass';
+            noiseFilter.frequency.setValueAtTime(750, now);
+            noiseGain.gain.setValueAtTime(baseNoiseVol * 3.8, now);
+            noiseGain.gain.exponentialRampToValueAtTime(0.001, now + 0.8);
+
+            osc.frequency.setValueAtTime(75, now);
+            osc.frequency.exponentialRampToValueAtTime(15, now + 0.35);
+            oscGain.gain.setValueAtTime(baseOscVol * 3.2, now);
+            oscGain.gain.exponentialRampToValueAtTime(0.001, now + 0.5);
+            duration = 0.8;
+          }
+
+          noiseNode.connect(noiseFilter);
+          noiseFilter.connect(noiseGain);
+          noiseGain.connect(masterGain);
+
+          osc.connect(oscGain);
+          oscGain.connect(masterGain);
+
+          noiseNode.start(now);
+          noiseNode.stop(now + duration);
+
+          osc.start(now);
+          osc.stop(now + duration);
+        } catch(e) {}
+      },
+
+      playPainSound() {
+        if (!sfxEnabled) return;
+        initAudio();
+        if (!audioCtx) return;
+        const now = audioCtx.currentTime;
+        try {
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.type = 'sawtooth';
+          // "윽" 소리: 낮은 주파수에서 급격히 떨어지는 음
+          osc.frequency.setValueAtTime(120, now);
+          osc.frequency.exponentialRampToValueAtTime(40, now + 0.15);
+          
+          gain.gain.setValueAtTime(0.3, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.2);
+          
+          const filter = audioCtx.createBiquadFilter();
+          filter.type = 'lowpass';
+          filter.frequency.value = 400;
+
+          osc.connect(filter);
+          filter.connect(gain);
+          gain.connect(getSfxDestination());
+          osc.start(now);
+          osc.stop(now + 0.2);
+        } catch(e) {}
+      },
+
+      playExplosion(volume = 1.0) {
+        if (!sfxEnabled) return;
+        initAudio();
+        if (!audioCtx) return;
+        const now = audioCtx.currentTime;
+
+        try {
+          const bufferSize = audioCtx.sampleRate * 1.2;
+          const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+          const data = buffer.getChannelData(0);
+          for (let i = 0; i < bufferSize; i++) {
+            data[i] = Math.random() * 2 - 1;
+          }
+
+          const noise = audioCtx.createBufferSource();
+          noise.buffer = buffer;
+
+          const lp = audioCtx.createBiquadFilter();
+          lp.type = 'lowpass';
+          lp.frequency.setValueAtTime(500, now);
+          lp.frequency.exponentialRampToValueAtTime(50, now + 0.9);
+
+          const gain = audioCtx.createGain();
+          gain.gain.setValueAtTime(0.7 * volume, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 1.1);
+
+          noise.connect(lp);
+          lp.connect(gain);
+          gain.connect(getSfxDestination());
+          noise.start(now);
+          noise.stop(now + 1.2);
+
+          const sub = audioCtx.createOscillator();
+          const subGain = audioCtx.createGain();
+          sub.type = 'sine';
+          sub.frequency.setValueAtTime(70, now);
+          sub.frequency.exponentialRampToValueAtTime(20, now + 0.35);
+          subGain.gain.setValueAtTime(0.9 * volume, now);
+          subGain.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
+
+          sub.connect(subGain);
+          subGain.connect(getSfxDestination());
+          sub.start(now);
+          sub.stop(now + 0.35);
+        } catch (e) {}
+      },
+
+      playSmokeHiss(volume = 1.0) {
+        initAudio();
+        if (!audioCtx) return;
+        const now = audioCtx.currentTime;
+
+        try {
+          const bufferSize = audioCtx.sampleRate * 2.0;
+          const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+          const data = buffer.getChannelData(0);
+          for (let i = 0; i < bufferSize; i++) {
+            data[i] = Math.random() * 2 - 1;
+          }
+
+          const noise = audioCtx.createBufferSource();
+          noise.buffer = buffer;
+
+          const hp = audioCtx.createBiquadFilter();
+          hp.type = 'highpass';
+          hp.frequency.setValueAtTime(2200, now);
+
+          const gain = audioCtx.createGain();
+          gain.gain.setValueAtTime(0.12 * volume, now);
+          gain.gain.linearRampToValueAtTime(0.08 * volume, now + 0.5);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 2.0);
+
+          noise.connect(hp);
+          hp.connect(gain);
+          gain.connect(getSfxDestination());
+
+          noise.start(now);
+          noise.stop(now + 2.0);
+        } catch (e) {}
+      },
+
+      playPunch(isHit) {
+        initAudio();
+        if (!audioCtx) return;
+        const now = audioCtx.currentTime;
+
+        try {
+          if (!isHit) {
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = 'triangle';
+            osc.frequency.setValueAtTime(320, now);
+            osc.frequency.exponentialRampToValueAtTime(90, now + 0.10);
+            gain.gain.setValueAtTime(0.15, now);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.10);
+
+            osc.connect(gain);
+            gain.connect(getSfxDestination());
+            osc.start(now);
+            osc.stop(now + 0.10);
+          } else {
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(110, now);
+            osc.frequency.exponentialRampToValueAtTime(55, now + 0.12);
+            gain.gain.setValueAtTime(0.4, now);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
+
+            osc.connect(gain);
+            gain.connect(getSfxDestination());
+            osc.start(now);
+            osc.stop(now + 0.12);
+
+            const clickOsc = audioCtx.createOscillator();
+            const clickGain = audioCtx.createGain();
+            clickOsc.type = 'triangle';
+            clickOsc.frequency.setValueAtTime(900, now);
+            clickOsc.frequency.exponentialRampToValueAtTime(150, now + 0.04);
+            clickGain.gain.setValueAtTime(0.2, now);
+            clickGain.gain.exponentialRampToValueAtTime(0.001, now + 0.04);
+
+            clickOsc.connect(clickGain);
+            clickGain.connect(getSfxDestination());
+            clickOsc.start(now);
+            clickOsc.stop(now + 0.04);
+          }
+        } catch (e) {}
+      },
+
+      playFootstep(isSprinting) {
+        if (!sfxEnabled) return;
+        initAudio();
+        if (!audioCtx) return;
+        const now = audioCtx.currentTime;
+
+        try {
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(65, now);
+          osc.frequency.exponentialRampToValueAtTime(25, now + 0.08);
+
+          gain.gain.setValueAtTime(isSprinting ? 0.06 : 0.035, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
+
+          const filter = audioCtx.createBiquadFilter();
+          filter.type = 'lowpass';
+          filter.frequency.setValueAtTime(100, now);
+
+          osc.connect(filter);
+          filter.connect(gain);
+          gain.connect(getSfxDestination());
+
+          osc.start(now);
+          osc.stop(now + 0.08);
+        } catch (e) {}
+      },
+
+      playHealSound() {
+        if (!sfxEnabled) return;
+        initAudio();
+        if (!audioCtx) return;
+        const now = audioCtx.currentTime;
+
+        try {
+          const frequencies = [330, 440, 554, 659];
+          frequencies.forEach((freq, idx) => {
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(freq, now + idx * 0.12);
+
+            gain.gain.setValueAtTime(0, now + idx * 0.12);
+            gain.gain.linearRampToValueAtTime(0.08, now + idx * 0.12 + 0.03);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.12 + 0.3);
+
+            osc.connect(gain);
+            gain.connect(getSfxDestination());
+            osc.start(now + idx * 0.12);
+            osc.stop(now + idx * 0.12 + 0.3);
+          });
+        } catch (e) {}
+      },
+
+      playLootSound() {
+        if (!sfxEnabled) return;
+        initAudio();
+        if (!audioCtx) return;
+        const now = audioCtx.currentTime;
+
+        try {
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(550, now);
+          osc.frequency.exponentialRampToValueAtTime(850, now + 0.08);
+
+          gain.gain.setValueAtTime(0.05, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
+
+          osc.connect(gain);
+          gain.connect(getSfxDestination());
+          osc.start(now);
+          osc.stop(now + 0.08);
+        } catch (e) {}
+      },
+
+      playMatchEndSound(isVictory) {
+        if (!sfxEnabled) return;
+        initAudio();
+        if (!audioCtx) return;
+        const now = audioCtx.currentTime;
+
+        try {
+          if (isVictory) {
+            const notes = [261.63, 329.63, 392.00, 523.25];
+            notes.forEach((freq, idx) => {
+              const osc = audioCtx.createOscillator();
+              const gain = audioCtx.createGain();
+              osc.type = 'sawtooth';
+              osc.frequency.setValueAtTime(freq, now + idx * 0.14);
+
+              const filter = audioCtx.createBiquadFilter();
+              filter.type = 'lowpass';
+              filter.frequency.setValueAtTime(750, now + idx * 0.14);
+
+              gain.gain.setValueAtTime(0, now + idx * 0.14);
+              gain.gain.linearRampToValueAtTime(0.07, now + idx * 0.14 + 0.05);
+              gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.14 + 0.7);
+
+              osc.connect(filter);
+              filter.connect(gain);
+              gain.connect(getSfxDestination());
+
+              osc.start(now + idx * 0.14);
+              osc.stop(now + idx * 0.14 + 0.75);
+            });
+          } else {
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = 'sawtooth';
+            osc.frequency.setValueAtTime(110, now);
+            osc.frequency.linearRampToValueAtTime(35, now + 1.4);
+
+            const filter = audioCtx.createBiquadFilter();
+            filter.type = 'lowpass';
+            filter.frequency.setValueAtTime(180, now);
+
+            gain.gain.setValueAtTime(0.2, now);
+            gain.gain.linearRampToValueAtTime(0.001, now + 1.4);
+
+            osc.connect(filter);
+            filter.connect(gain);
+            gain.connect(getSfxDestination());
+
+            osc.start(now);
+            osc.stop(now + 1.4);
+          }
+        } catch (e) {}
+      }
+    };
+
+    // 무기 밸런스 설정
+    const WEAPONS = { 
+      PUNCH: { name: '주먹', range: 4, dmg: 20 }, 
+      PISTOL: { name: '권총', range: 30, dmg: 18 }, 
+      SHOTGUN: { name: '샷건', range: 15, dmg: 80 },
+      RIFLE: { name: '돌격소총', range: 120, dmg: 35 },
+      SNIPER: { name: '저격총', range: 300, dmg: 90 }
+    };
+    // 스코프 설정
+    const SCOPES = {
+      NONE: { name: '기계식 조준기', mag: 1 },
+      X2: { name: '2배율 스코프', mag: 2 },
+      X4: { name: '4배율 스코프', mag: 4 },
+      X8: { name: '8배율 스코프', mag: 8 }
+    };
+    // 헬멧 및 가방 설정
+    const HELMETS = {
+      LV1: { name: '헬멧 Level 1', reduction: 0.30 },
+      LV2: { name: '헬멧 Level 2', reduction: 0.40 },
+      LV3: { name: '헬멧 Level 3', reduction: 0.55 }
+    };
+    const BAGS = {
+      LV1: { name: '가방 Level 1', capacity: 5 },
+      LV2: { name: '가방 Level 2', capacity: 8 },
+      LV3: { name: '가방 Level 3', capacity: 12 }
+    };
+
+    // 파밍용 상자/아이템 생성 풀 (다양한 장비 및 투척무기 포함)
+    const wPool = [WEAPONS.PISTOL, WEAPONS.SHOTGUN, WEAPONS.RIFLE, WEAPONS.SNIPER];
+    const sPool = [SCOPES.X2, SCOPES.X4, SCOPES.X8];
+    const hPool = [HELMETS.LV1, HELMETS.LV2, HELMETS.LV3];
+    const bPool = [BAGS.LV1, BAGS.LV2, BAGS.LV3];
+
+    // 플레이어 인벤토리 상태
+    const playerInventory = {
+      weapon: WEAPONS.PUNCH,
+      scope: SCOPES.NONE,
+      helmet: null,
+      bag: null,
+      grenades: 0,
+      smokes: 0,
+      firstaids: 0,
+      ammo: {
+        PISTOL: 0,
+        SHOTGUN: 0,
+        RIFLE: 0,
+        SNIPER: 0
+      },
+      loadedAmmo: {
+        PISTOL: 0,
+        SHOTGUN: 0,
+        RIFLE: 0,
+        SNIPER: 0
+      }
+    };
+
+    const enemies = []; const lootBoxes = []; const enemyBullets = [];
+    const recentGunshots = []; const liveChickens = [];
+
+    // --- [1. 씬 생성] ---
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x71a5d4); 
+    scene.fog = new THREE.FogExp2(0x71a5d4, 0.003); 
+
+    const camera = new THREE.PerspectiveCamera(65, window.innerWidth / window.innerHeight, 0.1, 2500);
+    camera.position.set(0, 150, 0);
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.shadowMap.enabled = true;
+    document.body.appendChild(renderer.domElement);
+
+    scene.add(new THREE.AmbientLight(0xffffff, 0.6));
+    const sun = new THREE.DirectionalLight(0xffeedd, 1.5);
+    sun.position.set(200, 300, 100); sun.castShadow = true;
+    sun.shadow.camera.left = -300; sun.shadow.camera.right = 300; sun.shadow.camera.top = 300; sun.shadow.camera.bottom = -300;
+    sun.shadow.camera.near = 0.5;
+    sun.shadow.camera.far = 1000;
+    sun.shadow.mapSize.width = 2048;
+    sun.shadow.mapSize.height = 2048;
+    sun.shadow.bias = -0.0008;
+    scene.add(sun);
+
+
+
+    // --- [건물 위치 사전 결정 및 지형 평탄화 설계] ---
+    const buildingSpots = [];
+    const windowSpots = [];
+    const doorsList = [];
+    
+    // 맵 내에 겹치지 않는 건물 부지 생성 (25개 건물)
+    const numBuildings = 25;
+    for (let i = 0; i < numBuildings; i++) {
+      let x = 0, z = 0, w = 15, d = 15, ok = false;
+      for (let retries = 0; retries < 150; retries++) {
+        x = (Math.random() - 0.5) * 440;
+        z = (Math.random() - 0.5) * 440;
+        w = 14 + Math.random() * 14; // 너비 14~28m
+        d = 14 + Math.random() * 14; // 깊이 14~28m
+        
+        let overlap = false;
+        // 건물은 맵 중심 210m 안전 건조 영역 내부에서만 생성하여 해수면 잠김 원천 차단
+        if (Math.sqrt(x*x + z*z) > 210) overlap = true;
+        // 시작 스폰 지역이나 맵 중앙 근처에 너무 가깝지 않도록 안전 여유
+        if (Math.sqrt(x*x + z*z) < 30) overlap = true;
+        // 연못 구역 침범 원천 차단 (건물의 대각선이나 중심이 연못 범위에 겹치지 않게 여유 6m 적용)
+        const distToPond1 = Math.sqrt((x - 60)**2 + (z - 80)**2);
+        if (distToPond1 < 25 + Math.max(w, d)/2 + 6.0) overlap = true;
+        const distToPond2 = Math.sqrt((x + 80)**2 + (z + 60)**2);
+        if (distToPond2 < 20 + Math.max(w, d)/2 + 6.0) overlap = true;
+        
+        // 건물 간 최소 30m 이상 거리 유지 (밀도 향상)
+        if (!overlap) {
+          for (let j = 0; j < buildingSpots.length; j++) {
+            const other = buildingSpots[j];
+            const dist = Math.sqrt((x - other.x)**2 + (z - other.z)**2);
+            const minD = Math.max(w, d)/2 + Math.max(other.w, other.d)/2 + 20;
+            if (dist < minD) { overlap = true; break; }
+          }
+        }
+        
+        if (!overlap) { ok = true; break; }
+      }
+      if (ok) {
+        const distFromCenter = Math.sqrt(x*x + z*z);
+        const baseNoise = Math.sin(x / 40) * 4 + Math.cos(z / 35) * 3 + Math.sin((x + z) / 20) * 2 + 13.5;
+        
+        // 실제 자연 지형처럼 불규칙한 섬 윤곽선 형성 (각도에 따른 노이즈 추가)
+        const angle = Math.atan2(z, x);
+        const borderNoise = Math.sin(angle * 3.0) * 25.0 + Math.cos(angle * 5.0) * 15.0 + Math.sin(angle * 8.0) * 8.0;
+        const islandRadius = 230.0 + borderNoise;
+
+        let radialFade = 1.0;
+        if (distFromCenter > islandRadius) {
+          radialFade = Math.max(0, 1.0 - (distFromCenter - islandRadius) / 50);
+        }
+        let spotY = baseNoise * radialFade - (1.0 - radialFade) * 18;
+        
+        const distToPond1 = Math.sqrt((x - 60)*(x - 60) + (z - 80)*(z - 80));
+        if (distToPond1 < 25) {
+          const pondFactor = Math.max(0, 1 - distToPond1 / 25);
+          spotY -= pondFactor * pondFactor * 8.0;
+        }
+        const distToPond2 = Math.sqrt((x + 80)*(x + 80) + (z + 60)*(z + 60));
+        if (distToPond2 < 20) {
+          const pondFactor = Math.max(0, 1 - distToPond2 / 20);
+          spotY -= pondFactor * pondFactor * 7.0;
+        }
+        if (distFromCenter < 25) {
+          const factor = Math.max(0, (distFromCenter - 12) / 13);
+          spotY = THREE.MathUtils.lerp(13.5, spotY, factor);
+        }
+        buildingSpots.push({ x, z, w, d, y: spotY, seed: Math.random() });
+      }
+    }
+
+    function getWaterLevel(x, z) {
+      if (isNaN(x) || isNaN(z)) return WATER_LEVEL;
+      const distToPond1 = Math.sqrt((x - 60)*(x - 60) + (z - 80)*(z - 80));
+      if (distToPond1 < 25) {
+        return 14.5;
+      }
+      const distToPond2 = Math.sqrt((x + 80)*(x + 80) + (z + 60)*(z + 60));
+      if (distToPond2 < 20) {
+        return 6.5;
+      }
+      return WATER_LEVEL;
+    }
+
+    function getElevation(x, z, currentY = null) {
+      if (isNaN(x) || isNaN(z)) return 0;
+      
+      const distFromCenter = Math.sqrt(x*x + z*z);
+      const rawY = Math.sin(x / 40) * 4 + Math.cos(z / 35) * 3 + Math.sin((x + z) / 20) * 2 + 13.5;
+      
+      // 실제 자연 지형처럼 불규칙한 섬 윤곽선 형성 (각도에 따른 노이즈 추가)
+      const angle = Math.atan2(z, x);
+      const borderNoise = Math.sin(angle * 3.0) * 25.0 + Math.cos(angle * 5.0) * 15.0 + Math.sin(angle * 8.0) * 8.0;
+      const islandRadius = 230.0 + borderNoise;
+      
+      // 바다로 내려앉는 경계 감쇄 연산 (islandRadiusm 이상부터 서서히 감소하여 islandRadius + 50m에서 해저에 도달)
+      let radialFade = 1.0;
+      if (distFromCenter > islandRadius) {
+        radialFade = Math.max(0, 1.0 - (distFromCenter - islandRadius) / 50);
+      }
+      let terrainY = rawY * radialFade - (1.0 - radialFade) * 18;
+
+      // 맵 내부의 연못(Pond) 구역 감쇄 연산 (2개의 연못 추가)
+      const distToPond1 = Math.sqrt((x - 60)*(x - 60) + (z - 80)*(z - 80));
+      if (distToPond1 < 25) {
+        const pondFactor = Math.max(0, 1 - distToPond1 / 25);
+        terrainY -= pondFactor * pondFactor * 8.0; // 연못 중심 깊이 8m
+      }
+
+      const distToPond2 = Math.sqrt((x + 80)*(x + 80) + (z + 60)*(z + 60));
+      if (distToPond2 < 20) {
+        const pondFactor = Math.max(0, 1 - distToPond2 / 20);
+        terrainY -= pondFactor * pondFactor * 7.0; // 연못 중심 깊이 7m
+      }
+
+      if (distFromCenter < 25) {
+        const factor = Math.max(0, (distFromCenter - 12) / 13);
+        terrainY = THREE.MathUtils.lerp(13.5, terrainY, factor);
+      }
+      
+      for (let i = 0; i < buildingSpots.length; i++) {
+        const spot = buildingSpots[i];
+        const margin = 7.0; 
+        const hw = spot.w / 2;
+        const hd = spot.d / 2;
+        const rampW = 1.5;
+        
+        if (x >= spot.x - hw - rampW - 0.4 && x <= spot.x - hw && z >= spot.z - hd && z <= spot.z + hd) {
+          const t = (z - (spot.z - hd)) / spot.d;
+          return spot.y + 0.1 + t * 5.05;
+        }
+        
+        if (x >= spot.x - hw && x <= spot.x + hw && z >= spot.z - hd && z <= spot.z + hd) {
+          const hasY = (currentY !== null && currentY !== false);
+          const onRoof = hasY && (currentY >= spot.y + 1.7);
+          if (onRoof || currentY === null) {
+            return spot.y + 5.15; 
+          }
+          return spot.y + 0.1;
+        }
+        
+        if (x >= spot.x - hw - margin && x <= spot.x + hw + margin && z >= spot.z - hd - margin && z <= spot.z + hd + margin) {
+          const dx = Math.abs(x - spot.x);
+          const dz = Math.abs(z - spot.z);
+          const factorX = Math.max(0, Math.min(1, (hw + margin - dx) / margin));
+          const factorZ = Math.max(0, Math.min(1, (hd + margin - dz) / margin));
+          const factor = factorX * factorZ;
+          return THREE.MathUtils.lerp(terrainY, spot.y + 0.1, factor);
+        }
+      }
+      return terrainY;
+    }
+
+    const WATER_LEVEL = -4.0;
+    const mapSize = 600;
+    const groundGeo = new THREE.PlaneGeometry(mapSize, mapSize, 200, 200);
+    groundGeo.rotateX(-Math.PI / 2); 
+    const posAttr = groundGeo.attributes.position;
+    for (let i = 0; i < posAttr.count; i++) posAttr.setY(i, getElevation(posAttr.getX(i), posAttr.getZ(i), false)); 
+    groundGeo.computeVertexNormals();
+
+    // 지형 경사 및 높이에 따른 버텍스 컬러 연산 (실감나는 전장 지형 연출)
+    const colors = new Float32Array(posAttr.count * 3);
+    for (let i = 0; i < posAttr.count; i++) {
+      const vx = posAttr.getX(i);
+      const vz = posAttr.getZ(i);
+      const vy = posAttr.getY(i);
+      
+      // 경사도(Slope) 근사 계산
+      const eps = 1.0;
+      const hL = getElevation(vx - eps, vz, false);
+      const hR = getElevation(vx + eps, vz, false);
+      const hD = getElevation(vx, vz - eps, false);
+      const hU = getElevation(vx, vz + eps, false);
+      const slope = Math.sqrt((hR - hL)*(hR - hL) + (hU - hD)*(hU - hD)) / (2 * eps);
+      
+      // 기본 잔디 색상 (Rich Green)
+      let r = 0.22, g = 0.38, b = 0.16;
+      
+      if (vy < 0.0) {
+        // 물밑 지질: 짙은 흙/모래 색상
+        r = 0.28; g = 0.23; b = 0.16;
+      } else if (slope > 0.45) {
+        // 급경사: 암석 절벽 색상 (Grey)
+        r = 0.35 + Math.sin(vx*0.5)*0.03;
+        g = 0.35 + Math.sin(vx*0.5)*0.03;
+        b = 0.35 + Math.sin(vx*0.5)*0.03;
+      } else if (slope > 0.15) {
+        // 중경사: 흙/언덕 색상 (Brownish Dirt)
+        r = 0.32 + Math.cos(vz*0.5)*0.02;
+        g = 0.27 + Math.cos(vz*0.5)*0.02;
+        b = 0.18 + Math.cos(vz*0.5)*0.02;
+      } else {
+        // 완만함: 잔디 톤 다양화 노이즈
+        const noise = Math.sin(vx * 0.08) * Math.cos(vz * 0.08) * 0.04;
+        r += noise;
+        g += noise * 1.2;
+        b += noise * 0.8;
+        
+        // 로비 센터 주변 (25m 반경): 연한 황토/베이지색 군사 진지 느낌으로 보정
+        const distFromCenter = Math.sqrt(vx*vx + vz*vz);
+        if (distFromCenter < 25) {
+          const factor = Math.max(0, (25 - distFromCenter) / 25);
+          r = THREE.MathUtils.lerp(r, 0.44, factor);
+          g = THREE.MathUtils.lerp(g, 0.40, factor);
+          b = THREE.MathUtils.lerp(b, 0.30, factor);
+        }
+      }
+      
+      // 고지대: 설산 캡 연출 (Snow-capped Peak)
+      if (vy > 11.0) {
+        const snowFactor = Math.min(1.0, (vy - 11.0) / 7.0);
+        r = THREE.MathUtils.lerp(r, 0.90, snowFactor);
+        g = THREE.MathUtils.lerp(g, 0.92, snowFactor);
+        b = THREE.MathUtils.lerp(b, 0.95, snowFactor);
+      }
+      
+      colors[i * 3] = r;
+      colors[i * 3 + 1] = g;
+      colors[i * 3 + 2] = b;
+    }
+    groundGeo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+    const ground = new THREE.Mesh(groundGeo, new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 1.0 }));
+    ground.receiveShadow = true; scene.add(ground);
+
+    // 바다 평면 (Water Circle Plane) 추가 - 원형으로 제작하고 크기를 대폭 늘려(반지름 6000) 수평선 경계가 안개 속으로 자연스레 흐려지도록 처리
+    const waterGeo = new THREE.CircleGeometry(6000, 64);
+    waterGeo.rotateX(-Math.PI / 2);
+    const waterMat = new THREE.MeshStandardMaterial({ 
+      color: 0x1d3f5e, 
+      roughness: 0.15, 
+      metalness: 0.85, 
+      transparent: true, 
+      opacity: 0.85,
+      depthWrite: true
+    });
+    const water = new THREE.Mesh(waterGeo, waterMat);
+    water.position.y = WATER_LEVEL;
+    scene.add(water);
+
+    // 맵 내부에 실제 물이 들어차 있는 연못 2개 물 평면(Circle) 추가
+    const pond1Geo = new THREE.CircleGeometry(25, 32);
+    pond1Geo.rotateX(-Math.PI / 2);
+    const pondWaterMat = new THREE.MeshStandardMaterial({
+      color: 0x1d4d5e,
+      roughness: 0.2,
+      metalness: 0.7,
+      transparent: true,
+      opacity: 0.78,
+      depthWrite: true
+    });
+    const pond1Water = new THREE.Mesh(pond1Geo, pondWaterMat);
+    pond1Water.position.set(60, 14.5, 80);
+    scene.add(pond1Water);
+
+    const pond2Geo = new THREE.CircleGeometry(20, 32);
+    pond2Geo.rotateX(-Math.PI / 2);
+    const pond2Water = new THREE.Mesh(pond2Geo, pondWaterMat);
+    pond2Water.position.set(-80, 6.5, -60);
+    scene.add(pond2Water);
+
+    const treeGeoCone = new THREE.ConeGeometry(2.5, 8, 8); const treeGeoTrunk = new THREE.CylinderGeometry(0.5, 0.5, 3);
+    const treeMatCone = new THREE.MeshStandardMaterial({ color: 0x243d18 }); const treeMatTrunk = new THREE.MeshStandardMaterial({ color: 0x3d2c18 });
+    const houseMat = new THREE.MeshStandardMaterial({ color: 0xaaaaaa });
+
+    // --- [건물 및 자연 장애물 스폰 엔진 (비중첩 설계)] ---
+    const obstacles = [];
+
+    // 1. 15개의 buildingSpots에 정교한 건물 및 내부 인테리어 스폰
+    buildingSpots.forEach((spot, idx) => {
+      const x = spot.x;
+      const z = spot.z;
+      const w = spot.w;
+      const d = spot.d;
+      const y = spot.y;
+      const bH = 5.0; // 건물 높이
+      const wallThick = 0.4;
+      
+      const buildingGroup = new THREE.Group();
+      buildingGroup.position.set(x, y, z);
+      
+      // 건물 컬러/스타일 다양화 (주택, 금속창고, 벽돌막사)
+      let bMat;
+      const styleSeed = spot.seed;
+      if (styleSeed < 0.4) {
+        // 주거용 주택
+        const rColor = new THREE.Color().setHSL(Math.random() * 0.1 + 0.05, 0.2, 0.4 + Math.random()*0.2);
+        bMat = new THREE.MeshStandardMaterial({ color: rColor, roughness: 0.8 });
+      } else if (styleSeed < 0.7) {
+        // 산업용 금속 창고
+        bMat = new THREE.MeshStandardMaterial({ color: 0x4f5d65, metalness: 0.8, roughness: 0.3 });
+      } else {
+        // 군사용 붉은 벽돌 막사
+        bMat = new THREE.MeshStandardMaterial({ color: 0x8b3a2b, roughness: 0.9 });
+      }
+      const floorMat = new THREE.MeshStandardMaterial({ color: 0x5a4a3a, roughness: 0.9 }); // 목재 바닥 느낌
+      const roofMat = new THREE.MeshStandardMaterial({ color: 0x3d3025, roughness: 0.8 });
+      const colMat = new THREE.MeshStandardMaterial({ color: 0x444444, roughness: 0.7 });
+
+      // 1) 바닥 및 천장(지붕) 생성
+      const floor = new THREE.Mesh(new THREE.BoxGeometry(w, 0.2, d), floorMat);
+      floor.position.y = 0.1;
+      floor.receiveShadow = true;
+      buildingGroup.add(floor);
+
+      const roof = new THREE.Mesh(new THREE.BoxGeometry(w + 0.8, 0.3, d + 0.8), roofMat);
+      roof.position.y = bH + 0.15;
+      roof.castShadow = true;
+      buildingGroup.add(roof);
+
+      // 천장용 대들보/구조용 보강 보 (Ceiling Beams) 추가 (목재 디테일)
+      const beamMat = new THREE.MeshStandardMaterial({ color: 0x3a2818, roughness: 0.9 });
+      // 메인 대들보 (X축 방향)
+      const beamX = new THREE.Mesh(new THREE.BoxGeometry(w - 0.2, 0.22, 0.22), beamMat);
+      beamX.position.set(0, bH - 0.11, 0);
+      beamX.castShadow = true;
+      buildingGroup.add(beamX);
+
+      // 횡방향 들보 세트 (X축 방향으로 등간격 배치하여 건물 내부 공간에 온전히 수용)
+      for (let bx = -w/3; bx <= w/3 + 0.1; bx += w/3) {
+        const beamZ = new THREE.Mesh(new THREE.BoxGeometry(0.18, 0.18, d - 0.2), beamMat);
+        beamZ.position.set(bx, bH - 0.18, 0);
+        beamZ.castShadow = true;
+        buildingGroup.add(beamZ);
+      }
+
+      // 건물 로컬 벽 충돌 박스를 기록할 임시 배열
+      const localWalls = [];
+
+      // 2) 벽 조립 및 창문/문 구멍 비우기
+      // 남쪽 벽 (z = d/2) - 문 1개 설치
+      const doorW = (styleSeed >= 0.4 && styleSeed < 0.7) ? 4.0 : 2.2;
+      const doorH = 3.4;
+      const sW_south = (w - doorW) / 2;
+      
+      // 남쪽 왼쪽 벽
+      const sWallLeft = new THREE.Mesh(new THREE.BoxGeometry(sW_south, bH, wallThick), bMat);
+      sWallLeft.position.set(-w/2 + sW_south/2, bH/2, d/2 - wallThick/2);
+      sWallLeft.castShadow = true; sWallLeft.receiveShadow = true;
+      buildingGroup.add(sWallLeft);
+      localWalls.push({ minX: -w/2, maxX: -w/2 + sW_south, minZ: d/2 - wallThick, maxZ: d/2 });
+
+      // 남쪽 오른쪽 벽
+      const sWallRight = new THREE.Mesh(new THREE.BoxGeometry(sW_south, bH, wallThick), bMat);
+      sWallRight.position.set(w/2 - sW_south/2, bH/2, d/2 - wallThick/2);
+      sWallRight.castShadow = true; sWallRight.receiveShadow = true;
+      buildingGroup.add(sWallRight);
+      localWalls.push({ minX: w/2 - sW_south, maxX: w/2, minZ: d/2 - wallThick, maxZ: d/2 });
+
+      // 남쪽 문 위쪽 벽
+      const sWallTop = new THREE.Mesh(new THREE.BoxGeometry(doorW, bH - doorH, wallThick), bMat);
+      sWallTop.position.set(0, doorH + (bH - doorH)/2, d/2 - wallThick/2);
+      sWallTop.castShadow = true;
+      buildingGroup.add(sWallTop);
+
+      // 3) 문 피벗 및 회전형 나무 문 생성 (창고인 경우 넓은 개방형 입구로 유지하고 문을 달지 않음)
+      if (!(styleSeed >= 0.4 && styleSeed < 0.7)) {
+        const doorPivot = new THREE.Group();
+        doorPivot.position.set(doorW/2, 0.1, d/2 - wallThick/2);
+        buildingGroup.add(doorPivot);
+
+        const doorMesh = new THREE.Mesh(new THREE.BoxGeometry(doorW, doorH - 0.1, 0.15), new THREE.MeshStandardMaterial({ color: 0x8b5a2b, roughness: 0.9 }));
+        doorMesh.position.set(-doorW/2, (doorH - 0.1)/2, 0);
+        doorMesh.castShadow = true;
+        doorPivot.add(doorMesh);
+
+        // 문고리 (Brass Door Knob) 추가: 내외 측면에 둥근 구형 노브로 부착하여 튀어나온 막대 느낌 제거 (doorMesh 로컬 좌표계 기준으로 위치 보정)
+        const handleMat = new THREE.MeshStandardMaterial({ color: 0xd4af37, metalness: 0.8, roughness: 0.2 });
+        
+        const handleOuter = new THREE.Mesh(new THREE.SphereGeometry(0.04, 8, 8), handleMat);
+        handleOuter.position.set(-doorW/2 + 0.15, 0, 0.10);
+        doorMesh.add(handleOuter);
+
+        const handleInner = new THREE.Mesh(new THREE.SphereGeometry(0.04, 8, 8), handleMat);
+        handleInner.position.set(-doorW/2 + 0.15, 0, -0.10);
+        doorMesh.add(handleInner);
+
+        const doorWorldPos = new THREE.Vector3(x + doorW/2, y + 0.1, z + d/2 - wallThick/2);
+        doorsList.push({
+          pivot: doorPivot,
+          x: x, 
+          z: z + d/2 - wallThick/2,
+          w: doorW,
+          d: wallThick,
+          isOpen: false,
+          worldPos: doorWorldPos
+        });
+      }
+
+      // 북쪽 벽 (z = -d/2) - 창문 2개 설치
+      const winW = 2.0;
+      const winH = 1.8;
+      const winY = 1.0; // 창문 밑단 높이
+      const sW_north = (w - winW * 2) / 3;
+
+      // 북쪽 벽 3개의 수직 기둥부
+      const nWallLeft = new THREE.Mesh(new THREE.BoxGeometry(sW_north, bH, wallThick), bMat);
+      nWallLeft.position.set(-w/2 + sW_north/2, bH/2, -d/2 + wallThick/2);
+      nWallLeft.castShadow = true; nWallLeft.receiveShadow = true;
+      buildingGroup.add(nWallLeft);
+      localWalls.push({ minX: -w/2, maxX: -w/2 + sW_north, minZ: -d/2, maxZ: -d/2 + wallThick });
+
+      const nWallMid = new THREE.Mesh(new THREE.BoxGeometry(sW_north, bH, wallThick), bMat);
+      nWallMid.position.set(0, bH/2, -d/2 + wallThick/2);
+      nWallMid.castShadow = true; nWallMid.receiveShadow = true;
+      buildingGroup.add(nWallMid);
+      localWalls.push({ minX: -sW_north/2, maxX: sW_north/2, minZ: -d/2, maxZ: -d/2 + wallThick });
+
+      const nWallRight = new THREE.Mesh(new THREE.BoxGeometry(sW_north, bH, wallThick), bMat);
+      nWallRight.position.set(w/2 - sW_north/2, bH/2, -d/2 + wallThick/2);
+      nWallRight.castShadow = true; nWallRight.receiveShadow = true;
+      buildingGroup.add(nWallRight);
+      localWalls.push({ minX: w/2 - sW_north, maxX: w/2, minZ: -d/2, maxZ: -d/2 + wallThick });
+
+      // 북쪽 창문 밑 벽 2개
+      for (let wIdx = 0; wIdx < 2; wIdx++) {
+        const posX = wIdx === 0 ? -w/2 + sW_north + winW/2 : w/2 - sW_north - winW/2;
+        const nWallBottom = new THREE.Mesh(new THREE.BoxGeometry(winW, winY, wallThick), bMat);
+        nWallBottom.position.set(posX, winY/2, -d/2 + wallThick/2);
+        nWallBottom.castShadow = true; nWallBottom.receiveShadow = true;
+        buildingGroup.add(nWallBottom);
+        localWalls.push({ minX: posX - winW/2, maxX: posX + winW/2, minZ: -d/2, maxZ: -d/2 + wallThick });
+
+        // 창문 윗 벽
+        const nWallTop = new THREE.Mesh(new THREE.BoxGeometry(winW, bH - winY - winH, wallThick), bMat);
+        nWallTop.position.set(posX, winY + winH + (bH - winY - winH)/2, -d/2 + wallThick/2);
+        nWallTop.castShadow = true;
+        buildingGroup.add(nWallTop);
+
+        // 창문 파쿠르 위치 등록
+        windowSpots.push({
+          x: x + posX,
+          y: y + winY + winH/2,
+          z: z - d/2 + wallThick/2,
+          angle: -Math.PI / 2
+        });
+      }
+
+      // 동쪽 벽 (x = w/2) - 창문 1개 설치
+      const sH_east = (d - winW) / 2;
+      const eWallLeft = new THREE.Mesh(new THREE.BoxGeometry(wallThick, bH, sH_east), bMat);
+      eWallLeft.position.set(w/2 - wallThick/2, bH/2, -d/2 + sH_east/2);
+      eWallLeft.castShadow = true; eWallLeft.receiveShadow = true;
+      buildingGroup.add(eWallLeft);
+      localWalls.push({ minX: w/2 - wallThick, maxX: w/2, minZ: -d/2, maxZ: -d/2 + sH_east });
+
+      const eWallRight = new THREE.Mesh(new THREE.BoxGeometry(wallThick, bH, sH_east), bMat);
+      eWallRight.position.set(w/2 - wallThick/2, bH/2, d/2 - sH_east/2);
+      eWallRight.castShadow = true; eWallRight.receiveShadow = true;
+      buildingGroup.add(eWallRight);
+      localWalls.push({ minX: w/2 - wallThick, maxX: w/2, minZ: d/2 - sH_east, maxZ: d/2 });
+
+      // 동쪽 창문 밑 벽 및 위 벽
+      const eWallBottom = new THREE.Mesh(new THREE.BoxGeometry(wallThick, winY, winW), bMat);
+      eWallBottom.position.set(w/2 - wallThick/2, winY/2, 0);
+      eWallBottom.castShadow = true; eWallBottom.receiveShadow = true;
+      buildingGroup.add(eWallBottom);
+      localWalls.push({ minX: w/2 - wallThick, maxX: w/2, minZ: -winW/2, maxZ: winW/2 });
+
+      const eWallTop = new THREE.Mesh(new THREE.BoxGeometry(wallThick, bH - winY - winH, winW), bMat);
+      eWallTop.position.set(w/2 - wallThick/2, winY + winH + (bH - winY - winH)/2, 0);
+      eWallTop.castShadow = true;
+      buildingGroup.add(eWallTop);
+
+      // 동쪽 창문 파쿠르 위치 등록
+      windowSpots.push({
+        x: x + w/2 - wallThick/2,
+        y: y + winY + winH/2,
+        z: z,
+        angle: 0
+      });
+
+      // 서쪽 벽 (x = -w/2) - 전체 통벽
+      const wWall = new THREE.Mesh(new THREE.BoxGeometry(wallThick, bH, d), bMat);
+      wWall.position.set(-w/2 + wallThick/2, bH/2, 0);
+      wWall.castShadow = true; wWall.receiveShadow = true;
+      buildingGroup.add(wWall);
+      localWalls.push({ minX: -w/2, maxX: -w/2 + wallThick, minZ: -d/2, maxZ: d/2 });
+
+      // 4) 내부 기둥 4개 배치
+      const colW = 0.6;
+      const colPositions = [
+        { cx: -w/4, cz: -d/4 },
+        { cx: w/4, cz: -d/4 },
+        { cx: -w/4, cz: d/4 },
+        { cx: w/4, cz: d/4 }
+      ];
+      colPositions.forEach(pos => {
+        const col = new THREE.Mesh(new THREE.BoxGeometry(colW, bH, colW), colMat);
+        col.position.set(pos.cx, bH/2, pos.cz);
+        col.castShadow = true; col.receiveShadow = true;
+        buildingGroup.add(col);
+        localWalls.push({ minX: pos.cx - colW/2, maxX: pos.cx + colW/2, minZ: pos.cz - colW/2, maxZ: pos.cz + colW/2 });
+      });
+
+      // 5) 내부 칸막이벽 (방 입구 문틀 공간 확보를 위해 가로 칸막이를 2.2m 단축)
+      const partW = (w/2 + w/6) - 2.2;
+      const partWallH = new THREE.Mesh(new THREE.BoxGeometry(partW, bH, 0.25), bMat);
+      partWallH.position.set(-w/2 + partW/2, bH/2, 0);
+      partWallH.castShadow = true; partWallH.receiveShadow = true;
+      buildingGroup.add(partWallH);
+      localWalls.push({ minX: -w/2, maxX: -w/2 + partW, minZ: -0.125, maxZ: 0.125 });
+
+      const partD = d/2;
+      const partWallV = new THREE.Mesh(new THREE.BoxGeometry(0.25, bH, partD), bMat);
+      partWallV.position.set(w/6, bH/2, -d/4);
+      partWallV.castShadow = true; partWallV.receiveShadow = true;
+      buildingGroup.add(partWallV);
+      localWalls.push({ minX: w/6 - 0.125, maxX: w/6 + 0.125, minZ: -d/2, maxZ: 0 });
+
+      // 6) 건물 서쪽 경사로(Ramp) 및 안전 난간 생성 (옥상 진입용)
+      const rampW = 1.5;
+      const rampLength = Math.sqrt(d * d + bH * bH);
+      const rampAngle = Math.atan2(bH, d);
+      
+      const ramp = new THREE.Mesh(new THREE.BoxGeometry(rampW, 0.2, rampLength), floorMat);
+      ramp.position.set(-w/2 - rampW/2, bH/2 + 0.1, 0);
+      ramp.rotation.x = -rampAngle;
+      ramp.castShadow = true; ramp.receiveShadow = true;
+      buildingGroup.add(ramp);
+      
+      const handrailMat = new THREE.MeshStandardMaterial({ color: 0x333333, metalness: 0.6, roughness: 0.2 });
+      const handrail = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.8, rampLength), handrailMat);
+      handrail.position.set(-w/2 - rampW, bH/2 + 0.5, 0);
+      handrail.rotation.x = -rampAngle;
+      handrail.castShadow = true;
+      buildingGroup.add(handrail);
+
+      // 7) obstacles 등록
+      scene.add(buildingGroup);
+
+      const worldWalls = localWalls.map(lw => ({
+        minX: x + lw.minX,
+        maxX: x + lw.maxX,
+        minZ: z + lw.minZ,
+        maxZ: z + lw.maxZ
+      }));
+      obstacles.push({ type: 'BUILDING', walls: worldWalls, spotX: x, spotZ: z, spotY: y, w: w, d: d });
+
+      // 7) 건물 내부에 풍부한 확정 파밍 아이템 스폰 (각 건물당 4개)
+      const itemSpots = [
+        new THREE.Vector3(-w/3, 0.2, -d/3),
+        new THREE.Vector3(w/3, 0.2, -d/3),
+        new THREE.Vector3(0, 0.2, d/3),
+        new THREE.Vector3(w/3, 0.2, d/3)
+      ];
+      itemSpots.forEach(localSpot => {
+        const itemWorldPos = new THREE.Vector3(x + localSpot.x, y + localSpot.y, z + localSpot.z);
+        const rVal = Math.random();
+        
+        if (rVal < 0.3) {
+          const weapon = wPool[Math.floor(Math.random() * wPool.length)];
+          spawnGroundItem(itemWorldPos, 'WEAPON', weapon);
+          
+          const wKey = weapon.name === '권총' ? 'PISTOL' : (weapon.name === '샷건' ? 'SHOTGUN' : (weapon.name === '돌격소총' ? 'RIFLE' : 'SNIPER'));
+          const offsetPos = itemWorldPos.clone().add(new THREE.Vector3((Math.random()-0.5)*1.8, 0, (Math.random()-0.5)*1.8));
+          spawnGroundItem(offsetPos, 'AMMO_' + wKey, { name: getAmmoName(wKey) });
+        } else if (rVal < 0.45) {
+          spawnGroundItem(itemWorldPos, 'SCOPE', sPool[Math.floor(Math.random() * sPool.length)]);
+        } else if (rVal < 0.6) {
+          spawnGroundItem(itemWorldPos, 'HELMET', hPool[Math.floor(Math.random() * hPool.length)]);
+        } else if (rVal < 0.7) {
+          spawnGroundItem(itemWorldPos, 'BAG', bPool[Math.floor(Math.random() * bPool.length)]);
+        } else if (rVal < 0.8) {
+          spawnGroundItem(itemWorldPos, 'FIRSTAID', { name: '구급상자' });
+        } else if (rVal < 0.9) {
+          spawnGroundItem(itemWorldPos, 'GRENADE', { name: '수류탄' });
+        } else {
+          spawnGroundItem(itemWorldPos, 'SMOKE', { name: '연막탄' });
+        }
+      });
+
+      // 8) 옥상(Rooftop) 아이템 스폰 (각 건물당 2개 추가)
+      for (let rIdx = 0; rIdx < 2; rIdx++) {
+        const rx = (Math.random() - 0.5) * (w - 2.0);
+        const rz = (Math.random() - 0.5) * (d - 2.0);
+        const roofItemPos = new THREE.Vector3(x + rx, y + 5.3, z + rz); // 옥상 높이 보정
+        
+        const rVal = Math.random();
+        if (rVal < 0.4) {
+          const weapon = wPool[Math.floor(Math.random() * wPool.length)];
+          spawnGroundItem(roofItemPos, 'WEAPON', weapon);
+          const wKey = weapon.name === '권총' ? 'PISTOL' : (weapon.name === '샷건' ? 'SHOTGUN' : (weapon.name === '돌격소총' ? 'RIFLE' : 'SNIPER'));
+          const offsetPos = roofItemPos.clone().add(new THREE.Vector3((Math.random()-0.5)*1.8, 0, (Math.random()-0.5)*1.8));
+          spawnGroundItem(offsetPos, 'AMMO_' + wKey, { name: getAmmoName(wKey) });
+        } else if (rVal < 0.7) {
+          spawnGroundItem(roofItemPos, 'SCOPE', sPool[Math.floor(Math.random() * sPool.length)]);
+        } else {
+          spawnGroundItem(roofItemPos, 'FIRSTAID', { name: '구급상자' });
+        }
+      }
+    });
+
+    // 2. 나무, 바위, 덤불 비중첩 스폰 루프 (밀도 향상 및 다양성 확보)
+    const numObstacles = 300;
+    for (let i = 0; i < numObstacles; i++) {
+      let x = 0, z = 0, radius = 1.0, obsType = 'TREE', ok = false;
+      
+      for (let retries = 0; retries < 150; retries++) {
+        x = (Math.random() - 0.5) * 520;
+        z = (Math.random() - 0.5) * 520;
+        
+        const randVal = Math.random();
+        if (randVal < 0.55) {
+          obsType = 'TREE';
+          const scale = 0.6 + Math.random() * 1.8;
+          radius = 0.95 * scale;
+        } else if (randVal < 0.82) {
+          obsType = 'BUSH';
+          const scale = 0.8 + Math.random() * 1.2;
+          radius = 1.1 * scale;
+        } else {
+          obsType = 'ROCK';
+          const scale = 1.8 + Math.random() * 3.2; // 바위 크기 대폭 확장 및 무작위성 확대
+          radius = scale * 1.1;
+        }
+
+        let overlap = false;
+
+        // 중앙 로비 근처 안전구역 및 바닷물 침수 구역(230m 외부) 스폰 원천 차단
+        const distFromC = Math.sqrt(x*x + z*z);
+        if (distFromC < 25 || distFromC > 230) { overlap = true; }
+        
+        // 연못 구역 내부 또는 경계(여유 2.5m) 스폰 제한
+        const distToPond1 = Math.sqrt((x - 60)**2 + (z - 80)**2);
+        if (distToPond1 < 25 + radius + 2.5) { overlap = true; }
+        const distToPond2 = Math.sqrt((x + 80)**2 + (z + 60)**2);
+        if (distToPond2 < 20 + radius + 2.5) { overlap = true; }
+
+        if (!overlap) {
+          for (let b = 0; b < buildingSpots.length; b++) {
+            const spot = buildingSpots[b];
+            const dx = Math.abs(x - spot.x);
+            const dz = Math.abs(z - spot.z);
+            if (dx < spot.w/2 + radius + 4.5 && dz < spot.d/2 + radius + 4.5) {
+              overlap = true;
+              break;
+            }
+          }
+        }
+
+        if (!overlap) {
+          for (let o = 0; o < obstacles.length; o++) {
+            const other = obstacles[o];
+            const dist = Math.sqrt((x - other.x)**2 + (z - other.z)**2);
+            if (dist < radius + other.radius + 3.0) {
+              overlap = true;
+              break;
+            }
+          }
+        }
+
+        if (!overlap) {
+          ok = true;
+          break;
+        }
+      }
+
+      if (ok) {
+        const y = getElevation(x, z);
+
+        if (obsType === 'TREE') {
+          const scale = radius / 0.95;
+          const trunk = new THREE.Mesh(treeGeoTrunk, treeMatTrunk);
+          trunk.position.set(x, y + 1.5 * scale, z);
+          trunk.castShadow = true; trunk.receiveShadow = true;
+          trunk.scale.set(scale, scale, scale);
+
+          const treeType = Math.floor(Math.random() * 3);
+          let leaves;
+          if (treeType === 0) {
+            leaves = new THREE.Group();
+            const leaves1 = new THREE.Mesh(new THREE.ConeGeometry(2.5, 3.2, 8), treeMatCone);
+            leaves1.position.set(0, 2.4, 0);
+            leaves1.castShadow = true;
+            leaves.add(leaves1);
+            const leaves2 = new THREE.Mesh(new THREE.ConeGeometry(2.0, 2.5, 8), treeMatCone);
+            leaves2.position.set(0, 3.9, 0);
+            leaves2.castShadow = true;
+            leaves.add(leaves2);
+            const leaves3 = new THREE.Mesh(new THREE.ConeGeometry(1.4, 1.8, 8), treeMatCone);
+            leaves3.position.set(0, 5.2, 0);
+            leaves3.castShadow = true;
+            leaves.add(leaves3);
+          } else if (treeType === 1) {
+            leaves = new THREE.Group();
+            const leafMat = new THREE.MeshStandardMaterial({ color: 0x2e5c1e, roughness: 0.9 });
+            const centerSphere = new THREE.Mesh(new THREE.DodecahedronGeometry(1.8, 1), leafMat);
+            centerSphere.position.set(0, 3.2, 0);
+            centerSphere.castShadow = true;
+            leaves.add(centerSphere);
+            const offsets = [
+              [0.8, 3.6, 0.4, 1.0],
+              [-0.8, 3.4, -0.5, 0.95],
+              [0.5, 2.9, -0.8, 0.85],
+              [-0.6, 2.8, 0.6, 0.9],
+              [0.0, 4.0, -0.2, 1.1]
+            ];
+            offsets.forEach(([ox, oy, oz, oscale]) => {
+              const oLeaf = new THREE.Mesh(new THREE.DodecahedronGeometry(1.1 * oscale, 1), leafMat);
+              oLeaf.position.set(ox, oy, oz);
+              oLeaf.castShadow = true;
+              leaves.add(oLeaf);
+            });
+          } else {
+            leaves = new THREE.Group();
+            const mapleMat = new THREE.MeshStandardMaterial({ color: 0xd3a03e, roughness: 0.9 });
+            const centerSphere = new THREE.Mesh(new THREE.DodecahedronGeometry(1.7, 1), mapleMat);
+            centerSphere.position.set(0, 2.9, 0);
+            centerSphere.castShadow = true;
+            leaves.add(centerSphere);
+            const offsets = [
+              [0.7, 3.3, 0.4, 0.9],
+              [-0.7, 3.1, -0.4, 0.9],
+              [0.4, 2.6, -0.7, 0.8],
+              [-0.5, 2.5, 0.5, 0.85],
+              [0.0, 3.7, -0.2, 1.05]
+            ];
+            offsets.forEach(([ox, oy, oz, oscale]) => {
+              const oLeaf = new THREE.Mesh(new THREE.DodecahedronGeometry(1.0 * oscale, 1), mapleMat);
+              oLeaf.position.set(ox, oy, oz);
+              oLeaf.castShadow = true;
+              leaves.add(oLeaf);
+            });
+          }
+          trunk.add(leaves);
+          scene.add(trunk);
+          obstacles.push({ type: 'TREE', x: x, z: z, radius: radius });
+        } else if (obsType === 'BUSH') {
+          // 덤불 (BUSH) - 부드러운 장애물 (콜리전 미해결, 시각화만 적용 - 반투명 처리로 엄폐 불가 인지 개선)
+          const bushGroup = new THREE.Group();
+          bushGroup.position.set(x, y, z);
+          const bushMat = new THREE.MeshStandardMaterial({ color: 0x1b4322, roughness: 0.95, transparent: true, opacity: 0.65 });
+          const numPuffs = 4 + Math.floor(Math.random() * 3);
+          for (let p = 0; p < numPuffs; p++) {
+            const pSize = radius * (0.5 + Math.random() * 0.5);
+            const puff = new THREE.Mesh(new THREE.DodecahedronGeometry(pSize, 1), bushMat);
+            puff.position.set(
+              (Math.random() - 0.5) * radius * 0.8,
+              pSize * 0.4,
+              (Math.random() - 0.5) * radius * 0.8
+            );
+            puff.castShadow = true;
+            puff.receiveShadow = true;
+            bushGroup.add(puff);
+          }
+          scene.add(bushGroup);
+          // 장애물 목록에는 추가하여 겹침 방지 적용
+          obstacles.push({ type: 'BUSH', x: x, z: z, radius: radius * 1.1 });
+        } else {
+          // 대형 다중 파트 바위 더미 (Rock Pile)
+          const scale = radius / 1.15;
+          const rockGroup = new THREE.Group();
+          rockGroup.position.set(x, y, z);
+          
+          const rockMat = new THREE.MeshStandardMaterial({ color: 0x757d75, roughness: 0.8, metalness: 0.1 });
+          const numRocks = 3 + Math.floor(Math.random() * 3);
+          for (let r = 0; r < numRocks; r++) {
+            const rSize = scale * (0.8 + Math.random() * 1.0);
+            const subRock = new THREE.Mesh(new THREE.DodecahedronGeometry(rSize), rockMat);
+            
+            subRock.position.set(
+              (Math.random() - 0.5) * scale * 1.1,
+              rSize * 0.35 + (Math.random() * 0.25) * scale,
+              (Math.random() - 0.5) * scale * 1.1
+            );
+            subRock.rotation.set(
+              Math.random() * Math.PI,
+              Math.random() * Math.PI,
+              Math.random() * Math.PI
+            );
+            subRock.castShadow = true;
+            subRock.receiveShadow = true;
+            rockGroup.add(subRock);
+          }
+          scene.add(rockGroup);
+          obstacles.push({ type: 'ROCK', x: x, z: z, radius: radius });
+        }
+      }
+    }
+
+    // --- [3D 휴머노이드 캐릭터 & 총기 렌더링 시스템] ---
+    function createSoldierModel(camoColorHex = 0x3d5c3d, skinColorHex = 0xffccaa) {
+      const group = new THREE.Group();
+      group.rotation.order = 'YXZ'; // YXZ 순서로 회전하여 낙하시 옆구리가 아닌 배가 바닥을 향하도록 설정
+      
+      const camoMat = new THREE.MeshStandardMaterial({ color: camoColorHex, roughness: 0.8 });
+      const skinMat = new THREE.MeshStandardMaterial({ color: skinColorHex, roughness: 0.8 });
+      const helmetMat = new THREE.MeshStandardMaterial({ color: 0x1e2f1e, roughness: 0.9, side: THREE.DoubleSide });
+      const bootMat = new THREE.MeshStandardMaterial({ color: 0x111111 });
+      const pantsMat = new THREE.MeshStandardMaterial({ color: 0x2a3e2a });
+
+      // 몸통 세분화 그룹 (가슴, 허리, 전술 벨트)
+      const body = new THREE.Group();
+      body.position.y = 0.95;
+      group.add(body);
+
+      // 1) 상부 가슴 메쉬 (Tactical Vest 느낌)
+      const chest = new THREE.Mesh(new THREE.BoxGeometry(0.56, 0.35, 0.28), camoMat);
+      chest.position.y = 0.18; // 로컬 위치 (월드 Y: 0.95 + 0.18 = 1.13)
+      chest.castShadow = true; chest.receiveShadow = true;
+      body.add(chest);
+
+      // 방탄판/파우치 디테일
+      const vestPlate = new THREE.Mesh(new THREE.BoxGeometry(0.42, 0.25, 0.05), new THREE.MeshStandardMaterial({ color: 0x222222, roughness: 0.95 }));
+      vestPlate.position.set(0, 0, -0.155);
+      chest.add(vestPlate);
+
+      // 2) 유연한 허리 메쉬
+      const waist = new THREE.Mesh(new THREE.BoxGeometry(0.48, 0.16, 0.25), pantsMat);
+      waist.position.y = -0.07; // 로컬 위치 (월드 Y: 0.95 - 0.07 = 0.88)
+      waist.castShadow = true; waist.receiveShadow = true;
+      body.add(waist);
+
+      // 3) 골반 및 전술 벨트 메쉬
+      const beltMat = new THREE.MeshStandardMaterial({ color: 0x1a1a1a, roughness: 0.9 });
+      const belt = new THREE.Mesh(new THREE.BoxGeometry(0.52, 0.14, 0.26), beltMat);
+      belt.position.y = -0.22; // 로컬 위치 (월드 Y: 0.95 - 0.22 = 0.73)
+      belt.castShadow = true; belt.receiveShadow = true;
+      body.add(belt);
+
+      // 4) 하부 골반/엉덩이 메쉬 (바지 색상과 연동하여 다리와 몸통을 연결)
+      const hips = new THREE.Mesh(new THREE.BoxGeometry(0.48, 0.18, 0.24), pantsMat);
+      hips.position.y = -0.32; // 로컬 위치 (월드 Y: 0.95 - 0.32 = 0.63, 다리가 붙은 0.60과 오버랩되어 틈새 방지)
+      hips.castShadow = true; hips.receiveShadow = true;
+      body.add(hips);
+
+      // 해커용 붉은 몸통 텍스처 등 외부 대입 호환을 위한 material 프로퍼티 재정의
+      Object.defineProperty(body, 'material', {
+        get() { return chest.material; },
+        set(m) {
+          chest.material = m;
+          waist.material = m;
+          belt.material = m;
+          hips.material = m;
+        }
+      });
+
+      // 머리 & 헬멧
+      const headGroup = new THREE.Group();
+      headGroup.position.set(0, 1.45, 0);
+      
+      const head = new THREE.Mesh(new THREE.SphereGeometry(0.22, 16, 16), skinMat);
+      head.castShadow = true;
+      headGroup.add(head);
+      
+      // 얼굴 이목구비 추가 (눈, 코, 입)
+      const eyeMat = new THREE.MeshBasicMaterial({ color: 0x111111 });
+      const mouthMat = new THREE.MeshBasicMaterial({ color: 0x992222 });
+      
+      const leftEye = new THREE.Mesh(new THREE.SphereGeometry(0.025, 8, 8), eyeMat);
+      leftEye.position.set(-0.07, 0.05, -0.19);
+      headGroup.add(leftEye);
+      
+      const rightEye = new THREE.Mesh(new THREE.SphereGeometry(0.025, 8, 8), eyeMat);
+      rightEye.position.set(0.07, 0.05, -0.19);
+      headGroup.add(rightEye);
+      
+      // 코 원뿔 뾰족한 부분이 밖(정면: -Z)을 향하도록 회전값 -Math.PI / 2 로 수정
+      const nose = new THREE.Mesh(new THREE.ConeGeometry(0.022, 0.07, 4), skinMat);
+      nose.rotation.x = -Math.PI / 2;
+      nose.position.set(0, 0.0, -0.23);
+      headGroup.add(nose);
+      
+      const mouth = new THREE.Mesh(new THREE.BoxGeometry(0.07, 0.015, 0.006), mouthMat);
+      mouth.position.set(0, -0.07, -0.208);
+      headGroup.add(mouth);
+
+      // 귀(Ears) 추가
+      const leftEar = new THREE.Mesh(new THREE.BoxGeometry(0.035, 0.07, 0.025), skinMat);
+      leftEar.position.set(-0.23, 0.02, 0);
+      leftEar.rotation.y = 0.12;
+      headGroup.add(leftEar);
+
+      const rightEar = new THREE.Mesh(new THREE.BoxGeometry(0.035, 0.07, 0.025), skinMat);
+      rightEar.position.set(0.23, 0.02, 0);
+      rightEar.rotation.y = -0.12;
+      headGroup.add(rightEar);
+
+      // 헤어캡/머리카락(Hair) 추가
+      const hairMat = new THREE.MeshStandardMaterial({ color: 0x221100, roughness: 0.85 });
+      const hair = new THREE.Mesh(new THREE.SphereGeometry(0.23, 16, 12, 0, Math.PI * 2, 0, Math.PI * 0.65), hairMat);
+      hair.position.set(0, 0.03, 0.02);
+      hair.rotation.x = 0.18;
+      headGroup.add(hair);
+      
+      // 헬멧 (눈을 가리지 않도록 후방으로 약간 밀고 뒤로 기울여 개방감 확보)
+      const helmet = new THREE.Mesh(new THREE.SphereGeometry(0.27, 16, 10, 0, Math.PI * 2, 0, Math.PI / 2), helmetMat);
+      helmet.position.set(0, 0.07, 0.02);
+      helmet.rotation.x = 0.12; // 양수값으로 회전하여 뒤쪽으로 비스듬히 기울임
+      helmet.castShadow = true;
+      helmet.visible = false; // 기본은 착용 안 함
+      headGroup.add(helmet);
+
+      // 레벨 3 헬멧 바이저 (기울어진 헬멧 각도에 연동하여 비스듬히 앞쪽으로 정렬)
+      const visor = new THREE.Mesh(new THREE.BoxGeometry(0.29, 0.11, 0.09), new THREE.MeshStandardMaterial({color: 0x111111, roughness: 0.2}));
+      visor.position.set(0, 0.06, -0.21);
+      visor.rotation.x = 0.12;
+      visor.visible = false;
+      headGroup.add(visor);
+      
+      group.add(headGroup);
+
+      // 관절형 팔 (위팔 + 아래팔 구조)
+      function createArm(mat, px, py, pz) {
+        const armGroup = new THREE.Group();
+        armGroup.position.set(px, py, pz);
+
+        // 위팔 (Upper Arm)
+        const upperArm = new THREE.Mesh(new THREE.BoxGeometry(0.12, 0.25, 0.12), mat);
+        upperArm.position.y = -0.125;
+        upperArm.castShadow = true;
+        upperArm.receiveShadow = true;
+        armGroup.add(upperArm);
+
+        // 어깨 보호대 (Shoulder Pad) 추가
+        const padMat = new THREE.MeshStandardMaterial({ color: 0x181818, roughness: 0.8 });
+        const shoulderPad = new THREE.Mesh(new THREE.BoxGeometry(0.15, 0.07, 0.15), padMat);
+        shoulderPad.position.set(px < 0 ? -0.015 : 0.015, 0.02, 0);
+        upperArm.add(shoulderPad);
+
+        // 팔꿈치 관절 피벗 (위팔 아래 끝단)
+        const elbowPivot = new THREE.Group();
+        elbowPivot.position.set(0, -0.25, 0);
+        armGroup.add(elbowPivot);
+
+        // 아래팔 (Forearm)
+        const forearm = new THREE.Mesh(new THREE.BoxGeometry(0.10, 0.25, 0.10), mat);
+        forearm.position.y = -0.125;
+        forearm.castShadow = true;
+        forearm.receiveShadow = true;
+        elbowPivot.add(forearm);
+
+        // 손 (Hand) 추가 - 손끝에 살색 손 메쉬 생성
+        const hand = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.08, 0.08), skinMat);
+        hand.position.set(0, -0.27, 0);
+        hand.castShadow = true;
+        hand.receiveShadow = true;
+        elbowPivot.add(hand);
+
+        return {
+          group: armGroup,
+          elbow: elbowPivot
+        };
+      }
+
+      // 어깨 관절 구체 (Shoulder Joint Spheres)를 추가하여 몸통과 팔 사이의 이격된 공간을 자연스럽게 보강
+      const jointMat = new THREE.MeshStandardMaterial({ color: camoColorHex, roughness: 0.8 });
+      const leftJoint = new THREE.Mesh(new THREE.SphereGeometry(0.08, 12, 12), jointMat);
+      leftJoint.position.set(-0.31, 1.25, 0);
+      leftJoint.castShadow = true;
+      group.add(leftJoint);
+
+      const rightJoint = new THREE.Mesh(new THREE.SphereGeometry(0.08, 12, 12), jointMat);
+      rightJoint.position.set(0.31, 1.25, 0);
+      rightJoint.castShadow = true;
+      group.add(rightJoint);
+
+      const leftArm = createArm(camoMat, -0.38, 1.25, 0);
+      const rightArm = createArm(camoMat, 0.38, 1.25, 0);
+      group.add(leftArm.group);
+      group.add(rightArm.group);
+
+      // 양다리 (허벅지 + 무릎관절 구조 - 총 길이 0.6으로 축소하여 비율 수정 및 지면 뚫림 방지)
+      function createLeg(mat, bootMat, px, py, pz) {
+        const legGroup = new THREE.Group();
+        legGroup.position.set(px, py, pz);
+
+        // 허벅지 (Thigh) - 골반 피벗 기준
+        const thigh = new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.26, 0.16), mat);
+        thigh.position.y = -0.13;
+        thigh.castShadow = true;
+        thigh.receiveShadow = true;
+        legGroup.add(thigh);
+
+        // 무릎 관절 피벗 (허벅지 아래 끝단)
+        const kneePivot = new THREE.Group();
+        kneePivot.position.set(0, -0.26, 0);
+        legGroup.add(kneePivot);
+
+        // 종아리 (Shin/Calf)
+        const shin = new THREE.Mesh(new THREE.BoxGeometry(0.14, 0.26, 0.14), mat);
+        shin.position.y = -0.13;
+        shin.castShadow = true;
+        shin.receiveShadow = true;
+        kneePivot.add(shin);
+
+        // 무릎 보호대 (Knee Pad) 추가
+        const padMat = new THREE.MeshStandardMaterial({ color: 0x181818, roughness: 0.8 });
+        const kneePad = new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.08, 0.04), padMat);
+        kneePad.position.set(0, 0, -0.09);
+        kneePivot.add(kneePad);
+
+        // 전투화 (발등이 앞쪽을 향하며 뒤꿈치 부분이 다리 끝단과 딱 맞도록 Z 좌표를 -0.05m로 보정)
+        const boot = new THREE.Mesh(new THREE.BoxGeometry(0.17, 0.08, 0.24), bootMat);
+        boot.position.set(0, -0.30, -0.05);
+        boot.castShadow = true;
+        boot.receiveShadow = true;
+        kneePivot.add(boot);
+
+        return {
+          group: legGroup,
+          knee: kneePivot
+        };
+      }
+
+      const leftLeg = createLeg(pantsMat, bootMat, -0.16, 0.6, 0);
+      const rightLeg = createLeg(pantsMat, bootMat, 0.16, 0.6, 0);
+
+      group.add(leftLeg.group);
+      group.add(rightLeg.group);
+
+      // 전술 배낭 (가방 아이템 장착 시 표시)
+      const backpackGroup = new THREE.Group();
+      backpackGroup.position.set(0, 0.95, 0.16);
+      group.add(backpackGroup);
+
+      const backpackMesh = new THREE.Mesh(new THREE.BoxGeometry(0.32, 0.45, 0.15), camoMat);
+      backpackMesh.castShadow = true;
+      backpackGroup.add(backpackMesh);
+      backpackGroup.visible = false;
+
+      // 낙하산용 배낭 (수송기/낙하/낙하산 모드에서 표시)
+      const parachuteBag = new THREE.Mesh(new THREE.BoxGeometry(0.3, 0.45, 0.18), new THREE.MeshStandardMaterial({color: 0x888888, roughness: 0.9}));
+      parachuteBag.position.set(0, 0.95, 0.16);
+      parachuteBag.castShadow = true;
+      parachuteBag.visible = false;
+      group.add(parachuteBag);
+
+      // 총기 마운트 포인트 (오른쪽 아래팔 하단(손)에 위치)
+      const weaponContainer = new THREE.Group();
+      weaponContainer.position.set(0, -0.25, 0);
+      rightArm.elbow.add(weaponContainer);
+
+      // 헬멧 레벨별 비주얼 업데이트 함수
+      function updateHelmetVisual(level) {
+        if (!level) {
+          helmet.visible = false;
+          visor.visible = false;
+        } else {
+          helmet.visible = true;
+          if (level.name.includes('1')) {
+            helmet.material.color.setHex(0x4caf50); // Level 1: Green
+            visor.visible = false;
+          } else if (level.name.includes('2')) {
+            helmet.material.color.setHex(0x009688); // Level 2: Teal
+            visor.visible = false;
+          } else if (level.name.includes('3')) {
+            helmet.material.color.setHex(0x212121); // Level 3: Black
+            visor.visible = true; // Show visor
+          }
+        }
+      }
+
+      // 가방 레벨별 비주얼 업데이트 함수
+      function updateBagVisual(level) {
+        if (!level) {
+          backpackGroup.visible = false;
+        } else {
+          backpackGroup.visible = true;
+          if (level.name.includes('1')) {
+            backpackMesh.scale.set(0.8, 0.8, 0.8);
+            backpackMesh.material.color.setHex(0x8d6e63); // Brown
+          } else if (level.name.includes('2')) {
+            backpackMesh.scale.set(1.0, 1.0, 1.0);
+            backpackMesh.material.color.setHex(0x5d4037); // Dark Brown
+          } else if (level.name.includes('3')) {
+            backpackMesh.scale.set(1.2, 1.2, 1.2);
+            backpackMesh.material.color.setHex(0x3e2723); // Very Dark Brown
+          }
+        }
+      }
+
+      return {
+        group: group,
+        body: body,
+        leftArm: leftArm.group,
+        leftElbow: leftArm.elbow,
+        rightArm: rightArm.group,
+        rightElbow: rightArm.elbow,
+        leftLeg: leftLeg.group,
+        rightLeg: rightLeg.group,
+        leftThigh: leftLeg.group,
+        leftKnee: leftLeg.knee,
+        rightThigh: rightLeg.group,
+        rightKnee: rightLeg.knee,
+        weaponContainer: weaponContainer,
+        headGroup: headGroup,
+        parachuteBag: parachuteBag,
+        backpackGroup: backpackGroup,
+        updateHelmetVisual: updateHelmetVisual,
+        updateBagVisual: updateBagVisual,
+        leftJoint: leftJoint,
+        rightJoint: rightJoint
+      };
+    }
+
+    function updateSoldierJoints(soldier) {
+      if (soldier.leftJoint && soldier.leftArm) {
+        soldier.leftJoint.position.set(soldier.leftArm.position.x + 0.07, soldier.leftArm.position.y, soldier.leftArm.position.z);
+      }
+      if (soldier.rightJoint && soldier.rightArm) {
+        soldier.rightJoint.position.set(soldier.rightArm.position.x - 0.07, soldier.rightArm.position.y, soldier.rightArm.position.z);
+      }
+    }
+
+    function createWeaponMesh(weapon, scope) {
+      const weaponGroup = new THREE.Group();
+      
+      const metalMat = new THREE.MeshStandardMaterial({ color: 0x222222, metalness: 0.8, roughness: 0.2 });
+      const woodMat = new THREE.MeshStandardMaterial({ color: 0x5c4033, roughness: 0.7 });
+      const plasticMat = new THREE.MeshStandardMaterial({ color: 0x111111, roughness: 0.6 });
+      const scopeMat = new THREE.MeshStandardMaterial({ color: 0x1e3f20, roughness: 0.5 });
+      const lensMat = new THREE.MeshBasicMaterial({ color: 0x00ffff });
+
+      if (weapon.name === '맨주먹' || weapon.name === '주먹') {
+        return null;
+      }
+
+      if (weapon.name === '권총') {
+        const grip = new THREE.Mesh(new THREE.BoxGeometry(0.04, 0.1, 0.04), plasticMat);
+        grip.position.set(0, -0.05, -0.01);
+        grip.rotation.x = 0.2;
+        weaponGroup.add(grip);
+        
+        const slide = new THREE.Mesh(new THREE.BoxGeometry(0.04, 0.04, 0.18), metalMat);
+        slide.position.set(0, 0, 0.03);
+        weaponGroup.add(slide);
+
+        // 가늠쇠 & 가늠자 (Iron Sights) - 높이 상향 (Doom-style 시야 확보)
+        const rearSight = new THREE.Mesh(new THREE.BoxGeometry(0.02, 0.05, 0.01), plasticMat);
+        rearSight.position.set(0, 0.035, -0.04);
+        weaponGroup.add(rearSight);
+        const frontSight = new THREE.Mesh(new THREE.BoxGeometry(0.01, 0.055, 0.01), plasticMat);
+        frontSight.position.set(0, 0.040, 0.1);
+        weaponGroup.add(frontSight);
+        
+      } else {
+        const stock = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.1, 0.22), woodMat);
+        stock.position.set(0, -0.03, -0.1);
+        weaponGroup.add(stock);
+
+        const receiver = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.08, 0.2), metalMat);
+        receiver.position.set(0, 0, 0.05);
+        weaponGroup.add(receiver);
+
+        if (weapon.name === '돌격소총') {
+          const mag = new THREE.Mesh(new THREE.BoxGeometry(0.04, 0.14, 0.06), plasticMat);
+          mag.position.set(0, -0.09, 0.08);
+          mag.rotation.x = -0.2;
+          weaponGroup.add(mag);
+          
+          const barrel = new THREE.Mesh(new THREE.CylinderGeometry(0.015, 0.015, 0.35), metalMat);
+          barrel.rotation.x = Math.PI / 2;
+          barrel.position.set(0, 0.015, 0.28);
+          weaponGroup.add(barrel);
+
+          // 가늠자 (Rear Sight) - ㄷ자 형태 시뮬레이션 (높이 조정)
+          const rsL = new THREE.Mesh(new THREE.BoxGeometry(0.01, 0.07, 0.01), plasticMat);
+          rsL.position.set(-0.015, 0.06, -0.02); weaponGroup.add(rsL);
+          const rsR = new THREE.Mesh(new THREE.BoxGeometry(0.01, 0.07, 0.01), plasticMat);
+          rsR.position.set(0.015, 0.06, -0.02); weaponGroup.add(rsR);
+          
+          // 가늠쇠 (Front Sight)
+          const fs = new THREE.Mesh(new THREE.BoxGeometry(0.01, 0.08, 0.01), plasticMat);
+          fs.position.set(0, 0.055, 0.4); weaponGroup.add(fs);
+          
+        } else if (weapon.name === '저격총') {
+          const barrel = new THREE.Mesh(new THREE.CylinderGeometry(0.012, 0.012, 0.55), metalMat);
+          barrel.rotation.x = Math.PI / 2;
+          barrel.position.set(0, 0.015, 0.38);
+          weaponGroup.add(barrel);
+          
+          const tip = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 0.08), plasticMat);
+          tip.rotation.x = Math.PI / 2;
+          tip.position.set(0, 0.015, 0.68);
+          weaponGroup.add(tip);
+
+          // 저격총 기본 가늠쇠/가늠자 (높이 상향)
+          const rs = new THREE.Mesh(new THREE.BoxGeometry(0.015, 0.06, 0.02), metalMat);
+          rs.position.set(0, 0.055, -0.02); weaponGroup.add(rs);
+          const fs = new THREE.Mesh(new THREE.BoxGeometry(0.01, 0.07, 0.01), metalMat);
+          fs.position.set(0, 0.05, 0.6); weaponGroup.add(fs);
+          
+        } else if (weapon.name === '샷건') {
+          const barrel1 = new THREE.Mesh(new THREE.CylinderGeometry(0.016, 0.016, 0.3), metalMat);
+          barrel1.rotation.x = Math.PI / 2;
+          barrel1.position.set(-0.012, 0.015, 0.25);
+          weaponGroup.add(barrel1);
+          
+          const barrel2 = new THREE.Mesh(new THREE.CylinderGeometry(0.016, 0.016, 0.3), metalMat);
+          barrel2.rotation.x = Math.PI / 2;
+          barrel2.position.set(0.012, 0.015, 0.25);
+          weaponGroup.add(barrel2);
+
+          // 샷건 앞쪽 돌기 (Bead) - 높이 상향
+          const bead = new THREE.Mesh(new THREE.SphereGeometry(0.04), woodMat);
+          bead.position.set(0, 0.055, 0.38);
+          weaponGroup.add(bead);
+        }
+      }
+
+      if (scope && scope.name !== '기계식 조준기' && scope.name !== '없음') {
+        // 스코프가 총기에 파묻히지 않도록 높이를 Y=0.09로 상향 조절
+        const scopeBody = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.025, 0.12), scopeMat);
+        scopeBody.rotation.x = Math.PI / 2;
+        scopeBody.position.set(0, 0.09, 0.05);
+        weaponGroup.add(scopeBody);
+
+        const lens = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 0.01), lensMat);
+        lens.rotation.x = Math.PI / 2;
+        lens.position.set(0, 0.09, 0.11);
+        weaponGroup.add(lens);
+
+        // 스코프와 총기 몸통(Y=0.04)을 견고하게 연결해 줄 마운트(Mount) 블록 2개 추가
+        const mount1 = new THREE.Mesh(new THREE.BoxGeometry(0.02, 0.045, 0.025), scopeMat);
+        mount1.position.set(0, 0.0575, 0.01);
+        weaponGroup.add(mount1);
+
+        const mount2 = new THREE.Mesh(new THREE.BoxGeometry(0.02, 0.045, 0.025), scopeMat);
+        mount2.position.set(0, 0.0575, 0.09);
+        weaponGroup.add(mount2);
+      }
+
+      weaponGroup.rotation.x = Math.PI / 2;
+      weaponGroup.rotation.z = Math.PI; // 총기를 180도 회전시켜 탄창이 아래를 향하고 가늠자/조준경이 위를 향하도록 올바르게 장착
+      
+      // 권총과 소총류의 손잡이 위치가 캐릭터 손(Y = -0.27)에 오도록 Y 및 Z 오프셋 동적 보정
+      if (weapon.name === '권총') {
+        weaponGroup.position.set(0, -0.03, 0.03);
+      } else {
+        weaponGroup.position.set(0, -0.11, 0.03);
+      }
+      return weaponGroup;
+    }
+
+    function updateVisualEquip(soldierParts, weapon, scope) {
+      while (soldierParts.weaponContainer.children.length > 0) {
+        soldierParts.weaponContainer.remove(soldierParts.weaponContainer.children[0]);
+      }
+      const weaponMesh = createWeaponMesh(weapon, scope);
+      if (weaponMesh) {
+        weaponMesh.userData = { weaponName: weapon.name };
+        soldierParts.weaponContainer.add(weaponMesh);
+      }
+    }
+
+    // Global muzzle flash resources to prevent GPU memory leaks
+    const muzzleFlashConeGeo = new THREE.ConeGeometry(0.15, 0.4, 6);
+    const muzzleFlashSphereGeo = new THREE.SphereGeometry(0.22);
+    const muzzleFlashConeMat = new THREE.MeshBasicMaterial({ color: 0xffcc00, transparent: true, opacity: 0.95 });
+    const muzzleFlashSphereMat = new THREE.MeshBasicMaterial({ color: 0xffaa00, transparent: true, opacity: 0.5 });
+
+    // 머즐 플래시 연출
+    function triggerMuzzleFlash(weaponContainer) {
+      if (!weaponContainer || weaponContainer.children.length === 0) return;
+      const weaponMesh = weaponContainer.children[0];
+      if (!weaponMesh) return;
+      const weaponName = (weaponMesh.userData && weaponMesh.userData.weaponName) || '권총';
+      
+      let flashZ = 0.46;
+      let flashY = 0.015;
+      if (weaponName === '권총') {
+        flashZ = 0.12;
+        flashY = 0.02;
+      } else if (weaponName === '돌격소총') {
+        flashZ = 0.46;
+        flashY = 0.015;
+      } else if (weaponName === '저격총') {
+        flashZ = 0.72;
+        flashY = 0.015;
+      } else if (weaponName === '샷건') {
+        flashZ = 0.40;
+        flashY = 0.015;
+      }
+      
+      const flash = new THREE.Mesh(muzzleFlashConeGeo, muzzleFlashConeMat);
+      flash.rotation.x = Math.PI / 2;
+      flash.position.set(0, flashY, flashZ);
+      weaponMesh.add(flash);
+      
+      const glow = new THREE.Mesh(muzzleFlashSphereGeo, muzzleFlashSphereMat);
+      glow.position.set(0, flashY, flashZ);
+      weaponMesh.add(glow);
+      
+      setTimeout(() => {
+        if (weaponMesh && typeof weaponMesh.remove === 'function') {
+          try {
+            weaponMesh.remove(flash);
+            weaponMesh.remove(glow);
+          } catch(e) {}
+        }
+      }, 60);
+    }
+
+    // --- [엄폐물 충돌 엔진] ---
+    function resolveCollisions(pos, playerRadius = 0.45, excludeId = null, outNormal = null) {
+      if (isVaulting) return false; // 창문 넘는 도중에는 충돌 무시
+
+      let collided = false;
+      let totalPushX = 0;
+      let totalPushZ = 0;
+
+      obstacles.forEach(obs => {
+        if (obs.type === 'TREE' || obs.type === 'ROCK') {
+          const dx = pos.x - obs.x;
+          const dz = pos.z - obs.z;
+          const dist = Math.sqrt(dx * dx + dz * dz);
+          const minDist = obs.radius + playerRadius;
+          if (dist < minDist) {
+            collided = true;
+            if (dist === 0) {
+              const angle = Math.random() * Math.PI * 2;
+              const px = Math.cos(angle) * minDist;
+              const pz = Math.sin(angle) * minDist;
+              pos.x += px;
+              pos.z += pz;
+              totalPushX += px;
+              totalPushZ += pz;
+            } else {
+              const pushX = (dx / dist) * (minDist - dist);
+              const pushZ = (dz / dist) * (minDist - dist);
+              pos.x += pushX;
+              pos.z += pushZ;
+              totalPushX += dx / dist;
+              totalPushZ += dz / dist;
+            }
+          }
+        } else if (obs.type === 'BUILDING') {
+          const hw = obs.w / 2;
+          const hd = obs.d / 2;
+          const rampW = 1.5;
+
+          // 플레이어가 램프 스페이스(서측)에 있는지 감지 (충돌 마진 포함)
+          const isOnRamp = (pos.x >= obs.spotX - hw - rampW - 0.4 && pos.x <= obs.spotX - hw + 0.2 &&
+                            pos.z >= obs.spotZ - hd - 0.4 && pos.z <= obs.spotZ + hd + 0.4);
+
+          // 옥상 높이(spotY + 3.8 이상) 또는 램프 진입 상승 중(spotY + 0.3 이상)에는 벽 충돌을 면제하여 옥상 진입 걸림 방지
+          if (pos.y > obs.spotY + 3.8 || (isOnRamp && pos.y > obs.spotY + 0.3)) {
+            return;
+          }
+
+          obs.walls.forEach(w => {
+            const cx = Math.max(w.minX, Math.min(pos.x, w.maxX));
+            const cz = Math.max(w.minZ, Math.min(pos.z, w.maxZ));
+            
+            const dx = pos.x - cx;
+            const dz = pos.z - cz;
+            const dist = Math.sqrt(dx * dx + dz * dz);
+            
+            if (dist < playerRadius) {
+              collided = true;
+              if (dist === 0) {
+                pos.x = w.maxX + playerRadius;
+                totalPushX += 1;
+              } else {
+                const pushX = (dx / dist) * (playerRadius - dist);
+                const pushZ = (dz / dist) * (playerRadius - dist);
+                pos.x += pushX;
+                pos.z += pushZ;
+                totalPushX += dx / dist;
+                totalPushZ += dz / dist;
+              }
+            }
+          });
+        }
+      });
+
+      // 닫힌 문과의 동적 충돌 검사
+      doorsList.forEach(door => {
+        if (!door.isOpen) {
+          const groundY = getElevation(door.x, door.z, false);
+          // 문 높이보다 플레이어가 높이 있으면 충돌 무시
+          if (pos.y > groundY + 3.2) return;
+
+          const minX = door.x - door.w/2;
+          const maxX = door.x + door.w/2;
+          const minZ = door.z - door.d/2;
+          const maxZ = door.z + door.d/2;
+
+          const cx = Math.max(minX, Math.min(pos.x, maxX));
+          const cz = Math.max(minZ, Math.min(pos.z, maxZ));
+          
+          const dx = pos.x - cx;
+          const dz = pos.z - cz;
+          const dist = Math.sqrt(dx * dx + dz * dz);
+          
+          if (dist < playerRadius) {
+            collided = true;
+            if (dist === 0) {
+              pos.x += playerRadius;
+              totalPushX += 1;
+            } else {
+              const pushX = (dx / dist) * (playerRadius - dist);
+              const pushZ = (dz / dist) * (playerRadius - dist);
+              pos.x += pushX;
+              pos.z += pushZ;
+              totalPushX += dx / dist;
+              totalPushZ += dz / dist;
+            }
+          }
+        }
+      });
+
+      // 1. 플레이어와 적 캐릭터 밀어내기 (AI 캐릭터일 때만 상호 충돌 해결)
+      if (excludeId && excludeId !== 'PLAYER' && playerHp > 0) {
+        const dx = pos.x - playerPos.x;
+        const dz = pos.z - playerPos.z;
+        const dist = Math.sqrt(dx * dx + dz * dz);
+        const minDist = 0.75;
+        if (dist < minDist) {
+          collided = true;
+          const push = (minDist - dist) * 0.5;
+          if (dist > 0.01) {
+            pos.x += (dx / dist) * push;
+            pos.z += (dz / dist) * push;
+            totalPushX += dx / dist;
+            totalPushZ += dz / dist;
+          } else {
+            pos.x += minDist * 0.5;
+            totalPushX += 1;
+          }
+        }
+      }
+
+      // 2. 다른 활성 적 AI 캐릭터들과의 상호 중첩 방지 (상호 척력 적용)
+      if (typeof enemies !== 'undefined') {
+        enemies.forEach(other => {
+          if (other.id !== excludeId && other.hp > 0 && other.state === 'PLAYING') {
+            const dx = pos.x - other.mesh.position.x;
+            const dz = pos.z - other.mesh.position.z;
+            const dist = Math.sqrt(dx * dx + dz * dz);
+            const minDist = 0.85; // 겹침 방지 임계 거리
+            if (dist < minDist) {
+              collided = true;
+              const push = (minDist - dist) * 0.5;
+              if (dist > 0.01) {
+                pos.x += (dx / dist) * push;
+                pos.z += (dz / dist) * push;
+                other.mesh.position.x -= (dx / dist) * push;
+                other.mesh.position.z -= (dz / dist) * push;
+                totalPushX += dx / dist;
+                totalPushZ += dz / dist;
+              } else {
+                pos.x += minDist * 0.5;
+                totalPushX += 1;
+              }
+            }
+          }
+        });
+      }
+
+      if (outNormal && collided) {
+        const len = Math.sqrt(totalPushX * totalPushX + totalPushZ * totalPushZ);
+        if (len > 0.001) {
+          outNormal.x = totalPushX / len;
+          outNormal.z = totalPushZ / len;
+        } else {
+          outNormal.x = 0;
+          outNormal.z = -1;
+        }
+      }
+
+      return collided;
+    }
+
+    // --- [2. 수송기 및 플레이어 시스템] ---
+    let gameState = 'LOBBY'; 
+    
+    // 로비 인터랙티브 카메라 변수
+    let lobbyAngle = 0;
+    let lobbyPitch = 0.15;
+    let lobbyDistance = 3.2;
+    let isLobbyDragging = false;
+    let prevLobbyMouseX = 0;
+    let prevLobbyMouseY = 0;
+    
+    // 플레이어 점프, 자세 및 창문 넘기 관련 상태 변수
+    let playerVelocityY = 0;
+    let isGrounded = true;
+    let playerStance = 'STAND'; // 'STAND', 'CROUCH', 'PRONE'
+    let currentEyeY = 1.5;
+    let currentTppY = 1.6;
+    
+    let isVaulting = false;
+    let vaultStartTime = 0;
+    let ironSightWeight = 0;
+    const VAULT_DURATION = 0.5; // 0.5초 동안 진행
+    const vaultStartPos = new THREE.Vector3();
+    const vaultEndPos = new THREE.Vector3();
+    
+    const planeGroup = new THREE.Group();
+    
+    // --- [로비 사운드 및 초기화 이벤트] ---
+    const startBGMHandler = () => {
+      if (gameState === 'LOBBY') {
+        initAudio();
+        if (bgmEnabled) {
+          SoundSystem.playBGM();
+        }
+        // 브라우저 전체화면 요청 및 모바일 가로 방향 고정
+        const docEl = document.documentElement;
+        const requestFs = docEl.requestFullscreen || docEl.webkitRequestFullscreen || docEl.mozRequestFullScreen || docEl.msRequestFullscreen;
+        if (requestFs) {
+          requestFs.call(docEl).then(() => {
+            if (screen.orientation && screen.orientation.lock) {
+              screen.orientation.lock('landscape').catch(err => {});
+            }
+          }).catch(err => {});
+        } else {
+          if (screen.orientation && screen.orientation.lock) {
+            screen.orientation.lock('landscape').catch(err => {});
+          }
+        }
+      }
+      document.removeEventListener('click', startBGMHandler);
+      document.removeEventListener('touchstart', startBGMHandler);
+    };
+    document.addEventListener('click', startBGMHandler);
+    document.addEventListener('touchstart', startBGMHandler);
+    
+    // --- [BGM & SFX 설정 제어 변수 및 이벤트 바인딩] ---
+    const bgmBtn = document.getElementById('btn-toggle-bgm');
+    const sfxBtn = document.getElementById('btn-toggle-sfx');
+
+    bgmBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      initAudio();
+      bgmEnabled = !bgmEnabled;
+      if (bgmEnabled) {
+        bgmBtn.innerText = '🎵 BGM: ON';
+        bgmBtn.style.color = '#00ffcc';
+        SoundSystem.playBGM();
+      } else {
+        bgmBtn.innerText = '🎵 BGM: OFF';
+        bgmBtn.style.color = '#ffb300';
+        SoundSystem.stopBGM();
+      }
+    });
+
+    sfxBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      initAudio();
+      sfxEnabled = !sfxEnabled;
+      if (sfxEnabled) {
+        sfxBtn.innerText = '🔊 SFX: ON';
+        sfxBtn.style.color = '#00ffcc';
+      } else {
+        sfxBtn.innerText = '🔊 SFX: OFF';
+        sfxBtn.style.color = '#ffb300';
+      }
+    });
+    
+    // --- [수송기 모델의 세밀한 모델링 구현] ---
+    const planeMat = new THREE.MeshStandardMaterial({color: 0x2d3a2d, roughness: 0.5, metalness: 0.2}); // 국방색 주 동체
+    const darkPlaneMat = new THREE.MeshStandardMaterial({color: 0x1e271e, roughness: 0.6, metalness: 0.2}); // 날개 밑 등 더 어두운 부분
+    
+    // 메인 동체 (Fuselage)
+    const pBody = new THREE.Mesh(new THREE.CylinderGeometry(4.5, 4.5, 42, 16), planeMat);
+    pBody.rotation.x = Math.PI / 2;
+    pBody.position.set(0, 0, 0);
+
+    // 노즈 콘 (Nose Cone) - 둥근 돔 형태로 변경
+    const pNose = new THREE.Mesh(new THREE.SphereGeometry(4.5, 16, 16, 0, Math.PI * 2, 0, Math.PI / 2), planeMat);
+    pNose.rotation.x = Math.PI / 2;
+    pNose.position.set(0, -0.2, 21);
+
+    // 앞부분 노즈 대형 프로펠러 (Nose Propeller)
+    const nosePropellerGroup = new THREE.Group();
+    nosePropellerGroup.position.set(0, -0.2, 21 + 4.5);
+
+    const noseSpinner = new THREE.Mesh(new THREE.ConeGeometry(1.2, 2.0, 8), new THREE.MeshStandardMaterial({color: 0x333333, metalness: 0.9}));
+    noseSpinner.rotation.x = Math.PI / 2;
+    nosePropellerGroup.add(noseSpinner);
+
+    for (let b = 0; b < 4; b++) {
+      const blade = new THREE.Mesh(new THREE.BoxGeometry(10.0, 0.4, 0.12), new THREE.MeshStandardMaterial({color: 0x111111}));
+      blade.rotation.z = (b * Math.PI) / 2;
+      nosePropellerGroup.add(blade);
+    }
+
+    // 조종석 창문 (Cockpit window)
+    const pWindow = new THREE.Mesh(new THREE.BoxGeometry(3.6, 1.8, 2), new THREE.MeshStandardMaterial({color: 0x05080b, roughness: 0.1, metalness: 0.9}));
+    pWindow.position.set(0, 2.3, 19.5);
+
+    // 날개 조립 (Main Wings with dihedral angle and sweepback)
+    const wingLeft = new THREE.Mesh(new THREE.BoxGeometry(24, 0.8, 8), planeMat);
+    wingLeft.position.set(-13.5, 1.5, 2);
+    wingLeft.rotation.y = -0.06; // sweepback
+    wingLeft.rotation.z = 0.03;  // dihedral
+    
+    const wingRight = new THREE.Mesh(new THREE.BoxGeometry(24, 0.8, 8), planeMat);
+    wingRight.position.set(13.5, 1.5, 2);
+    wingRight.rotation.y = 0.06;
+    wingRight.rotation.z = -0.03;
+
+    // 윙렛 (Wingtip winglets)
+    const wingletLeft = new THREE.Mesh(new THREE.BoxGeometry(3, 0.5, 4), darkPlaneMat);
+    wingletLeft.position.set(-25.2, 2.0, 1.3);
+    wingletLeft.rotation.z = 0.6; // 위로 꺾임
+
+    const wingletRight = new THREE.Mesh(new THREE.BoxGeometry(3, 0.5, 4), darkPlaneMat);
+    wingletRight.position.set(25.2, 2.0, 1.3);
+    wingletRight.rotation.z = -0.6;
+
+    // 수직 꼬리 날개 (Vertical Stabilizer)
+    const pTailVert = new THREE.Mesh(new THREE.BoxGeometry(0.8, 12, 8), planeMat);
+    pTailVert.position.set(0, 7.5, -18);
+    
+    // 수평 꼬리 날개 (Horizontal Stabilizers)
+    const pTailHoriz = new THREE.Mesh(new THREE.BoxGeometry(18, 0.6, 6), darkPlaneMat);
+    pTailHoriz.position.set(0, 2, -18);
+
+    // 후방 카고 램프 도어 (Cargo Door Ramp)
+    const cargoRamp = new THREE.Mesh(new THREE.BoxGeometry(6, 4, 8), darkPlaneMat);
+    cargoRamp.position.set(0, -1.8, -17);
+    cargoRamp.rotation.x = -0.08;
+
+    // 랜딩기어 돌출부 포드 (Landing Gear Pods)
+    const gearPodLeft = new THREE.Mesh(new THREE.BoxGeometry(1.5, 3.5, 12), darkPlaneMat);
+    gearPodLeft.position.set(-4.5, -2.5, 0);
+    const gearPodRight = new THREE.Mesh(new THREE.BoxGeometry(1.5, 3.5, 12), darkPlaneMat);
+    gearPodRight.position.set(4.5, -2.5, 0);
+
+    planeGroup.add(pBody, pNose, pWindow, wingLeft, wingRight, wingletLeft, wingletRight, pTailVert, pTailHoriz, cargoRamp, gearPodLeft, gearPodRight, nosePropellerGroup);
+    planePropellers.push(nosePropellerGroup);
+
+    // 4개의 프로펠러 터보프롭 엔진 (Engines & Propellers)
+    const engineGeo = new THREE.CylinderGeometry(1.5, 1.3, 7, 8);
+    const engineMat = new THREE.MeshStandardMaterial({color: 0x1f221f, metalness: 0.8, roughness: 0.3});
+    
+    const enginePositions = [
+      { x: -7.5, y: -0.2, z: 2.3 },
+      { x: -16.5, y: -0.2, z: 2.3 },
+      { x: 7.5, y: -0.2, z: 2.3 },
+      { x: 16.5, y: -0.2, z: 2.3 }
+    ];
+
+    enginePositions.forEach((pos, idx) => {
+      // 엔진 카울링
+      const eng = new THREE.Mesh(engineGeo, engineMat);
+      eng.rotation.x = Math.PI / 2;
+      eng.position.set(pos.x, pos.y, pos.z);
+      planeGroup.add(eng);
+
+      // 제트 가스 배기구 오렌지 글로우 효과 (Engine exhaust)
+      const glowGeo = new THREE.ConeGeometry(0.7, 1.8, 8);
+      const glowMat = new THREE.MeshBasicMaterial({color: 0xff3300});
+      const glow = new THREE.Mesh(glowGeo, glowMat);
+      glow.rotation.x = -Math.PI / 2;
+      glow.position.set(pos.x, pos.y, pos.z - 4);
+      planeGroup.add(glow);
+
+      // 스피너 프로펠러 회전 부품 생성
+      const propellerGroup = new THREE.Group();
+      propellerGroup.position.set(pos.x, pos.y, pos.z + 3.8);
+
+      const spinner = new THREE.Mesh(new THREE.ConeGeometry(0.7, 1.2, 8), new THREE.MeshStandardMaterial({color: 0x333333, metalness: 0.9}));
+      spinner.rotation.x = Math.PI / 2;
+      propellerGroup.add(spinner);
+
+      // 4엽 블레이드
+      for (let b = 0; b < 4; b++) {
+        const blade = new THREE.Mesh(new THREE.BoxGeometry(4.8, 0.25, 0.08), new THREE.MeshStandardMaterial({color: 0x111111}));
+        blade.rotation.z = (b * Math.PI) / 2;
+        propellerGroup.add(blade);
+      }
+
+      planeGroup.add(propellerGroup);
+      planePropellers.push(propellerGroup);
+    });
+
+    // 항법 표시등 (Navigation Lights)
+    const redLight = new THREE.Mesh(new THREE.SphereGeometry(0.4, 8, 8), new THREE.MeshBasicMaterial({color: 0xff0000}));
+    redLight.position.set(-26.5, 2.5, 1.3);
+    const greenLight = new THREE.Mesh(new THREE.SphereGeometry(0.4, 8, 8), new THREE.MeshBasicMaterial({color: 0x00ff00}));
+    greenLight.position.set(26.5, 2.5, 1.3);
+    const tailLight = new THREE.Mesh(new THREE.SphereGeometry(0.4, 8, 8), new THREE.MeshBasicMaterial({color: 0xffffff}));
+    tailLight.position.set(0, 13.5, -21);
+
+    planeGroup.add(redLight, greenLight, tailLight);
+    planeNavLights.push(redLight, greenLight, tailLight);
+
+    planeGroup.position.set(-300, 280, -300); planeGroup.lookAt(300, 280, 300); scene.add(planeGroup);
+
+    // 낙하산 비닐 + 8개의 연결선(끈)을 포함하는 그룹 생성
+    const parachute = new THREE.Group();
+    const parachuteGeo = new THREE.SphereGeometry(3, 16, 16, 0, Math.PI * 2, 0, Math.PI / 2);
+    const canopyMesh = new THREE.Mesh(parachuteGeo, new THREE.MeshStandardMaterial({color: 0xdddddd, side: THREE.DoubleSide, transparent: true, opacity: 0.85}));
+    parachute.add(canopyMesh);
+
+    // 낙하산 비닐 끝단과 캐릭터 배낭 위치를 이어줄 8개의 라인 생성
+    const linesMaterial = new THREE.LineBasicMaterial({ color: 0x555555 });
+    const numStrings = 8;
+    for (let i = 0; i < numStrings; i++) {
+      const angle = (i / numStrings) * Math.PI * 2;
+      const rimX = Math.cos(angle) * 3;
+      const rimZ = Math.sin(angle) * 3;
+      
+      const points = [
+        new THREE.Vector3(rimX, 0, rimZ),
+        new THREE.Vector3(0, -4.55, -0.16) // 배낭 연결부 (y = -4.55 relative to canopy at 5.5, z = -0.16)
+      ];
+      const lineGeo = new THREE.BufferGeometry().setFromPoints(points);
+      const line = new THREE.Line(lineGeo, linesMaterial);
+      parachute.add(line);
+    }
+    parachute.visible = false; 
+
+    let isTPP = true; 
+    const playerPos = new THREE.Vector3(0, 1.8, 0); // 로비 중앙 위치
+    const playerSoldier = createSoldierModel(0x3d5c3d, 0xffccaa);
+    const myPlayerGroup = playerSoldier.group;
+    scene.add(myPlayerGroup); myPlayerGroup.visible = true; // 로비 3D 화면을 위해 보이도록 설정
+    parachute.position.set(0, 5.5, 0);
+    myPlayerGroup.add(parachute);
+
+    const actionBtn = document.getElementById('action-btn');
+    const noticeBox = document.getElementById('notice-box');
+    function showNotice(msg, time = 2500) { noticeBox.innerText = msg; noticeBox.style.display = 'block'; setTimeout(() => { noticeBox.style.display = 'none'; }, time); }
+
+    function togglePerspective() {
+      isTPP = !isTPP;
+      if (isTouchDevice) document.getElementById('btn-tpp').innerText = isTPP ? '1인칭' : '3인칭';
+      showNotice(isTPP ? "3인칭 (TPP)" : "1인칭 (FPP)", 1500);
+    }
+    actionBtn.addEventListener('touchstart', (e) => { e.preventDefault(); handleActionBtn(); }, {passive:false});
+    actionBtn.addEventListener('click', () => { handleActionBtn(); });
+    function handleActionBtn() {
+      if(gameState === 'AIRPLANE') { 
+        gameState = 'FALLING'; 
+        actionBtn.innerText = isTouchDevice ? '🪂 낙하산 펴기' : '🪂 낙하산 펴기 (좌클릭/F)'; 
+        SoundSystem.stopPlaneSound();
+        SoundSystem.playSkydiveWindSound();
+      } 
+      else if (gameState === 'FALLING') { 
+        gameState = 'PARACHUTING'; 
+        parachute.visible = true; 
+        actionBtn.style.display = 'none'; 
+        SoundSystem.playParachuteSound(); 
+      }
+    }
+
+    // --- [3. 아이템, 무기 및 스코프 시스템] ---
+    let playerHp = 100; let killCount = 0; let totalAlive = 50;
+    
+    // 무기 및 설정 (상단으로 이동됨)
+
+    let currentWeapon = WEAPONS.RIFLE; // 로비에서 총기를 들고 있도록 설정
+    let currentScope = SCOPES.X2;
+    playerInventory.weapon = WEAPONS.RIFLE;
+    playerInventory.scope = SCOPES.X2;
+    updateVisualEquip(playerSoldier, currentWeapon, currentScope);
+
+    let isHealing = false;
+    let healTimer = 0;
+    const HEAL_DURATION = 6.0;
+
+    function startHealing() {
+      if (gameState !== 'PLAYING' || playerHp <= 0) return;
+      if (playerInventory.firstaids <= 0) {
+        showNotice("구급상자가 없습니다!");
+        return;
+      }
+      if (playerHp >= 75) {
+        showNotice("체력이 이미 75% 이상입니다!");
+        return;
+      }
+      if (isHealing) return;
+
+      isHealing = true;
+      healTimer = 0;
+      
+      if (isInventoryOpen) {
+        toggleInventory();
+      }
+      
+      document.getElementById('heal-progress-container').style.display = 'block';
+      showNotice("구급상자를 사용하는 중... (움직이면 취소됩니다)");
+    }
+
+    function updateSkydivePose(soldier, fwd, rgt, isParachuting) {
+      let lArmX, lArmY, lArmZ;
+      let rArmX, rArmY, rArmZ;
+
+      if (isParachuting) {
+        // 만세 자세 (낙하산 조종끈 잡기)
+        lArmX = Math.PI - 0.3; lArmY = 0.2; lArmZ = -0.15;
+        rArmX = Math.PI + 0.3; rArmY = -0.2; rArmZ = 0.15;
+
+        // 좌우 조작에 따른 팔의 피드백 연출
+        if (rgt < -0.2) {
+          // 좌회전: 왼손을 당김
+          lArmX = Math.PI / 2 + 0.2; lArmY = 0.6; lArmZ = -0.5;
+        } else if (rgt > 0.2) {
+          // 우회전: 오른손을 당김
+          rArmX = Math.PI / 2 - 0.2; rArmY = -0.6; rArmZ = 0.5;
+        }
+      } else {
+        // 대자로 엎드려 낙하하는 자세 (스카이다이빙 바람 타고 하강)
+        const flutter = Math.sin(clock.getElapsedTime() * 26.0) * 0.08;
+        lArmX = 1.9 - flutter; lArmY = 0.3; lArmZ = -0.2;
+        rArmX = 1.9 - flutter; rArmY = -0.3; rArmZ = 0.2;
+
+        if (rgt < -0.2) {
+          lArmX = 0.8 - flutter; lArmY = 0.4;
+        } else if (rgt > 0.2) {
+          rArmX = 0.8 - flutter; rArmY = -0.4;
+        } else if (fwd > 0.2) {
+          lArmX = 2.3 - flutter; lArmY = 0.1;
+          rArmX = 2.3 - flutter; rArmY = -0.1;
+        } else if (fwd < -0.2) {
+          lArmX = 0.6 - flutter; lArmY = 0.3;
+          rArmX = 0.6 - flutter; rArmY = -0.3;
+        }
+        
+        // 다리도 바람에 펄럭임
+        soldier.leftThigh.rotation.set(0.3 + flutter * 0.5, 0, 0);
+        soldier.rightThigh.rotation.set(0.3 - flutter * 0.5, 0, 0);
+        soldier.leftKnee.rotation.set(0.6 + flutter, 0, 0);
+        soldier.rightKnee.rotation.set(0.6 - flutter, 0, 0);
+      }
+
+      soldier.leftArm.rotation.set(lArmX, lArmY, lArmZ);
+      soldier.rightArm.rotation.set(rArmX, rArmY, rArmZ);
+
+      soldier.body.position.y = 0.95;
+      soldier.headGroup.position.y = 1.45;
+      soldier.leftArm.position.y = 1.25;
+      soldier.rightArm.position.y = 1.25;
+    }
+
+    // 문 상호작용
+    function tryInteractDoor() {
+      if (gameState !== 'PLAYING' || playerHp <= 0) return false;
+      
+      let closestDoor = null;
+      let minDist = 2.5; // 최대 2.5m 거리
+      
+      doorsList.forEach(door => {
+        const dist = playerPos.distanceTo(door.worldPos);
+        if (dist < minDist) {
+          closestDoor = door;
+          minDist = dist;
+        }
+      });
+      
+      if (closestDoor) {
+        closestDoor.isOpen = !closestDoor.isOpen;
+        if (closestDoor.isOpen) {
+          // 90도 회전하여 문을 엶
+          closestDoor.pivot.rotation.y = Math.PI / 2;
+          showNotice("🚪 문을 열었습니다.");
+        } else {
+          // 0도로 돌려 문을 닫음
+          closestDoor.pivot.rotation.y = 0;
+          showNotice("🚪 문을 닫았습니다.");
+        }
+        return true;
+      }
+      return false;
+    }
+
+    // 창문 넘기 (파쿠르)
+    function tryVaultWindow() {
+      if (isVaulting || gameState !== 'PLAYING' || playerHp <= 0) return false;
+      
+      let closestWindow = null;
+      let minDist = 2.0; // 최대 2m 거리
+      
+      windowSpots.forEach(w => {
+        const dist = playerPos.distanceTo(new THREE.Vector3(w.x, playerPos.y, w.z));
+        if (dist < minDist) {
+          closestWindow = w;
+          minDist = dist;
+        }
+      });
+      
+      if (closestWindow) {
+        isVaulting = true;
+        vaultStartTime = clock.getElapsedTime();
+        vaultStartPos.copy(playerPos);
+        
+        // 창문 방향 벡터
+        const windowVec = new THREE.Vector3(1, 0, 0).applyAxisAngle(new THREE.Vector3(0, 1, 0), closestWindow.angle);
+        // 플레이어가 창문 기준 어느 쪽에 있는지 판단하여 반대편 1.6m 위치로 이동 목표 설정
+        const toPlayer = new THREE.Vector3().subVectors(playerPos, new THREE.Vector3(closestWindow.x, playerPos.y, closestWindow.z));
+        const dot = toPlayer.dot(windowVec);
+        
+        const directionFactor = dot > 0 ? -1.6 : 1.6;
+        vaultEndPos.copy(new THREE.Vector3(closestWindow.x, closestWindow.y - 1.3, closestWindow.z)).addScaledVector(windowVec, directionFactor);
+        
+        // 목표지의 높이 지면 정합 (창문 밑 지면 또는 건물 바닥으로 정합하기 위해 높이 힌트 전달)
+        vaultEndPos.y = getElevation(vaultEndPos.x, vaultEndPos.z, closestWindow.y - 1.3);
+        
+        showNotice("🪟 창문 넘기!");
+        return true;
+      }
+      return false;
+    }
+
+    let isInventoryOpen = false;
+
+    function updateInventoryUI() {
+      // 1. 장비 목록 업데이트
+      document.getElementById('inv-weapon-val').innerText = playerInventory.weapon.name;
+      document.getElementById('inv-weapon-drop-btn').style.display = (playerInventory.weapon !== WEAPONS.PUNCH) ? 'inline-block' : 'none';
+
+      document.getElementById('inv-scope-val').innerText = playerInventory.scope.name;
+      document.getElementById('inv-scope-drop-btn').style.display = (playerInventory.scope !== SCOPES.NONE) ? 'inline-block' : 'none';
+
+      document.getElementById('inv-helmet-val').innerText = playerInventory.helmet ? playerInventory.helmet.name : '없음';
+      document.getElementById('inv-helmet-drop-btn').style.display = playerInventory.helmet ? 'inline-block' : 'none';
+
+      document.getElementById('inv-bag-val').innerText = playerInventory.bag ? playerInventory.bag.name : '없음';
+      document.getElementById('inv-bag-drop-btn').style.display = playerInventory.bag ? 'inline-block' : 'none';
+
+      // 2. 투척류 수량 및 숏컷 텍스트 업데이트
+      document.getElementById('inv-firstaid-count').innerText = playerInventory.firstaids;
+      document.getElementById('inv-grenade-count').innerText = playerInventory.grenades;
+      document.getElementById('inv-smoke-count').innerText = playerInventory.smokes;
+      
+      document.getElementById('inv-ammo-pistol').innerText = playerInventory.ammo.PISTOL;
+      document.getElementById('inv-ammo-shotgun').innerText = playerInventory.ammo.SHOTGUN;
+      document.getElementById('inv-ammo-rifle').innerText = playerInventory.ammo.RIFLE;
+      document.getElementById('inv-ammo-sniper').innerText = playerInventory.ammo.SNIPER;
+
+      // 모바일 전용 힐링 버튼 표시 여부 업데이트
+      if (isTouchDevice) {
+        document.getElementById('btn-heal').style.display = (playerInventory.firstaids > 0) ? 'flex' : 'none';
+        document.getElementById('btn-inventory').style.display = 'flex';
+      }
+
+      document.getElementById('btn-throw-grenade').innerText = `G: 수류탄 던지기 (${playerInventory.grenades})`;
+      document.getElementById('btn-throw-smoke').innerText = `H: 연막탄 던지기 (${playerInventory.smokes})`;
+
+      // 3. 주변 파밍 리스트 렌더링
+      const lootList = document.getElementById('ground-loot-list');
+      lootList.innerHTML = '';
+      
+      let nearbyCount = 0;
+      lootBoxes.forEach((loot, index) => {
+        const dist = playerPos.distanceTo(loot.mesh.position);
+        if (dist < 3.5) {
+          if (loot.isCrate) {
+            let hasItems = false;
+            const addCrateItemRow = (itemName, subType) => {
+              hasItems = true;
+              nearbyCount++;
+              const row = document.createElement('div');
+              row.className = 'loot-item-row';
+              row.innerHTML = `
+                <span class="loot-item-name">${itemName} [시체]</span>
+                <button class="loot-btn" ontouchstart="window.pickupItem(${index}, '${subType}'); event.stopPropagation();" onclick="window.pickupItem(${index}, '${subType}'); event.stopPropagation();">줍기</button>
+              `;
+              lootList.appendChild(row);
+            };
+
+            if (loot.weapon) {
+              addCrateItemRow(loot.weapon.name, 'weapon');
+            }
+            if (loot.scope && loot.scope !== SCOPES.NONE) {
+              addCrateItemRow(loot.scope.name, 'scope');
+            }
+            if (loot.helmet) {
+              addCrateItemRow(loot.helmet.name, 'helmet');
+            }
+            if (loot.bag) {
+              addCrateItemRow(loot.bag.name, 'bag');
+            }
+            if (loot.firstaids && loot.firstaids > 0) {
+              addCrateItemRow(`구급상자 ${loot.firstaids}개`, 'firstaid');
+            }
+            if (loot.grenades && loot.grenades > 0) {
+              addCrateItemRow(`수류탄 ${loot.grenades}개`, 'grenade');
+            }
+            if (loot.smokes && loot.smokes > 0) {
+              addCrateItemRow(`연막탄 ${loot.smokes}개`, 'smoke');
+            }
+            if (loot.ammoCount && loot.ammoCount > 0 && loot.ammoType) {
+              addCrateItemRow(`${getAmmoName(loot.ammoType)} ${loot.ammoCount}발`, 'ammo');
+            }
+
+            if (!hasItems) {
+              nearbyCount++;
+              const row = document.createElement('div');
+              row.className = 'loot-item-row';
+              row.innerHTML = `
+                <span class="loot-item-name">비어있는 시체 상자 [시체]</span>
+                <button class="loot-btn" disabled style="opacity: 0.5;">줍기</button>
+              `;
+              lootList.appendChild(row);
+            }
+          } else {
+            nearbyCount++;
+            const row = document.createElement('div');
+            row.className = 'loot-item-row';
+            const name = loot.val.name || loot.type;
+            row.innerHTML = `
+              <span class="loot-item-name">${name}</span>
+              <button class="loot-btn" ontouchstart="window.pickupItem(${index}); event.stopPropagation();" onclick="window.pickupItem(${index}); event.stopPropagation();">줍기</button>
+            `;
+            lootList.appendChild(row);
+          }
+        }
+      });
+
+      if (nearbyCount === 0) {
+        lootList.innerHTML = `<div style="color:#888; text-align:center; margin-top:20px; font-size:12px;">주변에 아이템이 없습니다.</div>`;
+        document.getElementById('loot-prompt').style.display = 'none';
+      } else {
+        if (!isInventoryOpen && gameState === 'PLAYING') {
+          document.getElementById('loot-prompt').style.display = 'block';
+        } else {
+          document.getElementById('loot-prompt').style.display = 'none';
+        }
+      }
+    }
+
+    function toggleInventory() {
+      if (gameState !== 'PLAYING' || playerHp <= 0) return;
+      isInventoryOpen = !isInventoryOpen;
+      const invUI = document.getElementById('inventory-ui');
+      if (isInventoryOpen) {
+        invUI.style.display = 'flex';
+        document.exitPointerLock();
+        updateInventoryUI();
+      } else {
+        invUI.style.display = 'none';
+        try { document.body.requestPointerLock(); } catch(e) {}
+      }
+    }
+
+    window.pickupItem = function(index, subType = null) {
+      if (index < 0 || index >= lootBoxes.length) return;
+      const loot = lootBoxes[index];
+      
+      const currentItemsCount = playerInventory.grenades + playerInventory.smokes + playerInventory.firstaids;
+      const maxCapacity = playerInventory.bag ? playerInventory.bag.capacity : 2;
+
+      if (loot.isCrate) {
+        let pickedAnything = false;
+        
+        let targetType = subType;
+        if (!targetType) {
+          if (loot.ammoCount && loot.ammoCount > 0) targetType = 'ammo';
+          else if (loot.firstaids && loot.firstaids > 0) targetType = 'firstaid';
+          else if (loot.grenades && loot.grenades > 0) targetType = 'grenade';
+          else if (loot.smokes && loot.smokes > 0) targetType = 'smoke';
+          else if (loot.weapon) targetType = 'weapon';
+          else if (loot.scope && loot.scope !== SCOPES.NONE) targetType = 'scope';
+          else if (loot.helmet) targetType = 'helmet';
+          else if (loot.bag) targetType = 'bag';
+        }
+
+        if (targetType === 'weapon' && loot.weapon) {
+          const oldWeapon = playerInventory.weapon;
+          playerInventory.weapon = loot.weapon;
+          currentWeapon = loot.weapon;
+          loot.weapon = null;
+          pickedAnything = true;
+          showNotice(`시체상자에서 [${currentWeapon.name}] 획득!`);
+          if (oldWeapon !== WEAPONS.PUNCH) {
+            spawnGroundItem(playerPos.clone(), 'WEAPON', oldWeapon);
+          }
+        }
+        else if (targetType === 'scope' && loot.scope && loot.scope !== SCOPES.NONE) {
+          const oldScope = playerInventory.scope;
+          playerInventory.scope = loot.scope;
+          currentScope = loot.scope;
+          loot.scope = null;
+          pickedAnything = true;
+          showNotice(`시체상자에서 [${currentScope.name}] 장착!`);
+          if (oldScope !== SCOPES.NONE) {
+            spawnGroundItem(playerPos.clone(), 'SCOPE', oldScope);
+          }
+        }
+        else if (targetType === 'helmet' && loot.helmet) {
+          const oldHelmet = playerInventory.helmet;
+          playerInventory.helmet = loot.helmet;
+          loot.helmet = null;
+          pickedAnything = true;
+          showNotice(`시체상자에서 [${playerInventory.helmet.name}] 장착!`);
+          playerSoldier.updateHelmetVisual(playerInventory.helmet);
+          if (oldHelmet) {
+            spawnGroundItem(playerPos.clone(), 'HELMET', oldHelmet);
+          }
+        }
+        else if (targetType === 'bag' && loot.bag) {
+          const oldBag = playerInventory.bag;
+          playerInventory.bag = loot.bag;
+          loot.bag = null;
+          pickedAnything = true;
+          showNotice(`시체상자에서 [${playerInventory.bag.name}] 장착!`);
+          playerSoldier.updateBagVisual(playerInventory.bag);
+          if (oldBag) {
+            spawnGroundItem(playerPos.clone(), 'BAG', oldBag);
+          }
+        }
+        else if (targetType === 'firstaid' && loot.firstaids && loot.firstaids > 0) {
+          const spaceLeft = maxCapacity - (playerInventory.grenades + playerInventory.smokes + playerInventory.firstaids);
+          if (spaceLeft > 0) {
+            const pickCount = Math.min(loot.firstaids, spaceLeft);
+            loot.firstaids -= pickCount;
+            playerInventory.firstaids += pickCount;
+            pickedAnything = true;
+            showNotice(`시체상자에서 [구급상자] ${pickCount}개 획득!`);
+          } else {
+            showNotice("가방 공간 부족으로 구급상자를 줍지 못했습니다.");
+          }
+        }
+        else if (targetType === 'grenade' && loot.grenades && loot.grenades > 0) {
+          const spaceLeft = maxCapacity - (playerInventory.grenades + playerInventory.smokes + playerInventory.firstaids);
+          if (spaceLeft > 0) {
+            loot.grenades--;
+            playerInventory.grenades++;
+            pickedAnything = true;
+            showNotice("시체상자에서 [수류탄] 획득!");
+          } else {
+            showNotice("가방 공간 부족으로 수류탄을 줍지 못했습니다.");
+          }
+        }
+        else if (targetType === 'smoke' && loot.smokes && loot.smokes > 0) {
+          const spaceLeft = maxCapacity - (playerInventory.grenades + playerInventory.smokes + playerInventory.firstaids);
+          if (spaceLeft > 0) {
+            loot.smokes--;
+            playerInventory.smokes++;
+            pickedAnything = true;
+            showNotice("시체상자에서 [연막탄] 획득!");
+          } else {
+            showNotice("가방 공간 부족으로 연막탄을 줍지 못했습니다.");
+          }
+        }
+        else if (targetType === 'ammo' && loot.ammoCount && loot.ammoCount > 0) {
+          playerInventory.ammo[loot.ammoType] += loot.ammoCount;
+          showNotice(`시체상자에서 [${getAmmoName(loot.ammoType)}] ${loot.ammoCount}발 획득!`);
+          loot.ammoCount = 0;
+          loot.ammoType = null;
+          pickedAnything = true;
+        }
+        
+        // Clean up empty crate:
+        const hasWeapon = !!loot.weapon;
+        const hasScope = loot.scope && loot.scope !== SCOPES.NONE;
+        const hasHelmet = !!loot.helmet;
+        const hasBag = !!loot.bag;
+        const hasFirstAid = loot.firstaids && loot.firstaids > 0;
+        const hasGrenade = loot.grenades && loot.grenades > 0;
+        const hasSmoke = loot.smokes && loot.smokes > 0;
+        const hasAmmo = loot.ammoCount && loot.ammoCount > 0;
+
+        if (!hasWeapon && !hasScope && !hasHelmet && !hasBag && !hasFirstAid && !hasGrenade && !hasSmoke && !hasAmmo) {
+          scene.remove(loot.mesh);
+          lootBoxes.splice(index, 1);
+        }
+
+        if (pickedAnything) {
+          updateEquipUI();
+          updateVisualEquip(playerSoldier, currentWeapon, currentScope);
+          SoundSystem.playLootSound();
+        } else {
+          showNotice("상자가 비어있습니다.");
+        }
+      } else {
+        if (loot.type === 'WEAPON') {
+          const oldWeapon = playerInventory.weapon;
+          playerInventory.weapon = loot.val;
+          currentWeapon = loot.val;
+          showNotice(`[${currentWeapon.name}] 획득!`);
+          scene.remove(loot.mesh);
+          lootBoxes.splice(index, 1);
+          if (oldWeapon !== WEAPONS.PUNCH) {
+            spawnGroundItem(playerPos.clone(), 'WEAPON', oldWeapon);
+          }
+        } else if (loot.type === 'SCOPE') {
+          const oldScope = playerInventory.scope;
+          playerInventory.scope = loot.val;
+          currentScope = loot.val;
+          showNotice(`[${currentScope.name}] 장착 완료!`);
+          scene.remove(loot.mesh);
+          lootBoxes.splice(index, 1);
+          if (oldScope !== SCOPES.NONE) {
+            spawnGroundItem(playerPos.clone(), 'SCOPE', oldScope);
+          }
+        } else if (loot.type === 'HELMET') {
+          const oldHelmet = playerInventory.helmet;
+          playerInventory.helmet = loot.val;
+          showNotice(`[${loot.val.name}] 장착 완료!`);
+          scene.remove(loot.mesh);
+          lootBoxes.splice(index, 1);
+          playerSoldier.updateHelmetVisual(playerInventory.helmet);
+          if (oldHelmet) {
+            spawnGroundItem(playerPos.clone(), 'HELMET', oldHelmet);
+          }
+        } else if (loot.type === 'BAG') {
+          const oldBag = playerInventory.bag;
+          playerInventory.bag = loot.val;
+          showNotice(`[${loot.val.name}] 장착 완료!`);
+          scene.remove(loot.mesh);
+          lootBoxes.splice(index, 1);
+          playerSoldier.updateBagVisual(playerInventory.bag);
+          if (oldBag) {
+            spawnGroundItem(playerPos.clone(), 'BAG', oldBag);
+          }
+        } else if (loot.type === 'GRENADE') {
+          if (currentItemsCount >= maxCapacity) {
+            showNotice("가방 공간 부족! (기본 최대 2개)");
+            return;
+          }
+          playerInventory.grenades++;
+          showNotice(`수류탄 획득!`);
+          scene.remove(loot.mesh);
+          lootBoxes.splice(index, 1);
+        } else if (loot.type === 'SMOKE') {
+          if (currentItemsCount >= maxCapacity) {
+            showNotice("가방 공간 부족! (기본 최대 2개)");
+            return;
+          }
+          playerInventory.smokes++;
+          showNotice(`연막탄 획득!`);
+          scene.remove(loot.mesh);
+          lootBoxes.splice(index, 1);
+        } else if (loot.type === 'FIRSTAID') {
+          if (currentItemsCount >= maxCapacity) {
+            showNotice("가방 공간 부족! (기본 최대 2개)");
+            return;
+          }
+          playerInventory.firstaids++;
+          showNotice(`구급상자 획득!`);
+          scene.remove(loot.mesh);
+          lootBoxes.splice(index, 1);
+        } else if (loot.type === 'AMMO_PISTOL') {
+          playerInventory.ammo.PISTOL += 30;
+          showNotice(`9mm 탄창 획득! (+30발)`);
+          scene.remove(loot.mesh);
+          lootBoxes.splice(index, 1);
+        } else if (loot.type === 'AMMO_SHOTGUN') {
+          playerInventory.ammo.SHOTGUN += 10;
+          showNotice(`12게이지 탄창 획득! (+10발)`);
+          scene.remove(loot.mesh);
+          lootBoxes.splice(index, 1);
+        } else if (loot.type === 'AMMO_RIFLE') {
+          playerInventory.ammo.RIFLE += 60;
+          showNotice(`5.56mm 탄창 획득! (+60발)`);
+          scene.remove(loot.mesh);
+          lootBoxes.splice(index, 1);
+        } else if (loot.type === 'AMMO_SNIPER') {
+          playerInventory.ammo.SNIPER += 15;
+          showNotice(`7.62mm 탄창 획득! (+15발)`);
+          scene.remove(loot.mesh);
+          lootBoxes.splice(index, 1);
+        }
+        
+        updateEquipUI();
+        updateVisualEquip(playerSoldier, currentWeapon, currentScope);
+        SoundSystem.playLootSound();
+      }
+      
+      updateInventoryUI();
+    };
+
+    // 버리기 핸들러 바인딩 (e.stopPropagation() 추가하여 인벤토리 내 클릭 시 마우스 락 뺏기는 일 방지)
+    setTimeout(() => {
+      document.getElementById('inv-weapon-drop-btn').onclick = (e) => {
+        if (e) e.stopPropagation();
+        if (playerInventory.weapon === WEAPONS.PUNCH) return;
+        const oldWeapon = playerInventory.weapon;
+        playerInventory.weapon = WEAPONS.PUNCH;
+        currentWeapon = WEAPONS.PUNCH;
+        spawnGroundItem(playerPos.clone(), 'WEAPON', oldWeapon);
+        showNotice(`[${oldWeapon.name}] 버림`);
+        updateEquipUI();
+        updateVisualEquip(playerSoldier, currentWeapon, currentScope);
+        SoundSystem.playLootSound();
+        updateInventoryUI();
+      };
+
+      document.getElementById('inv-scope-drop-btn').onclick = (e) => {
+        if (e) e.stopPropagation();
+        if (playerInventory.scope === SCOPES.NONE) return;
+        const oldScope = playerInventory.scope;
+        playerInventory.scope = SCOPES.NONE;
+        currentScope = SCOPES.NONE;
+        spawnGroundItem(playerPos.clone(), 'SCOPE', oldScope);
+        showNotice(`[${oldScope.name}] 버림`);
+        updateEquipUI();
+        updateVisualEquip(playerSoldier, currentWeapon, currentScope);
+        SoundSystem.playLootSound();
+        updateInventoryUI();
+      };
+
+      document.getElementById('inv-helmet-drop-btn').onclick = (e) => {
+        if (e) e.stopPropagation();
+        if (!playerInventory.helmet) return;
+        const oldHelmet = playerInventory.helmet;
+        playerInventory.helmet = null;
+        spawnGroundItem(playerPos.clone(), 'HELMET', oldHelmet);
+        showNotice(`[${oldHelmet.name}] 버림`);
+        playerSoldier.updateHelmetVisual(null);
+        SoundSystem.playLootSound();
+        updateInventoryUI();
+      };
+
+      document.getElementById('inv-bag-drop-btn').onclick = (e) => {
+        if (e) e.stopPropagation();
+        if (!playerInventory.bag) return;
+        const oldBag = playerInventory.bag;
+        playerInventory.bag = null;
+        spawnGroundItem(playerPos.clone(), 'BAG', oldBag);
+        showNotice(`[${oldBag.name}] 버림`);
+        playerSoldier.updateBagVisual(null);
+        SoundSystem.playLootSound();
+        
+        // 가방 분실 시 의료킷/투척류 한도 초과분 바닥에 자동 드롭
+        let totalItems = playerInventory.grenades + playerInventory.smokes + playerInventory.firstaids;
+        while (totalItems > 2) {
+          if (playerInventory.firstaids > 0) {
+            playerInventory.firstaids--;
+            spawnGroundItem(playerPos.clone(), 'FIRSTAID', { name: '구급상자' });
+          } else if (playerInventory.grenades > 0) {
+            playerInventory.grenades--;
+            spawnGroundItem(playerPos.clone(), 'GRENADE', { name: '수류탄' });
+          } else if (playerInventory.smokes > 0) {
+            playerInventory.smokes--;
+            spawnGroundItem(playerPos.clone(), 'SMOKE', { name: '연막탄' });
+          }
+          totalItems--;
+        }
+        updateInventoryUI();
+      };
+
+      document.getElementById('inv-firstaid-use-btn').onclick = (e) => {
+        if (e) e.stopPropagation();
+        startHealing();
+      };
+
+      document.getElementById('inv-firstaid-drop-btn').onclick = (e) => {
+        if (e) e.stopPropagation();
+        if (playerInventory.firstaids <= 0) return;
+        playerInventory.firstaids--;
+        spawnGroundItem(playerPos.clone(), 'FIRSTAID', { name: '구급상자' });
+        showNotice("구급상자 1개 버림");
+        SoundSystem.playLootSound();
+        updateInventoryUI();
+      };
+
+      document.getElementById('inv-grenade-drop-btn').onclick = (e) => {
+        if (e) e.stopPropagation();
+        if (playerInventory.grenades <= 0) return;
+        playerInventory.grenades--;
+        spawnGroundItem(playerPos.clone(), 'GRENADE', { name: '수류탄' });
+        showNotice("수류탄 1개 버림");
+        SoundSystem.playLootSound();
+        updateInventoryUI();
+      };
+
+      document.getElementById('inv-smoke-drop-btn').onclick = (e) => {
+        if (e) e.stopPropagation();
+        if (playerInventory.smokes <= 0) return;
+        playerInventory.smokes--;
+        spawnGroundItem(playerPos.clone(), 'SMOKE', { name: '연막탄' });
+        showNotice("연막탄 1개 버림");
+        SoundSystem.playLootSound();
+        updateInventoryUI();
+      };
+
+      document.getElementById('btn-throw-grenade').onclick = () => { throwThrowable('GRENADE'); };
+      document.getElementById('btn-throw-smoke').onclick = () => { throwThrowable('SMOKE'); };
+    }, 100);
+
+    function throwThrowable(type) {
+      if (gameState !== 'PLAYING' || playerHp <= 0) return;
+      if (type === 'GRENADE') {
+        if (playerInventory.grenades <= 0) {
+          showNotice("수류탄이 없습니다!");
+          return;
+        }
+        playerInventory.grenades--;
+      } else if (type === 'SMOKE') {
+        if (playerInventory.smokes <= 0) {
+          showNotice("연막탄이 없습니다!");
+          return;
+        }
+        playerInventory.smokes--;
+      }
+
+      updateInventoryUI();
+
+      const spawnPos = playerPos.clone().add(new THREE.Vector3(0, 1.5, 0));
+      const throwDir = new THREE.Vector3(0, 0, -1).applyQuaternion(camera.quaternion);
+      throwDir.y += 0.25;
+      throwDir.normalize();
+      const throwVelocity = throwDir.multiplyScalar(22);
+
+      let tMesh;
+      if (type === 'GRENADE') {
+        const grenadeMat = new THREE.MeshStandardMaterial({ color: 0x3e503c, metalness: 0.5, roughness: 0.6 });
+        tMesh = new THREE.Mesh(new THREE.DodecahedronGeometry(0.12), grenadeMat);
+      } else {
+        const smokeMat = new THREE.MeshStandardMaterial({ color: 0x888888, metalness: 0.7, roughness: 0.4 });
+        const smokeGroup = new THREE.Group();
+        const body = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.07, 0.22, 8), smokeMat);
+        smokeGroup.add(body);
+        const stripe = new THREE.Mesh(new THREE.CylinderGeometry(0.072, 0.072, 0.04, 8), new THREE.MeshStandardMaterial({ color: 0xffffff }));
+        stripe.position.y = 0.05;
+        smokeGroup.add(stripe);
+        tMesh = smokeGroup;
+      }
+      tMesh.position.copy(spawnPos);
+      tMesh.castShadow = true;
+      scene.add(tMesh);
+
+      activeThrowables.push({
+        type: type,
+        pos: spawnPos,
+        vel: throwVelocity,
+        mesh: tMesh,
+        timer: type === 'GRENADE' ? 3.0 : 4.0
+      });
+
+      showNotice(`${type === 'GRENADE' ? '수류탄' : '연막탄'} 투척!`);
+    }
+
+    function updateEquipUI() {
+      let ammoText = '';
+      if (currentWeapon !== WEAPONS.PUNCH) {
+        const wKey = currentWeapon.name === '권총' ? 'PISTOL' : (currentWeapon.name === '샷건' ? 'SHOTGUN' : (currentWeapon.name === '돌격소총' ? 'RIFLE' : 'SNIPER'));
+        const loaded = playerInventory.loadedAmmo[wKey];
+        const reserve = playerInventory.ammo[wKey];
+        const ammoType = currentWeapon.name === '권총' ? '9mm 권총탄' : (currentWeapon.name === '샷건' ? '12게이지 산탄' : (currentWeapon.name === '돌격소총' ? '5.56mm 소총탄' : '7.62mm 저격탄'));
+        ammoText = `<br>탄약 규격: <span style="color:#00ffcc">${ammoType}</span><br>보유 탄수: <span style="color:#ffeb3b; font-size:16px; font-weight:bold;">${loaded}</span> / ${reserve}`;
+      } else {
+        ammoText = `<br>탄약 규격: 없음<br>보유 탄수: -`;
+      }
+      document.getElementById('equipped-info').innerHTML = `장착 무기: <span style="color:#ffb300; font-weight:bold;">${currentWeapon.name}</span>${ammoText}<br>조준경: <span style="color:#ffeb3b">${currentScope.name}</span>`;
+      
+      // 모바일 장전 버튼 토글
+      const reloadBtn = document.getElementById('btn-reload');
+      if (reloadBtn) {
+        if (currentWeapon !== WEAPONS.PUNCH) {
+          reloadBtn.style.display = 'flex';
+        } else {
+          reloadBtn.style.display = 'none';
+        }
+      }
+    }
+
+    // 승리 시 떨어질 거대 치킨 관련 전역 변수 및 연출 함수
+    let victoryChicken = null;
+    function spawnVictoryChicken() {
+      const chickenGroup = new THREE.Group();
+      
+      // 맛있는 황금빛 갈색 로스트 치킨 머티리얼 (약간의 광택 추가)
+      const bodyMat = new THREE.MeshStandardMaterial({ color: 0xc6691c, roughness: 0.45, metalness: 0.1 });
+      const boneMat = new THREE.MeshStandardMaterial({ color: 0xf5eedc, roughness: 0.8 });
+      
+      // 1) 닭 몸통 (통통한 가슴과 몸통을 위해 메인 구체와 가슴 볼륨 구체 합성)
+      const bodyGroup = new THREE.Group();
+      const mainBody = new THREE.Mesh(new THREE.SphereGeometry(1.2, 24, 24), bodyMat);
+      mainBody.scale.set(1.4, 0.9, 0.9);
+      mainBody.castShadow = true;
+      bodyGroup.add(mainBody);
+      
+      // 통통한 닭가슴살 볼륨감 표현
+      const breast = new THREE.Mesh(new THREE.SphereGeometry(0.8, 16, 16), bodyMat);
+      breast.position.set(0.2, 0.3, 0);
+      breast.scale.set(1.1, 0.8, 1.2);
+      bodyGroup.add(breast);
+      
+      // 목 부분 둥근 컷팅 형태
+      const neckJoint = new THREE.Mesh(new THREE.SphereGeometry(0.4, 16, 16), bodyMat);
+      neckJoint.position.set(1.4, 0.1, 0);
+      neckJoint.scale.set(0.7, 1.0, 1.0);
+      bodyGroup.add(neckJoint);
+      
+      chickenGroup.add(bodyGroup);
+      
+      // 2) 닭다리 2개 (북채 Drumsticks와 흰색 다리뼈 및 뼈끝 관절 볼 관절 표현)
+      for (let i = -1; i <= 1; i += 2) {
+        const legGroup = new THREE.Group();
+        legGroup.position.set(-0.5, -0.2, i * 0.7);
+        
+        // 튼실한 허벅지/종아리 살집 볼륨
+        const legMeat = new THREE.Mesh(new THREE.SphereGeometry(0.55, 16, 16), bodyMat);
+        legMeat.scale.set(1.3, 0.9, 0.9);
+        legMeat.rotation.y = -i * Math.PI / 6;
+        legMeat.rotation.z = -Math.PI / 8;
+        legGroup.add(legMeat);
+        
+        // 삐져나온 다리뼈 (실제 뼈 느낌의 칼라)
+        const legBone = new THREE.Mesh(new THREE.CylinderGeometry(0.09, 0.09, 0.8, 12), boneMat);
+        legBone.position.set(-0.7, -0.4, -i * 0.1);
+        legBone.rotation.z = Math.PI / 3;
+        legBone.rotation.y = i * Math.PI / 12;
+        legGroup.add(legBone);
+        
+        // 다리뼈 끝 관절 2개 (둥글게 튀어나온 연골 디테일 - 뼈 회전에 맞게 legBone의 자식 객체로 배치하여 이탈 방지)
+        const joint1 = new THREE.Mesh(new THREE.SphereGeometry(0.11, 10, 10), boneMat);
+        joint1.position.set(-0.07, -0.4, -0.01);
+        legBone.add(joint1);
+        
+        const joint2 = new THREE.Mesh(new THREE.SphereGeometry(0.11, 10, 10), boneMat);
+        joint2.position.set(0.07, -0.4, -0.01);
+        legBone.add(joint2);
+        
+        chickenGroup.add(legGroup);
+      }
+      
+      // 3) 닭날개 2개 (끝부분 윙팁 구조를 살려서 3단 정교한 배치)
+      for (let i = -1; i <= 1; i += 2) {
+        const wingGroup = new THREE.Group();
+        wingGroup.position.set(0.4, 0.3, i * 0.85);
+        
+        // 날개 어깨 부분 (살집)
+        const wingShoulder = new THREE.Mesh(new THREE.SphereGeometry(0.45, 12, 12), bodyMat);
+        wingShoulder.scale.set(1.2, 0.7, 0.7);
+        wingShoulder.rotation.z = -Math.PI / 6;
+        wingGroup.add(wingShoulder);
+        
+        // 날개 중간 부분 (Wing Flat)
+        const wingFlat = new THREE.Mesh(new THREE.SphereGeometry(0.32, 12, 12), bodyMat);
+        wingFlat.position.set(-0.35, -0.15, i * 0.1);
+        wingFlat.scale.set(1.3, 0.5, 0.8);
+        wingFlat.rotation.z = Math.PI / 4;
+        wingGroup.add(wingFlat);
+        
+        // 날개 끝 부분 (Wing Tip)
+        const wingTip = new THREE.Mesh(new THREE.ConeGeometry(0.15, 0.5, 12), bodyMat);
+        wingTip.position.set(-0.8, -0.3, i * 0.15);
+        wingTip.rotation.z = Math.PI / 3;
+        wingTip.rotation.x = -i * Math.PI / 12;
+        wingGroup.add(wingTip);
+        
+        chickenGroup.add(wingGroup);
+      }
+
+      // 플레이어 앞쪽에 정면 낙하하도록 위치 계산
+      const camDir = new THREE.Vector3(0, 0, -1).applyQuaternion(camera.quaternion);
+      camDir.y = 0;
+      camDir.normalize();
+      
+      const spawnPos = playerPos.clone().addScaledVector(camDir, 5.0);
+      spawnPos.y = playerPos.y + 40.0; // 하늘 높이
+      
+      chickenGroup.position.copy(spawnPos);
+      chickenGroup.scale.set(3.5, 3.5, 3.5); // 거대 치킨으로 스케일업
+      scene.add(chickenGroup);
+      
+      victoryChicken = {
+        group: chickenGroup,
+        velY: -22, // 최초 낙하 속도
+        velX: (Math.random() - 0.5) * 6, // 최초 수평 바운스 드리프트
+        velZ: (Math.random() - 0.5) * 6,
+        targetY: getElevation(spawnPos.x, spawnPos.z),
+        bounces: 0,
+        landed: false
+      };
+    }
+
+    function createLiveChickenMesh(type = 'WHITE') {
+      const chicken = new THREE.Group();
+      chicken.userData = { type: type };
+      
+      let featherColor = 0xffffff;
+      let scaleFactor = 1.0;
+      if (type === 'BROWN') {
+        featherColor = 0x9c5e2d;
+      } else if (type === 'CHICK') {
+        featherColor = 0xffeb3b;
+        scaleFactor = 0.55;
+      }
+      
+      const bodyMat = new THREE.MeshStandardMaterial({ color: featherColor, roughness: 0.8 });
+      const redMat = new THREE.MeshStandardMaterial({ color: 0xff3333, roughness: 0.6 });
+      const yellowMat = new THREE.MeshStandardMaterial({ color: 0xffb300, roughness: 0.5 });
+      const darkMat = new THREE.MeshStandardMaterial({ color: 0x111111, roughness: 0.5 });
+      
+      // Body
+      const body = new THREE.Mesh(new THREE.SphereGeometry(0.3, 16, 16), bodyMat);
+      body.scale.set(1.3, 1.0, 1.0);
+      body.position.y = 0.4;
+      body.castShadow = true;
+      chicken.add(body);
+      
+      // Neck
+      const neck = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.1, 0.25, 8), bodyMat);
+      neck.position.set(0.22, 0.52, 0);
+      neck.rotation.z = -Math.PI / 6;
+      neck.castShadow = true;
+      chicken.add(neck);
+      
+      // Head
+      const head = new THREE.Mesh(new THREE.SphereGeometry(0.15, 12, 12), bodyMat);
+      head.name = 'head';
+      head.position.set(0.32, 0.65, 0);
+      head.castShadow = true;
+      chicken.add(head);
+      
+      // Beak
+      const beak = new THREE.Mesh(new THREE.ConeGeometry(0.04, 0.1, 8), yellowMat);
+      beak.position.set(0.46, 0.63, 0);
+      beak.rotation.z = -Math.PI / 2;
+      beak.castShadow = true;
+      chicken.add(beak);
+      
+      // Comb (벼슬 - 병아리는 벼슬 없음)
+      if (type !== 'CHICK') {
+        const comb = new THREE.Mesh(new THREE.BoxGeometry(0.03, 0.08, 0.12), redMat);
+        comb.position.set(0.30, 0.77, 0);
+        comb.rotation.z = Math.PI / 12;
+        comb.castShadow = true;
+        chicken.add(comb);
+      }
+      
+      // Eyes
+      const leftEye = new THREE.Mesh(new THREE.SphereGeometry(0.025, 8, 8), darkMat);
+      leftEye.position.set(0.36, 0.67, 0.09);
+      chicken.add(leftEye);
+      
+      const rightEye = new THREE.Mesh(new THREE.SphereGeometry(0.025, 8, 8), darkMat);
+      rightEye.position.set(0.36, 0.67, -0.09);
+      chicken.add(rightEye);
+      
+      // Wings
+      const leftWing = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 12), bodyMat);
+      leftWing.name = 'wingL';
+      leftWing.scale.set(1.4, 0.7, 0.3);
+      leftWing.position.set(-0.05, 0.42, 0.28);
+      leftWing.rotation.x = Math.PI / 12;
+      chicken.add(leftWing);
+      
+      const rightWing = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 12), bodyMat);
+      rightWing.name = 'wingR';
+      rightWing.scale.set(1.4, 0.7, 0.3);
+      rightWing.position.set(-0.05, 0.42, -0.28);
+      rightWing.rotation.x = -Math.PI / 12;
+      chicken.add(rightWing);
+      
+      // Legs
+      const leftLegGroup = new THREE.Group();
+      leftLegGroup.name = 'legL';
+      leftLegGroup.position.set(-0.05, 0.3, 0.12);
+      
+      const leftLeg = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 0.3, 8), yellowMat);
+      leftLeg.position.y = -0.15;
+      leftLeg.castShadow = true;
+      leftLegGroup.add(leftLeg);
+      
+      const leftFoot = new THREE.Mesh(new THREE.BoxGeometry(0.15, 0.02, 0.08), yellowMat);
+      leftFoot.position.set(0.07, -0.3, 0);
+      leftLegGroup.add(leftFoot);
+      
+      chicken.add(leftLegGroup);
+      
+      const rightLegGroup = new THREE.Group();
+      rightLegGroup.name = 'legR';
+      rightLegGroup.position.set(-0.05, 0.3, -0.12);
+      
+      const rightLeg = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 0.3, 8), yellowMat);
+      rightLeg.position.y = -0.15;
+      rightLeg.castShadow = true;
+      rightLegGroup.add(rightLeg);
+      
+      const rightFoot = new THREE.Mesh(new THREE.BoxGeometry(0.15, 0.02, 0.08), yellowMat);
+      rightFoot.position.set(0.07, -0.3, 0);
+      rightLegGroup.add(rightFoot);
+      
+      chicken.add(rightLegGroup);
+      
+      chicken.scale.set(scaleFactor, scaleFactor, scaleFactor);
+      
+      return chicken;
+    }
+
+    function createRoastedChickenMesh() {
+      const chickenGroup = new THREE.Group();
+      
+      const bodyMat = new THREE.MeshStandardMaterial({ color: 0xc6691c, roughness: 0.45, metalness: 0.1 });
+      const boneMat = new THREE.MeshStandardMaterial({ color: 0xf5eedc, roughness: 0.8 });
+      
+      const bodyGroup = new THREE.Group();
+      const mainBody = new THREE.Mesh(new THREE.SphereGeometry(0.35, 16, 16), bodyMat);
+      mainBody.scale.set(1.4, 0.9, 0.9);
+      mainBody.castShadow = true;
+      bodyGroup.add(mainBody);
+      
+      const breast = new THREE.Mesh(new THREE.SphereGeometry(0.24, 12, 12), bodyMat);
+      breast.position.set(0.06, 0.09, 0);
+      breast.scale.set(1.1, 0.8, 1.2);
+      bodyGroup.add(breast);
+      
+      const neckJoint = new THREE.Mesh(new THREE.SphereGeometry(0.12, 12, 12), bodyMat);
+      neckJoint.position.set(0.42, 0.03, 0);
+      neckJoint.scale.set(0.7, 1.0, 1.0);
+      bodyGroup.add(neckJoint);
+      
+      chickenGroup.add(bodyGroup);
+      
+      for (let i = -1; i <= 1; i += 2) {
+        const legGroup = new THREE.Group();
+        legGroup.position.set(-0.15, -0.06, i * 0.2);
+        
+        const legMeat = new THREE.Mesh(new THREE.SphereGeometry(0.16, 12, 12), bodyMat);
+        legMeat.scale.set(1.3, 0.9, 0.9);
+        legMeat.rotation.y = -i * Math.PI / 6;
+        legMeat.rotation.z = -Math.PI / 8;
+        legGroup.add(legMeat);
+        
+        const legBone = new THREE.Mesh(new THREE.CylinderGeometry(0.026, 0.026, 0.24, 8), boneMat);
+        legBone.position.set(-0.21, -0.12, -i * 0.03);
+        legBone.rotation.z = Math.PI / 3;
+        legBone.rotation.y = i * Math.PI / 12;
+        legGroup.add(legBone);
+        
+        const joint1 = new THREE.Mesh(new THREE.SphereGeometry(0.032, 8, 8), boneMat);
+        joint1.position.set(-0.02, -0.12, -0.003);
+        legBone.add(joint1);
+        
+        const joint2 = new THREE.Mesh(new THREE.SphereGeometry(0.032, 8, 8), boneMat);
+        joint2.position.set(0.02, -0.12, -0.003);
+        legBone.add(joint2);
+        
+        chickenGroup.add(legGroup);
+      }
+      
+      for (let i = -1; i <= 1; i += 2) {
+        const wingGroup = new THREE.Group();
+        wingGroup.position.set(0.12, 0.09, i * 0.25);
+        
+        const wingShoulder = new THREE.Mesh(new THREE.SphereGeometry(0.135, 8, 8), bodyMat);
+        wingShoulder.scale.set(1.2, 0.7, 0.7);
+        wingShoulder.rotation.z = -Math.PI / 6;
+        wingGroup.add(wingShoulder);
+        
+        const wingFlat = new THREE.Mesh(new THREE.SphereGeometry(0.096, 8, 8), bodyMat);
+        wingFlat.position.set(-0.1, -0.045, i * 0.03);
+        wingFlat.scale.set(1.3, 0.5, 0.8);
+        wingFlat.rotation.z = Math.PI / 4;
+        wingGroup.add(wingFlat);
+        
+        chickenGroup.add(wingGroup);
+      }
+      
+      return chickenGroup;
+    }
+
+    function transformCratesIntoChickens() {
+      for (let i = lootBoxes.length - 1; i >= 0; i--) {
+        const item = lootBoxes[i];
+        if (item.type === 'CRATE') {
+          scene.remove(item.mesh);
+          
+          const types = ['WHITE', 'BROWN', 'CHICK'];
+          const randomType = types[Math.floor(Math.random() * types.length)];
+          const cMesh = createLiveChickenMesh(randomType);
+          cMesh.position.copy(item.mesh.position);
+          cMesh.position.y = getElevation(cMesh.position.x, cMesh.position.z);
+          scene.add(cMesh);
+          
+          liveChickens.push({
+            mesh: cMesh,
+            pos: cMesh.position.clone(),
+            dir: new THREE.Vector3((Math.random() - 0.5), 0, (Math.random() - 0.5)).normalize(),
+            speed: 1.0,
+            wanderTime: 0,
+            panicTime: 0,
+            animationTime: Math.random() * 10
+          });
+          
+          lootBoxes.splice(i, 1);
+        }
+      }
+    }
+
+    function createShockwave(pos) {
+      const ringMat = new THREE.MeshBasicMaterial({ color: 0xffffff, side: THREE.DoubleSide, transparent: true, opacity: 0.8 });
+      const ring = new THREE.Mesh(new THREE.RingGeometry(0.1, 0.3, 16), ringMat);
+      ring.rotation.x = -Math.PI / 2;
+      ring.position.copy(pos);
+      ring.position.y = getElevation(pos.x, pos.z) + 0.1;
+      scene.add(ring);
+      
+      let t = 0;
+      const interval = setInterval(() => {
+        t += 0.05;
+        const s = t * 35;
+        ring.scale.set(s, s, s);
+        ringMat.opacity = 0.8 - t;
+        if (t >= 0.8) {
+          clearInterval(interval);
+          scene.remove(ring);
+          ring.geometry.dispose();
+          ringMat.dispose();
+        }
+      }, 30);
+    }
+
+    // 승리 판단 로직
+    let hasWonMatch = false;
+    let victoryTimer = 0;
+    let defeatTimer = 0;
+    function checkVictory() {
+      if (totalAlive === 1 && playerHp > 0 && !hasWonMatch) {
+        hasWonMatch = true;
+        victoryTimer = 3.0; // 3초간 슬로우 모션 연출
+        
+        SoundSystem.stopBGM();
+        SoundSystem.playMatchEndSound(true);
+        
+        spawnVictoryChicken();
+        showNotice("🏆 이겼닭! 오늘 저녁은 통닭이닭!", 3000);
+
+        // 자기장 UI 숨기기 및 자기장 활성화 해제
+        if (zoneMesh) zoneMesh.visible = false;
+        const zoneInfoUI = document.getElementById('zone-info');
+        if (zoneInfoUI) zoneInfoUI.style.display = 'none';
+      }
+    }
+
+    function showVictoryUI() {
+      document.exitPointerLock();
+      
+      const vBox = document.getElementById('victory-box');
+      const vStats = document.getElementById('victory-stats');
+      if (vStats) {
+        vStats.innerHTML = `최종 생존자: 1명 (우승!)<br>나의 처치 수: <strong style="color: #ffeb3b; font-size: 20px;">${killCount}</strong> 킬`;
+      }
+      if (vBox) {
+        vBox.style.display = 'block';
+      }
+      
+      const restartBtn = document.getElementById('victory-restart-btn');
+      if (restartBtn) {
+        restartBtn.onclick = () => window.location.reload();
+      }
+      
+      const continueBtn = document.getElementById('victory-continue-btn');
+      if (continueBtn) {
+        continueBtn.onclick = () => {
+          vBox.style.display = 'none';
+          transformCratesIntoChickens();
+          
+          // 화면 우측 상단에 다시 도전하기 전용 플로팅 미니 버튼 표시
+          const miniBtn = document.getElementById('victory-mini-btn');
+          if (miniBtn) {
+            miniBtn.style.display = 'block';
+            miniBtn.onclick = () => window.location.reload();
+          }
+          
+          // 계속 플레이할 수 있도록 포인터 락 재활성화
+          try { document.body.requestPointerLock(); } catch(err) {}
+        };
+      }
+    }
+
+    let hasRevived = false;
+    let playerInvincibleTime = 0;
+    let selectedReviveHp = 100;
+
+    function startReviveSlotMachine() {
+      document.exitPointerLock();
+      
+      const modal = document.getElementById('revive-modal');
+      const slotVal = document.getElementById('slot-value');
+      const promptText = document.getElementById('revive-prompt-text');
+      const buttons = document.getElementById('revive-buttons');
+      const yesBtn = document.getElementById('revive-yes-btn');
+      const noBtn = document.getElementById('revive-no-btn');
+      
+      modal.style.display = 'block';
+      promptText.style.display = 'none';
+      buttons.style.display = 'none';
+      slotVal.style.color = '#00ffcc';
+      
+      let spinCount = 0;
+      const totalSpins = 20;
+      
+      const spinInterval = setInterval(() => {
+        spinCount++;
+        const tempHp = (1 + Math.floor(Math.random() * 10)) * 10;
+        slotVal.innerText = tempHp + '%';
+        SoundSystem.playDryClick();
+        
+        if (spinCount >= totalSpins) {
+          clearInterval(spinInterval);
+          selectedReviveHp = (1 + Math.floor(Math.random() * 10)) * 10;
+          slotVal.innerText = selectedReviveHp + '%';
+          
+          slotVal.style.color = '#ffeb3b';
+          SoundSystem.playHealSound();
+          
+          setTimeout(() => {
+            document.getElementById('revive-hp-percentage').innerText = selectedReviveHp + '%';
+            promptText.style.display = 'block';
+            buttons.style.display = 'flex';
+          }, 500);
+        }
+      }, 80);
+      
+      yesBtn.onclick = () => {
+        modal.style.display = 'none';
+        startRewardedAd();
+      };
+      
+      noBtn.onclick = () => {
+        modal.style.display = 'none';
+        showDefeatUI();
+        gameState = 'FINISHED';
+      };
+    }
+
+    let adTimerInterval = null;
+    function startRewardedAd() {
+      // 로컬 테스트(file://) 환경인 경우 시뮬레이션 광고 구동
+      if (window.location.protocol === 'file:') {
+        runSimulatedAd();
+        return;
+      }
+
+      // 실제 호스팅 도메인 환경인 경우 구글 애드센스 H5 보상형 광고 구동
+      SoundSystem.stopSkydiveWindSound();
+      SoundSystem.stopBGM();
+      
+      adBreak({
+        type: 'reward',
+        name: 'RevivePlayer',
+        beforeAd: () => {
+          console.log("AdSense: 광고 시작됨");
+        },
+        afterAd: () => {
+          console.log("AdSense: 광고 닫힘");
+        },
+        beforeReward: (showReward) => {
+          console.log("AdSense: 보상 조건 충족");
+          showReward(executeRevival);
+        },
+        adDismissed: () => {
+          console.log("AdSense: 광고 스킵됨");
+          showDefeatUI();
+          gameState = 'FINISHED';
+        },
+        adViewed: () => {
+          console.log("AdSense: 광고 시청 성공");
+        },
+        adError: (err) => {
+          console.error("AdSense: 광고 에러 발생, 시뮬레이션으로 대체 진행:", err);
+          runSimulatedAd(); // 에러 시 사용자 보호를 위해 시뮬레이션으로 대체
+        }
+      });
+    }
+
+    function runSimulatedAd() {
+      const adScreen = document.getElementById('ad-screen');
+      const adTimerText = document.getElementById('ad-timer');
+      const adMuteBtn = document.getElementById('ad-mute-btn');
+      
+      adScreen.style.display = 'flex';
+      
+      let adTimeRemaining = 15;
+      adTimerText.innerText = `광고 종료까지 ${adTimeRemaining}초...`;
+      
+      let isMuted = false;
+      adMuteBtn.innerText = '🔊 음소거';
+      adMuteBtn.onclick = () => {
+        isMuted = !isMuted;
+        adMuteBtn.innerText = isMuted ? '🔇 소리 켜기' : '🔊 음소거';
+      };
+      
+      SoundSystem.stopSkydiveWindSound();
+      
+      adTimerInterval = setInterval(() => {
+        adTimeRemaining--;
+        if (adTimeRemaining > 0) {
+          adTimerText.innerText = `광고 종료까지 ${adTimeRemaining}초...`;
+          if (!isMuted) {
+            SoundSystem.playDryClick();
+          }
+        } else {
+          clearInterval(adTimerInterval);
+          adScreen.style.display = 'none';
+          executeRevival();
+        }
+      }, 1000);
+    }
+
+    function executeRevival() {
+      hasRevived = true;
+      playerHp = selectedReviveHp;
+      
+      document.getElementById('player-hp-text').innerText = 'HP: ' + playerHp;
+      document.getElementById('player-hp-bar-fill').style.width = playerHp + '%';
+      
+      playerStance = 'STAND';
+      myPlayerGroup.rotation.set(0, 0, 0);
+      myPlayerGroup.position.copy(playerPos);
+      myPlayerGroup.position.y = getElevation(playerPos.x, playerPos.z, playerPos.y);
+      isGrounded = true;
+      playerVelocityY = 0;
+      
+      playerInvincibleTime = 3.0;
+      
+      const offset = new THREE.Vector3(0, 3.5, 10);
+      offset.applyQuaternion(camera.quaternion);
+      camera.position.copy(playerPos).add(offset);
+      
+      document.getElementById('throw-shortcuts').style.display = 'flex';
+      
+      gameState = 'PLAYING';
+      
+      if (bgmEnabled) {
+        SoundSystem.playBGM();
+      }
+      
+      try { document.body.requestPointerLock(); } catch(err) {}
+      
+      showNotice(`✨ 부활 성공! ${selectedReviveHp}% 체력으로 다시 시작합니다.`, 4000);
+    }
+
+    function showDefeatUI() {
+      document.exitPointerLock();
+      
+      // 1. 주변 소리(SFX) 서서히 줄어들면서 제거 (2.5초간 페이드아웃)
+      if (audioCtx && sfxVolumeNode) {
+        try {
+          sfxVolumeNode.gain.cancelScheduledValues(audioCtx.currentTime);
+          sfxVolumeNode.gain.setValueAtTime(sfxVolumeNode.gain.value, audioCtx.currentTime);
+          sfxVolumeNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 2.5);
+        } catch(e) {}
+      }
+      
+      // 2. 로비 BGM 서서히 페이드인하며 재생
+      bgmEnabled = true;
+      const bgmBtn = document.getElementById('btn-toggle-bgm');
+      if (bgmBtn) bgmBtn.innerText = "🎵 BGM: ON";
+      SoundSystem.playBGM();
+
+      document.getElementById('overlay').style.display = 'flex'; 
+      document.getElementById('main-title').innerText = '☠️ 당신은 처치되었습니다';
+      document.getElementById('main-title').style.color = '#ff3333';
+      document.getElementById('sub-title').style.display = 'none';
+      document.getElementById('instruction').innerHTML = `최종 생존자: ${totalAlive}명<br>나의 킬 수: ${killCount}<br><br><button id="restart-btn" style="margin-top: 20px; padding: 15px 40px; font-size: 18px; font-weight: bold; background: #e53935; color: white; border: none; border-radius: 25px; cursor: pointer;">다시 도전하기</button>`;
+      document.getElementById('start-btn').style.display = 'none';
+      
+      setTimeout(() => {
+        const btn = document.getElementById('restart-btn');
+        if (btn) btn.addEventListener('click', () => window.location.reload());
+      }, 100);
+    }
+
+    // 적 머리 위 체력바 생성 로직
+    const enemyHpContainer = document.getElementById('enemy-hp-container');
+    function createEnemyHpBar(enemyId) {
+      const bg = document.createElement('div'); bg.className = 'enemy-hp-bar-bg'; bg.id = 'hp-bg-' + enemyId;
+      bg.style.width = '72px';
+      bg.style.height = '15px';
+      bg.style.display = 'none';
+      bg.style.flexDirection = 'column';
+      bg.style.alignItems = 'center';
+      bg.style.justifyContent = 'center';
+      bg.style.background = 'rgba(0,0,0,0.7)';
+      bg.style.border = '1px solid white';
+      bg.style.borderRadius = '4px';
+      bg.style.padding = '1px';
+      
+      const label = document.createElement('div'); 
+      label.id = 'hp-label-' + enemyId;
+      label.style.fontSize = '8px';
+      label.style.fontWeight = 'bold';
+      label.style.color = 'white';
+      label.style.marginBottom = '1px';
+      label.innerText = '';
+      
+      const fill = document.createElement('div'); fill.className = 'enemy-hp-bar-fill'; fill.id = 'hp-fill-' + enemyId;
+      fill.style.height = '4px';
+      fill.style.width = '100%';
+      fill.style.borderRadius = '2px';
+      
+      bg.appendChild(label);
+      bg.appendChild(fill); 
+      enemyHpContainer.appendChild(bg);
+      return { bg, fill, label };
+    }
+
+    function updatePlayerHp(amount, shooterPos = null) {
+      if(playerHp <= 0) return;
+      if(playerInvincibleTime > 0 && amount < 0) return;
+      playerHp += amount; if(playerHp < 0) playerHp = 0; if(playerHp > 100) playerHp = 100;
+      document.getElementById('player-hp-text').innerText = 'HP: ' + Math.ceil(playerHp);
+      document.getElementById('player-hp-bar-fill').style.width = playerHp + '%';
+      
+      if(amount < 0) {
+        SoundSystem.playPainSound();
+        
+        // --- [방향성 피격 인디케이터 연출] ---
+        const damageInd = document.getElementById('damage-indicator');
+        damageInd.style.display = 'block';
+        
+        if (shooterPos) {
+          // 사수 방향으로 붉은 그라데이션 회전 계산
+          const forward = new THREE.Vector3(0, 0, -1).applyQuaternion(camera.quaternion);
+          forward.y = 0; forward.normalize();
+          const right = new THREE.Vector3(1, 0, 0).applyQuaternion(camera.quaternion);
+          right.y = 0; right.normalize();
+          
+          const toShooter = new THREE.Vector3().subVectors(shooterPos, playerPos);
+          toShooter.y = 0; toShooter.normalize();
+          
+          const fwdDot = toShooter.dot(forward);
+          const rgtDot = toShooter.dot(right);
+          
+          let angleDeg = Math.atan2(rgtDot, fwdDot) * (180 / Math.PI);
+          angleDeg = (angleDeg + 360) % 360;
+          
+          // conic-gradient의 시작점 조정을 통해 붉은 지시선이 피해 진원 방향을 정교하게 지목하도록 설정
+          const startAngle = (angleDeg - 180 + 360) % 360;
+          damageInd.style.background = `conic-gradient(from ${startAngle}deg, transparent 0deg, transparent 140deg, rgba(255,0,0,0.85) 180deg, transparent 220deg, transparent 360deg)`;
+          damageInd.style.boxShadow = 'inset 0 0 100px rgba(255,0,0,0.4)';
+        } else {
+          // 방향 모를 때 (자기장 등) 전체 화면 붉은색
+          damageInd.style.background = 'transparent';
+          damageInd.style.boxShadow = 'inset 0 0 150px rgba(255,0,0,0.9)';
+        }
+
+        // 1.2초간 매끄럽게 피격 오버레이가 페이드아웃 되도록 애니메이션 처리
+        damageInd.style.animation = 'none';
+        damageInd.offsetHeight; // reflow 트리거
+        damageInd.style.animation = 'dmgFade 1.2s forwards';
+
+        if (damageInd.timeoutId) clearTimeout(damageInd.timeoutId);
+        damageInd.timeoutId = setTimeout(() => { damageInd.style.display = 'none'; }, 1200);
+        
+        if (isHealing) {
+          isHealing = false;
+          document.getElementById('heal-progress-container').style.display = 'none';
+          showNotice("⚠️ 피해를 입어 구급상자 사용이 취소되었습니다.");
+        }
+      }
+      if(playerHp <= 0 && gameState !== 'DEFEAT' && gameState !== 'FINISHED') {
+        gameState = 'DEFEAT';
+        defeatTimer = 3.0; // 3초간 슬로우 모션 연출
+        document.exitPointerLock();
+        document.getElementById('throw-shortcuts').style.display = 'none';
+        
+        SoundSystem.stopBGM();
+        SoundSystem.playMatchEndSound(false);
+
+        showNotice("☠️ 당신은 처치되었습니다...", 3000);
+      }
+    }
+
+    function addKillLog(msg) {
+      const feed = document.getElementById('kill-feed'); const div = document.createElement('div');
+      div.className = 'kill-log'; div.innerText = msg; feed.appendChild(div);
+      setTimeout(() => { if(div.parentNode) div.parentNode.removeChild(div); }, 4000);
+      document.getElementById('alive-count').innerText = totalAlive;
+    }
+
+    const activeThrowables = [];
+    const activeSmokeClouds = [];
+
+    for(let i=1; i<50; i++) { 
+      const soldier = createSoldierModel(0x4a5a4a, 0xffd0b0);
+      const group = soldier.group;
+      const eParachute = parachute.clone(); eParachute.visible = false; 
+      eParachute.position.set(0, 5.5, 0); // 10.0에서 5.5로 줄임
+      group.add(eParachute);
+      group.position.copy(planeGroup.position); scene.add(group);
+      
+      // AI 장비 및 티어 랜덤 생성
+      const randTier = Math.random();
+      let tier = 'Noob';
+      let maxHp = 85;
+      let selectedHelmet = null;
+      let selectedBag = null;
+      
+      if (randTier < 0.60) {
+        tier = 'Noob';
+        maxHp = 85;
+        selectedHelmet = Math.random() > 0.6 ? HELMETS.LV1 : null;
+        selectedBag = Math.random() > 0.6 ? BAGS.LV1 : null;
+      } else if (randTier < 0.90) {
+        tier = 'Pro';
+        maxHp = 100;
+        selectedHelmet = Math.random() > 0.3 ? (Math.random() > 0.5 ? HELMETS.LV2 : HELMETS.LV1) : null;
+        selectedBag = Math.random() > 0.3 ? (Math.random() > 0.5 ? BAGS.LV2 : BAGS.LV1) : null;
+      } else {
+        tier = 'Hacker';
+        maxHp = 150;
+        selectedHelmet = HELMETS.LV3;
+        selectedBag = BAGS.LV3;
+        
+        // 해커 외관 커스텀: 붉은색과 금색 발광
+        const hackerTorsoMat = new THREE.MeshStandardMaterial({ color: 0xff3333, metalness: 0.9, roughness: 0.1, emissive: 0x330000 });
+        const hackerLimbMat = new THREE.MeshStandardMaterial({ color: 0xffd700, metalness: 0.9, roughness: 0.1, emissive: 0x332200 });
+        
+        if (soldier.body) soldier.body.material = hackerTorsoMat;
+        if (soldier.headGroup && soldier.headGroup.children[0]) {
+          soldier.headGroup.children[0].material = new THREE.MeshStandardMaterial({ color: 0xff4444, metalness: 0.5, roughness: 0.2, emissive: 0x220000 });
+        }
+        if (soldier.leftArm && soldier.leftArm.children[0]) soldier.leftArm.children[0].material = hackerLimbMat;
+        if (soldier.rightArm && soldier.rightArm.children[0]) soldier.rightArm.children[0].material = hackerLimbMat;
+        if (soldier.leftLeg && soldier.leftLeg.children[0]) soldier.leftLeg.children[0].material = hackerLimbMat;
+        if (soldier.rightLeg && soldier.rightLeg.children[0]) soldier.rightLeg.children[0].material = hackerLimbMat;
+      }
+      
+      if (selectedHelmet) soldier.updateHelmetVisual(selectedHelmet);
+      soldier.parachuteBag.visible = true;
+      
+      const eid = 'AI_' + i;
+      const hpUI = createEnemyHpBar(eid);
+      
+      updateVisualEquip(soldier, WEAPONS.PUNCH, SCOPES.NONE);
+      
+      enemies.push({ id: eid, mesh: group, soldier: soldier, hp: maxHp, maxHp: maxHp, state: 'IN_PLANE', parachute: eParachute, hpUI: hpUI, tier: tier,
+        jumpTime: 3.5 + Math.random() * 9.5, weapon: WEAPONS.PUNCH, helmet: selectedHelmet, bag: selectedBag, lastShot: 0, lastHitTime: 0,
+        driftAngle: Math.random() * Math.PI * 2, driftSpeed: 10 + Math.random() * 15, recoilTime: 0,
+        avoidanceTimer: 0, avoidDir: new THREE.Vector3() });
+        
+      // HP UI의 등급 텍스트 및 초기 색상 설정
+      hpUI.label.innerText = `[${tier}] ${eid}`;
+      if (tier === 'Noob') {
+        hpUI.fill.style.backgroundColor = '#81c784';
+        hpUI.label.style.color = '#a5d6a7';
+      } else if (tier === 'Pro') {
+        hpUI.fill.style.backgroundColor = '#ffd54f';
+        hpUI.label.style.color = '#ffe082';
+      } else {
+        hpUI.fill.style.backgroundColor = '#ff3d00';
+        hpUI.label.style.color = '#ff8a80';
+        hpUI.label.style.textShadow = '0 0 4px #ff3d00';
+      }
+    }
+
+    function getAmmoName(wKey) {
+      if (wKey === 'PISTOL') return '9mm 탄창';
+      if (wKey === 'SHOTGUN') return '12게이지 탄창';
+      if (wKey === 'RIFLE') return '5.56mm 탄창';
+      if (wKey === 'SNIPER') return '7.62mm 탄창';
+      return '';
+    }
+
+    function createAmmoBoxMesh(colorHex) {
+      const group = new THREE.Group();
+      const box = new THREE.Mesh(new THREE.BoxGeometry(0.35, 0.18, 0.25), new THREE.MeshStandardMaterial({ color: colorHex, roughness: 0.6 }));
+      box.castShadow = true;
+      group.add(box);
+      const label = new THREE.Mesh(new THREE.BoxGeometry(0.2, 0.19, 0.05), new THREE.MeshBasicMaterial({ color: 0xffffff }));
+      label.position.set(0, 0, 0.13);
+      group.add(label);
+      return group;
+    }
+
+    function spawnGroundItem(pos, itemType, itemValue) {
+      const itemGroup = new THREE.Group();
+      
+      let visualMesh;
+      if (itemType === 'WEAPON') {
+        visualMesh = createWeaponMesh(itemValue, SCOPES.NONE);
+        if (visualMesh) {
+          // Counteract hand offsets and center the weapon
+          if (itemValue && itemValue.name === '권총') {
+            visualMesh.position.set(0, 0.03, -0.01);
+          } else {
+            visualMesh.position.set(0, 0.11, -0.01);
+          }
+          // Scale to 3.5 and lay it flat horizontally on its side with a random heading
+          visualMesh.scale.set(3.5, 3.5, 3.5);
+          visualMesh.rotation.set(0, Math.random() * Math.PI * 2, Math.PI / 2);
+        }
+      } else if (itemType === 'SCOPE') {
+        const scopeMat = new THREE.MeshStandardMaterial({ color: 0x2e5c30, metalness: 0.8, roughness: 0.3 });
+        const lensMat = new THREE.MeshBasicMaterial({ color: 0x00ffff });
+        
+        const scopeGroup = new THREE.Group();
+        const body = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.12, 0.4), scopeMat);
+        body.rotation.x = Math.PI / 2;
+        scopeGroup.add(body);
+        
+        const lens = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.1, 0.02), lensMat);
+        lens.rotation.x = Math.PI / 2;
+        lens.position.z = 0.201;
+        scopeGroup.add(lens);
+        
+        visualMesh = scopeGroup;
+        visualMesh.scale.set(2, 2, 2);
+      } else if (itemType === 'HELMET') {
+        const helmetColor = itemValue === HELMETS.LV1 ? 0x4caf50 : (itemValue === HELMETS.LV2 ? 0x009688 : 0x212121);
+        const helmetMat = new THREE.MeshStandardMaterial({ color: helmetColor, roughness: 0.8, side: THREE.DoubleSide });
+        const helmetMesh = new THREE.Group();
+        
+        // 1) 헬멧 돔 본체
+        const dome = new THREE.Mesh(new THREE.SphereGeometry(0.26, 16, 10, 0, Math.PI*2, 0, Math.PI/2), helmetMat);
+        dome.rotation.x = -Math.PI/2;
+        dome.castShadow = true;
+        helmetMesh.add(dome);
+
+        // 3단계 헬멧인 경우 바이저 추가
+        if (itemValue === HELMETS.LV3) {
+          const visor = new THREE.Mesh(new THREE.BoxGeometry(0.24, 0.08, 0.08), new THREE.MeshStandardMaterial({ color: 0x111111, roughness: 0.1 }));
+          visor.position.set(0, -0.06, 0.20);
+          helmetMesh.add(visor);
+        }
+        
+        visualMesh = helmetMesh;
+        visualMesh.scale.set(1.5, 1.5, 1.5);
+      } else if (itemType === 'BAG') {
+        const bagColor = itemValue === BAGS.LV1 ? 0x8d6e63 : (itemValue === BAGS.LV2 ? 0x5d4037 : 0x3e2723);
+        const bagMat = new THREE.MeshStandardMaterial({ color: bagColor, roughness: 0.8 });
+        const bagGroup = new THREE.Group();
+        const mainBox = new THREE.Mesh(new THREE.BoxGeometry(0.25, 0.35, 0.14), bagMat);
+        bagGroup.add(mainBox);
+        const strapMat = new THREE.MeshBasicMaterial({ color: 0x111111 });
+        const strapL = new THREE.Mesh(new THREE.BoxGeometry(0.03, 0.37, 0.02), strapMat);
+        strapL.position.set(-0.08, 0, 0.075);
+        const strapR = new THREE.Mesh(new THREE.BoxGeometry(0.03, 0.37, 0.02), strapMat);
+        strapR.position.set(0.08, 0, 0.075);
+        bagGroup.add(strapL); bagGroup.add(strapR);
+        visualMesh = bagGroup;
+        visualMesh.scale.set(2.0, 2.0, 2.0);
+      } else if (itemType === 'GRENADE') {
+        const grenadeMat = new THREE.MeshStandardMaterial({ color: 0x3e503c, metalness: 0.5, roughness: 0.6 });
+        const grenadeMesh = new THREE.Mesh(new THREE.DodecahedronGeometry(0.12), grenadeMat);
+        visualMesh = grenadeMesh;
+        visualMesh.scale.set(1.8, 1.8, 1.8);
+      } else if (itemType === 'SMOKE') {
+        const smokeMat = new THREE.MeshStandardMaterial({ color: 0x888888, metalness: 0.7, roughness: 0.4 });
+        const smokeGroup = new THREE.Group();
+        const body = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.07, 0.22, 8), smokeMat);
+        smokeGroup.add(body);
+        const stripe = new THREE.Mesh(new THREE.CylinderGeometry(0.075, 0.075, 0.03, 8), new THREE.MeshBasicMaterial({ color: 0x00ff00 }));
+        stripe.position.y = 0.04;
+        smokeGroup.add(stripe);
+        visualMesh = smokeGroup;
+        visualMesh.scale.set(2.0, 2.0, 2.0);
+      } else if (itemType === 'FIRSTAID') {
+        const kitMat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.5 });
+        const crossMat = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+        const kitGroup = new THREE.Group();
+        const box = new THREE.Mesh(new THREE.BoxGeometry(0.35, 0.25, 0.15), kitMat);
+        kitGroup.add(box);
+        const crossH = new THREE.Mesh(new THREE.BoxGeometry(0.18, 0.05, 0.02), crossMat);
+        crossH.position.z = 0.076;
+        kitGroup.add(crossH);
+        const crossV = new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.18, 0.02), crossMat);
+        crossV.position.z = 0.076;
+        kitGroup.add(crossV);
+        visualMesh = kitGroup;
+        visualMesh.scale.set(2.0, 2.0, 2.0);
+        visualMesh.rotation.x = -Math.PI / 2;
+      } else if (itemType === 'AMMO_PISTOL') {
+        visualMesh = createAmmoBoxMesh(0xbbbb22);
+        visualMesh.scale.set(1.5, 1.5, 1.5);
+      } else if (itemType === 'AMMO_SHOTGUN') {
+        visualMesh = createAmmoBoxMesh(0xcc2222);
+        visualMesh.scale.set(1.5, 1.5, 1.5);
+      } else if (itemType === 'AMMO_RIFLE') {
+        visualMesh = createAmmoBoxMesh(0x22aa22);
+        visualMesh.scale.set(1.5, 1.5, 1.5);
+      } else if (itemType === 'AMMO_SNIPER') {
+        visualMesh = createAmmoBoxMesh(0x2222bb);
+        visualMesh.scale.set(1.5, 1.5, 1.5);
+      }
+      
+      if (visualMesh) {
+        visualMesh.traverse(child => {
+          if (child.isMesh) {
+            child.castShadow = true;
+            child.receiveShadow = true;
+          }
+        });
+        itemGroup.add(visualMesh);
+      } else {
+        const box = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.5, 0.5), new THREE.MeshStandardMaterial({ color: 0xff0000 }));
+        itemGroup.add(box);
+      }
+      
+      itemGroup.position.copy(pos);
+      itemGroup.position.y = getElevation(pos.x, pos.z, pos.y) + 0.8;
+      scene.add(itemGroup);
+      
+      lootBoxes.push({ mesh: itemGroup, type: itemType, val: itemValue, isCrate: false });
+    }
+
+    function spawnCorpseBox(pos, weapon, scope, helmet = null, bag = null) {
+      const actualWeapon = (weapon && weapon.name !== '주먹' && weapon.name !== '맨주먹') ? weapon : null;
+      const actualScope = actualWeapon ? scope : null;
+
+      const boxGroup = new THREE.Group();
+      const woodMat = new THREE.MeshStandardMaterial({ color: 0x5c4033, roughness: 0.9 });
+      const lidMat = new THREE.MeshStandardMaterial({ color: 0x3d2b22, roughness: 0.9 });
+      
+      const base = new THREE.Mesh(new THREE.BoxGeometry(1.2, 0.8, 0.8), woodMat);
+      base.position.y = 0.4;
+      base.castShadow = true;
+      boxGroup.add(base);
+      
+      const lid = new THREE.Mesh(new THREE.BoxGeometry(1.24, 0.15, 0.84), lidMat);
+      lid.position.y = 0.85;
+      lid.castShadow = true;
+      boxGroup.add(lid);
+
+      const bandMat = new THREE.MeshStandardMaterial({ color: 0xffeb3b, emissive: 0x333300 });
+      const band = new THREE.Mesh(new THREE.BoxGeometry(0.15, 0.82, 0.82), bandMat);
+      band.position.y = 0.4;
+      boxGroup.add(band);
+      
+      boxGroup.position.copy(pos);
+      boxGroup.position.y = getElevation(pos.x, pos.z, pos.y);
+      scene.add(boxGroup);
+      
+      const firstAidCount = Math.random() < 0.45 ? 1 : (Math.random() < 0.15 ? 2 : 0);
+      const grenadeCount = Math.random() < 0.3 ? 1 : 0;
+      const smokeCount = Math.random() < 0.3 ? 1 : 0;
+      
+      let ammoType = null;
+      let ammoCount = 0;
+      if (actualWeapon) {
+        const wName = actualWeapon.name;
+        if (wName === '권총') {
+          ammoType = 'PISTOL';
+          ammoCount = Math.floor(Math.random() * 30) + 15;
+        } else if (wName === '샷건') {
+          ammoType = 'SHOTGUN';
+          ammoCount = Math.floor(Math.random() * 10) + 5;
+        } else if (wName === '돌격소총') {
+          ammoType = 'RIFLE';
+          ammoCount = Math.floor(Math.random() * 60) + 30;
+        } else if (wName === '저격소총') {
+          ammoType = 'SNIPER';
+          ammoCount = Math.floor(Math.random() * 15) + 5;
+        }
+      }
+      
+      lootBoxes.push({
+        mesh: boxGroup,
+        type: 'CRATE',
+        weapon: actualWeapon,
+        scope: actualScope,
+        helmet: helmet,
+        bag: bag,
+        firstaids: firstAidCount,
+        grenades: grenadeCount,
+        smokes: smokeCount,
+        ammoType: ammoType,
+        ammoCount: ammoCount,
+        isCrate: true
+      });
+    }
+    
+    // 파밍용 상자/아이템 생성 (다양한 장비 및 투척무기 포함)
+    for(let i=0; i<250; i++) {
+      let rX = 0, rZ = 0, ok = false;
+      for (let retries = 0; retries < 150; retries++) {
+        rX = (Math.random()-0.5)*460;
+        rZ = (Math.random()-0.5)*460;
+        if (getElevation(rX, rZ, false) > WATER_LEVEL + 0.5) {
+          ok = true;
+          break;
+        }
+      }
+      if (!ok) continue;
+      const pos = new THREE.Vector3(rX, 0, rZ);
+      const randVal = Math.random();
+      if(randVal < 0.20) {
+        const weapon = wPool[Math.floor(Math.random()*wPool.length)];
+        spawnGroundItem(pos, 'WEAPON', weapon);
+        
+        // Spawn matching ammo nearby
+        const wKey = weapon.name === '권총' ? 'PISTOL' : (weapon.name === '샷건' ? 'SHOTGUN' : (weapon.name === '돌격소총' ? 'RIFLE' : 'SNIPER'));
+        const ammoType = 'AMMO_' + wKey;
+        const offsetPos = pos.clone().add(new THREE.Vector3((Math.random()-0.5)*1.9, 0, (Math.random()-0.5)*1.9));
+        spawnGroundItem(offsetPos, ammoType, { name: getAmmoName(wKey) });
+      } else if(randVal < 0.35) {
+        spawnGroundItem(pos, 'SCOPE', sPool[Math.floor(Math.random()*sPool.length)]);
+      } else if(randVal < 0.50) {
+        spawnGroundItem(pos, 'HELMET', hPool[Math.floor(Math.random()*hPool.length)]);
+      } else if(randVal < 0.65) {
+        spawnGroundItem(pos, 'BAG', bPool[Math.floor(Math.random()*bPool.length)]);
+      } else if(randVal < 0.73) {
+        spawnGroundItem(pos, 'GRENADE', { name: '수류탄' });
+      } else if(randVal < 0.81) {
+        spawnGroundItem(pos, 'SMOKE', { name: '연막탄' });
+      } else if(randVal < 0.89) {
+        spawnGroundItem(pos, 'FIRSTAID', { name: '구급상자' });
+      } else {
+        // Spawn random ammo
+        const wKeys = ['PISTOL', 'SHOTGUN', 'RIFLE', 'SNIPER'];
+        const wKey = wKeys[Math.floor(Math.random()*4)];
+        const ammoType = 'AMMO_' + wKey;
+        spawnGroundItem(pos, ammoType, { name: getAmmoName(wKey) });
+      }
+    }
+
+    // --- [4. 미니맵/자기장] ---
+    let currentZoneRadius = 500; let playZoneRadius = 300; let zoneState = 'WAITING'; let zoneTimer = 35; let shrinkSpeed = 0; 
+    const zoneMesh = new THREE.Mesh(new THREE.CylinderGeometry(500, 500, 200, 48, 1, true), new THREE.MeshBasicMaterial({ color: 0x0044ff, transparent: true, opacity: 0.35, side: THREE.DoubleSide, depthWrite: false }));
+    zoneMesh.position.y = 50; scene.add(zoneMesh);
+
+    function drawMinimap() {
+      try {
+        const mapCanvas = document.getElementById('minimap'); if(!mapCanvas) return;
+        const ctx = mapCanvas.getContext('2d'); ctx.clearRect(0,0,130,130);
+        const scale = 130 / mapSize; const cx = 65, cz = 65; 
+        ctx.beginPath(); ctx.arc(cx, cz, currentZoneRadius * scale, 0, Math.PI*2);
+        ctx.fillStyle = 'rgba(0,50,255,0.2)'; ctx.fill(); ctx.lineWidth = 1; ctx.strokeStyle = 'blue'; ctx.stroke();
+        ctx.beginPath(); ctx.arc(cx + playerPos.x * scale, cz + playerPos.z * scale, 3, 0, Math.PI*2);
+        ctx.fillStyle = '#00ff00'; ctx.fill();
+
+        // 미니맵에 소리 알림 드로잉
+        const elapsed = clock.getElapsedTime();
+        recentGunshots.forEach((shot, idx) => {
+          if (elapsed - shot.time > shot.life) {
+            recentGunshots.splice(idx, 1);
+            return;
+          }
+          const dx = shot.pos.x - playerPos.x;
+          const dz = shot.pos.z - playerPos.z;
+          const dist = Math.sqrt(dx * dx + dz * dz);
+          if (dist < 200) {
+            const opacity = 1 - (elapsed - shot.time) / shot.life;
+            const sx = cx + dx * scale;
+            const sz = cz + dz * scale;
+            
+            const mx = sx - cx;
+            const mz = sz - cz;
+            const mdist = Math.sqrt(mx * mx + mz * mz);
+            
+            ctx.beginPath();
+            if (mdist < 60) {
+              ctx.arc(sx, sz, 4, 0, Math.PI * 2);
+              ctx.fillStyle = `rgba(255, 0, 0, ${opacity})`;
+              ctx.fill();
+            } else {
+              const angle = Math.atan2(mz, mx);
+              ctx.arc(cx + Math.cos(angle) * 60, cz + Math.sin(angle) * 60, 3, 0, Math.PI * 2);
+              ctx.fillStyle = `rgba(255, 0, 0, ${opacity})`;
+              ctx.fill();
+            }
+          }
+        });
+      } catch(e) {} 
+    }
+
+    setInterval(() => {
+      if(gameState !== 'PLAYING' || playerHp <= 0 || hasWonMatch) return;
+      zoneTimer--;
+      if(zoneTimer <= 0) {
+        if(zoneState === 'WAITING') {
+          zoneState = 'SHRINKING'; playZoneRadius = Math.max(40, playZoneRadius - 80);
+          zoneTimer = 20; shrinkSpeed = (currentZoneRadius - playZoneRadius) / 20; 
+          document.getElementById('zone-text').innerText = '⚠️ 자기장 축소중!'; document.getElementById('zone-text').style.color = '#ff3333';
+          showNotice('⚠️ 블루존이 줄어들고 있습니다!');
+        } else {
+          zoneState = 'WAITING'; zoneTimer = 35;
+          document.getElementById('zone-text').innerText = '안전지대 대기중'; document.getElementById('zone-text').style.color = '#4caf50';
+        }
+      }
+      document.getElementById('zone-timer').innerText = zoneTimer;
+    }, 1000);
+
+    function tryFastLoot() {
+      if (gameState !== 'PLAYING' || playerHp <= 0 || isInventoryOpen) return false;
+      
+      let nearestItemIndex = -1;
+      let minDist = 3.5;
+      let nearestCrateIndex = -1;
+      let minCrateDist = 3.5;
+      
+      for (let i = 0; i < lootBoxes.length; i++) {
+        const loot = lootBoxes[i];
+        const dist = playerPos.distanceTo(loot.mesh.position);
+        if (loot.isCrate) {
+          if (dist < minCrateDist) {
+            minCrateDist = dist;
+            nearestCrateIndex = i;
+          }
+        } else {
+          if (dist < minDist) {
+            minDist = dist;
+            nearestItemIndex = i;
+          }
+        }
+      }
+      
+      if (nearestItemIndex !== -1) {
+        window.pickupItem(nearestItemIndex);
+        return true;
+      } else if (nearestCrateIndex !== -1) {
+        toggleInventory();
+        return true;
+      }
+      return false;
+    }
+
+    // --- [5. 사격 처리 및 줌(스코프) 제어] ---
+    let isZooming = false; 
+    function updateScopeOverlay() {
+      const overlay = document.getElementById('scope-overlay');
+      const magText = document.getElementById('scope-mag-text');
+      const scopeObj = currentScope || SCOPES.NONE;
+      if (isZooming && scopeObj && scopeObj.mag > 1) {
+        overlay.style.display = 'block';
+        if (magText) magText.innerText = scopeObj.name;
+      } else {
+        overlay.style.display = 'none';
+      }
+    }
+    let playerRecoilTime = 0;
+
+    const BulletCache = {
+      geometries: {},
+      materials: {},
+      getOrCreate(weaponName) {
+        let type = 'DEFAULT';
+        let color = 0xffaa00;
+        let size = 0.04;
+        let len = 0.4;
+        
+        if (weaponName === '권총') { type = 'PISTOL'; color = 0xeeee00; size = 0.03; len = 0.3; }
+        else if (weaponName === '샷건') { type = 'SHOTGUN'; color = 0xff3300; size = 0.04; len = 0.15; }
+        else if (weaponName === '돌격소총') { type = 'RIFLE'; color = 0x00ff44; size = 0.04; len = 0.5; }
+        else if (weaponName === '저격총') { type = 'SNIPER'; color = 0x00ffff; size = 0.05; len = 0.8; }
+        
+        if (!this.geometries[type]) {
+          this.geometries[type] = new THREE.BoxGeometry(size, size, len);
+          this.materials[type] = new THREE.MeshBasicMaterial({ color: color });
+        }
+        return { geom: this.geometries[type], mat: this.materials[type] };
+      },
+      disposeAll() {
+        for (let k in this.geometries) {
+          this.geometries[k].dispose();
+        }
+        for (let k in this.materials) {
+          this.materials[k].dispose();
+        }
+        this.geometries = {};
+        this.materials = {};
+      }
+    };
+
+    function fireBullet(shooterPos, targetPos, weapon, shooterId, spread = 0) {
+      const baseDir = new THREE.Vector3().subVectors(targetPos, shooterPos).normalize();
+      
+      // 탄퍼짐(Spread) 적용
+      const spreadX = (Math.random() - 0.5) * spread;
+      const spreadY = (Math.random() - 0.5) * spread;
+      const spreadZ = (Math.random() - 0.5) * spread;
+      const dir = baseDir.clone().add(new THREE.Vector3(spreadX, spreadY, spreadZ)).normalize();
+
+      const assets = BulletCache.getOrCreate(weapon.name);
+      const bullet = new THREE.Mesh(assets.geom, assets.mat);
+      bullet.name = 'bullet';
+      bullet.position.copy(shooterPos); bullet.lookAt(shooterPos.clone().add(dir)); scene.add(bullet);
+      
+      let finalDmg = weapon.dmg;
+      if (weapon.name === '샷건') finalDmg = weapon.dmg / 8; // 산탄총은 8발로 나누어 데미지 계산
+
+      if (shooterId !== 'PLAYER') {
+        const ai = enemies.find(e => e.id === shooterId);
+        if (ai) {
+          const mult = ai.tier === 'Noob' ? 0.8 : (ai.tier === 'Pro' ? 1.0 : 1.4);
+          finalDmg = weapon.dmg * mult;
+        }
+      }
+      const bulletLife = weapon.range / 60.0;
+      enemyBullets.push({ mesh: bullet, dir: dir, life: bulletLife, dmg: finalDmg, owner: shooterId, shooterPos: shooterPos.clone() });
+
+      const wKey = weapon.name === '권총' ? 'PISTOL' : (weapon.name === '샷건' ? 'SHOTGUN' : (weapon.name === '돌격소총' ? 'RIFLE' : 'SNIPER'));
+
+      if (shooterId !== 'PLAYER') {
+        recentGunshots.push({
+          pos: shooterPos.clone(),
+          time: clock.getElapsedTime(),
+          life: 1.5
+        });
+        const ai = enemies.find(e => e.id === shooterId);
+        if (ai && ai.soldier) {
+          triggerMuzzleFlash(ai.soldier.weaponContainer);
+          ai.recoilTime = 0.15;
+        }
+        
+        // --- [사운드 플레이: 좌우 패닝 시뮬레이션] ---
+        const dist = playerPos.distanceTo(shooterPos);
+        const vol = Math.max(0, 1 - dist / 220);
+        
+        if (vol > 0.01) {
+          // 플레이어 시야 정면 기준 상대적 각도 계산
+          const camDir = new THREE.Vector3(0, 0, -1).applyQuaternion(camera.quaternion);
+          camDir.y = 0; camDir.normalize();
+          const toShooter = new THREE.Vector3().subVectors(shooterPos, playerPos);
+          toShooter.y = 0; toShooter.normalize();
+          
+          const sideDir = new THREE.Vector3().crossVectors(new THREE.Vector3(0, 1, 0), camDir);
+          const pan = toShooter.dot(sideDir); // -1(왼쪽) ~ 1(오른쪽)
+          
+          SoundSystem.playGunshot(wKey, vol, pan);
+        }
+      } else {
+        triggerMuzzleFlash(playerSoldier.weaponContainer);
+        playerRecoilTime = 0.15;
+        SoundSystem.playGunshot(wKey, 1.0, 0);
+      }
+    }
+    let isReloading = false;
+    const maxClipSizes = {
+      PISTOL: 7,
+      SHOTGUN: 5,
+      RIFLE: 30,
+      SNIPER: 5
+    };
+
+    function startReload() {
+      if (gameState !== 'PLAYING' || playerHp <= 0) return;
+      if (currentWeapon === WEAPONS.PUNCH) return;
+      if (isReloading) return;
+
+      const wKey = currentWeapon.name === '권총' ? 'PISTOL' : (currentWeapon.name === '샷건' ? 'SHOTGUN' : (currentWeapon.name === '돌격소총' ? 'RIFLE' : 'SNIPER'));
+      const maxClip = maxClipSizes[wKey];
+      const currentLoaded = playerInventory.loadedAmmo[wKey];
+      const reserve = playerInventory.ammo[wKey];
+
+      if (currentLoaded >= maxClip) {
+        showNotice("이미 탄약이 가득 차 있습니다.");
+        return;
+      }
+      if (reserve <= 0) {
+        showNotice("⚠️ 여분 탄약이 없습니다!");
+        return;
+      }
+
+      isReloading = true;
+      SoundSystem.playReloadSound(currentWeapon.name);
+      showNotice("🔄 장전 중...");
+
+      setTimeout(() => {
+        if (gameState !== 'PLAYING' || playerHp <= 0 || currentWeapon === WEAPONS.PUNCH) {
+          isReloading = false;
+          return;
+        }
+        const needed = maxClip - playerInventory.loadedAmmo[wKey];
+        const toLoad = Math.min(needed, playerInventory.ammo[wKey]);
+        
+        playerInventory.loadedAmmo[wKey] += toLoad;
+        playerInventory.ammo[wKey] -= toLoad;
+        
+        isReloading = false;
+        showNotice("장전 완료!");
+        updateEquipUI();
+      }, 1500);
+    }
+
+    const centerMouse = new THREE.Vector2(0, 0); const raycaster = new THREE.Raycaster();
+    let playerPunchTime = 0;
+    let punchSide = 'LEFT';
+
+    function performPlayerAttack() {
+      if (gameState !== 'PLAYING' || playerHp <= 0) return;
+      if (isReloading) return;
+      
+      const isSwimming = (getWaterLevel(playerPos.x, playerPos.z) - getElevation(playerPos.x, playerPos.z, false) >= 0.55);
+      if (isSwimming) {
+        showNotice("⚠️ 물속에서는 공격할 수 없습니다!");
+        return;
+      }
+
+      if (currentWeapon !== WEAPONS.PUNCH) {
+        const wKey = currentWeapon.name === '권총' ? 'PISTOL' : (currentWeapon.name === '샷건' ? 'SHOTGUN' : (currentWeapon.name === '돌격소총' ? 'RIFLE' : 'SNIPER'));
+        if (playerInventory.loadedAmmo[wKey] <= 0) {
+          SoundSystem.playDryClick();
+          showNotice("⚠️ 탄창이 비어있습니다! R키로 장전하세요.");
+          return;
+        }
+        playerInventory.loadedAmmo[wKey]--;
+        updateEquipUI();
+      }
+      
+      if (currentWeapon === WEAPONS.PUNCH) {
+        playerPunchTime = 0.2;
+        punchSide = punchSide === 'LEFT' ? 'RIGHT' : 'LEFT';
+        
+        // 주먹 공격 피격 감지: 범위 및 정면 각도 체크
+        raycaster.setFromCamera(centerMouse, camera);
+        let hitEnemy = null;
+        let minHitDist = currentWeapon.range;
+        
+        enemies.forEach(enemy => {
+          if(enemy.hp <= 0 || enemy.state !== 'PLAYING') return;
+          const distToEnemy = playerPos.distanceTo(enemy.mesh.position);
+          if (distToEnemy <= minHitDist) {
+            const dirToEnemy = new THREE.Vector3().subVectors(enemy.mesh.position, playerPos).normalize();
+            const lookDir = new THREE.Vector3(0, 0, -1).applyQuaternion(camera.quaternion);
+            lookDir.y = 0; lookDir.normalize();
+            dirToEnemy.y = 0; dirToEnemy.normalize();
+            
+            const angleCheck = lookDir.dot(dirToEnemy);
+            if (angleCheck > 0.7) {
+              hitEnemy = enemy;
+              minHitDist = distToEnemy;
+            }
+          }
+        });
+        
+        if (hitEnemy) {
+          hitEnemy.hp -= currentWeapon.dmg;
+          hitEnemy.lastHitTime = clock.getElapsedTime();
+          showNotice("👊 적을 주먹으로 타격했습니다! (-20 HP)");
+          SoundSystem.playPunch(true);
+          
+          if (hitEnemy.hp <= 0) {
+            totalAlive--; killCount++; document.getElementById('kill-count').innerText = killCount;
+            spawnCorpseBox(hitEnemy.mesh.position, hitEnemy.weapon, Math.random() > 0.5 ? SCOPES.X2 : SCOPES.NONE, hitEnemy.helmet, hitEnemy.bag);
+            scene.remove(hitEnemy.mesh); hitEnemy.hpUI.bg.style.display = 'none';
+            addKillLog(`당신이 ${hitEnemy.id} 주먹 처치`); showNotice("⚡ 적을 처치했습니다!");
+            checkVictory();
+          }
+        } else {
+          SoundSystem.playPunch(false);
+        }
+        return;
+      }
+      
+      raycaster.setFromCamera(centerMouse, camera);
+      
+      // 3인칭 지향 사격 시의 조준점 불일치(Parallax) 보정: 카메라 레이상의 실제 최단 충돌 객체를 찾아 조준 타겟으로 설정
+      let targetPoint = null;
+      const intersects = raycaster.intersectObjects(scene.children, true);
+      let closestHitDist = currentWeapon.range || 120;
+      
+      if (intersects.length > 0) {
+        for (let hit of intersects) {
+          // 플레이어 자신의 메쉬나 보이지 않는 콜라이더 등은 제외
+          let obj = hit.object;
+          let isPlayerOrBullet = false;
+          while (obj) {
+            if (obj === myPlayerGroup || obj.name === 'bullet' || obj.name === 'muzzleflash') {
+              isPlayerOrBullet = true;
+              break;
+            }
+            obj = obj.parent;
+          }
+          if (!isPlayerOrBullet && hit.distance < closestHitDist) {
+            closestHitDist = hit.distance;
+            targetPoint = hit.point;
+          }
+        }
+      }
+      
+      // 마땅한 충돌 타겟이 없는 경우 기본 사거리(120m) 연장선을 타겟으로 설정
+      if (!targetPoint) {
+        targetPoint = camera.position.clone().add(raycaster.ray.direction.clone().multiplyScalar(currentWeapon.range || 120));
+      }
+      
+      const fireOrigin = (!isTPP || isZooming) ? camera.position.clone() : playerPos.clone().add(new THREE.Vector3(0, 1.2, 0));
+
+      if (currentWeapon.name === '샷건') {
+        // 산탄총: 8발의 파편 발사
+        for (let i = 0; i < 8; i++) {
+          fireBullet(fireOrigin, targetPoint, currentWeapon, 'PLAYER', 0.15);
+        }
+      } else {
+        // 일반 총기: 거의 정확하게 발사 (0.01 정도의 아주 미세한 오차만 허용)
+        fireBullet(fireOrigin, targetPoint, currentWeapon, 'PLAYER', 0.015);
+      }
+    }
+
+    // --- [6. 조작 엔진 및 시점/줌 이벤트] ---
+    const moveState = { fwd: false, bwd: false, lft: false, rgt: false, shift: false, jX: 0, jY: 0 };
+    const leanState = { left: false, right: false };
+    let currentLean = 0; // -1 (좌기울기) ~ 1 (우기울기)
+    let isLocked = false;
+
+    const startBtn = document.getElementById('start-btn');
+    startBtn.innerText = isTouchDevice ? '매치 시작 (터치)' : '매치 시작';
+    
+    const handleStartMatch = (e) => {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      
+      if (gameState !== 'LOBBY') return;
+      
+      document.getElementById('overlay').style.display = 'none';
+      document.getElementById('settings-ui').style.display = 'none';
+      initAudio(); // Ensure audio is ready
+      SoundSystem.stopBGM();
+      
+      // 브라우저 전체화면 요청 및 모바일 가로 방향 고정
+      const docEl = document.documentElement;
+      const requestFs = docEl.requestFullscreen || docEl.webkitRequestFullscreen || docEl.mozRequestFullScreen || docEl.msRequestFullscreen;
+      if (requestFs) {
+        requestFs.call(docEl).then(() => {
+          if (screen.orientation && screen.orientation.lock) {
+            screen.orientation.lock('landscape').catch(err => {
+              console.log(`Orientation lock error: ${err.message}`);
+            });
+          }
+        }).catch(err => {
+          console.log(`Error attempting to enable full-screen mode: ${err.message}`);
+        });
+      } else {
+        if (screen.orientation && screen.orientation.lock) {
+          screen.orientation.lock('landscape').catch(err => console.log(err));
+        }
+      }
+
+      gameState = 'AIRPLANE'; 
+      initPlaneSeatsUI();
+      document.getElementById('plane-seat-map').style.display = 'flex'; 
+      actionBtn.style.display = 'flex'; 
+      actionBtn.innerText = isTouchDevice ? '🪂 뛰어내리기' : '🪂 뛰어내리기 (좌클릭/F)'; 
+      playerSoldier.parachuteBag.visible = true;
+      SoundSystem.playPlaneSound();
+      
+      // 로비 상태 총기 및 위치 초기화하여 수송기 시작 세팅
+      playerPos.copy(planeGroup.position);
+      playerInventory.weapon = WEAPONS.PUNCH;
+      playerInventory.scope = SCOPES.NONE;
+      playerInventory.grenades = 0;
+      playerInventory.smokes = 0;
+      playerInventory.firstaids = 0;
+      currentWeapon = WEAPONS.PUNCH;
+      currentScope = SCOPES.NONE;
+      updateVisualEquip(playerSoldier, currentWeapon, currentScope);
+      myPlayerGroup.visible = false;
+      myPlayerGroup.rotation.set(0, 0, 0);
+      hasRevived = false;
+      playerInvincibleTime = 0;
+      
+      // Initial camera setup for airplane state
+      const startDirection = new THREE.Vector3(1, 0, 1).normalize();
+      camera.position.copy(planeGroup.position).sub(startDirection.clone().multiplyScalar(50)).add(new THREE.Vector3(0, 15, 0));
+      camera.lookAt(planeGroup.position);
+
+      if (isTouchDevice) { 
+        document.getElementById('mobile-ui').style.display = 'block'; 
+        document.getElementById('crosshair').style.display = 'block'; 
+      } else { 
+        document.getElementById('crosshair').style.display = 'block'; 
+        document.getElementById('player-hp-ui').style.display = 'block'; 
+        try { document.body.requestPointerLock(); } catch(err) {} 
+      }
+      document.getElementById('top-left-ui').style.display = 'flex';
+      document.getElementById('match-info').style.display = 'block';
+    };
+
+    startBtn.addEventListener('click', handleStartMatch);
+    startBtn.addEventListener('touchstart', handleStartMatch);
+
+    if (isTouchDevice) {
+      const joyContainer = document.getElementById('joystick-container'); const joyStick = document.getElementById('joystick-stick');
+      let joyId = null, startX=0, startY=0;
+      
+      document.getElementById('joystick-touch-zone').addEventListener('touchstart', (e) => {
+        if(gameState === 'LOBBY') return; if(joyId!==null) return;
+        const t = e.changedTouches[0]; joyId = t.identifier; startX = t.clientX; startY = t.clientY;
+        joyContainer.style.left = startX+'px'; joyContainer.style.top = startY+'px'; joyContainer.style.display = 'block'; joyStick.style.left = '50%'; joyStick.style.top = '50%';
+      }, {passive:true});
+      window.addEventListener('touchmove', (e) => {
+        if(joyId===null) return; let t = null; for(let i=0; i<e.touches.length; i++) if(e.touches[i].identifier===joyId) t=e.touches[i];
+        if(!t) return;
+        const dx = t.clientX - startX; const dy = t.clientY - startY;
+        const dist = Math.min(50, Math.sqrt(dx*dx+dy*dy)); const angle = Math.atan2(dy, dx);
+        joyStick.style.left = (50+Math.cos(angle)*dist)+'px'; joyStick.style.top = (50+Math.sin(angle)*dist)+'px';
+        moveState.jX = (Math.cos(angle)*dist)/50; moveState.jY = -(Math.sin(angle)*dist)/50;
+      }, {passive:true});
+      window.addEventListener('touchend', (e) => {
+        for(let i=0; i<e.changedTouches.length; i++) { if(e.changedTouches[i].identifier===joyId) { joyId=null; moveState.jX=0; moveState.jY=0; joyContainer.style.display='none'; } }
+      });
+
+      // --- 수정된 시점 이동(Look Zone) 코드 ---
+      const lookZone = document.getElementById('touch-look-zone');
+      let lookTouchId = null; // 시점 이동 전용 터치 ID 저장
+      let prevX = 0, prevY = 0;
+
+      lookZone.addEventListener('touchstart', (e) => { 
+        if (lookTouchId !== null) return; // 이미 터치 중이면 무시
+        const t = e.changedTouches[0];
+        lookTouchId = t.identifier;
+        prevX = t.clientX; 
+        prevY = t.clientY; 
+      }, {passive:true});
+
+      lookZone.addEventListener('touchmove', (e) => {
+        if (lookTouchId === null) return;
+        
+        // 현재 터치 중인 손가락들 중에서 시점 이동용 손가락만 찾기
+        let t = null;
+        for (let i = 0; i < e.touches.length; i++) {
+          if (e.touches[i].identifier === lookTouchId) t = e.touches[i];
+        }
+        if (!t) return;
+
+        const dx = t.clientX - prevX; 
+        const dy = t.clientY - prevY;
+        prevX = t.clientX; 
+        prevY = t.clientY;
+
+        const eu = new THREE.Euler(0,0,0,'YXZ'); 
+        eu.setFromQuaternion(camera.quaternion);
+        
+        // 스코프 배율에 비례해서 감도를 낮춤 (모바일 감도 최적화)
+        const sensitivity = isZooming ? 0.004 / currentScope.mag : 0.008;
+        eu.y -= dx * sensitivity; 
+        eu.x -= dy * sensitivity; 
+        eu.x = Math.max(-1.5, Math.min(1.5, eu.x));
+        camera.quaternion.setFromEuler(eu);
+      }, {passive:true});
+
+      lookZone.addEventListener('touchend', (e) => { 
+        // 뗀 손가락이 시점 이동용 손가락인지 확인
+        for (let i = 0; i < e.changedTouches.length; i++) {
+          if (e.changedTouches[i].identifier === lookTouchId) {
+            lookTouchId = null;
+          }
+        }
+      });
+      // ----------------------------------------
+
+
+      // 공통 버튼 터치 조작 + 드래그 시야 이동(Look) 연동 함수 (모바일 편의성 극대화)
+      function makeButtonTrackLook(btnId, actionCallback) {
+        const btn = document.getElementById(btnId);
+        if (!btn) return;
+        btn.addEventListener('touchstart', (e) => {
+          e.preventDefault();
+          if (actionCallback) actionCallback(e);
+          
+          // 해당 손가락 터치로 드래그 시야 이동도 같이 할 수 있도록 세팅
+          if (lookTouchId === null) {
+            const t = e.changedTouches[0];
+            lookTouchId = t.identifier;
+            prevX = t.clientX;
+            prevY = t.clientY;
+          }
+        });
+      }
+
+      makeButtonTrackLook('btn-attack', () => performPlayerAttack());
+      makeButtonTrackLook('btn-reload', () => startReload());
+      makeButtonTrackLook('btn-aim', () => {
+        if (currentWeapon !== WEAPONS.PUNCH) {
+          isZooming = !isZooming;
+          updateScopeOverlay();
+        }
+      });
+      makeButtonTrackLook('btn-tpp', () => togglePerspective());
+      makeButtonTrackLook('btn-inventory', () => toggleInventory());
+      makeButtonTrackLook('btn-crouch', () => {
+        if (gameState === 'PLAYING' && playerHp > 0 && !isVaulting) {
+          playerStance = (playerStance === 'CROUCH') ? 'STAND' : 'CROUCH';
+          showNotice(playerStance === 'CROUCH' ? "앉기 (Crouch)" : "서기 (Stand)", 1500);
+          if (isHealing) { isHealing = false; document.getElementById('heal-progress-container').style.display = 'none'; }
+        }
+      });
+      makeButtonTrackLook('btn-prone', () => {
+        if (gameState === 'PLAYING' && playerHp > 0 && !isVaulting) {
+          playerStance = (playerStance === 'PRONE') ? 'STAND' : 'PRONE';
+          showNotice(playerStance === 'PRONE' ? "엎드리기 (Prone)" : "서기 (Stand)", 1500);
+          if (isHealing) { isHealing = false; document.getElementById('heal-progress-container').style.display = 'none'; }
+        }
+      });
+      makeButtonTrackLook('btn-jump', () => {
+        if (gameState === 'PLAYING' && playerHp > 0 && !isVaulting) {
+          const vaulted = tryVaultWindow();
+          if (!vaulted && isGrounded) {
+            playerVelocityY = 7.2;
+            isGrounded = false;
+            playerStance = 'STAND';
+            if (isHealing) { isHealing = false; document.getElementById('heal-progress-container').style.display = 'none'; }
+          }
+        }
+      });
+      makeButtonTrackLook('btn-heal', () => startHealing());
+      makeButtonTrackLook('btn-interact', () => {
+        if (gameState === 'PLAYING') {
+          const looted = tryFastLoot();
+          if (!looted) tryInteractDoor();
+        }
+      });
+    } else {
+      document.addEventListener("pointerlockchange", ()=>{ isLocked = (document.pointerLockElement === document.body); });
+      document.addEventListener("click", (e)=>{
+        if (document.getElementById("victory-box") && document.getElementById("victory-box").style.display === "block") return;
+        if (gameState === "PLAYING" && !isLocked && playerHp > 0) {
+          try { document.body.requestPointerLock(); } catch(err) {}
+        }
+      });
+      document.addEventListener('mousemove', (e)=>{
+        if (gameState === 'LOBBY') {
+          if (isLobbyDragging) {
+            const deltaX = e.clientX - prevLobbyMouseX;
+            const deltaY = e.clientY - prevLobbyMouseY;
+            prevLobbyMouseX = e.clientX;
+            prevLobbyMouseY = e.clientY;
+            lobbyAngle -= deltaX * 0.005;
+            lobbyPitch += deltaY * 0.005;
+            lobbyPitch = Math.max(-0.05, Math.min(1.2, lobbyPitch));
+          }
+          return;
+        }
+        if(!isLocked) return;
+        const eu = new THREE.Euler(0,0,0,'YXZ'); eu.setFromQuaternion(camera.quaternion);
+        const sensitivity = isZooming ? 0.002 / currentScope.mag : 0.002;
+        eu.y -= e.movementX * sensitivity; 
+        eu.x -= e.movementY * sensitivity;
+        // 시야각 제한: 위쪽 1.5rad, 아래쪽 일반 시점에선 -1.0rad (스코프 없을 때), 스코프 사용 시 -1.5rad 허용
+        const minPitch = isZooming ? -1.5 : -1.0;
+        eu.x = Math.max(minPitch, Math.min(1.5, eu.x));
+        eu.x = Math.max(-1.5, Math.min(1.5, eu.x)); // 안전 범위 보정
+        camera.quaternion.setFromEuler(eu);
+        camera.quaternion.setFromEuler(eu);
+      });
+      document.addEventListener('mousedown', (e)=>{ 
+        if (document.getElementById("victory-box") && document.getElementById("victory-box").style.display === "block") return;
+        if (gameState === 'LOBBY') {
+          isLobbyDragging = true;
+          prevLobbyMouseX = e.clientX;
+          prevLobbyMouseY = e.clientY;
+          return;
+        }
+        if (gameState === 'AIRPLANE' || gameState === 'FALLING') {
+          handleActionBtn();
+          return;
+        }
+        if(!isLocked) return;
+        if (e.button === 0) performPlayerAttack(); 
+        if (e.button === 2 && currentWeapon !== WEAPONS.PUNCH) {
+          isZooming = true;
+          updateScopeOverlay();
+        }
+      });
+      document.addEventListener('mouseup', (e)=>{ 
+        if (gameState === 'LOBBY') {
+          isLobbyDragging = false;
+          return;
+        }
+        if (e.button === 2) { isZooming = false; updateScopeOverlay(); } 
+      });
+      document.addEventListener('mouseleave', ()=>{
+        if (gameState === 'LOBBY') {
+          isLobbyDragging = false;
+        }
+      });
+      document.addEventListener('wheel', (e)=>{
+        if (gameState === 'LOBBY') {
+          lobbyDistance += e.deltaY * 0.005;
+          lobbyDistance = Math.max(1.8, Math.min(8.0, lobbyDistance));
+        }
+      }, { passive: true });
+      document.addEventListener('keydown', (e)=>{
+        if(e.code==='KeyW') moveState.fwd=true; if(e.code==='KeyS') moveState.bwd=true;
+        if(e.code==='KeyA') moveState.lft=true; if(e.code==='KeyD') moveState.rgt=true;
+        if(e.code==='ShiftLeft' || e.code==='ShiftRight') moveState.shift=true;
+        if(e.code==='KeyQ') leanState.left=true;
+        if(e.code==='KeyE') leanState.right=true;
+        if(e.code==='KeyF') {
+          if (gameState === 'AIRPLANE' || gameState === 'FALLING') {
+            handleActionBtn();
+          } else if (gameState === 'PLAYING') {
+            // 주변 아이템 줍기 먼저 시도, 없으면 문 상호작용
+            const looted = tryFastLoot();
+            if (!looted) {
+              tryInteractDoor();
+            }
+          }
+        } 
+        if(e.code==='KeyV') togglePerspective(); 
+        if(e.code==='Tab') { e.preventDefault(); toggleInventory(); }
+        if(e.code==='KeyG') throwThrowable('GRENADE');
+        if(e.code==='KeyH') throwThrowable('SMOKE');
+        if(e.code==='KeyR') startReload();
+        
+        // 자세 전환 바인딩
+        if(e.code==='KeyC') {
+          if (gameState === 'PLAYING' && playerHp > 0 && !isVaulting) {
+            playerStance = (playerStance === 'CROUCH') ? 'STAND' : 'CROUCH';
+            showNotice(playerStance === 'CROUCH' ? "앉기 (Crouch)" : "서기 (Stand)", 1500);
+            if (isHealing) {
+              isHealing = false;
+              document.getElementById('heal-progress-container').style.display = 'none';
+              showNotice("⚠️ 자세 변경으로 구급상자 사용 취소!");
+            }
+          }
+        }
+        if(e.code==='KeyZ') {
+          if (gameState === 'PLAYING' && playerHp > 0 && !isVaulting) {
+            playerStance = (playerStance === 'PRONE') ? 'STAND' : 'PRONE';
+            showNotice(playerStance === 'PRONE' ? "엎드리기 (Prone)" : "서기 (Stand)", 1500);
+            if (isHealing) {
+              isHealing = false;
+              document.getElementById('heal-progress-container').style.display = 'none';
+              showNotice("⚠️ 자세 변경으로 구급상자 사용 취소!");
+            }
+          }
+        }
+        // 점프 & 파쿠르
+        if(e.code==='Space') {
+          if (gameState === 'PLAYING' && playerHp > 0 && !isVaulting) {
+            // 창문 파쿠르 먼저 시도
+            const vaulted = tryVaultWindow();
+            if (!vaulted && isGrounded) {
+              // 실패 시 점프 실행
+              playerVelocityY = 7.2;
+              isGrounded = false;
+              playerStance = 'STAND'; // 점프 시 강제 서기 상태로
+              if (isHealing) {
+                isHealing = false;
+                document.getElementById('heal-progress-container').style.display = 'none';
+                showNotice("⚠️ 점프로 인해 구급상자 사용 취소!");
+              }
+            }
+          }
+        }
+      });
+      document.addEventListener('keyup', (e)=>{
+        if(e.code==='KeyW') moveState.fwd=false; if(e.code==='KeyS') moveState.bwd=false;
+        if(e.code==='KeyA') moveState.lft=false; if(e.code==='KeyD') moveState.rgt=false;
+        if(e.code==='ShiftLeft' || e.code==='ShiftRight') moveState.shift=false;
+        if(e.code==='KeyQ') leanState.left=false;
+        if(e.code==='KeyE') leanState.right=false;
+      });
+    }
+
+    // --- [7. 메인 게임 루프] ---
+    const clock = new THREE.Clock(); 
+    let flightTime = 0; let bobbingTime = 0; let bobIntensity = 0;
+
+    function animate() {
+      requestAnimationFrame(animate);
+      let delta = clock.getDelta(); if(delta > 0.1) delta = 0.1; 
+
+      updatePlaneSeatsUI(); 
+      
+      // 수송기 프로펠러 회전 및 야간 항법등 점멸 효과
+      if (planePropellers && planePropellers.length > 0) {
+        planePropellers.forEach(p => { p.rotation.z += 25 * delta; });
+      }
+      if (planeNavLights && planeNavLights.length > 0) {
+        const flash = Math.floor(clock.getElapsedTime() * 4) % 2 === 0;
+        planeNavLights.forEach((light, idx) => {
+          if (idx === 2) {
+            light.visible = Math.floor(clock.getElapsedTime() * 8) % 2 === 0;
+          } else {
+            light.visible = flash;
+          }
+        });
+      } 
+      
+      // 경사지에서 다리와 발이 묻히는 것을 방지하기 위해 경사도(Slope)에 비례한 부상(Slope Lift) 오프셋 계산 헬퍼
+      const getSlopeLift = (x, z) => {
+        const eps = 0.5;
+        const hL = getElevation(x - eps, z, false);
+        const hR = getElevation(x + eps, z, false);
+        const hD = getElevation(x, z - eps, false);
+        const hU = getElevation(x, z + eps, false);
+        const slope = Math.sqrt((hR - hL)*(hR - hL) + (hU - hD)*(hU - hD)) / (2 * eps);
+        return slope > 0.15 ? (slope - 0.15) * 0.38 : 0;
+      }; 
+      
+      if (gameState === 'LOBBY') {
+        const lobbyY = getElevation(0, 0, 0);
+        playerPos.set(0, lobbyY, 0);
+        myPlayerGroup.position.copy(playerPos);
+        myPlayerGroup.rotation.set(0, 0, 0);
+        
+        // 카메라 인터랙티브 및 천천히 공전 연출 (드래그하지 않을 때 자동 공전)
+        if (!isLobbyDragging) {
+          lobbyAngle += delta * 0.15;
+        }
+        const horizontalDist = lobbyDistance * Math.cos(lobbyPitch);
+        const verticalDist = lobbyDistance * Math.sin(lobbyPitch);
+        camera.position.set(
+          playerPos.x + Math.cos(lobbyAngle) * horizontalDist,
+          playerPos.y + 1.1 + verticalDist,
+          playerPos.z + Math.sin(lobbyAngle) * horizontalDist
+        );
+        
+        // 지형 고도(Elevation)를 실시간 계산하여 지면 밑으로 파고들지 못하도록 제한
+        const camGndY = getElevation(camera.position.x, camera.position.z, false);
+        if (camera.position.y < camGndY + 0.3) {
+          camera.position.y = camGndY + 0.3;
+        }
+        
+        camera.lookAt(playerPos.x, playerPos.y + 0.95, playerPos.z);
+        
+        // 로비 대기 자세 (총구를 대각선 아래로 편안하게 내리는 Low-Ready 자세 연출 - 겹침 방지)
+        playerSoldier.rightArm.rotation.set(0.5, -0.15, 0.05);
+        playerSoldier.rightElbow.rotation.set(0.6, 0.08, 0);
+        playerSoldier.leftArm.rotation.set(0.35, 0.25, 0.05);
+        playerSoldier.leftElbow.rotation.set(0.65, -0.1, 0);
+        playerSoldier.leftThigh.rotation.set(0, 0, 0);
+        playerSoldier.rightThigh.rotation.set(0, 0, 0);
+        playerSoldier.leftKnee.rotation.set(0, 0, 0);
+        playerSoldier.rightKnee.rotation.set(0, 0, 0);
+        
+        renderer.render(scene, camera);
+        return;
+      }
+      
+      // 승리 또는 패배 시 슬로우 모션 처리
+      if (hasWonMatch) {
+        if (victoryTimer > 0) {
+          delta *= 0.2; // 5배 느리게
+          victoryTimer -= (clock.getDelta() || 0.016); // 실제 시간 기준으로 타이머 차감
+          if (victoryTimer <= 0) {
+            showVictoryUI();
+          }
+        }
+        
+        // 치킨 낙하 업데이트 (지형지물 충돌 반사 및 퉁퉁 튕기는 바운스 물리 연출 구현)
+        if (victoryChicken) {
+          const timeStep = (victoryTimer > 0) ? (delta / 0.2) : delta;
+          if (!victoryChicken.landed) {
+            // 중력 가속도 및 마찰 저항 보정
+            victoryChicken.velY -= 45 * timeStep;
+            if (victoryChicken.bounces > 0) {
+              victoryChicken.velX *= Math.exp(-2.0 * timeStep);
+              victoryChicken.velZ *= Math.exp(-2.0 * timeStep);
+            }
+            
+            // 위치 업데이트
+            victoryChicken.group.position.y += victoryChicken.velY * timeStep;
+            victoryChicken.group.position.x += victoryChicken.velX * timeStep;
+            victoryChicken.group.position.z += victoryChicken.velZ * timeStep;
+            
+            // 공중 회전
+            if (victoryChicken.bounces < 3) {
+              victoryChicken.group.rotation.x += timeStep * 8;
+              victoryChicken.group.rotation.y += timeStep * 6;
+            }
+            
+            // 지형지물(나무, 바위, 건물) 충돌 감지 및 튕김
+            const chickenRadius = 1.9;
+            obstacles.forEach(obs => {
+              if (obs.type === 'TREE' || obs.type === 'ROCK') {
+                const dx = victoryChicken.group.position.x - obs.x;
+                const dz = victoryChicken.group.position.z - obs.z;
+                const dist = Math.sqrt(dx * dx + dz * dz);
+                const minDist = obs.radius + chickenRadius;
+                if (dist < minDist && Math.abs(victoryChicken.group.position.y - obs.spotY) < 6.0) {
+                  // 수평으로 튕기기
+                  const pushX = (dx / (dist || 1)) * 12;
+                  const pushZ = (dz / (dist || 1)) * 12;
+                  victoryChicken.velX = pushX;
+                  victoryChicken.velZ = pushZ;
+                  victoryChicken.velY = Math.max(8, -victoryChicken.velY * 0.35); // 위쪽 반발
+                  SoundSystem.playPunch(false);
+                }
+              } else if (obs.type === 'BUILDING') {
+                obs.walls.forEach(w => {
+                  const cx = Math.max(w.minX, Math.min(victoryChicken.group.position.x, w.maxX));
+                  const cz = Math.max(w.minZ, Math.min(victoryChicken.group.position.z, w.maxZ));
+                  const dx = victoryChicken.group.position.x - cx;
+                  const dz = victoryChicken.group.position.z - cz;
+                  const dist = Math.sqrt(dx * dx + dz * dz);
+                  if (dist < chickenRadius && Math.abs(victoryChicken.group.position.y - obs.spotY) < 6.0) {
+                    // 건물 벽면 튕김
+                    const pushX = (dx / (dist || 1)) * 14;
+                    const pushZ = (dz / (dist || 1)) * 14;
+                    victoryChicken.velX = pushX;
+                    victoryChicken.velZ = pushZ;
+                    victoryChicken.velY = Math.max(8, -victoryChicken.velY * 0.35);
+                    SoundSystem.playPunch(false);
+                  }
+                });
+              }
+            });
+            
+            // 지면 및 옥상 착지/바운스 검사
+            const currentGroundY = getElevation(victoryChicken.group.position.x, victoryChicken.group.position.z, victoryChicken.group.position.y);
+            const limitY = currentGroundY + 4.2; // 3.5배 스케일업 닭의 안착 고도 오프셋
+            if (victoryChicken.group.position.y <= limitY) {
+              victoryChicken.group.position.y = limitY;
+              
+              if (victoryChicken.bounces < 3) {
+                victoryChicken.velY = -victoryChicken.velY * 0.45; // 45% 반발 탄성 계수
+                victoryChicken.velX = (Math.random() - 0.5) * 14; // 불규칙 수평 비산
+                victoryChicken.velZ = (Math.random() - 0.5) * 14;
+                victoryChicken.bounces++;
+                
+                createShockwave(victoryChicken.group.position.clone());
+                SoundSystem.playPunch(false); // 바운스 충격음
+              } else {
+                victoryChicken.landed = true;
+                victoryChicken.group.rotation.set(0, 0, 0); // 똑바로 서기
+                createShockwave(victoryChicken.group.position.clone());
+                SoundSystem.playPunch(false);
+              }
+            }
+          } else {
+            // 땅에 착지한 상태에서의 수평 미끄러짐 마찰 저항 보정
+            victoryChicken.velX *= Math.exp(-4.0 * timeStep);
+            victoryChicken.velZ *= Math.exp(-4.0 * timeStep);
+            
+            victoryChicken.group.position.x += victoryChicken.velX * timeStep;
+            victoryChicken.group.position.z += victoryChicken.velZ * timeStep;
+            
+            // 건물/장애물 충돌 밀려남 처리
+            const chickenRadius = 1.9;
+            obstacles.forEach(obs => {
+              if (obs.type === 'TREE' || obs.type === 'ROCK') {
+                const dx = victoryChicken.group.position.x - obs.x;
+                const dz = victoryChicken.group.position.z - obs.z;
+                const dist = Math.sqrt(dx * dx + dz * dz);
+                const minDist = obs.radius + chickenRadius;
+                if (dist < minDist) {
+                  const push = minDist - dist;
+                  victoryChicken.group.position.x += (dx / (dist || 1)) * push;
+                  victoryChicken.group.position.z += (dz / (dist || 1)) * push;
+                  victoryChicken.velX = 0; victoryChicken.velZ = 0;
+                }
+              }
+            });
+            
+            const currentGroundY = getElevation(victoryChicken.group.position.x, victoryChicken.group.position.z, victoryChicken.group.position.y);
+            victoryChicken.group.position.y = currentGroundY + 4.2;
+          }
+        }
+
+        // 살아있는 닭 업데이트 (AI 배회 및 피격 시 날개 파다닥 파닉스 도망 구현)
+        liveChickens.forEach(c => {
+          c.wanderTime -= delta;
+          
+          const speedMultiplier = c.panicTime > 0 ? 25 : 6;
+          c.animationTime += delta * speedMultiplier;
+          
+          const wingL = c.mesh.getObjectByName('wingL');
+          const wingR = c.mesh.getObjectByName('wingR');
+          const head = c.mesh.getObjectByName('head');
+          const legL = c.mesh.getObjectByName('legL');
+          const legR = c.mesh.getObjectByName('legR');
+          
+          if (c.panicTime > 0) {
+            c.panicTime -= delta;
+            c.speed = 4.8; // 파닉스 도망 속도 증가
+            
+            // 날개를 양옆 및 위아래로 힘차게 펄럭임
+            if (wingL) { wingL.rotation.z = 0.4 + Math.sin(c.animationTime) * 0.9; wingL.rotation.x = 0.2 + Math.cos(c.animationTime) * 0.3; }
+            if (wingR) { wingR.rotation.z = -0.4 - Math.sin(c.animationTime) * 0.9; wingR.rotation.x = -0.2 - Math.cos(c.animationTime) * 0.3; }
+            if (head) { head.rotation.z = Math.sin(c.animationTime * 1.5) * 0.45; head.rotation.x = Math.cos(c.animationTime) * 0.2; }
+          } else {
+            c.speed = 0.8; // 일반 배회 속도
+            if (wingL) { wingL.rotation.z = Math.sin(c.animationTime * 0.5) * 0.1; wingL.rotation.x = Math.PI / 12; }
+            if (wingR) { wingR.rotation.z = -Math.sin(c.animationTime * 0.5) * 0.1; wingR.rotation.x = -Math.PI / 12; }
+            if (head) { head.rotation.set(0, 0, 0); }
+          }
+          
+          // 이동 중일 때 다리가 교차하며 움직이는 애니메이션
+          if (legL && legR) {
+            const legSwing = Math.sin(c.animationTime) * (c.panicTime > 0 ? 0.7 : 0.35);
+            legL.rotation.z = legSwing;
+            legR.rotation.z = -legSwing;
+          }
+          
+          if (c.wanderTime <= 0) {
+            c.wanderTime = Math.random() * 3 + 2; // 2~5초마다 랜덤 방향 전환
+            c.dir.set((Math.random() - 0.5), 0, (Math.random() - 0.5)).normalize();
+          }
+          
+          // 충돌 회피 (닭이 엄폐물 뚫고 들어가는 것 방지)
+          resolveCollisions(c.pos, 0.4);
+          
+          // 위치 업데이트
+          const moveStep = c.dir.clone().multiplyScalar(c.speed * delta);
+          c.pos.add(moveStep);
+          c.mesh.position.copy(c.pos);
+          
+          // 피격 깜짝 놀람 시 통통 위아래로 튀어오르는(Hop) 물리 추가
+          const hop = c.panicTime > 0 ? Math.abs(Math.sin(c.animationTime * 0.8)) * 0.28 : 0;
+          c.mesh.position.y = getElevation(c.pos.x, c.pos.z) + hop;
+          
+          // 방향 갱신 (머리 방향인 X축이 정확히 이동 방향 c.dir을 가리키도록 -Math.PI / 2 보정 적용)
+          const angle = Math.atan2(c.dir.x, c.dir.z);
+          c.mesh.rotation.y = angle - Math.PI / 2;
+          
+          // 걷기 상하 바운싱 애니메이션
+          const bob = Math.sin(c.animationTime) * 0.03;
+          c.mesh.children[0].position.y = 0.4 + bob;
+        });
+      } else if (gameState === 'DEFEAT' || gameState === 'REVIVE_SLOT') {
+        // Enforce visibility of player body, head, and equipment during the defeat animation
+        myPlayerGroup.visible = true;
+        playerSoldier.headGroup.visible = true;
+        if (playerSoldier.body) playerSoldier.body.visible = true;
+        if (playerSoldier.backpackGroup) playerSoldier.backpackGroup.visible = true;
+
+        // Reset arms to default shoulder joint coordinates to prevent them from floating away from the torso
+        playerSoldier.rightArm.position.set(0.38, 1.25, 0);
+        playerSoldier.leftArm.position.set(-0.38, 1.25, 0);
+        playerSoldier.rightArm.rotation.set(0.2, 0, 0.2);
+        playerSoldier.leftArm.rotation.set(0.2, 0, -0.2);
+        playerSoldier.rightElbow.rotation.set(0.3, 0, 0);
+        playerSoldier.leftElbow.rotation.set(0.3, 0, 0);
+        updateSoldierJoints(playerSoldier); // 어깨 관절 구체(joints)도 몸통에 확실히 밀착시킴
+
+        if (gameState === 'DEFEAT') {
+          delta *= 0.2; // 5배 느리게
+          defeatTimer -= (clock.getDelta() || 0.016); // 실제 시간 기준으로 타이머 차감
+        }
+        
+        const progress = Math.min(1.0, (3.0 - Math.max(0, defeatTimer)) / 3.0);
+        
+        // 캐릭터 쓰러지는 애니메이션 (극적 공중제비/스핀 및 높이 보정)
+        myPlayerGroup.rotation.x = progress * Math.PI * 1.5;
+        myPlayerGroup.rotation.y = progress * Math.PI * 2.0;
+        myPlayerGroup.rotation.z = progress * Math.PI * 0.5;
+        
+        // 지면에 떨어지며 퉁퉁 튕기는 감쇠 바운스 물리 연출
+        const bounceFactor = Math.abs(Math.sin(progress * Math.PI * 2.5)) * 0.85 * (1.0 - progress);
+        myPlayerGroup.position.copy(playerPos);
+        
+        // 캐릭터 두께 및 어깨 폭을 고려하여 최종 눕는 높이를 최소 0.48로 설정해 땅 파묻힘 현상 제거
+        myPlayerGroup.position.y = getElevation(playerPos.x, playerPos.z, playerPos.y) + Math.max(0.48, 0.95 * (1.0 - progress)) + bounceFactor;
+        
+        // 카메라가 캐릭터 주변을 공전하는 시네마틱 롤링 효과
+        const angle = progress * Math.PI * 1.5; // 270도 공전
+        const orbitRadius = 5.0;
+        camera.position.set(
+          playerPos.x + Math.cos(angle) * orbitRadius,
+          playerPos.y + 1.8 + Math.sin(progress * Math.PI) * 1.0,
+          playerPos.z + Math.sin(angle) * orbitRadius
+        );
+        camera.lookAt(playerPos.x, playerPos.y + 0.3, playerPos.z);
+        
+        if (gameState === 'DEFEAT' && defeatTimer <= 0) {
+          if (!hasRevived) {
+            gameState = 'REVIVE_SLOT';
+            startReviveSlotMachine();
+          } else {
+            showDefeatUI();
+            gameState = 'FINISHED'; // 중복 실행 방지
+          }
+        }
+      }
+      
+      // 스코프 장착 시 FOV 동적 조절
+      const targetFov = isZooming ? (65 / currentScope.mag) : 65; 
+      if (Math.abs(camera.fov - targetFov) > 0.5) { camera.fov += (targetFov - camera.fov) * 15 * delta; camera.updateProjectionMatrix(); }
+
+      // 바닥 아이템 공전/부유 연출 (무기와 탄창 등이 회전하면서 겹치는 일을 막기 위해 회전은 삭제하고 미세 부유 운동만 적용)
+      const elapsed = clock.getElapsedTime();
+      lootBoxes.forEach(loot => {
+        if (!loot.isCrate) {
+          loot.mesh.position.y = getElevation(loot.mesh.position.x, loot.mesh.position.z, loot.mesh.position.y) + 0.8 + Math.sin(elapsed * 3) * 0.15;
+        }
+      });
+
+      if (gameState !== 'LOBBY') {
+        if (planeGroup.position.z < 1200) {
+          planeGroup.position.add(new THREE.Vector3(1, 0, 1).normalize().multiplyScalar(40 * delta)); 
+          flightTime += delta;
+        } else if (planeGroup.visible) {
+          planeGroup.visible = false;
+        }
+      }
+
+      if(gameState === 'AIRPLANE') {
+        playerPos.copy(planeGroup.position);
+        const offset = new THREE.Vector3(0, 15, 50);
+        offset.applyQuaternion(camera.quaternion);
+        camera.position.copy(planeGroup.position).add(offset);
+        
+        // Force jump if the plane goes beyond the island (z >= 250)
+        if (planeGroup.position.z >= 250) {
+          gameState = 'FALLING';
+          updatePlayerHp(-50, null);
+          actionBtn.innerText = isTouchDevice ? '🪂 낙하산 펴기' : '🪂 낙하산 펴기 (좌클릭/F)';
+          showNotice("⚠️ 섬을 벗어나 강제 낙하합니다! (HP 50% 감소)", 4000);
+          SoundSystem.stopPlaneSound();
+        }
+      } else if (gameState === 'FALLING') {
+        myPlayerGroup.visible = true; 
+        playerPos.y -= 20 * delta; 
+        
+        let fwd = moveState.jY; let rgt = moveState.jX;
+        if(!isTouchDevice) { fwd = (moveState.fwd?1:0) - (moveState.bwd?1:0); rgt = (moveState.rgt?1:0) - (moveState.lft?1:0); }
+        
+        const forward = new THREE.Vector3(0,0,-1).applyQuaternion(camera.quaternion); forward.y=0; forward.normalize();
+        const rDir = new THREE.Vector3().crossVectors(forward, new THREE.Vector3(0,1,0)).normalize();
+        
+        let horizontalSpeed = 22.0;
+        if (fwd !== 0 || rgt !== 0) {
+          playerPos.add(forward.multiplyScalar(fwd * horizontalSpeed * delta));
+          playerPos.add(rDir.multiplyScalar(rgt * horizontalSpeed * delta));
+        } else {
+          playerPos.add(forward.multiplyScalar(8 * delta));
+        }
+        
+        myPlayerGroup.position.copy(playerPos);
+        myPlayerGroup.rotation.y = new THREE.Euler().setFromQuaternion(camera.quaternion, 'YXZ').y;
+        myPlayerGroup.rotation.x = -Math.PI * 0.45; // 머리가 바닥을 향하고 배가 바닥을 보도록 수직 회전 보정
+        
+        // Full TPP camera pitch orbit to keep player centered
+        const offset = new THREE.Vector3(0, 3.5, 10);
+        offset.applyQuaternion(camera.quaternion);
+        camera.position.copy(playerPos).add(offset);
+        
+        updateSkydivePose(playerSoldier, fwd, rgt, false);
+        
+        if(playerPos.y <= getElevation(playerPos.x, playerPos.z, playerPos.y) + 30) { gameState = 'PARACHUTING'; parachute.visible = true; actionBtn.style.display = 'none'; SoundSystem.playParachuteSound(); }
+      } else if (gameState === 'PARACHUTING') {
+        playerPos.y -= 7 * delta; 
+        
+        let fwd = moveState.jY; let rgt = moveState.jX;
+        if(!isTouchDevice) { fwd = (moveState.fwd?1:0) - (moveState.bwd?1:0); rgt = (moveState.rgt?1:0) - (moveState.lft?1:0); }
+        
+        const forward = new THREE.Vector3(0,0,-1).applyQuaternion(camera.quaternion); forward.y=0; forward.normalize();
+        const rDir = new THREE.Vector3().crossVectors(forward, new THREE.Vector3(0,1,0)).normalize();
+        
+        let horizontalSpeed = 14.0;
+        if (fwd !== 0 || rgt !== 0) {
+          playerPos.add(forward.multiplyScalar(fwd * horizontalSpeed * delta));
+          playerPos.add(rDir.multiplyScalar(rgt * horizontalSpeed * delta));
+        } else {
+          playerPos.add(forward.multiplyScalar(5 * delta));
+        }
+        
+        myPlayerGroup.position.copy(playerPos);
+        myPlayerGroup.rotation.y = new THREE.Euler().setFromQuaternion(camera.quaternion, 'YXZ').y;
+        
+        // 낙하산 전개 시 대롱대롱 흔들리는 펜듈럼 진동 효과 (Deceleration Snap 및 물리 흔들림 재현)
+        const swingX = Math.sin(clock.getElapsedTime() * 4.2) * 0.14;
+        const swingZ = Math.cos(clock.getElapsedTime() * 3.2) * 0.08;
+        myPlayerGroup.rotation.x = swingX;
+        myPlayerGroup.rotation.z = swingZ;
+        
+        parachute.rotation.set(0, 0, 0); // 부모 진동에 100% 동조하여 끈 탈착 방지
+        
+        // Full TPP camera pitch orbit to keep player centered
+        const offset = new THREE.Vector3(0, 3.5, 10);
+        offset.applyQuaternion(camera.quaternion);
+        camera.position.copy(playerPos).add(offset);
+        
+        updateSkydivePose(playerSoldier, fwd, rgt, true);
+        
+        const groundY = getElevation(playerPos.x, playerPos.z, playerPos.y);
+        if(playerPos.y <= groundY) {
+          playerPos.y = groundY; gameState = 'PLAYING'; parachute.visible = false; SoundSystem.stopSkydiveWindSound();
+          myPlayerGroup.rotation.x = 0;
+          myPlayerGroup.rotation.z = 0;
+          playerSoldier.parachuteBag.visible = false;
+          playerSoldier.updateBagVisual(playerInventory.bag);
+          if(isTouchDevice) { document.getElementById('btn-attack').style.display='flex'; document.getElementById('player-hp-ui').style.display='block'; }
+          showNotice("지상에 도착했습니다. 파밍을 시작하세요!", 3000);
+          document.getElementById('throw-shortcuts').style.display = 'flex';
+        }
+      } else if (gameState === 'PLAYING' && playerHp > 0) {
+        if (playerInvincibleTime > 0) {
+          playerInvincibleTime -= delta;
+          document.getElementById('player-hp-text').innerText = 'HP: ' + Math.ceil(playerHp) + ' (무적 ' + playerInvincibleTime.toFixed(1) + 's)';
+          document.getElementById('player-hp-text').style.color = '#ffeb3b';
+        } else {
+          document.getElementById('player-hp-text').innerText = 'HP: ' + Math.ceil(playerHp);
+          document.getElementById('player-hp-text').style.color = '';
+        }
+        let bobY = 0;
+        if (isVaulting) {
+          // 1. 파쿠르 중일 때의 포물선 이동 보간
+          const t = (clock.getElapsedTime() - vaultStartTime) / VAULT_DURATION;
+          if (t >= 1.0) {
+            isVaulting = false;
+            playerPos.copy(vaultEndPos);
+            playerPos.y = getElevation(playerPos.x, playerPos.z, playerPos.y);
+          } else {
+            playerPos.lerpVectors(vaultStartPos, vaultEndPos, t);
+            playerPos.y += Math.sin(t * Math.PI) * 1.5; // 포물선 점프 곡선
+          }
+          myPlayerGroup.position.copy(playerPos);
+          myPlayerGroup.rotation.y = new THREE.Euler().setFromQuaternion(camera.quaternion, 'YXZ').y;
+          
+          // 파쿠르 넘기 중 팔다리 넘어가기 애니메이션
+          playerSoldier.leftArm.rotation.set(-2.0, 0.2, -0.4);
+          playerSoldier.rightArm.rotation.set(-2.0, -0.2, 0.4);
+          playerSoldier.leftThigh.rotation.set(-0.8, 0, 0);
+          playerSoldier.rightThigh.rotation.set(-0.3, 0, 0);
+          playerSoldier.leftKnee.rotation.set(1.2, 0, 0);
+          playerSoldier.rightKnee.rotation.set(0.6, 0, 0);
+        } else {
+          // 2. 정상 플레이 및 이동 처리
+          let fwd = moveState.jY; let rgt = moveState.jX;
+          if(!isTouchDevice) { fwd = (moveState.fwd?1:0) - (moveState.bwd?1:0); rgt = (moveState.rgt?1:0) - (moveState.lft?1:0); }
+          
+          let isMoving = (fwd !== 0 || rgt !== 0);
+          if (isMoving) {
+            SoundSystem.playFootstep(moveState.shift);
+            if (isHealing) {
+              isHealing = false;
+              document.getElementById('heal-progress-container').style.display = 'none';
+              showNotice("⚠️ 움직임으로 인해 구급상자 사용이 취소되었습니다.");
+            }
+          }
+          bobIntensity += (isMoving ? 1 : -1) * delta * 5; bobIntensity = Math.max(0, Math.min(1, bobIntensity));
+          const bobRate = isZooming ? 7 : (moveState.shift ? 22 : 15);
+          bobbingTime += delta * bobRate;
+          bobY = Math.sin(bobbingTime) * 0.05 * bobIntensity;
+
+          const dir = new THREE.Vector3(0,0,-1).applyQuaternion(camera.quaternion); dir.y=0; dir.normalize();
+          const rDir = new THREE.Vector3().crossVectors(dir, new THREE.Vector3(0,1,0)).normalize();
+          
+          const groundY = getElevation(playerPos.x, playerPos.z, playerPos.y);
+          const waterY = getWaterLevel(playerPos.x, playerPos.z);
+          const isSwimming = (waterY - getElevation(playerPos.x, playerPos.z, false) >= 0.55);
+          
+          // 자세별 이동속도 차등
+          let stanceSpeed = 1.0;
+          if (isSwimming) stanceSpeed = 0.3; // 수영 시 70% 감속
+          else if (playerStance === 'CROUCH') stanceSpeed = 0.55;
+          else if (playerStance === 'PRONE') stanceSpeed = 0.22;
+          
+          const sprintSpeed = (moveState.shift && playerStance === 'STAND' && !isZooming && !isSwimming) ? 8.5 : 5.5;
+          const currentSpeed = isZooming ? 2.2 : sprintSpeed * stanceSpeed;
+
+          playerPos.add(dir.multiplyScalar(fwd * currentSpeed * delta));
+          playerPos.add(rDir.multiplyScalar(rgt * currentSpeed * delta));
+          
+          resolveCollisions(playerPos, 0.55, 'PLAYER');
+          
+          // 3. 점프 중력 물리 엔진
+          if (!isGrounded) {
+            playerVelocityY -= 9.8 * 2.2 * delta; 
+            playerPos.y += playerVelocityY * delta;
+            
+            const gY = getElevation(playerPos.x, playerPos.z, playerPos.y);
+            const hasWater = (getElevation(playerPos.x, playerPos.z, false) < waterY);
+            
+            if (hasWater && playerPos.y <= waterY - 0.55) {
+              playerPos.y = waterY - 0.55;
+              playerVelocityY = 0;
+              isGrounded = true;
+            } else if (playerPos.y <= gY) {
+              playerPos.y = gY;
+              playerVelocityY = 0;
+              isGrounded = true;
+            }
+          } else {
+            playerPos.y = isSwimming ? (waterY - 0.55) : groundY;
+          }
+
+          // 구급상자 사용 진행 타이머
+          if (isHealing) {
+            healTimer += delta;
+            const pct = Math.min(100, (healTimer / HEAL_DURATION) * 100);
+            const fillBar = document.getElementById('heal-progress-bar');
+            if (fillBar) fillBar.style.width = pct + '%';
+            
+            if (healTimer >= HEAL_DURATION) {
+              isHealing = false;
+              const container = document.getElementById('heal-progress-container');
+              if (container) container.style.display = 'none';
+              
+              playerInventory.firstaids--;
+              playerHp = 75;
+              updatePlayerHp(0);
+              SoundSystem.playHealSound();
+              showNotice("💊 구급상자 사용 완료! (체력 75% 회복)");
+              updateInventoryUI();
+            }
+          }
+
+          // 4. 캐릭터 자세별 골격 기하학 및 걷기/포복 애니메이션
+          if (isHealing) {
+            // 쪼그려 앉아서 힐링하는 뼈대 자세
+            playerSoldier.body.rotation.x = 0;
+            playerSoldier.body.position.set(0, 0.55, 0);
+            playerSoldier.headGroup.position.set(0, 1.05, 0);
+            playerSoldier.headGroup.rotation.x = 0;
+            playerSoldier.leftArm.position.set(-0.38, 0.85, 0);
+            playerSoldier.rightArm.position.set(0.38, 0.85, 0);
+            playerSoldier.leftLeg.position.set(-0.16, 0.3, 0);
+            playerSoldier.rightLeg.position.set(0.16, 0.3, 0);
+
+            playerSoldier.leftThigh.rotation.x = -1.0;
+            playerSoldier.rightThigh.rotation.x = -1.0;
+            playerSoldier.leftKnee.rotation.x = 1.8;
+            playerSoldier.rightKnee.rotation.x = 1.8;
+
+            playerSoldier.leftArm.rotation.set(-0.5, 0.4, 0);
+            playerSoldier.rightArm.rotation.set(-0.5, -0.4, 0);
+            
+            if(playerSoldier.backpackGroup) {
+              playerSoldier.backpackGroup.position.set(0, 0.55, 0.16);
+              playerSoldier.backpackGroup.rotation.x = 0;
+            }
+            if(playerSoldier.parachuteBag) {
+              playerSoldier.parachuteBag.position.set(0, 0.55, 0.16);
+              playerSoldier.parachuteBag.rotation.x = 0;
+            }
+          } else {
+            const isSwimming = (getWaterLevel(playerPos.x, playerPos.z) - getElevation(playerPos.x, playerPos.z, false) >= 0.55);
+            if (isSwimming) {
+              // 수영 상태 뼈대 및 모션 (엎드려서 수영하는 수평 자세)
+              playerSoldier.body.rotation.x = Math.PI / 2.2; 
+              playerSoldier.body.position.set(0, 0.25, 0);
+              playerSoldier.headGroup.position.set(0, 0.35, -0.4);
+              playerSoldier.headGroup.rotation.x = -Math.PI / 4; // 머리를 들어 정면 주시
+              playerSoldier.leftArm.position.set(-0.35, 0.3, -0.2);
+              playerSoldier.rightArm.position.set(0.35, 0.3, -0.2);
+              playerSoldier.leftLeg.position.set(-0.16, 0.25, 0.3);
+              playerSoldier.rightLeg.position.set(0.16, 0.25, 0.3);
+
+              if(playerSoldier.backpackGroup) {
+                playerSoldier.backpackGroup.position.set(0, 0.25, 0.16);
+                playerSoldier.backpackGroup.rotation.x = Math.PI / 2.2;
+              }
+              if(playerSoldier.parachuteBag) {
+                playerSoldier.parachuteBag.position.set(0, 0.25, 0.16);
+                playerSoldier.parachuteBag.rotation.x = Math.PI / 2.2;
+              }
+
+              const swimCycle = Math.sin(bobbingTime * 0.4);
+              playerSoldier.leftArm.rotation.set(Math.PI / 2 + swimCycle * 0.9, 0.4, -0.2);
+              playerSoldier.rightArm.rotation.set(Math.PI / 2 - swimCycle * 0.9, -0.4, 0.2);
+              playerSoldier.leftThigh.rotation.set(-Math.PI / 2.2 + swimCycle * 0.4, 0, 0.1);
+              playerSoldier.rightThigh.rotation.set(-Math.PI / 2.2 - swimCycle * 0.4, 0, -0.1);
+              const leftKneeAngle = 0.3 + Math.sin(bobbingTime * 0.4 - Math.PI / 2) * 0.25;
+              const rightKneeAngle = 0.3 + Math.sin(bobbingTime * 0.4 + Math.PI / 2) * 0.25;
+              playerSoldier.leftKnee.rotation.set(leftKneeAngle, 0, 0);
+              playerSoldier.rightKnee.rotation.set(rightKneeAngle, 0, 0);
+            } else if (playerStance === 'PRONE') {
+              playerSoldier.body.rotation.x = Math.PI / 2;
+              playerSoldier.body.position.set(0, 0.15, 0);
+              playerSoldier.headGroup.position.set(0, 0.15, -0.45);
+              playerSoldier.headGroup.rotation.x = 0; 
+              playerSoldier.leftArm.position.set(-0.35, 0.15, -0.2);
+              playerSoldier.rightArm.position.set(0.35, 0.15, -0.2);
+              playerSoldier.leftLeg.position.set(-0.16, 0.15, 0.3);
+              playerSoldier.rightLeg.position.set(0.16, 0.15, 0.3);
+
+              if(playerSoldier.backpackGroup) {
+                playerSoldier.backpackGroup.position.set(0, 0.15, 0.16);
+                playerSoldier.backpackGroup.rotation.x = Math.PI / 2;
+              }
+              if(playerSoldier.parachuteBag) {
+                playerSoldier.parachuteBag.position.set(0, 0.15, 0.16);
+                playerSoldier.parachuteBag.rotation.x = Math.PI / 2;
+              }
+
+              const wiggle = Math.sin(bobbingTime * 0.8) * 0.15 * bobIntensity;
+              playerSoldier.body.rotation.y = wiggle;
+              
+              playerSoldier.leftThigh.rotation.set(-Math.PI/2 + 0.2, 0, 0.1);
+              playerSoldier.rightThigh.rotation.set(-Math.PI/2 + 0.2, 0, -0.1);
+              playerSoldier.leftKnee.rotation.set(0, 0, 0);
+              playerSoldier.rightKnee.rotation.set(0, 0, 0);
+
+              playerSoldier.leftArm.rotation.set(Math.PI/2 - Math.sin(bobbingTime)*0.4 * bobIntensity, 0.2, -0.1);
+              playerSoldier.rightArm.rotation.set(Math.PI/2 + Math.sin(bobbingTime)*0.4 * bobIntensity, -0.2, 0.1);
+            } else if (playerStance === 'CROUCH') {
+              playerSoldier.body.rotation.x = 0;
+              playerSoldier.body.position.set(0, 0.55, 0);
+              playerSoldier.headGroup.position.set(0, 1.05, 0);
+              playerSoldier.headGroup.rotation.x = 0;
+              playerSoldier.leftArm.position.set(-0.38, 0.85, 0);
+              playerSoldier.rightArm.position.set(0.38, 0.85, 0);
+              playerSoldier.leftLeg.position.set(-0.16, 0.3, 0);
+              playerSoldier.rightLeg.position.set(0.16, 0.3, 0);
+
+              if(playerSoldier.backpackGroup) {
+                playerSoldier.backpackGroup.position.set(0, 0.55, 0.16);
+                playerSoldier.backpackGroup.rotation.x = 0;
+              }
+              if(playerSoldier.parachuteBag) {
+                playerSoldier.parachuteBag.position.set(0, 0.55, 0.16);
+                playerSoldier.parachuteBag.rotation.x = 0;
+              }
+
+              playerSoldier.leftThigh.rotation.x = 1.0;
+              playerSoldier.rightThigh.rotation.x = 1.0;
+              playerSoldier.leftKnee.rotation.x = -1.5;
+              playerSoldier.rightKnee.rotation.x = -1.5;
+
+              const swing = Math.sin(bobbingTime) * 0.35 * bobIntensity;
+              playerSoldier.leftThigh.rotation.x += swing;
+              playerSoldier.rightThigh.rotation.x -= swing;
+
+              if (currentWeapon !== WEAPONS.PUNCH) {
+                const camEuler = new THREE.Euler(0, 0, 0, 'YXZ').setFromQuaternion(camera.quaternion);
+                playerSoldier.rightArm.rotation.x = Math.PI / 2 + camEuler.x;
+                
+                // --- [두 손 파지법 적용 (앉기)] ---
+                if (currentWeapon.name === '권총') {
+                  playerSoldier.leftArm.rotation.x = Math.PI / 2 + camEuler.x;
+                  playerSoldier.leftArm.rotation.y = 0.4;
+                  playerSoldier.leftArm.position.set(-0.25, 0.85, -0.1);
+                } else {
+                  playerSoldier.leftArm.rotation.x = 1.1 + camEuler.x * 0.5;
+                  playerSoldier.leftArm.rotation.y = -0.4;
+                  playerSoldier.leftArm.position.set(-0.35, 0.8, -0.2);
+                }
+              } else {
+                playerSoldier.leftArm.rotation.x = swing * 0.6;
+                playerSoldier.rightArm.rotation.x = -swing * 0.6;
+                playerSoldier.leftArm.rotation.y = 0;
+                playerSoldier.rightArm.rotation.y = 0;
+              }
+            } else {
+              playerSoldier.body.rotation.x = 0;
+              playerSoldier.body.position.set(0, 0.95, 0);
+              playerSoldier.headGroup.position.set(0, 1.45, 0);
+              playerSoldier.headGroup.rotation.x = 0;
+              playerSoldier.leftArm.position.set(-0.38, 1.25, 0);
+              playerSoldier.rightArm.position.set(0.38, 1.25, 0);
+              playerSoldier.leftLeg.position.set(-0.16, 0.6, 0);
+              playerSoldier.rightLeg.position.set(0.16, 0.6, 0);
+
+              if(playerSoldier.backpackGroup) {
+                playerSoldier.backpackGroup.position.set(0, 0.95, 0.16);
+                playerSoldier.backpackGroup.rotation.x = 0;
+              }
+              if(playerSoldier.parachuteBag) {
+                playerSoldier.parachuteBag.position.set(0, 0.95, 0.16);
+                playerSoldier.parachuteBag.rotation.x = 0;
+              }
+
+              const swing = Math.sin(bobbingTime) * 0.6 * bobIntensity;
+              playerSoldier.leftThigh.rotation.x = -swing;
+              playerSoldier.rightThigh.rotation.x = swing;
+              playerSoldier.leftKnee.rotation.x = swing > 0 ? -swing * 1.2 : 0;
+              playerSoldier.rightKnee.rotation.x = swing < 0 ? swing * 1.2 : 0;
+
+              if (playerRecoilTime > 0) playerRecoilTime -= delta;
+              const recoilOffset = playerRecoilTime > 0 ? 0.3 : 0;
+
+              if (playerPunchTime > 0) {
+                playerPunchTime -= delta;
+                const camEuler = new THREE.Euler(0, 0, 0, 'YXZ').setFromQuaternion(camera.quaternion);
+                if (punchSide === 'LEFT') {
+                  playerSoldier.leftArm.rotation.x = Math.PI / 2 + 0.5 + camEuler.x;
+                  playerSoldier.rightArm.rotation.x = 0;
+                } else {
+                  playerSoldier.rightArm.rotation.x = Math.PI / 2 + 0.5 + camEuler.x;
+                  playerSoldier.leftArm.rotation.x = 0;
+                }
+                playerSoldier.leftArm.rotation.y = 0;
+                playerSoldier.rightArm.rotation.y = 0;
+              } else if (currentWeapon !== WEAPONS.PUNCH) {
+                const camEuler = new THREE.Euler(0, 0, 0, 'YXZ').setFromQuaternion(camera.quaternion);
+                playerSoldier.rightArm.rotation.x = Math.PI / 2 + camEuler.x + recoilOffset;
+                
+                // --- [두 손 파지법 적용 (서기)] ---
+                if (currentWeapon.name === '권총') {
+                  playerSoldier.leftArm.rotation.x = Math.PI / 2 + camEuler.x;
+                  playerSoldier.leftArm.rotation.y = 0.4;
+                  playerSoldier.leftArm.position.set(-0.25, 1.25, -0.1);
+                } else {
+                  playerSoldier.leftArm.rotation.x = 1.1 + camEuler.x * 0.5;
+                  playerSoldier.leftArm.rotation.y = -0.4;
+                  playerSoldier.leftArm.position.set(-0.35, 1.2, -0.2);
+                }
+              } else {
+                playerSoldier.leftArm.rotation.x = swing * 0.8;
+                playerSoldier.rightArm.rotation.x = -swing * 0.8;
+                playerSoldier.leftArm.rotation.y = 0;
+                playerSoldier.rightArm.rotation.y = 0;
+              }
+            }
+          }
+        }
+
+        // --- [조준(Iron Sights) 위치 보정] ---
+        const isIronSight = (isZooming && currentScope === SCOPES.NONE && currentWeapon !== WEAPONS.PUNCH);
+        ironSightWeight += (isIronSight ? 1 : -1) * 15 * delta;
+        ironSightWeight = Math.max(0, Math.min(1, ironSightWeight));
+        
+        if (!isTPP || isZooming) {
+          // 1인칭 이거나 줌 조준/견착 위치 변화
+          const yOffset = (currentEyeY - 1.25);
+          
+          // 기본 1인칭 총 자세 (오른쪽 약간 아래 위치)
+          let targetRX = 0.15; 
+          let targetRY = yOffset - 0.2; 
+          let targetRZ = -0.3;
+
+          if (ironSightWeight > 0) {
+            // Doom 스타일 정조준: 화면 하단에 무기 배치하고 중앙 크로스헤어를 비스듬히 조준
+            targetRX = THREE.MathUtils.lerp(targetRX, -0.22, ironSightWeight);
+            targetRY = THREE.MathUtils.lerp(targetRY, yOffset - 0.38, ironSightWeight);
+            targetRZ = THREE.MathUtils.lerp(targetRZ, -0.45, ironSightWeight);
+            
+            // 총구를 위로 살짝 틸트하여 화면 중앙을 조준
+            playerSoldier.rightArm.rotation.x -= 0.18 * ironSightWeight;
+          }
+
+          // 사격 시 총기가 뒤로 킥백하는 물리 모션 추가
+          const recoilKick = playerRecoilTime > 0 ? (playerRecoilTime / 0.15) * 0.16 : 0;
+
+          playerSoldier.rightArm.position.x += targetRX;
+          playerSoldier.rightArm.position.y += targetRY;
+          playerSoldier.rightArm.position.z += targetRZ + recoilKick;
+
+          // 왼손도 개머리판 위치로 이동 및 반동 반영
+          playerSoldier.leftArm.position.x += 0.25 * (1 - ironSightWeight) + 0.12 * ironSightWeight;
+          playerSoldier.leftArm.position.y += (yOffset - 0.2) * (1 - ironSightWeight) + (yOffset - 0.32) * ironSightWeight;
+          playerSoldier.leftArm.position.z += -0.2 * (1 - ironSightWeight) - 0.4 * ironSightWeight + recoilKick;
+        }
+
+        // 카메라의 기존 Z축 롤(기울기) 값을 초기화하여 마우스 회전값 누적으로 인한 롤 드리프트 방지
+        const baseCamEuler = new THREE.Euler(0, 0, 0, 'YXZ').setFromQuaternion(camera.quaternion);
+        baseCamEuler.z = 0;
+        camera.quaternion.setFromEuler(baseCamEuler);
+
+        // 전술 기울이기 (Q/E Peeking) 상태 보간
+        const targetLean = (playerStance === 'PRONE' || gameState !== 'PLAYING') ? 0 : ((leanState.left ? -1 : 0) + (leanState.right ? 1 : 0));
+        currentLean += (targetLean - currentLean) * 10 * delta;
+
+        // 플레이어 캐릭터 목/몸통 기울이기 애니메이션 (3인칭 가시화)
+        if (gameState === 'PLAYING') {
+          playerSoldier.headGroup.rotation.z = -currentLean * 0.15;
+          if (playerSoldier.body) playerSoldier.body.rotation.z = -currentLean * 0.10;
+        } else {
+          playerSoldier.headGroup.rotation.z = 0;
+          if (playerSoldier.body) playerSoldier.body.rotation.z = 0;
+        }
+
+        // 5. 카메라 FPP/TPP 모드 Lerp 부드러운 전환
+        const targetEyeY = (playerStance === 'STAND') ? 1.5 : ((playerStance === 'CROUCH') ? 0.9 : 0.25);
+        const targetTppY = (playerStance === 'STAND') ? 1.6 : ((playerStance === 'CROUCH') ? 1.0 : 0.4);
+        currentEyeY += (targetEyeY - currentEyeY) * 10 * delta;
+        currentTppY += (targetTppY - currentTppY) * 10 * delta;
+
+        if (isTPP && !isZooming) {
+          myPlayerGroup.visible = true;
+          playerSoldier.headGroup.visible = true;
+          playerSoldier.body.visible = true;
+          if (playerSoldier.backpackGroup) playerSoldier.backpackGroup.visible = true;
+
+          myPlayerGroup.position.copy(playerPos);
+          myPlayerGroup.position.y += getSlopeLift(playerPos.x, playerPos.z);
+          myPlayerGroup.rotation.y = new THREE.Euler().setFromQuaternion(camera.quaternion, 'YXZ').y;
+          
+          // 3인칭: 우측 기본 마진(0.6)에 기울이기 가산 적용
+          const offset = new THREE.Vector3(0.6 + currentLean * 0.5, currentTppY + bobY, 3.5); offset.applyQuaternion(camera.quaternion);
+          camera.position.copy(playerPos).add(offset);
+          camera.quaternion.multiply(new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 0, 1), -currentLean * 0.08));
+        } else {
+          // 1인칭 및 정조준(ADS): 시점 자체를 좌/우측으로 수평 시프트 및 카메라 틸트(롤) 적용
+          const leanOffset = new THREE.Vector3(1, 0, 0).applyQuaternion(camera.quaternion).multiplyScalar(currentLean * 0.45);
+          camera.position.copy(playerPos).add(new THREE.Vector3(0, currentEyeY + bobY, 0)).add(leanOffset);
+          camera.quaternion.multiply(new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 0, 1), -currentLean * 0.08));
+
+          if (isZooming && currentScope !== SCOPES.NONE) {
+            // 조준경 조준 시 시야 확보 (플레이어 모델 비표시)
+            myPlayerGroup.visible = false;
+          } else {
+            // 지향사격(견착)이거나 줌 1인칭 모드: 총기를 드러냄
+            myPlayerGroup.visible = true;
+            playerSoldier.headGroup.visible = false;
+            playerSoldier.body.visible = false;
+            if (playerSoldier.backpackGroup) playerSoldier.backpackGroup.visible = false;
+            
+            myPlayerGroup.position.copy(playerPos);
+            myPlayerGroup.position.y += getSlopeLift(playerPos.x, playerPos.z);
+            myPlayerGroup.rotation.y = new THREE.Euler().setFromQuaternion(camera.quaternion, 'YXZ').y;
+          }
+        }
+        updateSoldierJoints(playerSoldier);
+
+        let isInsideBlueZone = false;
+        if (!hasWonMatch) {
+          if(zoneState === 'SHRINKING') {
+            currentZoneRadius -= shrinkSpeed * delta;
+            if(currentZoneRadius <= playZoneRadius) currentZoneRadius = playZoneRadius;
+            zoneMesh.scale.set(currentZoneRadius/500, 1, currentZoneRadius/500);
+          }
+          if(Math.sqrt(playerPos.x**2 + playerPos.z**2) > currentZoneRadius) {
+            updatePlayerHp(-3 * delta, null);
+            isInsideBlueZone = true;
+          }
+        } else {
+          if (zoneMesh.visible) zoneMesh.visible = false;
+        }
+
+        const bzOverlay = document.getElementById('bluezone-overlay');
+        if (bzOverlay) {
+          if (isInsideBlueZone && gameState === 'PLAYING') {
+            bzOverlay.style.display = 'block';
+            bzOverlay.style.animation = 'bluezonePulse 2s infinite ease-in-out';
+          } else {
+            bzOverlay.style.display = 'none';
+            bzOverlay.style.animation = 'none';
+          }
+        }
+
+        let nearItem = false;
+        for (let i = 0; i < lootBoxes.length; i++) {
+          if (playerPos.distanceTo(lootBoxes[i].mesh.position) < 3.5) {
+            nearItem = true;
+            break;
+          }
+        }
+        if (nearItem) {
+          if (!isInventoryOpen) {
+            document.getElementById('loot-prompt').style.display = 'block';
+          }
+          if (isInventoryOpen && Math.random() < 0.05) {
+            updateInventoryUI(); 
+          }
+        } else {
+          document.getElementById('loot-prompt').style.display = 'none';
+        }
+
+        // 모바일 터치 디바이스 전용 컨텍스트 기반 인터랙션 버튼 상태 업데이트
+        if (isTouchDevice) {
+          const interactBtn = document.getElementById('btn-interact');
+          if (interactBtn) {
+            let closestDoor = null;
+            let minDoorDist = 2.5; // 최대 문 상호작용 거리 2.5m
+            doorsList.forEach(door => {
+              const dist = playerPos.distanceTo(door.worldPos);
+              if (dist < minDoorDist) {
+                closestDoor = door;
+                minDoorDist = dist;
+              }
+            });
+
+            if (closestDoor) {
+              interactBtn.style.display = 'flex';
+              interactBtn.innerText = closestDoor.isOpen ? "🚪 닫기" : "🚪 열기";
+            } else if (nearItem) {
+              interactBtn.style.display = 'flex';
+              interactBtn.innerText = "📦 줍기";
+            } else {
+              interactBtn.style.display = 'none';
+            }
+          }
+        }
+      }
+
+      // 적 AI 밸런스 및 2D 체력바 UI 업데이트
+      enemies.forEach(e => {
+        if(e.hp <= 0) return;
+        let isEnemySwimming = false;
+        
+        // 1. 머리 위 체력 게이지 투영 업데이트
+        if(e.state === 'PLAYING' && (clock.getElapsedTime() - e.lastHitTime < 5)) {
+          const hpPos = e.mesh.position.clone().add(new THREE.Vector3(0, 2.2, 0));
+          hpPos.project(camera);
+          if(hpPos.z < 1) {
+            e.hpUI.bg.style.display = 'flex';
+            e.hpUI.bg.style.left = (hpPos.x * 0.5 + 0.5) * window.innerWidth + 'px';
+            e.hpUI.bg.style.top = (hpPos.y * -0.5 + 0.5) * window.innerHeight + 'px';
+            e.hpUI.fill.style.width = ((e.hp / e.maxHp) * 100) + '%';
+          } else {
+            e.hpUI.bg.style.display = 'none';
+          }
+        } else {
+          e.hpUI.bg.style.display = 'none';
+        }
+
+        if(e.state === 'IN_PLANE') {
+          e.mesh.position.copy(planeGroup.position);
+          e.mesh.rotation.copy(planeGroup.rotation);
+          e.mesh.rotation.y += Math.PI; // 비행기 진행 방향을 바라보도록 설정
+          if(flightTime > e.jumpTime) e.state = 'FALLING';
+        } else if(e.state === 'FALLING') {
+          // 바다로 벗어나는 경우 맵 중심으로 스티어링
+          const dist = Math.sqrt(e.mesh.position.x * e.mesh.position.x + e.mesh.position.z * e.mesh.position.z);
+          if (dist > 220) {
+            e.driftAngle = Math.atan2(-e.mesh.position.z, -e.mesh.position.x) + (Math.random() - 0.5) * 0.4;
+          }
+          
+          e.mesh.position.y -= 20 * delta;
+          // 비행기에서 쏟아지는 대신 글라이딩 드리프트로 사방으로 펼쳐짐
+          const dx = Math.cos(e.driftAngle) * e.driftSpeed * delta;
+          const dz = Math.sin(e.driftAngle) * e.driftSpeed * delta;
+          e.mesh.position.x += dx;
+          e.mesh.position.z += dz;
+          
+          // 적군 스카이다이빙 자세 적용 (배를 바닥방향으로 엎드린 채, 글라이딩 진행 방향을 바라봄 - YXZ 순서로 회전 보정)
+          e.mesh.rotation.set(-Math.PI * 0.45, e.driftAngle + Math.PI, 0, 'YXZ');
+          updateSkydivePose(e.soldier, 0, 0, false);
+          
+          if(e.mesh.position.y < getElevation(e.mesh.position.x, e.mesh.position.z, e.mesh.position.y) + 30) { e.state = 'PARACHUTING'; e.parachute.visible = true; }
+        } else if(e.state === 'PARACHUTING') {
+          e.mesh.position.y -= 7 * delta;
+          
+          // 바다로 벗어나는 경우 맵 중심으로 스티어링
+          const distP = Math.sqrt(e.mesh.position.x * e.mesh.position.x + e.mesh.position.z * e.mesh.position.z);
+          if (distP > 220) {
+            e.driftAngle = Math.atan2(-e.mesh.position.z, -e.mesh.position.x) + (Math.random() - 0.5) * 0.4;
+          }
+          
+          const swingX = Math.sin(clock.getElapsedTime() * 4.2 + e.driftAngle) * 0.14;
+          const swingZ = Math.cos(clock.getElapsedTime() * 3.2 + e.driftAngle) * 0.08;
+          e.mesh.rotation.x = swingX;
+          e.mesh.rotation.z = swingZ;
+          e.parachute.rotation.x = swingX * 0.4;
+          e.parachute.rotation.z = swingZ * 0.4;
+          const dx = Math.cos(e.driftAngle) * (e.driftSpeed * 0.8) * delta;
+          const dz = Math.sin(e.driftAngle) * (e.driftSpeed * 0.8) * delta;
+          e.mesh.position.x += dx;
+          e.mesh.position.z += dz;
+          
+          // 적군 낙하산 활강 자세 적용 (다리가 아래인 선 자세, 활강 방향을 바라봄)
+          e.mesh.rotation.y = e.driftAngle + Math.PI;
+          updateSkydivePose(e.soldier, 0, 0, true);
+          
+          const gY = getElevation(e.mesh.position.x, e.mesh.position.z, e.mesh.position.y);
+          if(e.mesh.position.y <= gY) {
+            e.mesh.position.y = gY;
+            e.state = 'PLAYING';
+            e.mesh.rotation.x = 0;
+            e.mesh.rotation.z = 0;
+            e.parachute.visible = false;
+            e.soldier.parachuteBag.visible = false;
+            if (e.bag) e.soldier.updateBagVisual(e.bag);
+          }
+        } else if(e.state === 'PLAYING') {
+          isEnemySwimming = (getWaterLevel(e.mesh.position.x, e.mesh.position.z) - getElevation(e.mesh.position.x, e.mesh.position.z, false) >= 0.55);
+          const distToCenter = Math.sqrt(e.mesh.position.x**2 + e.mesh.position.z**2);
+          const isOutside = distToCenter > currentZoneRadius - 10;
+          
+          if (isOutside && e.hp > 0) {
+            e.hp -= 1.5 * delta;
+            if (e.hp <= 0) {
+              totalAlive--;
+              addKillLog(`${e.id} 자기장 사망`);
+              spawnCorpseBox(e.mesh.position, e.weapon, Math.random() > 0.5 ? SCOPES.X2 : SCOPES.NONE, e.helmet, e.bag);
+              scene.remove(e.mesh);
+              e.hpUI.bg.style.display='none';
+              checkVictory();
+              return;
+            }
+          }
+
+          // 다리 흔들기 애니메이션
+          const swing = Math.sin(clock.getElapsedTime() * 12) * 0.5;
+          e.soldier.leftThigh.rotation.x = swing;
+          e.soldier.rightThigh.rotation.x = -swing;
+          e.soldier.leftKnee.rotation.x = swing < 0 ? swing * 1.2 : 0;
+          e.soldier.rightKnee.rotation.x = -swing < 0 ? -swing * 1.2 : 0;
+
+          // 1. 목표 방향(desiredDir) 및 속도(moveSpeed) 결정
+          let desiredDir = null;
+          let moveSpeed = 0;
+          let lookTarget = null;
+
+          // 1. 타겟 검색 및 공격 (언제나 수행)
+          let closestDist = 9999;
+          let targetPos = null;
+          if (playerHp > 0) {
+            let playerObscured = false;
+            for (let sc of activeSmokeClouds) {
+              if (playerPos.distanceTo(sc.group.position) < 6.5) { playerObscured = true; break; }
+              const distToCloud = sc.group.position.distanceTo(e.mesh.position);
+              if (distToCloud < 75) {
+                const toTarget = new THREE.Vector3().subVectors(playerPos, e.mesh.position);
+                const toCloud = new THREE.Vector3().subVectors(sc.group.position, e.mesh.position);
+                const projection = toCloud.dot(toTarget.clone().normalize());
+                if (projection > 0 && projection < toTarget.length()) {
+                  const closestPoint = e.mesh.position.clone().addScaledVector(toTarget.clone().normalize(), projection);
+                  if (closestPoint.distanceTo(sc.group.position) < 6.5) { playerObscured = true; break; }
+                }
+              }
+            }
+            if (!playerObscured) {
+              closestDist = e.mesh.position.distanceTo(playerPos);
+              targetPos = playerPos.clone();
+            }
+          }
+
+          enemies.forEach(other => {
+            if (other.id !== e.id && other.hp > 0 && other.state === 'PLAYING') {
+              let otherObscured = false;
+              for (let sc of activeSmokeClouds) {
+                if (other.mesh.position.distanceTo(sc.group.position) < 6.5) { otherObscured = true; break; }
+                const distToCloud = sc.group.position.distanceTo(e.mesh.position);
+                if (distToCloud < 75) {
+                  const toTarget = new THREE.Vector3().subVectors(other.mesh.position, e.mesh.position);
+                  const toCloud = new THREE.Vector3().subVectors(sc.group.position, e.mesh.position);
+                  const projection = toCloud.dot(toTarget.clone().normalize());
+                  if (projection > 0 && projection < toTarget.length()) {
+                    const closestPoint = e.mesh.position.clone().addScaledVector(toTarget.clone().normalize(), projection);
+                    if (closestPoint.distanceTo(sc.group.position) < 6.5) { otherObscured = true; break; }
+                  }
+                }
+              }
+              if (!otherObscured) {
+                const d = e.mesh.position.distanceTo(other.mesh.position);
+                if (d < closestDist) { closestDist = d; targetPos = other.mesh.position.clone(); }
+              }
+            }
+          });
+
+          const maxDetectDist = e.tier === 'Noob' ? 55 : (e.tier === 'Pro' ? 85 : 120);
+          const hasTarget = (targetPos && closestDist < maxDetectDist && e.weapon !== WEAPONS.PUNCH);
+
+          // 2. 우선순위에 따른 이동 방향(desiredDir) 및 속도(moveSpeed) 결정
+          const needsToMoveToSafeZone = isOutside || (distToCenter > currentZoneRadius * 0.75) || (zoneState === 'SHRINKING' && distToCenter > playZoneRadius * 0.85);
+
+          // Priority 1: 자기장 밖에서 데미지를 입는 긴박한 위기 상황 -> 안전지역으로 대피
+          if (isOutside) {
+            if (!e.safeZoneTarget || Math.sqrt(e.safeZoneTarget.x**2 + e.safeZoneTarget.z**2) > playZoneRadius * 0.8) {
+              const angle = Math.random() * Math.PI * 2;
+              const r = Math.random() * playZoneRadius * 0.7;
+              e.safeZoneTarget = new THREE.Vector3(Math.cos(angle) * r, e.mesh.position.y, Math.sin(angle) * r);
+            }
+            desiredDir = new THREE.Vector3().subVectors(e.safeZoneTarget, e.mesh.position).normalize();
+            moveSpeed = e.tier === 'Noob' ? 3.5 : (e.tier === 'Pro' ? 4.5 : 5.5);
+
+            // 대피 중이라도 타겟이 있고 총이 있다면 조준 사격을 실시 (게걸음/뒷걸음 사격)
+            if (hasTarget) {
+              lookTarget = targetPos;
+              const targetUpright = targetPos.clone(); targetUpright.y = e.mesh.position.y;
+              e.mesh.lookAt(targetUpright); e.mesh.rotation.y += Math.PI;
+              e.soldier.rightArm.rotation.x = Math.PI / 2 + (e.recoilTime > 0 ? 0.3 : 0);
+              e.soldier.leftArm.rotation.x = 1.1; e.soldier.leftArm.rotation.y = -0.4;
+
+              const fireDist = e.tier === 'Noob' ? 22 : (e.tier === 'Pro' ? 38 : 65);
+              const shootInterval = e.tier === 'Noob' ? 3.2 : (e.tier === 'Pro' ? 1.8 : 0.75);
+              if (closestDist <= fireDist && clock.getElapsedTime() - e.lastShot > shootInterval && !isEnemySwimming) {
+                const jitter = e.tier === 'Noob' ? 0.20 : (e.tier === 'Pro' ? 0.10 : 0.03);
+                const imperfectTarget = targetPos.clone().add(new THREE.Vector3((Math.random() - 0.5) * jitter * closestDist, (Math.random() - 0.5) * 3, (Math.random() - 0.5) * jitter * closestDist));
+                fireBullet(e.mesh.position.clone().add(new THREE.Vector3(0,1.2,0)), imperfectTarget, e.weapon, e.id);
+                e.lastShot = clock.getElapsedTime();
+              }
+            } else {
+              e.soldier.leftArm.rotation.set(0,0,0);
+              e.soldier.rightArm.rotation.set(0,0,0);
+            }
+          }
+          // Priority 2: 무기가 없는 맨주먹인 경우 -> 무조건 무기 파밍이 최우선
+          else if (e.weapon === WEAPONS.PUNCH) {
+            e.soldier.leftArm.rotation.set(0,0,0);
+            e.soldier.rightArm.rotation.set(0,0,0);
+
+            let nearestLoot = null;
+            let nearestLootDist = 9999;
+            for (let idx = 0; idx < lootBoxes.length; idx++) {
+              const loot = lootBoxes[idx];
+              if (loot.type === 'WEAPON' || (loot.isCrate && loot.weapon)) {
+                // 건물 옥상/지붕 위에 올려진 무기 판정 (Y 높이 오차를 통해 필터링)
+                const lootGroundY = getElevation(loot.mesh.position.x, loot.mesh.position.z, false);
+                const isReachable = Math.abs(loot.mesh.position.y - (lootGroundY + 0.8)) < 1.5;
+
+                // 건물 내부에 배치된 무기인지 판정 (안전하게 외부 필판 무기만 AI 타겟팅 허용)
+                let insideBuilding = false;
+                for (let b = 0; b < buildingSpots.length; b++) {
+                  const spot = buildingSpots[b];
+                  const hw = spot.w / 2;
+                  const hd = spot.d / 2;
+                  if (loot.mesh.position.x >= spot.x - hw && loot.mesh.position.x <= spot.x + hw &&
+                      loot.mesh.position.z >= spot.z - hd && loot.mesh.position.z <= spot.z + hd) {
+                    insideBuilding = true;
+                    break;
+                  }
+                }
+
+                if (isReachable && !insideBuilding) {
+                  const distToLoot = e.mesh.position.distanceTo(loot.mesh.position);
+                  if (distToLoot < nearestLootDist) {
+                    nearestLootDist = distToLoot;
+                    nearestLoot = { loot: loot, index: idx };
+                  }
+                }
+              }
+            }
+
+            if (nearestLoot) {
+              desiredDir = new THREE.Vector3().subVectors(nearestLoot.loot.mesh.position, e.mesh.position).normalize();
+              moveSpeed = 4.8;
+              lookTarget = nearestLoot.loot.mesh.position;
+
+              if (nearestLootDist < 3.0) {
+                if (nearestLoot.loot.isCrate) {
+                  e.weapon = nearestLoot.loot.weapon;
+                  nearestLoot.loot.weapon = null;
+                } else {
+                  e.weapon = nearestLoot.loot.val;
+                  scene.remove(nearestLoot.loot.mesh);
+                  lootBoxes.splice(nearestLoot.index, 1);
+                }
+                updateVisualEquip(e.soldier, e.weapon, SCOPES.NONE);
+                if (isInventoryOpen) updateInventoryUI();
+              }
+            } else {
+              // 필드에 무기가 아예 없을 때 대피 또는 배회
+              if (needsToMoveToSafeZone) {
+                if (!e.safeZoneTarget || Math.sqrt(e.safeZoneTarget.x**2 + e.safeZoneTarget.z**2) > playZoneRadius * 0.8) {
+                  const angle = Math.random() * Math.PI * 2;
+                  const r = Math.random() * playZoneRadius * 0.7;
+                  e.safeZoneTarget = new THREE.Vector3(Math.cos(angle) * r, e.mesh.position.y, Math.sin(angle) * r);
+                }
+                desiredDir = new THREE.Vector3().subVectors(e.safeZoneTarget, e.mesh.position).normalize();
+                moveSpeed = e.tier === 'Noob' ? 3.5 : (e.tier === 'Pro' ? 4.5 : 5.5);
+              } else {
+                if (!e.wanderDir || !e.wanderTimer || e.wanderTimer <= 0) {
+                  e.wanderDir = new THREE.Vector3((Math.random() - 0.5), 0, (Math.random() - 0.5)).normalize();
+                  e.wanderTimer = 2.0 + Math.random() * 1.5;
+                }
+                e.wanderTimer -= delta;
+                desiredDir = e.wanderDir;
+                moveSpeed = 1.5;
+              }
+            }
+          }
+          // Priority 3: 무기가 있고 공격 대상이 감지된 경우 -> 조준 사격 및 전투
+          else if (hasTarget) {
+            const targetUpright = targetPos.clone();
+            targetUpright.y = e.mesh.position.y;
+            if (e.mesh.position.distanceTo(targetUpright) > 0.65) {
+              e.mesh.lookAt(targetUpright);
+              e.mesh.rotation.y += Math.PI;
+            }
+            e.soldier.rightArm.rotation.x = Math.PI / 2 + (e.recoilTime > 0 ? 0.3 : 0);
+            e.soldier.leftArm.rotation.x = 1.1;
+            e.soldier.leftArm.rotation.y = -0.4;
+
+            const fireDist = e.tier === 'Noob' ? 22 : (e.tier === 'Pro' ? 38 : 65);
+            const shootInterval = e.tier === 'Noob' ? 3.2 : (e.tier === 'Pro' ? 1.8 : 0.75);
+            if (closestDist <= fireDist && clock.getElapsedTime() - e.lastShot > shootInterval && !isEnemySwimming) {
+              const jitter = e.tier === 'Noob' ? 0.20 : (e.tier === 'Pro' ? 0.10 : 0.03);
+              const imperfectTarget = targetPos.clone().add(new THREE.Vector3((Math.random() - 0.5) * jitter * closestDist, (Math.random() - 0.5) * 3, (Math.random() - 0.5) * jitter * closestDist));
+              fireBullet(e.mesh.position.clone().add(new THREE.Vector3(0,1.2,0)), imperfectTarget, e.weapon, e.id);
+              e.lastShot = clock.getElapsedTime();
+            }
+
+            // 전투 중에도 점진적으로 안전지대로 이동해야 한다면 사격하며 이동
+            if (needsToMoveToSafeZone) {
+              if (!e.safeZoneTarget || Math.sqrt(e.safeZoneTarget.x**2 + e.safeZoneTarget.z**2) > playZoneRadius * 0.8) {
+                const angle = Math.random() * Math.PI * 2;
+                const r = Math.random() * playZoneRadius * 0.7;
+                e.safeZoneTarget = new THREE.Vector3(Math.cos(angle) * r, e.mesh.position.y, Math.sin(angle) * r);
+              }
+              desiredDir = new THREE.Vector3().subVectors(e.safeZoneTarget, e.mesh.position).normalize();
+              moveSpeed = e.tier === 'Noob' ? 3.5 : (e.tier === 'Pro' ? 4.5 : 5.5);
+              lookTarget = targetPos;
+            } else {
+              // 거리가 먼 경우 타겟 쪽으로 접근하며 사격
+              const approachDist = e.tier === 'Noob' ? 22 : (e.tier === 'Pro' ? 35 : 55);
+              if (closestDist > approachDist) {
+                desiredDir = new THREE.Vector3().subVectors(targetPos, e.mesh.position).normalize();
+                moveSpeed = e.tier === 'Noob' ? 3.0 : (e.tier === 'Pro' ? 4.2 : 5.2);
+              }
+              lookTarget = targetPos;
+            }
+          }
+          // Priority 4: 안전지대로 이동 결정
+          else if (needsToMoveToSafeZone) {
+            e.soldier.leftArm.rotation.set(0,0,0);
+            e.soldier.rightArm.rotation.set(0,0,0);
+
+            if (!e.safeZoneTarget || Math.sqrt(e.safeZoneTarget.x**2 + e.safeZoneTarget.z**2) > playZoneRadius * 0.8) {
+              const angle = Math.random() * Math.PI * 2;
+              const r = Math.random() * playZoneRadius * 0.7;
+              e.safeZoneTarget = new THREE.Vector3(Math.cos(angle) * r, e.mesh.position.y, Math.sin(angle) * r);
+            }
+            desiredDir = new THREE.Vector3().subVectors(e.safeZoneTarget, e.mesh.position).normalize();
+            moveSpeed = e.tier === 'Noob' ? 3.5 : (e.tier === 'Pro' ? 4.5 : 5.5);
+          }
+          // Priority 5: 평시 일반 배회
+          else {
+            e.soldier.leftArm.rotation.set(0,0,0);
+            e.soldier.rightArm.rotation.set(0,0,0);
+
+            if (distToCenter > currentZoneRadius * 0.7) {
+              const toCenter = new THREE.Vector3(-e.mesh.position.x, 0, -e.mesh.position.z).normalize();
+              toCenter.x += (Math.random() - 0.5) * 0.3;
+              toCenter.z += (Math.random() - 0.5) * 0.3;
+              desiredDir = toCenter.normalize();
+              moveSpeed = 4.0;
+            } else {
+              if (!e.wanderDir || !e.wanderTimer || e.wanderTimer <= 0) {
+                e.wanderDir = new THREE.Vector3((Math.random() - 0.5), 0, (Math.random() - 0.5)).normalize();
+                e.wanderTimer = 2.0 + Math.random() * 1.5;
+              }
+              e.wanderTimer -= delta;
+              desiredDir = e.wanderDir;
+              moveSpeed = 1.5;
+            }
+          }
+
+          // 3. 장애물 회피 상태 처리
+          if (e.avoidanceTimer > 0) {
+            e.avoidanceTimer -= delta;
+            desiredDir = e.avoidDir;
+            if (moveSpeed === 0) moveSpeed = 4.0;
+          }
+
+          // [연못 탈출 알고리즘 (Pond Escape Bypass)]
+          // 적군 봇이 연못에 들어간 경우, 수영 속도로 감속되더라도 최단거리로 신속히 연못 바깥으로 탈출하도록 이동 방향을 강제 조정합니다.
+
+          if (isEnemySwimming) {
+            let pondCenter = null;
+            const distToPond1 = Math.sqrt((e.mesh.position.x - 60)**2 + (e.mesh.position.z - 80)**2);
+            if (distToPond1 < 25 + 2.0) {
+              pondCenter = new THREE.Vector3(60, e.mesh.position.y, 80);
+            }
+            const distToPond2 = Math.sqrt((e.mesh.position.x + 80)**2 + (e.mesh.position.z + 60)**2);
+            if (distToPond2 < 20 + 2.0) {
+              pondCenter = new THREE.Vector3(-80, e.mesh.position.y, -60);
+            }
+
+            if (pondCenter) {
+              desiredDir = new THREE.Vector3().subVectors(e.mesh.position, pondCenter);
+              desiredDir.y = 0;
+              desiredDir.normalize();
+              moveSpeed = 1.6; // 연못 탈출 시 속도를 약간 상향 조정하여 신속 이탈 유도
+            }
+          }
+
+          // [건물 우회 회피 알고리즘 (Obstacle Circling Bypass)]
+          // 건물의 정면 벽에 부딛히는 것을 사전에 차단하고, 벽을 만나면 측면으로 돌아 둥글게 원형 우회합니다.
+          if (desiredDir && moveSpeed > 0) {
+            buildingSpots.forEach(spot => {
+              const dx = e.mesh.position.x - spot.x;
+              const dz = e.mesh.position.z - spot.z;
+              const dist = Math.sqrt(dx * dx + dz * dz);
+              const maxDim = Math.max(spot.w, spot.d);
+              
+              const triggerDist = maxDim / 2 + 4.5;
+              if (dist < triggerDist && dist > 0.5) {
+                const toBot = new THREE.Vector3(dx, 0, dz);
+                const toBotNorm = toBot.clone().normalize();
+                
+                // 만약 봇이 건물의 중심 방향(즉, 벽)으로 향하는 내향 벡터라면
+                if (desiredDir.dot(toBotNorm) < -0.15) {
+                  // 시계 방향 및 반시계 방향 접선 벡터 계산
+                  const cw = new THREE.Vector3(-toBotNorm.z, 0, toBotNorm.x);
+                  const ccw = new THREE.Vector3(toBotNorm.z, 0, -toBotNorm.x);
+                  
+                  // 원래 가려던 목표지점과 더 방향이 잘 맞는 접선 선택
+                  const bestCirclingDir = cw.dot(desiredDir) > ccw.dot(desiredDir) ? cw : ccw;
+                  
+                  // 접선 방향(85%) + 외곽 척력(15%)를 믹스하여 부드러운 우회 궤적 유도
+                  desiredDir.copy(bestCirclingDir).multiplyScalar(0.85).addScaledVector(toBotNorm, 0.15).normalize();
+                }
+              }
+            });
+          }
+
+          // [Steering Force Field] 나무, 바위 근처에서 점진적인 척력 벡터 추가
+          if (desiredDir && moveSpeed > 0) {
+            const repelForce = new THREE.Vector3();
+            
+            // 나무, 바위로부터의 척력
+            obstacles.forEach(obs => {
+              if (obs.type === 'TREE' || obs.type === 'ROCK') {
+                const dx = e.mesh.position.x - obs.x;
+                const dz = e.mesh.position.z - obs.z;
+                const dist = Math.sqrt(dx * dx + dz * dz);
+                const affectDist = obs.radius + 4.0;
+                if (dist < affectDist && dist > 0.1) {
+                  const strength = (1.0 - (dist / affectDist)) * 3.5;
+                  repelForce.add(new THREE.Vector3(dx, 0, dz).normalize().multiplyScalar(strength));
+                }
+              }
+            });
+
+            desiredDir.add(repelForce).normalize();
+          }
+
+          // 4. 이동 실행 및 충돌 해결
+          if (desiredDir && moveSpeed > 0) {
+            if (lookTarget) {
+              const targetUpright = lookTarget.clone();
+              targetUpright.y = e.mesh.position.y;
+              e.mesh.lookAt(targetUpright);
+              e.mesh.rotation.y += Math.PI;
+            } else if (e.avoidanceTimer <= 0) {
+              // 회피 중이 아닐 때는 이동 방향 바라보기
+              const lookPoint = e.mesh.position.clone().add(desiredDir);
+              lookPoint.y = e.mesh.position.y;
+              e.mesh.lookAt(lookPoint);
+              e.mesh.rotation.y += Math.PI;
+            } else {
+              // 회피 중이면서 타겟이 없을 때는 회피 방향을 향해 바라봄으로써 부르르 떨리는 현상 제거
+              const lookPoint = e.mesh.position.clone().add(desiredDir);
+              lookPoint.y = e.mesh.position.y;
+              e.mesh.lookAt(lookPoint);
+              e.mesh.rotation.y += Math.PI;
+            }
+            e.mesh.position.add(desiredDir.clone().multiplyScalar(moveSpeed * delta));
+            
+            const colNormal = new THREE.Vector3();
+            const wasCollided = resolveCollisions(e.mesh.position, 0.55, e.id, colNormal);
+            if (wasCollided) {
+              const nowTime = clock.getElapsedTime();
+              if (!e.lastRedirectionTime || nowTime - e.lastRedirectionTime > 0.15) {
+                e.lastRedirectionTime = nowTime;
+                
+                const currentDir = desiredDir ? desiredDir.clone() : new THREE.Vector3(0, 0, -1).applyQuaternion(e.mesh.quaternion).normalize();
+                let chosenAvoidDir = new THREE.Vector3();
+                
+                if (colNormal.lengthSq() > 0.1) {
+                  const t1 = new THREE.Vector3(-colNormal.z, 0, colNormal.x);
+                  const t2 = new THREE.Vector3(colNormal.z, 0, -colNormal.x);
+                  // 척력 요소 없이 순수 벽면 접선(좌/우 90도 회전) 방향 중 원래 목표 방향과 더 가까운 쪽을 선택
+                  chosenAvoidDir.copy(t1.dot(currentDir) > t2.dot(currentDir) ? t1 : t2).normalize();
+                } else {
+                  const turnAngle = Math.random() < 0.5 ? Math.PI / 2 : -Math.PI / 2;
+                  chosenAvoidDir.copy(currentDir).applyAxisAngle(new THREE.Vector3(0, 1, 0), turnAngle).normalize();
+                }
+                
+                // 회피 지속 시간을 늘려(1.5 ~ 2.2초) 벽 모퉁이를 확실히 돌 때까지 접선 방향으로 직진하게 함
+                e.avoidanceTimer = 1.5 + Math.random() * 0.7;
+                e.avoidDir.copy(chosenAvoidDir);
+                
+                // wander 배회 상태 방향도 동기화하여 자연스러운 우회 연계
+                e.wanderDir = chosenAvoidDir.clone();
+                e.wanderTimer = e.avoidanceTimer + 1.0;
+                
+                // 즉각적인 회전 반영을 위해 현재 프레임 이동 방향을 접선 방향으로 덮어씀
+                desiredDir.copy(chosenAvoidDir);
+              }
+            }
+          }
+
+          if (e.recoilTime > 0) e.recoilTime -= delta;
+          
+          const enemyGroundY = getElevation(e.mesh.position.x, e.mesh.position.z, e.mesh.position.y);
+          isEnemySwimming = (getWaterLevel(e.mesh.position.x, e.mesh.position.z) - enemyGroundY >= 0.55);
+          
+          if (isEnemySwimming) {
+            e.mesh.position.y = getWaterLevel(e.mesh.position.x, e.mesh.position.z) - 0.55; // 수영 높이 고정
+            if (moveSpeed > 0) moveSpeed = 1.3; // 수영 속도 감속
+            
+            // 수영 뼈대 애니메이션 실시간 강제 오버라이드 (엎드린 수평 수영 자세)
+            e.soldier.body.rotation.x = Math.PI / 2.2;
+            e.soldier.body.position.set(0, 0.25, 0);
+            e.soldier.headGroup.position.set(0, 0.35, -0.4);
+            e.soldier.headGroup.rotation.x = -Math.PI / 4;
+            e.soldier.leftArm.position.set(-0.35, 0.3, -0.2);
+            e.soldier.rightArm.position.set(0.35, 0.3, -0.2);
+            e.soldier.leftLeg.position.set(-0.16, 0.25, 0.3);
+            e.soldier.rightLeg.position.set(0.16, 0.25, 0.3);
+
+            const swimCycle = Math.sin(clock.getElapsedTime() * 4 + e.id.charCodeAt(3));
+            e.soldier.leftArm.rotation.set(Math.PI / 2 + swimCycle * 0.9, 0.4, -0.2);
+            e.soldier.rightArm.rotation.set(Math.PI / 2 - swimCycle * 0.9, -0.4, 0.2);
+            e.soldier.leftThigh.rotation.set(-Math.PI / 2.2 + swimCycle * 0.4, 0, 0.1);
+            e.soldier.rightThigh.rotation.set(-Math.PI / 2.2 - swimCycle * 0.4, 0, -0.1);
+            const leftKneeAngle = 0.3 + Math.sin(clock.getElapsedTime() * 4 + e.id.charCodeAt(3) - Math.PI / 2) * 0.25;
+            const rightKneeAngle = 0.3 + Math.sin(clock.getElapsedTime() * 4 + e.id.charCodeAt(3) + Math.PI / 2) * 0.25;
+            e.soldier.leftKnee.rotation.set(leftKneeAngle, 0, 0);
+            e.soldier.rightKnee.rotation.set(rightKneeAngle, 0, 0);
+          } else {
+            e.mesh.position.y = enemyGroundY + getSlopeLift(e.mesh.position.x, e.mesh.position.z);
+            e.soldier.body.rotation.x = 0; // 서기 상태 초기화
+            e.soldier.body.position.set(0, 0.95, 0);
+            e.soldier.headGroup.position.set(0, 1.45, 0);
+            e.soldier.leftArm.position.set(-0.38, 1.25, 0);
+            e.soldier.rightArm.position.set(0.38, 1.25, 0);
+            e.soldier.leftLeg.position.set(-0.16, 0.6, 0);
+            e.soldier.rightLeg.position.set(0.16, 0.6, 0);
+          }
+          
+          updateSoldierJoints(e.soldier);
+        }
+      });
+
+      function disposeBullet(b) {
+        if (b && b.mesh) {
+          scene.remove(b.mesh);
+        }
+      }
+
+      function disposeHierarchy(obj) {
+        if (!obj) return;
+        obj.traverse(child => {
+          if (child.isMesh) {
+            if (child.geometry) child.geometry.dispose();
+            if (child.material) {
+              if (Array.isArray(child.material)) {
+                child.material.forEach(m => m.dispose());
+              } else {
+                child.material.dispose();
+              }
+            }
+          }
+        });
+      }
+
+      for(let i = enemyBullets.length - 1; i >= 0; i--) {
+        const b = enemyBullets[i]; 
+        const prevPos = b.mesh.position.clone();
+        const moveStep = b.dir.clone().multiplyScalar(60 * delta);
+        b.mesh.position.add(moveStep); b.life -= delta;
+        
+        let hit = false;
+        
+        // 고속 투사체가 얇은 벽을 뚫는 현상을 방지하기 위해 궤적 상의 중간 지점들도 세밀히 검사 (샘플링 증가 3 -> 8)
+        const samples = 8; 
+        for (let s = 1; s <= samples; s++) {
+          const testPos = prevPos.clone().addScaledVector(moveStep, s / samples);
+          
+          // 총알과 엄폐물(나무, 바위, 집) 충돌 검사
+          const distFromShooter = (b.shooterPos && typeof b.shooterPos.distanceTo === 'function') ? testPos.distanceTo(b.shooterPos) : 999;
+          if (distFromShooter >= 2.0) {
+            for (let obs of obstacles) {
+              if (obs.type === 'TREE' || obs.type === 'ROCK') {
+                const dx = testPos.x - obs.x;
+                const dz = testPos.z - obs.z;
+                const dist = Math.sqrt(dx * dx + dz * dz);
+                if (dist < obs.radius) {
+                  hit = true;
+                  break;
+                }
+              } else if (obs.type === 'BUILDING') {
+                const bx = testPos.x;
+                const bz = testPos.z;
+                const by = testPos.y;
+                const hw = obs.w / 2;
+                const hd = obs.d / 2;
+                // 건물의 전체 3D 영역 부피(Footprint + 지붕 높이)를 기준으로 총알을 확실히 블로킹
+                if (bx >= obs.spotX - hw && bx <= obs.spotX + hw &&
+                    bz >= obs.spotZ - hd && bz <= obs.spotZ + hd &&
+                    by >= obs.spotY && by <= obs.spotY + 5.5) {
+                  hit = true;
+                  break;
+                }
+              }
+            }
+
+            if (!hit) {
+              for (let door of doorsList) {
+                if (!door.isOpen) {
+                  const minX = door.x - door.w/2;
+                  const maxX = door.x + door.w/2;
+                  const minZ = door.z - door.d/2;
+                  const maxZ = door.z + door.d/2;
+                  const bx = testPos.x;
+                  const bz = testPos.z;
+                  const by = testPos.y;
+                  
+                  const gY = getElevation(door.x, door.z);
+                  if (bx >= minX && bx <= maxX && bz >= minZ && bz <= maxZ && by >= gY && by <= gY + 3.0) {
+                    hit = true;
+                    break;
+                  }
+                }
+              }
+            }
+          }
+          if (!hit) {
+            if (victoryChicken && victoryChicken.group) {
+              const distToCh = testPos.distanceTo(victoryChicken.group.position);
+              if (distToCh < 3.2) {
+                const pushForce = 15;
+                victoryChicken.velX += b.dir.x * pushForce;
+                victoryChicken.velZ += b.dir.z * pushForce;
+                victoryChicken.velY = Math.max(8, victoryChicken.velY + 8);
+                victoryChicken.landed = false;
+                if (victoryChicken.bounces >= 3) {
+                  victoryChicken.bounces = 2;
+                }
+                hit = true;
+                SoundSystem.playPunch(false);
+              }
+            }
+          }
+          if (!hit) {
+            for (let idx = liveChickens.length - 1; idx >= 0; idx--) {
+              const c = liveChickens[idx];
+              const dx = testPos.x - c.pos.x;
+              const dz = testPos.z - c.pos.z;
+              const horizDist = Math.sqrt(dx * dx + dz * dz);
+              const vertDist = Math.abs(testPos.y - (c.mesh.position.y + 0.22));
+              
+              // 닭의 크기에 맞는 충돌 실린더 (반지름 0.45m, 높이 0.5m)
+              const hitRadius = c.mesh.userData.type === 'CHICK' ? 0.28 : 0.45;
+              const hitHeight = c.mesh.userData.type === 'CHICK' ? 0.3 : 0.5;
+              
+              if (horizDist < hitRadius && vertDist < hitHeight) {
+                c.panicTime = 2.5;
+                c.dir.copy(b.dir).setY(0).normalize();
+                hit = true;
+                SoundSystem.playPunch(false);
+                
+                // 사격 계속 시 로스트 치킨으로 통구이 변신 구현 (5회 피격 시 변신)
+                if (c.hitCount === undefined) c.hitCount = 0;
+                c.hitCount++;
+                if (c.hitCount >= 5) {
+                  scene.remove(c.mesh);
+                  const roasted = createRoastedChickenMesh();
+                  let scale = c.mesh.userData.type === 'CHICK' ? 0.55 : 1.0;
+                  roasted.scale.set(scale, scale, scale);
+                  roasted.position.copy(c.pos);
+                  const groundOffset = c.mesh.userData.type === 'CHICK' ? 0.12 : 0.22;
+                  roasted.position.y = getElevation(c.pos.x, c.pos.z) + groundOffset;
+                  scene.add(roasted);
+                  
+                  // 통구이 물리적인 미동 효과 추가
+                  roasted.castShadow = true;
+                  roasted.receiveShadow = true;
+                  
+                  SoundSystem.playPunch(true);
+                  liveChickens.splice(idx, 1);
+                  createShockwave(c.pos);
+                }
+                break;
+              }
+            }
+          }
+          if (hit) break;
+        }
+
+        if (hit) {
+          disposeBullet(b);
+          enemyBullets.splice(i, 1);
+          continue;
+        }
+
+        if(playerHp > 0 && b.owner !== 'PLAYER') {
+          const headPos = playerPos.clone().add(new THREE.Vector3(0, currentEyeY, 0));
+          const bodyPos = playerPos.clone().add(new THREE.Vector3(0, currentEyeY - 0.7, 0));
+          const distHead = b.mesh.position.distanceTo(headPos);
+          const distBody = b.mesh.position.distanceTo(bodyPos);
+          
+          if (distHead < 0.3 || distBody < 0.6) {
+            let isHeadshot = distHead < 0.3;
+            let damage = b.dmg;
+            if (isHeadshot) {
+              damage *= 2.5; // 헤드샷 배율
+              if (playerInventory.helmet) {
+                damage *= (1 - playerInventory.helmet.reduction);
+              }
+            }
+            updatePlayerHp(-damage, b.shooterPos);
+            hit = true;
+          }
+        }
+
+        if(!hit) {
+          for(let e of enemies) {
+            if(e.hp > 0 && e.state === 'PLAYING' && b.owner !== e.id) {
+              const headPos = e.mesh.position.clone().add(new THREE.Vector3(0, 1.5, 0));
+              const bodyPos = e.mesh.position.clone().add(new THREE.Vector3(0, 0.8, 0));
+              const distHead = b.mesh.position.distanceTo(headPos);
+              const distBody = b.mesh.position.distanceTo(bodyPos);
+
+              if (distHead < 0.3 || distBody < 0.6) {
+                let isHeadshot = distHead < 0.3;
+                let damage = b.dmg;
+                
+                if (b.owner !== 'PLAYER') {
+                  damage *= 0.25; // AI끼리의 데미지 감소
+                }
+
+                if (isHeadshot) {
+                  damage *= 2.5; // 헤드샷 배율
+                  if (e.helmet) {
+                    damage *= (1 - e.helmet.reduction);
+                  }
+                  if (b.owner === 'PLAYER') showNotice("🎯 HEADSHOT!", 1000);
+                }
+
+                e.hp -= damage; hit = true;
+                if (b.owner === 'PLAYER') {
+                  e.lastHitTime = clock.getElapsedTime();
+                }
+                
+                if(e.hp <= 0) {
+                  totalAlive--; scene.remove(e.mesh); e.hpUI.bg.style.display='none';
+                  spawnCorpseBox(e.mesh.position, e.weapon, Math.random() > 0.5 ? SCOPES.X2 : SCOPES.NONE, e.helmet, e.bag);
+                  addKillLog(`${b.owner === 'PLAYER' ? '당신' : b.owner} -> ${e.id} 처치 ${isHeadshot ? '(헤드샷)' : ''}`);
+                  if(b.owner === 'PLAYER') { killCount++; document.getElementById('kill-count').innerText = killCount; }
+                  checkVictory();
+                }
+                break;
+              }
+            }
+          }
+        }
+        if(hit || b.life <= 0) { disposeBullet(b); enemyBullets.splice(i, 1); }
+      }
+      
+      // 1. 투척무기 물리엔진 업데이트
+      for (let i = activeThrowables.length - 1; i >= 0; i--) {
+        const t = activeThrowables[i];
+        t.timer -= delta;
+        t.vel.y -= 9.8 * 2 * delta; 
+        t.pos.addScaledVector(t.vel, delta);
+        t.mesh.position.copy(t.pos);
+        
+        const groundY = getElevation(t.pos.x, t.pos.z);
+        if (t.pos.y <= groundY) {
+          t.pos.y = groundY;
+          t.vel.y = -t.vel.y * 0.4;
+          t.vel.x *= 0.6;
+          t.vel.z *= 0.6;
+        }
+
+        if (t.timer <= 0) {
+          scene.remove(t.mesh);
+          disposeHierarchy(t.mesh);
+          if (t.type === 'GRENADE') {
+            const expMat = new THREE.MeshBasicMaterial({ color: 0xffaa00, transparent: true, opacity: 0.9 });
+            const expMesh = new THREE.Mesh(new THREE.SphereGeometry(0.1, 16, 16), expMat);
+            expMesh.position.copy(t.pos);
+            scene.add(expMesh);
+            
+            // Play spatial explosion sound
+            const distToPlayer = playerPos.distanceTo(t.pos);
+            const expVol = Math.max(0, 1 - distToPlayer / 150);
+            if (expVol > 0.01) {
+              SoundSystem.playExplosion(expVol);
+            }
+
+            const radius = 18; // 폭발 범위 확장 (10 -> 18)
+            if (distToPlayer < radius && playerHp > 0) {
+              let dmg = (1 - (distToPlayer / radius)) * 180; // 데미지 상향 (120 -> 180)
+              if (playerInventory.helmet) dmg *= (1 - playerInventory.helmet.reduction);
+              updatePlayerHp(-dmg, t.pos);
+              showNotice("⚠️ 수류탄 폭발 치명적 피해!");
+            }
+            enemies.forEach(e => {
+              if (e.hp > 0 && e.state === 'PLAYING') {
+                const distToEnemy = e.mesh.position.distanceTo(t.pos);
+                if (distToEnemy < radius) {
+                  let dmg = (1 - (distToEnemy / radius)) * 180;
+                  if (e.helmet) dmg *= (1 - e.helmet.reduction);
+                  e.hp -= dmg;
+                  e.lastHitTime = clock.getElapsedTime();
+                  if (e.hp <= 0) {
+                    totalAlive--;
+                    scene.remove(e.mesh);
+                    e.hpUI.bg.style.display = 'none';
+                    spawnCorpseBox(e.mesh.position, e.weapon, Math.random() > 0.5 ? SCOPES.X2 : SCOPES.NONE, e.helmet, e.bag);
+                    addKillLog(`수류탄 -> ${e.id} 처치`);
+                    killCount++;
+                    document.getElementById('kill-count').innerText = killCount;
+                    checkVictory();
+                  }
+                }
+              }
+            });
+            
+            let scaleTime = 0;
+            const expInterval = setInterval(() => {
+              scaleTime += 0.04;
+              const size = scaleTime * 45; // 시각적 폭발 크기 대폭 확장
+              expMesh.scale.set(size, size, size);
+              expMat.opacity = 1 - (scaleTime / 0.6);
+              if (scaleTime >= 0.6) {
+                clearInterval(expInterval);
+                scene.remove(expMesh);
+                expMesh.geometry.dispose();
+                expMat.dispose();
+              }
+            }, 40);
+            
+          } else if (t.type === 'SMOKE') {
+            const smokeGroup = new THREE.Group();
+            smokeGroup.position.copy(t.pos);
+            scene.add(smokeGroup);
+            
+            // Play spatial smoke hiss sound
+            const distToPlayer = playerPos.distanceTo(t.pos);
+            const smokeVol = Math.max(0, 1 - distToPlayer / 100);
+            if (smokeVol > 0.01) {
+              SoundSystem.playSmokeHiss(smokeVol);
+            }
+            
+            const numPuffs = 12;
+            const puffs = [];
+            const cloudMat = new THREE.MeshStandardMaterial({
+              color: 0xdddddd,
+              transparent: true,
+              opacity: 0,
+              roughness: 0.9,
+              depthWrite: false
+            });
+            
+            for (let p = 0; p < numPuffs; p++) {
+              const puff = new THREE.Mesh(new THREE.SphereGeometry(1, 8, 8), cloudMat);
+              puff.position.set(
+                (Math.random() - 0.5) * 2,
+                (Math.random() - 0.5) * 1 + 1,
+                (Math.random() - 0.5) * 2
+              );
+              smokeGroup.add(puff);
+              puffs.push({
+                mesh: puff,
+                scale: 1 + Math.random() * 2,
+                targetScale: 5 + Math.random() * 4,
+                drift: new THREE.Vector3((Math.random() - 0.5) * 0.2, Math.random() * 0.1, (Math.random() - 0.5) * 0.2)
+              });
+            }
+            
+            activeSmokeClouds.push({
+              group: smokeGroup,
+              puffs: puffs,
+              material: cloudMat,
+              timer: 15.0,
+              phase: 'FADE_IN'
+            });
+          }
+          activeThrowables.splice(i, 1);
+        }
+      }
+
+      // 2. 연막탄 구름 시뮬레이션 업데이트
+      for (let i = activeSmokeClouds.length - 1; i >= 0; i--) {
+        const sc = activeSmokeClouds[i];
+        sc.timer -= delta;
+        sc.puffs.forEach(p => {
+          if (sc.phase === 'FADE_IN') {
+            p.mesh.scale.lerp(new THREE.Vector3(p.targetScale, p.targetScale, p.targetScale), delta * 2.0);
+            sc.material.opacity = Math.min(0.85, sc.material.opacity + delta * 0.5);
+            if (sc.material.opacity >= 0.8) sc.phase = 'STABLE';
+          } else if (sc.timer < 3.0) {
+            sc.material.opacity = Math.max(0, sc.material.opacity - delta * 0.3);
+          }
+          p.mesh.position.addScaledVector(p.drift, delta);
+        });
+        
+        if (sc.timer <= 0) {
+          sc.group.traverse(child => {
+            if (child.isMesh) {
+              if (child.geometry) child.geometry.dispose();
+              if (child.material) {
+                if (Array.isArray(child.material)) child.material.forEach(m => m.dispose());
+                else child.material.dispose();
+              }
+            }
+          });
+          scene.remove(sc.group);
+          activeSmokeClouds.splice(i, 1);
+        }
+      }
+      
+      drawMinimap();
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    // 로딩 화면 부드럽게 숨기기
+    const loadingScreen = document.getElementById('loading-screen');
+    if (loadingScreen) {
+      setTimeout(() => {
+        loadingScreen.style.opacity = '0';
+        setTimeout(() => {
+          loadingScreen.style.display = 'none';
+        }, 500);
+      }, 500);
+    }
+
+    function checkOrientation() {
+      if (isTouchDevice && window.innerHeight > window.innerWidth) {
+        document.getElementById('portrait-warning').style.display = 'flex';
+      } else {
+        document.getElementById('portrait-warning').style.display = 'none';
+      }
+    }
+    window.addEventListener('resize', () => { 
+      camera.aspect = window.innerWidth / window.innerHeight; 
+      camera.updateProjectionMatrix(); 
+      renderer.setSize(window.innerWidth, window.innerHeight); 
+      checkOrientation();
+    });
+    window.addEventListener('orientationchange', checkOrientation);
+    checkOrientation();
+
+    // 페이지가 새로고침되거나 종료될 때 GPU 메모리와 WebGL 컨텍스트의 잔재를 확실히 정리
+    window.addEventListener('beforeunload', () => {
+      if (typeof BulletCache !== 'undefined' && BulletCache) BulletCache.disposeAll();
+      if (typeof muzzleFlashConeGeo !== 'undefined' && muzzleFlashConeGeo) muzzleFlashConeGeo.dispose();
+      if (typeof muzzleFlashSphereGeo !== 'undefined' && muzzleFlashSphereGeo) muzzleFlashSphereGeo.dispose();
+      if (typeof muzzleFlashConeMat !== 'undefined' && muzzleFlashConeMat) muzzleFlashConeMat.dispose();
+      if (typeof muzzleFlashSphereMat !== 'undefined' && muzzleFlashSphereMat) muzzleFlashSphereMat.dispose();
+      
+      if (typeof scene !== 'undefined' && scene) {
+        scene.traverse(child => {
+          if (child.geometry) child.geometry.dispose();
+          if (child.material) {
+            if (Array.isArray(child.material)) child.material.forEach(m => m.dispose());
+            else child.material.dispose();
+          }
+        });
+      }
+      if (typeof renderer !== 'undefined' && renderer) {
+        renderer.dispose();
+      }
+    });
+  
