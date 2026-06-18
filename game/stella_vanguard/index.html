@@ -449,7 +449,7 @@
         let isCountingDown = false; let isPaused = false; let isExitPromptOpen = false; let countdownInterval;
         let cameraShake = 0; 
         
-        let hitStopFrames = 0; 
+        let hitStopFrames = 0; let hitShakeTime = 0; 
         let lastHeartSpawnFrame = 0; 
         
         let timeAccumulator = 0;
@@ -960,7 +960,7 @@
                 bossHP = maxBossHP; isJumping = false; jumpVelocityY = 0; landingBounceStep = 0; stageHeartSpawned = 0; 
                 trackCurve = 0; targetTrackCurve = 0; timeAccumulator = 0; cameraShake = 0;
                 lastHeartSpawnFrame = 0; 
-                hitStopFrames = 0; 
+                hitStopFrames = 0; hitShakeTime = 0; 
                 
                 preSpawnTrack(); 
                 
@@ -1518,6 +1518,7 @@
             if (lives <= 0) { playSound('explode'); isGameOver = true; explodePlayer(); } 
             else {
                 playSound('crash'); isInvincible = true; let count = 0;
+                hitShakeTime = 0.8;
                 const blink = setInterval(() => { playerGroup.visible = !playerGroup.visible; if (++count > 20) { clearInterval(blink); playerGroup.visible = true; isInvincible = false; } }, 150);
             }
         }
@@ -2232,6 +2233,14 @@
                 shadow.position.y = 0.08 + playerPipeY;
                 shadow.rotation.z = pipeAngle;
             }
+
+            if (hitShakeTime > 0) {
+                hitShakeTime -= 0.0166;
+                const shakeScale = 0.25 * (hitShakeTime / 0.8);
+                playerGroup.position.x += (Math.random() - 0.5) * shakeScale;
+                playerGroup.position.y += (Math.random() - 0.5) * shakeScale;
+                playerGroup.position.z += (Math.random() - 0.5) * shakeScale;
+            }
         }
 
         function clearBoss() {
@@ -2337,7 +2346,7 @@
             
             reviveCount = 0; score = 0; obstaclesPassed = 0; nextBossTarget = 150; bossStage = 1; speed = 0.45; baseSpeed = 0.45; currentLane = 0; frameCount = 0; postBossGrace = 0; targetTilt = 0; targetX = 0; lives = 3; bgmFade = 1.0; bossHP = maxBossHP; isJumping = false; jumpVelocityY = 0; landingBounceStep = 0;
             stageHeartSpawned = 0; trackCurve = 0; targetTrackCurve = 0; timeAccumulator = 0;
-            lastHeartSpawnFrame = 0; hitStopFrames = 0;
+            lastHeartSpawnFrame = 0; hitStopFrames = 0; hitShakeTime = 0;
             
             updateScoreUI(); updateLivesUI(); 
             document.getElementById('msg').style.display = 'none'; 
