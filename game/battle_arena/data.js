@@ -4001,6 +4001,7 @@
     }
 
     let adTimerInterval = null;
+    let adTriggered = false;
     function startRewardedAd() {
       // 로컬 테스트(file://) 환경인 경우 시뮬레이션 광고 구동
       if (window.location.protocol === 'file:') {
@@ -4012,10 +4013,20 @@
       SoundSystem.stopSkydiveWindSound();
       SoundSystem.stopBGM();
       
+      adTriggered = false;
+      const adTimeout = setTimeout(() => {
+        if (!adTriggered) {
+          console.warn("AdSense SDK did not respond in time (possible adblocker). Falling back to simulated ad.");
+          runSimulatedAd();
+        }
+      }, 2000);
+
       adBreak({
         type: 'reward',
         name: 'RevivePlayer',
         beforeAd: () => {
+          adTriggered = true;
+          clearTimeout(adTimeout);
           console.log("AdSense: 광고 시작됨");
         },
         afterAd: () => {
@@ -4034,6 +4045,8 @@
           console.log("AdSense: 광고 시청 성공");
         },
         adError: (err) => {
+          adTriggered = true;
+          clearTimeout(adTimeout);
           console.error("AdSense: 광고 에러 발생, 시뮬레이션으로 대체 진행:", err);
           runSimulatedAd(); // 에러 시 사용자 보호를 위해 시뮬레이션으로 대체
         }
