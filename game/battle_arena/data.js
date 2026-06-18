@@ -4018,8 +4018,8 @@
       if (typeof window.adBreak === 'function') {
         const adTimeout = setTimeout(() => {
           if (!adTriggered) {
-            console.warn("AdSense SDK did not respond in time (possible adblocker). Falling back to simulated ad.");
-            runSimulatedAd();
+            console.warn("AdSense SDK did not respond in time (possible adblocker).");
+            showAdblockNotice();
           }
         }, 2000);
 
@@ -4050,19 +4050,25 @@
             adError: (err) => {
               adTriggered = true;
               clearTimeout(adTimeout);
-              console.error("AdSense: 광고 에러 발생, 시뮬레이션으로 대체 진행:", err);
-              runSimulatedAd(); // 에러 시 사용자 보호를 위해 시뮬레이션으로 대체
+              console.error("AdSense: 광고 에러 발생:", err);
+              showAdblockNotice();
             }
           });
         } catch (err) {
-          console.error("Error executing window.adBreak, falling back to simulated ad:", err);
+          console.error("Error executing window.adBreak:", err);
           clearTimeout(adTimeout);
-          runSimulatedAd();
+          showAdblockNotice();
         }
       } else {
-        console.warn("window.adBreak is not a function (blocked by adblocker). Falling back to simulated ad.");
-        runSimulatedAd();
+        console.warn("window.adBreak is not a function (blocked by adblocker).");
+        showAdblockNotice();
       }
+    }
+
+    function showAdblockNotice() {
+      showNotice("⚠️ 광고를 불러오지 못했습니다. 광고 차단 프로그램(AdBlock)을 해제하고 다시 도전해주세요.", 5000);
+      showDefeatUI();
+      gameState = 'FINISHED';
     }
 
     function runSimulatedAd() {
