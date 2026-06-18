@@ -289,6 +289,18 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script>
+        function createCircleTexture() {
+            const canvas = document.createElement('canvas');
+            canvas.width = 16; canvas.height = 16;
+            const ctx = canvas.getContext('2d');
+            const grad = ctx.createRadialGradient(8, 8, 0, 8, 8, 8);
+            grad.addColorStop(0, 'rgba(255, 255, 255, 1)');
+            grad.addColorStop(0.7, 'rgba(255, 255, 255, 0.7)');
+            grad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+            ctx.fillStyle = grad; ctx.fillRect(0, 0, 16, 16);
+            return new THREE.CanvasTexture(canvas);
+        }
+
         const API_URL = "https://script.google.com/macros/s/AKfycbzdrxjy05btP5_EA6LW_2jMnc_M-hWsGJpJehdzi-18QCp9kwI1komUUjxNTHWmbG3vfw/exec"; 
 
         let topScores = [];
@@ -1063,7 +1075,16 @@
 
             const posArray = new Float32Array(3000);
             for(let i=0; i<3000; i++) posArray[i]=(Math.random()-0.5)*400;
-            stars = new THREE.Points(new THREE.BufferGeometry().setAttribute('position', new THREE.BufferAttribute(posArray, 3)), new THREE.PointsMaterial({size:0.6, color:0xffffff, transparent:true, opacity:0.8})); scene.add(stars);
+            stars = new THREE.Points(new THREE.BufferGeometry().setAttribute('position', new THREE.BufferAttribute(posArray, 3)), new THREE.PointsMaterial({
+                size: 1.5,
+                color: 0xffffff,
+                transparent: true,
+                opacity: 0.8,
+                map: createCircleTexture(),
+                alphaTest: 0.01,
+                blending: THREE.AdditiveBlending,
+                depthWrite: false
+            })); scene.add(stars);
 
             curveMeshes = []; 
 
@@ -1759,6 +1780,9 @@
                 if (stars) { 
                     stars.position.z += speed * 2.0; 
                     if (stars.position.z > 200) stars.position.z -= 200; 
+                    
+                    const targetOpacity = (isBossMode || isBossSpawning) ? 0.0 : 0.8;
+                    stars.material.opacity += (targetOpacity - stars.material.opacity) * 0.05;
                 }
                 
                 planets.forEach((p, i) => { 
@@ -1844,6 +1868,9 @@
                 if (stars) { 
                     stars.position.z += speed * 2.0; 
                     if (stars.position.z > 200) stars.position.z -= 200; 
+                    
+                    const targetOpacity = (isBossMode || isBossSpawning) ? 0.0 : 0.8;
+                    stars.material.opacity += (targetOpacity - stars.material.opacity) * 0.05;
                 }
 
                 if (isBossMode || isBossSpawning || isTransformingToMech || isTransformingToShip) { 
