@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>리다이렉트 중...</title>
+    <script>
+        (function() {
+            const pathname = window.location.pathname; // 예: /why/sub-page
+            
+            // 주소가 /why 로 시작하는지 확인
+            if (pathname.startsWith('/why')) {
+                // 기존 /why 부분을 제외한 하위 경로를 추출 (예: /sub-page)
+                const subPath = pathname.replace(/^\/why/, '');
+                
+                // 새 도메인의 동일한 하위 경로로 리다이렉트
+                // (만약 단순히 새 도메인의 메인으로만 보내고 싶다면 https://curiosity.smileslife.co.kr/ 로 설정 가능)
+                const targetUrl = 'https://curiosity.smileslife.co.kr' + subPath + window.location.search + window.location.hash;
+                
+                window.location.replace(targetUrl);
+            } else {
+                // /why 관련 주소가 아닌 진짜 없는 페이지인 경우 홈으로 이동시키거나 안내 문구 출력
+                window.location.replace('/');
+            }
+        })();
+    </script>
+</head>
+<body>
+    <p>페이지를 이동 중입니다. 잠시만 기다려주세요...</p>
+</body>
+</html>
