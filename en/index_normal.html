@@ -1,826 +1,807 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- 자동 다국어 리다이렉트 스크립트 -->
-    <script>
-        (function() {
-            const pageLang = "en";
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.get('noredirect') === 'true') return;
-            
-            function getPreferredLang() {
-                const localLang = localStorage.getItem('smileslife-preferred-lang');
-                if (localLang) return localLang;
-                const userLang = (navigator.language || navigator.userLanguage).toLowerCase();
-                if (userLang.startsWith('en')) return 'en';
-                if (userLang.startsWith('es')) return 'es';
-                if (userLang.startsWith('ja')) return 'ja';
-                if (userLang.startsWith('zh-tw') || userLang === 'zh-hk' || userLang === 'zh-mo') return 'zh-TW';
-                return 'ko';
-            }
-            
-            const targetLang = getPreferredLang();
-            if (targetLang !== pageLang) {
-                const path = targetLang === 'ko' 
-                    ? (pageLang === 'ko' ? 'index_normal.html' : '../index_normal.html') 
-                    : (pageLang === 'ko' ? targetLang + '/index_normal.html' : '../' + targetLang + '/index_normal.html');
-                window.location.replace(path);
-            }
-        })();
-    </script>
-    
-    <title>SmilesLife Portal - Normal Mode</title>
-    
-    <!-- SNS 공유용 메타 태그 -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="SmilesLife Portal - Normal Mode">
-    <meta property="og:description" content="A collection of web utility tools and games sorted by category. Launch them instantly.">
-    <meta property="og:image" content="https://smileslife.co.kr/images/desktop.png">
-    
-    <link rel="icon" href="https://smileslife.co.kr/images/desktop.png" type="image/png">
-    
-    <!-- 구글 폰트 및 아이콘 라이브러리 -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- 구글 애드센스 로더 -->
-    <script src="/adsense-loader.js"></script>
-
-    <style>
-        :root {
-            --bg-color: #0b0f19;
-            --bg-gradient: linear-gradient(135deg, #0b0f19 0%, #111827 50%, #1e1b4b 100%);
-            --text-primary: #ffffff;
-            --text-secondary: #9ca3af;
-            --accent-blue: #0078D4;
-            --accent-blue-hover: #005a9e;
-            --glass-bg: rgba(255, 255, 255, 0.02);
-            --glass-border: rgba(255, 255, 255, 0.08);
-            --glass-hover-bg: rgba(255, 255, 255, 0.05);
-            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            --sidebar-width: 240px;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html, body {
-
-
-            
-
-
-            width: 100%;
-
-
-            margin: 0;
-
-
-            padding: 0;
-
-
-        }
-
-
-
-        body { 'Outfit', 'Noto Sans KR', sans-serif;
-            background: var(--bg-gradient);
-            color: var(--text-primary);
-            min-height: 100vh;
-            
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* 아크릴 유리 효과 헤더 */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 70px;
-            background: rgba(11, 15, 25, 0.6);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--glass-border);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 40px;
-            z-index: 100;
-        }
-
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .logo-box {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4px;
-            width: 32px;
-            height: 32px;
-        }
-        .logo-box div {
-            border-radius: 3px;
-        }
-        .c-1 { background: #FF5722; }
-        .c-2 { background: #4CAF50; }
-        .c-3 { background: #FFC107; }
-        .c-4 { background: #E91E63; }
-
-        .logo-text {
-            font-size: 1.4rem;
-            font-weight: 800;
-            letter-spacing: -0.3px;
-            background: linear-gradient(to right, #ffffff, #93c5fd);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .btn-mode-switch {
-            background: var(--accent-blue);
-            color: white;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 12px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow: 0 4px 15px rgba(0, 120, 212, 0.3);
-        }
-
-        .btn-mode-switch:hover {
-            background: var(--accent-blue-hover);
-            transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(0, 120, 212, 0.5);
-        }
-
-        .btn-control {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--glass-border);
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 12px;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1rem;
-            transition: all 0.2s;
-        }
-        .btn-control:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.2);
-            transform: scale(1.05);
-        }
-
-        .lang-select {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--glass-border);
-            color: white;
-            padding: 8px 12px;
-            border-radius: 12px;
-            cursor: pointer;
-            outline: none;
-            font-size: 0.85rem;
-            font-family: inherit;
-            transition: all 0.2s;
-            margin-right: 5px;
-        }
-        .lang-select:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.2);
-        }
-        .lang-select option {
-            background: #0b0f19;
-            color: white;
-        }
-
-        /* 메인 레이아웃 */
-        .main-container {
-            display: flex;
-            margin-top: 70px;
-            flex: 1;
-            width: 100%;
-        }
-
-        /* 사이드바 메뉴 */
-        aside {
-            width: var(--sidebar-width);
-            background: rgba(11, 15, 25, 0.3);
-            border-right: 1px solid var(--glass-border);
-            padding: 30px 20px;
-            position: fixed;
-            top: 70px;
-            bottom: 0;
-            left: 0;
-            overflow-y: auto;
-            z-index: 90;
-        }
-
-        .sidebar-title {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--text-secondary);
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-
-        .sidebar-menu {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .menu-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px 16px;
-            border-radius: 12px;
-            cursor: pointer;
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            transition: all 0.2s;
-            font-weight: 500;
-        }
-
-        .menu-item:hover, .menu-item.active {
-            background: var(--glass-hover-bg);
-            color: var(--text-primary);
-        }
-
-        .menu-item.active {
-            border-left: 3px solid var(--accent-blue);
-            background: rgba(255, 255, 255, 0.04);
-            border-top-left-radius: 4px;
-            border-bottom-left-radius: 4px;
-        }
-
-        /* 콘텐츠 영역 */
-        main {
-            margin-left: var(--sidebar-width);
-            flex: 1;
-            padding: 40px;
-            min-height: calc(100vh - 70px);
-            display: flex;
-            flex-direction: column;
-            gap: 50px;
-        }
-
-        .category-section {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-            scroll-margin-top: 100px;
-        }
-
-        .category-title {
-            font-size: 1.6rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            position: relative;
-            padding-bottom: 8px;
-        }
-
-        .category-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 3px;
-            background: var(--accent-blue);
-            border-radius: 2px;
-        }
-
-        /* 그리드 및 카드 디자인 */
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 20px;
-        }
-
-        .item-card {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 25px 20px;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-            text-decoration: none;
-            color: var(--text-primary);
-        }
-
-        .item-card::before {
-            content: '';
-            position: absolute;
-            inset: -1px;
-            border-radius: 20px;
-            padding: 1px;
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.01));
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            pointer-events: none;
-            transition: all 0.3s;
-        }
-
-        .item-card:hover {
-            transform: translateY(-5px);
-            background: var(--glass-hover-bg);
-            border-color: rgba(255, 255, 255, 0.15);
-            box-shadow: var(--card-shadow);
-        }
-
-        .item-icon {
-            width: 64px;
-            height: 64px;
-            border-radius: 16px;
-            object-fit: cover;
-            margin-bottom: 15px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s;
-        }
-
-        .item-card:hover .item-icon {
-            transform: scale(1.08);
-            box-shadow: 0 8px 20px rgba(0, 120, 212, 0.2);
-        }
-
-        .item-name {
-            font-size: 1.05rem;
-            font-weight: 600;
-            margin-bottom: 8px;
-            letter-spacing: -0.2px;
-        }
-
-        .item-desc {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            line-height: 1.4;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            word-break: break-all;
-            overflow-wrap: break-word;
-            text-wrap: balance;
-        }
-
-        /* 하단 광고 컨테이너 */
-        .adsense-container {
-            flex-shrink: 0;
-            width: 100%;
-        }
-
-        /* 모바일 햄버거 메뉴 버튼 기본 숨김 */
-        #menu-toggle-btn {
-            display: none;
-        }
-
-        /* 반응형 모바일 디자인 (태블릿 & 모바일 공통) */
-        @media (max-width: 900px) {
-            #menu-toggle-btn {
-                display: flex;
-                margin-right: 10px;
-            }
-            aside {
-                position: fixed;
-                top: 70px;
-                bottom: 0;
-                left: -240px; /* 기본적으로 화면 왼쪽 밖에 숨김 */
-                width: var(--sidebar-width);
-                background: rgba(11, 15, 25, 0.95) !important;
-                backdrop-filter: blur(25px);
-                -webkit-backdrop-filter: blur(25px);
-                border-right: 1px solid var(--glass-border);
-                z-index: 1000 !important;
-                transition: left 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
-                display: block !important;
-            }
-            aside.active {
-                left: 0 !important;
-                box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
-            }
-            main {
-                margin-left: 0 !important;
-                padding: 20px;
-            }
-            header {
-                padding: 0 20px;
-            }
-        }
-
-        /* 초소형 모바일 기기 반응형 (카드 3열 배치 및 최적화) */
-        @media (max-width: 600px) {
-            .cards-grid {
-                grid-template-columns: repeat(3, 1fr) !important;
-                gap: 8px !important;
-            }
-            .item-card {
-                padding: 12px 6px !important;
-                border-radius: 12px !important;
-            }
-            .item-icon {
-                width: 44px !important;
-                height: 44px !important;
-                border-radius: 10px !important;
-                margin-bottom: 6px !important;
-            }
-            .item-name {
-                font-size: 0.75rem !important;
-                margin-bottom: 0px !important;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                width: 100%;
-            }
-            .item-desc {
-                display: none !important;
-            }
-            .category-title {
-                font-size: 1.3rem !important;
-            }
-        }
-
-        /* 사이드바 오픈 시 배경 어둡게 처리용 오버레이 */
-        .sidebar-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            top: 70px;
-            background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(3px);
-            -webkit-backdrop-filter: blur(3px);
-            z-index: 999;
-        }
-        .sidebar-overlay.active {
-            display: block;
-        }
-    </style>
-</head>
-<body>
-
-    <!-- 최상단 헤더 -->
-    <header>
-        <div class="header-left">
-            <!-- 모바일용 메뉴 토글 버튼 -->
-            <button id="menu-toggle-btn" class="btn-control" onclick="toggleSidebar()" title="메뉴 열기">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-            <a href="index_normal.html" style="display: flex; align-items: center; text-decoration: none; color: inherit; cursor: pointer;">
-                <img src="/images/desktop.png" alt="일반 모드" style="width: 24px; height: 24px; object-fit: contain; margin-right: 8px;">
-                <span class="logo-text">SmilesLife</span>
-            </a>
-        </div>
-        <div class="header-right">
-            <select class="lang-select" onchange="changeLanguage(this.value)">
-                <option value="ko">한국어</option>
-                <option value="en">English</option>
-                <option value="es">Español</option>
-                <option value="ja">日本語</option>
-                <option value="zh-TW">繁體中文</option>
-            </select>
-            <button class="btn-mode-switch" onclick="switchToDesktop()" title="Switch to Windows Mode">
-                <i class="fa-solid fa-desktop"></i>
-            </button>
-            <button class="btn-control" onclick="resetPreferences()" title="Reset Preferences">
-                <i class="fa-solid fa-rotate-left"></i>
-            </button>
-        </div>
-    </header>
-
-    <!-- 모바일 사이드바 배경 어둡게 하는 오버레이 -->
-    <div id="sidebar-overlay" class="sidebar-overlay" onclick="closeSidebar()"></div>
-
-    <!-- 메인 컨테이너 -->
-    <div class="main-container">
-        <!-- 왼쪽 사이드바 -->
-        <aside id="sidebar">
-            <h3 class="sidebar-title">Categories</h3>
-            <ul class="sidebar-menu" id="category-menu">
-                                <li class="menu-item active" onclick="scrollToGroup('group-0', this)">
-                    <i class="fa-solid fa-folder-open"></i> <span>Web service</span>
-                </li>
-                <li class="menu-item" onclick="scrollToGroup('group-1', this)">
-                    <i class="fa-solid fa-folder-open"></i> <span>game</span>
-                </li>
-                <li class="menu-item" onclick="scrollToGroup('group-2', this)">
-                    <i class="fa-solid fa-folder-open"></i> <span>Etc</span>
-                </li>
-                <li class="menu-item" onclick="scrollToGroup('group-3', this)">
-                    <i class="fa-solid fa-folder-open"></i> <span>Knowledge & Trends</span>
-                </li>
-
-            </ul>
-        </aside>
-
-        <!-- 오른쪽 메인 콘텐츠 -->
-        <main id="main-content">
-            <!-- 도구 카드가 그룹별로 동적 렌더링될 영역 -->
-            <div id="portal-content" style="display: flex; flex-direction: column; gap: 50px;">
-                                <section class="category-section" id="group-0">
-                    <h2 class="category-title"><i class="fa-regular fa-star text-blue-500"></i> Web service</h2>
-                    <div class="cards-grid">
-                        <a class="item-card" href="/web/background-removal/index.html" target="_blank">
-                            <img src="/images/generative-image.png" class="item-icon" alt="Image background removal">
-                            <div class="item-name">Image background removal</div>
-                            <div class="item-desc">AI-based image background removal and cutout</div>
-                        </a>
-                        <a class="item-card" href="/web/image-to-gif/index.html" target="_blank">
-                            <img src="/images/gif-file.png" class="item-icon" alt="GIF converter">
-                            <div class="item-name">GIF converter</div>
-                            <div class="item-desc">Creating animated GIFs by combining images</div>
-                        </a>
-                        <a class="item-card" href="/web/audio-converter/index.html" target="_blank">
-                            <img src="/images/volume-adjustment.png" class="item-icon" alt="Audio converter">
-                            <div class="item-name">Audio converter</div>
-                            <div class="item-desc">Music and Audio File Format Interconverter</div>
-                        </a>
-                        <a class="item-card" href="/web/image-upscaler/index.html" target="_blank">
-                            <img src="/images/scale.png" class="item-icon" alt="Image quality improvement">
-                            <div class="item-name">Image quality improvement</div>
-                            <div class="item-desc">High-definition upscaling blurry photos to make them sharp</div>
-                        </a>
-                        <a class="item-card" href="/web/object-eraser/index.html" target="_blank">
-                            <img src="/images/eraser.png" class="item-icon" alt="Image AI Eraser">
-                            <div class="item-name">Image AI Eraser</div>
-                            <div class="item-desc">AI removes unwanted objects and text from photos</div>
-                        </a>
-                        <a class="item-card" href="/web/anime-filter/index.html" target="_blank">
-                            <img src="/images/comic-book.png" class="item-icon" alt="Image conversion filter">
-                            <div class="item-name">Image conversion filter</div>
-                            <div class="item-desc">Convert photos to cartoon/webtoon animation style</div>
-                        </a>
-                        <a class="item-card" href="/web/image-tagging/index.html" target="_blank">
-                            <img src="/images/image.png" class="item-icon" alt="Image AI Analysis">
-                            <div class="item-name">Image AI Analysis</div>
-                            <div class="item-desc">AI Image Analysis, Object Recognition, and Tag Recommendation Phrase Generation</div>
-                        </a>
-                        <a class="item-card" href="/web/color-picker/index.html" target="_blank">
-                            <img src="/images/color.png" class="item-icon" alt="Color meter">
-                            <div class="item-name">Color meter</div>
-                            <div class="item-desc">Extract accurate color codes from the screen using the eyedropper tool</div>
-                        </a>
-                    </div>
-                </section>
-                <section class="category-section" id="group-1">
-                    <h2 class="category-title"><i class="fa-regular fa-star text-blue-500"></i> game</h2>
-                    <div class="cards-grid">
-                        <a class="item-card" href="/game/battle_arena/index.html" target="_blank">
-                            <img src="/images/battle.png" class="item-icon" alt="Battle Arena">
-                            <div class="item-name">Battle Arena</div>
-                            <div class="item-desc">50-Player Survival Battle Arena Action Game</div>
-                        </a>
-                        <a class="item-card" href="/game/stella_vanguard/index.html" target="_blank">
-                            <img src="/images/digital.png" class="item-icon" alt="Stella Vanguard">
-                            <div class="item-name">Stella Vanguard</div>
-                            <div class="item-desc">Side-scrolling spaceship flight shooting action game</div>
-                        </a>
-                        <a class="item-card" href="/web/lotto_tarot/index.html" target="_blank">
-                            <img src="/images/lottery.png" class="item-icon" alt="Tarot">
-                            <div class="item-name">Tarot</div>
-                            <div class="item-desc">Today's Tarot Fortune Reading and AI Counseling</div>
-                        </a>
-                        <a class="item-card" href="/web/minesweeper/index.html" target="_blank">
-                            <img src="/images/bomb.png" class="item-icon" alt="Minesweeper">
-                            <div class="item-name">Minesweeper</div>
-                            <div class="item-desc">Classic Minesweeper Play Directly in Your Web Browser</div>
-                        </a>
-                        <a class="item-card" href="/web/typing-practice/index.html" target="_blank">
-                            <img src="/images/typing.png" class="item-icon" alt="Typing practice">
-                            <div class="item-name">Typing practice</div>
-                            <div class="item-desc">Korean/English Typewriter for Typing Practice</div>
-                        </a>
-                    </div>
-                </section>
-                <section class="category-section" id="group-2">
-                    <h2 class="category-title"><i class="fa-regular fa-star text-blue-500"></i> Etc</h2>
-                    <div class="cards-grid">
-                        <a class="item-card" href="https://forms.gle/iGqkmrB7YYptoUgQA" target="_blank">
-                            <img src="/images/board.png" class="item-icon" alt="Contact Us">
-                            <div class="item-name">Contact Us</div>
-                            <div class="item-desc">Submit an inquiry regarding partnerships, errors, etc.</div>
-                        </a>
-                        <a class="item-card" href="/web/notepad/index.html" target="_blank">
-                            <img src="/images/notepad.png" class="item-icon" alt="Notepad">
-                            <div class="item-name">Notepad</div>
-                            <div class="item-desc">A simple web notepad that automatically saves your writing</div>
-                        </a>
-                    </div>
-                </section>
-                <section class="category-section" id="group-3">
-                    <h2 class="category-title"><i class="fa-regular fa-star text-blue-500"></i> Knowledge & Trends</h2>
-                    <div class="cards-grid">
-                        <a class="item-card" href="https://ai.smileslife.co.kr/" target="_blank">
-                            <img src="/images/icon_ai.png" class="item-icon" alt="AI Trend Portal">
-                            <div class="item-name">AI Trend Portal</div>
-                            <div class="item-desc">Latest AI Technology Trends and Artificial Intelligence Trend Information</div>
-                        </a>
-                        <a class="item-card" href="https://business.smileslife.co.kr/" target="_blank">
-                            <img src="/images/icon_business.png" class="item-icon" alt="Business Insights">
-                            <div class="item-name">Business Insights</div>
-                            <div class="item-desc">Successful Business Strategy and Startup Marketing Guide</div>
-                        </a>
-                        <a class="item-card" href="https://crypto.smileslife.co.kr/" target="_blank">
-                            <img src="/images/icon_crypto.png" class="item-icon" alt="Crypto Guide">
-                            <div class="item-name">Crypto Guide</div>
-                            <div class="item-desc">Virtual Asset Market Analysis and Blockchain Trends</div>
-                        </a>
-                        <a class="item-card" href="https://curiosity.smileslife.co.kr/" target="_blank">
-                            <img src="/images/icon_curiosity.png" class="item-icon" alt="Curiosity Heaven Portal">
-                            <div class="item-name">Curiosity Heaven Portal</div>
-                            <div class="item-desc">Exploring the world's interesting knowledge, mysteries, and curiosity</div>
-                        </a>
-                        <a class="item-card" href="https://finance.smileslife.co.kr/" target="_blank">
-                            <img src="/images/icon_finance.png" class="item-icon" alt="Smart Financial Information">
-                            <div class="item-name">Smart Financial Information</div>
-                            <div class="item-desc">Rational asset management and efficient financial information portal</div>
-                        </a>
-                        <a class="item-card" href="https://fire.smileslife.co.kr/" target="_blank">
-                            <img src="/images/icon_fire.png" class="item-icon" alt="FIRE community asset planning">
-                            <div class="item-name">FIRE community asset planning</div>
-                            <div class="item-desc">Asset Planning Tips for the FIRE Community Preparing for Financial Freedom</div>
-                        </a>
-                        <a class="item-card" href="https://passive.smileslife.co.kr/" target="_blank">
-                            <img src="/images/icon_passive.png" class="item-icon" alt="Automation Passive Income">
-                            <div class="item-name">Automation Passive Income</div>
-                            <div class="item-desc">Automated Revenue Planning and Building a Passive Income Pipeline</div>
-                        </a>
-                        <a class="item-card" href="https://python.smileslife.co.kr/" target="_blank">
-                            <img src="/images/icon_python.png" class="item-icon" alt="Python automation coding">
-                            <div class="item-name">Python automation coding</div>
-                            <div class="item-desc">Learning Python Programming Basics and Automated Coding</div>
-                        </a>
-                        <a class="item-card" href="https://risk.smileslife.co.kr/" target="_blank">
-                            <img src="/images/icon_risk.png" class="item-icon" alt="Risk Management Information">
-                            <div class="item-name">Risk Management Information</div>
-                            <div class="item-desc">Asset Risk Management and Safe Financial Risk Factor Analysis</div>
-                        </a>
-                        <a class="item-card" href="https://seo.smileslife.co.kr/" target="_blank">
-                            <img src="/images/icon_seo.png" class="item-icon" alt="SEO Optimization Guide">
-                            <div class="item-name">SEO Optimization Guide</div>
-                            <div class="item-desc">Search Engine Optimization Know-how and Tips for Top Website Rankings</div>
-                        </a>
-                        <a class="item-card" href="https://stock.smileslife.co.kr/" target="_blank">
-                            <img src="/images/icon_stock.png" class="item-icon" alt="Stock Investment Insights">
-                            <div class="item-name">Stock Investment Insights</div>
-                            <div class="item-desc">Analysis of Domestic and International Stock Market Conditions and Stock Investment Strategies</div>
-                        </a>
-                    </div>
-                </section>
-
-            </div>
-
-            <!-- Google Auto Ads Optimization Space -->
-            <div class="adsense-container" style="clear: both; margin: 40px auto 0 auto; width: 100%; max-width: 970px; min-height: 50px;"></div>
-
-            <!-- 하단 푸터 (저작권 및 파비콘 출처 표기) -->
-            <footer style="margin-top: 60px; padding: 25px 0 10px 0; border-top: 1px solid var(--glass-border); text-align: center; font-size: 0.8rem; color: var(--text-secondary); letter-spacing: 0.3px;">
-                © 2026 SmilesLife. Designed with luxury aesthetics. | 
-                <a href="https://www.flaticon.com" target="_blank" style="color: var(--text-secondary); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--accent-blue)'" onmouseout="this.style.color='var(--text-secondary)'">Icons by Flaticon</a>
-            </footer>
-        </main>
-    </div>
-
-    <script>
-        const pageLang = "en";
-
-        function switchToDesktop() {
-            try {
-                const docElm = document.documentElement;
-                if (docElm.requestFullscreen) {
-                    docElm.requestFullscreen().catch(() => {});
-                } else if (docElm.webkitRequestFullscreen) {
-                    docElm.webkitRequestFullscreen();
-                }
-            } catch (err) {}
-            
-            document.documentElement.style.overflow = 'hidden';
-            document.body.style.overflow = 'hidden';
-            
-            setTimeout(() => {
-                try {
-                    window.history.replaceState({}, '', '/index_win.html?lang=' + pageLang);
-                } catch (e) {}
-
-                const iframe = document.createElement('iframe');
-                iframe.src = '/index_win.html?lang=' + pageLang;
-                iframe.style.position = 'fixed';
-                iframe.style.top = '0';
-                iframe.style.left = '0';
-                iframe.style.width = '100vw';
-                iframe.style.height = '100vh';
-                iframe.style.border = 'none';
-                iframe.style.zIndex = '999999';
-                iframe.setAttribute('allow', 'fullscreen');
-                document.body.appendChild(iframe);
-            }, 150);
-        }
-
-        function resetPreferences() {
-            localStorage.removeItem('smileslife-preferred-mode');
-            window.location.href = '/index.html?select=true';
-        }
-
-        function scrollToGroup(id, element) {
-            document.querySelectorAll('.menu-item').forEach(item => item.classList.remove('active'));
-            element.classList.add('active');
-            const targetEl = document.getElementById(id);
-            if (targetEl) {
-                targetEl.scrollIntoView({ behavior: 'smooth' });
-            }
-            closeSidebar();
-        }
-
-        function changeLanguage(val) {
-            localStorage.setItem('smileslife-preferred-lang', val);
-            if (val === 'ko') {
-                window.location.href = '/index_normal.html';
-            } else {
-                window.location.href = '/' + val + '/index_normal.html';
-            }
-        }
-
-        // 모바일 사이드바 제어 함수
-        function toggleSidebar() {
-            const sidebar = document.getElementById('sidebar');
-            const overlay = document.getElementById('sidebar-overlay');
-            sidebar.classList.toggle('active');
-            overlay.classList.toggle('active');
-        }
-
-        function closeSidebar() {
-            const sidebar = document.getElementById('sidebar');
-            const overlay = document.getElementById('sidebar-overlay');
-            if (sidebar.classList.contains('active')) {
-                sidebar.classList.remove('active');
-                overlay.classList.remove('active');
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const select = document.querySelector('.lang-select');
-            if (select) select.value = pageLang;
-            localStorage.setItem('smileslife-preferred-lang', pageLang);
-
-            // 지식 & 트렌드 서브도메인 링크 자동 다국어(why/언어) 처리
-            const subdomains = [
-                'ai.smileslife.co.kr',
-                'business.smileslife.co.kr',
-                'crypto.smileslife.co.kr',
-                'curiosity.smileslife.co.kr',
-                'finance.smileslife.co.kr',
-                'fire.smileslife.co.kr',
-                'passive.smileslife.co.kr',
-                'python.smileslife.co.kr',
-                'risk.smileslife.co.kr',
-                'seo.smileslife.co.kr',
-                'stock.smileslife.co.kr'
-            ];
-            if (typeof pageLang !== 'undefined' && pageLang !== 'ko') {
-                document.querySelectorAll('a.item-card').forEach(link => {
-                    try {
-                        const url = new URL(link.href);
-                        if (subdomains.includes(url.hostname) && (url.pathname === '/' || url.pathname === '/index.html')) {
-                            link.href = `https://${url.hostname}/why/${pageLang}`;
-                        }
-                    } catch (e) {}
-                });
-            }
-        });
-    </script>
-</body>
-</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 자동 다국어 리다이렉트 스크립트 -->
+    <script>
+        (function() {
+            const pageLang = "en";
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('noredirect') === 'true') return;
+            
+            function getPreferredLang() {
+                const localLang = localStorage.getItem('smileslife-preferred-lang');
+                if (localLang) return localLang;
+                const userLang = (navigator.language || navigator.userLanguage).toLowerCase();
+                if (userLang.startsWith('en')) return 'en';
+                if (userLang.startsWith('es')) return 'es';
+                if (userLang.startsWith('ja')) return 'ja';
+                if (userLang.startsWith('zh-tw') || userLang === 'zh-hk' || userLang === 'zh-mo') return 'zh-TW';
+                return 'ko';
+            }
+            
+            const targetLang = getPreferredLang();
+            if (targetLang !== pageLang) {
+                const path = targetLang === 'ko' 
+                    ? (pageLang === 'ko' ? 'index_normal.html' : '../index_normal.html') 
+                    : (pageLang === 'ko' ? targetLang + '/index_normal.html' : '../' + targetLang + '/index_normal.html');
+                window.location.replace(path);
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmilesLife Portal - Normal Mode</title>
+    
+    <!-- SNS 공유용 메타 태그 -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="SmilesLife Portal - Normal Mode">
+    <meta property="og:description" content="A collection of web utility tools and games sorted by category. Launch them instantly.">
+    <meta property="og:image" content="https://smileslife.co.kr/images/desktop.png">
+    
+    <link rel="icon" href="https://smileslife.co.kr/images/desktop.png" type="image/png">
+    
+    <!-- 구글 폰트 및 아이콘 라이브러리 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- 구글 애드센스 로더 -->
+    <script src="/adsense-loader.js"></script>
+
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --bg-gradient: linear-gradient(135deg, #0b0f19 0%, #111827 50%, #1e1b4b 100%);
+            --text-primary: #ffffff;
+            --text-secondary: #9ca3af;
+            --accent-blue: #0078D4;
+            --accent-blue-hover: #005a9e;
+            --glass-bg: rgba(255, 255, 255, 0.02);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --glass-hover-bg: rgba(255, 255, 255, 0.05);
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            --sidebar-width: 240px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Outfit', 'Noto Sans KR', sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 아크릴 유리 효과 헤더 */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background: rgba(11, 15, 25, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+            z-index: 100;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4px;
+            width: 32px;
+            height: 32px;
+        }
+        .logo-box div {
+            border-radius: 3px;
+        }
+        .c-1 { background: #FF5722; }
+        .c-2 { background: #4CAF50; }
+        .c-3 { background: #FFC107; }
+        .c-4 { background: #E91E63; }
+
+        .logo-text {
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: -0.3px;
+            background: linear-gradient(to right, #ffffff, #93c5fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .btn-mode-switch {
+            background: var(--accent-blue);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 4px 15px rgba(0, 120, 212, 0.3);
+        }
+
+        .btn-mode-switch:hover {
+            background: var(--accent-blue-hover);
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 120, 212, 0.5);
+        }
+
+        .btn-control {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+        .btn-control:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        .lang-select {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 12px;
+            cursor: pointer;
+            outline: none;
+            font-size: 0.85rem;
+            font-family: inherit;
+            transition: all 0.2s;
+            margin-right: 5px;
+        }
+        .lang-select:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        .lang-select option {
+            background: #0b0f19;
+            color: white;
+        }
+
+        /* 메인 레이아웃 */
+        .main-container {
+            display: flex;
+            margin-top: 70px;
+            flex: 1;
+            width: 100%;
+        }
+
+        /* 사이드바 메뉴 */
+        aside {
+            width: var(--sidebar-width);
+            background: rgba(11, 15, 25, 0.3);
+            border-right: 1px solid var(--glass-border);
+            padding: 30px 20px;
+            position: fixed;
+            top: 70px;
+            bottom: 0;
+            left: 0;
+            overflow-y: auto;
+            z-index: 90;
+        }
+
+        .sidebar-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .sidebar-menu {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+
+        .menu-item:hover, .menu-item.active {
+            background: var(--glass-hover-bg);
+            color: var(--text-primary);
+        }
+
+        .menu-item.active {
+            border-left: 3px solid var(--accent-blue);
+            background: rgba(255, 255, 255, 0.04);
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+
+        /* 콘텐츠 영역 */
+        main {
+            margin-left: var(--sidebar-width);
+            flex: 1;
+            padding: 40px;
+            min-height: calc(100vh - 70px);
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+
+        .category-section {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            scroll-margin-top: 100px;
+        }
+
+        .category-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        .category-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--accent-blue);
+            border-radius: 2px;
+        }
+
+        /* 그리드 및 카드 디자인 */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .item-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 25px 20px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .item-card::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: 20px;
+            padding: 1px;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.01));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            transition: all 0.3s;
+        }
+
+        .item-card:hover {
+            transform: translateY(-5px);
+            background: var(--glass-hover-bg);
+            border-color: rgba(255, 255, 255, 0.15);
+            box-shadow: var(--card-shadow);
+        }
+
+        .item-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            object-fit: cover;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s;
+        }
+
+        .item-card:hover .item-icon {
+            transform: scale(1.08);
+            box-shadow: 0 8px 20px rgba(0, 120, 212, 0.2);
+        }
+
+        .item-name {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            letter-spacing: -0.2px;
+        }
+
+        .item-desc {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            word-break: break-all;
+            overflow-wrap: break-word;
+            text-wrap: balance;
+        }
+
+        /* 하단 광고 컨테이너 */
+        .adsense-container {
+            flex-shrink: 0;
+            width: 100%;
+        }
+
+        /* 모바일 햄버거 메뉴 버튼 기본 숨김 */
+        #menu-toggle-btn {
+            display: none;
+        }
+
+        /* 반응형 모바일 디자인 (태블릿 & 모바일 공통) */
+        @media (max-width: 900px) {
+            #menu-toggle-btn {
+                display: flex;
+                margin-right: 10px;
+            }
+            aside {
+                position: fixed;
+                top: 70px;
+                bottom: 0;
+                left: -240px; /* 기본적으로 화면 왼쪽 밖에 숨김 */
+                width: var(--sidebar-width);
+                background: rgba(11, 15, 25, 0.95) !important;
+                backdrop-filter: blur(25px);
+                -webkit-backdrop-filter: blur(25px);
+                border-right: 1px solid var(--glass-border);
+                z-index: 1000 !important;
+                transition: left 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+                display: block !important;
+            }
+            aside.active {
+                left: 0 !important;
+                box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
+            }
+            main {
+                margin-left: 0 !important;
+                padding: 20px;
+            }
+            header {
+                padding: 0 20px;
+            }
+        }
+
+        /* 초소형 모바일 기기 반응형 (카드 3열 배치 및 최적화) */
+        @media (max-width: 600px) {
+            .cards-grid {
+                grid-template-columns: repeat(3, 1fr) !important;
+                gap: 8px !important;
+            }
+            .item-card {
+                padding: 12px 6px !important;
+                border-radius: 12px !important;
+            }
+            .item-icon {
+                width: 44px !important;
+                height: 44px !important;
+                border-radius: 10px !important;
+                margin-bottom: 6px !important;
+            }
+            .item-name {
+                font-size: 0.75rem !important;
+                margin-bottom: 0px !important;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                width: 100%;
+            }
+            .item-desc {
+                display: none !important;
+            }
+            .category-title {
+                font-size: 1.3rem !important;
+            }
+        }
+
+        /* 사이드바 오픈 시 배경 어둡게 처리용 오버레이 */
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            top: 70px;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(3px);
+            -webkit-backdrop-filter: blur(3px);
+            z-index: 999;
+        }
+        .sidebar-overlay.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 최상단 헤더 -->
+    <header>
+        <div class="header-left">
+            <!-- 모바일용 메뉴 토글 버튼 -->
+            <button id="menu-toggle-btn" class="btn-control" onclick="toggleSidebar()" title="메뉴 열기">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <a href="index_normal.html" style="display: flex; align-items: center; text-decoration: none; color: inherit; cursor: pointer;">
+                <img src="/images/desktop.png" alt="일반 모드" style="width: 24px; height: 24px; object-fit: contain; margin-right: 8px;">
+                <span class="logo-text">SmilesLife</span>
+            </a>
+        </div>
+        <div class="header-right">
+            <select class="lang-select" onchange="changeLanguage(this.value)">
+                <option value="ko">한국어</option>
+                <option value="en">English</option>
+                <option value="es">Español</option>
+                <option value="ja">日本語</option>
+                <option value="zh-TW">繁體中文</option>
+            </select>
+            <button class="btn-mode-switch" onclick="switchToDesktop()" title="Switch to Windows Mode">
+                <i class="fa-solid fa-desktop"></i>
+            </button>
+            <button class="btn-control" onclick="resetPreferences()" title="Reset Preferences">
+                <i class="fa-solid fa-rotate-left"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- 모바일 사이드바 배경 어둡게 하는 오버레이 -->
+    <div id="sidebar-overlay" class="sidebar-overlay" onclick="closeSidebar()"></div>
+
+    <!-- 메인 컨테이너 -->
+    <div class="main-container">
+        <!-- 왼쪽 사이드바 -->
+        <aside id="sidebar">
+            <h3 class="sidebar-title">Categories</h3>
+            <ul class="sidebar-menu" id="category-menu">
+                                <li class="menu-item active" onclick="scrollToGroup('group-0', this)">
+                    <i class="fa-solid fa-folder-open"></i> <span>Web service</span>
+                </li>
+                <li class="menu-item" onclick="scrollToGroup('group-1', this)">
+                    <i class="fa-solid fa-folder-open"></i> <span>game</span>
+                </li>
+                <li class="menu-item" onclick="scrollToGroup('group-2', this)">
+                    <i class="fa-solid fa-folder-open"></i> <span>Etc</span>
+                </li>
+                <li class="menu-item" onclick="scrollToGroup('group-3', this)">
+                    <i class="fa-solid fa-folder-open"></i> <span>Knowledge & Trends</span>
+                </li>
+
+            </ul>
+        </aside>
+
+        <!-- 오른쪽 메인 콘텐츠 -->
+        <main id="main-content">
+            <!-- 도구 카드가 그룹별로 동적 렌더링될 영역 -->
+            <div id="portal-content" style="display: flex; flex-direction: column; gap: 50px;">
+                                <section class="category-section" id="group-0">
+                    <h2 class="category-title"><i class="fa-regular fa-star text-blue-500"></i> Web service</h2>
+                    <div class="cards-grid">
+                        <a class="item-card" href="/web/background-removal/index.html" target="_blank">
+                            <img src="/images/generative-image.png" class="item-icon" alt="Image background removal">
+                            <div class="item-name">Image background removal</div>
+                            <div class="item-desc">AI-based image background removal and cutout</div>
+                        </a>
+                        <a class="item-card" href="/web/image-to-gif/index.html" target="_blank">
+                            <img src="/images/gif-file.png" class="item-icon" alt="GIF converter">
+                            <div class="item-name">GIF converter</div>
+                            <div class="item-desc">Creating animated GIFs by combining images</div>
+                        </a>
+                        <a class="item-card" href="/web/audio-converter/index.html" target="_blank">
+                            <img src="/images/volume-adjustment.png" class="item-icon" alt="Audio converter">
+                            <div class="item-name">Audio converter</div>
+                            <div class="item-desc">Music and Audio File Format Interconverter</div>
+                        </a>
+                        <a class="item-card" href="/web/image-upscaler/index.html" target="_blank">
+                            <img src="/images/scale.png" class="item-icon" alt="Image quality improvement">
+                            <div class="item-name">Image quality improvement</div>
+                            <div class="item-desc">High-definition upscaling blurry photos to make them sharp</div>
+                        </a>
+                        <a class="item-card" href="/web/object-eraser/index.html" target="_blank">
+                            <img src="/images/eraser.png" class="item-icon" alt="Image AI Eraser">
+                            <div class="item-name">Image AI Eraser</div>
+                            <div class="item-desc">AI removes unwanted objects and text from photos</div>
+                        </a>
+                        <a class="item-card" href="/web/anime-filter/index.html" target="_blank">
+                            <img src="/images/comic-book.png" class="item-icon" alt="Image conversion filter">
+                            <div class="item-name">Image conversion filter</div>
+                            <div class="item-desc">Convert photos to cartoon/webtoon animation style</div>
+                        </a>
+                        <a class="item-card" href="/web/image-tagging/index.html" target="_blank">
+                            <img src="/images/image.png" class="item-icon" alt="Image AI Analysis">
+                            <div class="item-name">Image AI Analysis</div>
+                            <div class="item-desc">AI Image Analysis, Object Recognition, and Tag Recommendation Phrase Generation</div>
+                        </a>
+                        <a class="item-card" href="/web/color-picker/index.html" target="_blank">
+                            <img src="/images/color.png" class="item-icon" alt="Color meter">
+                            <div class="item-name">Color meter</div>
+                            <div class="item-desc">Extract accurate color codes from the screen using the eyedropper tool</div>
+                        </a>
+                    </div>
+                </section>
+                <section class="category-section" id="group-1">
+                    <h2 class="category-title"><i class="fa-regular fa-star text-blue-500"></i> game</h2>
+                    <div class="cards-grid">
+                        <a class="item-card" href="/game/battle_arena/index.html" target="_blank">
+                            <img src="/images/battle.png" class="item-icon" alt="Battle Arena">
+                            <div class="item-name">Battle Arena</div>
+                            <div class="item-desc">50-Player Survival Battle Arena Action Game</div>
+                        </a>
+                        <a class="item-card" href="/game/stella_vanguard/index.html" target="_blank">
+                            <img src="/images/digital.png" class="item-icon" alt="Stella Vanguard">
+                            <div class="item-name">Stella Vanguard</div>
+                            <div class="item-desc">Side-scrolling spaceship flight shooting action game</div>
+                        </a>
+                        <a class="item-card" href="/web/lotto_tarot/index.html" target="_blank">
+                            <img src="/images/lottery.png" class="item-icon" alt="Tarot">
+                            <div class="item-name">Tarot</div>
+                            <div class="item-desc">Today's Tarot Fortune Reading and AI Counseling</div>
+                        </a>
+                        <a class="item-card" href="/web/minesweeper/index.html" target="_blank">
+                            <img src="/images/bomb.png" class="item-icon" alt="Minesweeper">
+                            <div class="item-name">Minesweeper</div>
+                            <div class="item-desc">Classic Minesweeper Play Directly in Your Web Browser</div>
+                        </a>
+                        <a class="item-card" href="/web/typing-practice/index.html" target="_blank">
+                            <img src="/images/typing.png" class="item-icon" alt="Typing practice">
+                            <div class="item-name">Typing practice</div>
+                            <div class="item-desc">Korean/English Typewriter for Typing Practice</div>
+                        </a>
+                    </div>
+                </section>
+                <section class="category-section" id="group-2">
+                    <h2 class="category-title"><i class="fa-regular fa-star text-blue-500"></i> Etc</h2>
+                    <div class="cards-grid">
+                        <a class="item-card" href="https://forms.gle/iGqkmrB7YYptoUgQA" target="_blank">
+                            <img src="/images/board.png" class="item-icon" alt="Contact Us">
+                            <div class="item-name">Contact Us</div>
+                            <div class="item-desc">Submit an inquiry regarding partnerships, errors, etc.</div>
+                        </a>
+                        <a class="item-card" href="/web/notepad/index.html" target="_blank">
+                            <img src="/images/notepad.png" class="item-icon" alt="Notepad">
+                            <div class="item-name">Notepad</div>
+                            <div class="item-desc">A simple web notepad that automatically saves your writing</div>
+                        </a>
+                    </div>
+                </section>
+                <section class="category-section" id="group-3">
+                    <h2 class="category-title"><i class="fa-regular fa-star text-blue-500"></i> Knowledge & Trends</h2>
+                    <div class="cards-grid">
+                        <a class="item-card" href="https://ai.smileslife.co.kr/" target="_blank">
+                            <img src="/images/icon_ai.png" class="item-icon" alt="AI Trend Portal">
+                            <div class="item-name">AI Trend Portal</div>
+                            <div class="item-desc">Latest AI Technology Trends and Artificial Intelligence Trend Information</div>
+                        </a>
+                        <a class="item-card" href="https://business.smileslife.co.kr/" target="_blank">
+                            <img src="/images/icon_business.png" class="item-icon" alt="Business Insights">
+                            <div class="item-name">Business Insights</div>
+                            <div class="item-desc">Successful Business Strategy and Startup Marketing Guide</div>
+                        </a>
+                        <a class="item-card" href="https://crypto.smileslife.co.kr/" target="_blank">
+                            <img src="/images/icon_crypto.png" class="item-icon" alt="Crypto Guide">
+                            <div class="item-name">Crypto Guide</div>
+                            <div class="item-desc">Virtual Asset Market Analysis and Blockchain Trends</div>
+                        </a>
+                        <a class="item-card" href="https://curiosity.smileslife.co.kr/" target="_blank">
+                            <img src="/images/icon_curiosity.png" class="item-icon" alt="Curiosity Heaven Portal">
+                            <div class="item-name">Curiosity Heaven Portal</div>
+                            <div class="item-desc">Exploring the world's interesting knowledge, mysteries, and curiosity</div>
+                        </a>
+                        <a class="item-card" href="https://finance.smileslife.co.kr/" target="_blank">
+                            <img src="/images/icon_finance.png" class="item-icon" alt="Smart Financial Information">
+                            <div class="item-name">Smart Financial Information</div>
+                            <div class="item-desc">Rational asset management and efficient financial information portal</div>
+                        </a>
+                        <a class="item-card" href="https://fire.smileslife.co.kr/" target="_blank">
+                            <img src="/images/icon_fire.png" class="item-icon" alt="FIRE community asset planning">
+                            <div class="item-name">FIRE community asset planning</div>
+                            <div class="item-desc">Asset Planning Tips for the FIRE Community Preparing for Financial Freedom</div>
+                        </a>
+                        <a class="item-card" href="https://passive.smileslife.co.kr/" target="_blank">
+                            <img src="/images/icon_passive.png" class="item-icon" alt="Automation Passive Income">
+                            <div class="item-name">Automation Passive Income</div>
+                            <div class="item-desc">Automated Revenue Planning and Building a Passive Income Pipeline</div>
+                        </a>
+                        <a class="item-card" href="https://python.smileslife.co.kr/" target="_blank">
+                            <img src="/images/icon_python.png" class="item-icon" alt="Python automation coding">
+                            <div class="item-name">Python automation coding</div>
+                            <div class="item-desc">Learning Python Programming Basics and Automated Coding</div>
+                        </a>
+                        <a class="item-card" href="https://risk.smileslife.co.kr/" target="_blank">
+                            <img src="/images/icon_risk.png" class="item-icon" alt="Risk Management Information">
+                            <div class="item-name">Risk Management Information</div>
+                            <div class="item-desc">Asset Risk Management and Safe Financial Risk Factor Analysis</div>
+                        </a>
+                        <a class="item-card" href="https://seo.smileslife.co.kr/" target="_blank">
+                            <img src="/images/icon_seo.png" class="item-icon" alt="SEO Optimization Guide">
+                            <div class="item-name">SEO Optimization Guide</div>
+                            <div class="item-desc">Search Engine Optimization Know-how and Tips for Top Website Rankings</div>
+                        </a>
+                        <a class="item-card" href="https://stock.smileslife.co.kr/" target="_blank">
+                            <img src="/images/icon_stock.png" class="item-icon" alt="Stock Investment Insights">
+                            <div class="item-name">Stock Investment Insights</div>
+                            <div class="item-desc">Analysis of Domestic and International Stock Market Conditions and Stock Investment Strategies</div>
+                        </a>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Google Auto Ads Optimization Space -->
+            <div class="adsense-container" style="clear: both; margin: 40px auto 0 auto; width: 100%; max-width: 970px; min-height: 50px;"></div>
+
+            <!-- 하단 푸터 (저작권 및 파비콘 출처 표기) -->
+            <footer style="margin-top: 60px; padding: 25px 0 10px 0; border-top: 1px solid var(--glass-border); text-align: center; font-size: 0.8rem; color: var(--text-secondary); letter-spacing: 0.3px;">
+                © 2026 SmilesLife. Designed with luxury aesthetics. | 
+                <a href="https://www.flaticon.com" target="_blank" style="color: var(--text-secondary); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--accent-blue)'" onmouseout="this.style.color='var(--text-secondary)'">Icons by Flaticon</a>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        const pageLang = "en";
+
+        function switchToDesktop() {
+            try {
+                const docElm = document.documentElement;
+                if (docElm.requestFullscreen) {
+                    docElm.requestFullscreen().catch(() => {});
+                } else if (docElm.webkitRequestFullscreen) {
+                    docElm.webkitRequestFullscreen();
+                }
+            } catch (err) {}
+            
+            document.documentElement.style.overflow = 'hidden';
+            document.body.style.overflow = 'hidden';
+            
+            setTimeout(() => {
+                try {
+                    window.history.replaceState({}, '', '/index_win.html?lang=' + pageLang);
+                } catch (e) {}
+
+                const iframe = document.createElement('iframe');
+                iframe.src = '/index_win.html?lang=' + pageLang;
+                iframe.style.position = 'fixed';
+                iframe.style.top = '0';
+                iframe.style.left = '0';
+                iframe.style.width = '100vw';
+                iframe.style.height = '100vh';
+                iframe.style.border = 'none';
+                iframe.style.zIndex = '999999';
+                iframe.setAttribute('allow', 'fullscreen');
+                document.body.appendChild(iframe);
+            }, 150);
+        }
+
+        function resetPreferences() {
+            localStorage.removeItem('smileslife-preferred-mode');
+            window.location.href = '/index.html?select=true';
+        }
+
+        function scrollToGroup(id, element) {
+            document.querySelectorAll('.menu-item').forEach(item => item.classList.remove('active'));
+            element.classList.add('active');
+            const targetEl = document.getElementById(id);
+            if (targetEl) {
+                targetEl.scrollIntoView({ behavior: 'smooth' });
+            }
+            closeSidebar();
+        }
+
+        function changeLanguage(val) {
+            localStorage.setItem('smileslife-preferred-lang', val);
+            if (val === 'ko') {
+                window.location.href = '/index_normal.html';
+            } else {
+                window.location.href = '/' + val + '/index_normal.html';
+            }
+        }
+
+        // 모바일 사이드바 제어 함수
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebar-overlay');
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+
+        function closeSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebar-overlay');
+            if (sidebar.classList.contains('active')) {
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const select = document.querySelector('.lang-select');
+            if (select) select.value = pageLang;
+            localStorage.setItem('smileslife-preferred-lang', pageLang);
+
+            // 지식 & 트렌드 서브도메인 링크 자동 다국어(why/언어) 처리
+            const subdomains = [
+                'ai.smileslife.co.kr',
+                'business.smileslife.co.kr',
+                'crypto.smileslife.co.kr',
+                'curiosity.smileslife.co.kr',
+                'finance.smileslife.co.kr',
+                'fire.smileslife.co.kr',
+                'passive.smileslife.co.kr',
+                'python.smileslife.co.kr',
+                'risk.smileslife.co.kr',
+                'seo.smileslife.co.kr',
+                'stock.smileslife.co.kr'
+            ];
+            if (typeof pageLang !== 'undefined' && pageLang !== 'ko') {
+                document.querySelectorAll('a.item-card').forEach(link => {
+                    try {
+                        const url = new URL(link.href);
+                        if (subdomains.includes(url.hostname) && (url.pathname === '/' || url.pathname === '/index.html')) {
+                            link.href = `https://${url.hostname}/why/${pageLang}`;
+                        }
+                    } catch (e) {}
+                });
+            }
+        });
+    </script>
+</body>
+</html>
