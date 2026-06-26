@@ -7,7 +7,7 @@ Borrador de imágenes con IA,Servicio web,web/object-eraser/index.html,images/er
 Filtro de conversión de imagen,Servicio web,web/anime-filter/index.html,images/comic-book.png,Convierte fotos a estilo de animación de dibujos animados/webtoon.
 Análisis de imágenes mediante IA,Servicio web,web/image-tagging/index.html,images/image.png,"Análisis de imágenes mediante IA, reconocimiento de objetos y generación de frases para la recomendación de etiquetas."
 Medidor de color,Servicio web,web/color-picker/index.html,images/color.png,Extraiga códigos de color precisos de la pantalla utilizando la herramienta cuentagotas.
-Arena de batalla,juego,game/battle_arena/index.html,images/battle.png,Juego de acción y batalla de supervivencia en arena para 50 jugadores
+Arena de batalla,juego,game/battle_arena/index.html,images/battle.png,Juego de acción y batalla de supervivencia para 50 jugadores
 Stella Vanguard,juego,game/stella_vanguard/index.html,images/digital.png,Juego de acción y disparos de naves espaciales con desplazamiento lateral
 Tarot,juego,web/lotto_tarot/index.html,images/lottery.png,Lectura de tarot y asesoramiento con IA para hoy
 Dragaminas,juego,web/minesweeper/index.html,images/bomb.png,Juega al clásico Buscaminas directamente en tu navegador web.
@@ -28,7 +28,7 @@ Perspectivas empresariales,Conocimiento y tendencias,https://business.smileslife
 Guía de criptomonedas,Conocimiento y tendencias,https://crypto.smileslife.co.kr/,images/icon_crypto.png,Análisis del mercado de activos virtuales y tendencias de blockchain
 Portal del Cielo de la Curiosidad,Conocimiento y tendencias,https://curiosity.smileslife.co.kr/,images/icon_curiosity.png,"Explorando el conocimiento interesante, los misterios y la curiosidad del mundo."
 Información financiera inteligente,Conocimiento y tendencias,https://finance.smileslife.co.kr/,images/icon_finance.png,Gestión racional de activos y portal de información financiera eficiente
-Planificación de activos comunitarios FIRE,Conocimiento y tendencias,https://fire.smileslife.co.kr/,images/icon_fire.png,Consejos de planificación patrimonial para la comunidad FIRE: Preparándose para la libertad financiera.
+Planificación de activos comunitarios FIRE,Conocimiento y tendencias,https://fire.smileslife.co.kr/,images/icon_fire.png,Consejos de planificación patrimonial para la comunidad FIRE: Preparándose para la libertad financiera
 Ingresos pasivos por automatización,Conocimiento y tendencias,https://passive.smileslife.co.kr/,images/icon_passive.png,Planificación automatizada de ingresos y creación de un flujo de ingresos pasivos.
 codificación de automatización en Python,Conocimiento y tendencias,https://python.smileslife.co.kr/,images/icon_python.png,Aprender los fundamentos de la programación en Python y la codificación automatizada.
 Información sobre gestión de riesgos,Conocimiento y tendencias,https://risk.smileslife.co.kr/,images/icon_risk.png,Gestión del riesgo de activos y análisis de factores de riesgo financiero seguro

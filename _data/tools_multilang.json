@@ -422,7 +422,7 @@
           "name": "Arena de batalla",
           "url": "game/battle_arena/index.html",
           "icon": "images/battle.png",
-          "desc": "Juego de acción y batalla de supervivencia en arena para 50 jugadores"
+          "desc": "Juego de acción y batalla de supervivencia para 50 jugadores"
         },
         {
           "name": "Stella Vanguard",
@@ -504,7 +504,7 @@
           "name": "Planificación de activos comunitarios FIRE",
           "url": "https://fire.smileslife.co.kr/",
           "icon": "images/icon_fire.png",
-          "desc": "Consejos de planificación patrimonial para la comunidad FIRE: Preparándose para la libertad financiera."
+          "desc": "Consejos de planificación patrimonial para la comunidad FIRE: Preparándose para la libertad financiera"
         },
         {
           "name": "Ingresos pasivos por automatización",
@@ -790,7 +790,7 @@
           "name": "塔羅牌",
           "url": "web/lotto_tarot/index.html",
           "icon": "images/lottery.png",
-          "desc": "今日塔羅牌占卜與人工智慧諮詢"
+          "desc": "今日塔羅牌運勢解讀與人工智慧諮詢"
         },
         {
           "name": "掃雷",
