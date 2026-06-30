@@ -1,1071 +1,1086 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <script type="importmap">
-    { "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }
-  </script>
-  <script type="module" src="data.js"></script>
-    <!-- 구글 애드센스 H5 게임 광고 SDK 로드 -->
-  <script async
-    data-ad-frequency-hint="30s"
-    data-ad-client="ca-pub-2837251751819266"
-    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
-  </script>
-  <script>
-    window.adsbygoogle = window.adsbygoogle || [];
-    var adBreak = adConfig = function(o) {adsbygoogle.push(o);}
-    
-    // 광고 API 초기화
-    adConfig({
-      preloadAdBreaks: 'on',
-      onAdBreakDone: function(info) {
-        console.log("Ad break done:", info);
-      }
-    });
-  </script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>배틀 아레나 (Battle Arena) - 최후의 1인</title>
-  <style>
-    body { margin: 0; overflow: hidden; background-color: #070911; user-select: none; -webkit-user-select: none; touch-action: none; }
-    canvas { display: block; position: absolute; top:0; left:0; z-index: 1; }
-    
-    #ui-layer { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; font-family: 'Malgun Gothic', sans-serif; color: white; z-index: 10; }
-    #crosshair { position: absolute; top: 50%; left: 50%; width: 14px; height: 14px; border: 2px solid rgba(0, 255, 200, 0.8); border-radius: 50%; transform: translate(-50%, -50%); display: none; }
-    
-    /* 스코프 정조준(ADS) 연출 오버레이 */
-    #scope-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; display: none; z-index: 4; background: radial-gradient(circle at center, transparent 25%, rgba(0,0,0,0.95) 50%, black 100%); }
-    #scope-cross-v { position: absolute; top: 50%; left: 50%; width: 2px; height: 100%; background: rgba(0,0,0,0.7); transform: translate(-50%, -50%); }
-    #scope-cross-h { position: absolute; top: 50%; left: 50%; width: 100%; height: 2px; background: rgba(0,0,0,0.7); transform: translate(-50%, -50%); }
-    #scope-mag-text { position: absolute; bottom: 80px; left: 50%; transform: translateX(-50%); font-size: 24px; font-weight: bold; color: #00ffcc; text-shadow: 2px 2px 4px rgba(0,0,0,0.9); font-family: 'Malgun Gothic', sans-serif; text-align: center; }
-    
-    /* 적 머리 위 체력 게이지 컨테이너 */
-    #enemy-hp-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 2; }
-    .enemy-hp-bar-bg { position: absolute; width: 40px; height: 6px; background: rgba(0,0,0,0.8); border: 1px solid white; transform: translate(-50%, -50%); display: none; }
-    .enemy-hp-bar-fill { width: 100%; height: 100%; background: #ff3333; }
-
-    /* 상태창 및 무기 표기 */
-    #top-left-ui { position: absolute; top: 20px; left: 20px; display: none; flex-direction: column; gap: 10px; }
-    #minimap-container { width: 130px; height: 130px; border: 3px solid rgba(255,255,255,0.5); border-radius: 50%; overflow: hidden; background: rgba(0,0,0,0.6); position: relative; }
-    #status-board { font-size: 15px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.9); background: rgba(15,22,32,0.85); padding: 12px; border-radius: 8px; pointer-events: auto; border: 1px solid rgba(255,255,255,0.2); }
-    #equipped-info { color: #00ffcc; font-size: 16px; margin-bottom: 5px; }
-
-    /* 플레이어 체력 */
-    #player-hp-ui { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); width: 350px; text-align: center; display: none; }
-    #player-hp-text { font-size: 20px; font-weight: bold; margin-bottom: 5px; text-shadow: 2px 2px 5px black; }
-    #player-hp-bar-bg { width: 100%; height: 20px; background: rgba(0,0,0,0.7); border: 2px solid rgba(255,255,255,0.8); border-radius: 10px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
-    #player-hp-bar-fill { width: 100%; height: 100%; background: linear-gradient(90deg, #ff0000, #ff5555); transition: width 0.15s ease-out; }
-
-    /* 우측 정보 패널 */
-    #match-info { position: absolute; top: 20px; right: 20px; font-size: 14px; font-weight: bold; text-shadow: 1px 1px 3px black; text-align: right; display: none; }
-    #zone-info { background: rgba(15,22,32,0.85); padding: 10px; border-radius: 8px; margin-bottom: 10px; border: 1px solid rgba(255,255,255,0.2); }
-    #kill-feed { display: flex; flex-direction: column; gap: 4px; align-items: flex-end; }
-    .kill-log { background: rgba(200,0,0,0.7); padding: 4px 10px; border-radius: 4px; animation: fadeOut 4s forwards; font-size: 13px; }
-    @keyframes fadeOut { 0% { opacity: 1; } 80% { opacity: 1; } 100% { opacity: 0; } }
-
-    #action-btn { position: absolute; bottom: 85px; left: 50%; transform: translateX(-50%); padding: 15px 45px; font-size: 22px; font-weight: bold; background: #ffeb3b; color: #000; border: none; border-radius: 35px; box-shadow: 0 4px 15px rgba(0,0,0,0.6); display: none; pointer-events: auto; cursor: pointer; z-index: 100; white-space: nowrap; justify-content: center; align-items: center; }
-    #notice-box { position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%); font-size: 20px; font-weight: bold; color: #ffeb3b; text-shadow: 2px 2px 5px black; background: rgba(0,0,0,0.8); padding: 12px 25px; border-radius: 30px; display: none; text-align: center; z-index: 90;}
-
-    #overlay { 
-      position: absolute; 
-      top: 0; left: 0; 
-      width: 100%; height: 100%; 
-      background: radial-gradient(circle at center, transparent 30%, rgba(10, 12, 18, 0.45) 60%, rgba(10, 12, 18, 0.9) 100%); 
-      display: block; 
-      box-sizing: border-box;
-      pointer-events: none; 
-      color: white; 
-      font-family: 'Malgun Gothic', sans-serif; 
-      z-index: 200; 
-    }
-    #title-container { 
-      position: absolute;
-      top: 2%; left: 50%;
-      transform: translateX(-50%);
-      text-align: center;
-      pointer-events: auto;
-      width: 100%;
-    }
-    #main-title {
-      font-size: 44px;
-      font-weight: 900;
-      color: #ffffff;
-      letter-spacing: 4px;
-      text-shadow: 0 0 20px rgba(255,255,255,0.4);
-      margin: 0;
-      line-height: 1.1;
-    }
-    #sub-title {
-      font-size: 22px;
-      font-weight: 700;
-      color: #ffb300;
-      letter-spacing: 2px;
-      text-shadow: 0 0 15px rgba(255,179,0,0.5);
-      margin-top: 4px;
-      margin-bottom: 0;
-    }
-    #instruction {
-      position: absolute;
-      top: 12%; left: 50%;
-      transform: translateX(-50%);
-      text-align: center;
-      color: #e0e0e0;
-      font-size: 13px;
-      line-height: 1.5;
-      margin: 0;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
-      font-weight: 500;
-      pointer-events: auto;
-      background: rgba(15, 22, 32, 0.7);
-      padding: 10px 20px;
-      border-radius: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-top: 2px solid #ffb300;
-      max-width: 440px;
-      backdrop-filter: blur(4px);
-    }
-    #audio-notice {
-      position: absolute;
-      bottom: 40px; left: 60px;
-      margin: 0;
-      color: #00ffcc;
-      font-size: 13px;
-      font-weight: bold;
-      animation: pulse 1.5s infinite;
-      background: rgba(0, 255, 200, 0.08);
-      border: 1px solid rgba(0, 255, 200, 0.25);
-      padding: 12px 16px;
-      border-radius: 6px;
-      box-sizing: border-box;
-      width: auto;
-      max-width: 350px;
-      text-align: left;
-      line-height: 1.4;
-      pointer-events: auto;
-    }
-    #lobby-btn-container {
-      position: absolute;
-      bottom: 12%;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 15px;
-      z-index: 250;
-      pointer-events: auto;
-    }
-    #settings-ui {
-      display: flex;
-      gap: 12px;
-    }
-    #settings-ui button {
-      background: rgba(15, 22, 32, 0.85);
-      color: #ffb300;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      padding: 10px 18px;
-      border-radius: 6px;
-      font-weight: bold;
-      cursor: pointer;
-      font-size: 13px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-      transition: all 0.2s ease;
-      backdrop-filter: blur(4px);
-    }
-    #settings-ui button:hover {
-      transform: translateY(-1px);
-      border-color: #ffb300;
-      box-shadow: 0 6px 15px rgba(255, 179, 0, 0.25);
-    }
-    #start-btn { 
-      padding: 18px 85px; 
-      font-size: 26px; 
-      font-weight: bold; 
-      background: linear-gradient(135deg, #4caf50, #2e7d32); 
-      color: white; 
-      border: 1px solid rgba(255,255,255,0.4); 
-      border-radius: 8px; 
-      cursor: pointer; 
-      box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
-      transition: all 0.2s ease;
-    }
-    #start-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 25px rgba(76, 175, 80, 0.6);
-    }
-
-    #mobile-ui { display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 5; }
-    #joystick-touch-zone { position: absolute; top: 0; left: 0; width: 50%; height: 100%; pointer-events: auto; }
-    #touch-look-zone { position: absolute; top: 0; right: 0; width: 50%; height: 100%; pointer-events: auto; }
-    #btn-attack { position: absolute; bottom: 50px; right: 50px; width: 85px; height: 85px; background: rgba(255,255,255,0.15); border: 3px solid rgba(255,255,255,0.7); border-radius: 50%; color: white; font-size: 16px; font-weight: bold; pointer-events: auto; display: flex; justify-content: center; align-items: center; }
-    #btn-aim { position: absolute; bottom: 150px; right: 60px; width: 65px; height: 65px; background: rgba(0,255,100,0.2); border: 2px solid rgba(255,255,255,0.5); border-radius: 50%; color: white; font-size: 14px; font-weight: bold; pointer-events: auto; display: flex; justify-content: center; align-items: center; }
-    #btn-tpp { position: absolute; bottom: 150px; left: 40px; width: 70px; height: 45px; background: rgba(255,255,255,0.2); border: 2px solid white; border-radius: 10px; color: white; font-size: 14px; font-weight: bold; pointer-events: auto; display: flex; justify-content: center; align-items: center; }
-    #joystick-container { position: absolute; width: 110px; height: 110px; background: rgba(255,255,255,0.1); border: 2px solid rgba(255,255,255,0.5); border-radius: 50%; display: none; pointer-events: none; z-index: 6; transform: translate(-50%, -50%); }
-    #joystick-stick { position: absolute; top: 50%; left: 50%; width: 45px; height: 45px; background: rgba(255,255,255,0.8); border-radius: 50%; transform: translate(-50%, -50%); }
-    #damage-indicator { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; display: none; z-index: 9; }
-    @keyframes dmgFade { 0% { opacity: 1; } 100% { opacity: 0; } }
-    #bluezone-overlay {
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0, 80, 255, 0.12);
-      box-shadow: inset 0 0 120px rgba(0, 120, 255, 0.5);
-      pointer-events: none;
-      display: none;
-      z-index: 8;
-    }
-    @keyframes bluezonePulse {
-      0% { opacity: 0.6; }
-      50% { opacity: 1.0; }
-      100% { opacity: 0.6; }
-    }
-    
-    /* 인벤토리 UI */
-    #inventory-ui { display: none; position: absolute; left: 0; top: 0; bottom: 0; width: 100%; max-width: 450px; background: rgba(15, 15, 15, 0.95); border-right: 3px solid #ffb300; z-index: 105; color: white; font-family: 'Malgun Gothic', sans-serif; box-shadow: 5px 0 15px rgba(0,0,0,0.5); flex-direction: column; pointer-events: auto; }
-    .inv-section-title { margin-top: 0; border-bottom: 2px solid #333; padding-bottom: 5px; color: #ffb300; font-size: 15px; font-weight: bold; letter-spacing: 0.5px; }
-    .loot-item-row { display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.06); padding: 8px 12px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1); transition: all 0.2s; }
-    .loot-item-row:hover { background: rgba(255, 235, 59, 0.1); border-color: #ffb300; }
-    .loot-item-name { font-weight: 500; font-size: 13px; }
-    .loot-btn { padding: 4px 10px; font-size: 12px; font-weight: bold; background: #ffb300; color: black; border: none; border-radius: 3px; cursor: pointer; }
-    .loot-btn:hover { background: #ffd54f; }
-    .loot-btn.drop { background: #e53935; color: white; }
-    .loot-btn.drop:hover { background: #ef5350; }
-    
-    #loot-prompt { display: none; position: absolute; bottom: 140px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.85); color: #ffeb3b; padding: 10px 20px; border-radius: 20px; font-weight: bold; font-size: 14px; border: 1px solid #ffeb3b; pointer-events: none; z-index: 10; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
-    
-    /* 투척 버튼 및 모바일 인벤토리 */
-    .throw-guide-container { display: flex; gap: 8px; margin-top: 5px; }
-    .throw-btn { padding: 6px 12px; background: rgba(255, 87, 34, 0.85); border: 1px solid #ff5722; border-radius: 4px; color: white; font-weight: bold; font-size: 11px; cursor: pointer; pointer-events: auto; }
-    .throw-btn:hover { background: #ff5722; }
-    
-    #btn-inventory { position: absolute; top: 68px; left: 170px; width: 80px; height: 35px; background: rgba(0,0,0,0.6); color: white; border: 1px solid #ffb300; border-radius: 5px; pointer-events: auto; font-weight: bold; font-size: 12px; display: flex; justify-content: center; align-items: center; }
-
-    #heal-progress-container { position: absolute; bottom: 20%; left: 50%; transform: translateX(-50%); width: 220px; height: 12px; background: rgba(0,0,0,0.7); border: 2px solid #ffeb3b; border-radius: 6px; display: none; z-index: 100; pointer-events: none; }
-    #heal-progress-bar { width: 0%; height: 100%; background: #ffeb3b; }
-    #heal-progress-text { position: absolute; top: -20px; left: 0; width: 100%; text-align: center; font-size: 13px; font-weight: bold; color: #ffeb3b; text-shadow: 1px 1px 2px black; }
-    #btn-reload { position: absolute; bottom: 50px; right: 150px; width: 65px; height: 65px; background: rgba(255,235,59,0.25); border: 2px solid rgba(255,255,255,0.6); border-radius: 50%; color: white; font-size: 14px; font-weight: bold; pointer-events: auto; display: flex; justify-content: center; align-items: center; }
-    
-    #btn-interact {
-      position: absolute;
-      bottom: 230px;
-      right: 150px;
-      width: 70px;
-      height: 70px;
-      background: rgba(255, 179, 0, 0.3);
-      border: 2px solid #ffb300;
-      border-radius: 50%;
-      color: white;
-      font-size: 13px;
-      font-weight: bold;
-      pointer-events: auto;
-      display: none;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-      z-index: 10;
-    }
-
-    @media (max-width: 900px) {
-      #minimap-container {
-        width: 90px !important;
-        height: 90px !important;
-      }
-      #minimap {
-        width: 90px !important;
-        height: 90px !important;
-      }
-      #status-board {
-        font-size: 11px !important;
-        padding: 6px !important;
-        max-width: 150px !important;
-      }
-      #equipped-info {
-        font-size: 12px !important;
-      }
-      #top-left-ui {
-        top: 10px !important;
-        left: 10px !important;
-        gap: 5px !important;
-      }
-      #match-info {
-        top: 10px !important;
-        right: 10px !important;
-        font-size: 11px !important;
-      }
-      #zone-info {
-        padding: 6px !important;
-      }
-      #player-hp-ui {
-        width: 220px !important;
-        bottom: 15px !important;
-      }
-      #player-hp-text {
-        font-size: 13px !important;
-        margin-bottom: 2px !important;
-      }
-      #player-hp-bar-bg {
-        height: 12px !important;
-      }
-      #notice-box {
-        font-size: 14px !important;
-        padding: 8px 16px !important;
-      }
-      #btn-inventory {
-        top: 10px !important;
-        left: 115px !important;
-        width: 70px !important;
-        height: 32px !important;
-        font-size: 11px !important;
-      }
-      #action-btn {
-        bottom: 230px !important;
-        right: 150px !important;
-        left: auto !important;
-        transform: none !important;
-        width: 70px !important;
-        height: 70px !important;
-        padding: 0 !important;
-        font-size: 11px !important;
-        font-weight: bold !important;
-        background: rgba(255, 179, 0, 0.4) !important;
-        border: 2px solid #ffb300 !important;
-        border-radius: 50% !important;
-        color: white !important;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.5) !important;
-        z-index: 100 !important;
-        white-space: normal !important;
-        justify-content: center !important;
-        align-items: center !important;
-        text-align: center !important;
-      }
-    }
-    
-    body.touch-device #action-btn {
-      bottom: 230px !important;
-      right: 150px !important;
-      left: auto !important;
-      transform: none !important;
-      width: 70px !important;
-      height: 70px !important;
-      padding: 0 !important;
-      font-size: 11px !important;
-      font-weight: bold !important;
-      background: rgba(255, 179, 0, 0.4) !important;
-      border: 2px solid #ffb300 !important;
-      border-radius: 50% !important;
-      color: white !important;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.5) !important;
-      z-index: 100 !important;
-      white-space: normal !important;
-      justify-content: center !important;
-      align-items: center !important;
-      text-align: center !important;
-    }
-
-    /* 모바일 세로 화면 경고 오버레이 */
-    #portrait-warning {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: #111;
-      color: #ffeb3b;
-      z-index: 10000;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      text-align: center;
-      font-family: sans-serif;
-      font-weight: bold;
-      font-size: 20px;
-      padding: 20px;
-    }
-    @keyframes loading-spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    @keyframes pulse {
-      0% { opacity: 0.6; }
-      50% { opacity: 1; }
-      100% { opacity: 0.6; }
-    }
-  </style>
-</head>
-<body>
-  <!-- 로딩 화면 추가 -->
-  <div id="loading-screen" style="
-    position: fixed;
-    top: 0; left: 0; width: 100vw; height: 100vh;
-    background: radial-gradient(circle, #151a2e 0%, #070911 100%);
-    display: flex; flex-direction: column; justify-content: center; align-items: center;
-    z-index: 99999; transition: opacity 0.5s ease; color: white; font-family: sans-serif;
-  ">
-    <div style="
-      width: 60px; height: 60px;
-      border: 5px solid rgba(255,255,255,0.08);
-      border-top: 5px solid #ffeb3b;
-      border-radius: 50%;
-      animation: loading-spin 1s linear infinite;
-      box-shadow: 0 0 15px rgba(255, 235, 59, 0.4);
-    "></div>
-    <div style="margin-top: 24px; font-size: 20px; font-weight: bold; letter-spacing: 2px; color: #ffeb3b; text-shadow: 0 0 8px rgba(255,235,59,0.5);">BATTLE ARENA</div>
-    <div id="loading-text" style="margin-top: 10px; font-size: 14px; color: #aaa;">전장을 불러오는 중...</div>
-  </div>
-  
-  <div id="portrait-warning">
-    <div style="font-size: 50px; margin-bottom: 20px;">🔄</div>
-    <div>가로 화면으로 회전해 주세요</div>
-    <div style="font-size: 13px; color: #aaa; margin-top: 10px;">이 게임은 가로 화면에 최적화되어 있습니다.</div>
-  </div>
-  <script>
-    (function() {
-      const lang = new URLSearchParams(window.location.search).get('lang') || localStorage.getItem('smileslife-preferred-lang') || navigator.language || 'ko';
-      const map = {
-        'en': 'Loading battlefield...',
-        'es': 'Cargando el campo de batalla...',
-        'ja': '戦場を読み込み中...',
-        'zh': '正在載入戰場...',
-        'zh-TW': '正在載入戰場...'
-      };
-      const warnings = {
-        'en': { rotate: 'Please rotate to landscape', desc: 'This game is optimized for landscape mode.' },
-        'es': { rotate: 'Por favor, gira a horizontal', desc: 'Este juego está optimizado para pantalla horizontal.' },
-        'ja': { rotate: '画面を横向きに回転させてください', desc: 'このゲームは横画面に最適化されています。' },
-        'zh': { rotate: '請將螢幕旋轉至橫向', desc: '此遊戲已針對橫向螢幕進行最佳化。' },
-        'zh-TW': { rotate: '請將螢幕旋轉至橫向', desc: '此遊戲已針對橫向螢幕進行最佳化。' }
-      };
-      
-      let langCode = 'en';
-      if (lang.startsWith('ko')) langCode = 'ko';
-      else if (lang.startsWith('es')) langCode = 'es';
-      else if (lang.startsWith('ja')) langCode = 'ja';
-      else if (lang.startsWith('zh')) langCode = 'zh-TW';
-      
-      if (langCode !== 'ko' && map[langCode]) {
-        const loadingTextEl = document.getElementById('loading-text');
-        if (loadingTextEl) loadingTextEl.textContent = map[langCode];
-        
-        const warningEl = document.getElementById('portrait-warning');
-        if (warningEl && warnings[langCode]) {
-          const divs = warningEl.getElementsByTagName('div');
-          if (divs.length >= 3) {
-            divs[1].textContent = warnings[langCode].rotate;
-            divs[2].textContent = warnings[langCode].desc;
-          }
-        }
-      }
-    })();
-  </script>
-
-  <div id="ui-layer">
-    <!-- 스코프 조준선 -->
-    <div id="scope-overlay">
-      <div id="scope-cross-v"></div>
-      <div id="scope-cross-h"></div>
-      <div id="scope-mag-text"></div>
-    </div>
-    
-    <div id="enemy-hp-container"></div>
-
-    <div id="top-left-ui">
-      <div id="minimap-container"><canvas id="minimap" width="130" height="130"></canvas></div>
-      <div id="status-board">
-        <div id="equipped-info">무기: 맨주먹<br>스코프: 없음</div>
-        <div style="font-size:12px; font-weight:normal; margin-top:4px;">우클릭: 정조준 (줌)</div>
-        <div style="font-size:12px; font-weight:normal; margin-top:2px;">단축키 [V]: 1인칭/3인칭</div>
-      </div>
-    </div>
-    
-    <div id="match-info">
-      <div id="zone-info">
-        <div style="color: #4caf50; font-size: 16px;" id="zone-text">자기장 대기중</div>
-        <div style="margin-top:4px;">축소까지: <span id="zone-timer">30</span>초</div>
-        <div style="margin-top:8px; color:#ffb300;">생존자: <span id="alive-count">50</span>명</div>
-        <div style="color:#ff3333; margin-top:2px;">나의 킬: <span id="kill-count">0</span></div>
-      </div>
-      <div id="kill-feed"></div>
-    </div>
-
-    <div id="player-hp-ui">
-      <div id="player-hp-text">HP: 100</div>
-      <div id="player-hp-bar-bg"><div id="player-hp-bar-fill"></div></div>
-    </div>
-
-    <div id="crosshair"></div>
-    <div id="notice-box"></div>
-
-    <!-- 비행기 좌석 전개도 UI -->
-    <div id="plane-seat-map" style="
-      position: absolute;
-      top: 20px;
-      left: 210px;
-      width: 140px;
-      height: 250px;
-      background: rgba(15, 22, 32, 0.85);
-      border: 2px solid rgba(255, 255, 255, 0.2);
-      border-radius: 8px;
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      padding: 10px;
-      box-sizing: border-box;
-      font-family: sans-serif;
-      color: white;
-      z-index: 150;
-      backdrop-filter: blur(4px);
-    ">
-      <div style="font-size: 11px; font-weight: bold; color: #ffeb3b; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; text-align: center;">탑승: <span id="plane-occupants-count">50</span>명</div>
-      <!-- Schematic Outline of Plane Interior -->
-      <div id="plane-schematic" style="
-        position: relative;
-        width: 80px;
-        height: 190px;
-        border: 2px solid rgba(255,255,255,0.4);
-        border-radius: 40px 40px 10px 10px;
-        background: rgba(255,255,255,0.05);
-      ">
-        <!-- Wings representation -->
-        <div style="position: absolute; top: 50px; left: -20px; width: 20px; height: 10px; border: 2px solid rgba(255,255,255,0.4); border-right: none; border-radius: 4px 0 0 4px; background: rgba(255,255,255,0.05);"></div>
-        <div style="position: absolute; top: 50px; right: -20px; width: 20px; height: 10px; border: 2px solid rgba(255,255,255,0.4); border-left: none; border-radius: 0 4px 4px 0; background: rgba(255,255,255,0.05);"></div>
-        <!-- Seats Container -->
-        <div id="seats-grid" style="
-          position: absolute;
-          top: 35px;
-          left: 10px;
-          width: 60px;
-          height: 140px;
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          grid-template-rows: repeat(13, 1fr);
-          gap: 2px;
-          align-items: center;
-          justify-items: center;
-        ">
-          <!-- Dots generated dynamically -->
-        </div>
-      </div>
-    </div>
-
-    <button id="action-btn">🪂 뛰어내리기</button>
-    <div id="loot-prompt">📦 주변에 아이템이 있습니다. [Tab] 키를 눌러 파밍하세요.</div>
-
-    <!-- 구급상자 사용 게이지 -->
-    <div id="heal-progress-container">
-      <div id="heal-progress-bar"></div>
-      <div id="heal-progress-text">구급상자 사용하는 중... 6.0s</div>
-    </div>
-
-    <!-- 인벤토리 및 파밍 레이아웃 -->
-    <div id="inventory-ui">
-      <div style="background: #1e1e1e; padding: 15px; border-bottom: 2px solid #ffb300; display: flex; justify-content: space-between; align-items: center;">
-        <h2 style="margin: 0; font-size: 18px; color: #ffb300; text-transform: uppercase; letter-spacing: 1px;">🎒 INVENTORY & LOOT</h2>
-        <span id="btn-close-inv" style="font-size: 13px; color: white; background: #e53935; padding: 4px 12px; border-radius: 3px; cursor: pointer; pointer-events: auto;">닫기 X</span>
-      </div>
-      <div style="flex: 1; display: flex; overflow: hidden; font-size: 13px;">
-        <!-- 주변 파밍 리스트 -->
-        <div style="flex: 1; border-right: 1px solid #333; display: flex; flex-direction: column; padding: 12px; overflow: hidden;">
-          <div class="inv-section-title">주변 아이템</div>
-          <div id="ground-loot-list" style="flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; padding-right: 4px;">
-            <!-- 동적 삽입 -->
-          </div>
-        </div>
-        <!-- 내 상태 / 가방 정보 -->
-        <div style="flex: 1; display: flex; flex-direction: column; padding: 12px; overflow: hidden;">
-          <div class="inv-section-title">내 캐릭터 장비</div>
-          <div style="flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; padding-right: 4px;">
-            <div style="background: rgba(255,255,255,0.04); padding: 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.08);">
-              <div style="font-weight: bold; color: #ffb300; font-size: 11px; margin-bottom: 4px;">주무기</div>
-              <div style="display: flex; justify-content: space-between; align-items: center;">
-                <span id="inv-weapon-val">주먹</span>
-                <button class="loot-btn drop" id="inv-weapon-drop-btn" style="display:none;">버리기</button>
-              </div>
-            </div>
-            <div style="background: rgba(255,255,255,0.04); padding: 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.08);">
-              <div style="font-weight: bold; color: #ffb300; font-size: 11px; margin-bottom: 4px;">장착 스코프</div>
-              <div style="display: flex; justify-content: space-between; align-items: center;">
-                <span id="inv-scope-val">기계식 조준기</span>
-                <button class="loot-btn drop" id="inv-scope-drop-btn" style="display:none;">버리기</button>
-              </div>
-            </div>
-            <div style="background: rgba(255,255,255,0.04); padding: 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.08);">
-              <div style="font-weight: bold; color: #ffb300; font-size: 11px; margin-bottom: 4px;">헬멧 (방어구)</div>
-              <div style="display: flex; justify-content: space-between; align-items: center;">
-                <span id="inv-helmet-val">없음</span>
-                <button class="loot-btn drop" id="inv-helmet-drop-btn" style="display:none;">버리기</button>
-              </div>
-            </div>
-            <div style="background: rgba(255,255,255,0.04); padding: 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.08);">
-              <div style="display: flex; justify-content: space-between; align-items: center;">
-                <span id="inv-bag-val">없음</span>
-                <button class="loot-btn drop" id="inv-bag-drop-btn" style="display:none;">버리기</button>
-              </div>
-            </div>
-            <div style="background: rgba(255,255,255,0.04); padding: 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.08);">
-              <div style="font-weight: bold; color: #ffb300; font-size: 11px; margin-bottom: 4px;">의료 키트 / 투척류</div>
-              <div style="display:flex; flex-direction:column; gap:6px;">
-                <div style="display:flex; justify-content:space-between; align-items:center;">
-                  <span>구급상자: <span id="inv-firstaid-count">0</span>개</span>
-                  <div style="display:flex; gap:4px;">
-                    <button class="loot-btn use" id="inv-firstaid-use-btn" style="padding:2px 6px; background:#4caf50;">사용</button>
-                    <button class="loot-btn drop" id="inv-firstaid-drop-btn" style="padding:2px 6px;">버리기</button>
-                  </div>
-                </div>
-                <div style="display:flex; justify-content:space-between; align-items:center;">
-                  <span>수류탄: <span id="inv-grenade-count">0</span>개</span>
-                  <button class="loot-btn drop" id="inv-grenade-drop-btn" style="padding:2px 6px;">1개 버리기</button>
-                </div>
-                <div style="display:flex; justify-content:space-between; align-items:center;">
-                  <span>연막탄: <span id="inv-smoke-count">0</span>개</span>
-                  <button class="loot-btn drop" id="inv-smoke-drop-btn" style="padding:2px 6px;">1개 버리기</button>
-                </div>
-              </div>
-            </div>
-            <div style="background: rgba(255,255,255,0.04); padding: 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.08);">
-              <div style="font-weight: bold; color: #ffb300; font-size: 11px; margin-bottom: 4px;">보유 탄약</div>
-              <div style="display:flex; flex-direction:column; gap:4px; font-size:12px;">
-                <div style="display:flex; justify-content:space-between;"><span>9mm (권총):</span> <span id="inv-ammo-pistol" style="color:#00ffcc; font-weight:bold;">0</span></div>
-                <div style="display:flex; justify-content:space-between;"><span>12게이지 (샷건):</span> <span id="inv-ammo-shotgun" style="color:#00ffcc; font-weight:bold;">0</span></div>
-                <div style="display:flex; justify-content:space-between;"><span>5.56mm (돌격소총):</span> <span id="inv-ammo-rifle" style="color:#00ffcc; font-weight:bold;">0</span></div>
-                <div style="display:flex; justify-content:space-between;"><span>7.62mm (저격총):</span> <span id="inv-ammo-sniper" style="color:#00ffcc; font-weight:bold;">0</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <!-- 투척무기 단축키 및 모바일 버튼 -->
-    <div class="throw-guide-container" style="position: absolute; bottom: 85px; left: 50%; transform: translateX(-50%); pointer-events: auto; display: none; z-index: 12;" id="throw-shortcuts">
-      <button class="throw-btn" id="btn-throw-grenade">G: 수류탄 던지기 (0)</button>
-      <button class="throw-btn" id="btn-throw-smoke">H: 연막탄 던지기 (0)</button>
-    </div>
-  </div>
-
-  <div id="joystick-container"><div id="joystick-stick"></div></div>
-  <div id="damage-indicator"></div>
-  <div id="bluezone-overlay"></div>
-  <!-- 부활 모달 (슬롯머신 형태) -->
-  <div id="revive-modal" style="
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(10, 15, 30, 0.96);
-    border: 3px solid #ffb300;
-    border-radius: 15px;
-    padding: 30px;
-    color: white;
-    text-align: center;
-    font-family: 'Malgun Gothic', sans-serif;
-    display: none;
-    z-index: 100000;
-    pointer-events: auto;
-    box-shadow: 0 0 30px rgba(255, 179, 0, 0.6);
-    width: 360px;
-    box-sizing: border-box;
-  ">
-    <h2 style="color: #ffb300; margin: 0 0 15px 0; font-size: 24px; text-shadow: 0 0 8px rgba(255,179,0,0.5);">🏆 부활의 기회!</h2>
-    <p style="margin: 0 0 20px 0; font-size: 14px; color: #ccc;">슬롯이 작동하여 부활 시 체력을 결정합니다.</p>
-    
-    <!-- 슬롯머신 영역 -->
-    <div style="
-      background: #070911;
-      border: 2px solid #555;
-      border-radius: 8px;
-      padding: 15px;
-      margin-bottom: 25px;
-      font-size: 36px;
-      font-weight: bold;
-      color: #00ffcc;
-      text-shadow: 0 0 10px rgba(0,255,200,0.5);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-    ">
-      <span>부활 HP:</span>
-      <span id="slot-value" style="display: inline-block; min-width: 100px;">100%</span>
-    </div>
-
-    <p id="revive-prompt-text" style="margin: 0 0 20px 0; font-size: 15px; line-height: 1.4; color: #ddd; display: none;">
-      광고를 시청하고 <strong><span id="revive-hp-percentage" style="color: #ffeb3b;">100%</span></strong>의 체력으로 다시 부활하시겠습니까?
-    </p>
-
-    <div id="revive-buttons" style="display: none; justify-content: center; gap: 15px;">
-      <button id="revive-yes-btn" style="padding: 12px 22px; font-size: 14px; font-weight: bold; background: #2e7d32; color: white; border: none; border-radius: 20px; cursor: pointer; transition: background 0.2s;">예 (광고 보고 부활)</button>
-      <button id="revive-no-btn" style="padding: 12px 22px; font-size: 14px; font-weight: bold; background: #e53935; color: white; border: none; border-radius: 20px; cursor: pointer; transition: background 0.2s;">아니오 (매치 종료)</button>
-    </div>
-  </div>
-
-  <!-- 보상형 광고 재생 화면 -->
-  <div id="ad-screen" style="
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: #000;
-    display: none;
-    z-index: 200000;
-    pointer-events: auto;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-family: sans-serif;
-    color: white;
-  ">
-    <!-- 광고 상단 바 -->
-    <div style="position: absolute; top: 0; left: 0; width: 100%; padding: 15px 20px; box-sizing: border-box; display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.6); z-index: 10;">
-      <span style="font-size: 16px; font-weight: bold; color: #ccc;">📺 추천 스폰서 광고</span>
-      <span id="ad-timer" style="font-size: 16px; font-weight: bold; color: #ffeb3b; background: rgba(0,0,0,0.5); padding: 5px 12px; border-radius: 15px;">광고 종료까지 15초...</span>
-    </div>
-
-    <!-- 광고 컨텐츠 영역 (심플하고 이쁜 목업 게임 광고) -->
-    <div style="text-align: center; max-width: 500px; padding: 20px;">
-      <div style="font-size: 64px; margin-bottom: 20px; animation: pulse 1.5s infinite;">🎮</div>
-      <h2 style="font-size: 28px; margin: 0 0 10px 0; color: #ffeb3b;">쿠키 클리커: 레볼루션</h2>
-      <p style="font-size: 16px; color: #aaa; margin: 0 0 20px 0; line-height: 1.4;">
-        지상 최고의 중독성! 지금 탭하여 우주 최강의 쿠키 공장을 건설해보세요!
-      </p>
-      <div style="display: inline-block; padding: 10px 25px; background: #007bff; border-radius: 25px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 15px rgba(0,123,255,0.4);">
-        지금 다운로드
-      </div>
-    </div>
-
-    <!-- 무음/소리 조절 버튼 -->
-    <button id="ad-mute-btn" style="position: absolute; bottom: 20px; right: 20px; padding: 8px 15px; background: rgba(255,255,255,0.2); border: 1px solid white; border-radius: 15px; color: white; cursor: pointer; font-size: 12px;">🔊 음소거</button>
-
-    <!-- 구글 애드센스 알림 메모 -->
-    <div style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); font-size: 11px; color: #555; text-align: center; width: 80%;">
-      * 실제 배포 시에는 구글 애드센스 H5 게임 광고 SDK(Rewarded Ads API)로 연동됩니다.
-    </div>
-  </div>
-
-
-  <div id="mobile-ui">
-    <div id="joystick-touch-zone"></div>
-    <div id="touch-look-zone"></div>
-    <div id="btn-tpp">1인칭</div>
-    <div id="btn-aim">조준</div>
-    <div id="btn-attack">🔫 격발</div>
-    <div id="btn-reload">장전</div>
-    <div id="btn-inventory">🎒 가방</div>
-    <!-- 모바일 전용 자세 및 힐링 버튼 추가 -->
-    <div id="btn-crouch" style="position: absolute; bottom: 50px; right: 240px; width: 65px; height: 65px; background: rgba(255,255,255,0.2); border: 2px solid white; border-radius: 50%; color: white; font-size: 14px; font-weight: bold; pointer-events: auto; display: flex; justify-content: center; align-items: center;">C</div>
-    <div id="btn-prone" style="position: absolute; bottom: 50px; right: 320px; width: 65px; height: 65px; background: rgba(255,255,255,0.2); border: 2px solid white; border-radius: 50%; color: white; font-size: 14px; font-weight: bold; pointer-events: auto; display: flex; justify-content: center; align-items: center;">Z</div>
-    <div id="btn-heal" style="position: absolute; bottom: 150px; right: 150px; width: 65px; height: 65px; background: rgba(76,175,80,0.4); border: 2px solid #4caf50; border-radius: 50%; color: white; font-size: 14px; font-weight: bold; pointer-events: auto; display: none; justify-content: center; align-items: center;">💊</div>
-    <div id="btn-jump" style="position: absolute; bottom: 150px; right: 240px; width: 65px; height: 65px; background: rgba(255,255,255,0.2); border: 2px solid white; border-radius: 50%; color: white; font-size: 14px; font-weight: bold; pointer-events: auto; display: flex; justify-content: center; align-items: center;">점프</div>
-    <div id="btn-interact"></div>
-  </div>
-
-  <div id="victory-box" style="position: absolute; top: 35%; left: 50%; transform: translate(-50%, -50%); background: rgba(10, 15, 30, 0.93); border: 3px solid #ffeb3b; border-radius: 15px; padding: 30px; color: white; text-align: center; font-family: sans-serif; display: none; z-index: 100000; pointer-events: auto; box-shadow: 0 0 25px rgba(255, 235, 59, 0.5); width: 340px;">
-    <h2 style="color: #ffeb3b; margin: 0 0 12px 0; font-size: 24px; text-shadow: 0 0 8px rgba(255,235,59,0.5);">🏆 이겼닭! 오늘 저녁은 통닭이닭!</h2>
-    <p id="victory-stats" style="margin: 0 0 20px 0; font-size: 16px; line-height: 1.5; color: #ddd;"></p>
-    <div style="display: flex; justify-content: center; gap: 15px;">
-      <button id="victory-continue-btn" style="padding: 12px 22px; font-size: 14px; font-weight: bold; background: #2e7d32; color: white; border: none; border-radius: 20px; cursor: pointer; transition: background 0.2s;">계속 둘러보기</button>
-      <button id="victory-restart-btn" style="padding: 12px 22px; font-size: 14px; font-weight: bold; background: #ffb300; color: black; border: none; border-radius: 20px; cursor: pointer; transition: background 0.2s;">다시 도전하기</button>
-    </div>
-  </div>
-  <button id="victory-mini-btn" style="position: absolute; top: 15px; right: 15px; padding: 12px 24px; font-size: 14px; font-weight: bold; background: rgba(255, 179, 0, 0.9); color: black; border: 2px solid #ffeb3b; border-radius: 20px; cursor: pointer; display: none; z-index: 100000; pointer-events: auto; box-shadow: 0 0 10px rgba(0,0,0,0.5);">다시 도전하기</button>
- 
-  <div id="overlay">
-    <div id="title-container">
-      <div id="main-title">배틀 아레나 (Battle Arena)</div>
-      <div id="sub-title">최후의 생존자</div>
-    </div>
-    
-    <p id="instruction">
-      🎯 50인의 숨막히는 생존 투쟁!<br>장비를 획득하고 끝까지 살아남아 승리의 통닭을 차지하십시오.
-    </p>
-
-    <div id="lobby-btn-container">
-      <div id="settings-ui">
-        <button id="btn-toggle-bgm">🎵 BGM: OFF</button>
-        <button id="btn-toggle-sfx">🔊 SFX: ON</button>
-      </div>
-      <button id="start-btn">매치 시작</button>
-    </div>
-    <div id="lobby-credits" style="
-      position: absolute;
-      bottom: 20px;
-      right: 20px;
-      font-size: 11px;
-      color: rgba(255, 255, 255, 0.4);
-      font-family: sans-serif;
-      text-align: right;
-      line-height: 1.4;
-      pointer-events: auto;
-    ">
-      Powered by <a href="https://threejs.org/" target="_blank" style="color: rgba(255, 255, 255, 0.6); text-decoration: none; font-weight: bold; transition: color 0.2s;">Three.js</a> (MIT License)
-    </div>
-  </div>
-
-
-
-  
-  
-  
-
-  <!-- INJECTED LOCALIZATION SCRIPT -->
-  <script>
-  (function() {
-    // Self-contained Battle Arena Localization System
-const BATTLE_ARENA_TRANSLATIONS = {};
-const BATTLE_ARENA_DICT_MAPPINGS = {};
-BATTLE_ARENA_TRANSLATIONS['en'] = {};
-BATTLE_ARENA_TRANSLATIONS['en'].regex = [
-  { pattern: new RegExp('광고 종료까지 (\\\\d+)초\\\\.\\\\.\\\\.', 'g'), replacement: 'Ad ends in $1s...' },
-  { pattern: new RegExp('✨ 부활 성공! (\\\\d+)% 체력으로 다시 시작합니다\\\\.', 'g'), replacement: '✨ Revived successfully! Restarting with $1% HP.' },
-  
-  { pattern: new RegExp('당신이\\s+(.+)\\s+처치', 'g'), replacement: 'You eliminated $1' },
-  { pattern: new RegExp('(.+)\\s+자기장 사망', 'g'), replacement: '$1 died outside Playzone' },
-  { pattern: new RegExp('(.+)\\s+주먹 처치', 'g'), replacement: '$1 killed by Fists' },
-  { pattern: new RegExp('(.+)\\s+처치\\s+(.+)', 'g'), replacement: '$1 eliminated $2' },
-  { pattern: new RegExp('(.+)\\s+처치', 'g'), replacement: '$1 eliminated' },
-  { pattern: new RegExp('(.+) 탄창 획득! \\(\\+(.+)발\\)', 'g'), replacement: 'Obtained $1 Ammo! (+$2)' },
-  { pattern: new RegExp('시체상자에서 \\[(.+)\\] 획득!', 'g'), replacement: 'Obtained [$1] from Death Box!' },
-  { pattern: new RegExp('시체상자에서 \\[(.+)\\] 장착!', 'g'), replacement: 'Equipped [$1] from Death Box!' },
-  { pattern: new RegExp('\\[(.+)\\] 획득!', 'g'), replacement: 'Obtained [$1]!' },
-  { pattern: new RegExp('\\[(.+)\\] 장착 완료!', 'g'), replacement: '[$1] equipped!' },
-  { pattern: new RegExp('\\[(.+)\\] 버림', 'g'), replacement: 'Dropped [$1]' },
-  { pattern: new RegExp('구급상자를 사용하는 중\\.\\.\\. \\(움직이면 취소됩니다\\)', 'g'), replacement: 'Using First Aid Kit... (moving cancels)' },
-  { pattern: new RegExp('구급상자를 사용하는 중\\.\\.\\. \\((.+)s\\)', 'g'), replacement: 'Using First Aid Kit... ($1s)' },
-  { pattern: new RegExp('가방 공간 부족으로 (.+)을 줍지 못했습니다\\.', 'g'), replacement: 'Not enough bag space to pick up $1.' },
-  { pattern: new RegExp('가방 공간 부족으로 (.+)를 줍지 못했습니다\\.', 'g'), replacement: 'Not enough bag space to pick up $1.' },
-  { pattern: new RegExp('최종 생존자:\\s*(.+)명\\s*\\(우승!\\)<br>나의 처치 수:\\s*(.+)', 'g'), replacement: 'Final Survivor: $1 (Winner!)<br>My Kills: $2' },
-  { pattern: new RegExp('최종 생존자:\\s*(.+)명<br>나의 킬 수:\\s*(.+)', 'g'), replacement: 'Final Survivors: $1<br>My Kills: $2' },
-  { pattern: new RegExp('나의 처치 수:\\s*(.+)', 'g'), replacement: 'My Kills: $1' },
-  { pattern: new RegExp('나의 킬 수:\\s*(.+)', 'g'), replacement: 'My Kills: $1' },
-  { pattern: new RegExp('R키로 장전하세요\\.', 'g'), replacement: 'Reload with R.' },
-];
-BATTLE_ARENA_DICT_MAPPINGS['en'] = {
-  keys: ["🪂 뛰어내리기 (좌클릭/F)", "🎯 50인의 숨막히는 생존 투쟁!<br>장비를 획득하고 끝까지 살아남아 승리의 통닭을 차지하십시오.", "주변에 아이템이 있습니다. [Tab] 키를 눌러 파밍하세요.", "주변에 아이템이 있습니다. 줍기 버튼을 눌러 획득하세요!", "⚠️ 섬을 벗어나 강제 낙하합니다! (HP 50% 감소)", "⚠️ 움직임으로 인해 구급상자 사용이 취소되었습니다.", "구급상자를 사용하는 중... (움직이면 취소됩니다)", "⚠️ 피해를 입어 구급상자 사용이 취소되었습니다.", "👊 적을 주먹으로 타격했습니다! (-20 HP)", "가방 공간 부족으로 구급상자를 줍지 못했습니다.", "💊 구급상자 사용 완료! (체력 75% 회복)", "⚠️ 탄창이 비어있습니다! R키로 장전하세요.", "가방 공간 부족으로 수류탄을 줍지 못했습니다.", "가방 공간 부족으로 연막탄을 줍지 못했습니다.", "이 게임은 가로 화면에 최적화되어 있습니다.", "이 게임은 가로 화면에 최적化되어 있습니다.", "⚠️ 자세 변경으로 구급상자 사용 취소!", "지상에 도착했습니다. 파밍을 시작하세요!", "배틀 아레나 (Battle Arena)", "⚠️ 점프로 인해 구급상자 사용 취소!", "가방 공간 부족! (기본 최대 2개)", "🏆 이겼닭! 오늘 저녁은 통닭이닭!", "🎒 INVENTORY & LOOT", "체력이 이미 75% 이상입니다!", "⚠️ 수류탄 폭발 치명적 피해!", "이미 탄약이 가득 차 있습니다.", "단축키 [V]: 1인칭/3인칭", "🪂 낙하산 펴기 (좌클릭/F)", "가로 화면으로 회전해 주세요", "비어있는 시체 상자 [시체]", "구급상자 사용하는 중...", "5.56mm (돌격소총):", "주변에 아이템이 없습니다.", "☠️ 당신은 처치되었습니다", "전장을 불러오는 중...", "7.62mm (저격총):", "우클릭: 정조준 (줌)", "G: 수류탄 던지기 (", "H: 연막탄 던지기 (", "엎드리기 (Prone)", "⚡ 적을 처치했습니다!", "의료 키트 / 투척류", "12게이지 (샷건):", "앉기 (Crouch)", "상자가 비어있습니다.", "구급상자가 없습니다!", "🚪 문을 열었습니다.", "🚪 문을 닫았습니다.", "매치 시작 (터치)", "🎵 BGM: OFF", "🔊 SFX: OFF", "기계식 조준기 장착", "5.56mm 소총탄", "7.62mm 저격탄", "헬멧 Level 1", "헬멧 Level 3", "가방 Level 1", "가방 Level 3", "G: 수류탄 던지기", "H: 연막탄 던지기", "서기 (Stand)", "시체 상자 [시체]", "구급상자 1개 버림", "🎵 BGM: ON", "🔊 SFX: ON", "나의 처치 수: ", "5.56mm 탄창", "7.62mm 탄창", "9mm (권총):", "🔄 장전 중...", "연막탄 1개 버림", "안전지대 대기중", "나의 킬 수: ", "12게이지 산탄", "12게이지 탄창", "내 캐릭터 장비", "헬멧 (방어구)", "🪟 창문 넘기!", "🪂 낙하산 펴기", "최후의 생존자", "기계식 조준기", "2배율 스코프", "4배율 스코프", "8배율 스코프", "자기장 대기중", "🪂 뛰어내리기", "9mm 권총탄", "계속 둘러보기", "다시 도전하기", "배틀 아레나", "최후의 1인", "축소까지: ", "나의 킬: ", "9mm 탄창", "주변 아이템", "장착 스코프", "구급상자: ", "장전 완료!", "매치 시작", "스코프: ", "생존자: ", "뛰어내리기", "수류탄: ", "연막탄: ", "보유 탄약", "무기: ", "돌격소총", "저격소총", "탑승: ", "구급상자", "닫기 X", "🔫 격발", "맨주먹", "저격총", "수류탄", "연막탄", "주무기", "1인칭", "3인칭", "주먹", "없음", "권총", "샷건", "줍기", "닫기", "가방", "조준", "격발", "장전", "점프", "초", "명"],
-  map: {"⚠️ 광고를 불러오지 못했습니다. 광고 차단 프로그램(AdBlock)을 해제하고 다시 도전해주세요.": "⚠️ Failed to load ad. Please disable your AdBlocker and try again.", "🏆 부활의 기회!": "🏆 Revive Opportunity!", "슬롯이 작동하여 부활 시 체력을 결정합니다.": "The slot spins to determine your health upon revival.", "부활 HP:": "Revive HP:", "광고를 시청하고 <strong><span id=\\\"revive-hp-percentage\\\" style=\\\"color: #ffeb3b;\\\">100%</span></strong>의 체력으로 다시 부활하시겠습니까?": "Would you like to watch an ad and revive with <strong><span id=\\\"revive-hp-percentage\\\" style=\\\"color: #ffeb3b;\\\">100%</span></strong> HP?", "예 (광고 보고 부활)": "Yes (Watch Ad to Revive)", "아니오 (매치 종료)": "No (End Match)", "📺 추천 스폰서 광고": "📺 Recommended Sponsor Ad", "🪂 뛰어내리기 (좌클릭/F)": "🪂 Jump (Left Click/F)", "배틀 아레나 (Battle Arena)": "Battle Arena - Last Survivor", "배틀 아레나": "Battle Arena", "최후의 생존자": "Last Survivor", "최후의 1인": "Last Survivor", "🎯 50인의 숨막히는 생존 투쟁!<br>장비를 획득하고 끝까지 살아남아 승리의 통닭을 차지하십시오.": "🎯 50-player intense survival fight!<br>Get gear, survive to the end and claim victory.", "매치 시작": "Start Match", "매치 시작 (터치)": "Start Match", "🎵 BGM: OFF": "🎵 BGM: OFF", "🎵 BGM: ON": "🎵 BGM: ON", "🔊 SFX: OFF": "🔊 SFX: OFF", "🔊 SFX: ON": "🔊 SFX: ON", "전장을 불러오는 중...": "Loading battlefield...", "가로 화면으로 회전해 주세요": "Please rotate to landscape", "이 게임은 가로 화면에 최적화되어 있습니다.": "This game is optimized for landscape mode.", "이 게임은 가로 화면에 최적化되어 있습니다.": "This game is optimized for landscape mode.", "무기: ": "Weapon: ", "스코프: ": "Scope: ", "맨주먹": "Fists", "주먹": "Fists", "없음": "None", "권총": "Pistol", "샷건": "Shotgun", "돌격소총": "Assault Rifle", "저격총": "Sniper Rifle", "저격소총": "Sniper Rifle", "기계식 조준기": "Iron Sights", "기계식 조준기 장착": "Iron Sights", "2배율 스코프": "2x Scope", "4배율 스코프": "4x Scope", "8배율 스코프": "8x Scope", "우클릭: 정조준 (줌)": "Right Click: ADS (Zoom)", "단축키 [V]: 1인칭/3인칭": "Press [V]: 1st/3rd Person", "자기장 대기중": "Playzone Waiting", "안전지대 대기중": "Safe Zone Waiting", "축소까지: ": "Shrinking in: ", "생존자: ": "Survivors: ", "나의 킬: ": "My Kills: ", "나의 킬 수: ": "My Kills: ", "나의 처치 수: ": "My Kills: ", "초": "s", "명": " players", "탑승: ": "Boarded: ", "뛰어내리기": "🪂 Jump", "🪂 뛰어내리기": "🪂 Jump", "줍기": "Close", "구급상자 사용하는 중...": "Using First Aid Kit... ", "구급상자를 사용하는 중... (움직이면 취소됩니다)": "Using First Aid Kit... ", "구급상자": "First Aid Kit", "수류탄": "Grenade", "연막탄": "Smoke Grenade", "9mm 권총탄": "9mm Ammo", "12게이지 산탄": "12 Gauge Ammo", "5.56mm 소총탄": "5.56mm Ammo", "7.62mm 저격탄": "7.62mm Ammo", "9mm 탄창": "9mm Ammo", "12게이지 탄창": "12 Gauge Ammo", "5.56mm 탄창": "5.56mm Ammo", "7.62mm 탄창": "7.62mm Ammo", "🎒 INVENTORY & LOOT": "🎒 INVENTORY & LOOT", "닫기 X": "Close", "닫기": "Close", "주변 아이템": "Ground Items", "내 캐릭터 장비": "My Equipment", "주무기": "Primary Weapon", "장착 스코프": "Equipped Scope", "헬멧 (방어구)": "Helmet (Armor)", "가방": "Bag", "헬멧 Level 1": "Helmet Level 1", "헬멧 Level 3": "Helmet Level 3", "가방 Level 1": "Bag Level 1", "가방 Level 3": "Bag Level 3", "의료 키트 / 투척류": "Medical / Throwables", "구급상자: ": "First Aid Kit: ", "수류탄: ": "Grenade: ", "연막탄: ": "Smoke: ", "보유 탄약": "Ammo Carried", "9mm (권총):": "9mm (Pistol):", "12게이지 (샷건):": "12 Gauge (Shotgun):", "5.56mm (돌격소총):": "5.56mm (Rifle):", "7.62mm (저격총):": "7.62mm (Sniper):", "G: 수류탄 던지기 (": "G: Throw Grenade (", "H: 연막탄 던지기 (": "H: Throw Smoke (", "G: 수류탄 던지기": "G: Throw Grenade (", "H: 연막탄 던지기": "H: Throw Smoke (", "1인칭": "1st Person", "3인칭": "3rd Person", "조준": "Aim", "격발": "🔫 Fire", "🔫 격발": "🔫 Fire", "장전": "Reload", "점프": "Jump", "서기 (Stand)": "Stand", "앉기 (Crouch)": "Crouch", "엎드리기 (Prone)": "Prone", "🏆 이겼닭! 오늘 저녁은 통닭이닭!": "🏆 Winner Winner Chicken Dinner!", "계속 둘러보기": "Spectate", "다시 도전하기": "Try Again", "비어있는 시체 상자 [시체]": "Empty Death Box [Corpse]", "시체 상자 [시체]": "Death Box [Corpse]", "상자가 비어있습니다.": "Box is empty.", "주변에 아이템이 없습니다.": "No items nearby.", "주변에 아이템이 있습니다. [Tab] 키를 눌러 파밍하세요.": "📦 Items nearby. Press [Tab] to loot.", "주변에 아이템이 있습니다. 줍기 버튼을 눌러 획득하세요!": "📦 Items nearby. Tap Pick Up to loot!", "⚠️ 피해를 입어 구급상자 사용이 취소되었습니다.": "⚠️ First Aid Kit use cancelled due to damage.", "💊 구급상자 사용 완료! (체력 75% 회복)": "💊 First Aid Kit used! (75% HP restored)", "체력이 이미 75% 이상입니다!": "HP is already 75% or higher!", "구급상자가 없습니다!": "No First Aid Kits!", "⚠️ 움직임으로 인해 구급상자 사용이 취소되었습니다.": "⚠️ First Aid Kit use cancelled due to movement.", "⚠️ 자세 변경으로 구급상자 사용 취소!": "⚠️ First Aid Kit use cancelled due to stance change!", "⚠️ 점프로 인해 구급상자 사용 취소!": "⚠️ First Aid Kit use cancelled due to jump!", "🚪 문을 열었습니다.": "🚪 Opened the door.", "🚪 문을 닫았습니다.": "🚪 Closed the door.", "🪟 창문 넘기!": "🪟 Vaulting window!", "⚠️ 섬을 벗어나 강제 낙하합니다! (HP 50% 감소)": "⚠️ Leaving the island! Forced drop (50% HP loss)", "⚠️ 수류탄 폭발 치명적 피해!": "⚠️ Fatal damage from grenade explosion!", "👊 적을 주먹으로 타격했습니다! (-20 HP)": "👊 Hit enemy with fist! (-20 HP)", "⚡ 적을 처치했습니다!": "⚡ Eliminated an enemy!", "☠️ 당신은 처치되었습니다": "☠️ You were eliminated", "⚠️ 탄창이 비어있습니다! R키로 장전하세요.": "⚠️ Magazine empty! Reload with R.", "🔄 장전 중...": "🔄 Reloading...", "장전 완료!": "Reload complete!", "🪂 낙하산 펴기 (좌클릭/F)": "🪂 Deploy Parachute (Left Click/F)", "🪂 낙하산 펴기": "🪂 Deploy Parachute", "지상에 도착했습니다. 파밍을 시작하세요!": "Arrived on the ground. Start looting!", "가방 공간 부족으로 구급상자를 줍지 못했습니다.": "Not enough bag space to pick up First Aid Kit.", "가방 공간 부족으로 수류탄을 줍지 못했습니다.": "Not enough bag space to pick up Grenade.", "가방 공간 부족으로 연막탄을 줍지 못했습니다.": "Not enough bag space to pick up Smoke Grenade.", "가방 공간 부족! (기본 최대 2개)": "Not enough bag space! (Max 2 items default)", "이미 탄약이 가득 차 있습니다.": "Ammo is already full.", "구급상자 1개 버림": "Dropped 1 First Aid Kit", "연막탄 1개 버림": "Dropped 1 Smoke Grenade"}
-};
-BATTLE_ARENA_TRANSLATIONS['es'] = {};
-BATTLE_ARENA_TRANSLATIONS['es'].regex = [
-  { pattern: new RegExp('광고 종료까지 (\\\\d+)초\\\\.\\\\.\\\\.', 'g'), replacement: 'El anuncio termina en $1s...' },
-  { pattern: new RegExp('✨ 부활 성공! (\\\\d+)% 체력으로 다시 시작합니다\\\\.', 'g'), replacement: '✨ ¡Revivido con éxito! Reiniciando con $1% de HP.' },
-  
-  { pattern: new RegExp('당신이\\s+(.+)\\s+처치', 'g'), replacement: 'Eliminaste a $1' },
-  { pattern: new RegExp('(.+)\\s+자기장 사망', 'g'), replacement: '$1 murió fuera de la zona' },
-  { pattern: new RegExp('(.+)\\s+주먹 처치', 'g'), replacement: '$1 eliminado a puñetazos' },
-  { pattern: new RegExp('(.+)\\s+처치\\s+(.+)', 'g'), replacement: '$1 eliminó a $2' },
-  { pattern: new RegExp('(.+)\\s+처치', 'g'), replacement: '$1 eliminado' },
-  { pattern: new RegExp('(.+) 탄창 획득! \\(\\+(.+)발\\)', 'g'), replacement: '¡Obtenida munición de $1! (+$2)' },
-  { pattern: new RegExp('시체상자에서 \\[(.+)\\] 획득!', 'g'), replacement: '¡Recogiste [$1] de la caja de botín!' },
-  { pattern: new RegExp('시체상자에서 \\[(.+)\\] 장착!', 'g'), replacement: '¡Equipaste [$1] de la caja de botín!' },
-  { pattern: new RegExp('\\[(.+)\\] 획득!', 'g'), replacement: '¡Obtenido [$1]!' },
-  { pattern: new RegExp('\\[(.+)\\] 장착 완료!', 'g'), replacement: '¡[$1] equipado!' },
-  { pattern: new RegExp('\\[(.+)\\] 버림', 'g'), replacement: 'Tiraste [$1]' },
-  { pattern: new RegExp('구급상자를 사용하는 중\\.\\.\\. \\(움직이면 취소됩니다\\)', 'g'), replacement: 'Usando Botiquín... (se cancela si te mueves)' },
-  { pattern: new RegExp('구급상자를 사용하는 중\\.\\.\\. \\((.+)s\\)', 'g'), replacement: 'Usando Botiquín... ($1s)' },
-  { pattern: new RegExp('가방 공간 부족으로 (.+)을 줍지 못했습니다\\.', 'g'), replacement: 'Mochila llena, no se pudo recoger $1.' },
-  { pattern: new RegExp('가방 공간 부족으로 (.+)를 줍지 못했습니다\\.', 'g'), replacement: 'Mochila llena, no se pudo recoger $1.' },
-  { pattern: new RegExp('최종 생존자:\\s*(.+)명\\s*\\(우승!\\)<br>나의 처치 수:\\s*(.+)', 'g'), replacement: 'Último superviviente: $1 (¡Ganador!)<br>Mis Kills: $2' },
-  { pattern: new RegExp('최종 생존자:\\s*(.+)명<br>나의 킬 수:\\s*(.+)', 'g'), replacement: 'Supervivientes finales: $1<br>Mis Kills: $2' },
-  { pattern: new RegExp('나의 처치 수:\\s*(.+)', 'g'), replacement: 'Mis Kills: $1' },
-  { pattern: new RegExp('나의 킬 수:\\s*(.+)', 'g'), replacement: 'Mis Kills: $1' },
-  { pattern: new RegExp('R키로 장전하세요\\.', 'g'), replacement: 'Recarga con R.' },
-];
-BATTLE_ARENA_DICT_MAPPINGS['es'] = {
-  keys: ["🪂 뛰어내리기 (좌클릭/F)", "🎯 50인의 숨막히는 생존 투쟁!<br>장비를 획득하고 끝까지 살아남아 승리의 통닭을 차지하십시오.", "주변에 아이템이 있습니다. [Tab] 키를 눌러 파밍하세요.", "주변에 아이템이 있습니다. 줍기 버튼을 눌러 획득하세요!", "⚠️ 섬을 벗어나 강제 낙하합니다! (HP 50% 감소)", "⚠️ 움직임으로 인해 구급상자 사용이 취소되었습니다.", "구급상자를 사용하는 중... (움직이면 취소됩니다)", "⚠️ 피해를 입어 구급상자 사용이 취소되었습니다.", "👊 적을 주먹으로 타격했습니다! (-20 HP)", "가방 공간 부족으로 구급상자를 줍지 못했습니다.", "💊 구급상자 사용 완료! (체력 75% 회복)", "⚠️ 탄창이 비어있습니다! R키로 장전하세요.", "가방 공간 부족으로 수류탄을 줍지 못했습니다.", "가방 공간 부족으로 연막탄을 줍지 못했습니다.", "이 게임은 가로 화면에 최적화되어 있습니다.", "이 게임은 가로 화면에 최적化되어 있습니다.", "⚠️ 자세 변경으로 구급상자 사용 취소!", "지상에 도착했습니다. 파밍을 시작하세요!", "배틀 아레나 (Battle Arena)", "⚠️ 점프로 인해 구급상자 사용 취소!", "가방 공간 부족! (기본 최대 2개)", "🏆 이겼닭! 오늘 저녁은 통닭이닭!", "🎒 INVENTORY & LOOT", "체력이 이미 75% 이상입니다!", "⚠️ 수류탄 폭발 치명적 피해!", "이미 탄약이 가득 차 있습니다.", "단축키 [V]: 1인칭/3인칭", "🪂 낙하산 펴기 (좌클릭/F)", "가로 화면으로 회전해 주세요", "비어있는 시체 상자 [시체]", "구급상자 사용하는 중...", "5.56mm (돌격소총):", "주변에 아이템이 없습니다.", "☠️ 당신은 처치되었습니다", "전장을 불러오는 중...", "7.62mm (저격총):", "우클릭: 정조준 (줌)", "G: 수류탄 던지기 (", "H: 연막탄 던지기 (", "엎드리기 (Prone)", "⚡ 적을 처치했습니다!", "의료 키트 / 투척류", "12게이지 (샷건):", "앉기 (Crouch)", "상자가 비어있습니다.", "구급상자가 없습니다!", "🚪 문을 열었습니다.", "🚪 문을 닫았습니다.", "매치 시작 (터치)", "🎵 BGM: OFF", "🔊 SFX: OFF", "기계식 조준기 장착", "5.56mm 소총탄", "7.62mm 저격탄", "헬멧 Level 1", "헬멧 Level 3", "가방 Level 1", "가방 Level 3", "G: 수류탄 던지기", "H: 연막탄 던지기", "서기 (Stand)", "시체 상자 [시체]", "구급상자 1개 버림", "🎵 BGM: ON", "🔊 SFX: ON", "나의 처치 수: ", "5.56mm 탄창", "7.62mm 탄창", "9mm (권총):", "🔄 장전 중...", "연막탄 1개 버림", "안전지대 대기중", "나의 킬 수: ", "12게이지 산탄", "12게이지 탄창", "내 캐릭터 장비", "헬멧 (방어구)", "🪟 창문 넘기!", "🪂 낙하산 펴기", "최후의 생존자", "기계식 조준기", "2배율 스코프", "4배율 스코프", "8배율 스코프", "자기장 대기중", "🪂 뛰어내리기", "9mm 권총탄", "계속 둘러보기", "다시 도전하기", "배틀 아레나", "최후의 1인", "축소까지: ", "나의 킬: ", "9mm 탄창", "주변 아이템", "장착 스코프", "구급상자: ", "장전 완료!", "매치 시작", "스코프: ", "생존자: ", "뛰어내리기", "수류탄: ", "연막탄: ", "보유 탄약", "무기: ", "돌격소총", "저격소총", "탑승: ", "구급상자", "닫기 X", "🔫 격발", "맨주먹", "저격총", "수류탄", "연막탄", "주무기", "1인칭", "3인칭", "주먹", "없음", "권총", "샷건", "줍기", "닫기", "가방", "조준", "격발", "장전", "점프", "초", "명"],
-  map: {"⚠️ 광고를 불러오지 못했습니다. 광고 차단 프로그램(AdBlock)을 해제하고 다시 도전해주세요.": "⚠️ Error al cargar el anuncio. Desactiva tu AdBlocker e inténtalo de nuevo.", "🏆 부활의 기회!": "🏆 ¡Oportunidad de Revivir!", "슬롯이 작동하여 부활 시 체력을 결정합니다.": "El tragamonedas gira para determinar tu salud al revivir.", "부활 HP:": "HP de revivir:", "광고를 시청하고 <strong><span id=\\\"revive-hp-percentage\\\" style=\\\"color: #ffeb3b;\\\">100%</span></strong>의 체력으로 다시 부활하시겠습니까?": "¿Quieres ver un anuncio y revivir con <strong><span id=\\\"revive-hp-percentage\\\" style=\\\"color: #ffeb3b;\\\">100%</span></strong> de HP?", "예 (광고 보고 부활)": "Sí (Ver anuncio para revivir)", "아니오 (매치 종료)": "No (Terminar partida)", "📺 추천 스폰서 광고": "📺 Anuncio patrocinado recomendado", "🪂 뛰어내리기 (좌클릭/F)": "🪂 Saltar (Clic Izquierdo/F)", "배틀 아레나 (Battle Arena)": "Battle Arena - Último Superviviente", "배틀 아레나": "Battle Arena", "최후의 생존자": "Último Superviviente", "최후의 1인": "Último Superviviente", "🎯 50인의 숨막히는 생존 투쟁!<br>장비를 획득하고 끝까지 살아남아 승리의 통닭을 차지하십시오.": "🎯 ¡Lucha de supervivencia intensa de 50 jugadores!<br>Consigue equipo, sobrevive hasta el final y gana.", "매치 시작": "Iniciar Partida", "매치 시작 (터치)": "Iniciar Partida", "🎵 BGM: OFF": "🎵 BGM: OFF", "🎵 BGM: ON": "🎵 BGM: ON", "🔊 SFX: OFF": "🔊 SFX: OFF", "🔊 SFX: ON": "🔊 SFX: ON", "전장을 불러오는 중...": "Cargando el campo de batalla...", "가로 화면으로 회전해 주세요": "Por favor, gira a horizontal", "이 게임은 가로 화면에 최적화되어 있습니다.": "Este juego está optimizado para pantalla horizontal.", "이 게임은 가로 화면에 최적化되어 있습니다.": "Este juego está optimizado para pantalla horizontal.", "무기: ": "Arma: ", "스코프: ": "Mira: ", "맨주먹": "Puños", "주먹": "Puños", "없음": "Ninguno", "권총": "Pistola", "샷건": "Escopeta", "돌격소총": "Fusil de Asalto", "저격총": "Fusil de Francotirador", "저격소총": "Fusil de Francotirador", "기계식 조준기": "Mira de Hierro", "기계식 조준기 장착": "Mira de Hierro", "2배율 스코프": "Mira x2", "4배율 스코프": "Mira x4", "8배율 스코프": "Mira x8", "우클릭: 정조준 (줌)": "Clic derecho: Apuntar (Zoom)", "단축키 [V]: 1인칭/3인칭": "Tecla [V]: 1ª/3ª persona", "자기장 대기중": "Esperando Zona", "안전지대 대기중": "Esperando Zona Segura", "축소까지: ": "Reducción en: ", "생존자: ": "Supervivientes: ", "나의 킬: ": "Mis Kills: ", "나의 킬 수: ": "Mis Kills: ", "나의 처치 수: ": "Mis Kills: ", "초": "s", "명": " jugadores", "탑승: ": "A bordo: ", "뛰어내리기": "🪂 Saltar", "🪂 뛰어내리기": "🪂 Saltar", "줍기": "Cerrar", "구급상자 사용하는 중...": "Usando Botiquín... ", "구급상자를 사용하는 중... (움직이면 취소됩니다)": "Usando Botiquín... ", "구급상자": "Botiquín", "수류탄": "Granada", "연막탄": "Granada de Humo", "9mm 권총탄": "Munición 9mm", "12게이지 산탄": "Munición Calibre 12", "5.56mm 소총탄": "Munición 5.56mm", "7.62mm 저격탄": "Munición 7.62mm", "9mm 탄창": "Munición 9mm", "12게이지 탄창": "Munición Calibre 12", "5.56mm 탄창": "Munición 5.56mm", "7.62mm 탄창": "Munición 7.62mm", "🎒 INVENTORY & LOOT": "🎒 INVENTARIO Y BOTÍN", "닫기 X": "Cerrar", "닫기": "Cerrar", "주변 아이템": "Objetos del Suelo", "내 캐릭터 장비": "Mi Equipamiento", "주무기": "Arma Principal", "장착 스코프": "Mira Equipada", "헬멧 (방어구)": "Casco (Armadura)", "가방": "Mochila", "헬멧 Level 1": "Casco Nivel 1", "헬멧 Level 3": "Casco Nivel 3", "가방 Level 1": "Mochila Nivel 1", "가방 Level 3": "Mochila Nivel 3", "의료 키트 / 투척류": "Médicos / Arrojadizos", "구급상자: ": "Botiquín: ", "수류탄: ": "Granada: ", "연막탄: ": "Humo: ", "보유 탄약": "Munición", "9mm (권총):": "9mm (Pistola):", "12게이지 (샷건):": "Calibre 12 (Escopeta):", "5.56mm (돌격소총):": "5.56mm (Fusil):", "7.62mm (저격총):": "7.62mm (Sniper):", "G: 수류탄 던지기 (": "G: Lanzar Granada (", "H: 연막탄 던지기 (": "H: Lanzar Humo (", "G: 수류탄 던지기": "G: Lanzar Granada (", "H: 연막탄 던지기": "H: Lanzar Humo (", "1인칭": "1ª Persona", "3인칭": "3ª Persona", "조준": "Apuntar", "격발": "Disparar", "🔫 격발": "Disparar", "장전": "Recargar", "점프": "Saltar", "서기 (Stand)": "De pie", "앉기 (Crouch)": "Agachado", "엎드리기 (Prone)": "Tumbado", "🏆 이겼닭! 오늘 저녁은 통닭이닭!": "🏆 ¡Cena de pollo para el ganador!", "계속 둘러보기": "Espectear", "다시 도전하기": "Volver a intentar", "비어있는 시체 상자 [시체]": "Caja Vacía [Cadáver]", "시체 상자 [시체]": "Caja de Botín [Cadáver]", "상자가 비어있습니다.": "La caja está vacía.", "주변에 아이템이 없습니다.": "No hay objetos cerca.", "주변에 아이템이 있습니다. [Tab] 키를 눌러 파밍하세요.": "📦 Objetos cerca. Pulsa [Tab] para lotear.", "주변에 아이템이 있습니다. 줍기 버튼을 눌러 획득하세요!": "📦 Objetos cerca. ¡Toca Recoger para lotear!", "⚠️ 피해를 입어 구급상자 사용이 취소되었습니다.": "⚠️ Uso de botiquín cancelado por daño recibido.", "💊 구급상자 사용 완료! (체력 75% 회복)": "💊 ¡Botiquín usado! (75% de HP restaurado)", "체력이 이미 75% 이상입니다!": "¡Tu salud ya está al 75% o más!", "구급상자가 없습니다!": "¡No tienes botiquines!", "⚠️ 움직임으로 인해 구급상자 사용이 취소되었습니다.": "⚠️ Uso de botiquín cancelado por movimiento.", "⚠️ 자세 변경으로 구급상자 사용 취소!": "⚠️ ¡Uso de botiquín cancelado por cambiar de postura!", "⚠️ 점프로 인해 구급상자 사용 취소!": "⚠️ ¡Uso de botiquín cancelado por saltar!", "🚪 문을 열었습니다.": "🚪 Abriste la puerta.", "🚪 문을 닫았습니다.": "🚪 Cerraste la puerta.", "🪟 창문 넘기!": "🪟 ¡Saltando por la ventana!", "⚠️ 섬을 벗어나 강제 낙하합니다! (HP 50% 감소)": "⚠️ ¡Saliendo de la isla! Caída forzada (50% pérdida de HP)", "⚠️ 수류탄 폭발 치명적 피해!": "⚠️ ¡Daño letal por explosión de granada!", "👊 적을 주먹으로 타격했습니다! (-20 HP)": "👊 ¡Golpeaste al enemigo con el puño! (-20 HP)", "⚡ 적을 처치했습니다!": "⚡ ¡Eliminaste a un enemigo!", "☠️ 당신은 처치되었습니다": "☠️ Has sido eliminado", "⚠️ 탄창이 비어있습니다! R키로 장전하세요.": "⚠️ ¡Cargador vacío! Recarga con R.", "🔄 장전 중...": "🔄 Recargando...", "장전 완료!": "¡Recarga completa!", "🪂 낙하산 펴기 (좌클릭/F)": "🪂 Desplegar Paracaídas (Clic Izquierdo/F)", "🪂 낙하산 펴기": "🪂 Abrir Paracaídas", "지상에 도착했습니다. 파밍을 시작하세요!": "¡Llegaste al suelo! ¡Empieza a lotear!", "가방 공간 부족으로 구급상자를 줍지 못했습니다.": "No hay espacio en la mochila para el Botiquín.", "가방 공간 부족으로 수류탄을 줍지 못했습니다.": "No hay espacio en la mochila para la Granada.", "가방 공간 부족으로 연막탄을 줍지 못했습니다.": "No hay espacio en la mochila para la Granada de Humo.", "가방 공간 부족! (기본 최대 2개)": "¡Mochila llena! (Máx. 2 objetos por defecto)", "이미 탄약이 가득 차 있습니다.": "La munición ya está al máximo.", "구급상자 1개 버림": "Tiraste 1 Botiquín", "연막탄 1개 버림": "Tiraste 1 Granada de Humo"}
-};
-BATTLE_ARENA_TRANSLATIONS['ja'] = {};
-BATTLE_ARENA_TRANSLATIONS['ja'].regex = [
-  { pattern: new RegExp('광고 종료까지 (\\\\d+)초\\\\.\\\\.\\\\.', 'g'), replacement: '広告終了まで $1秒...' },
-  { pattern: new RegExp('✨ 부활 성공! (\\\\d+)% 체력으로 다시 시작합니다\\\\.', 'g'), replacement: '✨ 復活成功！$1%の体力で再スタートします。' },
-  
-  { pattern: new RegExp('당신이\\s+(.+)\\s+처치', 'g'), replacement: 'あなたが $1 を倒しました' },
-  { pattern: new RegExp('(.+)\\s+자기장 사망', 'g'), replacement: '$1 が安全地帯の外で死亡しました' },
-  { pattern: new RegExp('(.+)\\s+주먹 처치', 'g'), replacement: '$1 が拳で倒されました' },
-  { pattern: new RegExp('(.+)\\s+처치\\s+(.+)', 'g'), replacement: '$1 が $2 を倒しました' },
-  { pattern: new RegExp('(.+)\\s+처치', 'g'), replacement: '$1 撃破' },
-  { pattern: new RegExp('(.+) 탄창 획득! \\(\\+(.+)발\\)', 'g'), replacement: '$1 弾薬を獲得！ (+$2発)' },
-  { pattern: new RegExp('시체상자에서 \\[(.+)\\] 획득!', 'g'), replacement: '戦利品ボックスから [$1] を獲得！' },
-  { pattern: new RegExp('시체상자에서 \\[(.+)\\] 장착!', 'g'), replacement: '戦利品ボックスから [$1] を装着！' },
-  { pattern: new RegExp('\\[(.+)\\] 획득!', 'g'), replacement: '[$1] を獲得！' },
-  { pattern: new RegExp('\\[(.+)\\] 장착 완료!', 'g'), replacement: '[$1] 装着完了！' },
-  { pattern: new RegExp('\\[(.+)\\] 버림', 'g'), replacement: '[$1] を捨てました' },
-  { pattern: new RegExp('구급상자를 사용하는 중\\.\\.\\. \\(움직이면 취소됩니다\\)', 'g'), replacement: '応急処置キットを使用中... (動くとキャンセルされます)' },
-  { pattern: new RegExp('구급상자를 사용하는 중\\.\\.\\. \\((.+)s\\)', 'g'), replacement: '応急処置キットを使用中... ($1s)' },
-  { pattern: new RegExp('가방 공간 부족으로 (.+)을 줍지 못했습니다\\.', 'g'), replacement: '容量不足のため $1 を拾えませんでした。' },
-  { pattern: new RegExp('가방 공간 부족으로 (.+)를 줍지 못했습니다\\.', 'g'), replacement: '容量不足のため $1 を拾えませんでした。' },
-  { pattern: new RegExp('최종 생존자:\\s*(.+)명\\s*\\(우승!\\)<br>나의 처치 수:\\s*(.+)', 'g'), replacement: '最終生存者: $1人 (ドン勝!)<br>キル数: $2' },
-  { pattern: new RegExp('최종 생존자:\\s*(.+)명<br>나의 킬 수:\\s*(.+)', 'g'), replacement: '最終生存者: $1人<br>キル数: $2' },
-  { pattern: new RegExp('나의 처치 수:\\s*(.+)', 'g'), replacement: 'キル数: $1' },
-  { pattern: new RegExp('나의 킬 수:\\s*(.+)', 'g'), replacement: 'キル数: $1' },
-  { pattern: new RegExp('R키로 장전하세요\\.', 'g'), replacement: 'Rキーでリロードしてください。' },
-];
-BATTLE_ARENA_DICT_MAPPINGS['ja'] = {
-  keys: ["🪂 뛰어내리기 (좌클릭/F)", "🎯 50인의 숨막히는 생존 투쟁!<br>장비를 획득하고 끝까지 살아남아 승리의 통닭을 차지하십시오.", "주변에 아이템이 있습니다. [Tab] 키를 눌러 파밍하세요.", "주변에 아이템이 있습니다. 줍기 버튼을 눌러 획득하세요!", "⚠️ 섬을 벗어나 강제 낙하합니다! (HP 50% 감소)", "⚠️ 움직임으로 인해 구급상자 사용이 취소되었습니다.", "구급상자를 사용하는 중... (움직이면 취소됩니다)", "⚠️ 피해를 입어 구급상자 사용이 취소되었습니다.", "👊 적을 주먹으로 타격했습니다! (-20 HP)", "가방 공간 부족으로 구급상자를 줍지 못했습니다.", "💊 구급상자 사용 완료! (체력 75% 회복)", "⚠️ 탄창이 비어있습니다! R키로 장전하세요.", "가방 공간 부족으로 수류탄을 줍지 못했습니다.", "가방 공간 부족으로 연막탄을 줍지 못했습니다.", "이 게임은 가로 화면에 최적화되어 있습니다.", "이 게임은 가로 화면에 최적化되어 있습니다.", "⚠️ 자세 변경으로 구급상자 사용 취소!", "지상에 도착했습니다. 파밍을 시작하세요!", "배틀 아레나 (Battle Arena)", "⚠️ 점프로 인해 구급상자 사용 취소!", "가방 공간 부족! (기본 최대 2개)", "🏆 이겼닭! 오늘 저녁은 통닭이닭!", "🎒 INVENTORY & LOOT", "체력이 이미 75% 이상입니다!", "⚠️ 수류탄 폭발 치명적 피해!", "이미 탄약이 가득 차 있습니다.", "단축키 [V]: 1인칭/3인칭", "🪂 낙하산 펴기 (좌클릭/F)", "가로 화면으로 회전해 주세요", "비어있는 시체 상자 [시체]", "구급상자 사용하는 중...", "5.56mm (돌격소총):", "주변에 아이템이 없습니다.", "☠️ 당신은 처치되었습니다", "전장을 불러오는 중...", "7.62mm (저격총):", "우클릭: 정조준 (줌)", "G: 수류탄 던지기 (", "H: 연막탄 던지기 (", "엎드리기 (Prone)", "⚡ 적을 처치했습니다!", "의료 키트 / 투척류", "12게이지 (샷건):", "앉기 (Crouch)", "상자가 비어있습니다.", "구급상자가 없습니다!", "🚪 문을 열었습니다.", "🚪 문을 닫았습니다.", "매치 시작 (터치)", "🎵 BGM: OFF", "🔊 SFX: OFF", "기계식 조준기 장착", "5.56mm 소총탄", "7.62mm 저격탄", "헬멧 Level 1", "헬멧 Level 3", "가방 Level 1", "가방 Level 3", "G: 수류탄 던지기", "H: 연막탄 던지기", "서기 (Stand)", "시체 상자 [시체]", "구급상자 1개 버림", "🎵 BGM: ON", "🔊 SFX: ON", "나의 처치 수: ", "5.56mm 탄창", "7.62mm 탄창", "9mm (권총):", "🔄 장전 중...", "연막탄 1개 버림", "안전지대 대기중", "나의 킬 수: ", "12게이지 산탄", "12게이지 탄창", "내 캐릭터 장비", "헬멧 (방어구)", "🪟 창문 넘기!", "🪂 낙하산 펴기", "최후의 생존자", "기계식 조준기", "2배율 스코프", "4배율 스코프", "8배율 스코프", "자기장 대기중", "🪂 뛰어내리기", "9mm 권총탄", "계속 둘러보기", "다시 도전하기", "배틀 아레나", "최후의 1인", "축소까지: ", "나의 킬: ", "9mm 탄창", "주변 아이템", "장착 스코프", "구급상자: ", "장전 완료!", "매치 시작", "스코프: ", "생존자: ", "뛰어내리기", "수류탄: ", "연막탄: ", "보유 탄약", "무기: ", "돌격소총", "저격소총", "탑승: ", "구급상자", "닫기 X", "🔫 격발", "맨주먹", "저격총", "수류탄", "연막탄", "주무기", "1인칭", "3인칭", "주먹", "없음", "권총", "샷건", "줍기", "닫기", "가방", "조준", "격발", "장전", "점프", "초", "명"],
-  map: {"⚠️ 광고를 불러오지 못했습니다. 광고 차단 프로그램(AdBlock)을 해제하고 다시 도전해주세요.": "⚠️ 広告の読み込みに失敗しました。広告ブロック（AdBlock）を無効にして再試行してください。", "🏆 부활의 기회!": "🏆 復活のチャンス！", "슬롯이 작동하여 부활 시 체력을 결정합니다.": "スロットが回転し、復活時の体力を決定します。", "부활 HP:": "復活 HP:", "광고를 시청하고 <strong><span id=\\\"revive-hp-percentage\\\" style=\\\"color: #ffeb3b;\\\">100%</span></strong>의 체력으로 다시 부활하시겠습니까?": "広告を視聴し、<strong><span id=\\\"revive-hp-percentage\\\" style=\\\"color: #ffeb3b;\\\">100%</span></strong>の体力で再び復活しますか？", "예 (광고 보고 부활)": "はい（広告を見て復活）", "아니오 (매치 종료)": "いいえ（マッチ終了）", "📺 추천 스폰서 광고": "📺 おすすめスポンサー広告", "🪂 뛰어내리기 (좌클릭/F)": "🪂 飛び降りる (左クリック/F)", "배틀 아레나 (Battle Arena)": "バトルアリーナ - 最後の生存者", "배틀 아레나": "バトルアリーナ", "최후의 생존자": "最後の生存者", "최후의 1인": "最後の生存者", "🎯 50인의 숨막히는 생존 투쟁!<br>장비를 획득하고 끝까지 살아남아 승리의 통닭을 차지하십시오.": "🎯 50人による息詰まるサバイバルバトル！<br>装備を獲得し、最後まで生き残って勝利のドン勝を掴み取れ！", "매치 시작": "マッチ開始", "매치 시작 (터치)": "マッチ開始", "🎵 BGM: OFF": "🎵 BGM: OFF", "🎵 BGM: ON": "🎵 BGM: ON", "🔊 SFX: OFF": "🔊 SFX: OFF", "🔊 SFX: ON": "🔊 SFX: ON", "전장을 불러오는 중...": "戦場を読み込み中...", "가로 화면으로 회전해 주세요": "画面を横向きに回転させてください", "이 게임은 가로 화면에 최적화되어 있습니다.": "このゲームは横画面に最適化されています。", "이 게임은 가로 화면에 최적化되어 있습니다.": "このゲームは横画面に最適化されています。", "무기: ": "武器: ", "스코프: ": "スコープ: ", "맨주먹": "素手", "주먹": "素手", "없음": "なし", "권총": "拳銃", "샷건": "ショットガン", "돌격소총": "アサルトライフル", "저격총": "スナイパーライフル", "저격소총": "スナイパーライフル", "기계식 조준기": "アイアンサイト", "기계식 조준기 장착": "アイアンサイト", "2배율 스코프": "2倍スコープ", "4배율 스코프": "4倍スコープ", "8배율 스코프": "8倍スコープ", "우클릭: 정조준 (줌)": "右クリック: ADS (ズーム)", "단축키 [V]: 1인칭/3인칭": "[V]キー: 1人称/3人称切り替え", "자기장 대기중": "安全地帯待機中", "안전지대 대기중": "安全地帯待機中", "축소까지: ": "縮小まで: ", "생존자: ": "生存者: ", "나의 킬: ": "キル数: ", "나의 킬 수: ": "キル数: ", "나의 처치 수: ": "キル数: ", "초": "秒", "명": "人", "탑승: ": "搭乗人数: ", "뛰어내리기": "🪂 飛び降りる", "🪂 뛰어내리기": "🪂 飛び降りる", "줍기": "閉じる", "구급상자 사용하는 중...": "応急処置キット使用中... ", "구급상자를 사용하는 중... (움직이면 취소됩니다)": "応急処置キット使用中... ", "구급상자": "応急処置キット", "수류탄": "手榴弾", "연막탄": "発煙弾", "9mm 권총탄": "9mm弾", "12게이지 산탄": "12ゲージ弾", "5.56mm 소총탄": "5.56mm弾", "7.62mm 저격탄": "7.62mm弾", "9mm 탄창": "9mm弾", "12게이지 탄창": "12ゲージ弾", "5.56mm 탄창": "5.56mm弾", "7.62mm 탄창": "7.62mm弾", "🎒 INVENTORY & LOOT": "🎒 インベントリ & ドロップ", "닫기 X": "閉じる", "닫기": "閉じる", "주변 아이템": "周辺のアイテム", "내 캐릭터 장비": "キャラクター装備", "주무기": "メイン武器", "장착 스코프": "装着スコープ", "헬멧 (방어구)": "ヘルメット (防具)", "가방": "バックパック", "헬멧 Level 1": "ヘルメット Lv.1", "헬멧 Level 3": "ヘルメット Lv.3", "가방 Level 1": "バックパック Lv.1", "가방 Level 3": "バックパック Lv.3", "의료 키트 / 투척류": "医療品 / 投擲武器", "구급상자: ": "応急処置キット: ", "수류탄: ": "手榴弾: ", "연막탄: ": "発煙弾: ", "보유 탄약": "所持弾薬", "9mm (권총):": "9mm (拳銃):", "12게이지 (샷건):": "12ゲージ (ショットガン):", "5.56mm (돌격소총):": "5.56mm (小銃):", "7.62mm (저격총):": "7.62mm (スナイパー):", "G: 수류탄 던지기 (": "G: 手榴弾を投げる (", "H: 연막탄 던지기 (": "H: 発煙弾を投げる (", "G: 수류탄 던지기": "G: 手榴弾を投げる (", "H: 연막탄 던지기": "H: 発煙弾を投げる (", "1인칭": "1人称 (FPP)", "3인칭": "3人称 (TPP)", "조준": "照準", "격발": "射撃", "🔫 격발": "射撃", "장전": "リロード", "점프": "ジャンプ", "서기 (Stand)": "立ち", "앉기 (Crouch)": "しゃがみ", "엎드리기 (Prone)": "伏せ", "🏆 이겼닭! 오늘 저녁은 통닭이닭!": "🏆 勝った！夕飯はドン勝だ！", "계속 둘러보기": "観戦を続ける", "다시 도전하기": "再挑戦する", "비어있는 시체 상자 [시체]": "空の戦利品ボックス [死体]", "시체 상자 [시체]": "戦利品ボックス [死体]", "상자가 비어있습니다.": "ボックスは空です。", "주변에 아이템이 없습니다.": "周辺にアイテムがありません。", "주변에 아이템이 있습니다. [Tab] 키를 눌러 파밍하세요.": "📦 周辺にアイテムがあります。[Tab]キーで拾います。", "주변에 아이템이 있습니다. 줍기 버튼을 눌러 획득하세요!": "📦 周辺にアイテムがあります。拾うボタンで獲得します！", "⚠️ 피해를 입어 구급상자 사용이 취소되었습니다.": "⚠️ ダメージを受けたため、応急処置キットの使用がキャンセルされました。", "💊 구급상자 사용 완료! (체력 75% 회복)": "💊 応急処置キット使用完了！ (体力を75%回復)", "체력이 이미 75% 이상입니다!": "体力がすでに75%以上です！", "구급상자가 없습니다!": "応急処置キットがありません！", "⚠️ 움직임으로 인해 구급상자 사용이 취소되었습니다.": "⚠️ 移動したため、応急処置キットの使用がキャンセルされました。", "⚠️ 자세 변경으로 구급상자 사용 취소!": "⚠️ 姿勢変更のため、応急処置キットの使用がキャンセルされました！", "⚠️ 점프로 인해 구급상자 사용 취소!": "⚠️ ジャンプしたため、応急処置キットの使用がキャンセルされました！", "🚪 문을 열었습니다.": "🚪 ドアを開けました。", "🚪 문을 닫았습니다.": "🚪 ドアを閉めました。", "🪟 창문 넘기!": "🪟 窓を乗り越えます！", "⚠️ 섬을 벗어나 강제 낙하합니다! (HP 50% 감소)": "⚠️ 島から離脱したため、強制落下します！ (HP 50% 減少)", "⚠️ 수류탄 폭발 치명적 피해!": "⚠️ 手榴弾の爆発による致命的なダメージ！", "👊 적을 주먹으로 타격했습니다! (-20 HP)": "👊 敵をパンチしました！ (-20 HP)", "⚡ 적을 처치했습니다!": "⚡ 敵を撃破しました！", "☠️ 당신은 처치되었습니다": "☠️ あなたは倒されました", "⚠️ 탄창이 비어있습니다! R키로 장전하세요.": "⚠️ マガジンが空です！ [R]キーでリロードしてください。", "🔄 장전 중...": "🔄 リロード中...", "장전 완료!": "リロード完了！", "🪂 낙하산 펴기 (좌클릭/F)": "🪂 パラシュートを開く (左クリック/F)", "🪂 낙하산 펴기": "🪂 パラシュート展開", "지상에 도착했습니다. 파밍을 시작하세요!": "着地しました。アイテム収集を開始してください！", "가방 공간 부족으로 구급상자를 줍지 못했습니다.": "バックパックの容量不足で応急処置キットを拾えません。", "가방 공간 부족으로 수류탄을 줍지 못했습니다.": "バックパックの容量不足で手榴弾を拾えません。", "가방 공간 부족으로 연막탄을 줍지 못했습니다.": "バックパック의 容量不足で発煙弾を拾えません。", "가방 공간 부족! (기본 최대 2개)": "容量不足です！ (標準スロット最大2個)", "이미 탄약이 가득 차 있습니다.": "弾薬がすでに満タンです。", "구급상자 1개 버림": "応急処置キットを1個捨てました", "연막탄 1개 버림": "発煙弾を1個捨てました"}
-};
-BATTLE_ARENA_TRANSLATIONS['zh-TW'] = {};
-BATTLE_ARENA_TRANSLATIONS['zh-TW'].regex = [
-  { pattern: new RegExp('광고 종료까지 (\\\\d+)초\\\\.\\\\.\\\\.', 'g'), replacement: '廣告結束剩餘 $1秒...' },
-  { pattern: new RegExp('✨ 부활 성공! (\\\\d+)% 체력으로 다시 시작합니다\\\\.', 'g'), replacement: '✨ 復活成功！以 $1% 生命值重新開始。' },
-  
-  { pattern: new RegExp('당신이\\s+(.+)\\s+처치', 'g'), replacement: '你擊殺了 $1' },
-  { pattern: new RegExp('(.+)\\s+자기장 사망', 'g'), replacement: '$1 淘汰於電磁網外' },
-  { pattern: new RegExp('(.+)\\s+주먹 처치', 'g'), replacement: '$1 被拳頭擊殺' },
-  { pattern: new RegExp('(.+)\\s+처치\\s+(.+)', 'g'), replacement: '$1 擊殺了 $2' },
-  { pattern: new RegExp('(.+)\\s+처치', 'g'), replacement: '$1 擊殺' },
-  { pattern: new RegExp('(.+) 탄창 획득! \\(\\+(.+)발\\)', 'g'), replacement: '獲得 $1 子彈！ (+$2發)' },
-  { pattern: new RegExp('시체상자에서 \\[(.+)\\] 획득!', 'g'), replacement: '從戰利品箱獲得了 [$1]！' },
-  { pattern: new RegExp('시체상자에서 \\[(.+)\\] 장착!', 'g'), replacement: '從戰利品箱裝備了 [$1]！' },
-  { pattern: new RegExp('\\[(.+)\\] 획득!', 'g'), replacement: '獲得了 [$1]！' },
-  { pattern: new RegExp('\\[(.+)\\] 장착 완료!', 'g'), replacement: '[$1] 裝備完成！' },
-  { pattern: new RegExp('\\[(.+)\\] 버림', 'g'), replacement: '丟棄了 [$1]' },
-  { pattern: new RegExp('구급상자를 사용하는 중\\.\\.\\. \\(움직이면 취소됩니다\\)', 'g'), replacement: '正在使用急救包... (移動將會取消使用)' },
-  { pattern: new RegExp('구급상자를 사용하는 중\\.\\.\\. \\((.+)s\\)', 'g'), replacement: '正在使用急救包... ($1秒)' },
-  { pattern: new RegExp('가방 공간 부족으로 (.+)을 줍지 못했습니다\\.', 'g'), replacement: '背包空間不足，無法拾取 $1。' },
-  { pattern: new RegExp('가방 공간 부족으로 (.+)를 줍지 못했습니다\\.', 'g'), replacement: '背包空間不足，無法拾取 $1。' },
-  { pattern: new RegExp('최종 생존자:\\s*(.+)명\\s*\\(우승!\\)<br>나의 처치 수:\\s*(.+)', 'g'), replacement: '最終生存人數: $1人 (吃雞!)<br>我的擊殺: $2' },
-  { pattern: new RegExp('최종 생존자:\\s*(.+)명<br>나의 킬 수:\\s*(.+)', 'g'), replacement: '最終生存人數: $1人<br>我的擊殺: $2' },
-  { pattern: new RegExp('나의 처치 수:\\s*(.+)', 'g'), replacement: '我的擊殺: $1' },
-  { pattern: new RegExp('나의 킬 수:\\s*(.+)', 'g'), replacement: '我的擊殺: $1' },
-  { pattern: new RegExp('R키로 장전하세요\\.', 'g'), replacement: '請按 R 鍵裝彈。' },
-];
-BATTLE_ARENA_DICT_MAPPINGS['zh-TW'] = {
-  keys: ["🪂 뛰어내리기 (좌클릭/F)", "🎯 50인의 숨막히는 생존 투쟁!<br>장비를 획득하고 끝까지 살아남아 승리의 통닭을 차지하십시오.", "주변에 아이템이 있습니다. [Tab] 키를 눌러 파밍하세요.", "주변에 아이템이 있습니다. 줍기 버튼을 눌러 획득하세요!", "⚠️ 섬을 벗어나 강제 낙하합니다! (HP 50% 감소)", "⚠️ 움직임으로 인해 구급상자 사용이 취소되었습니다.", "구급상자를 사용하는 중... (움직이면 취소됩니다)", "⚠️ 피해를 입어 구급상자 사용이 취소되었습니다.", "👊 적을 주먹으로 타격했습니다! (-20 HP)", "가방 공간 부족으로 구급상자를 줍지 못했습니다.", "💊 구급상자 사용 완료! (체력 75% 회복)", "⚠️ 탄창이 비어있습니다! R키로 장전하세요.", "가방 공간 부족으로 수류탄을 줍지 못했습니다.", "가방 공간 부족으로 연막탄을 줍지 못했습니다.", "이 게임은 가로 화면에 최적화되어 있습니다.", "이 게임은 가로 화면에 최적化되어 있습니다.", "⚠️ 자세 변경으로 구급상자 사용 취소!", "지상에 도착했습니다. 파밍을 시작하세요!", "배틀 아레나 (Battle Arena)", "⚠️ 점프로 인해 구급상자 사용 취소!", "가방 공간 부족! (기본 최대 2개)", "🏆 이겼닭! 오늘 저녁은 통닭이닭!", "🎒 INVENTORY & LOOT", "체력이 이미 75% 이상입니다!", "⚠️ 수류탄 폭발 치명적 피해!", "이미 탄약이 가득 차 있습니다.", "단축키 [V]: 1인칭/3인칭", "🪂 낙하산 펴기 (좌클릭/F)", "가로 화면으로 회전해 주세요", "비어있는 시체 상자 [시체]", "구급상자 사용하는 중...", "5.56mm (돌격소총):", "주변에 아이템이 없습니다.", "☠️ 당신은 처치되었습니다", "전장을 불러오는 중...", "7.62mm (저격총):", "우클릭: 정조준 (줌)", "G: 수류탄 던지기 (", "H: 연막탄 던지기 (", "엎드리기 (Prone)", "⚡ 적을 처치했습니다!", "의료 키트 / 투척류", "12게이지 (샷건):", "앉기 (Crouch)", "상자가 비어있습니다.", "구급상자가 없습니다!", "🚪 문을 열었습니다.", "🚪 문을 닫았습니다.", "매치 시작 (터치)", "🎵 BGM: OFF", "🔊 SFX: OFF", "기계식 조준기 장착", "5.56mm 소총탄", "7.62mm 저격탄", "헬멧 Level 1", "헬멧 Level 3", "가방 Level 1", "가방 Level 3", "G: 수류탄 던지기", "H: 연막탄 던지기", "서기 (Stand)", "시체 상자 [시체]", "구급상자 1개 버림", "🎵 BGM: ON", "🔊 SFX: ON", "나의 처치 수: ", "5.56mm 탄창", "7.62mm 탄창", "9mm (권총):", "🔄 장전 중...", "연막탄 1개 버림", "안전지대 대기중", "나의 킬 수: ", "12게이지 산탄", "12게이지 탄창", "내 캐릭터 장비", "헬멧 (방어구)", "🪟 창문 넘기!", "🪂 낙하산 펴기", "최후의 생존자", "기계식 조준기", "2배율 스코프", "4배율 스코프", "8배율 스코프", "자기장 대기중", "🪂 뛰어내리기", "9mm 권총탄", "계속 둘러보기", "다시 도전하기", "배틀 아레나", "최후의 1인", "축소까지: ", "나의 킬: ", "9mm 탄창", "주변 아이템", "장착 스코프", "구급상자: ", "장전 완료!", "매치 시작", "스코프: ", "생존자: ", "뛰어내리기", "수류탄: ", "연막탄: ", "보유 탄약", "무기: ", "돌격소총", "저격소총", "탑승: ", "구급상자", "닫기 X", "🔫 격발", "맨주먹", "저격총", "수류탄", "연막탄", "주무기", "1인칭", "3인칭", "주먹", "없음", "권총", "샷건", "줍기", "닫기", "가방", "조준", "격발", "장전", "점프", "초", "명"],
-  map: {"⚠️ 광고를 불러오지 못했습니다. 광고 차단 프로그램(AdBlock)을 해제하고 다시 도전해주세요.": "⚠️ 無法載入廣告。請停用廣告攔截器（AdBlock）並重試。", "🏆 부활의 기회!": "🏆 復活的機會！", "슬롯이 작동하여 부활 시 체력을 결정합니다.": "輪盤運作以決定復活時的生命值。", "부활 HP:": "復活 HP:", "광고를 시청하고 <strong><span id=\\\"revive-hp-percentage\\\" style=\\\"color: #ffeb3b;\\\">100%</span></strong>의 체력으로 다시 부활하시겠습니까?": "觀看廣告並以 <strong><span id=\\\"revive-hp-percentage\\\" style=\\\"color: #ffeb3b;\\\">100%</span></strong> 的生命值再次復活嗎？", "예 (광고 보고 부활)": "是（觀看廣告復活）", "아니오 (매치 종료)": "否（結束匹配）", "📺 추천 스폰서 광고": "📺 推薦贊助商廣告", "🪂 뛰어내리기 (좌클릭/F)": "🪂 跳傘 (滑鼠左鍵/F)", "배틀 아레나 (Battle Arena)": "絕地戰境 - 最終生還者", "배틀 아레나": "絕地戰境", "최후의 생존자": "最終生還者", "최후의 1인": "最終生還者", "🎯 50인의 숨막히는 생존 투쟁!<br>장비를 획득하고 끝까지 살아남아 승리의 통닭을 차지하십시오.": "🎯 50人驚險求生大戰！<br>獲取裝備並存活到最後，奪得最終的勝利！", "매치 시작": "開始匹配", "매치 시작 (터치)": "開始匹配", "🎵 BGM: OFF": "🎵 BGM: OFF", "🎵 BGM: ON": "🎵 BGM: ON", "🔊 SFX: OFF": "🔊 SFX: OFF", "🔊 SFX: ON": "🔊 SFX: ON", "전장을 불러오는 중...": "正在載入戰場...", "가로 화면으로 회전해 주세요": "請將螢幕旋轉至橫向", "이 게임은 가로 화면에 최적화되어 있습니다.": "此遊戲已針對橫向螢幕進行最佳化。", "이 게임은 가로 화면에 최적化되어 있습니다.": "此遊戲已針對橫向螢幕進行最佳化。", "무기: ": "武器: ", "스코프: ": "瞄準鏡: ", "맨주먹": "拳頭", "주먹": "拳頭", "없음": "無", "권총": "手槍", "샷건": "散彈槍", "돌격소총": "突擊步槍", "저격총": "狙擊步槍", "저격소총": "狙擊步槍", "기계식 조준기": "機械瞄具", "기계식 조준기 장착": "機械瞄具", "2배율 스코프": "2倍瞄準鏡", "4배율 스코프": "4倍瞄準鏡", "8배율 스코프": "8倍瞄準鏡", "우클릭: 정조준 (줌)": "右鍵: 開鏡瞄準 (縮放)", "단축키 [V]: 1인칭/3인칭": "按 [V]: 切換第一/第三人稱", "자기장 대기중": "電磁網等待中", "안전지대 대기중": "安全區等待中", "축소까지: ": "收縮倒數: ", "생존자: ": "生存人數: ", "나의 킬: ": "我的擊殺: ", "나의 킬 수: ": "我的擊殺: ", "나의 처치 수: ": "我的擊殺: ", "초": "秒", "명": "人", "탑승: ": "機上人數: ", "뛰어내리기": "🪂 跳傘", "🪂 뛰어내리기": "🪂 跳傘", "줍기": "關閉", "구급상자 사용하는 중...": "正在使用急救包... ", "구급상자를 사용하는 중... (움직이면 취소됩니다)": "正在使用急救包... ", "구급상자": "急救包", "수류탄": "手榴彈", "연막탄": "煙霧彈", "9mm 권총탄": "9mm子彈", "12게이지 산탄": "12口徑子彈", "5.56mm 소총탄": "5.56mm子彈", "7.62mm 저격탄": "7.62mm子彈", "9mm 탄창": "9mm子彈", "12게이지 탄창": "12口徑子彈", "5.56mm 탄창": "5.56mm子彈", "7.62mm 탄창": "7.62mm子彈", "🎒 INVENTORY & LOOT": "🎒 背包與物資", "닫기 X": "關閉", "닫기": "關閉", "주변 아이템": "地面物資", "내 캐릭터 장비": "角色裝備", "주무기": "主武器", "장착 스코프": "已裝備瞄具", "헬멧 (방어구)": "頭盔 (防具)", "가방": "背包", "헬멧 Level 1": "1級頭盔", "헬멧 Level 3": "3級頭盔", "가방 Level 1": "1級背包", "가방 Level 3": "3級背包", "의료 키트 / 투척류": "醫療與投擲物", "구급상자: ": "急救包: ", "수류탄: ": "手榴彈: ", "연막탄: ": "煙霧彈: ", "보유 탄약": "持有彈藥", "9mm (권총):": "9mm (手槍):", "12게이지 (샷건):": "12口徑 (散彈槍):", "5.56mm (돌격소총):": "5.56mm (步槍):", "7.62mm (저격총):": "7.62mm (狙擊槍):", "G: 수류탄 던지기 (": "G: 投擲手榴彈 (", "H: 연막탄 던지기 (": "H: 投擲煙霧彈 (", "G: 수류탄 던지기": "G: 投擲手榴彈 (", "H: 연막탄 던지기": "H: 投擲煙霧彈 (", "1인칭": "第一人稱 (FPP)", "3인칭": "第三人稱 (TPP)", "조준": "瞄準", "격발": "開火", "🔫 격발": "開火", "장전": "裝彈", "점프": "跳躍", "서기 (Stand)": "站立", "앉기 (Crouch)": "蹲下", "엎드리기 (Prone)": "趴下", "🏆 이겼닭! 오늘 저녁은 통닭이닭!": "🏆 大吉大利，今晚吃雞！", "계속 둘러보기": "繼續觀戰", "다시 도전하기": "重新挑戰", "비어있는 시체 상자 [시체]": "空戰利品箱 [遺體]", "시체 상자 [시체]": "戰利品箱 [遺體]", "상자가 비어있습니다.": "箱子是空的。", "주변에 아이템이 없습니다.": "附近沒有物資。", "주변에 아이템이 있습니다. [Tab] 키를 눌러 파밍하세요.": "📦 附近有物資。按 [Tab] 鍵物資。", "주변에 아이템이 있습니다. 줍기 버튼을 눌러 획득하세요!": "📦 附近有物資。點擊拾取按鈕獲得物資！", "⚠️ 피해를 입어 구급상자 사용이 취소되었습니다.": "⚠️ 受到傷害，已取消使用急救包。", "💊 구급상자 사용 완료! (체력 75% 회복)": "💊 使用急救包完成！ (恢復75%生命值)", "체력이 이미 75% 이상입니다!": "生命值已經在75%以上！", "구급상자가 없습니다!": "沒有急救包！", "⚠️ 움직임으로 인해 구급상자 사용이 취소되었습니다.": "⚠️ 移動了位置，已取消使用急救包。", "⚠️ 자세 변경으로 구급상자 사용 취소!": "⚠️ 變更姿勢，已取消使用急救包！", "⚠️ 점프로 인해 구급상자 사용 취소!": "⚠️ 跳躍，已取消使用急救包！", "🚪 문을 열었습니다.": "🚪 門已打開。", "🚪 문을 닫았습니다.": "🚪 門已關閉。", "🪟 창문 넘기!": "🪟 正在翻越窗戶！", "⚠️ 섬을 벗어나 강제 낙하합니다! (HP 50% 감소)": "⚠️ 已脫離島嶼邊界，強制墜落！ (扣除50%生命值)", "⚠️ 수류탄 폭발 치명적 피해!": "⚠️ 手榴彈爆炸造成致命傷害！", "👊 적을 주먹으로 타격했습니다! (-20 HP)": "👊 用拳頭擊中敵人！ (-20 HP)", "⚡ 적을 처치했습니다!": "⚡ 已擊殺敵人！", "☠️ 당신은 처치되었습니다": "☠️ 你被擊殺了", "⚠️ 탄창이 비어있습니다! R키로 장전하세요.": "⚠️ 彈匣已空！請按 R 鍵裝彈。", "🔄 장전 중...": "🔄 正在裝彈...", "장전 완료!": "裝彈完成！", "🪂 낙하산 펴기 (좌클릭/F)": "🪂 開傘 (滑鼠左鍵/F)", "🪂 낙하산 펴기": "🪂 展開降落傘", "지상에 도착했습니다. 파밍을 시작하세요!": "已降落至地面。請開始搜尋物資！", "가방 공간 부족으로 구급상자를 줍지 못했습니다.": "背包空間不足，無法拾取急救包。", "가방 공간 부족으로 수류탄을 줍지 못했습니다.": "背包空間不足，無法拾取手榴彈。", "가방 공간 부족으로 연막탄을 줍지 못했습니다.": "背包空間不足，無法拾取煙霧彈。", "가방 공간 부족! (기본 최대 2개)": "背包空間不足！ (預設插槽上限為2個)", "이미 탄약이 가득 차 있습니다.": "子彈數量已達上限。", "구급상자 1개 버림": "丟棄了 1 個急救包", "연막탄 1개 버림": "丟棄了 1 個煙霧彈"}
-};
-
-    let currentLang = new URLSearchParams(window.location.search).get('lang') || localStorage.getItem('smileslife-preferred-lang') || navigator.language || 'ko';
-    if (currentLang.startsWith('ko')) currentLang = 'ko';
-    else if (currentLang.startsWith('en')) currentLang = 'en';
-    else if (currentLang.startsWith('es')) currentLang = 'es';
-    else if (currentLang.startsWith('ja')) currentLang = 'ja';
-    else if (currentLang.startsWith('zh')) currentLang = 'zh-TW';
-    else currentLang = 'en';
-
-    function translateText(text, lang) {
-      if (lang === 'ko' || !text) return text;
-      let t = text;
-      const rules = BATTLE_ARENA_TRANSLATIONS[lang];
-      if (!rules) return t;
-
-      const dict = BATTLE_ARENA_DICT_MAPPINGS[lang];
-      if (dict) {
-        for (let k of dict.keys) {
-          t = t.replaceAll(k, dict.map[k]);
-        }
-      }
-
-      if (rules.regex) {
-        for (let r of rules.regex) {
-          t = t.replace(r.pattern, r.replacement);
-        }
-      }
-      return t;
-    }
-
-    function translateNode(node) {
-      if (node.nodeType === Node.TEXT_NODE) {
-        const translated = translateText(node.textContent, currentLang);
-        if (translated !== node.textContent) {
-          node.textContent = translated;
-        }
-      } else if (node.nodeType === Node.ELEMENT_NODE) {
-        if (node.tagName === 'SCRIPT' || node.tagName === 'STYLE' || node.tagName === 'SELECT' || node.id === 'lang-select') return;
-        if (node.placeholder) {
-          node.placeholder = translateText(node.placeholder, currentLang);
-        }
-        node.childNodes.forEach(child => translateNode(child));
-      }
-    }
-
-    const observer = new MutationObserver((mutations) => {
-      if (currentLang === 'ko') return;
-      observer.disconnect();
-      
-      for (let mutation of mutations) {
-        if (mutation.type === 'childList') {
-          mutation.addedNodes.forEach(node => {
-            translateNode(node);
-          });
-        } else if (mutation.type === 'characterData') {
-          const translated = translateText(mutation.target.textContent, currentLang);
-          if (translated !== mutation.target.textContent) {
-            mutation.target.textContent = translated;
-          }
-        }
-      }
-      observeDOM();
-    });
-
-    function observeDOM() {
-      observer.observe(document.getElementById('ui-layer') || document.body, {
-        childList: true,
-        subtree: true,
-        characterData: true
-      });
-    }
-
-    function applyLanguage(lang) {
-      currentLang = lang;
-      localStorage.setItem('smileslife-preferred-lang', lang);
-      const select = document.getElementById('lang-select');
-      if (select) select.value = lang;
-
-      // Update document title
-      document.title = translateText("배틀 아레나 (Battle Arena) - 최후의 1인", lang);
-
-      // Explicitly translate the instruction paragraph with HTML tags
-      const instructionEl = document.getElementById('instruction');
-      if (instructionEl) {
-        instructionEl.innerHTML = translateText("🎯 50인의 숨막히는 생존 투쟁!<br>장비를 획득하고 끝까지 살아남아 승리의 통닭을 차지하십시오.", lang);
-      }
-
-      // Translate static elements
-      translateNode(document.body);
-
-      if (lang !== 'ko') {
-        observeDOM();
-      } else {
-        observer.disconnect();
-      }
-    }
-
-    // Setup selector on load
-    window.addEventListener('DOMContentLoaded', () => {
-      const settingsUI = document.getElementById('settings-ui');
-      if (settingsUI && !document.getElementById('lang-select')) {
-        const select = document.createElement('select');
-        select.id = 'lang-select';
-        select.innerHTML = `
-          <option value="ko">한국어</option>
-          <option value="en">English</option>
-          <option value="es">Español</option>
-          <option value="ja">日本語</option>
-          <option value="zh-TW">繁體中文</option>
-        `;
-        select.value = currentLang;
-        
-        // Match settings-ui button styles
-        select.style.background = 'rgba(15, 22, 32, 0.85)';
-        select.style.color = '#ffb300';
-        select.style.border = '1px solid rgba(255, 255, 255, 0.2)';
-        select.style.padding = '10px 18px';
-        select.style.borderRadius = '6px';
-        select.style.fontWeight = 'bold';
-        select.style.cursor = 'pointer';
-        select.style.fontSize = '13px';
-        select.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.4)';
-        select.style.transition = 'all 0.2s ease';
-        select.style.backdropFilter = 'blur(4px)';
-        select.style.outline = 'none';
-
-        select.addEventListener('change', (e) => {
-          localStorage.setItem('smileslife-preferred-lang', e.target.value);
-          window.location.search = `?lang=${e.target.value}`;
-        });
-        settingsUI.appendChild(select);
-      }
-      applyLanguage(currentLang);
-    });
-  })();
-  </script>
-</body>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <script type="importmap">
+    { "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }
+  </script>
+  <script type="module" src="data.js"></script>
+    <!-- 구글 애드센스 H5 게임 광고 SDK 로드 -->
+  <script async
+    data-ad-frequency-hint="30s"
+    data-ad-client="ca-pub-2837251751819266"
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
+  </script>
+  <script>
+    window.adsbygoogle = window.adsbygoogle || [];
+    var adBreak = adConfig = function(o) {adsbygoogle.push(o);}
+    
+    // 광고 API 초기화
+    adConfig({
+      preloadAdBreaks: 'on',
+      onAdBreakDone: function(info) {
+        console.log("Ad break done:", info);
+      }
+    });
+  </script>
+  
+  <title>배틀 아레나 (Battle Arena) - 최후의 1인</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      height: 100dvh;
+      overflow: hidden;
+      background-color: #070911;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: none;
+      position: fixed; /* iOS 바운스 스크롤 방지 및 전체화면 고정 */
+      top: 0;
+      left: 0;
+    }
+    canvas { display: block; position: absolute; top:0; left:0; z-index: 1; }
+    
+    #ui-layer { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; font-family: 'Malgun Gothic', sans-serif; color: white; z-index: 10; }
+    #crosshair { position: absolute; top: 50%; left: 50%; width: 14px; height: 14px; border: 2px solid rgba(0, 255, 200, 0.8); border-radius: 50%; transform: translate(-50%, -50%); display: none; }
+    
+    /* 스코프 정조준(ADS) 연출 오버레이 */
+    #scope-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; display: none; z-index: 4; background: radial-gradient(circle at center, transparent 25%, rgba(0,0,0,0.95) 50%, black 100%); }
+    #scope-cross-v { position: absolute; top: 50%; left: 50%; width: 2px; height: 100%; background: rgba(0,0,0,0.7); transform: translate(-50%, -50%); }
+    #scope-cross-h { position: absolute; top: 50%; left: 50%; width: 100%; height: 2px; background: rgba(0,0,0,0.7); transform: translate(-50%, -50%); }
+    #scope-mag-text { position: absolute; bottom: 80px; left: 50%; transform: translateX(-50%); font-size: 24px; font-weight: bold; color: #00ffcc; text-shadow: 2px 2px 4px rgba(0,0,0,0.9); font-family: 'Malgun Gothic', sans-serif; text-align: center; }
+    
+    /* 적 머리 위 체력 게이지 컨테이너 */
+    #enemy-hp-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 2; }
+    .enemy-hp-bar-bg { position: absolute; width: 40px; height: 6px; background: rgba(0,0,0,0.8); border: 1px solid white; transform: translate(-50%, -50%); display: none; }
+    .enemy-hp-bar-fill { width: 100%; height: 100%; background: #ff3333; }
+
+    /* 상태창 및 무기 표기 */
+    #top-left-ui { position: absolute; top: 20px; left: 20px; display: none; flex-direction: column; gap: 10px; }
+    #minimap-container { width: 130px; height: 130px; border: 3px solid rgba(255,255,255,0.5); border-radius: 50%; overflow: hidden; background: rgba(0,0,0,0.6); position: relative; }
+    #status-board { font-size: 15px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.9); background: rgba(15,22,32,0.85); padding: 12px; border-radius: 8px; pointer-events: auto; border: 1px solid rgba(255,255,255,0.2); }
+    #equipped-info { color: #00ffcc; font-size: 16px; margin-bottom: 5px; }
+
+    /* 플레이어 체력 */
+    #player-hp-ui { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); width: 350px; text-align: center; display: none; }
+    #player-hp-text { font-size: 20px; font-weight: bold; margin-bottom: 5px; text-shadow: 2px 2px 5px black; }
+    #player-hp-bar-bg { width: 100%; height: 20px; background: rgba(0,0,0,0.7); border: 2px solid rgba(255,255,255,0.8); border-radius: 10px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+    #player-hp-bar-fill { width: 100%; height: 100%; background: linear-gradient(90deg, #ff0000, #ff5555); transition: width 0.15s ease-out; }
+
+    /* 우측 정보 패널 */
+    #match-info { position: absolute; top: 20px; right: 20px; font-size: 14px; font-weight: bold; text-shadow: 1px 1px 3px black; text-align: right; display: none; }
+    #zone-info { background: rgba(15,22,32,0.85); padding: 10px; border-radius: 8px; margin-bottom: 10px; border: 1px solid rgba(255,255,255,0.2); }
+    #kill-feed { display: flex; flex-direction: column; gap: 4px; align-items: flex-end; }
+    .kill-log { background: rgba(200,0,0,0.7); padding: 4px 10px; border-radius: 4px; animation: fadeOut 4s forwards; font-size: 13px; }
+    @keyframes fadeOut { 0% { opacity: 1; } 80% { opacity: 1; } 100% { opacity: 0; } }
+
+    #action-btn { position: absolute; bottom: 85px; left: 50%; transform: translateX(-50%); padding: 15px 45px; font-size: 22px; font-weight: bold; background: #ffeb3b; color: #000; border: none; border-radius: 35px; box-shadow: 0 4px 15px rgba(0,0,0,0.6); display: none; pointer-events: auto; cursor: pointer; z-index: 100; white-space: nowrap; justify-content: center; align-items: center; }
+    #notice-box { position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%); font-size: 20px; font-weight: bold; color: #ffeb3b; text-shadow: 2px 2px 5px black; background: rgba(0,0,0,0.8); padding: 12px 25px; border-radius: 30px; display: none; text-align: center; z-index: 90;}
+
+    #overlay { 
+      position: absolute; 
+      top: 0; left: 0; 
+      width: 100%; height: 100%; 
+      background: radial-gradient(circle at center, transparent 30%, rgba(10, 12, 18, 0.45) 60%, rgba(10, 12, 18, 0.9) 100%); 
+      display: block; 
+      box-sizing: border-box;
+      pointer-events: none; 
+      color: white; 
+      font-family: 'Malgun Gothic', sans-serif; 
+      z-index: 200; 
+    }
+    #title-container { 
+      position: absolute;
+      top: 2%; left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      pointer-events: auto;
+      width: 100%;
+    }
+    #main-title {
+      font-size: 44px;
+      font-weight: 900;
+      color: #ffffff;
+      letter-spacing: 4px;
+      text-shadow: 0 0 20px rgba(255,255,255,0.4);
+      margin: 0;
+      line-height: 1.1;
+    }
+    #sub-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: #ffb300;
+      letter-spacing: 2px;
+      text-shadow: 0 0 15px rgba(255,179,0,0.5);
+      margin-top: 4px;
+      margin-bottom: 0;
+    }
+    #instruction {
+      position: absolute;
+      top: 12%; left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      color: #e0e0e0;
+      font-size: 13px;
+      line-height: 1.5;
+      margin: 0;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+      font-weight: 500;
+      pointer-events: auto;
+      background: rgba(15, 22, 32, 0.7);
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-top: 2px solid #ffb300;
+      max-width: 440px;
+      backdrop-filter: blur(4px);
+    }
+    #audio-notice {
+      position: absolute;
+      bottom: 40px; left: 60px;
+      margin: 0;
+      color: #00ffcc;
+      font-size: 13px;
+      font-weight: bold;
+      animation: pulse 1.5s infinite;
+      background: rgba(0, 255, 200, 0.08);
+      border: 1px solid rgba(0, 255, 200, 0.25);
+      padding: 12px 16px;
+      border-radius: 6px;
+      box-sizing: border-box;
+      width: auto;
+      max-width: 350px;
+      text-align: left;
+      line-height: 1.4;
+      pointer-events: auto;
+    }
+    #lobby-btn-container {
+      position: absolute;
+      bottom: 12%;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      z-index: 250;
+      pointer-events: auto;
+    }
+    #settings-ui {
+      display: flex;
+      gap: 12px;
+    }
+    #settings-ui button {
+      background: rgba(15, 22, 32, 0.85);
+      color: #ffb300;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 13px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      transition: all 0.2s ease;
+      backdrop-filter: blur(4px);
+    }
+    #settings-ui button:hover {
+      transform: translateY(-1px);
+      border-color: #ffb300;
+      box-shadow: 0 6px 15px rgba(255, 179, 0, 0.25);
+    }
+    #start-btn { 
+      padding: 18px 85px; 
+      font-size: 26px; 
+      font-weight: bold; 
+      background: linear-gradient(135deg, #4caf50, #2e7d32); 
+      color: white; 
+      border: 1px solid rgba(255,255,255,0.4); 
+      border-radius: 8px; 
+      cursor: pointer; 
+      box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+      transition: all 0.2s ease;
+    }
+    #start-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 25px rgba(76, 175, 80, 0.6);
+    }
+
+    #mobile-ui { display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 5; }
+    #joystick-touch-zone { position: absolute; top: 0; left: 0; width: 50%; height: 100%; pointer-events: auto; }
+    #touch-look-zone { position: absolute; top: 0; right: 0; width: 50%; height: 100%; pointer-events: auto; }
+    #btn-attack { position: absolute; bottom: 50px; right: 50px; width: 85px; height: 85px; background: rgba(255,255,255,0.15); border: 3px solid rgba(255,255,255,0.7); border-radius: 50%; color: white; font-size: 16px; font-weight: bold; pointer-events: auto; display: flex; justify-content: center; align-items: center; }
+    #btn-aim { position: absolute; bottom: 150px; right: 60px; width: 65px; height: 65px; background: rgba(0,255,100,0.2); border: 2px solid rgba(255,255,255,0.5); border-radius: 50%; color: white; font-size: 14px; font-weight: bold; pointer-events: auto; display: flex; justify-content: center; align-items: center; }
+    #btn-tpp { position: absolute; bottom: 150px; left: 40px; width: 70px; height: 45px; background: rgba(255,255,255,0.2); border: 2px solid white; border-radius: 10px; color: white; font-size: 14px; font-weight: bold; pointer-events: auto; display: flex; justify-content: center; align-items: center; }
+    #joystick-container { position: absolute; width: 110px; height: 110px; background: rgba(255,255,255,0.1); border: 2px solid rgba(255,255,255,0.5); border-radius: 50%; display: none; pointer-events: none; z-index: 6; transform: translate(-50%, -50%); }
+    #joystick-stick { position: absolute; top: 50%; left: 50%; width: 45px; height: 45px; background: rgba(255,255,255,0.8); border-radius: 50%; transform: translate(-50%, -50%); }
+    #damage-indicator { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; display: none; z-index: 9; }
+    @keyframes dmgFade { 0% { opacity: 1; } 100% { opacity: 0; } }
+    #bluezone-overlay {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 80, 255, 0.12);
+      box-shadow: inset 0 0 120px rgba(0, 120, 255, 0.5);
+      pointer-events: none;
+      display: none;
+      z-index: 8;
+    }
+    @keyframes bluezonePulse {
+      0% { opacity: 0.6; }
+      50% { opacity: 1.0; }
+      100% { opacity: 0.6; }
+    }
+    
+    /* 인벤토리 UI */
+    #inventory-ui { display: none; position: absolute; left: 0; top: 0; bottom: 0; width: 100%; max-width: 450px; background: rgba(15, 15, 15, 0.95); border-right: 3px solid #ffb300; z-index: 105; color: white; font-family: 'Malgun Gothic', sans-serif; box-shadow: 5px 0 15px rgba(0,0,0,0.5); flex-direction: column; pointer-events: auto; }
+    .inv-section-title { margin-top: 0; border-bottom: 2px solid #333; padding-bottom: 5px; color: #ffb300; font-size: 15px; font-weight: bold; letter-spacing: 0.5px; }
+    .loot-item-row { display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.06); padding: 8px 12px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1); transition: all 0.2s; }
+    .loot-item-row:hover { background: rgba(255, 235, 59, 0.1); border-color: #ffb300; }
+    .loot-item-name { font-weight: 500; font-size: 13px; }
+    .loot-btn { padding: 4px 10px; font-size: 12px; font-weight: bold; background: #ffb300; color: black; border: none; border-radius: 3px; cursor: pointer; }
+    .loot-btn:hover { background: #ffd54f; }
+    .loot-btn.drop { background: #e53935; color: white; }
+    .loot-btn.drop:hover { background: #ef5350; }
+    
+    #loot-prompt { display: none; position: absolute; bottom: 140px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.85); color: #ffeb3b; padding: 10px 20px; border-radius: 20px; font-weight: bold; font-size: 14px; border: 1px solid #ffeb3b; pointer-events: none; z-index: 10; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+    
+    /* 투척 버튼 및 모바일 인벤토리 */
+    .throw-guide-container { display: flex; gap: 8px; margin-top: 5px; }
+    .throw-btn { padding: 6px 12px; background: rgba(255, 87, 34, 0.85); border: 1px solid #ff5722; border-radius: 4px; color: white; font-weight: bold; font-size: 11px; cursor: pointer; pointer-events: auto; }
+    .throw-btn:hover { background: #ff5722; }
+    
+    #btn-inventory { position: absolute; top: 68px; left: 170px; width: 80px; height: 35px; background: rgba(0,0,0,0.6); color: white; border: 1px solid #ffb300; border-radius: 5px; pointer-events: auto; font-weight: bold; font-size: 12px; display: flex; justify-content: center; align-items: center; }
+
+    #heal-progress-container { position: absolute; bottom: 20%; left: 50%; transform: translateX(-50%); width: 220px; height: 12px; background: rgba(0,0,0,0.7); border: 2px solid #ffeb3b; border-radius: 6px; display: none; z-index: 100; pointer-events: none; }
+    #heal-progress-bar { width: 0%; height: 100%; background: #ffeb3b; }
+    #heal-progress-text { position: absolute; top: -20px; left: 0; width: 100%; text-align: center; font-size: 13px; font-weight: bold; color: #ffeb3b; text-shadow: 1px 1px 2px black; }
+    #btn-reload { position: absolute; bottom: 50px; right: 150px; width: 65px; height: 65px; background: rgba(255,235,59,0.25); border: 2px solid rgba(255,255,255,0.6); border-radius: 50%; color: white; font-size: 14px; font-weight: bold; pointer-events: auto; display: flex; justify-content: center; align-items: center; }
+    
+    #btn-interact {
+      position: absolute;
+      bottom: 230px;
+      right: 150px;
+      width: 70px;
+      height: 70px;
+      background: rgba(255, 179, 0, 0.3);
+      border: 2px solid #ffb300;
+      border-radius: 50%;
+      color: white;
+      font-size: 13px;
+      font-weight: bold;
+      pointer-events: auto;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      z-index: 10;
+    }
+
+    @media (max-width: 900px) {
+      #minimap-container {
+        width: 90px !important;
+        height: 90px !important;
+      }
+      #minimap {
+        width: 90px !important;
+        height: 90px !important;
+      }
+      #status-board {
+        font-size: 11px !important;
+        padding: 6px !important;
+        max-width: 150px !important;
+      }
+      #equipped-info {
+        font-size: 12px !important;
+      }
+      #top-left-ui {
+        top: 10px !important;
+        left: 10px !important;
+        gap: 5px !important;
+      }
+      #match-info {
+        top: 10px !important;
+        right: 10px !important;
+        font-size: 11px !important;
+      }
+      #zone-info {
+        padding: 6px !important;
+      }
+      #player-hp-ui {
+        width: 220px !important;
+        bottom: 15px !important;
+      }
+      #player-hp-text {
+        font-size: 13px !important;
+        margin-bottom: 2px !important;
+      }
+      #player-hp-bar-bg {
+        height: 12px !important;
+      }
+      #notice-box {
+        font-size: 14px !important;
+        padding: 8px 16px !important;
+      }
+      #btn-inventory {
+        top: 10px !important;
+        left: 115px !important;
+        width: 70px !important;
+        height: 32px !important;
+        font-size: 11px !important;
+      }
+      #action-btn {
+        bottom: 230px !important;
+        right: 150px !important;
+        left: auto !important;
+        transform: none !important;
+        width: 70px !important;
+        height: 70px !important;
+        padding: 0 !important;
+        font-size: 11px !important;
+        font-weight: bold !important;
+        background: rgba(255, 179, 0, 0.4) !important;
+        border: 2px solid #ffb300 !important;
+        border-radius: 50% !important;
+        color: white !important;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.5) !important;
+        z-index: 100 !important;
+        white-space: normal !important;
+        justify-content: center !important;
+        align-items: center !important;
+        text-align: center !important;
+      }
+    }
+    
+    body.touch-device #action-btn {
+      bottom: 230px !important;
+      right: 150px !important;
+      left: auto !important;
+      transform: none !important;
+      width: 70px !important;
+      height: 70px !important;
+      padding: 0 !important;
+      font-size: 11px !important;
+      font-weight: bold !important;
+      background: rgba(255, 179, 0, 0.4) !important;
+      border: 2px solid #ffb300 !important;
+      border-radius: 50% !important;
+      color: white !important;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5) !important;
+      z-index: 100 !important;
+      white-space: normal !important;
+      justify-content: center !important;
+      align-items: center !important;
+      text-align: center !important;
+    }
+
+    /* 모바일 세로 화면 경고 오버레이 */
+    #portrait-warning {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: #111;
+      color: #ffeb3b;
+      z-index: 10000;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      font-family: sans-serif;
+      font-weight: bold;
+      font-size: 20px;
+      padding: 20px;
+    }
+    @keyframes loading-spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    @keyframes pulse {
+      0% { opacity: 0.6; }
+      50% { opacity: 1; }
+      100% { opacity: 0.6; }
+    }
+  </style>
+</head>
+<body>
+  <!-- 로딩 화면 추가 -->
+  <div id="loading-screen" style="
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle, #151a2e 0%, #070911 100%);
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    z-index: 99999; transition: opacity 0.5s ease; color: white; font-family: sans-serif;
+  ">
+    <div style="
+      width: 60px; height: 60px;
+      border: 5px solid rgba(255,255,255,0.08);
+      border-top: 5px solid #ffeb3b;
+      border-radius: 50%;
+      animation: loading-spin 1s linear infinite;
+      box-shadow: 0 0 15px rgba(255, 235, 59, 0.4);
+    "></div>
+    <div style="margin-top: 24px; font-size: 20px; font-weight: bold; letter-spacing: 2px; color: #ffeb3b; text-shadow: 0 0 8px rgba(255,235,59,0.5);">BATTLE ARENA</div>
+    <div id="loading-text" style="margin-top: 10px; font-size: 14px; color: #aaa;">전장을 불러오는 중...</div>
+  </div>
+  
+  <div id="portrait-warning">
+    <div style="font-size: 50px; margin-bottom: 20px;">🔄</div>
+    <div>가로 화면으로 회전해 주세요</div>
+    <div style="font-size: 13px; color: #aaa; margin-top: 10px;">이 게임은 가로 화면에 최적화되어 있습니다.</div>
+  </div>
+  <script>
+    (function() {
+      const lang = new URLSearchParams(window.location.search).get('lang') || localStorage.getItem('smileslife-preferred-lang') || navigator.language || 'ko';
+      const map = {
+        'en': 'Loading battlefield...',
+        'es': 'Cargando el campo de batalla...',
+        'ja': '戦場を読み込み中...',
+        'zh': '正在載入戰場...',
+        'zh-TW': '正在載入戰場...'
+      };
+      const warnings = {
+        'en': { rotate: 'Please rotate to landscape', desc: 'This game is optimized for landscape mode.' },
+        'es': { rotate: 'Por favor, gira a horizontal', desc: 'Este juego está optimizado para pantalla horizontal.' },
+        'ja': { rotate: '画面を横向きに回転させてください', desc: 'このゲームは横画面に最適化されています。' },
+        'zh': { rotate: '請將螢幕旋轉至橫向', desc: '此遊戲已針對橫向螢幕進行最佳化。' },
+        'zh-TW': { rotate: '請將螢幕旋轉至橫向', desc: '此遊戲已針對橫向螢幕進行最佳化。' }
+      };
+      
+      let langCode = 'en';
+      if (lang.startsWith('ko')) langCode = 'ko';
+      else if (lang.startsWith('es')) langCode = 'es';
+      else if (lang.startsWith('ja')) langCode = 'ja';
+      else if (lang.startsWith('zh')) langCode = 'zh-TW';
+      
+      if (langCode !== 'ko' && map[langCode]) {
+        const loadingTextEl = document.getElementById('loading-text');
+        if (loadingTextEl) loadingTextEl.textContent = map[langCode];
+        
+        const warningEl = document.getElementById('portrait-warning');
+        if (warningEl && warnings[langCode]) {
+          const divs = warningEl.getElementsByTagName('div');
+          if (divs.length >= 3) {
+            divs[1].textContent = warnings[langCode].rotate;
+            divs[2].textContent = warnings[langCode].desc;
+          }
+        }
+      }
+    })();
+  </script>
+
+  <div id="ui-layer">
+    <!-- 스코프 조준선 -->
+    <div id="scope-overlay">
+      <div id="scope-cross-v"></div>
+      <div id="scope-cross-h"></div>
+      <div id="scope-mag-text"></div>
+    </div>
+    
+    <div id="enemy-hp-container"></div>
+
+    <div id="top-left-ui">
+      <div id="minimap-container"><canvas id="minimap" width="130" height="130"></canvas></div>
+      <div id="status-board">
+        <div id="equipped-info">무기: 맨주먹<br>스코프: 없음</div>
+        <div style="font-size:12px; font-weight:normal; margin-top:4px;">우클릭: 정조준 (줌)</div>
+        <div style="font-size:12px; font-weight:normal; margin-top:2px;">단축키 [V]: 1인칭/3인칭</div>
+      </div>
+    </div>
+    
+    <div id="match-info">
+      <div id="zone-info">
+        <div style="color: #4caf50; font-size: 16px;" id="zone-text">자기장 대기중</div>
+        <div style="margin-top:4px;">축소까지: <span id="zone-timer">30</span>초</div>
+        <div style="margin-top:8px; color:#ffb300;">생존자: <span id="alive-count">50</span>명</div>
+        <div style="color:#ff3333; margin-top:2px;">나의 킬: <span id="kill-count">0</span></div>
+      </div>
+      <div id="kill-feed"></div>
+    </div>
+
+    <div id="player-hp-ui">
+      <div id="player-hp-text">HP: 100</div>
+      <div id="player-hp-bar-bg"><div id="player-hp-bar-fill"></div></div>
+    </div>
+
+    <div id="crosshair"></div>
+    <div id="notice-box"></div>
+
+    <!-- 비행기 좌석 전개도 UI -->
+    <div id="plane-seat-map" style="
+      position: absolute;
+      top: 20px;
+      left: 210px;
+      width: 140px;
+      height: 250px;
+      background: rgba(15, 22, 32, 0.85);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px;
+      box-sizing: border-box;
+      font-family: sans-serif;
+      color: white;
+      z-index: 150;
+      backdrop-filter: blur(4px);
+    ">
+      <div style="font-size: 11px; font-weight: bold; color: #ffeb3b; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; text-align: center;">탑승: <span id="plane-occupants-count">50</span>명</div>
+      <!-- Schematic Outline of Plane Interior -->
+      <div id="plane-schematic" style="
+        position: relative;
+        width: 80px;
+        height: 190px;
+        border: 2px solid rgba(255,255,255,0.4);
+        border-radius: 40px 40px 10px 10px;
+        background: rgba(255,255,255,0.05);
+      ">
+        <!-- Wings representation -->
+        <div style="position: absolute; top: 50px; left: -20px; width: 20px; height: 10px; border: 2px solid rgba(255,255,255,0.4); border-right: none; border-radius: 4px 0 0 4px; background: rgba(255,255,255,0.05);"></div>
+        <div style="position: absolute; top: 50px; right: -20px; width: 20px; height: 10px; border: 2px solid rgba(255,255,255,0.4); border-left: none; border-radius: 0 4px 4px 0; background: rgba(255,255,255,0.05);"></div>
+        <!-- Seats Container -->
+        <div id="seats-grid" style="
+          position: absolute;
+          top: 35px;
+          left: 10px;
+          width: 60px;
+          height: 140px;
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          grid-template-rows: repeat(13, 1fr);
+          gap: 2px;
+          align-items: center;
+          justify-items: center;
+        ">
+          <!-- Dots generated dynamically -->
+        </div>
+      </div>
+    </div>
+
+    <button id="action-btn">🪂 뛰어내리기</button>
+    <div id="loot-prompt">📦 주변에 아이템이 있습니다. [Tab] 키를 눌러 파밍하세요.</div>
+
+    <!-- 구급상자 사용 게이지 -->
+    <div id="heal-progress-container">
+      <div id="heal-progress-bar"></div>
+      <div id="heal-progress-text">구급상자 사용하는 중... 6.0s</div>
+    </div>
+
+    <!-- 인벤토리 및 파밍 레이아웃 -->
+    <div id="inventory-ui">
+      <div style="background: #1e1e1e; padding: 15px; border-bottom: 2px solid #ffb300; display: flex; justify-content: space-between; align-items: center;">
+        <h2 style="margin: 0; font-size: 18px; color: #ffb300; text-transform: uppercase; letter-spacing: 1px;">🎒 INVENTORY & LOOT</h2>
+        <span id="btn-close-inv" style="font-size: 13px; color: white; background: #e53935; padding: 4px 12px; border-radius: 3px; cursor: pointer; pointer-events: auto;">닫기 X</span>
+      </div>
+      <div style="flex: 1; display: flex; overflow: hidden; font-size: 13px;">
+        <!-- 주변 파밍 리스트 -->
+        <div style="flex: 1; border-right: 1px solid #333; display: flex; flex-direction: column; padding: 12px; overflow: hidden;">
+          <div class="inv-section-title">주변 아이템</div>
+          <div id="ground-loot-list" style="flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; padding-right: 4px;">
+            <!-- 동적 삽입 -->
+          </div>
+        </div>
+        <!-- 내 상태 / 가방 정보 -->
+        <div style="flex: 1; display: flex; flex-direction: column; padding: 12px; overflow: hidden;">
+          <div class="inv-section-title">내 캐릭터 장비</div>
+          <div style="flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; padding-right: 4px;">
+            <div style="background: rgba(255,255,255,0.04); padding: 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.08);">
+              <div style="font-weight: bold; color: #ffb300; font-size: 11px; margin-bottom: 4px;">주무기</div>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span id="inv-weapon-val">주먹</span>
+                <button class="loot-btn drop" id="inv-weapon-drop-btn" style="display:none;">버리기</button>
+              </div>
+            </div>
+            <div style="background: rgba(255,255,255,0.04); padding: 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.08);">
+              <div style="font-weight: bold; color: #ffb300; font-size: 11px; margin-bottom: 4px;">장착 스코프</div>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span id="inv-scope-val">기계식 조준기</span>
+                <button class="loot-btn drop" id="inv-scope-drop-btn" style="display:none;">버리기</button>
+              </div>
+            </div>
+            <div style="background: rgba(255,255,255,0.04); padding: 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.08);">
+              <div style="font-weight: bold; color: #ffb300; font-size: 11px; margin-bottom: 4px;">헬멧 (방어구)</div>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span id="inv-helmet-val">없음</span>
+                <button class="loot-btn drop" id="inv-helmet-drop-btn" style="display:none;">버리기</button>
+              </div>
+            </div>
+            <div style="background: rgba(255,255,255,0.04); padding: 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.08);">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span id="inv-bag-val">없음</span>
+                <button class="loot-btn drop" id="inv-bag-drop-btn" style="display:none;">버리기</button>
+              </div>
+            </div>
+            <div style="background: rgba(255,255,255,0.04); padding: 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.08);">
+              <div style="font-weight: bold; color: #ffb300; font-size: 11px; margin-bottom: 4px;">의료 키트 / 투척류</div>
+              <div style="display:flex; flex-direction:column; gap:6px;">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                  <span>구급상자: <span id="inv-firstaid-count">0</span>개</span>
+                  <div style="display:flex; gap:4px;">
+                    <button class="loot-btn use" id="inv-firstaid-use-btn" style="padding:2px 6px; background:#4caf50;">사용</button>
+                    <button class="loot-btn drop" id="inv-firstaid-drop-btn" style="padding:2px 6px;">버리기</button>
+                  </div>
+                </div>
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                  <span>수류탄: <span id="inv-grenade-count">0</span>개</span>
+                  <button class="loot-btn drop" id="inv-grenade-drop-btn" style="padding:2px 6px;">1개 버리기</button>
+                </div>
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                  <span>연막탄: <span id="inv-smoke-count">0</span>개</span>
+                  <button class="loot-btn drop" id="inv-smoke-drop-btn" style="padding:2px 6px;">1개 버리기</button>
+                </div>
+              </div>
+            </div>
+            <div style="background: rgba(255,255,255,0.04); padding: 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.08);">
+              <div style="font-weight: bold; color: #ffb300; font-size: 11px; margin-bottom: 4px;">보유 탄약</div>
+              <div style="display:flex; flex-direction:column; gap:4px; font-size:12px;">
+                <div style="display:flex; justify-content:space-between;"><span>9mm (권총):</span> <span id="inv-ammo-pistol" style="color:#00ffcc; font-weight:bold;">0</span></div>
+                <div style="display:flex; justify-content:space-between;"><span>12게이지 (샷건):</span> <span id="inv-ammo-shotgun" style="color:#00ffcc; font-weight:bold;">0</span></div>
+                <div style="display:flex; justify-content:space-between;"><span>5.56mm (돌격소총):</span> <span id="inv-ammo-rifle" style="color:#00ffcc; font-weight:bold;">0</span></div>
+                <div style="display:flex; justify-content:space-between;"><span>7.62mm (저격총):</span> <span id="inv-ammo-sniper" style="color:#00ffcc; font-weight:bold;">0</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 투척무기 단축키 및 모바일 버튼 -->
+    <div class="throw-guide-container" style="position: absolute; bottom: 85px; left: 50%; transform: translateX(-50%); pointer-events: auto; display: none; z-index: 12;" id="throw-shortcuts">
+      <button class="throw-btn" id="btn-throw-grenade">G: 수류탄 던지기 (0)</button>
+      <button class="throw-btn" id="btn-throw-smoke">H: 연막탄 던지기 (0)</button>
+    </div>
+  </div>
+
+  <div id="joystick-container"><div id="joystick-stick"></div></div>
+  <div id="damage-indicator"></div>
+  <div id="bluezone-overlay"></div>
+  <!-- 부활 모달 (슬롯머신 형태) -->
+  <div id="revive-modal" style="
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(10, 15, 30, 0.96);
+    border: 3px solid #ffb300;
+    border-radius: 15px;
+    padding: 30px;
+    color: white;
+    text-align: center;
+    font-family: 'Malgun Gothic', sans-serif;
+    display: none;
+    z-index: 100000;
+    pointer-events: auto;
+    box-shadow: 0 0 30px rgba(255, 179, 0, 0.6);
+    width: 360px;
+    box-sizing: border-box;
+  ">
+    <h2 style="color: #ffb300; margin: 0 0 15px 0; font-size: 24px; text-shadow: 0 0 8px rgba(255,179,0,0.5);">🏆 부활의 기회!</h2>
+    <p style="margin: 0 0 20px 0; font-size: 14px; color: #ccc;">슬롯이 작동하여 부활 시 체력을 결정합니다.</p>
+    
+    <!-- 슬롯머신 영역 -->
+    <div style="
+      background: #070911;
+      border: 2px solid #555;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 25px;
+      font-size: 36px;
+      font-weight: bold;
+      color: #00ffcc;
+      text-shadow: 0 0 10px rgba(0,255,200,0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    ">
+      <span>부활 HP:</span>
+      <span id="slot-value" style="display: inline-block; min-width: 100px;">100%</span>
+    </div>
+
+    <p id="revive-prompt-text" style="margin: 0 0 20px 0; font-size: 15px; line-height: 1.4; color: #ddd; display: none;">
+      광고를 시청하고 <strong><span id="revive-hp-percentage" style="color: #ffeb3b;">100%</span></strong>의 체력으로 다시 부활하시겠습니까?
+    </p>
+
+    <div id="revive-buttons" style="display: none; justify-content: center; gap: 15px;">
+      <button id="revive-yes-btn" style="padding: 12px 22px; font-size: 14px; font-weight: bold; background: #2e7d32; color: white; border: none; border-radius: 20px; cursor: pointer; transition: background 0.2s;">예 (광고 보고 부활)</button>
+      <button id="revive-no-btn" style="padding: 12px 22px; font-size: 14px; font-weight: bold; background: #e53935; color: white; border: none; border-radius: 20px; cursor: pointer; transition: background 0.2s;">아니오 (매치 종료)</button>
+    </div>
+  </div>
+
+  <!-- 보상형 광고 재생 화면 -->
+  <div id="ad-screen" style="
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    display: none;
+    z-index: 200000;
+    pointer-events: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    color: white;
+  ">
+    <!-- 광고 상단 바 -->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; padding: 15px 20px; box-sizing: border-box; display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.6); z-index: 10;">
+      <span style="font-size: 16px; font-weight: bold; color: #ccc;">📺 추천 스폰서 광고</span>
+      <span id="ad-timer" style="font-size: 16px; font-weight: bold; color: #ffeb3b; background: rgba(0,0,0,0.5); padding: 5px 12px; border-radius: 15px;">광고 종료까지 15초...</span>
+    </div>
+
+    <!-- 광고 컨텐츠 영역 (심플하고 이쁜 목업 게임 광고) -->
+    <div style="text-align: center; max-width: 500px; padding: 20px;">
+      <div style="font-size: 64px; margin-bottom: 20px; animation: pulse 1.5s infinite;">🎮</div>
+      <h2 style="font-size: 28px; margin: 0 0 10px 0; color: #ffeb3b;">쿠키 클리커: 레볼루션</h2>
+      <p style="font-size: 16px; color: #aaa; margin: 0 0 20px 0; line-height: 1.4;">
+        지상 최고의 중독성! 지금 탭하여 우주 최강의 쿠키 공장을 건설해보세요!
+      </p>
+      <div style="display: inline-block; padding: 10px 25px; background: #007bff; border-radius: 25px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 15px rgba(0,123,255,0.4);">
+        지금 다운로드
+      </div>
+    </div>
+
+    <!-- 무음/소리 조절 버튼 -->
+    <button id="ad-mute-btn" style="position: absolute; bottom: 20px; right: 20px; padding: 8px 15px; background: rgba(255,255,255,0.2); border: 1px solid white; border-radius: 15px; color: white; cursor: pointer; font-size: 12px;">🔊 음소거</button>
+
+    <!-- 구글 애드센스 알림 메모 -->
+    <div style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); font-size: 11px; color: #555; text-align: center; width: 80%;">
+      * 실제 배포 시에는 구글 애드센스 H5 게임 광고 SDK(Rewarded Ads API)로 연동됩니다.
+    </div>
+  </div>
+
+
+  <div id="mobile-ui">
+    <div id="joystick-touch-zone"></div>
+    <div id="touch-look-zone"></div>
+    <div id="btn-tpp">1인칭</div>
+    <div id="btn-aim">조준</div>
+    <div id="btn-attack">🔫 격발</div>
+    <div id="btn-reload">장전</div>
+    <div id="btn-inventory">🎒 가방</div>
+    <!-- 모바일 전용 자세 및 힐링 버튼 추가 -->
+    <div id="btn-crouch" style="position: absolute; bottom: 50px; right: 240px; width: 65px; height: 65px; background: rgba(255,255,255,0.2); border: 2px solid white; border-radius: 50%; color: white; font-size: 14px; font-weight: bold; pointer-events: auto; display: flex; justify-content: center; align-items: center;">C</div>
+    <div id="btn-prone" style="position: absolute; bottom: 50px; right: 320px; width: 65px; height: 65px; background: rgba(255,255,255,0.2); border: 2px solid white; border-radius: 50%; color: white; font-size: 14px; font-weight: bold; pointer-events: auto; display: flex; justify-content: center; align-items: center;">Z</div>
+    <div id="btn-heal" style="position: absolute; bottom: 150px; right: 150px; width: 65px; height: 65px; background: rgba(76,175,80,0.4); border: 2px solid #4caf50; border-radius: 50%; color: white; font-size: 14px; font-weight: bold; pointer-events: auto; display: none; justify-content: center; align-items: center;">💊</div>
+    <div id="btn-jump" style="position: absolute; bottom: 150px; right: 240px; width: 65px; height: 65px; background: rgba(255,255,255,0.2); border: 2px solid white; border-radius: 50%; color: white; font-size: 14px; font-weight: bold; pointer-events: auto; display: flex; justify-content: center; align-items: center;">점프</div>
+    <div id="btn-interact"></div>
+  </div>
+
+  <div id="victory-box" style="position: absolute; top: 35%; left: 50%; transform: translate(-50%, -50%); background: rgba(10, 15, 30, 0.93); border: 3px solid #ffeb3b; border-radius: 15px; padding: 30px; color: white; text-align: center; font-family: sans-serif; display: none; z-index: 100000; pointer-events: auto; box-shadow: 0 0 25px rgba(255, 235, 59, 0.5); width: 340px;">
+    <h2 style="color: #ffeb3b; margin: 0 0 12px 0; font-size: 24px; text-shadow: 0 0 8px rgba(255,235,59,0.5);">🏆 이겼닭! 오늘 저녁은 통닭이닭!</h2>
+    <p id="victory-stats" style="margin: 0 0 20px 0; font-size: 16px; line-height: 1.5; color: #ddd;"></p>
+    <div style="display: flex; justify-content: center; gap: 15px;">
+      <button id="victory-continue-btn" style="padding: 12px 22px; font-size: 14px; font-weight: bold; background: #2e7d32; color: white; border: none; border-radius: 20px; cursor: pointer; transition: background 0.2s;">계속 둘러보기</button>
+      <button id="victory-restart-btn" style="padding: 12px 22px; font-size: 14px; font-weight: bold; background: #ffb300; color: black; border: none; border-radius: 20px; cursor: pointer; transition: background 0.2s;">다시 도전하기</button>
+    </div>
+  </div>
+  <button id="victory-mini-btn" style="position: absolute; top: 15px; right: 15px; padding: 12px 24px; font-size: 14px; font-weight: bold; background: rgba(255, 179, 0, 0.9); color: black; border: 2px solid #ffeb3b; border-radius: 20px; cursor: pointer; display: none; z-index: 100000; pointer-events: auto; box-shadow: 0 0 10px rgba(0,0,0,0.5);">다시 도전하기</button>
+ 
+  <div id="overlay">
+    <div id="title-container">
+      <div id="main-title">배틀 아레나 (Battle Arena)</div>
+      <div id="sub-title">최후의 생존자</div>
+    </div>
+    
+    <p id="instruction">
+      🎯 50인의 숨막히는 생존 투쟁!<br>장비를 획득하고 끝까지 살아남아 승리의 통닭을 차지하십시오.
+    </p>
+
+    <div id="lobby-btn-container">
+      <div id="settings-ui">
+        <button id="btn-toggle-bgm">🎵 BGM: OFF</button>
+        <button id="btn-toggle-sfx">🔊 SFX: ON</button>
+      </div>
+      <button id="start-btn">매치 시작</button>
+    </div>
+    <div id="lobby-credits" style="
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.4);
+      font-family: sans-serif;
+      text-align: right;
+      line-height: 1.4;
+      pointer-events: auto;
+    ">
+      Powered by <a href="https://threejs.org/" target="_blank" style="color: rgba(255, 255, 255, 0.6); text-decoration: none; font-weight: bold; transition: color 0.2s;">Three.js</a> (MIT License)
+    </div>
+  </div>
+
+
+
+  
+  
+  
+
+  <!-- INJECTED LOCALIZATION SCRIPT -->
+  <script>
+  (function() {
+    // Self-contained Battle Arena Localization System
+const BATTLE_ARENA_TRANSLATIONS = {};
+const BATTLE_ARENA_DICT_MAPPINGS = {};
+BATTLE_ARENA_TRANSLATIONS['en'] = {};
+BATTLE_ARENA_TRANSLATIONS['en'].regex = [
+  { pattern: new RegExp('광고 종료까지 (\\\\d+)초\\\\.\\\\.\\\\.', 'g'), replacement: 'Ad ends in $1s...' },
+  { pattern: new RegExp('✨ 부활 성공! (\\\\d+)% 체력으로 다시 시작합니다\\\\.', 'g'), replacement: '✨ Revived successfully! Restarting with $1% HP.' },
+  
+  { pattern: new RegExp('당신이\\s+(.+)\\s+처치', 'g'), replacement: 'You eliminated $1' },
+  { pattern: new RegExp('(.+)\\s+자기장 사망', 'g'), replacement: '$1 died outside Playzone' },
+  { pattern: new RegExp('(.+)\\s+주먹 처치', 'g'), replacement: '$1 killed by Fists' },
+  { pattern: new RegExp('(.+)\\s+처치\\s+(.+)', 'g'), replacement: '$1 eliminated $2' },
+  { pattern: new RegExp('(.+)\\s+처치', 'g'), replacement: '$1 eliminated' },
+  { pattern: new RegExp('(.+) 탄창 획득! \\(\\+(.+)발\\)', 'g'), replacement: 'Obtained $1 Ammo! (+$2)' },
+  { pattern: new RegExp('시체상자에서 \\[(.+)\\] 획득!', 'g'), replacement: 'Obtained [$1] from Death Box!' },
+  { pattern: new RegExp('시체상자에서 \\[(.+)\\] 장착!', 'g'), replacement: 'Equipped [$1] from Death Box!' },
+  { pattern: new RegExp('\\[(.+)\\] 획득!', 'g'), replacement: 'Obtained [$1]!' },
+  { pattern: new RegExp('\\[(.+)\\] 장착 완료!', 'g'), replacement: '[$1] equipped!' },
+  { pattern: new RegExp('\\[(.+)\\] 버림', 'g'), replacement: 'Dropped [$1]' },
+  { pattern: new RegExp('구급상자를 사용하는 중\\.\\.\\. \\(움직이면 취소됩니다\\)', 'g'), replacement: 'Using First Aid Kit... (moving cancels)' },
+  { pattern: new RegExp('구급상자를 사용하는 중\\.\\.\\. \\((.+)s\\)', 'g'), replacement: 'Using First Aid Kit... ($1s)' },
+  { pattern: new RegExp('가방 공간 부족으로 (.+)을 줍지 못했습니다\\.', 'g'), replacement: 'Not enough bag space to pick up $1.' },
+  { pattern: new RegExp('가방 공간 부족으로 (.+)를 줍지 못했습니다\\.', 'g'), replacement: 'Not enough bag space to pick up $1.' },
+  { pattern: new RegExp('최종 생존자:\\s*(.+)명\\s*\\(우승!\\)<br>나의 처치 수:\\s*(.+)', 'g'), replacement: 'Final Survivor: $1 (Winner!)<br>My Kills: $2' },
+  { pattern: new RegExp('최종 생존자:\\s*(.+)명<br>나의 킬 수:\\s*(.+)', 'g'), replacement: 'Final Survivors: $1<br>My Kills: $2' },
+  { pattern: new RegExp('나의 처치 수:\\s*(.+)', 'g'), replacement: 'My Kills: $1' },
+  { pattern: new RegExp('나의 킬 수:\\s*(.+)', 'g'), replacement: 'My Kills: $1' },
+  { pattern: new RegExp('R키로 장전하세요\\.', 'g'), replacement: 'Reload with R.' },
+];
+BATTLE_ARENA_DICT_MAPPINGS['en'] = {
+  keys: ["🪂 뛰어내리기 (좌클릭/F)", "🎯 50인의 숨막히는 생존 투쟁!<br>장비를 획득하고 끝까지 살아남아 승리의 통닭을 차지하십시오.", "주변에 아이템이 있습니다. [Tab] 키를 눌러 파밍하세요.", "주변에 아이템이 있습니다. 줍기 버튼을 눌러 획득하세요!", "⚠️ 섬을 벗어나 강제 낙하합니다! (HP 50% 감소)", "⚠️ 움직임으로 인해 구급상자 사용이 취소되었습니다.", "구급상자를 사용하는 중... (움직이면 취소됩니다)", "⚠️ 피해를 입어 구급상자 사용이 취소되었습니다.", "👊 적을 주먹으로 타격했습니다! (-20 HP)", "가방 공간 부족으로 구급상자를 줍지 못했습니다.", "💊 구급상자 사용 완료! (체력 75% 회복)", "⚠️ 탄창이 비어있습니다! R키로 장전하세요.", "가방 공간 부족으로 수류탄을 줍지 못했습니다.", "가방 공간 부족으로 연막탄을 줍지 못했습니다.", "이 게임은 가로 화면에 최적화되어 있습니다.", "이 게임은 가로 화면에 최적化되어 있습니다.", "⚠️ 자세 변경으로 구급상자 사용 취소!", "지상에 도착했습니다. 파밍을 시작하세요!", "배틀 아레나 (Battle Arena)", "⚠️ 점프로 인해 구급상자 사용 취소!", "가방 공간 부족! (기본 최대 2개)", "🏆 이겼닭! 오늘 저녁은 통닭이닭!", "🎒 INVENTORY & LOOT", "체력이 이미 75% 이상입니다!", "⚠️ 수류탄 폭발 치명적 피해!", "이미 탄약이 가득 차 있습니다.", "단축키 [V]: 1인칭/3인칭", "🪂 낙하산 펴기 (좌클릭/F)", "가로 화면으로 회전해 주세요", "비어있는 시체 상자 [시체]", "구급상자 사용하는 중...", "5.56mm (돌격소총):", "주변에 아이템이 없습니다.", "☠️ 당신은 처치되었습니다", "전장을 불러오는 중...", "7.62mm (저격총):", "우클릭: 정조준 (줌)", "G: 수류탄 던지기 (", "H: 연막탄 던지기 (", "엎드리기 (Prone)", "⚡ 적을 처치했습니다!", "의료 키트 / 투척류", "12게이지 (샷건):", "앉기 (Crouch)", "상자가 비어있습니다.", "구급상자가 없습니다!", "🚪 문을 열었습니다.", "🚪 문을 닫았습니다.", "매치 시작 (터치)", "🎵 BGM: OFF", "🔊 SFX: OFF", "기계식 조준기 장착", "5.56mm 소총탄", "7.62mm 저격탄", "헬멧 Level 1", "헬멧 Level 3", "가방 Level 1", "가방 Level 3", "G: 수류탄 던지기", "H: 연막탄 던지기", "서기 (Stand)", "시체 상자 [시체]", "구급상자 1개 버림", "🎵 BGM: ON", "🔊 SFX: ON", "나의 처치 수: ", "5.56mm 탄창", "7.62mm 탄창", "9mm (권총):", "🔄 장전 중...", "연막탄 1개 버림", "안전지대 대기중", "나의 킬 수: ", "12게이지 산탄", "12게이지 탄창", "내 캐릭터 장비", "헬멧 (방어구)", "🪟 창문 넘기!", "🪂 낙하산 펴기", "최후의 생존자", "기계식 조준기", "2배율 스코프", "4배율 스코프", "8배율 스코프", "자기장 대기중", "🪂 뛰어내리기", "9mm 권총탄", "계속 둘러보기", "다시 도전하기", "배틀 아레나", "최후의 1인", "축소까지: ", "나의 킬: ", "9mm 탄창", "주변 아이템", "장착 스코프", "구급상자: ", "장전 완료!", "매치 시작", "스코프: ", "생존자: ", "뛰어내리기", "수류탄: ", "연막탄: ", "보유 탄약", "무기: ", "돌격소총", "저격소총", "탑승: ", "구급상자", "닫기 X", "🔫 격발", "맨주먹", "저격총", "수류탄", "연막탄", "주무기", "1인칭", "3인칭", "주먹", "없음", "권총", "샷건", "줍기", "닫기", "가방", "조준", "격발", "장전", "점프", "초", "명"],
+  map: {"⚠️ 광고를 불러오지 못했습니다. 광고 차단 프로그램(AdBlock)을 해제하고 다시 도전해주세요.": "⚠️ Failed to load ad. Please disable your AdBlocker and try again.", "🏆 부활의 기회!": "🏆 Revive Opportunity!", "슬롯이 작동하여 부활 시 체력을 결정합니다.": "The slot spins to determine your health upon revival.", "부활 HP:": "Revive HP:", "광고를 시청하고 <strong><span id=\\\"revive-hp-percentage\\\" style=\\\"color: #ffeb3b;\\\">100%</span></strong>의 체력으로 다시 부활하시겠습니까?": "Would you like to watch an ad and revive with <strong><span id=\\\"revive-hp-percentage\\\" style=\\\"color: #ffeb3b;\\\">100%</span></strong> HP?", "예 (광고 보고 부활)": "Yes (Watch Ad to Revive)", "아니오 (매치 종료)": "No (End Match)", "📺 추천 스폰서 광고": "📺 Recommended Sponsor Ad", "🪂 뛰어내리기 (좌클릭/F)": "🪂 Jump (Left Click/F)", "배틀 아레나 (Battle Arena)": "Battle Arena - Last Survivor", "배틀 아레나": "Battle Arena", "최후의 생존자": "Last Survivor", "최후의 1인": "Last Survivor", "🎯 50인의 숨막히는 생존 투쟁!<br>장비를 획득하고 끝까지 살아남아 승리의 통닭을 차지하십시오.": "🎯 50-player intense survival fight!<br>Get gear, survive to the end and claim victory.", "매치 시작": "Start Match", "매치 시작 (터치)": "Start Match", "🎵 BGM: OFF": "🎵 BGM: OFF", "🎵 BGM: ON": "🎵 BGM: ON", "🔊 SFX: OFF": "🔊 SFX: OFF", "🔊 SFX: ON": "🔊 SFX: ON", "전장을 불러오는 중...": "Loading battlefield...", "가로 화면으로 회전해 주세요": "Please rotate to landscape", "이 게임은 가로 화면에 최적화되어 있습니다.": "This game is optimized for landscape mode.", "이 게임은 가로 화면에 최적化되어 있습니다.": "This game is optimized for landscape mode.", "무기: ": "Weapon: ", "스코프: ": "Scope: ", "맨주먹": "Fists", "주먹": "Fists", "없음": "None", "권총": "Pistol", "샷건": "Shotgun", "돌격소총": "Assault Rifle", "저격총": "Sniper Rifle", "저격소총": "Sniper Rifle", "기계식 조준기": "Iron Sights", "기계식 조준기 장착": "Iron Sights", "2배율 스코프": "2x Scope", "4배율 스코프": "4x Scope", "8배율 스코프": "8x Scope", "우클릭: 정조준 (줌)": "Right Click: ADS (Zoom)", "단축키 [V]: 1인칭/3인칭": "Press [V]: 1st/3rd Person", "자기장 대기중": "Playzone Waiting", "안전지대 대기중": "Safe Zone Waiting", "축소까지: ": "Shrinking in: ", "생존자: ": "Survivors: ", "나의 킬: ": "My Kills: ", "나의 킬 수: ": "My Kills: ", "나의 처치 수: ": "My Kills: ", "초": "s", "명": " players", "탑승: ": "Boarded: ", "뛰어내리기": "🪂 Jump", "🪂 뛰어내리기": "🪂 Jump", "줍기": "Close", "구급상자 사용하는 중...": "Using First Aid Kit... ", "구급상자를 사용하는 중... (움직이면 취소됩니다)": "Using First Aid Kit... ", "구급상자": "First Aid Kit", "수류탄": "Grenade", "연막탄": "Smoke Grenade", "9mm 권총탄": "9mm Ammo", "12게이지 산탄": "12 Gauge Ammo", "5.56mm 소총탄": "5.56mm Ammo", "7.62mm 저격탄": "7.62mm Ammo", "9mm 탄창": "9mm Ammo", "12게이지 탄창": "12 Gauge Ammo", "5.56mm 탄창": "5.56mm Ammo", "7.62mm 탄창": "7.62mm Ammo", "🎒 INVENTORY & LOOT": "🎒 INVENTORY & LOOT", "닫기 X": "Close", "닫기": "Close", "주변 아이템": "Ground Items", "내 캐릭터 장비": "My Equipment", "주무기": "Primary Weapon", "장착 스코프": "Equipped Scope", "헬멧 (방어구)": "Helmet (Armor)", "가방": "Bag", "헬멧 Level 1": "Helmet Level 1", "헬멧 Level 3": "Helmet Level 3", "가방 Level 1": "Bag Level 1", "가방 Level 3": "Bag Level 3", "의료 키트 / 투척류": "Medical / Throwables", "구급상자: ": "First Aid Kit: ", "수류탄: ": "Grenade: ", "연막탄: ": "Smoke: ", "보유 탄약": "Ammo Carried", "9mm (권총):": "9mm (Pistol):", "12게이지 (샷건):": "12 Gauge (Shotgun):", "5.56mm (돌격소총):": "5.56mm (Rifle):", "7.62mm (저격총):": "7.62mm (Sniper):", "G: 수류탄 던지기 (": "G: Throw Grenade (", "H: 연막탄 던지기 (": "H: Throw Smoke (", "G: 수류탄 던지기": "G: Throw Grenade (", "H: 연막탄 던지기": "H: Throw Smoke (", "1인칭": "1st Person", "3인칭": "3rd Person", "조준": "Aim", "격발": "🔫 Fire", "🔫 격발": "🔫 Fire", "장전": "Reload", "점프": "Jump", "서기 (Stand)": "Stand", "앉기 (Crouch)": "Crouch", "엎드리기 (Prone)": "Prone", "🏆 이겼닭! 오늘 저녁은 통닭이닭!": "🏆 Winner Winner Chicken Dinner!", "계속 둘러보기": "Spectate", "다시 도전하기": "Try Again", "비어있는 시체 상자 [시체]": "Empty Death Box [Corpse]", "시체 상자 [시체]": "Death Box [Corpse]", "상자가 비어있습니다.": "Box is empty.", "주변에 아이템이 없습니다.": "No items nearby.", "주변에 아이템이 있습니다. [Tab] 키를 눌러 파밍하세요.": "📦 Items nearby. Press [Tab] to loot.", "주변에 아이템이 있습니다. 줍기 버튼을 눌러 획득하세요!": "📦 Items nearby. Tap Pick Up to loot!", "⚠️ 피해를 입어 구급상자 사용이 취소되었습니다.": "⚠️ First Aid Kit use cancelled due to damage.", "💊 구급상자 사용 완료! (체력 75% 회복)": "💊 First Aid Kit used! (75% HP restored)", "체력이 이미 75% 이상입니다!": "HP is already 75% or higher!", "구급상자가 없습니다!": "No First Aid Kits!", "⚠️ 움직임으로 인해 구급상자 사용이 취소되었습니다.": "⚠️ First Aid Kit use cancelled due to movement.", "⚠️ 자세 변경으로 구급상자 사용 취소!": "⚠️ First Aid Kit use cancelled due to stance change!", "⚠️ 점프로 인해 구급상자 사용 취소!": "⚠️ First Aid Kit use cancelled due to jump!", "🚪 문을 열었습니다.": "🚪 Opened the door.", "🚪 문을 닫았습니다.": "🚪 Closed the door.", "🪟 창문 넘기!": "🪟 Vaulting window!", "⚠️ 섬을 벗어나 강제 낙하합니다! (HP 50% 감소)": "⚠️ Leaving the island! Forced drop (50% HP loss)", "⚠️ 수류탄 폭발 치명적 피해!": "⚠️ Fatal damage from grenade explosion!", "👊 적을 주먹으로 타격했습니다! (-20 HP)": "👊 Hit enemy with fist! (-20 HP)", "⚡ 적을 처치했습니다!": "⚡ Eliminated an enemy!", "☠️ 당신은 처치되었습니다": "☠️ You were eliminated", "⚠️ 탄창이 비어있습니다! R키로 장전하세요.": "⚠️ Magazine empty! Reload with R.", "🔄 장전 중...": "🔄 Reloading...", "장전 완료!": "Reload complete!", "🪂 낙하산 펴기 (좌클릭/F)": "🪂 Deploy Parachute (Left Click/F)", "🪂 낙하산 펴기": "🪂 Deploy Parachute", "지상에 도착했습니다. 파밍을 시작하세요!": "Arrived on the ground. Start looting!", "가방 공간 부족으로 구급상자를 줍지 못했습니다.": "Not enough bag space to pick up First Aid Kit.", "가방 공간 부족으로 수류탄을 줍지 못했습니다.": "Not enough bag space to pick up Grenade.", "가방 공간 부족으로 연막탄을 줍지 못했습니다.": "Not enough bag space to pick up Smoke Grenade.", "가방 공간 부족! (기본 최대 2개)": "Not enough bag space! (Max 2 items default)", "이미 탄약이 가득 차 있습니다.": "Ammo is already full.", "구급상자 1개 버림": "Dropped 1 First Aid Kit", "연막탄 1개 버림": "Dropped 1 Smoke Grenade"}
+};
+BATTLE_ARENA_TRANSLATIONS['es'] = {};
+BATTLE_ARENA_TRANSLATIONS['es'].regex = [
+  { pattern: new RegExp('광고 종료까지 (\\\\d+)초\\\\.\\\\.\\\\.', 'g'), replacement: 'El anuncio termina en $1s...' },
+  { pattern: new RegExp('✨ 부활 성공! (\\\\d+)% 체력으로 다시 시작합니다\\\\.', 'g'), replacement: '✨ ¡Revivido con éxito! Reiniciando con $1% de HP.' },
+  
+  { pattern: new RegExp('당신이\\s+(.+)\\s+처치', 'g'), replacement: 'Eliminaste a $1' },
+  { pattern: new RegExp('(.+)\\s+자기장 사망', 'g'), replacement: '$1 murió fuera de la zona' },
+  { pattern: new RegExp('(.+)\\s+주먹 처치', 'g'), replacement: '$1 eliminado a puñetazos' },
+  { pattern: new RegExp('(.+)\\s+처치\\s+(.+)', 'g'), replacement: '$1 eliminó a $2' },
+  { pattern: new RegExp('(.+)\\s+처치', 'g'), replacement: '$1 eliminado' },
+  { pattern: new RegExp('(.+) 탄창 획득! \\(\\+(.+)발\\)', 'g'), replacement: '¡Obtenida munición de $1! (+$2)' },
+  { pattern: new RegExp('시체상자에서 \\[(.+)\\] 획득!', 'g'), replacement: '¡Recogiste [$1] de la caja de botín!' },
+  { pattern: new RegExp('시체상자에서 \\[(.+)\\] 장착!', 'g'), replacement: '¡Equipaste [$1] de la caja de botín!' },
+  { pattern: new RegExp('\\[(.+)\\] 획득!', 'g'), replacement: '¡Obtenido [$1]!' },
+  { pattern: new RegExp('\\[(.+)\\] 장착 완료!', 'g'), replacement: '¡[$1] equipado!' },
+  { pattern: new RegExp('\\[(.+)\\] 버림', 'g'), replacement: 'Tiraste [$1]' },
+  { pattern: new RegExp('구급상자를 사용하는 중\\.\\.\\. \\(움직이면 취소됩니다\\)', 'g'), replacement: 'Usando Botiquín... (se cancela si te mueves)' },
+  { pattern: new RegExp('구급상자를 사용하는 중\\.\\.\\. \\((.+)s\\)', 'g'), replacement: 'Usando Botiquín... ($1s)' },
+  { pattern: new RegExp('가방 공간 부족으로 (.+)을 줍지 못했습니다\\.', 'g'), replacement: 'Mochila llena, no se pudo recoger $1.' },
+  { pattern: new RegExp('가방 공간 부족으로 (.+)를 줍지 못했습니다\\.', 'g'), replacement: 'Mochila llena, no se pudo recoger $1.' },
+  { pattern: new RegExp('최종 생존자:\\s*(.+)명\\s*\\(우승!\\)<br>나의 처치 수:\\s*(.+)', 'g'), replacement: 'Último superviviente: $1 (¡Ganador!)<br>Mis Kills: $2' },
+  { pattern: new RegExp('최종 생존자:\\s*(.+)명<br>나의 킬 수:\\s*(.+)', 'g'), replacement: 'Supervivientes finales: $1<br>Mis Kills: $2' },
+  { pattern: new RegExp('나의 처치 수:\\s*(.+)', 'g'), replacement: 'Mis Kills: $1' },
+  { pattern: new RegExp('나의 킬 수:\\s*(.+)', 'g'), replacement: 'Mis Kills: $1' },
+  { pattern: new RegExp('R키로 장전하세요\\.', 'g'), replacement: 'Recarga con R.' },
+];
+BATTLE_ARENA_DICT_MAPPINGS['es'] = {
+  keys: ["🪂 뛰어내리기 (좌클릭/F)", "🎯 50인의 숨막히는 생존 투쟁!<br>장비를 획득하고 끝까지 살아남아 승리의 통닭을 차지하십시오.", "주변에 아이템이 있습니다. [Tab] 키를 눌러 파밍하세요.", "주변에 아이템이 있습니다. 줍기 버튼을 눌러 획득하세요!", "⚠️ 섬을 벗어나 강제 낙하합니다! (HP 50% 감소)", "⚠️ 움직임으로 인해 구급상자 사용이 취소되었습니다.", "구급상자를 사용하는 중... (움직이면 취소됩니다)", "⚠️ 피해를 입어 구급상자 사용이 취소되었습니다.", "👊 적을 주먹으로 타격했습니다! (-20 HP)", "가방 공간 부족으로 구급상자를 줍지 못했습니다.", "💊 구급상자 사용 완료! (체력 75% 회복)", "⚠️ 탄창이 비어있습니다! R키로 장전하세요.", "가방 공간 부족으로 수류탄을 줍지 못했습니다.", "가방 공간 부족으로 연막탄을 줍지 못했습니다.", "이 게임은 가로 화면에 최적화되어 있습니다.", "이 게임은 가로 화면에 최적化되어 있습니다.", "⚠️ 자세 변경으로 구급상자 사용 취소!", "지상에 도착했습니다. 파밍을 시작하세요!", "배틀 아레나 (Battle Arena)", "⚠️ 점프로 인해 구급상자 사용 취소!", "가방 공간 부족! (기본 최대 2개)", "🏆 이겼닭! 오늘 저녁은 통닭이닭!", "🎒 INVENTORY & LOOT", "체력이 이미 75% 이상입니다!", "⚠️ 수류탄 폭발 치명적 피해!", "이미 탄약이 가득 차 있습니다.", "단축키 [V]: 1인칭/3인칭", "🪂 낙하산 펴기 (좌클릭/F)", "가로 화면으로 회전해 주세요", "비어있는 시체 상자 [시체]", "구급상자 사용하는 중...", "5.56mm (돌격소총):", "주변에 아이템이 없습니다.", "☠️ 당신은 처치되었습니다", "전장을 불러오는 중...", "7.62mm (저격총):", "우클릭: 정조준 (줌)", "G: 수류탄 던지기 (", "H: 연막탄 던지기 (", "엎드리기 (Prone)", "⚡ 적을 처치했습니다!", "의료 키트 / 투척류", "12게이지 (샷건):", "앉기 (Crouch)", "상자가 비어있습니다.", "구급상자가 없습니다!", "🚪 문을 열었습니다.", "🚪 문을 닫았습니다.", "매치 시작 (터치)", "🎵 BGM: OFF", "🔊 SFX: OFF", "기계식 조준기 장착", "5.56mm 소총탄", "7.62mm 저격탄", "헬멧 Level 1", "헬멧 Level 3", "가방 Level 1", "가방 Level 3", "G: 수류탄 던지기", "H: 연막탄 던지기", "서기 (Stand)", "시체 상자 [시체]", "구급상자 1개 버림", "🎵 BGM: ON", "🔊 SFX: ON", "나의 처치 수: ", "5.56mm 탄창", "7.62mm 탄창", "9mm (권총):", "🔄 장전 중...", "연막탄 1개 버림", "안전지대 대기중", "나의 킬 수: ", "12게이지 산탄", "12게이지 탄창", "내 캐릭터 장비", "헬멧 (방어구)", "🪟 창문 넘기!", "🪂 낙하산 펴기", "최후의 생존자", "기계식 조준기", "2배율 스코프", "4배율 스코프", "8배율 스코프", "자기장 대기중", "🪂 뛰어내리기", "9mm 권총탄", "계속 둘러보기", "다시 도전하기", "배틀 아레나", "최후의 1인", "축소까지: ", "나의 킬: ", "9mm 탄창", "주변 아이템", "장착 스코프", "구급상자: ", "장전 완료!", "매치 시작", "스코프: ", "생존자: ", "뛰어내리기", "수류탄: ", "연막탄: ", "보유 탄약", "무기: ", "돌격소총", "저격소총", "탑승: ", "구급상자", "닫기 X", "🔫 격발", "맨주먹", "저격총", "수류탄", "연막탄", "주무기", "1인칭", "3인칭", "주먹", "없음", "권총", "샷건", "줍기", "닫기", "가방", "조준", "격발", "장전", "점프", "초", "명"],
+  map: {"⚠️ 광고를 불러오지 못했습니다. 광고 차단 프로그램(AdBlock)을 해제하고 다시 도전해주세요.": "⚠️ Error al cargar el anuncio. Desactiva tu AdBlocker e inténtalo de nuevo.", "🏆 부활의 기회!": "🏆 ¡Oportunidad de Revivir!", "슬롯이 작동하여 부활 시 체력을 결정합니다.": "El tragamonedas gira para determinar tu salud al revivir.", "부활 HP:": "HP de revivir:", "광고를 시청하고 <strong><span id=\\\"revive-hp-percentage\\\" style=\\\"color: #ffeb3b;\\\">100%</span></strong>의 체력으로 다시 부활하시겠습니까?": "¿Quieres ver un anuncio y revivir con <strong><span id=\\\"revive-hp-percentage\\\" style=\\\"color: #ffeb3b;\\\">100%</span></strong> de HP?", "예 (광고 보고 부활)": "Sí (Ver anuncio para revivir)", "아니오 (매치 종료)": "No (Terminar partida)", "📺 추천 스폰서 광고": "📺 Anuncio patrocinado recomendado", "🪂 뛰어내리기 (좌클릭/F)": "🪂 Saltar (Clic Izquierdo/F)", "배틀 아레나 (Battle Arena)": "Battle Arena - Último Superviviente", "배틀 아레나": "Battle Arena", "최후의 생존자": "Último Superviviente", "최후의 1인": "Último Superviviente", "🎯 50인의 숨막히는 생존 투쟁!<br>장비를 획득하고 끝까지 살아남아 승리의 통닭을 차지하십시오.": "🎯 ¡Lucha de supervivencia intensa de 50 jugadores!<br>Consigue equipo, sobrevive hasta el final y gana.", "매치 시작": "Iniciar Partida", "매치 시작 (터치)": "Iniciar Partida", "🎵 BGM: OFF": "🎵 BGM: OFF", "🎵 BGM: ON": "🎵 BGM: ON", "🔊 SFX: OFF": "🔊 SFX: OFF", "🔊 SFX: ON": "🔊 SFX: ON", "전장을 불러오는 중...": "Cargando el campo de batalla...", "가로 화면으로 회전해 주세요": "Por favor, gira a horizontal", "이 게임은 가로 화면에 최적화되어 있습니다.": "Este juego está optimizado para pantalla horizontal.", "이 게임은 가로 화면에 최적化되어 있습니다.": "Este juego está optimizado para pantalla horizontal.", "무기: ": "Arma: ", "스코프: ": "Mira: ", "맨주먹": "Puños", "주먹": "Puños", "없음": "Ninguno", "권총": "Pistola", "샷건": "Escopeta", "돌격소총": "Fusil de Asalto", "저격총": "Fusil de Francotirador", "저격소총": "Fusil de Francotirador", "기계식 조준기": "Mira de Hierro", "기계식 조준기 장착": "Mira de Hierro", "2배율 스코프": "Mira x2", "4배율 스코프": "Mira x4", "8배율 스코프": "Mira x8", "우클릭: 정조준 (줌)": "Clic derecho: Apuntar (Zoom)", "단축키 [V]: 1인칭/3인칭": "Tecla [V]: 1ª/3ª persona", "자기장 대기중": "Esperando Zona", "안전지대 대기중": "Esperando Zona Segura", "축소까지: ": "Reducción en: ", "생존자: ": "Supervivientes: ", "나의 킬: ": "Mis Kills: ", "나의 킬 수: ": "Mis Kills: ", "나의 처치 수: ": "Mis Kills: ", "초": "s", "명": " jugadores", "탑승: ": "A bordo: ", "뛰어내리기": "🪂 Saltar", "🪂 뛰어내리기": "🪂 Saltar", "줍기": "Cerrar", "구급상자 사용하는 중...": "Usando Botiquín... ", "구급상자를 사용하는 중... (움직이면 취소됩니다)": "Usando Botiquín... ", "구급상자": "Botiquín", "수류탄": "Granada", "연막탄": "Granada de Humo", "9mm 권총탄": "Munición 9mm", "12게이지 산탄": "Munición Calibre 12", "5.56mm 소총탄": "Munición 5.56mm", "7.62mm 저격탄": "Munición 7.62mm", "9mm 탄창": "Munición 9mm", "12게이지 탄창": "Munición Calibre 12", "5.56mm 탄창": "Munición 5.56mm", "7.62mm 탄창": "Munición 7.62mm", "🎒 INVENTORY & LOOT": "🎒 INVENTARIO Y BOTÍN", "닫기 X": "Cerrar", "닫기": "Cerrar", "주변 아이템": "Objetos del Suelo", "내 캐릭터 장비": "Mi Equipamiento", "주무기": "Arma Principal", "장착 스코프": "Mira Equipada", "헬멧 (방어구)": "Casco (Armadura)", "가방": "Mochila", "헬멧 Level 1": "Casco Nivel 1", "헬멧 Level 3": "Casco Nivel 3", "가방 Level 1": "Mochila Nivel 1", "가방 Level 3": "Mochila Nivel 3", "의료 키트 / 투척류": "Médicos / Arrojadizos", "구급상자: ": "Botiquín: ", "수류탄: ": "Granada: ", "연막탄: ": "Humo: ", "보유 탄약": "Munición", "9mm (권총):": "9mm (Pistola):", "12게이지 (샷건):": "Calibre 12 (Escopeta):", "5.56mm (돌격소총):": "5.56mm (Fusil):", "7.62mm (저격총):": "7.62mm (Sniper):", "G: 수류탄 던지기 (": "G: Lanzar Granada (", "H: 연막탄 던지기 (": "H: Lanzar Humo (", "G: 수류탄 던지기": "G: Lanzar Granada (", "H: 연막탄 던지기": "H: Lanzar Humo (", "1인칭": "1ª Persona", "3인칭": "3ª Persona", "조준": "Apuntar", "격발": "Disparar", "🔫 격발": "Disparar", "장전": "Recargar", "점프": "Saltar", "서기 (Stand)": "De pie", "앉기 (Crouch)": "Agachado", "엎드리기 (Prone)": "Tumbado", "🏆 이겼닭! 오늘 저녁은 통닭이닭!": "🏆 ¡Cena de pollo para el ganador!", "계속 둘러보기": "Espectear", "다시 도전하기": "Volver a intentar", "비어있는 시체 상자 [시체]": "Caja Vacía [Cadáver]", "시체 상자 [시체]": "Caja de Botín [Cadáver]", "상자가 비어있습니다.": "La caja está vacía.", "주변에 아이템이 없습니다.": "No hay objetos cerca.", "주변에 아이템이 있습니다. [Tab] 키를 눌러 파밍하세요.": "📦 Objetos cerca. Pulsa [Tab] para lotear.", "주변에 아이템이 있습니다. 줍기 버튼을 눌러 획득하세요!": "📦 Objetos cerca. ¡Toca Recoger para lotear!", "⚠️ 피해를 입어 구급상자 사용이 취소되었습니다.": "⚠️ Uso de botiquín cancelado por daño recibido.", "💊 구급상자 사용 완료! (체력 75% 회복)": "💊 ¡Botiquín usado! (75% de HP restaurado)", "체력이 이미 75% 이상입니다!": "¡Tu salud ya está al 75% o más!", "구급상자가 없습니다!": "¡No tienes botiquines!", "⚠️ 움직임으로 인해 구급상자 사용이 취소되었습니다.": "⚠️ Uso de botiquín cancelado por movimiento.", "⚠️ 자세 변경으로 구급상자 사용 취소!": "⚠️ ¡Uso de botiquín cancelado por cambiar de postura!", "⚠️ 점프로 인해 구급상자 사용 취소!": "⚠️ ¡Uso de botiquín cancelado por saltar!", "🚪 문을 열었습니다.": "🚪 Abriste la puerta.", "🚪 문을 닫았습니다.": "🚪 Cerraste la puerta.", "🪟 창문 넘기!": "🪟 ¡Saltando por la ventana!", "⚠️ 섬을 벗어나 강제 낙하합니다! (HP 50% 감소)": "⚠️ ¡Saliendo de la isla! Caída forzada (50% pérdida de HP)", "⚠️ 수류탄 폭발 치명적 피해!": "⚠️ ¡Daño letal por explosión de granada!", "👊 적을 주먹으로 타격했습니다! (-20 HP)": "👊 ¡Golpeaste al enemigo con el puño! (-20 HP)", "⚡ 적을 처치했습니다!": "⚡ ¡Eliminaste a un enemigo!", "☠️ 당신은 처치되었습니다": "☠️ Has sido eliminado", "⚠️ 탄창이 비어있습니다! R키로 장전하세요.": "⚠️ ¡Cargador vacío! Recarga con R.", "🔄 장전 중...": "🔄 Recargando...", "장전 완료!": "¡Recarga completa!", "🪂 낙하산 펴기 (좌클릭/F)": "🪂 Desplegar Paracaídas (Clic Izquierdo/F)", "🪂 낙하산 펴기": "🪂 Abrir Paracaídas", "지상에 도착했습니다. 파밍을 시작하세요!": "¡Llegaste al suelo! ¡Empieza a lotear!", "가방 공간 부족으로 구급상자를 줍지 못했습니다.": "No hay espacio en la mochila para el Botiquín.", "가방 공간 부족으로 수류탄을 줍지 못했습니다.": "No hay espacio en la mochila para la Granada.", "가방 공간 부족으로 연막탄을 줍지 못했습니다.": "No hay espacio en la mochila para la Granada de Humo.", "가방 공간 부족! (기본 최대 2개)": "¡Mochila llena! (Máx. 2 objetos por defecto)", "이미 탄약이 가득 차 있습니다.": "La munición ya está al máximo.", "구급상자 1개 버림": "Tiraste 1 Botiquín", "연막탄 1개 버림": "Tiraste 1 Granada de Humo"}
+};
+BATTLE_ARENA_TRANSLATIONS['ja'] = {};
+BATTLE_ARENA_TRANSLATIONS['ja'].regex = [
+  { pattern: new RegExp('광고 종료까지 (\\\\d+)초\\\\.\\\\.\\\\.', 'g'), replacement: '広告終了まで $1秒...' },
+  { pattern: new RegExp('✨ 부활 성공! (\\\\d+)% 체력으로 다시 시작합니다\\\\.', 'g'), replacement: '✨ 復活成功！$1%の体力で再スタートします。' },
+  
+  { pattern: new RegExp('당신이\\s+(.+)\\s+처치', 'g'), replacement: 'あなたが $1 を倒しました' },
+  { pattern: new RegExp('(.+)\\s+자기장 사망', 'g'), replacement: '$1 が安全地帯の外で死亡しました' },
+  { pattern: new RegExp('(.+)\\s+주먹 처치', 'g'), replacement: '$1 が拳で倒されました' },
+  { pattern: new RegExp('(.+)\\s+처치\\s+(.+)', 'g'), replacement: '$1 が $2 を倒しました' },
+  { pattern: new RegExp('(.+)\\s+처치', 'g'), replacement: '$1 撃破' },
+  { pattern: new RegExp('(.+) 탄창 획득! \\(\\+(.+)발\\)', 'g'), replacement: '$1 弾薬を獲得！ (+$2発)' },
+  { pattern: new RegExp('시체상자에서 \\[(.+)\\] 획득!', 'g'), replacement: '戦利品ボックスから [$1] を獲得！' },
+  { pattern: new RegExp('시체상자에서 \\[(.+)\\] 장착!', 'g'), replacement: '戦利品ボックスから [$1] を装着！' },
+  { pattern: new RegExp('\\[(.+)\\] 획득!', 'g'), replacement: '[$1] を獲得！' },
+  { pattern: new RegExp('\\[(.+)\\] 장착 완료!', 'g'), replacement: '[$1] 装着完了！' },
+  { pattern: new RegExp('\\[(.+)\\] 버림', 'g'), replacement: '[$1] を捨てました' },
+  { pattern: new RegExp('구급상자를 사용하는 중\\.\\.\\. \\(움직이면 취소됩니다\\)', 'g'), replacement: '応急処置キットを使用中... (動くとキャンセルされます)' },
+  { pattern: new RegExp('구급상자를 사용하는 중\\.\\.\\. \\((.+)s\\)', 'g'), replacement: '応急処置キットを使用中... ($1s)' },
+  { pattern: new RegExp('가방 공간 부족으로 (.+)을 줍지 못했습니다\\.', 'g'), replacement: '容量不足のため $1 を拾えませんでした。' },
+  { pattern: new RegExp('가방 공간 부족으로 (.+)를 줍지 못했습니다\\.', 'g'), replacement: '容量不足のため $1 を拾えませんでした。' },
+  { pattern: new RegExp('최종 생존자:\\s*(.+)명\\s*\\(우승!\\)<br>나의 처치 수:\\s*(.+)', 'g'), replacement: '最終生存者: $1人 (ドン勝!)<br>キル数: $2' },
+  { pattern: new RegExp('최종 생존자:\\s*(.+)명<br>나의 킬 수:\\s*(.+)', 'g'), replacement: '最終生存者: $1人<br>キル数: $2' },
+  { pattern: new RegExp('나의 처치 수:\\s*(.+)', 'g'), replacement: 'キル数: $1' },
+  { pattern: new RegExp('나의 킬 수:\\s*(.+)', 'g'), replacement: 'キル数: $1' },
+  { pattern: new RegExp('R키로 장전하세요\\.', 'g'), replacement: 'Rキーでリロードしてください。' },
+];
+BATTLE_ARENA_DICT_MAPPINGS['ja'] = {
+  keys: ["🪂 뛰어내리기 (좌클릭/F)", "🎯 50인의 숨막히는 생존 투쟁!<br>장비를 획득하고 끝까지 살아남아 승리의 통닭을 차지하십시오.", "주변에 아이템이 있습니다. [Tab] 키를 눌러 파밍하세요.", "주변에 아이템이 있습니다. 줍기 버튼을 눌러 획득하세요!", "⚠️ 섬을 벗어나 강제 낙하합니다! (HP 50% 감소)", "⚠️ 움직임으로 인해 구급상자 사용이 취소되었습니다.", "구급상자를 사용하는 중... (움직이면 취소됩니다)", "⚠️ 피해를 입어 구급상자 사용이 취소되었습니다.", "👊 적을 주먹으로 타격했습니다! (-20 HP)", "가방 공간 부족으로 구급상자를 줍지 못했습니다.", "💊 구급상자 사용 완료! (체력 75% 회복)", "⚠️ 탄창이 비어있습니다! R키로 장전하세요.", "가방 공간 부족으로 수류탄을 줍지 못했습니다.", "가방 공간 부족으로 연막탄을 줍지 못했습니다.", "이 게임은 가로 화면에 최적화되어 있습니다.", "이 게임은 가로 화면에 최적化되어 있습니다.", "⚠️ 자세 변경으로 구급상자 사용 취소!", "지상에 도착했습니다. 파밍을 시작하세요!", "배틀 아레나 (Battle Arena)", "⚠️ 점프로 인해 구급상자 사용 취소!", "가방 공간 부족! (기본 최대 2개)", "🏆 이겼닭! 오늘 저녁은 통닭이닭!", "🎒 INVENTORY & LOOT", "체력이 이미 75% 이상입니다!", "⚠️ 수류탄 폭발 치명적 피해!", "이미 탄약이 가득 차 있습니다.", "단축키 [V]: 1인칭/3인칭", "🪂 낙하산 펴기 (좌클릭/F)", "가로 화면으로 회전해 주세요", "비어있는 시체 상자 [시체]", "구급상자 사용하는 중...", "5.56mm (돌격소총):", "주변에 아이템이 없습니다.", "☠️ 당신은 처치되었습니다", "전장을 불러오는 중...", "7.62mm (저격총):", "우클릭: 정조준 (줌)", "G: 수류탄 던지기 (", "H: 연막탄 던지기 (", "엎드리기 (Prone)", "⚡ 적을 처치했습니다!", "의료 키트 / 투척류", "12게이지 (샷건):", "앉기 (Crouch)", "상자가 비어있습니다.", "구급상자가 없습니다!", "🚪 문을 열었습니다.", "🚪 문을 닫았습니다.", "매치 시작 (터치)", "🎵 BGM: OFF", "🔊 SFX: OFF", "기계식 조준기 장착", "5.56mm 소총탄", "7.62mm 저격탄", "헬멧 Level 1", "헬멧 Level 3", "가방 Level 1", "가방 Level 3", "G: 수류탄 던지기", "H: 연막탄 던지기", "서기 (Stand)", "시체 상자 [시체]", "구급상자 1개 버림", "🎵 BGM: ON", "🔊 SFX: ON", "나의 처치 수: ", "5.56mm 탄창", "7.62mm 탄창", "9mm (권총):", "🔄 장전 중...", "연막탄 1개 버림", "안전지대 대기중", "나의 킬 수: ", "12게이지 산탄", "12게이지 탄창", "내 캐릭터 장비", "헬멧 (방어구)", "🪟 창문 넘기!", "🪂 낙하산 펴기", "최후의 생존자", "기계식 조준기", "2배율 스코프", "4배율 스코프", "8배율 스코프", "자기장 대기중", "🪂 뛰어내리기", "9mm 권총탄", "계속 둘러보기", "다시 도전하기", "배틀 아레나", "최후의 1인", "축소까지: ", "나의 킬: ", "9mm 탄창", "주변 아이템", "장착 스코프", "구급상자: ", "장전 완료!", "매치 시작", "스코프: ", "생존자: ", "뛰어내리기", "수류탄: ", "연막탄: ", "보유 탄약", "무기: ", "돌격소총", "저격소총", "탑승: ", "구급상자", "닫기 X", "🔫 격발", "맨주먹", "저격총", "수류탄", "연막탄", "주무기", "1인칭", "3인칭", "주먹", "없음", "권총", "샷건", "줍기", "닫기", "가방", "조준", "격발", "장전", "점프", "초", "명"],
+  map: {"⚠️ 광고를 불러오지 못했습니다. 광고 차단 프로그램(AdBlock)을 해제하고 다시 도전해주세요.": "⚠️ 広告の読み込みに失敗しました。広告ブロック（AdBlock）を無効にして再試行してください。", "🏆 부활의 기회!": "🏆 復活のチャンス！", "슬롯이 작동하여 부활 시 체력을 결정합니다.": "スロットが回転し、復活時の体力を決定します。", "부활 HP:": "復活 HP:", "광고를 시청하고 <strong><span id=\\\"revive-hp-percentage\\\" style=\\\"color: #ffeb3b;\\\">100%</span></strong>의 체력으로 다시 부활하시겠습니까?": "広告を視聴し、<strong><span id=\\\"revive-hp-percentage\\\" style=\\\"color: #ffeb3b;\\\">100%</span></strong>の体力で再び復活しますか？", "예 (광고 보고 부활)": "はい（広告を見て復活）", "아니오 (매치 종료)": "いいえ（マッチ終了）", "📺 추천 스폰서 광고": "📺 おすすめスポンサー広告", "🪂 뛰어내리기 (좌클릭/F)": "🪂 飛び降りる (左クリック/F)", "배틀 아레나 (Battle Arena)": "バトルアリーナ - 最後の生存者", "배틀 아레나": "バトルアリーナ", "최후의 생존자": "最後の生存者", "최후의 1인": "最後の生存者", "🎯 50인의 숨막히는 생존 투쟁!<br>장비를 획득하고 끝까지 살아남아 승리의 통닭을 차지하십시오.": "🎯 50人による息詰まるサバイバルバトル！<br>装備を獲得し、最後まで生き残って勝利のドン勝を掴み取れ！", "매치 시작": "マッチ開始", "매치 시작 (터치)": "マッチ開始", "🎵 BGM: OFF": "🎵 BGM: OFF", "🎵 BGM: ON": "🎵 BGM: ON", "🔊 SFX: OFF": "🔊 SFX: OFF", "🔊 SFX: ON": "🔊 SFX: ON", "전장을 불러오는 중...": "戦場を読み込み中...", "가로 화면으로 회전해 주세요": "画面を横向きに回転させてください", "이 게임은 가로 화면에 최적화되어 있습니다.": "このゲームは横画面に最適化されています。", "이 게임은 가로 화면에 최적化되어 있습니다.": "このゲームは横画面に最適化されています。", "무기: ": "武器: ", "스코프: ": "スコープ: ", "맨주먹": "素手", "주먹": "素手", "없음": "なし", "권총": "拳銃", "샷건": "ショットガン", "돌격소총": "アサルトライフル", "저격총": "スナイパーライフル", "저격소총": "スナイパーライフル", "기계식 조준기": "アイアンサイト", "기계식 조준기 장착": "アイアンサイト", "2배율 스코프": "2倍スコープ", "4배율 스코프": "4倍スコープ", "8배율 스코프": "8倍スコープ", "우클릭: 정조준 (줌)": "右クリック: ADS (ズーム)", "단축키 [V]: 1인칭/3인칭": "[V]キー: 1人称/3人称切り替え", "자기장 대기중": "安全地帯待機中", "안전지대 대기중": "安全地帯待機中", "축소까지: ": "縮小まで: ", "생존자: ": "生存者: ", "나의 킬: ": "キル数: ", "나의 킬 수: ": "キル数: ", "나의 처치 수: ": "キル数: ", "초": "秒", "명": "人", "탑승: ": "搭乗人数: ", "뛰어내리기": "🪂 飛び降りる", "🪂 뛰어내리기": "🪂 飛び降りる", "줍기": "閉じる", "구급상자 사용하는 중...": "応急処置キット使用中... ", "구급상자를 사용하는 중... (움직이면 취소됩니다)": "応急処置キット使用中... ", "구급상자": "応急処置キット", "수류탄": "手榴弾", "연막탄": "発煙弾", "9mm 권총탄": "9mm弾", "12게이지 산탄": "12ゲージ弾", "5.56mm 소총탄": "5.56mm弾", "7.62mm 저격탄": "7.62mm弾", "9mm 탄창": "9mm弾", "12게이지 탄창": "12ゲージ弾", "5.56mm 탄창": "5.56mm弾", "7.62mm 탄창": "7.62mm弾", "🎒 INVENTORY & LOOT": "🎒 インベントリ & ドロップ", "닫기 X": "閉じる", "닫기": "閉じる", "주변 아이템": "周辺のアイテム", "내 캐릭터 장비": "キャラクター装備", "주무기": "メイン武器", "장착 스코프": "装着スコープ", "헬멧 (방어구)": "ヘルメット (防具)", "가방": "バックパック", "헬멧 Level 1": "ヘルメット Lv.1", "헬멧 Level 3": "ヘルメット Lv.3", "가방 Level 1": "バックパック Lv.1", "가방 Level 3": "バックパック Lv.3", "의료 키트 / 투척류": "医療品 / 投擲武器", "구급상자: ": "応急処置キット: ", "수류탄: ": "手榴弾: ", "연막탄: ": "発煙弾: ", "보유 탄약": "所持弾薬", "9mm (권총):": "9mm (拳銃):", "12게이지 (샷건):": "12ゲージ (ショットガン):", "5.56mm (돌격소총):": "5.56mm (小銃):", "7.62mm (저격총):": "7.62mm (スナイパー):", "G: 수류탄 던지기 (": "G: 手榴弾を投げる (", "H: 연막탄 던지기 (": "H: 発煙弾を投げる (", "G: 수류탄 던지기": "G: 手榴弾を投げる (", "H: 연막탄 던지기": "H: 発煙弾を投げる (", "1인칭": "1人称 (FPP)", "3인칭": "3人称 (TPP)", "조준": "照準", "격발": "射撃", "🔫 격발": "射撃", "장전": "リロード", "점프": "ジャンプ", "서기 (Stand)": "立ち", "앉기 (Crouch)": "しゃがみ", "엎드리기 (Prone)": "伏せ", "🏆 이겼닭! 오늘 저녁은 통닭이닭!": "🏆 勝った！夕飯はドン勝だ！", "계속 둘러보기": "観戦を続ける", "다시 도전하기": "再挑戦する", "비어있는 시체 상자 [시체]": "空の戦利品ボックス [死体]", "시체 상자 [시체]": "戦利品ボックス [死体]", "상자가 비어있습니다.": "ボックスは空です。", "주변에 아이템이 없습니다.": "周辺にアイテムがありません。", "주변에 아이템이 있습니다. [Tab] 키를 눌러 파밍하세요.": "📦 周辺にアイテムがあります。[Tab]キーで拾います。", "주변에 아이템이 있습니다. 줍기 버튼을 눌러 획득하세요!": "📦 周辺にアイテムがあります。拾うボタンで獲得します！", "⚠️ 피해를 입어 구급상자 사용이 취소되었습니다.": "⚠️ ダメージを受けたため、応急処置キットの使用がキャンセルされました。", "💊 구급상자 사용 완료! (체력 75% 회복)": "💊 応急処置キット使用完了！ (体力を75%回復)", "체력이 이미 75% 이상입니다!": "体力がすでに75%以上です！", "구급상자가 없습니다!": "応急処置キットがありません！", "⚠️ 움직임으로 인해 구급상자 사용이 취소되었습니다.": "⚠️ 移動したため、応急処置キットの使用がキャンセルされました。", "⚠️ 자세 변경으로 구급상자 사용 취소!": "⚠️ 姿勢変更のため、応急処置キットの使用がキャンセルされました！", "⚠️ 점프로 인해 구급상자 사용 취소!": "⚠️ ジャンプしたため、応急処置キットの使用がキャンセルされました！", "🚪 문을 열었습니다.": "🚪 ドアを開けました。", "🚪 문을 닫았습니다.": "🚪 ドアを閉めました。", "🪟 창문 넘기!": "🪟 窓を乗り越えます！", "⚠️ 섬을 벗어나 강제 낙하합니다! (HP 50% 감소)": "⚠️ 島から離脱したため、強制落下します！ (HP 50% 減少)", "⚠️ 수류탄 폭발 치명적 피해!": "⚠️ 手榴弾の爆発による致命的なダメージ！", "👊 적을 주먹으로 타격했습니다! (-20 HP)": "👊 敵をパンチしました！ (-20 HP)", "⚡ 적을 처치했습니다!": "⚡ 敵を撃破しました！", "☠️ 당신은 처치되었습니다": "☠️ あなたは倒されました", "⚠️ 탄창이 비어있습니다! R키로 장전하세요.": "⚠️ マガジンが空です！ [R]キーでリロードしてください。", "🔄 장전 중...": "🔄 リロード中...", "장전 완료!": "リロード完了！", "🪂 낙하산 펴기 (좌클릭/F)": "🪂 パラシュートを開く (左クリック/F)", "🪂 낙하산 펴기": "🪂 パラシュート展開", "지상에 도착했습니다. 파밍을 시작하세요!": "着地しました。アイテム収集を開始してください！", "가방 공간 부족으로 구급상자를 줍지 못했습니다.": "バックパックの容量不足で応急処置キットを拾えません。", "가방 공간 부족으로 수류탄을 줍지 못했습니다.": "バックパックの容量不足で手榴弾を拾えません。", "가방 공간 부족으로 연막탄을 줍지 못했습니다.": "バックパック의 容量不足で発煙弾を拾えません。", "가방 공간 부족! (기본 최대 2개)": "容量不足です！ (標準スロット最大2個)", "이미 탄약이 가득 차 있습니다.": "弾薬がすでに満タンです。", "구급상자 1개 버림": "応急処置キットを1個捨てました", "연막탄 1개 버림": "発煙弾を1個捨てました"}
+};
+BATTLE_ARENA_TRANSLATIONS['zh-TW'] = {};
+BATTLE_ARENA_TRANSLATIONS['zh-TW'].regex = [
+  { pattern: new RegExp('광고 종료까지 (\\\\d+)초\\\\.\\\\.\\\\.', 'g'), replacement: '廣告結束剩餘 $1秒...' },
+  { pattern: new RegExp('✨ 부활 성공! (\\\\d+)% 체력으로 다시 시작합니다\\\\.', 'g'), replacement: '✨ 復活成功！以 $1% 生命值重新開始。' },
+  
+  { pattern: new RegExp('당신이\\s+(.+)\\s+처치', 'g'), replacement: '你擊殺了 $1' },
+  { pattern: new RegExp('(.+)\\s+자기장 사망', 'g'), replacement: '$1 淘汰於電磁網外' },
+  { pattern: new RegExp('(.+)\\s+주먹 처치', 'g'), replacement: '$1 被拳頭擊殺' },
+  { pattern: new RegExp('(.+)\\s+처치\\s+(.+)', 'g'), replacement: '$1 擊殺了 $2' },
+  { pattern: new RegExp('(.+)\\s+처치', 'g'), replacement: '$1 擊殺' },
+  { pattern: new RegExp('(.+) 탄창 획득! \\(\\+(.+)발\\)', 'g'), replacement: '獲得 $1 子彈！ (+$2發)' },
+  { pattern: new RegExp('시체상자에서 \\[(.+)\\] 획득!', 'g'), replacement: '從戰利品箱獲得了 [$1]！' },
+  { pattern: new RegExp('시체상자에서 \\[(.+)\\] 장착!', 'g'), replacement: '從戰利品箱裝備了 [$1]！' },
+  { pattern: new RegExp('\\[(.+)\\] 획득!', 'g'), replacement: '獲得了 [$1]！' },
+  { pattern: new RegExp('\\[(.+)\\] 장착 완료!', 'g'), replacement: '[$1] 裝備完成！' },
+  { pattern: new RegExp('\\[(.+)\\] 버림', 'g'), replacement: '丟棄了 [$1]' },
+  { pattern: new RegExp('구급상자를 사용하는 중\\.\\.\\. \\(움직이면 취소됩니다\\)', 'g'), replacement: '正在使用急救包... (移動將會取消使用)' },
+  { pattern: new RegExp('구급상자를 사용하는 중\\.\\.\\. \\((.+)s\\)', 'g'), replacement: '正在使用急救包... ($1秒)' },
+  { pattern: new RegExp('가방 공간 부족으로 (.+)을 줍지 못했습니다\\.', 'g'), replacement: '背包空間不足，無法拾取 $1。' },
+  { pattern: new RegExp('가방 공간 부족으로 (.+)를 줍지 못했습니다\\.', 'g'), replacement: '背包空間不足，無法拾取 $1。' },
+  { pattern: new RegExp('최종 생존자:\\s*(.+)명\\s*\\(우승!\\)<br>나의 처치 수:\\s*(.+)', 'g'), replacement: '最終生存人數: $1人 (吃雞!)<br>我的擊殺: $2' },
+  { pattern: new RegExp('최종 생존자:\\s*(.+)명<br>나의 킬 수:\\s*(.+)', 'g'), replacement: '最終生存人數: $1人<br>我的擊殺: $2' },
+  { pattern: new RegExp('나의 처치 수:\\s*(.+)', 'g'), replacement: '我的擊殺: $1' },
+  { pattern: new RegExp('나의 킬 수:\\s*(.+)', 'g'), replacement: '我的擊殺: $1' },
+  { pattern: new RegExp('R키로 장전하세요\\.', 'g'), replacement: '請按 R 鍵裝彈。' },
+];
+BATTLE_ARENA_DICT_MAPPINGS['zh-TW'] = {
+  keys: ["🪂 뛰어내리기 (좌클릭/F)", "🎯 50인의 숨막히는 생존 투쟁!<br>장비를 획득하고 끝까지 살아남아 승리의 통닭을 차지하십시오.", "주변에 아이템이 있습니다. [Tab] 키를 눌러 파밍하세요.", "주변에 아이템이 있습니다. 줍기 버튼을 눌러 획득하세요!", "⚠️ 섬을 벗어나 강제 낙하합니다! (HP 50% 감소)", "⚠️ 움직임으로 인해 구급상자 사용이 취소되었습니다.", "구급상자를 사용하는 중... (움직이면 취소됩니다)", "⚠️ 피해를 입어 구급상자 사용이 취소되었습니다.", "👊 적을 주먹으로 타격했습니다! (-20 HP)", "가방 공간 부족으로 구급상자를 줍지 못했습니다.", "💊 구급상자 사용 완료! (체력 75% 회복)", "⚠️ 탄창이 비어있습니다! R키로 장전하세요.", "가방 공간 부족으로 수류탄을 줍지 못했습니다.", "가방 공간 부족으로 연막탄을 줍지 못했습니다.", "이 게임은 가로 화면에 최적화되어 있습니다.", "이 게임은 가로 화면에 최적化되어 있습니다.", "⚠️ 자세 변경으로 구급상자 사용 취소!", "지상에 도착했습니다. 파밍을 시작하세요!", "배틀 아레나 (Battle Arena)", "⚠️ 점프로 인해 구급상자 사용 취소!", "가방 공간 부족! (기본 최대 2개)", "🏆 이겼닭! 오늘 저녁은 통닭이닭!", "🎒 INVENTORY & LOOT", "체력이 이미 75% 이상입니다!", "⚠️ 수류탄 폭발 치명적 피해!", "이미 탄약이 가득 차 있습니다.", "단축키 [V]: 1인칭/3인칭", "🪂 낙하산 펴기 (좌클릭/F)", "가로 화면으로 회전해 주세요", "비어있는 시체 상자 [시체]", "구급상자 사용하는 중...", "5.56mm (돌격소총):", "주변에 아이템이 없습니다.", "☠️ 당신은 처치되었습니다", "전장을 불러오는 중...", "7.62mm (저격총):", "우클릭: 정조준 (줌)", "G: 수류탄 던지기 (", "H: 연막탄 던지기 (", "엎드리기 (Prone)", "⚡ 적을 처치했습니다!", "의료 키트 / 투척류", "12게이지 (샷건):", "앉기 (Crouch)", "상자가 비어있습니다.", "구급상자가 없습니다!", "🚪 문을 열었습니다.", "🚪 문을 닫았습니다.", "매치 시작 (터치)", "🎵 BGM: OFF", "🔊 SFX: OFF", "기계식 조준기 장착", "5.56mm 소총탄", "7.62mm 저격탄", "헬멧 Level 1", "헬멧 Level 3", "가방 Level 1", "가방 Level 3", "G: 수류탄 던지기", "H: 연막탄 던지기", "서기 (Stand)", "시체 상자 [시체]", "구급상자 1개 버림", "🎵 BGM: ON", "🔊 SFX: ON", "나의 처치 수: ", "5.56mm 탄창", "7.62mm 탄창", "9mm (권총):", "🔄 장전 중...", "연막탄 1개 버림", "안전지대 대기중", "나의 킬 수: ", "12게이지 산탄", "12게이지 탄창", "내 캐릭터 장비", "헬멧 (방어구)", "🪟 창문 넘기!", "🪂 낙하산 펴기", "최후의 생존자", "기계식 조준기", "2배율 스코프", "4배율 스코프", "8배율 스코프", "자기장 대기중", "🪂 뛰어내리기", "9mm 권총탄", "계속 둘러보기", "다시 도전하기", "배틀 아레나", "최후의 1인", "축소까지: ", "나의 킬: ", "9mm 탄창", "주변 아이템", "장착 스코프", "구급상자: ", "장전 완료!", "매치 시작", "스코프: ", "생존자: ", "뛰어내리기", "수류탄: ", "연막탄: ", "보유 탄약", "무기: ", "돌격소총", "저격소총", "탑승: ", "구급상자", "닫기 X", "🔫 격발", "맨주먹", "저격총", "수류탄", "연막탄", "주무기", "1인칭", "3인칭", "주먹", "없음", "권총", "샷건", "줍기", "닫기", "가방", "조준", "격발", "장전", "점프", "초", "명"],
+  map: {"⚠️ 광고를 불러오지 못했습니다. 광고 차단 프로그램(AdBlock)을 해제하고 다시 도전해주세요.": "⚠️ 無法載入廣告。請停用廣告攔截器（AdBlock）並重試。", "🏆 부활의 기회!": "🏆 復活的機會！", "슬롯이 작동하여 부활 시 체력을 결정합니다.": "輪盤運作以決定復活時的生命值。", "부활 HP:": "復活 HP:", "광고를 시청하고 <strong><span id=\\\"revive-hp-percentage\\\" style=\\\"color: #ffeb3b;\\\">100%</span></strong>의 체력으로 다시 부활하시겠습니까?": "觀看廣告並以 <strong><span id=\\\"revive-hp-percentage\\\" style=\\\"color: #ffeb3b;\\\">100%</span></strong> 的生命值再次復活嗎？", "예 (광고 보고 부활)": "是（觀看廣告復活）", "아니오 (매치 종료)": "否（結束匹配）", "📺 추천 스폰서 광고": "📺 推薦贊助商廣告", "🪂 뛰어내리기 (좌클릭/F)": "🪂 跳傘 (滑鼠左鍵/F)", "배틀 아레나 (Battle Arena)": "絕地戰境 - 最終生還者", "배틀 아레나": "絕地戰境", "최후의 생존자": "最終生還者", "최후의 1인": "最終生還者", "🎯 50인의 숨막히는 생존 투쟁!<br>장비를 획득하고 끝까지 살아남아 승리의 통닭을 차지하십시오.": "🎯 50人驚險求生大戰！<br>獲取裝備並存活到最後，奪得最終的勝利！", "매치 시작": "開始匹配", "매치 시작 (터치)": "開始匹配", "🎵 BGM: OFF": "🎵 BGM: OFF", "🎵 BGM: ON": "🎵 BGM: ON", "🔊 SFX: OFF": "🔊 SFX: OFF", "🔊 SFX: ON": "🔊 SFX: ON", "전장을 불러오는 중...": "正在載入戰場...", "가로 화면으로 회전해 주세요": "請將螢幕旋轉至橫向", "이 게임은 가로 화면에 최적화되어 있습니다.": "此遊戲已針對橫向螢幕進行最佳化。", "이 게임은 가로 화면에 최적化되어 있습니다.": "此遊戲已針對橫向螢幕進行最佳化。", "무기: ": "武器: ", "스코프: ": "瞄準鏡: ", "맨주먹": "拳頭", "주먹": "拳頭", "없음": "無", "권총": "手槍", "샷건": "散彈槍", "돌격소총": "突擊步槍", "저격총": "狙擊步槍", "저격소총": "狙擊步槍", "기계식 조준기": "機械瞄具", "기계식 조준기 장착": "機械瞄具", "2배율 스코프": "2倍瞄準鏡", "4배율 스코프": "4倍瞄準鏡", "8배율 스코프": "8倍瞄準鏡", "우클릭: 정조준 (줌)": "右鍵: 開鏡瞄準 (縮放)", "단축키 [V]: 1인칭/3인칭": "按 [V]: 切換第一/第三人稱", "자기장 대기중": "電磁網等待中", "안전지대 대기중": "安全區等待中", "축소까지: ": "收縮倒數: ", "생존자: ": "生存人數: ", "나의 킬: ": "我的擊殺: ", "나의 킬 수: ": "我的擊殺: ", "나의 처치 수: ": "我的擊殺: ", "초": "秒", "명": "人", "탑승: ": "機上人數: ", "뛰어내리기": "🪂 跳傘", "🪂 뛰어내리기": "🪂 跳傘", "줍기": "關閉", "구급상자 사용하는 중...": "正在使用急救包... ", "구급상자를 사용하는 중... (움직이면 취소됩니다)": "正在使用急救包... ", "구급상자": "急救包", "수류탄": "手榴彈", "연막탄": "煙霧彈", "9mm 권총탄": "9mm子彈", "12게이지 산탄": "12口徑子彈", "5.56mm 소총탄": "5.56mm子彈", "7.62mm 저격탄": "7.62mm子彈", "9mm 탄창": "9mm子彈", "12게이지 탄창": "12口徑子彈", "5.56mm 탄창": "5.56mm子彈", "7.62mm 탄창": "7.62mm子彈", "🎒 INVENTORY & LOOT": "🎒 背包與物資", "닫기 X": "關閉", "닫기": "關閉", "주변 아이템": "地面物資", "내 캐릭터 장비": "角色裝備", "주무기": "主武器", "장착 스코프": "已裝備瞄具", "헬멧 (방어구)": "頭盔 (防具)", "가방": "背包", "헬멧 Level 1": "1級頭盔", "헬멧 Level 3": "3級頭盔", "가방 Level 1": "1級背包", "가방 Level 3": "3級背包", "의료 키트 / 투척류": "醫療與投擲物", "구급상자: ": "急救包: ", "수류탄: ": "手榴彈: ", "연막탄: ": "煙霧彈: ", "보유 탄약": "持有彈藥", "9mm (권총):": "9mm (手槍):", "12게이지 (샷건):": "12口徑 (散彈槍):", "5.56mm (돌격소총):": "5.56mm (步槍):", "7.62mm (저격총):": "7.62mm (狙擊槍):", "G: 수류탄 던지기 (": "G: 投擲手榴彈 (", "H: 연막탄 던지기 (": "H: 投擲煙霧彈 (", "G: 수류탄 던지기": "G: 投擲手榴彈 (", "H: 연막탄 던지기": "H: 投擲煙霧彈 (", "1인칭": "第一人稱 (FPP)", "3인칭": "第三人稱 (TPP)", "조준": "瞄準", "격발": "開火", "🔫 격발": "開火", "장전": "裝彈", "점프": "跳躍", "서기 (Stand)": "站立", "앉기 (Crouch)": "蹲下", "엎드리기 (Prone)": "趴下", "🏆 이겼닭! 오늘 저녁은 통닭이닭!": "🏆 大吉大利，今晚吃雞！", "계속 둘러보기": "繼續觀戰", "다시 도전하기": "重新挑戰", "비어있는 시체 상자 [시체]": "空戰利品箱 [遺體]", "시체 상자 [시체]": "戰利品箱 [遺體]", "상자가 비어있습니다.": "箱子是空的。", "주변에 아이템이 없습니다.": "附近沒有物資。", "주변에 아이템이 있습니다. [Tab] 키를 눌러 파밍하세요.": "📦 附近有物資。按 [Tab] 鍵物資。", "주변에 아이템이 있습니다. 줍기 버튼을 눌러 획득하세요!": "📦 附近有物資。點擊拾取按鈕獲得物資！", "⚠️ 피해를 입어 구급상자 사용이 취소되었습니다.": "⚠️ 受到傷害，已取消使用急救包。", "💊 구급상자 사용 완료! (체력 75% 회복)": "💊 使用急救包完成！ (恢復75%生命值)", "체력이 이미 75% 이상입니다!": "生命值已經在75%以上！", "구급상자가 없습니다!": "沒有急救包！", "⚠️ 움직임으로 인해 구급상자 사용이 취소되었습니다.": "⚠️ 移動了位置，已取消使用急救包。", "⚠️ 자세 변경으로 구급상자 사용 취소!": "⚠️ 變更姿勢，已取消使用急救包！", "⚠️ 점프로 인해 구급상자 사용 취소!": "⚠️ 跳躍，已取消使用急救包！", "🚪 문을 열었습니다.": "🚪 門已打開。", "🚪 문을 닫았습니다.": "🚪 門已關閉。", "🪟 창문 넘기!": "🪟 正在翻越窗戶！", "⚠️ 섬을 벗어나 강제 낙하합니다! (HP 50% 감소)": "⚠️ 已脫離島嶼邊界，強制墜落！ (扣除50%生命值)", "⚠️ 수류탄 폭발 치명적 피해!": "⚠️ 手榴彈爆炸造成致命傷害！", "👊 적을 주먹으로 타격했습니다! (-20 HP)": "👊 用拳頭擊中敵人！ (-20 HP)", "⚡ 적을 처치했습니다!": "⚡ 已擊殺敵人！", "☠️ 당신은 처치되었습니다": "☠️ 你被擊殺了", "⚠️ 탄창이 비어있습니다! R키로 장전하세요.": "⚠️ 彈匣已空！請按 R 鍵裝彈。", "🔄 장전 중...": "🔄 正在裝彈...", "장전 완료!": "裝彈完成！", "🪂 낙하산 펴기 (좌클릭/F)": "🪂 開傘 (滑鼠左鍵/F)", "🪂 낙하산 펴기": "🪂 展開降落傘", "지상에 도착했습니다. 파밍을 시작하세요!": "已降落至地面。請開始搜尋物資！", "가방 공간 부족으로 구급상자를 줍지 못했습니다.": "背包空間不足，無法拾取急救包。", "가방 공간 부족으로 수류탄을 줍지 못했습니다.": "背包空間不足，無法拾取手榴彈。", "가방 공간 부족으로 연막탄을 줍지 못했습니다.": "背包空間不足，無法拾取煙霧彈。", "가방 공간 부족! (기본 최대 2개)": "背包空間不足！ (預設插槽上限為2個)", "이미 탄약이 가득 차 있습니다.": "子彈數量已達上限。", "구급상자 1개 버림": "丟棄了 1 個急救包", "연막탄 1개 버림": "丟棄了 1 個煙霧彈"}
+};
+
+    let currentLang = new URLSearchParams(window.location.search).get('lang') || localStorage.getItem('smileslife-preferred-lang') || navigator.language || 'ko';
+    if (currentLang.startsWith('ko')) currentLang = 'ko';
+    else if (currentLang.startsWith('en')) currentLang = 'en';
+    else if (currentLang.startsWith('es')) currentLang = 'es';
+    else if (currentLang.startsWith('ja')) currentLang = 'ja';
+    else if (currentLang.startsWith('zh')) currentLang = 'zh-TW';
+    else currentLang = 'en';
+
+    function translateText(text, lang) {
+      if (lang === 'ko' || !text) return text;
+      let t = text;
+      const rules = BATTLE_ARENA_TRANSLATIONS[lang];
+      if (!rules) return t;
+
+      const dict = BATTLE_ARENA_DICT_MAPPINGS[lang];
+      if (dict) {
+        for (let k of dict.keys) {
+          t = t.replaceAll(k, dict.map[k]);
+        }
+      }
+
+      if (rules.regex) {
+        for (let r of rules.regex) {
+          t = t.replace(r.pattern, r.replacement);
+        }
+      }
+      return t;
+    }
+
+    function translateNode(node) {
+      if (node.nodeType === Node.TEXT_NODE) {
+        const translated = translateText(node.textContent, currentLang);
+        if (translated !== node.textContent) {
+          node.textContent = translated;
+        }
+      } else if (node.nodeType === Node.ELEMENT_NODE) {
+        if (node.tagName === 'SCRIPT' || node.tagName === 'STYLE' || node.tagName === 'SELECT' || node.id === 'lang-select') return;
+        if (node.placeholder) {
+          node.placeholder = translateText(node.placeholder, currentLang);
+        }
+        node.childNodes.forEach(child => translateNode(child));
+      }
+    }
+
+    const observer = new MutationObserver((mutations) => {
+      if (currentLang === 'ko') return;
+      observer.disconnect();
+      
+      for (let mutation of mutations) {
+        if (mutation.type === 'childList') {
+          mutation.addedNodes.forEach(node => {
+            translateNode(node);
+          });
+        } else if (mutation.type === 'characterData') {
+          const translated = translateText(mutation.target.textContent, currentLang);
+          if (translated !== mutation.target.textContent) {
+            mutation.target.textContent = translated;
+          }
+        }
+      }
+      observeDOM();
+    });
+
+    function observeDOM() {
+      observer.observe(document.getElementById('ui-layer') || document.body, {
+        childList: true,
+        subtree: true,
+        characterData: true
+      });
+    }
+
+    function applyLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem('smileslife-preferred-lang', lang);
+      const select = document.getElementById('lang-select');
+      if (select) select.value = lang;
+
+      // Update document title
+      document.title = translateText("배틀 아레나 (Battle Arena) - 최후의 1인", lang);
+
+      // Explicitly translate the instruction paragraph with HTML tags
+      const instructionEl = document.getElementById('instruction');
+      if (instructionEl) {
+        instructionEl.innerHTML = translateText("🎯 50인의 숨막히는 생존 투쟁!<br>장비를 획득하고 끝까지 살아남아 승리의 통닭을 차지하십시오.", lang);
+      }
+
+      // Translate static elements
+      translateNode(document.body);
+
+      if (lang !== 'ko') {
+        observeDOM();
+      } else {
+        observer.disconnect();
+      }
+    }
+
+    // Setup selector on load
+    window.addEventListener('DOMContentLoaded', () => {
+      const settingsUI = document.getElementById('settings-ui');
+      if (settingsUI && !document.getElementById('lang-select')) {
+        const select = document.createElement('select');
+        select.id = 'lang-select';
+        select.innerHTML = `
+          <option value="ko">한국어</option>
+          <option value="en">English</option>
+          <option value="es">Español</option>
+          <option value="ja">日本語</option>
+          <option value="zh-TW">繁體中文</option>
+        `;
+        select.value = currentLang;
+        
+        // Match settings-ui button styles
+        select.style.background = 'rgba(15, 22, 32, 0.85)';
+        select.style.color = '#ffb300';
+        select.style.border = '1px solid rgba(255, 255, 255, 0.2)';
+        select.style.padding = '10px 18px';
+        select.style.borderRadius = '6px';
+        select.style.fontWeight = 'bold';
+        select.style.cursor = 'pointer';
+        select.style.fontSize = '13px';
+        select.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.4)';
+        select.style.transition = 'all 0.2s ease';
+        select.style.backdropFilter = 'blur(4px)';
+        select.style.outline = 'none';
+
+        select.addEventListener('change', (e) => {
+          localStorage.setItem('smileslife-preferred-lang', e.target.value);
+          window.location.search = `?lang=${e.target.value}`;
+        });
+        settingsUI.appendChild(select);
+      }
+      applyLanguage(currentLang);
+    });
+  })();
+  </script>
+</body>
 </html>
