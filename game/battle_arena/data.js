@@ -13454,15 +13454,15 @@
               }
             }
 
-            // 플레이어 피격 판정 (서브스텝 단위로 연속 체크)
+            // 플레이어 피격 판정 (현실적인 피격 상자 0.24m 머리, 0.48m 몸통으로 밸런스 패치)
             if (!hit && playerHp > 0 && b.owner !== 'PLAYER') {
               const headPos = playerPos.clone().add(new THREE.Vector3(0, currentEyeY, 0));
               const bodyPos = playerPos.clone().add(new THREE.Vector3(0, currentEyeY - 0.7, 0));
               const distHead = testPos.distanceTo(headPos);
               const distBody = testPos.distanceTo(bodyPos);
               
-              if (distHead < 0.35 || distBody < 0.65) {
-                let isHeadshot = distHead < 0.35;
+              if (distHead < 0.24 || distBody < 0.48) {
+                let isHeadshot = distHead < 0.24;
                 let damage = b.dmg;
                 if (isHeadshot) {
                   damage *= 2.5;
@@ -13475,7 +13475,7 @@
               }
             }
 
-            // 적 캐릭터 피격 판정 (서브스텝 단위로 연속 체크하여 프레임 스킵/유령 통과 버그 해결)
+            // 적 캐릭터 피격 판정 (연속 충돌 연산이 되면서 피격 판정이 너무 후해진 느낌을 0.24m 머리, 0.48m 몸통의 현실적인 판정선으로 밸런싱)
             if (!hit) {
               for (let e of enemies) {
                 if (e.hp > 0 && e.state === 'PLAYING' && b.owner !== e.id) {
@@ -13484,8 +13484,8 @@
                   const distHead = testPos.distanceTo(headPos);
                   const distBody = testPos.distanceTo(bodyPos);
                   
-                  if (distHead < 0.38 || distBody < 0.68) {
-                    let isHeadshot = distHead < 0.38;
+                  if (distHead < 0.24 || distBody < 0.48) {
+                    let isHeadshot = distHead < 0.24;
                     let damage = b.dmg;
                     
                     if (b.owner !== 'PLAYER') {
