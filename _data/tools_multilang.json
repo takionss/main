@@ -583,7 +583,7 @@
           "name": "イメージAI分析",
           "url": "web/image-tagging/index.html",
           "icon": "images/image.png",
-          "desc": "AI画像分析物体認識とタグ推薦フレーズの生成"
+          "desc": "AI画像解析物体認識とタグ推薦フレーズの生成"
         },
         {
           "name": "カラーメーター",
