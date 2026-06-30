@@ -504,7 +504,7 @@
           "name": "Planificación de activos comunitarios FIRE",
           "url": "https://fire.smileslife.co.kr/",
           "icon": "images/icon_fire.png",
-          "desc": "Consejos de planificación patrimonial para la comunidad FIRE: Preparándose para la libertad financiera"
+          "desc": "Consejos de planificación patrimonial para la comunidad FIRE: Preparándose para la libertad financiera."
         },
         {
           "name": "Ingresos pasivos por automatización",
@@ -571,7 +571,7 @@
           "name": "イメージAI消しゴム",
           "url": "web/object-eraser/index.html",
           "icon": "images/eraser.png",
-          "desc": "AI写真の中で不要なものやテキストを削除する"
+          "desc": "AI写真の中の不要なものやテキストを削除する"
         },
         {
           "name": "画像変換フィルタ",
@@ -583,7 +583,7 @@
           "name": "イメージAI分析",
           "url": "web/image-tagging/index.html",
           "icon": "images/image.png",
-          "desc": "AI画像解析物体認識とタグ推薦フレーズの生成"
+          "desc": "AI画像分析物体認識とタグ推薦フレーズの生成"
         },
         {
           "name": "カラーメーター",
@@ -606,7 +606,7 @@
           "name": "ステラ・ヴァンガード",
           "url": "game/stella_vanguard/index.html",
           "icon": "images/digital.png",
-          "desc": "鐘スクロール宇宙船飛行シューティングアクションゲーム"
+          "desc": "ベルスクロール宇宙船飛行シューティングアクションゲーム"
         },
         {
           "name": "タロト",
@@ -790,7 +790,7 @@
           "name": "塔羅牌",
           "url": "web/lotto_tarot/index.html",
           "icon": "images/lottery.png",
-          "desc": "今日塔羅牌占卜與人工智慧諮詢"
+          "desc": "今日塔羅牌運勢解讀與人工智慧諮詢"
         },
         {
           "name": "掃雷",
