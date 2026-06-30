@@ -5,6 +5,7 @@
     let matchDifficulty = 'Normal';
     let diffIntervalMult = 1.0;
     let diffJitterMult = 1.0;
+    let lastFootstepTime = 0;
 
 
 
@@ -9709,11 +9710,17 @@
       }
       SoundSystem.playGunshot(wKey, 1.0, pan);
 
-      // 물리적 탄환 발사 로직 복구
-      if (isZooming) {
-        fireBullet(fireOrigin, targetPoint, currentWeapon, 'PLAYER', 0.015);
+      // 샷건일 때 8개의 펠릿(산탄)을 각각 고유한 퍼짐 오차를 주고 발사
+      if (currentWeapon === WEAPONS.SHOTGUN) {
+        for (let i = 0; i < 8; i++) {
+          fireBullet(fireOrigin, targetPoint, currentWeapon, 'PLAYER', 0.18);
+        }
       } else {
-        fireBullet(fireOrigin, targetPoint, currentWeapon, 'PLAYER', 0.15);
+        if (isZooming) {
+          fireBullet(fireOrigin, targetPoint, currentWeapon, 'PLAYER', 0.015);
+        } else {
+          fireBullet(fireOrigin, targetPoint, currentWeapon, 'PLAYER', 0.15);
+        }
       }
 
       // 저격총 사격 시 강제 줌아웃 및 볼트액션 딜레이 적용
@@ -11372,8 +11379,12 @@
           let isMoving = (fwd !== 0 || rgt !== 0);
 
           if (isMoving) {
-
-            SoundSystem.playFootstep(moveState.shift);
+            const now = clock.getElapsedTime();
+            const stepDelay = moveState.shift ? 0.30 : 0.44;
+            if (now - lastFootstepTime >= stepDelay) {
+              SoundSystem.playFootstep(moveState.shift);
+              lastFootstepTime = now;
+            }
 
             if (isHealing) {
 
@@ -13386,395 +13397,197 @@
 
 
       for(let i = enemyBullets.length - 1; i >= 0; i--) {
-
         const b = enemyBullets[i]; 
-
         const prevPos = b.mesh.position.clone();
-
         const moveStep = b.dir.clone().multiplyScalar(60 * delta);
-
         b.mesh.position.add(moveStep); b.life -= delta;
-
         
-
         let hit = false;
-
-        
-
-        // 고속 투사체가 얇은 벽을 뚫는 현상을 방지하기 위해 궤적 상의 중간 지점들도 세밀히 검사 (샘플링 증가 3 -> 8)
-
         const samples = 8; 
-
         for (let s = 1; s <= samples; s++) {
-
           const testPos = prevPos.clone().addScaledVector(moveStep, s / samples);
-
-          
-
-          // 총알과 엄폐물(나무, 바위, 집) 충돌 검사
-
           const distFromShooter = (b.shooterPos && typeof b.shooterPos.distanceTo === 'function') ? testPos.distanceTo(b.shooterPos) : 999;
-
+          
           if (distFromShooter >= 2.0) {
-
+            // 장애물(나무, 바위, 건물) 피격 판정
             for (let obs of obstacles) {
-
               if (obs.type === 'TREE' || obs.type === 'ROCK') {
-
                 const dx = testPos.x - obs.x;
-
                 const dz = testPos.z - obs.z;
-
                 const dist = Math.sqrt(dx * dx + dz * dz);
-
                 if (dist < obs.radius) {
-
                   hit = true;
-
                   break;
-
                 }
-
               } else if (obs.type === 'BUILDING') {
-
                 const bx = testPos.x;
-
                 const bz = testPos.z;
-
                 const by = testPos.y;
-
                 const hw = obs.w / 2;
-
                 const hd = obs.d / 2;
-
-                // 건물의 전체 3D 영역 부피(Footprint + 지붕 높이)를 기준으로 총알을 확실히 블로킹
-
                 if (bx >= obs.spotX - hw && bx <= obs.spotX + hw &&
-
                     bz >= obs.spotZ - hd && bz <= obs.spotZ + hd &&
-
                     by >= obs.spotY && by <= obs.spotY + 5.5) {
-
                   hit = true;
-
                   break;
-
                 }
-
               }
-
             }
 
-
-
+            // 문 피격 판정
             if (!hit) {
-
               for (let door of doorsList) {
-
                 if (!door.isOpen) {
-
                   const minX = door.x - door.w/2;
-
                   const maxX = door.x + door.w/2;
-
                   const minZ = door.z - door.d/2;
-
                   const maxZ = door.z + door.d/2;
-
                   const bx = testPos.x;
-
                   const bz = testPos.z;
-
                   const by = testPos.y;
-
-                  
-
                   const gY = getElevation(door.x, door.z);
-
                   if (bx >= minX && bx <= maxX && bz >= minZ && bz <= maxZ && by >= gY && by <= gY + 3.0) {
-
                     hit = true;
-
                     break;
-
                   }
-
                 }
-
               }
-
             }
 
-          }
-
-          if (!hit) {
-
-            if (victoryChicken && victoryChicken.group) {
-
-              const distToCh = testPos.distanceTo(victoryChicken.group.position);
-
-              if (distToCh < 3.2) {
-
-                const pushForce = 15;
-
-                victoryChicken.velX += b.dir.x * pushForce;
-
-                victoryChicken.velZ += b.dir.z * pushForce;
-
-                victoryChicken.velY = Math.max(8, victoryChicken.velY + 8);
-
-                victoryChicken.landed = false;
-
-                if (victoryChicken.bounces >= 3) {
-
-                  victoryChicken.bounces = 2;
-
+            // 플레이어 피격 판정 (서브스텝 단위로 연속 체크)
+            if (!hit && playerHp > 0 && b.owner !== 'PLAYER') {
+              const headPos = playerPos.clone().add(new THREE.Vector3(0, currentEyeY, 0));
+              const bodyPos = playerPos.clone().add(new THREE.Vector3(0, currentEyeY - 0.7, 0));
+              const distHead = testPos.distanceTo(headPos);
+              const distBody = testPos.distanceTo(bodyPos);
+              
+              if (distHead < 0.35 || distBody < 0.65) {
+                let isHeadshot = distHead < 0.35;
+                let damage = b.dmg;
+                if (isHeadshot) {
+                  damage *= 2.5;
+                  if (playerInventory.helmet) {
+                    damage *= (1 - playerInventory.helmet.reduction);
+                  }
                 }
-
+                updatePlayerHp(-damage, b.shooterPos);
                 hit = true;
-
-                SoundSystem.playPunch(false);
-
               }
-
             }
 
+            // 적 캐릭터 피격 판정 (서브스텝 단위로 연속 체크하여 프레임 스킵/유령 통과 버그 해결)
+            if (!hit) {
+              for (let e of enemies) {
+                if (e.hp > 0 && e.state === 'PLAYING' && b.owner !== e.id) {
+                  const headPos = e.mesh.position.clone().add(new THREE.Vector3(0, 1.5, 0));
+                  const bodyPos = e.mesh.position.clone().add(new THREE.Vector3(0, 0.8, 0));
+                  const distHead = testPos.distanceTo(headPos);
+                  const distBody = testPos.distanceTo(bodyPos);
+                  
+                  if (distHead < 0.38 || distBody < 0.68) {
+                    let isHeadshot = distHead < 0.38;
+                    let damage = b.dmg;
+                    
+                    if (b.owner !== 'PLAYER') {
+                      damage *= 0.25;
+                    }
+                    
+                    if (isHeadshot) {
+                      damage *= 2.5;
+                      if (e.helmet) {
+                        damage *= (1 - e.helmet.reduction);
+                      }
+                      if (b.owner === 'PLAYER') showNotice("🎯 HEADSHOT!", 1000);
+                    } else {
+                      if (b.owner === 'PLAYER') showNotice("🎯 HIT!", 500);
+                    }
+                    
+                    e.hp -= damage;
+                    e.lastHitTime = clock.getElapsedTime();
+                    
+                    if (e.hp <= 0) {
+                      totalAlive--;
+                      scene.remove(e.mesh); e.hpUI.bg.style.display = 'none';
+                      spawnCorpseBox(e.mesh.position, e.weapon, Math.random() > 0.5 ? SCOPES.X2 : SCOPES.NONE, e.helmet, e.bag);
+                      addKillLog(`${b.owner === 'PLAYER' ? '플레이어' : b.owner} -> ${e.id} 처치 ${isHeadshot ? '(헤드샷)' : ''}`);
+                      if (b.owner === 'PLAYER') {
+                        killCount++;
+                        document.getElementById('kill-count').innerText = killCount;
+                      }
+                      checkVictory();
+                    }
+                    hit = true;
+                    break;
+                  }
+                }
+              }
+            }
+          }
+
+          // 닭 맞추기 판정
+          if (!hit && victoryChicken && victoryChicken.group) {
+            const distToCh = testPos.distanceTo(victoryChicken.group.position);
+            if (distToCh < 3.2) {
+              const pushForce = 15;
+              victoryChicken.velX += b.dir.x * pushForce;
+              victoryChicken.velZ += b.dir.z * pushForce;
+              victoryChicken.velY = Math.max(8, victoryChicken.velY + 8);
+              victoryChicken.landed = false;
+              if (victoryChicken.bounces >= 3) {
+                victoryChicken.bounces = 2;
+              }
+              hit = true;
+              SoundSystem.playPunch(false);
+            }
           }
 
           if (!hit) {
-
             for (let idx = liveChickens.length - 1; idx >= 0; idx--) {
-
               const c = liveChickens[idx];
-
               const dx = testPos.x - c.pos.x;
-
               const dz = testPos.z - c.pos.z;
-
               const horizDist = Math.sqrt(dx * dx + dz * dz);
-
               const vertDist = Math.abs(testPos.y - (c.mesh.position.y + 0.22));
-
               
-
-              // 닭의 크기에 맞는 충돌 실린더 (반지름 0.45m, 높이 0.5m)
-
               const hitRadius = c.mesh.userData.type === 'CHICK' ? 0.28 : 0.45;
-
               const hitHeight = c.mesh.userData.type === 'CHICK' ? 0.3 : 0.5;
-
               
-
               if (horizDist < hitRadius && vertDist < hitHeight) {
-
                 c.panicTime = 2.5;
-
                 c.dir.copy(b.dir).setY(0).normalize();
-
                 hit = true;
-
                 SoundSystem.playPunch(false);
-
                 
-
-                // 사격 계속 시 로스트 치킨으로 통구이 변신 구현 (5회 피격 시 변신)
-
                 if (c.hitCount === undefined) c.hitCount = 0;
-
                 c.hitCount++;
-
                 if (c.hitCount >= 5) {
-
                   scene.remove(c.mesh);
-
                   const roasted = createRoastedChickenMesh();
-
                   let scale = c.mesh.userData.type === 'CHICK' ? 0.55 : 1.0;
-
                   roasted.scale.set(scale, scale, scale);
-
                   roasted.position.copy(c.pos);
-
                   const groundOffset = c.mesh.userData.type === 'CHICK' ? 0.12 : 0.22;
-
                   roasted.position.y = getElevation(c.pos.x, c.pos.z) + groundOffset;
-
                   scene.add(roasted);
-
-                  
-
-                  // 통구이 물리적인 미동 효과 추가
-
                   roasted.castShadow = true;
-
                   roasted.receiveShadow = true;
-
-                  
-
                   SoundSystem.playPunch(true);
-
                   liveChickens.splice(idx, 1);
-
                   createShockwave(c.pos);
-
                 }
-
                 break;
-
               }
-
             }
-
           }
 
           if (hit) break;
-
         }
 
-
-
-        if (hit) {
-
+        if (hit || b.life <= 0) {
           disposeBullet(b);
-
           enemyBullets.splice(i, 1);
-
-          continue;
-
         }
-
-
-
-        if(playerHp > 0 && b.owner !== 'PLAYER') {
-
-          const headPos = playerPos.clone().add(new THREE.Vector3(0, currentEyeY, 0));
-
-          const bodyPos = playerPos.clone().add(new THREE.Vector3(0, currentEyeY - 0.7, 0));
-
-          const distHead = b.mesh.position.distanceTo(headPos);
-
-          const distBody = b.mesh.position.distanceTo(bodyPos);
-
-          
-
-          if (distHead < 0.3 || distBody < 0.6) {
-
-            let isHeadshot = distHead < 0.3;
-
-            let damage = b.dmg;
-
-            if (isHeadshot) {
-
-              damage *= 2.5; // 헤드샷 배율
-
-              if (playerInventory.helmet) {
-
-                damage *= (1 - playerInventory.helmet.reduction);
-
-              }
-
-            }
-
-            updatePlayerHp(-damage, b.shooterPos);
-
-            hit = true;
-
-          }
-
-        }
-
-
-
-        if(!hit) {
-
-          for(let e of enemies) {
-
-            if(e.hp > 0 && e.state === 'PLAYING' && b.owner !== e.id) {
-
-              const headPos = e.mesh.position.clone().add(new THREE.Vector3(0, 1.5, 0));
-
-              const bodyPos = e.mesh.position.clone().add(new THREE.Vector3(0, 0.8, 0));
-
-              const distHead = b.mesh.position.distanceTo(headPos);
-
-              const distBody = b.mesh.position.distanceTo(bodyPos);
-
-
-
-              if (distHead < 0.3 || distBody < 0.6) {
-
-                let isHeadshot = distHead < 0.3;
-
-                let damage = b.dmg;
-
-                
-
-                if (b.owner !== 'PLAYER') {
-
-                  damage *= 0.25; // AI끼리의 데미지 감소
-
-                }
-
-
-
-                if (isHeadshot) {
-
-                  damage *= 2.5; // 헤드샷 배율
-
-                  if (e.helmet) {
-
-                    damage *= (1 - e.helmet.reduction);
-
-                  }
-
-                  if (b.owner === 'PLAYER') showNotice("🎯 HEADSHOT!", 1000);
-
-                }
-
-
-
-                e.hp -= damage; hit = true;
-
-                if (b.owner === 'PLAYER') {
-
-                  e.lastHitTime = clock.getElapsedTime();
-
-                }
-
-                
-
-                if(e.hp <= 0) {
-
-                  totalAlive--; scene.remove(e.mesh); e.hpUI.bg.style.display='none';
-
-                  spawnCorpseBox(e.mesh.position, e.weapon, Math.random() > 0.5 ? SCOPES.X2 : SCOPES.NONE, e.helmet, e.bag);
-
-                  addKillLog(`${b.owner === 'PLAYER' ? '당신' : b.owner} -> ${e.id} 처치 ${isHeadshot ? '(헤드샷)' : ''}`);
-
-                  if(b.owner === 'PLAYER') { killCount++; document.getElementById('kill-count').innerText = killCount; }
-
-                  checkVictory();
-
-                }
-
-                break;
-
-              }
-
-            }
-
-          }
-
-        }
-
-        if(hit || b.life <= 0) { disposeBullet(b); enemyBullets.splice(i, 1); }
-
       }
-
-      
-
-      // 1. 투척무기 물리엔진 업데이트
-
       for (let i = activeThrowables.length - 1; i >= 0; i--) {
 
         const t = activeThrowables[i];
