@@ -9459,7 +9459,8 @@
 
         const dist = playerPos.distanceTo(shooterPos);
 
-        const vol = Math.max(0, (1 - dist / 220) * 0.30);
+        const distRatio = Math.max(0, 1 - dist / 220);
+        const vol = distRatio * distRatio * 0.12; // 거리 제곱 감쇠, 최대 0.12
 
         
 
