@@ -3,12 +3,12 @@ name,group,url,icon,desc
 GIFコンバーター,Webサービス,web/image-to-gif/index.html,images/gif-file.png,画像を合わせて動かすGIFウムチャル制作
 オーディオコンバータ,Webサービス,web/audio-converter/index.html,images/volume-adjustment.png,音楽とオーディオファイル形式のインターコンバータ
 画像画質の改善,Webサービス,web/image-upscaler/index.html,images/scale.png,ぼやけた写真を鮮明に高精細アップスケール
-イメージAI消しゴム,Webサービス,web/object-eraser/index.html,images/eraser.png,AI写真の中で不要なものやテキストを削除する
+イメージAI消しゴム,Webサービス,web/object-eraser/index.html,images/eraser.png,AI写真の中の不要なものやテキストを削除する
 画像変換フィルタ,Webサービス,web/anime-filter/index.html,images/comic-book.png,写真を漫画/ウェブトゥーンアニメスタイルに変換
-イメージAI分析,Webサービス,web/image-tagging/index.html,images/image.png,AI画像解析物体認識とタグ推薦フレーズの生成
+イメージAI分析,Webサービス,web/image-tagging/index.html,images/image.png,AI画像分析物体認識とタグ推薦フレーズの生成
 カラーメーター,Webサービス,web/color-picker/index.html,images/color.png,画面上の正確なカラーコードスポイトの抽出
 バトルアリーナ,ゲーム,game/battle_arena/index.html,images/battle.png,50人サバイバルバトルアリーナアクションゲーム
-ステラ・ヴァンガード,ゲーム,game/stella_vanguard/index.html,images/digital.png,鐘スクロール宇宙船飛行シューティングアクションゲーム
+ステラ・ヴァンガード,ゲーム,game/stella_vanguard/index.html,images/digital.png,ベルスクロール宇宙船飛行シューティングアクションゲーム
 タロト,ゲーム,web/lotto_tarot/index.html,images/lottery.png,今日の太郎占いリーディングと人工知能の悩み相談
 地雷を探す,ゲーム,web/minesweeper/index.html,images/bomb.png,Webブラウザですぐに楽しむクラシック地雷を探す
 打者練習,ゲーム,web/typing-practice/index.html,images/typing.png,タイピング練習のためのハングル/英語タイプライター
