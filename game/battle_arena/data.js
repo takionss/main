@@ -6,6 +6,7 @@
     let diffIntervalMult = 1.0;
     let diffJitterMult = 1.0;
     let lastFootstepTime = 0;
+    let playerSpreadAccum = 0.0;
 
 
 
@@ -9629,6 +9630,13 @@
       
       lastPlayerShotTime = clock.getElapsedTime();
 
+      // 연사 탄퍼짐 누적 (Recoil Bloom)
+      if (currentWeapon === WEAPONS.RIFLE) {
+        playerSpreadAccum = Math.min(0.12, playerSpreadAccum + 0.016);
+      } else if (currentWeapon === WEAPONS.PISTOL) {
+        playerSpreadAccum = Math.min(0.08, playerSpreadAccum + 0.024);
+      }
+
       if (currentWeapon === WEAPONS.PUNCH) {
         playerPunchTime = 0.2;
         punchSide = punchSide === 'LEFT' ? 'RIGHT' : 'LEFT';
@@ -9716,11 +9724,9 @@
           fireBullet(fireOrigin, targetPoint, currentWeapon, 'PLAYER', 0.18);
         }
       } else {
-        if (isZooming) {
-          fireBullet(fireOrigin, targetPoint, currentWeapon, 'PLAYER', 0.015);
-        } else {
-          fireBullet(fireOrigin, targetPoint, currentWeapon, 'PLAYER', 0.15);
-        }
+        // 연사 반동 누적치(playerSpreadAccum)가 조준 사격과 지향 사격 모두에 사실적으로 작용
+        const currentSpread = (isZooming ? 0.015 : 0.15) + playerSpreadAccum;
+        fireBullet(fireOrigin, targetPoint, currentWeapon, 'PLAYER', currentSpread);
       }
 
       // 저격총 사격 시 강제 줌아웃 및 볼트액션 딜레이 적용
@@ -11489,6 +11495,11 @@
             const freshGroundY = getElevation(playerPos.x, playerPos.z, playerPos.y);
 
             playerPos.y = isSwimming ? (waterY - 0.55) : freshGroundY;
+
+            // 사격 중이 아닐 때는 반동 탄퍼짐 회복
+            if (playerSpreadAccum > 0) {
+              playerSpreadAccum = Math.max(0, playerSpreadAccum - delta * 0.38);
+            }
 
             if (isLeftMouseDown && !isReloading && playerHp > 0) {
               const canAutoFire = (currentWeapon === WEAPONS.RIFLE || currentWeapon === WEAPONS.PISTOL);
