@@ -20,10 +20,23 @@
       });
     </script>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Stellar Vanguard</title>
     <style>
-        body { margin: 0; overflow: hidden; background: #000; font-family: sans-serif; width: 100vw; height: 100vh; touch-action: none; }
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            height: 100dvh;
+            overflow: hidden;
+            background: #000;
+            font-family: sans-serif;
+            touch-action: none;
+            position: fixed; /* iOS 바운스 스크롤 방지 및 전체화면 고정 */
+            top: 0;
+            left: 0;
+        }
         canvas { display: block; }
         .screen-panel { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(2, 5, 15, 0.9); display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 100; color: white; text-align: center; }
         
@@ -38,7 +51,7 @@
         @keyframes pulse { from { opacity: 0.4; } to { opacity: 1; } }
         #loading-text { color: #00ffff; font-size: 8vmin; font-weight: bold; text-shadow: 0 0 4vmin #00ffff; animation: pulse 0.8s infinite alternate; letter-spacing: 0.5vmin; }
 
-        #damage-flash { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(255, 0, 50, 0.4); opacity: 0; pointer-events: none; z-index: 140; transition: opacity 0.1s ease-out; }
+        #damage-flash { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 0, 50, 0.4); opacity: 0; pointer-events: none; z-index: 140; transition: opacity 0.1s ease-out; }
 
         .main-btn { padding: 2.2vmin 0; font-size: 4vmin; cursor: pointer; background: linear-gradient(90deg, #00ffcc, #00aa88); border: none; border-radius: 2vmin; color: #000; font-weight: bold; box-shadow: 0 0 4vmin rgba(0,255,255,0.6); transition: all 0.2s; margin: 2vmin 0; width: 85%; }
         .main-btn:active { transform: scale(0.95); opacity: 0.8; }
@@ -59,7 +72,8 @@
             width: 85%; 
             max-width: 500px; 
             min-height: 60vmin;
-            max-height: 92vh;
+            max-height: 90vh;
+            max-height: 90dvh;
             display: flex; 
             flex-direction: column; 
             align-items: center; 
@@ -102,7 +116,7 @@
         #slot-reel { display: flex; flex-direction: column; width: 100%; transition: transform 2.5s cubic-bezier(0.15, 0.85, 0.15, 1); transform: translateY(0); }
         .slot-item { height: 10vmin; width: 100%; font-size: 7vmin; display: flex; flex-direction: row; justify-content: center; align-items: center; gap: 0.5vmin; box-sizing: border-box; flex-shrink: 0; white-space: nowrap; }
 
-        #mock-ad-screen { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: #111; color: #fff; display: none; flex-direction: column; justify-content: center; align-items: center; z-index: 9999; }
+        #mock-ad-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #111; color: #fff; display: none; flex-direction: column; justify-content: center; align-items: center; z-index: 9999; }
         .ad-spinner { border: 1.5vmin solid #333; border-top: 1.5vmin solid #00ffff; border-radius: 50%; width: 15vmin; height: 15vmin; animation: spin 1s linear infinite; margin-bottom: 5vmin; }
 
         .copyright { position: absolute; bottom: 3vmin; right: 4vmin; color: #555; font-size: 2.5vmin; margin: 0; z-index: 10; pointer-events: none; }
