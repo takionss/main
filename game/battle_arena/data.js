@@ -1202,7 +1202,7 @@
           } else if (weaponId === 'SHOTGUN') {
             osc.type = 'sawtooth';
             osc.frequency.setValueAtTime(80, now);
-            osc.frequency.exponentialRampToTime(10, now + 0.35);
+            osc.frequency.exponentialRampToValueAtTime(10, now + 0.35);
             gain.gain.setValueAtTime(volume * 1.4, now);
             gain.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
 
@@ -13540,7 +13540,7 @@
               }
             }
 
-            // 적 캐릭터 피격 판정 (연속 충돌 연산이 되면서 피격 판정이 너무 후해진 느낌을 0.24m 머리, 0.48m 몸통의 현실적인 판정선으로 밸런싱)
+            // 적 캐릭터 피격 판정
             if (!hit) {
               for (let e of enemies) {
                 if (e.hp > 0 && e.state === 'PLAYING' && b.owner !== e.id) {
@@ -13568,7 +13568,11 @@
                     }
                     
                     e.hp -= damage;
-                    e.lastHitTime = clock.getElapsedTime();
+                    
+                    // 오직 플레이어가 직접 가한 유효 타격일 때만 5초 노출을 트리거하도록 수정
+                    if (b.owner === 'PLAYER') {
+                      e.lastHitTime = clock.getElapsedTime();
+                    }
                     
                     if (e.hp <= 0) {
                       totalAlive--;
