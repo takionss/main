@@ -1202,7 +1202,7 @@
           } else if (weaponId === 'SHOTGUN') {
             osc.type = 'sawtooth';
             osc.frequency.setValueAtTime(80, now);
-            osc.frequency.exponentialRampToValueAtTime(10, now + 0.35);
+            osc.frequency.exponentialRampToTime(10, now + 0.35);
             gain.gain.setValueAtTime(volume * 1.4, now);
             gain.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
 
@@ -12917,20 +12917,37 @@
 
             } else {
 
-              // 거리가 먼 경우 타겟 쪽으로 접근하며 사격
-
-              const approachDist = e.tier === 'Noob' ? 22 : (e.tier === 'Pro' ? 35 : 55);
-
-              if (closestDist > approachDist) {
-
-                desiredDir = new THREE.Vector3().subVectors(targetPos, e.mesh.position).normalize();
-
-                moveSpeed = e.tier === 'Noob' ? 3.0 : (e.tier === 'Pro' ? 4.2 : 5.2);
-
+              // 안전구역 내에 있고 전투 가능 거리일 때: 무조건 서서 쏘지 않고 지능적인 동적 무빙 사격 수행!
+              if (e.combatMoveTimer === undefined) {
+                e.combatMoveTimer = 0;
+                e.combatMoveDir = 1;
               }
+              if (e.combatMoveTimer <= 0) {
+                e.combatMoveTimer = 1.5 + Math.random() * 2.0;
+                e.combatMoveDir = Math.random() > 0.5 ? 1 : -1;
+              }
+              e.combatMoveTimer -= delta;
 
+              const toTarget = new THREE.Vector3().subVectors(targetPos, e.mesh.position);
+              toTarget.y = 0; toTarget.normalize();
+              
+              // 좌우 회피 기동 벡터 생성 (스트레이핑)
+              const strafeDir = new THREE.Vector3(-toTarget.z, 0, toTarget.x).multiplyScalar(e.combatMoveDir);
+              
+              // 무기별 지능적 위치 잡기: 샷건은 돌격하고, 저격총/돌격소총은 너무 가까우면 뒤로 빠짐
+              const pushPullDir = toTarget.clone();
+              if (e.weapon === WEAPONS.SHOTGUN) {
+                pushPullDir.multiplyScalar(0.75); // 샷건은 적 방향으로 인파이팅 전진 사격
+              } else if (closestDist < 12.0) {
+                pushPullDir.multiplyScalar(-0.65); // 너무 가까우면 아웃복싱으로 거리 벌리기
+              } else {
+                pushPullDir.multiplyScalar(0.0); // 적정 사거리에서는 좌우 와리가리 기동
+              }
+              
+              desiredDir = strafeDir.add(pushPullDir).normalize();
+              // 기민하게 사격하면서 움직이도록 이동 속도 밸런싱
+              moveSpeed = e.tier === 'Noob' ? 1.5 : (e.tier === 'Pro' ? 2.5 : 3.6);
               lookTarget = targetPos;
-
             }
 
           }
@@ -13169,7 +13186,7 @@
                   
                   // 건물에서 밀어내는 척력
                   repelForce.add(new THREE.Vector3(pushX, 0, pushZ).normalize().multiplyScalar(strength * 2.2));
-                  // 건물 벽을 타고 흘러가도록 만드는 법선 접선 회전 벡터 조향력 추가 (드드드 떨림 방지 및 회회)
+                  // 건물 벽을 타고 흘러가도록 만드는 법선 접선 회전 벡터 조향력 추가 (드드드 떨림 방지 및 우회)
                   repelForce.add(new THREE.Vector3(-pushZ, 0, pushX).normalize().multiplyScalar(strength * 1.8));
                 }
               }
