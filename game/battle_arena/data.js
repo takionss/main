@@ -13134,30 +13134,67 @@
             // 나무, 바위로부터의 척력
 
             obstacles.forEach(obs => {
-
               if (obs.type === 'TREE' || obs.type === 'ROCK') {
-
                 const dx = e.mesh.position.x - obs.x;
-
                 const dz = e.mesh.position.z - obs.z;
-
                 const dist = Math.sqrt(dx * dx + dz * dz);
-
                 const affectDist = obs.radius + 4.0;
-
                 if (dist < affectDist && dist > 0.1) {
-
                   const strength = (1.0 - (dist / affectDist)) * 3.5;
-
                   repelForce.add(new THREE.Vector3(dx, 0, dz).normalize().multiplyScalar(strength));
-
                 }
-
+              } else if (obs.type === 'BUILDING') {
+                // AI 캐릭터의 건물 벽 회피 및 우회 슬라이딩 조향 알고리즘
+                const ex = e.mesh.position.x;
+                const ez = e.mesh.position.z;
+                const halfW = obs.w / 2;
+                const halfD = obs.d / 2;
+                const minX = obs.spotX - halfW;
+                const maxX = obs.spotX + halfW;
+                const minZ = obs.spotZ - halfD;
+                const maxZ = obs.spotZ + halfD;
+                
+                const closestX = Math.max(minX, Math.min(ex, maxX));
+                const closestZ = Math.max(minZ, Math.min(ez, maxZ));
+                
+                const dx = ex - closestX;
+                const dz = ez - closestZ;
+                const dist = Math.sqrt(dx * dx + dz * dz);
+                const affectDist = 5.2; // 5.2미터 벽면 감지선
+                
+                if (dist < affectDist && dist > 0.01) {
+                  const strength = (1.0 - (dist / affectDist)) * 4.5;
+                  const pushX = dx / dist;
+                  const pushZ = dz / dist;
+                  
+                  // 건물에서 밀어내는 척력
+                  repelForce.add(new THREE.Vector3(pushX, 0, pushZ).normalize().multiplyScalar(strength * 2.2));
+                  // 건물 벽을 타고 흘러가도록 만드는 법선 접선 회전 벡터 조향력 추가 (드드드 떨림 방지 및 회회)
+                  repelForce.add(new THREE.Vector3(-pushZ, 0, pushX).normalize().multiplyScalar(strength * 1.8));
+                }
               }
-
             });
 
 
+
+
+            // 연못(물가) 회피 및 우회 조향 추가 (물가 드드드 떨림 및 진입 반복 방지)
+            const distToPond1 = Math.sqrt((e.mesh.position.x - 60)**2 + (e.mesh.position.z - 80)**2);
+            if (distToPond1 < 27.5 && distToPond1 > 0.1) {
+              const dx = e.mesh.position.x - 60;
+              const dz = e.mesh.position.z - 80;
+              const strength = (1.0 - (distToPond1 / 27.5)) * 5.0;
+              repelForce.add(new THREE.Vector3(dx, 0, dz).normalize().multiplyScalar(strength * 1.5));
+              repelForce.add(new THREE.Vector3(-dz, 0, dx).normalize().multiplyScalar(strength * 2.0));
+            }
+            const distToPond2 = Math.sqrt((e.mesh.position.x + 80)**2 + (e.mesh.position.z + 60)**2);
+            if (distToPond2 < 22.5 && distToPond2 > 0.1) {
+              const dx = e.mesh.position.x + 80;
+              const dz = e.mesh.position.z + 60;
+              const strength = (1.0 - (distToPond2 / 22.5)) * 5.0;
+              repelForce.add(new THREE.Vector3(dx, 0, dz).normalize().multiplyScalar(strength * 1.5));
+              repelForce.add(new THREE.Vector3(-dz, 0, dx).normalize().multiplyScalar(strength * 2.0));
+            }
 
             desiredDir.add(repelForce).normalize();
 
