@@ -8515,7 +8515,7 @@
 
       enemies.push({ id: eid, mesh: group, soldier: soldier, hp: maxHp, maxHp: maxHp, state: 'IN_PLANE', parachute: eParachute, hpUI: hpUI, tier: tier,
 
-        jumpTime: 3.5 + Math.random() * 9.5, weapon: WEAPONS.PUNCH, helmet: selectedHelmet, bag: selectedBag, lastShot: 0, lastHitTime: 0,
+        jumpTime: 3.5 + Math.random() * 9.5, weapon: WEAPONS.PUNCH, helmet: selectedHelmet, bag: selectedBag, lastShot: 0, lastHitTime: -9999,
 
         driftAngle: Math.random() * Math.PI * 2, driftSpeed: 10 + Math.random() * 15, recoilTime: 0,
 
@@ -9724,7 +9724,7 @@
           fireBullet(fireOrigin, targetPoint, currentWeapon, 'PLAYER', 0.18);
         }
       } else {
-        // 연사 반동 누적치(playerSpreadAccum)가 조준 사격과 지향 사격 모두에 사실적으로 작용
+        // 연사 반동 누적치가 조준 사격과 지향 사격 모두에 사실적으로 작용
         const currentSpread = (isZooming ? 0.015 : 0.15) + playerSpreadAccum;
         fireBullet(fireOrigin, targetPoint, currentWeapon, 'PLAYER', currentSpread);
       }
