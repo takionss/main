@@ -12463,6 +12463,10 @@
 
             e.state = 'PLAYING';
 
+            // Reset euler order back to default XYZ (was set to YXZ during FALLING)
+
+            e.mesh.rotation.order = 'XYZ';
+
             e.mesh.rotation.x = 0;
 
             e.mesh.rotation.z = 0;
@@ -12470,6 +12474,32 @@
             e.parachute.visible = false;
 
             e.soldier.parachuteBag.visible = false;
+
+            // Reset soldier body/head to standing pose after skydive
+
+            e.soldier.body.rotation.x = 0;
+
+            e.soldier.body.position.set(0, 0.95, 0);
+
+            e.soldier.headGroup.position.set(0, 1.45, 0);
+
+            e.soldier.headGroup.rotation.set(0, 0, 0);
+
+            e.soldier.leftArm.position.set(-0.38, 1.25, 0);
+
+            e.soldier.rightArm.position.set(0.38, 1.25, 0);
+
+            e.soldier.leftLeg.position.set(-0.16, 0.6, 0);
+
+            e.soldier.rightLeg.position.set(0.16, 0.6, 0);
+
+            e.soldier.leftThigh.rotation.set(0, 0, 0);
+
+            e.soldier.rightThigh.rotation.set(0, 0, 0);
+
+            e.soldier.leftKnee.rotation.set(0, 0, 0);
+
+            e.soldier.rightKnee.rotation.set(0, 0, 0);
 
             if (e.bag) e.soldier.updateBagVisual(e.bag);
 
@@ -13396,6 +13426,8 @@
             e.soldier.body.position.set(0, 0.95, 0);
 
             e.soldier.headGroup.position.set(0, 1.45, 0);
+
+            e.soldier.headGroup.rotation.set(0, 0, 0); // 수영 후 머리 회전 리셋
 
             e.soldier.leftArm.position.set(-0.38, 1.25, 0);
 
