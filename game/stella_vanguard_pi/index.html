@@ -1,23 +1,11 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-        <!-- 구글 애드센스 H5 게임 광고 SDK 로드 -->
-    <script async
-      data-ad-frequency-hint="30s"
-      data-ad-client="ca-pub-2837251751819266"
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
-    </script>
+    <!-- Pi Network SDK -->
+    <script src="https://sdk.minepi.com/pi-sdk.js"></script>
     <script>
-      window.adsbygoogle = window.adsbygoogle || [];
-      var adBreak = adConfig = function(o) {adsbygoogle.push(o);}
-      
-      // 광고 API 초기화
-      adConfig({
-        preloadAdBreaks: 'on',
-        onAdBreakDone: function(info) {
-          console.log("Ad break done:", info);
-        }
-      });
+      // Stub adBreak/adConfig so existing ad calls don't throw errors
+      var adBreak = adConfig = function(o) {};
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
@@ -117,6 +105,14 @@
         .slot-item { height: 10vmin; width: 100%; font-size: 7vmin; display: flex; flex-direction: row; justify-content: center; align-items: center; gap: 0.5vmin; box-sizing: border-box; flex-shrink: 0; white-space: nowrap; }
 
         #mock-ad-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #111; color: #fff; display: none; flex-direction: column; justify-content: center; align-items: center; z-index: 9999; }
+
+        /* Pi Network Auth UI */
+        #pi-auth-status { position: absolute; top: 1.5vmin; left: 2vmin; z-index: 20; display: flex; align-items: center; gap: 1.5vmin; }
+        #pi-user-badge { background: rgba(0,0,0,0.6); border: 0.3vmin solid #8b6fff; border-radius: 2vmin; padding: 0.8vmin 2.5vmin; color: #c4a8ff; font-size: 2.8vmin; font-weight: bold; display: none; align-items: center; gap: 1vmin; backdrop-filter: blur(5px); text-shadow: 0 0 1vmin rgba(139,111,255,0.5); }
+        #pi-user-badge .pi-icon { font-size: 3.5vmin; }
+        #btn-pi-signin { background: linear-gradient(135deg, #8b6fff, #6c3bea); border: none; border-radius: 2vmin; padding: 1.2vmin 3vmin; color: #fff; font-size: 2.8vmin; font-weight: bold; cursor: pointer; box-shadow: 0 0 3vmin rgba(139,111,255,0.4); transition: all 0.2s; display: none; align-items: center; gap: 1vmin; }
+        #btn-pi-signin:active { transform: scale(0.95); opacity: 0.8; }
+        #btn-pi-signin .pi-icon { font-size: 3.5vmin; }
         .ad-spinner { border: 1.5vmin solid #333; border-top: 1.5vmin solid #00ffff; border-radius: 50%; width: 15vmin; height: 15vmin; animation: spin 1s linear infinite; margin-bottom: 5vmin; }
 
         .copyright { position: absolute; bottom: 3vmin; right: 4vmin; color: #555; font-size: 2.5vmin; margin: 0; z-index: 10; pointer-events: none; }
@@ -184,6 +180,11 @@
     <div id="overlay" class="screen-panel">
         <div class="red-box">
             <button class="settings-btn" onclick="openSettings('overlay')">⚙️</button>
+            <!-- Pi Network Auth Status -->
+            <div id="pi-auth-status">
+                <div id="pi-user-badge"><span class="pi-icon">π</span> <span id="pi-username-display"></span></div>
+                <button id="btn-pi-signin" onclick="piSignIn()"><span class="pi-icon">π</span> Sign in with Pi</button>
+            </div>
             <div id="main-panel" style="width: 100%; display: flex; flex-direction: column; align-items: center; z-index: 10;">
                 <h2 id="text-title">🚀 Stellar Vanguard</h2>
                 <p id="text-desc" style="font-size: 4vmin; color: #aaddff; margin-bottom: 8vmin; letter-spacing: 0.2vmin; line-height: 1.5; text-shadow: 0 0 10px rgba(0,255,255,0.3);"></p>
@@ -335,7 +336,13 @@
         }
 
         async function submitHighScore() {
-            let nameInput = document.getElementById('player-name-input').value.trim().toUpperCase();
+            let nameInput;
+            // Pi 인증된 사용자라면 Pi username을 자동 사용
+            if (window.piAuthUser && window.piAuthUser.username) {
+                nameInput = window.piAuthUser.username.toUpperCase();
+            } else {
+                nameInput = document.getElementById('player-name-input').value.trim().toUpperCase();
+            }
             if (!nameInput) {
                 alert(langData.pleaseEnterName);
                 return;
@@ -2426,6 +2433,108 @@
         
         window.addEventListener('resize', () => { adjustCameraFOV(); });
         applyI18n();
+
+        // ========== Pi Network Authentication ==========
+        window.piAuthUser = null; // { uid, username, accessToken }
+
+        async function initPiAuth() {
+            try {
+                // Pi.init()을 Promise로 처리 - sandbox: true는 개발 중, 배포 시 false로 변경
+                await Pi.init({ version: "2.0", sandbox: true });
+                console.log('[Pi] SDK initialized');
+                // 자동 인증 시도
+                await piAuthenticate();
+            } catch(e) {
+                console.warn('[Pi] SDK init failed (not in Pi Browser?):', e);
+                // Pi Browser가 아닌 환경에서는 Sign-in 버튼 표시
+                document.getElementById('btn-pi-signin').style.display = 'flex';
+            }
+        }
+
+        async function piAuthenticate() {
+            try {
+                const scopes = ['username'];
+                const auth = await Pi.authenticate(scopes, function(payment) {
+                    // 미완료 결제 처리 (현재는 결제 미사용)
+                    console.log('[Pi] Incomplete payment found:', payment);
+                });
+                console.log('[Pi] Auth success:', auth);
+
+                // 백엔드에서 accessToken 검증 (api.minepi.com/v2/me)
+                const verified = await verifyPiToken(auth.accessToken);
+                if (verified) {
+                    window.piAuthUser = {
+                        uid: verified.uid,
+                        username: verified.username,
+                        accessToken: auth.accessToken
+                    };
+                    updatePiAuthUI();
+                    console.log('[Pi] User verified:', verified.username);
+                } else {
+                    console.warn('[Pi] Token verification failed');
+                    document.getElementById('btn-pi-signin').style.display = 'flex';
+                }
+            } catch(e) {
+                console.warn('[Pi] Authentication failed:', e);
+                document.getElementById('btn-pi-signin').style.display = 'flex';
+            }
+        }
+
+        async function verifyPiToken(accessToken) {
+            // accessToken을 Pi Platform API로 검증
+            // GitHub Pages는 정적 호스팅이므로, 프론트엔드에서 직접 /v2/me 호출
+            // (프로덕션에서는 자체 백엔드 서버를 통해 검증하는 것이 보안상 권장됨)
+            try {
+                const resp = await fetch('https://api.minepi.com/v2/me', {
+                    headers: { 'Authorization': 'Bearer ' + accessToken }
+                });
+                if (!resp.ok) return null;
+                const data = await resp.json();
+                return { uid: data.uid, username: data.username };
+            } catch(e) {
+                console.error('[Pi] /v2/me verification error:', e);
+                return null;
+            }
+        }
+
+        function updatePiAuthUI() {
+            const badge = document.getElementById('pi-user-badge');
+            const btn = document.getElementById('btn-pi-signin');
+            if (window.piAuthUser) {
+                document.getElementById('pi-username-display').textContent = window.piAuthUser.username;
+                badge.style.display = 'flex';
+                btn.style.display = 'none';
+                // 리더보드 이름 입력에 Pi username 자동 채우기
+                const nameInput = document.getElementById('player-name-input');
+                if (nameInput) {
+                    nameInput.value = window.piAuthUser.username;
+                    nameInput.readOnly = true;
+                    nameInput.style.opacity = '0.7';
+                }
+            } else {
+                badge.style.display = 'none';
+                btn.style.display = 'flex';
+            }
+        }
+
+        // 수동 로그인 버튼
+        async function piSignIn() {
+            document.getElementById('btn-pi-signin').textContent = '...';
+            document.getElementById('btn-pi-signin').disabled = true;
+            try {
+                await Pi.init({ version: "2.0", sandbox: true });
+                await piAuthenticate();
+            } catch(e) {
+                console.error('[Pi] Manual sign-in failed:', e);
+                alert('Pi Network sign-in failed. Please open this app in Pi Browser.');
+            }
+            const btn = document.getElementById('btn-pi-signin');
+            btn.innerHTML = '<span class="pi-icon">π</span> Sign in with Pi';
+            btn.disabled = false;
+        }
+
+        // 앱 로드 시 자동 인증
+        initPiAuth();
     </script>
 </body>
 </html>
