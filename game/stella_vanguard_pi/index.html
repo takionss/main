@@ -2547,12 +2547,20 @@
         async function piAuthenticate() {
             try {
                 const scopes = ['username', 'payments'];
-                const auth = await Pi.authenticate(scopes, function(payment) {
+
+                // Pi.authenticate()가 Pi Browser 외부에서 무한 대기하는 것을 방지하기 위한 타임아웃
+                const AUTH_TIMEOUT = 10000; // 10초
+                const authPromise = Pi.authenticate(scopes, function(payment) {
                     console.log('[Pi] Incomplete payment found, completing:', payment);
                     if (payment && payment.metadata && payment.metadata.type === 'revive') {
                         executeRevive();
                     }
                 });
+                const timeoutPromise = new Promise((_, reject) => 
+                    setTimeout(() => reject(new Error('AUTH_TIMEOUT')), AUTH_TIMEOUT)
+                );
+
+                const auth = await Promise.race([authPromise, timeoutPromise]);
                 console.log('[Pi] Auth success:', auth);
 
                 gateShowSpinner('Verifying account...');
@@ -2570,7 +2578,11 @@
                 }
             } catch(e) {
                 console.warn('[Pi] Authentication failed:', e);
-                gateShowError('Pi 인증에 실패했습니다. 다시 시도해 주세요.\nAuthentication failed. Please try again.');
+                if (e.message === 'AUTH_TIMEOUT') {
+                    gateShowError('Pi Browser에서 열어주세요.\nPlease open this app in Pi Browser.');
+                } else {
+                    gateShowError('Pi 인증에 실패했습니다. 다시 시도해 주세요.\nAuthentication failed. Please try again.');
+                }
             }
         }
 
