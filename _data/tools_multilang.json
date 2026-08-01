@@ -387,7 +387,7 @@
           "name": "mejora de la calidad de la imagen",
           "url": "web/image-upscaler/index.html",
           "icon": "images/scale.png",
-          "desc": "Mejora de la resolución de fotos borrosas para convertirlas en imágenes nítidas."
+          "desc": "Mejora de la resolución de fotos borrosas a alta definición para convertirlas en imágenes nítidas."
         },
         {
           "name": "Borrador de imágenes con IA",
@@ -422,7 +422,7 @@
           "name": "Arena de batalla",
           "url": "game/battle_arena/index.html",
           "icon": "images/battle.png",
-          "desc": "Juego de acción y batalla de supervivencia para 50 jugadores"
+          "desc": "Juego de acción y batalla de supervivencia en arena para 50 jugadores"
         },
         {
           "name": "Stella Vanguard",
@@ -504,7 +504,7 @@
           "name": "Planificación de activos comunitarios FIRE",
           "url": "https://fire.smileslife.co.kr/",
           "icon": "images/icon_fire.png",
-          "desc": "Consejos de planificación patrimonial para la comunidad FIRE: Preparándose para la libertad financiera."
+          "desc": "Consejos de planificación patrimonial para la comunidad FIRE: Preparándose para la libertad financiera"
         },
         {
           "name": "Ingresos pasivos por automatización",
@@ -571,7 +571,7 @@
           "name": "イメージAI消しゴム",
           "url": "web/object-eraser/index.html",
           "icon": "images/eraser.png",
-          "desc": "AI写真の中で不要なものやテキストを削除する"
+          "desc": "AI写真の中の不要なものやテキストを削除する"
         },
         {
           "name": "画像変換フィルタ",
@@ -583,7 +583,7 @@
           "name": "イメージAI分析",
           "url": "web/image-tagging/index.html",
           "icon": "images/image.png",
-          "desc": "AI画像解析物体認識とタグ推薦フレーズの生成"
+          "desc": "AI画像分析物体認識とタグ推薦フレーズの生成"
         },
         {
           "name": "カラーメーター",
@@ -790,7 +790,7 @@
           "name": "塔羅牌",
           "url": "web/lotto_tarot/index.html",
           "icon": "images/lottery.png",
-          "desc": "今日塔羅牌占卜與人工智慧諮詢"
+          "desc": "今日塔羅牌運勢解讀與人工智慧諮詢"
         },
         {
           "name": "掃雷",
