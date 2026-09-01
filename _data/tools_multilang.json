@@ -504,7 +504,7 @@
           "name": "Planificación de activos comunitarios FIRE",
           "url": "https://fire.smileslife.co.kr/",
           "icon": "images/icon_fire.png",
-          "desc": "Consejos de planificación patrimonial para la comunidad FIRE: Preparándose para la libertad financiera"
+          "desc": "Consejos de planificación patrimonial para la comunidad FIRE: Preparándose para la libertad financiera."
         },
         {
           "name": "Ingresos pasivos por automatización",
@@ -571,7 +571,7 @@
           "name": "イメージAI消しゴム",
           "url": "web/object-eraser/index.html",
           "icon": "images/eraser.png",
-          "desc": "AI写真の中の不要なものやテキストを削除する"
+          "desc": "AI写真の中で不要なものやテキストを削除する"
         },
         {
           "name": "画像変換フィルタ",

@@ -3,7 +3,7 @@ name,group,url,icon,desc
 GIFコンバーター,Webサービス,web/image-to-gif/index.html,images/gif-file.png,画像を合わせて動かすGIFウムチャル制作
 オーディオコンバータ,Webサービス,web/audio-converter/index.html,images/volume-adjustment.png,音楽とオーディオファイル形式のインターコンバータ
 画像画質の改善,Webサービス,web/image-upscaler/index.html,images/scale.png,ぼやけた写真を鮮明に高精細アップスケール
-イメージAI消しゴム,Webサービス,web/object-eraser/index.html,images/eraser.png,AI写真の中の不要なものやテキストを削除する
+イメージAI消しゴム,Webサービス,web/object-eraser/index.html,images/eraser.png,AI写真の中で不要なものやテキストを削除する
 画像変換フィルタ,Webサービス,web/anime-filter/index.html,images/comic-book.png,写真を漫画/ウェブトゥーンアニメスタイルに変換
 イメージAI分析,Webサービス,web/image-tagging/index.html,images/image.png,AI画像分析物体認識とタグ推薦フレーズの生成
 カラーメーター,Webサービス,web/color-picker/index.html,images/color.png,画面上の正確なカラーコードスポイトの抽出
