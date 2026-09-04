@@ -3539,6 +3539,7 @@
             },
             adViewed: () => {
               console.log("AdSense: 광고 시청 성공");
+              executeRevival();
             },
             adError: (err) => {
               if (!adTriggered) {
