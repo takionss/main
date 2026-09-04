@@ -3504,10 +3504,14 @@
         runSimulatedAd();
         return;
       }
+
       // 실제 호스팅 도메인 환경인 경우 구글 애드센스 H5 보상형 광고 구동
       SoundSystem.stopSkydiveWindSound();
       SoundSystem.stopBGM();
+      
+      showNotice("⏳ AD LOADING...", 6000);
       adTriggered = false;
+
       if (typeof window.adBreak === 'function') {
         const adTimeout = setTimeout(() => {
           if (!adTriggered) {
@@ -3515,7 +3519,8 @@
             adTriggered = true;
             runSimulatedAd();
           }
-        }, 2500);
+        }, 6000);
+
         try {
           window.adBreak({
             type: 'reward',

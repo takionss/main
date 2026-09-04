@@ -1688,14 +1688,23 @@
             if(document.getElementById('btn-revive-yes').disabled) return; 
             document.getElementById('revive-confirm').style.display = 'none';
             
+            // 광고 로딩 모래시계 / 로딩 화면 표시 (사용자 대기 안내)
+            const loadingScreen = document.getElementById('loading-screen');
+            const loadingText = document.getElementById('loading-text');
+            const oldText = loadingText.innerText;
+            loadingText.innerText = "⏳ AD LOADING...";
+            loadingScreen.style.display = 'flex';
+
             let adHandled = false;
-            // 2.5초 내에 광고가 송출되지 않거나 승인 대기 중일 때 가짜 광고 시뮬레이션으로 안전 전환 (게임 멈춤 방지)
+            // 6초 내에 구글 광고가 켜지지 않거나 승인 반영 대기 중일 때 가짜 광고 시뮬레이션으로 안전 전환
             const adFallbackTimer = setTimeout(() => {
                 if (!adHandled) {
                     adHandled = true;
+                    loadingScreen.style.display = 'none';
+                    loadingText.innerText = oldText;
                     simulateAdPlayback(() => executeReviveSuccess());
                 }
-            }, 2500);
+            }, 6000);
 
             if (typeof window.adBreak === 'function') {
                 try {
@@ -1705,16 +1714,22 @@
                         beforeAd: () => {
                             adHandled = true;
                             clearTimeout(adFallbackTimer);
+                            loadingScreen.style.display = 'none';
+                            loadingText.innerText = oldText;
                             bgmVol = 0;
                         },
                         afterAd: () => {
                             bgmVol = bgmEnabled ? 0.3 : 0;
                         },
                         adDismissed: () => {
+                            loadingScreen.style.display = 'none';
+                            loadingText.innerText = oldText;
                             alert(langData.adDismissed || '광고 시청이 취소되어 부활하지 못했습니다.');
                             showGameOverUI();
                         },
                         adViewed: () => {
+                            loadingScreen.style.display = 'none';
+                            loadingText.innerText = oldText;
                             executeReviveSuccess();
                         }
                     });
@@ -1722,12 +1737,16 @@
                     if (!adHandled) {
                         adHandled = true;
                         clearTimeout(adFallbackTimer);
+                        loadingScreen.style.display = 'none';
+                        loadingText.innerText = oldText;
                         simulateAdPlayback(() => executeReviveSuccess());
                     }
                 }
             } else {
                 adHandled = true;
                 clearTimeout(adFallbackTimer);
+                loadingScreen.style.display = 'none';
+                loadingText.innerText = oldText;
                 simulateAdPlayback(() => executeReviveSuccess());
             }
         }
