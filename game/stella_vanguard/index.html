@@ -175,6 +175,12 @@
         <div id="loading-text">LOADING...</div>
     </div>
 
+    <div id="mock-ad-screen">
+        <div class="ad-spinner"></div>
+        <h2 style="color: #00ffff; font-size: 7vmin; margin-bottom:2vmin;">[ AD SIMULATION ]</h2>
+        <p id="text-ad-desc" style="font-size: 4vmin;">광고가 재생 중입니다... (곧 닫힙니다)</p>
+    </div>
+
     <div id="overlay" class="screen-panel">
         <div class="red-box">
             <button class="settings-btn" onclick="openSettings('overlay')">⚙️</button>
@@ -191,17 +197,17 @@
         <div class="red-box">
             <h2 id="text-settings-title" style="color: #00ffff; margin-bottom: 2.5vmin; text-shadow: 0 0 3vmin #00ffff; font-size: 5.5vmin; z-index: 10; position: relative;">SETTINGS</h2>
             <div class="toggle-container">
-                <p id="text-quality" style="color: #fff; margin: 0; font-weight: bold; font-size: 4.5vmin;">그래픽 품질</p>
+                <p id="text-quality" style="color: #fff; margin: 0; font-weight: bold; font-size: 4.5vmin;"></p>
                 <div class="row-btns">
-                    <button id="btn-q-high" class="toggle-btn active" onclick="setQuality('HIGH')">고사양 모드</button>
-                    <button id="btn-q-low" class="toggle-btn" onclick="setQuality('LOW')">저사양 모드</button>
+                    <button id="btn-q-high" class="toggle-btn active" onclick="setQuality('HIGH')"></button>
+                    <button id="btn-q-low" class="toggle-btn" onclick="setQuality('LOW')"></button>
                 </div>
             </div>
             <div class="toggle-container">
-                <p id="text-audio" style="color: #fff; margin: 0; font-weight: bold; font-size: 4.5vmin;">오디오 설정</p>
+                <p id="text-audio" style="color: #fff; margin: 0; font-weight: bold; font-size: 4.5vmin;"></p>
                 <div class="row-btns">
-                    <button id="btn-toggle-sfx" class="toggle-btn" onclick="toggleSFX()">🔊 효과음: ON</button>
-                    <button id="btn-toggle-bgm" class="toggle-btn" onclick="toggleBGM()">🎵 배경음: ON</button>
+                    <button id="btn-toggle-sfx" class="toggle-btn" onclick="toggleSFX()"></button>
+                    <button id="btn-toggle-bgm" class="toggle-btn" onclick="toggleBGM()"></button>
                 </div>
             </div>
             <div class="toggle-container">
@@ -227,7 +233,7 @@
             });
             </script>
 
-            <button id="btn-back" class="main-btn" style="background: rgba(255,255,255,0.2); color: #fff; box-shadow: none; margin-top: 4vmin; font-size: 4.5vmin; z-index: 10; position: relative;" onclick="closeSettings()">돌아가기</button>
+            <button id="btn-back" class="main-btn" style="background: rgba(255,255,255,0.2); color: #fff; box-shadow: none; margin-top: 4vmin; font-size: 4.5vmin; z-index: 10; position: relative;" onclick="closeSettings()"></button>
         </div>
     </div>
     
@@ -256,15 +262,15 @@
                 <h1 id="text-gameover" style="font-size: 8vmin; margin: 0 0 3.5vmin 0; color:#ff0033; text-shadow: 0 0 4vmin #ff0033;">GAME OVER</h1>
                 <p id="finalScoreDisplay" style="font-size: 6vmin; margin: 0 0 6vmin 0; color: #fff; font-weight:bold; text-shadow: 0 0 2vmin rgba(255,255,255,0.5);"></p>
                 
-                <button id="btn-show-ranking" class="toggle-btn" style="background: rgba(20,20,40,0.8); color: #ffcc00; border-color: #ffcc00; width: 85%; margin-bottom: 3vmin; padding: 3vmin 0;" onclick="showLeaderboardScreen(false)">🏆 TOP 20 랭킹</button>
-                <button id="btn-restart" class="main-btn" style="margin-top: 0;" onclick="resetGame()">다시 시작</button>
+                <button id="btn-show-ranking" class="toggle-btn" style="background: rgba(20,20,40,0.8); color: #ffcc00; border-color: #ffcc00; width: 85%; margin-bottom: 3vmin; padding: 3vmin 0;" onclick="showLeaderboardScreen(false)"></button>
+                <button id="btn-restart" class="main-btn" style="margin-top: 0;" onclick="resetGame()"></button>
             </div>
         </div>
     </div>
 
     <div id="leaderboard-screen">
         <div class="red-box" style="border-color: #ffcc00; box-shadow: 0 0 6vmin rgba(255,204,0,0.3), inset 0 0 4vmin rgba(255,204,0,0.1);">
-            <h2 id="text-lb-title" style="color: #ffcc00; font-size: 4.8vmin; margin-top: 0; margin-bottom: 3vmin; text-shadow: 0 0 3vmin #ffcc00; z-index: 10; position: relative;">🏆 TOP 20 랭킹</h2>
+            <h2 id="text-lb-title" style="color: #ffcc00; font-size: 6vmin; margin-top: 0; margin-bottom: 3vmin; text-shadow: 0 0 3vmin #ffcc00; z-index: 10; position: relative; white-space: nowrap;">TOP 20 RANKING</h2>
             
             <div id="name-input-container">
                 <p id="text-new-record" style="color: #0f0; font-size: 3.8vmin; font-weight:bold; margin: 0 0 2vmin 0; text-shadow: 0 0 2vmin #0f0; white-space: nowrap;"></p>
@@ -274,12 +280,12 @@
 
             <div id="lb-main-container">
                 <table class="lb-table" id="lb-table">
-                    <thead><tr><th id="text-lb-rank">순위</th><th id="text-lb-name">이름</th><th id="text-lb-score">점수</th></tr></thead>
+                    <thead><tr><th id="text-lb-rank"></th><th id="text-lb-name"></th><th id="text-lb-score"></th></tr></thead>
                     <tbody id="lb-body">
                     </tbody>
                 </table>
             </div>
-            <button id="btn-lb-close" class="toggle-btn" style="background: rgba(255,255,255,0.2); color: #fff; width: 60%; padding: 2vmin; font-size: 4vmin; margin-top: 2vmin; border:none; z-index:10; position:relative;" onclick="closeLeaderboard()">닫기</button>
+            <button id="btn-lb-close" class="toggle-btn" style="background: rgba(255,255,255,0.2); color: #fff; width: 60%; padding: 2vmin; font-size: 4vmin; margin-top: 2vmin; border:none; z-index:10; position:relative;" onclick="closeLeaderboard()"></button>
         </div>
     </div>
 
@@ -316,23 +322,15 @@
         async function fetchLeaderboard() {
             try {
                 if (API_URL) {
-                    const controller = new AbortController();
-                    const timeoutId = setTimeout(() => controller.abort(), 2500);
-                    let res = await fetch(API_URL, { signal: controller.signal });
-                    clearTimeout(timeoutId);
+                    let res = await fetch(API_URL);
                     let data = await res.json();
-                    if (Array.isArray(data)) topScores = data;
+                    topScores = data;
                 } else {
                     let localData = localStorage.getItem('stellarVanguardTop10');
                     if (localData) topScores = JSON.parse(localData);
                     else topScores = [{name:"AAA", score:500}, {name:"BBB", score:300}, {name:"CCC", score:100}];
                 }
-            } catch(e) { 
-                console.warn("Leaderboard fetch fallback to local:", e); 
-                let localData = localStorage.getItem('stellarVanguardTop10');
-                if (localData) topScores = JSON.parse(localData);
-                else topScores = [{name:"AAA", score:500}, {name:"BBB", score:300}, {name:"CCC", score:100}];
-            }
+            } catch(e) { console.error(e); }
             renderLeaderboard();
         }
 
@@ -398,22 +396,22 @@
         const i18n = {
             en: { title: "🚀 Stellar Vanguard", desc: "Explore space and\nchallenge the high score!", start: "Start Game", restart: "Restart", score: "Score", finalScore: "Final Score: ", sfxOn: "🔊 SFX: ON", sfxOff: "🔇 SFX: OFF", bgmOn: "🎵 BGM: ON", bgmOff: "🔇 BGM: OFF", gameover: "GAME OVER", exitTitle: "EXIT GAME", exitDesc: "Return to the main screen?", btnYes: "Yes", btnNo: "No", reviveTitle: "LUCKY REVIVE!", reviveDesc: "Spin for bonus hearts!", btnRevive: "▶ Watch Ad", btnSkip: "Give Up", adDesc: "Ad is playing... (Closes soon)", settings: "SETTINGS", quality: "GRAPHIC QUALITY", highSpec: "HIGH SPEC", lowSpec: "LOW SPEC", audio: "AUDIO", back: "BACK", rolling: "🎰 Rolling...", startText: "START!", top20: "🏆 TOP 20 RANKING", newRecord: "🎉 NEW RECORD! 🎉", namePlaceholder: "NAME (Max 5)", registerScore: "REGISTER SCORE", rank: "RANK", name: "NAME", scoreHeader: "SCORE", close: "CLOSE", btnShowRanking: "🏆 TOP 20 RANKING", loading: "LOADING...", pleaseEnterName: "Please enter your name!", adBlockNotice: "⚠️ Failed to load ad. Please disable your AdBlocker and try again." },
             ko: { title: "🚀 스텔라 뱅가드", desc: "우주를 탐험하며\n최고 점수에 도전하세요!", start: "게임 시작", restart: "다시 시작", score: "점수", finalScore: "최종 점수: ", sfxOn: "🔊 효과음: ON", sfxOff: "🔇 효과음: OFF", bgmOn: "🎵 배경음: ON", bgmOff: "🔇 배경음: OFF", gameover: "게임 종료", exitTitle: "게임 종료", exitDesc: "메인 화면으로 돌아가시겠습니까?", btnYes: "예", btnNo: "아니오", reviveTitle: "럭키 부활 찬스!", reviveDesc: "광고를 보고 보너스 하트를 얻으세요!", btnRevive: "▶ 광고 보고 부활", btnSkip: "포기하기", adDesc: "광고 재생 중... (잠시 후 닫힘)", settings: "게임 설정", quality: "그래픽 품질", highSpec: "고사양 모드", lowSpec: "저사양 모드", audio: "오디오 설정", back: "돌아가기", rolling: "🎰 에너지 복구 중...", startText: "START!", top20: "🏆 TOP 20 랭킹", newRecord: "🎉 신기록 달성! 🎉", namePlaceholder: "이름 (최대 5자)", registerScore: "점수 등록", rank: "순위", name: "이름", scoreHeader: "점수", close: "닫기", btnShowRanking: "🏆 TOP 20 랭킹", loading: "로딩 중...", pleaseEnterName: "이름을 입력해 주세요!", adBlockNotice: "⚠️ 광고를 불러오지 못했습니다. 광고 차단 프로그램(AdBlock)을 해제하고 다시 도전해주세요." },
-            ja: { title: "🚀 ステラ ヴァンガード", desc: "宇宙を探索し、\nハイスコアに挑戦しよう！", start: "ゲームスタート", restart: "リトライ", score: "スコア", finalScore: "最終スコア: ", sfxOn: "🔊 効果音: ON", sfxOff: "🔇 効果音: OFF", bgmOn: "🎵 BGM: ON", bgmOff: "🔇 BGM: OFF", gameover: "ゲームオーバー", exitTitle: "ゲーム終了", exitDesc: "メイン画面に戻りますか？", btnYes: "はい", btnNo: "いいえ", reviveTitle: "ラッキー復活！", reviveDesc: "広告を見てボーナスハートを獲得しましょう！", btnRevive: "▶ 広告を見て復活", btnSkip: "あきらめる", adDesc: "広告再生中... (まもなく閉じます)", settings: "設定", quality: "グラフィック品質", highSpec: "高画質", lowSpec: "低画質", audio: "オーディオ設定", back: "戻る", rolling: "🎰 エネルギー復元中...", startText: "START!", top20: "🏆 TOP 20 ランキング", newRecord: "🎉 新記録達成！ 🎉", namePlaceholder: "名前 (最大5文字)", registerScore: "スコア登録", rank: "順位", name: "名前", scoreHeader: "スコア", close: "閉じる", btnShowRanking: "🏆 TOP 20 ランキング", loading: "ロード中...", pleaseEnterName: "名前を入力してください！", adBlockNotice: "⚠️ 広告の読み込みに失敗しました。広告ブロック（AdBlock）を無効にして再試行してください。" },
-            zh: { title: "🚀 星际先锋", desc: "探索宇宙，\n挑战最高分！", start: "开始游戏", restart: "重新开始", score: "分数", finalScore: "最终得分: ", sfxOn: "🔊 音效: 开", sfxOff: "🔇 音效: 关", bgmOn: "🎵 音乐: 开", bgmOff: "🔇 音乐: 关", gameover: "游戏结束", exitTitle: "退出游戏", exitDesc: "返回主屏幕？", btnYes: "是", btnNo: "否", reviveTitle: "幸运复活！", reviveDesc: "观看广告获得奖励心！", btnRevive: "▶ 观看广告", btnSkip: "放弃", adDesc: "广告播放中... (即将关闭)", settings: "设置", quality: "画质", highSpec: "高画质", lowSpec: "低画质", audio: "音频", back: "返回", rolling: "🎰 抽奖中...", startText: "START!", top20: "🏆 前20名排行榜", newRecord: "🎉 新纪录！ 🎉", namePlaceholder: "名字 (最多5字)", registerScore: "提交分数", rank: "排名", name: "名字", scoreHeader: "分数", close: "关闭", btnShowRanking: "🏆 前20名排行榜", loading: "加载中...", pleaseEnterName: "请输入名字！", adBlockNotice: "⚠️ 无法载入广告。请停用广告拦截器（AdBlock）并重试。" },
+            ja: { title: "🚀 ステラ ヴァンガード", desc: "宇宙を探索し、\nハイスコアに挑戦しよう！", start: "ゲームスタート", restart: "リトライ", score: "スコア", finalScore: "最終スコア: ", sfxOn: "🔊 効果音: ON", sfxOff: "🔇 効果音: OFF", bgmOn: "🎵 BGM: ON", bgmOff: "🔇 BGM: OFF", gameover: "ゲームオーバー", exitTitle: "ゲーム終了", exitDesc: "メイン画面に戻りますか？", btnYes: "はい", btnNo: "いいえ", reviveTitle: "ラッキー復活！", reviveDesc: "広告を見てボーナスハートを獲得しましょう！", btnRevive: "▶ 広告を見て復活", btnSkip: "あきらめる", adDesc: "広告再生中... (まもなく閉じます)", settings: "設定", quality: "グラフィック品質", highSpec: "高画質", lowSpec: "低画質", audio: "オーディオ設定", back: "戻る", rolling: "🎰 에너지 복구 중...", startText: "START!", top20: "🏆 TOP 20 ランキング", newRecord: "🎉 新記録達成！ 🎉", namePlaceholder: "名前 (最大5文字)", registerScore: "スコア登録", rank: "順位", name: "名前", scoreHeader: "スコア", close: "閉じる", btnShowRanking: "🏆 TOP 20 ランキング", loading: "ロード中...", pleaseEnterName: "名前を入力してください！", adBlockNotice: "⚠️ 広告の読み込みに失敗しました。広告ブロック（AdBlock）を無効にして再試行してください。" },
+            zh: { title: "🚀 星际先锋", desc: "探索宇宙，\n挑战最高分！", start: "开始游戏", restart: "重新开始", score: "分数", finalScore: "最终得分: ", sfxOn: "🔊 音效: 开", sfxOff: "🔇 音效: 关", bgmOn: "🎵 音乐: 开", bgmOff: "🔇 音乐: 关", gameover: "游戏结束", exitTitle: "退出游戏", exitDesc: "返回주 屏幕？", btnYes: "是", btnNo: "否", reviveTitle: "幸运复活！", reviveDesc: "观看广告获得奖励心！", btnRevive: "▶ 观看广告", btnSkip: "放弃", adDesc: "广告播放中... (即将关闭)", settings: "设置", quality: "画质", highSpec: "高画质", lowSpec: "低画질", audio: "音频", back: "返回", rolling: "🎰 抽奖中...", startText: "START!", top20: "🏆 前20名排行榜", newRecord: "🎉 新纪录！ 🎉", namePlaceholder: "名字 (最多5字)", registerScore: "提交分数", rank: "排名", name: "名字", scoreHeader: "分数", close: "关闭", btnShowRanking: "🏆 前20名排行榜", loading: "加载中...", pleaseEnterName: "请输入名字！", adBlockNotice: "⚠️ 无法载入广告。请停用广告拦截器（AdBlock）并重试。" },
             "zh-TW": { title: "🚀 星際先鋒", desc: "探索宇宙，\n挑戰最高分！", start: "開始遊戲", restart: "重新開始", score: "分數", finalScore: "最終得分: ", sfxOn: "🔊 音效: 開", sfxOff: "🔇 音效: 關", bgmOn: "🎵 音樂: 開", bgmOff: "🔇 音樂: 關", gameover: "遊戲結束", exitTitle: "退出遊戲", exitDesc: "返回主螢幕？", btnYes: "是", btnNo: "否", reviveTitle: "幸運復活！", reviveDesc: "觀看廣告獲得獎勵生命！", btnRevive: "▶ 觀看廣告", btnSkip: "放棄", adDesc: "廣告播放中... (即將關閉)", settings: "設置", quality: "畫質", highSpec: "高畫質", lowSpec: "低畫質", audio: "音訊", back: "返回", rolling: "🎰 抽獎中...", startText: "START!", top20: "🏆 前20名排行榜", newRecord: "🎉 新紀錄！ 🎉", namePlaceholder: "名字 (最多5字)", registerScore: "提交分數", rank: "排名", name: "名字", scoreHeader: "分數", close: "關閉", btnShowRanking: "🏆 前20名排行榜", loading: "載入中...", pleaseEnterName: "請輸入名字！", adBlockNotice: "⚠️ 無法載入廣告。請停用廣告攔截器（AdBlock）並重試。" },
-            es: { title: "🚀 Vanguardia Estelar", desc: "¡Explora el espacio y\ndesafía la máxima puntuación!", start: "Empezar Juego", restart: "Reiniciar", score: "Puntaje", finalScore: "Puntaje Final: ", sfxOn: "🔊 SFX: ON", sfxOff: "🔇 SFX: OFF", bgmOn: "🎵 BGM: ON", bgmOff: "🔇 BGM: OFF", gameover: "FIN DEL JUEGO", exitTitle: "SALIR", exitDesc: "¿Volver a la pantalla principal?", btnYes: "Sí", btnNo: "No", reviveTitle: "¡REVIVIR!", reviveDesc: "¡Mira el anuncio para ganar vidas!", btnRevive: "▶ Ver Anuncio", btnSkip: "Rendirse", adDesc: "Anuncio en reproducción...", settings: "AJUSTES", quality: "CALIDAD", highSpec: "ALTA", lowSpec: "BAJA", audio: "AUDIO", back: "VOLVER", rolling: "🎰 Cargando...", startText: "¡YA!", top20: "🏆 CLASIFICACIÓN TOP 20", newRecord: "🎉 ¡NUEVO RÉCORD! 🎉", namePlaceholder: "NOMBRE (Máx 5)", registerScore: "REGISTRAR", rank: "RANGO", name: "NOMBRE", scoreHeader: "PUNTAJE", close: "CERRAR", btnShowRanking: "🏆 CLASIFICACIÓN TOP 20", loading: "CARGANDO...", pleaseEnterName: "¡Por favor ingrese su nombre!", adBlockNotice: "⚠️ Error al cargar el anuncio. Desactiva tu AdBlocker e inténtalo de nuevo." }
+            es: { title: "🚀 Vanguardia Estelar", desc: "¡Explora el espacio y\ndesafía la máxima puntuación!", start: "Empezar Juego", restart: "Reiniciar", score: "Puntaje", finalScore: "Puntaje Final: ", sfxOn: "🔊 SFX: ON", sfxOff: "🔇 SFX: OFF", bgmOn: "🎵 BGM: ON", bgmOff: "🔇 BGM: OFF", gameover: "FIN DEL JUEGO", exitTitle: "SALIR", exitDesc: "¿Volver a la pantalla principal?", btnYes: "Sí", btnNo: "No", reviveTitle: "¡REVIVIR!", reviveDesc: "¡Mira el anuncio para 얻으세요vida!", btnRevive: "▶ Ver Anuncio", btnSkip: "Rendirse", adDesc: "Anuncio en reproducción...", settings: "AJUSTES", quality: "CALIDAD", highSpec: "ALTA", lowSpec: "BAJA", audio: "AUDIO", back: "VOLVER", rolling: "🎰 Cargando...", startText: "¡YA!", top20: "🏆 CLASIFICACIÓN TOP 20", newRecord: "🎉 ¡NUEVO RÉCORD! 🎉", namePlaceholder: "NOMBRE (Máx 5)", registerScore: "REGISTRAR", rank: "RANGO", name: "NOMBRE", scoreHeader: "PUNTAJE", close: "CERRAR", btnShowRanking: "🏆 CLASIFICACIÓN TOP 20", loading: "CARGANDO...", pleaseEnterName: "¡Por favor ingrese su nombre!", adBlockNotice: "⚠️ Error al cargar el anuncio. Desactiva tu AdBlocker e inténtalo de nuevo." }
         };
         
-        function applyI18n() {
-            let preferredLang = new URLSearchParams(window.location.search).get('lang') || localStorage.getItem('smileslife-preferred-lang') || navigator.language || 'ko';
-            if (preferredLang === 'zh-TW' || preferredLang === 'zh-tw' || preferredLang.toLowerCase().includes('tw')) {
-                preferredLang = 'zh-TW';
-            }
-            localStorage.setItem('smileslife-preferred-lang', preferredLang);
-            const userLangCode = preferredLang.startsWith('zh-TW') ? 'zh-TW' : preferredLang.substring(0, 2);
-            const userLang = i18n[userLangCode] ? userLangCode : 'en';
-            const langData = i18n[userLang];
+        let preferredLang = new URLSearchParams(window.location.search).get('lang') || localStorage.getItem('smileslife-preferred-lang') || navigator.language || 'ko';
+        if (preferredLang === 'zh-TW' || preferredLang === 'zh-tw' || preferredLang.toLowerCase().includes('tw')) {
+            preferredLang = 'zh-TW';
+        }
+        localStorage.setItem('smileslife-preferred-lang', preferredLang);
+        const userLangCode = preferredLang.startsWith('zh-TW') ? 'zh-TW' : preferredLang.substring(0, 2);
+        const userLang = i18n[userLangCode] ? userLangCode : 'en';
+        const langData = i18n[userLang];
 
+        function applyI18n() {
             document.getElementById('text-title').innerText = langData.title; 
             document.getElementById('text-desc').innerHTML = langData.desc.replace(/\n/g, '<br>');
             document.getElementById('btn-start').innerText = langData.start; 
@@ -1564,9 +1562,8 @@
             document.getElementById('revive-confirm').style.display = 'flex';
             const slotEl = document.getElementById('heart-slot');
             const btnYes = document.getElementById('btn-revive-yes');
-            btnYes.disabled = true; 
-            btnYes.style.pointerEvents = "none"; 
-            btnYes.innerText = langData.rolling || "🎰 Rolling...";
+            btnYes.disabled = true; btnYes.style.pointerEvents = "none"; 
+            btnYes.innerText = langData.rolling;
             
             const rand = Math.random();
             if (rand < 0.4) reviveHearts = 1; 
@@ -1576,13 +1573,11 @@
             else reviveHearts = 5;
 
             slotEl.innerHTML = '';
-            const reel = document.createElement('div'); 
-            reel.id = 'slot-reel';
+            const reel = document.createElement('div'); reel.id = 'slot-reel';
             const totalItems = 30; 
             const itemHeightVmin = 10; 
             for(let i=0; i<totalItems; i++) {
-                const div = document.createElement('div'); 
-                div.className = 'slot-item';
+                const div = document.createElement('div'); div.className = 'slot-item';
                 let hCount = (i % 5) + 1; 
                 if (i === totalItems - 1) hCount = reviveHearts; 
                 div.innerText = "❤️".repeat(hCount);
@@ -1598,27 +1593,10 @@
             setTimeout(() => { 
                 reel.style.transform = `translateY(-${(totalItems - 1) * itemHeightVmin}vmin)`; 
             }, 50);
-
-            if (slotInterval) clearInterval(slotInterval);
             let tickCount = 0;
-            slotInterval = setInterval(() => { 
-                playSound('tick'); 
-                tickCount++; 
-                if (tickCount > 15) {
-                    clearInterval(slotInterval);
-                    slotInterval = null;
-                } 
-            }, 120);
-
-            setTimeout(() => { playSound('tick'); }, 1800); 
-            setTimeout(() => { playSound('tick'); }, 2100);
-            setTimeout(() => { 
-                playSound('life_up'); 
-                const baseText = langData.btnRevive ? langData.btnRevive.replace('▶ ', '') : "Watch Ad";
-                btnYes.innerText = `▶ ${baseText} (❤️+${reviveHearts})`; 
-                btnYes.disabled = false; 
-                btnYes.style.pointerEvents = "auto"; 
-            }, 2600);
+            let tickInterval = setInterval(() => { playSound('tick'); tickCount++; if (tickCount > 15) clearInterval(tickInterval); }, 120);
+            setTimeout(() => { playSound('tick'); }, 1800); setTimeout(() => { playSound('tick'); }, 2100);
+            setTimeout(() => { playSound('life_up'); btnYes.innerText = `${langData.btnRevive.replace("▶ Watch Ad", "▶ Watch Ad (❤️+" + reviveHearts + ")")}`; btnYes.disabled = false; btnYes.style.pointerEvents = "auto"; }, 2600);
         }
 
         function explodeAt(pos, color, count = 25, isEpic = false, speedScale = 1.0) {
@@ -1700,62 +1678,32 @@
             setTimeout(() => { if (reviveCount < MAX_REVIVE) startReviveSlotMachine(); else showGameOverUI(); }, 2000);
         }
 
-        function watchAdToRevive() {
-            const btnYes = document.getElementById('btn-revive-yes');
-            if(btnYes.disabled) return; 
-            if(slotInterval) { clearInterval(slotInterval); slotInterval = null; }
-            document.getElementById('revive-confirm').style.display = 'none';
-            
-            let adStarted = false;
-            const adTimeout = setTimeout(() => {
-                if (!adStarted) {
-                    alert('⚠️ 구글 광고를 준비하는 중입니다.\n구글 광고 승인 반영 직후에는 광고 송출까지 수시간이 걸릴 수 있습니다.\n무료로 부활시켜 드립니다!');
-                    doReviveSuccess();
-                }
-            }, 3500);
+        function simulateAdPlayback(callback) {
+            const adScreen = document.getElementById('mock-ad-screen');
+            adScreen.style.display = 'flex';
+            setTimeout(() => { adScreen.style.display = 'none'; callback(); }, 3000); 
+        }
 
-            // Google AdSense H5 Rewarded Ad
-            adBreak({
-                type: 'reward',
-                name: 'revive-player',
-                beforeAd: () => { adStarted = true; clearTimeout(adTimeout); bgmVol = 0; },
-                afterAd: () => { bgmVol = bgmEnabled ? 0.3 : 0; },
-                adDismissed: () => {
-                    alert('광고 시청이 취소되어 부활하지 못했습니다.');
-                    showGameOverUI();
-                },
-                adViewed: () => {
-                    doReviveSuccess();
-                }
+        function watchAdToRevive() {
+            if(document.getElementById('btn-revive-yes').disabled) return; 
+            document.getElementById('revive-confirm').style.display = 'none';
+            simulateAdPlayback(() => {
+                reviveCount++; lives = reviveHearts; updateLivesUI();
+                isGameOver = false; isInvincible = true; 
+                obstacles.forEach(o => scene.remove(o)); obstacles = []; jumpPads.forEach(j => scene.remove(j)); jumpPads = []; hearts.forEach(h => scene.remove(h)); hearts = []; missiles.forEach(m => scene.remove(m)); missiles = []; 
+                particles.forEach(p => { scene.remove(p); if(p.geometry) p.geometry.dispose(); if(p.material) p.material.dispose(); }); particles = [];
+                isJumping = false; jumpVelocityY = 0; landingBounceStep = 0; trackCurve = 0; targetTrackCurve = 0;
+                
+                targetX = currentLane * LANE_WIDTH;
+                playerGroup.position.set(targetX, 0.5, 0); playerGroup.rotation.set(0, 0, 0); playerGroup.visible = true; 
+                shadow.position.set(targetX, 0.08, 0); shadow.visible = true;
+                let count = 0;
+                const blink = setInterval(() => { playerGroup.visible = !playerGroup.visible; if (++count > 30) { clearInterval(blink); playerGroup.visible = true; isInvincible = false; } }, 150);
+                startCountdown(); 
             });
         }
 
-        function doReviveSuccess() {
-            reviveCount++; 
-            lives = reviveHearts; 
-            updateLivesUI();
-            isGameOver = false; 
-            isInvincible = true; 
-            obstacles.forEach(o => scene.remove(o)); obstacles = []; 
-            jumpPads.forEach(j => scene.remove(j)); jumpPads = []; 
-            hearts.forEach(h => scene.remove(h)); hearts = []; 
-            missiles.forEach(m => scene.remove(m)); missiles = []; 
-            particles.forEach(p => { scene.remove(p); if(p.geometry) p.geometry.dispose(); if(p.material) p.material.dispose(); }); particles = [];
-            isJumping = false; jumpVelocityY = 0; landingBounceStep = 0; trackCurve = 0; targetTrackCurve = 0;
-            
-            targetX = currentLane * LANE_WIDTH;
-            playerGroup.position.set(targetX, 0.5, 0); playerGroup.rotation.set(0, 0, 0); playerGroup.visible = true; 
-            shadow.position.set(targetX, 0.08, 0); shadow.visible = true;
-            let count = 0;
-            const blink = setInterval(() => { playerGroup.visible = !playerGroup.visible; if (++count > 30) { clearInterval(blink); playerGroup.visible = true; isInvincible = false; } }, 150);
-            startCountdown();
-        }
-
-        function skipRevive() { 
-            if(slotInterval) { clearInterval(slotInterval); slotInterval = null; } 
-            document.getElementById('revive-confirm').style.display = 'none'; 
-            showGameOverUI(); 
-        }
+        function skipRevive() { if(slotInterval) clearInterval(slotInterval); document.getElementById('revive-confirm').style.display = 'none'; showGameOverUI(); }
 
         function animate() {
             if (!isStarted) return; 
@@ -2434,12 +2382,8 @@
         function resetGame() { 
             restartCount++; 
             document.getElementById('msg').style.display = 'none'; 
-            adBreak({
-                type: 'start',
-                name: 'restart-game',
-                beforeAd: () => { bgmVol = 0; },
-                afterAd: () => { bgmVol = bgmEnabled ? 0.3 : 0; executeReset(); }
-            });
+            if (restartCount % 3 === 0) simulateAdPlayback(() => executeReset()); 
+            else executeReset(); 
         }
 
         function executeReset() {
