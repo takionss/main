@@ -175,12 +175,6 @@
         <div id="loading-text">LOADING...</div>
     </div>
 
-    <div id="mock-ad-screen">
-        <div class="ad-spinner"></div>
-        <h2 style="color: #00ffff; font-size: 7vmin; margin-bottom:2vmin;">[ AD SIMULATION ]</h2>
-        <p id="text-ad-desc" style="font-size: 4vmin;">광고가 재생 중입니다... (곧 닫힙니다)</p>
-    </div>
-
     <div id="overlay" class="screen-panel">
         <div class="red-box">
             <button class="settings-btn" onclick="openSettings('overlay')">⚙️</button>
@@ -1678,28 +1672,34 @@
             setTimeout(() => { if (reviveCount < MAX_REVIVE) startReviveSlotMachine(); else showGameOverUI(); }, 2000);
         }
 
-        function simulateAdPlayback(callback) {
-            const adScreen = document.getElementById('mock-ad-screen');
-            adScreen.style.display = 'flex';
-            setTimeout(() => { adScreen.style.display = 'none'; callback(); }, 3000); 
-        }
-
         function watchAdToRevive() {
             if(document.getElementById('btn-revive-yes').disabled) return; 
             document.getElementById('revive-confirm').style.display = 'none';
-            simulateAdPlayback(() => {
-                reviveCount++; lives = reviveHearts; updateLivesUI();
-                isGameOver = false; isInvincible = true; 
-                obstacles.forEach(o => scene.remove(o)); obstacles = []; jumpPads.forEach(j => scene.remove(j)); jumpPads = []; hearts.forEach(h => scene.remove(h)); hearts = []; missiles.forEach(m => scene.remove(m)); missiles = []; 
-                particles.forEach(p => { scene.remove(p); if(p.geometry) p.geometry.dispose(); if(p.material) p.material.dispose(); }); particles = [];
-                isJumping = false; jumpVelocityY = 0; landingBounceStep = 0; trackCurve = 0; targetTrackCurve = 0;
-                
-                targetX = currentLane * LANE_WIDTH;
-                playerGroup.position.set(targetX, 0.5, 0); playerGroup.rotation.set(0, 0, 0); playerGroup.visible = true; 
-                shadow.position.set(targetX, 0.08, 0); shadow.visible = true;
-                let count = 0;
-                const blink = setInterval(() => { playerGroup.visible = !playerGroup.visible; if (++count > 30) { clearInterval(blink); playerGroup.visible = true; isInvincible = false; } }, 150);
-                startCountdown(); 
+            
+            // Google AdSense H5 Rewarded Ad
+            adBreak({
+                type: 'reward',
+                name: 'revive-player',
+                beforeAd: () => { bgmVol = 0; },
+                afterAd: () => { bgmVol = bgmEnabled ? 0.3 : 0; },
+                adDismissed: () => {
+                    alert('광고 시청이 취소되어 부활하지 못했습니다.');
+                    showGameOverUI();
+                },
+                adViewed: () => {
+                    reviveCount++; lives = reviveHearts; updateLivesUI();
+                    isGameOver = false; isInvincible = true; 
+                    obstacles.forEach(o => scene.remove(o)); obstacles = []; jumpPads.forEach(j => scene.remove(j)); jumpPads = []; hearts.forEach(h => scene.remove(h)); hearts = []; missiles.forEach(m => scene.remove(m)); missiles = []; 
+                    particles.forEach(p => { scene.remove(p); if(p.geometry) p.geometry.dispose(); if(p.material) p.material.dispose(); }); particles = [];
+                    isJumping = false; jumpVelocityY = 0; landingBounceStep = 0; trackCurve = 0; targetTrackCurve = 0;
+                    
+                    targetX = currentLane * LANE_WIDTH;
+                    playerGroup.position.set(targetX, 0.5, 0); playerGroup.rotation.set(0, 0, 0); playerGroup.visible = true; 
+                    shadow.position.set(targetX, 0.08, 0); shadow.visible = true;
+                    let count = 0;
+                    const blink = setInterval(() => { playerGroup.visible = !playerGroup.visible; if (++count > 30) { clearInterval(blink); playerGroup.visible = true; isInvincible = false; } }, 150);
+                    startCountdown();
+                }
             });
         }
 
@@ -2382,8 +2382,12 @@
         function resetGame() { 
             restartCount++; 
             document.getElementById('msg').style.display = 'none'; 
-            if (restartCount % 3 === 0) simulateAdPlayback(() => executeReset()); 
-            else executeReset(); 
+            adBreak({
+                type: 'start',
+                name: 'restart-game',
+                beforeAd: () => { bgmVol = 0; },
+                afterAd: () => { bgmVol = bgmEnabled ? 0.3 : 0; executeReset(); }
+            });
         }
 
         function executeReset() {

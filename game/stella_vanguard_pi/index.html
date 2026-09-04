@@ -3,9 +3,22 @@
 <head>
     <!-- Pi Network SDK -->
     <script src="https://sdk.minepi.com/pi-sdk.js"></script>
+    <!-- 구글 애드센스 H5 게임 광고 SDK 로드 -->
+    <script async
+      data-ad-frequency-hint="30s"
+      data-ad-client="ca-pub-2837251751819266"
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
+    </script>
     <script>
-      // Stub adBreak/adConfig so existing ad calls don't throw errors
-      var adBreak = adConfig = function(o) {};
+      window.adsbygoogle = window.adsbygoogle || [];
+      var adBreak = adConfig = function(o) {adsbygoogle.push(o);}
+      
+      adConfig({
+        preloadAdBreaks: 'on',
+        onAdBreakDone: function(info) {
+          console.log("Ad break done:", info);
+        }
+      });
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
@@ -2454,8 +2467,12 @@
         function resetGame() { 
             restartCount++; 
             document.getElementById('msg').style.display = 'none'; 
-            if (restartCount % 3 === 0) simulateAdPlayback(() => executeReset()); 
-            else executeReset(); 
+            adBreak({
+                type: 'start',
+                name: 'restart-game',
+                beforeAd: () => { bgmVol = 0; },
+                afterAd: () => { bgmVol = bgmEnabled ? 0.3 : 0; executeReset(); }
+            });
         }
 
         function executeReset() {
