@@ -7839,127 +7839,72 @@
     let adTriggered = false;
 
     function startRewardedAd() {
-
       // 로컬 테스트(file://) 환경인 경우 시뮬레이션 광고 구동
-
       if (window.location.protocol === 'file:') {
-
         runSimulatedAd();
-
         return;
-
       }
-
-
 
       // 실제 호스팅 도메인 환경인 경우 구글 애드센스 H5 보상형 광고 구동
-
       SoundSystem.stopSkydiveWindSound();
-
       SoundSystem.stopBGM();
-
       
-
       adTriggered = false;
 
-
-
       if (typeof window.adBreak === 'function') {
-
         const adTimeout = setTimeout(() => {
-
           if (!adTriggered) {
-
-            console.warn("AdSense SDK did not respond in time (possible adblocker).");
-
-            showAdblockNotice();
-
+            console.warn("AdSense SDK did not respond in time, falling back to simulated ad.");
+            adTriggered = true;
+            runSimulatedAd();
           }
-
-        }, 2000);
-
-
+        }, 2500);
 
         try {
-
           window.adBreak({
-
             type: 'reward',
-
             name: 'RevivePlayer',
-
             beforeAd: () => {
-
               adTriggered = true;
-
               clearTimeout(adTimeout);
-
               console.log("AdSense: 광고 시작됨");
-
             },
-
             afterAd: () => {
-
               console.log("AdSense: 광고 닫힘");
-
             },
-
             beforeReward: (showReward) => {
-
               console.log("AdSense: 보상 조건 충족");
-
               showReward(executeRevival);
-
             },
-
             adDismissed: () => {
-
               console.log("AdSense: 광고 스킵됨");
-
               showDefeatUI();
-
               gameState = 'FINISHED';
-
             },
-
             adViewed: () => {
-
               console.log("AdSense: 광고 시청 성공");
-
             },
-
             adError: (err) => {
-
-              adTriggered = true;
-
-              clearTimeout(adTimeout);
-
-              console.error("AdSense: 광고 에러 발생:", err);
-
-              showAdblockNotice();
-
+              if (!adTriggered) {
+                adTriggered = true;
+                clearTimeout(adTimeout);
+                console.error("AdSense: 광고 에러 발생:", err);
+                runSimulatedAd();
+              }
             }
-
           });
-
         } catch (err) {
-
-          console.error("Error executing window.adBreak:", err);
-
-          clearTimeout(adTimeout);
-
-          showAdblockNotice();
-
+          if (!adTriggered) {
+            adTriggered = true;
+            clearTimeout(adTimeout);
+            console.error("Error executing window.adBreak:", err);
+            runSimulatedAd();
+          }
         }
-
       } else {
-
-        console.warn("window.adBreak is not a function (blocked by adblocker).");
-
-        showAdblockNotice();
-
+        adTriggered = true;
+        runSimulatedAd();
       }
-
     }
 
 
