@@ -2,7 +2,7 @@ name,group,url,icon,desc
 圖片背景移除,網路服務,web/background-removal/index.html,images/generative-image.png,基於人工智慧的圖像背景去除和摳圖
 GIF轉換器,網路服務,web/image-to-gif/index.html,images/gif-file.png,透過組合圖像創建動畫 GIF
 音訊轉換器,網路服務,web/audio-converter/index.html,images/volume-adjustment.png,音樂和音訊檔案格式轉換器
-影像品質提升,網路服務,web/image-upscaler/index.html,images/scale.png,高清放大模糊照片，使其清晰。
+影像品質提升,網路服務,web/image-upscaler/index.html,images/scale.png,將模糊照片進行高清放大，使其清晰。
 影像AI橡皮擦,網路服務,web/object-eraser/index.html,images/eraser.png,AI技術可從照片中移除不需要的物體和文字
 影像轉換濾鏡,網路服務,web/anime-filter/index.html,images/comic-book.png,將照片轉換為卡通/網路漫畫動畫風格
 影像人工智慧分析,網路服務,web/image-tagging/index.html,images/image.png,AI影像分析、物件辨識、標籤推薦和短語生成

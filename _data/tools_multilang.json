@@ -369,7 +369,7 @@
           "name": "eliminación del fondo de la imagen",
           "url": "web/background-removal/index.html",
           "icon": "images/generative-image.png",
-          "desc": "Eliminación y recorte de fondo de imágenes mediante inteligencia artificial."
+          "desc": "Eliminación y recorte de fondo de imágenes mediante IA"
         },
         {
           "name": "convertidor de GIF",
@@ -422,7 +422,7 @@
           "name": "Arena de batalla",
           "url": "game/battle_arena/index.html",
           "icon": "images/battle.png",
-          "desc": "Juego de acción y batalla de supervivencia en arena para 50 jugadores"
+          "desc": "Juego de acción y batalla de supervivencia para 50 jugadores"
         },
         {
           "name": "Stella Vanguard",
@@ -583,7 +583,7 @@
           "name": "イメージAI分析",
           "url": "web/image-tagging/index.html",
           "icon": "images/image.png",
-          "desc": "AI画像分析物体認識とタグ推薦フレーズの生成"
+          "desc": "AI画像解析物体認識とタグ推薦フレーズの生成"
         },
         {
           "name": "カラーメーター",
@@ -743,7 +743,7 @@
           "name": "影像品質提升",
           "url": "web/image-upscaler/index.html",
           "icon": "images/scale.png",
-          "desc": "高清放大模糊照片，使其清晰。"
+          "desc": "將模糊照片進行高清放大，使其清晰。"
         },
         {
           "name": "影像AI橡皮擦",
