@@ -445,16 +445,16 @@
             es: { title: "🚀 Vanguardia Estelar", desc: "¡Explora el espacio y\ndesafía la máxima puntuación!", start: "Empezar Juego", restart: "Reiniciar", score: "Puntaje", finalScore: "Puntaje Final: ", sfxOn: "🔊 SFX: ON", sfxOff: "🔇 SFX: OFF", bgmOn: "🎵 BGM: ON", bgmOff: "🔇 BGM: OFF", gameover: "FIN DEL JUEGO", exitTitle: "SALIR", exitDesc: "¿Volver a la pantalla principal?", btnYes: "Sí", btnNo: "No", reviveTitle: "¡REVIVIR!", reviveDesc: "¡Obtén corazones de bonificación!", btnRevive: "π Pagar 0.01 Pi para Revivir", btnSkip: "Rendirse", adDesc: "Procesando pago...", settings: "AJUSTES", quality: "CALIDAD", highSpec: "ALTA", lowSpec: "BAJA", audio: "AUDIO", back: "VOLVER", rolling: "🎰 Cargando...", startText: "¡YA!", top20: "🏆 CLASIFICACIÓN TOP 20", newRecord: "🎉 ¡NUEVO RÉCORD! 🎉", namePlaceholder: "NOMBRE (Máx 5)", registerScore: "REGISTRAR", rank: "RANGO", name: "NOMBRE", scoreHeader: "PUNTAJE", close: "CERRAR", btnShowRanking: "🏆 CLASIFICACIÓN TOP 20", loading: "CARGANDO...", pleaseEnterName: "¡Por favor ingrese su nombre!", adBlockNotice: "⚠️ Se requiere autenticación Pi. Inicie sesión con Pi primero." }
         };
         
-        let preferredLang = new URLSearchParams(window.location.search).get('lang') || localStorage.getItem('smileslife-preferred-lang') || navigator.language || 'ko';
-        if (preferredLang === 'zh-TW' || preferredLang === 'zh-tw' || preferredLang.toLowerCase().includes('tw')) {
-            preferredLang = 'zh-TW';
-        }
-        localStorage.setItem('smileslife-preferred-lang', preferredLang);
-        const userLangCode = preferredLang.startsWith('zh-TW') ? 'zh-TW' : preferredLang.substring(0, 2);
-        const userLang = i18n[userLangCode] ? userLangCode : 'en';
-        const langData = i18n[userLang];
-
         function applyI18n() {
+            let preferredLang = new URLSearchParams(window.location.search).get('lang') || localStorage.getItem('smileslife-preferred-lang') || navigator.language || 'ko';
+            if (preferredLang === 'zh-TW' || preferredLang === 'zh-tw' || preferredLang.toLowerCase().includes('tw')) {
+                preferredLang = 'zh-TW';
+            }
+            localStorage.setItem('smileslife-preferred-lang', preferredLang);
+            const userLangCode = preferredLang.startsWith('zh-TW') ? 'zh-TW' : preferredLang.substring(0, 2);
+            const userLang = i18n[userLangCode] ? userLangCode : 'en';
+            const langData = i18n[userLang];
+
             document.getElementById('text-title').innerText = langData.title; 
             document.getElementById('text-desc').innerHTML = langData.desc.replace(/\n/g, '<br>');
             document.getElementById('btn-start').innerText = langData.start; 
