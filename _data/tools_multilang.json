@@ -369,7 +369,7 @@
           "name": "eliminación del fondo de la imagen",
           "url": "web/background-removal/index.html",
           "icon": "images/generative-image.png",
-          "desc": "Eliminación y recorte de fondo de imágenes mediante IA"
+          "desc": "Eliminación y recorte de fondo de imágenes mediante inteligencia artificial."
         },
         {
           "name": "convertidor de GIF",
@@ -813,7 +813,7 @@
           "name": "聯絡我們",
           "url": "https://forms.gle/iGqkmrB7YYptoUgQA",
           "icon": "images/board.png",
-          "desc": "提交有關合作關係、錯誤等方面的查詢。"
+          "desc": "提交有關合作關係、錯誤等的查詢。"
         },
         {
           "name": "記事本",
