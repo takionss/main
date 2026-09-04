@@ -1,5 +1,5 @@
 name,group,url,icon,desc
-eliminación del fondo de la imagen,Servicio web,web/background-removal/index.html,images/generative-image.png,Eliminación y recorte de fondo de imágenes mediante inteligencia artificial.
+eliminación del fondo de la imagen,Servicio web,web/background-removal/index.html,images/generative-image.png,Eliminación y recorte de fondo de imágenes mediante IA
 convertidor de GIF,Servicio web,web/image-to-gif/index.html,images/gif-file.png,Creación de GIF animados mediante la combinación de imágenes.
 convertidor de audio,Servicio web,web/audio-converter/index.html,images/volume-adjustment.png,Convertidor de formatos de archivos de música y audio
 mejora de la calidad de la imagen,Servicio web,web/image-upscaler/index.html,images/scale.png,Mejora de la resolución de fotos borrosas a alta definición para convertirlas en imágenes nítidas.

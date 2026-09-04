@@ -369,7 +369,7 @@
           "name": "eliminación del fondo de la imagen",
           "url": "web/background-removal/index.html",
           "icon": "images/generative-image.png",
-          "desc": "Eliminación y recorte de fondo de imágenes mediante inteligencia artificial."
+          "desc": "Eliminación y recorte de fondo de imágenes mediante IA"
         },
         {
           "name": "convertidor de GIF",
