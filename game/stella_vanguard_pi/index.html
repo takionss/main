@@ -299,15 +299,15 @@
                 <h1 id="text-gameover" style="font-size: 8vmin; margin: 0 0 3.5vmin 0; color:#ff0033; text-shadow: 0 0 4vmin #ff0033;">GAME OVER</h1>
                 <p id="finalScoreDisplay" style="font-size: 6vmin; margin: 0 0 6vmin 0; color: #fff; font-weight:bold; text-shadow: 0 0 2vmin rgba(255,255,255,0.5);"></p>
                 
-                <button id="btn-show-ranking" class="toggle-btn" style="background: rgba(20,20,40,0.8); color: #ffcc00; border-color: #ffcc00; width: 85%; margin-bottom: 3vmin; padding: 3vmin 0;" onclick="showLeaderboardScreen(false)"></button>
-                <button id="btn-restart" class="main-btn" style="margin-top: 0;" onclick="resetGame()"></button>
+                <button id="btn-show-ranking" class="toggle-btn" style="background: rgba(20,20,40,0.8); color: #ffcc00; border-color: #ffcc00; width: 85%; margin-bottom: 3vmin; padding: 3vmin 0;" onclick="showLeaderboardScreen(false)">🏆 TOP 20 랭킹</button>
+                <button id="btn-restart" class="main-btn" style="margin-top: 0;" onclick="resetGame()">다시 시작</button>
             </div>
         </div>
     </div>
 
     <div id="leaderboard-screen">
         <div class="red-box" style="border-color: #ffcc00; box-shadow: 0 0 6vmin rgba(255,204,0,0.3), inset 0 0 4vmin rgba(255,204,0,0.1);">
-            <h2 id="text-lb-title" style="color: #ffcc00; font-size: 6vmin; margin-top: 0; margin-bottom: 3vmin; text-shadow: 0 0 3vmin #ffcc00; z-index: 10; position: relative; white-space: nowrap;">TOP 20 RANKING</h2>
+            <h2 id="text-lb-title" style="color: #ffcc00; font-size: 4.8vmin; margin-top: 0; margin-bottom: 3vmin; text-shadow: 0 0 3vmin #ffcc00; z-index: 10; position: relative;">🏆 TOP 20 랭킹</h2>
             
             <div id="name-input-container">
                 <p id="text-new-record" style="color: #0f0; font-size: 3.8vmin; font-weight:bold; margin: 0 0 2vmin 0; text-shadow: 0 0 2vmin #0f0; white-space: nowrap;"></p>
@@ -317,12 +317,12 @@
 
             <div id="lb-main-container">
                 <table class="lb-table" id="lb-table">
-                    <thead><tr><th id="text-lb-rank"></th><th id="text-lb-name"></th><th id="text-lb-score"></th></tr></thead>
+                    <thead><tr><th id="text-lb-rank">순위</th><th id="text-lb-name">이름</th><th id="text-lb-score">점수</th></tr></thead>
                     <tbody id="lb-body">
                     </tbody>
                 </table>
             </div>
-            <button id="btn-lb-close" class="toggle-btn" style="background: rgba(255,255,255,0.2); color: #fff; width: 60%; padding: 2vmin; font-size: 4vmin; margin-top: 2vmin; border:none; z-index:10; position:relative;" onclick="closeLeaderboard()"></button>
+            <button id="btn-lb-close" class="toggle-btn" style="background: rgba(255,255,255,0.2); color: #fff; width: 60%; padding: 2vmin; font-size: 4vmin; margin-top: 2vmin; border:none; z-index:10; position:relative;" onclick="closeLeaderboard()">닫기</button>
         </div>
     </div>
 
