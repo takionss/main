@@ -316,15 +316,23 @@
         async function fetchLeaderboard() {
             try {
                 if (API_URL) {
-                    let res = await fetch(API_URL);
+                    const controller = new AbortController();
+                    const timeoutId = setTimeout(() => controller.abort(), 2500);
+                    let res = await fetch(API_URL, { signal: controller.signal });
+                    clearTimeout(timeoutId);
                     let data = await res.json();
-                    topScores = data;
+                    if (Array.isArray(data)) topScores = data;
                 } else {
                     let localData = localStorage.getItem('stellarVanguardTop10');
                     if (localData) topScores = JSON.parse(localData);
                     else topScores = [{name:"AAA", score:500}, {name:"BBB", score:300}, {name:"CCC", score:100}];
                 }
-            } catch(e) { console.error(e); }
+            } catch(e) { 
+                console.warn("Leaderboard fetch fallback to local:", e); 
+                let localData = localStorage.getItem('stellarVanguardTop10');
+                if (localData) topScores = JSON.parse(localData);
+                else topScores = [{name:"AAA", score:500}, {name:"BBB", score:300}, {name:"CCC", score:100}];
+            }
             renderLeaderboard();
         }
 
