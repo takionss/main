@@ -3557,7 +3557,7 @@
       }
     }
     function showAdblockNotice() {
-      showNotice("⚠️ 광고를 불러오지 못했습니다. 광고 차단 프로그램(AdBlock)을 해제하고 다시 도전해주세요.", 5000);
+      showNotice("⚠️ 구글 광고를 준비하는 중입니다. (광고 승인 반영 직후에는 광고 송출까지 시간이 소요될 수 있습니다)", 4000);
       showDefeatUI();
       gameState = 'FINISHED';
     }

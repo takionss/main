@@ -1676,11 +1676,29 @@
             if(document.getElementById('btn-revive-yes').disabled) return; 
             document.getElementById('revive-confirm').style.display = 'none';
             
+            let adStarted = false;
+            const adTimeout = setTimeout(() => {
+                if (!adStarted) {
+                    alert('⚠️ 구글 광고를 준비하는 중입니다.\n구글 광고 승인 반영 직후에는 광고 송출까지 수시간이 걸릴 수 있습니다.\n무료로 부활시켜 드립니다!');
+                    reviveCount++; lives = reviveHearts; updateLivesUI();
+                    isGameOver = false; isInvincible = true;
+                    obstacles.forEach(o => scene.remove(o)); obstacles = []; jumpPads.forEach(j => scene.remove(j)); jumpPads = []; hearts.forEach(h => scene.remove(h)); hearts = []; missiles.forEach(m => scene.remove(m)); missiles = [];
+                    particles.forEach(p => { scene.remove(p); if(p.geometry) p.geometry.dispose(); if(p.material) p.material.dispose(); }); particles = [];
+                    isJumping = false; jumpVelocityY = 0; landingBounceStep = 0; trackCurve = 0; targetTrackCurve = 0;
+                    targetX = currentLane * LANE_WIDTH;
+                    playerGroup.position.set(targetX, 0.5, 0); playerGroup.rotation.set(0, 0, 0); playerGroup.visible = true;
+                    shadow.position.set(targetX, 0.08, 0); shadow.visible = true;
+                    let count = 0;
+                    const blink = setInterval(() => { playerGroup.visible = !playerGroup.visible; if (++count > 30) { clearInterval(blink); playerGroup.visible = true; isInvincible = false; } }, 150);
+                    startCountdown();
+                }
+            }, 3500);
+
             // Google AdSense H5 Rewarded Ad
             adBreak({
                 type: 'reward',
                 name: 'revive-player',
-                beforeAd: () => { bgmVol = 0; },
+                beforeAd: () => { adStarted = true; clearTimeout(adTimeout); bgmVol = 0; },
                 afterAd: () => { bgmVol = bgmEnabled ? 0.3 : 0; },
                 adDismissed: () => {
                     alert('광고 시청이 취소되어 부활하지 못했습니다.');
