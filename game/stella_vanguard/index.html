@@ -1687,20 +1687,70 @@
         function watchAdToRevive() {
             if(document.getElementById('btn-revive-yes').disabled) return; 
             document.getElementById('revive-confirm').style.display = 'none';
-            simulateAdPlayback(() => {
-                reviveCount++; lives = reviveHearts; updateLivesUI();
-                isGameOver = false; isInvincible = true; 
-                obstacles.forEach(o => scene.remove(o)); obstacles = []; jumpPads.forEach(j => scene.remove(j)); jumpPads = []; hearts.forEach(h => scene.remove(h)); hearts = []; missiles.forEach(m => scene.remove(m)); missiles = []; 
-                particles.forEach(p => { scene.remove(p); if(p.geometry) p.geometry.dispose(); if(p.material) p.material.dispose(); }); particles = [];
-                isJumping = false; jumpVelocityY = 0; landingBounceStep = 0; trackCurve = 0; targetTrackCurve = 0;
-                
-                targetX = currentLane * LANE_WIDTH;
-                playerGroup.position.set(targetX, 0.5, 0); playerGroup.rotation.set(0, 0, 0); playerGroup.visible = true; 
-                shadow.position.set(targetX, 0.08, 0); shadow.visible = true;
-                let count = 0;
-                const blink = setInterval(() => { playerGroup.visible = !playerGroup.visible; if (++count > 30) { clearInterval(blink); playerGroup.visible = true; isInvincible = false; } }, 150);
-                startCountdown(); 
-            });
+            
+            let adHandled = false;
+            // 2.5초 내에 광고가 송출되지 않거나 승인 대기 중일 때 가짜 광고 시뮬레이션으로 안전 전환 (게임 멈춤 방지)
+            const adFallbackTimer = setTimeout(() => {
+                if (!adHandled) {
+                    adHandled = true;
+                    simulateAdPlayback(() => executeReviveSuccess());
+                }
+            }, 2500);
+
+            if (typeof window.adBreak === 'function') {
+                try {
+                    window.adBreak({
+                        type: 'reward',
+                        name: 'revive-player',
+                        beforeAd: () => {
+                            adHandled = true;
+                            clearTimeout(adFallbackTimer);
+                            bgmVol = 0;
+                        },
+                        afterAd: () => {
+                            bgmVol = bgmEnabled ? 0.3 : 0;
+                        },
+                        adDismissed: () => {
+                            alert(langData.adDismissed || '광고 시청이 취소되어 부활하지 못했습니다.');
+                            showGameOverUI();
+                        },
+                        adViewed: () => {
+                            executeReviveSuccess();
+                        }
+                    });
+                } catch(e) {
+                    if (!adHandled) {
+                        adHandled = true;
+                        clearTimeout(adFallbackTimer);
+                        simulateAdPlayback(() => executeReviveSuccess());
+                    }
+                }
+            } else {
+                adHandled = true;
+                clearTimeout(adFallbackTimer);
+                simulateAdPlayback(() => executeReviveSuccess());
+            }
+        }
+
+        function executeReviveSuccess() {
+            reviveCount++; 
+            lives = reviveHearts; 
+            updateLivesUI();
+            isGameOver = false; 
+            isInvincible = true; 
+            obstacles.forEach(o => scene.remove(o)); obstacles = []; 
+            jumpPads.forEach(j => scene.remove(j)); jumpPads = []; 
+            hearts.forEach(h => scene.remove(h)); hearts = []; 
+            missiles.forEach(m => scene.remove(m)); missiles = []; 
+            particles.forEach(p => { scene.remove(p); if(p.geometry) p.geometry.dispose(); if(p.material) p.material.dispose(); }); particles = [];
+            isJumping = false; jumpVelocityY = 0; landingBounceStep = 0; trackCurve = 0; targetTrackCurve = 0;
+            
+            targetX = currentLane * LANE_WIDTH;
+            playerGroup.position.set(targetX, 0.5, 0); playerGroup.rotation.set(0, 0, 0); playerGroup.visible = true; 
+            shadow.position.set(targetX, 0.08, 0); shadow.visible = true;
+            let count = 0;
+            const blink = setInterval(() => { playerGroup.visible = !playerGroup.visible; if (++count > 30) { clearInterval(blink); playerGroup.visible = true; isInvincible = false; } }, 150);
+            startCountdown(); 
         }
 
         function skipRevive() { if(slotInterval) clearInterval(slotInterval); document.getElementById('revive-confirm').style.display = 'none'; showGameOverUI(); }
@@ -2382,6 +2432,17 @@
         function resetGame() { 
             restartCount++; 
             document.getElementById('msg').style.display = 'none'; 
+            if (typeof window.adBreak === 'function') {
+                try {
+                    window.adBreak({
+                        type: 'start',
+                        name: 'restart-game',
+                        beforeAd: () => { bgmVol = 0; },
+                        afterAd: () => { bgmVol = bgmEnabled ? 0.3 : 0; executeReset(); }
+                    });
+                    return;
+                } catch(e) {}
+            }
             if (restartCount % 3 === 0) simulateAdPlayback(() => executeReset()); 
             else executeReset(); 
         }
