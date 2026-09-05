@@ -2454,19 +2454,7 @@
         function resetGame() { 
             restartCount++; 
             document.getElementById('msg').style.display = 'none'; 
-            if (typeof window.adBreak === 'function') {
-                try {
-                    window.adBreak({
-                        type: 'start',
-                        name: 'restart-game',
-                        beforeAd: () => { bgmVol = 0; },
-                        afterAd: () => { bgmVol = bgmEnabled ? 0.3 : 0; executeReset(); }
-                    });
-                    return;
-                } catch(e) {}
-            }
-            if (restartCount % 3 === 0) simulateAdPlayback(() => executeReset()); 
-            else executeReset(); 
+            executeReset(); 
         }
 
         function executeReset() {
