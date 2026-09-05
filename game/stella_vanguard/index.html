@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-        <!-- 구글 애드센스 H5 게임 광고 SDK 로드 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Stellar Vanguard</title>
+    <!-- 구글 애드센스 H5 게임 광고 SDK 로드 -->
     <script async
       data-ad-frequency-hint="30s"
       data-ad-client="ca-pub-2837251751819266"
@@ -19,9 +22,6 @@
         }
       });
     </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>Stellar Vanguard</title>
     <style>
         html, body {
             margin: 0;
@@ -1688,6 +1688,12 @@
             if(document.getElementById('btn-revive-yes').disabled) return; 
             document.getElementById('revive-confirm').style.display = 'none';
             
+            // 로컬 테스트(file://) 환경인 경우 시뮬레이션 광고 구동
+            if (window.location.protocol === 'file:') {
+                simulateAdPlayback(() => executeReviveSuccess());
+                return;
+            }
+
             // 광고 로딩 모래시계 / 로딩 화면 표시 (사용자 대기 안내)
             const loadingScreen = document.getElementById('loading-screen');
             const loadingText = document.getElementById('loading-text');
@@ -1710,7 +1716,7 @@
                 try {
                     window.adBreak({
                         type: 'reward',
-                        name: 'revive-player',
+                        name: 'RevivePlayer',
                         beforeAd: () => {
                             adHandled = true;
                             clearTimeout(adFallbackTimer);
@@ -1720,6 +1726,9 @@
                         },
                         afterAd: () => {
                             bgmVol = bgmEnabled ? 0.3 : 0;
+                        },
+                        beforeReward: (showReward) => {
+                            showReward(executeReviveSuccess);
                         },
                         adDismissed: () => {
                             loadingScreen.style.display = 'none';
@@ -1731,6 +1740,16 @@
                             loadingScreen.style.display = 'none';
                             loadingText.innerText = oldText;
                             executeReviveSuccess();
+                        },
+                        adError: (err) => {
+                            if (!adHandled) {
+                                adHandled = true;
+                                clearTimeout(adFallbackTimer);
+                                loadingScreen.style.display = 'none';
+                                loadingText.innerText = oldText;
+                                console.error("AdSense Ad Error:", err);
+                                simulateAdPlayback(() => executeReviveSuccess());
+                            }
                         }
                     });
                 } catch(e) {
