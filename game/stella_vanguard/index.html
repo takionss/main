@@ -294,9 +294,9 @@
             <button class="settings-btn" onclick="openSettings('exit')">⚙️</button>
             <h2 id="text-exit-title" style="color: #ff0033; font-size: 8vmin; margin-bottom: 2.5vmin; text-shadow: 0 0 4vmin #ff0033; z-index: 10; position: relative;">EXIT GAME</h2>
             <p id="text-exit-desc" style="color: #fff; font-size: 4.5vmin; margin-bottom: 6vmin; z-index: 10; position: relative;"></p>
-            <div class="toggle-container" style="flex-direction: row; gap: 3vmin; justify-content: center; border: none; margin: 0;">
-                <button id="btn-exit-yes" class="main-btn" style="background: rgba(255,0,50,0.8); color: #fff; min-width: 35vmin; margin: 0; font-size: 4.5vmin; width: auto; border: 0.2vw solid #ff0033; box-shadow: 0 0 2vmin #ff0033;" onclick="confirmExit()">Yes</button>
-                <button id="btn-exit-no" class="main-btn" style="min-width: 35vmin; margin: 0; font-size: 4.5vmin; width: auto;" onclick="cancelExit()">No</button>
+            <div class="toggle-container" style="flex-direction: row; gap: 2vmin; justify-content: center; border: none; margin: 0; width: 100%;">
+                <button id="btn-exit-yes" class="main-btn" style="background: rgba(255,0,50,0.8); color: #fff; flex: 1; margin: 0; font-size: 3.8vmin; border: 0.2vw solid #ff0033; box-shadow: 0 0 2vmin #ff0033; padding: 2vmin 0;" onclick="confirmExit()">Yes</button>
+                <button id="btn-exit-no" class="main-btn" style="flex: 1; margin: 0; font-size: 3.8vmin; padding: 2vmin 0;" onclick="cancelExit()">No</button>
             </div>
         </div>
     </div>
@@ -863,7 +863,7 @@
         }
 
         window.addEventListener('popstate', () => {
-            if (isStarted && !isExitPromptOpen && !document.getElementById('mock-ad-screen').style.display.includes('flex') && !document.getElementById('revive-confirm').style.display.includes('flex') && !document.getElementById('leaderboard-screen').style.display.includes('flex')) {
+            if (isStarted && !isExitPromptOpen && !document.getElementById('loading-screen').style.display.includes('flex') && !document.getElementById('mock-ad-screen').style.display.includes('flex') && !document.getElementById('revive-confirm').style.display.includes('flex') && !document.getElementById('msg').style.display.includes('flex') && !document.getElementById('leaderboard-screen').style.display.includes('flex')) {
                 history.pushState({ page: 'game' }, '', ''); 
                 showExitPrompt();
             }
@@ -1769,6 +1769,12 @@
         }
 
         function executeReviveSuccess() {
+            document.getElementById('revive-confirm').style.display = 'none';
+            document.getElementById('msg').style.display = 'none';
+            document.getElementById('exit-confirm').style.display = 'none';
+            document.getElementById('loading-screen').style.display = 'none';
+            document.getElementById('mock-ad-screen').style.display = 'none';
+
             reviveCount++; 
             lives = reviveHearts; 
             updateLivesUI();
