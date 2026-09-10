@@ -5398,6 +5398,7 @@
                 playerSoldier.leftArm.rotation.y = 0;
                 playerSoldier.rightArm.rotation.y = 0;
               }
+            } else {
               // 자연스러운 상체 보행 스웨이 및 척추 바운스 (Spine Sway & Bounce)
               const spineSway = Math.sin(bobbingTime) * 0.05 * bobIntensity;
               const spineBob = Math.abs(Math.cos(bobbingTime)) * 0.04 * bobIntensity;
@@ -5707,6 +5708,7 @@
               checkVictory();
               return;
             }
+          }
           // 1. 목표 방향(desiredDir) 및 속도(moveSpeed) 변수 선언
           let desiredDir = null;
           let moveSpeed = 0;
