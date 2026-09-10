@@ -1673,33 +1673,51 @@
       const helmetMat = new THREE.MeshStandardMaterial({ color: 0x1e2f1e, roughness: 0.9, side: THREE.DoubleSide });
       const bootMat = new THREE.MeshStandardMaterial({ color: 0x111111 });
       const pantsMat = new THREE.MeshStandardMaterial({ color: 0x2a3e2a });
-      // 몸통 세분화 그룹 (가슴, 허리, 전술 벨트)
+      // 몸통 세분화 그룹 (자연스러운 역사다리꼴 상체 + 전술 베스트 + 허리 + 전술 벨트)
       const body = new THREE.Group();
       body.position.y = 0.95;
       group.add(body);
-      // 1) 상부 가슴 메쉬 (Tactical Vest 느낌)
-      const chest = new THREE.Mesh(new THREE.BoxGeometry(0.56, 0.35, 0.28), camoMat);
-      chest.position.y = 0.18; // 로컬 위치 (월드 Y: 0.95 + 0.18 = 1.13)
+      // 1) 상부 가슴 메쉬 (곡선형 역사다리꼴 체형)
+      const chestGeom = new THREE.CylinderGeometry(0.27, 0.23, 0.36, 16);
+      chestGeom.scale(1.0, 1.0, 0.65); // 앞뒤가 납작한 인체 단면 형성
+      const chest = new THREE.Mesh(chestGeom, camoMat);
+      chest.position.y = 0.18;
       chest.castShadow = true; chest.receiveShadow = true;
       body.add(chest);
-      // 방탄판/파우치 디테일
-      const vestPlate = new THREE.Mesh(new THREE.BoxGeometry(0.42, 0.25, 0.05), new THREE.MeshStandardMaterial({ color: 0x222222, roughness: 0.95 }));
-      vestPlate.position.set(0, 0, -0.155);
-      chest.add(vestPlate);
-      // 2) 유연한 허리 메쉬
-      const waist = new THREE.Mesh(new THREE.BoxGeometry(0.48, 0.16, 0.25), pantsMat);
-      waist.position.y = -0.07; // 로컬 위치 (월드 Y: 0.95 - 0.07 = 0.88)
+      // 입체적인 전술 방탄 조끼 (MOLLE 파우치 & 플레이트 캐리어 질감)
+      const vestMat = new THREE.MeshStandardMaterial({ color: 0x1f241f, roughness: 0.85, metalness: 0.1 });
+      const vestPlate = new THREE.Mesh(new THREE.BoxGeometry(0.38, 0.26, 0.06), vestMat);
+      vestPlate.position.set(0, 0.18, -0.12);
+      body.add(vestPlate);
+      // 가슴 앞 3연장 매거진 파우치 (Tactical Mag Pouches)
+      const pouchMat = new THREE.MeshStandardMaterial({ color: 0x181a18, roughness: 0.9 });
+      for (let pIdx = -1; pIdx <= 1; pIdx++) {
+        const pouch = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.13, 0.045), pouchMat);
+        pouch.position.set(pIdx * 0.105, 0.14, -0.165);
+        body.add(pouch);
+      }
+      // 2) 유연한 허리 및 복근 (Abdomen)
+      const waistGeom = new THREE.CylinderGeometry(0.23, 0.22, 0.16, 14);
+      waistGeom.scale(1.0, 1.0, 0.62);
+      const waist = new THREE.Mesh(waistGeom, pantsMat);
+      waist.position.y = -0.07;
       waist.castShadow = true; waist.receiveShadow = true;
       body.add(waist);
-      // 3) 골반 및 전술 벨트 메쉬
-      const beltMat = new THREE.MeshStandardMaterial({ color: 0x1a1a1a, roughness: 0.9 });
-      const belt = new THREE.Mesh(new THREE.BoxGeometry(0.52, 0.14, 0.26), beltMat);
-      belt.position.y = -0.22; // 로컬 위치 (월드 Y: 0.95 - 0.22 = 0.73)
+      // 3) 골반 및 전술 듀티 벨트 (버클 디테일 포함)
+      const beltMat = new THREE.MeshStandardMaterial({ color: 0x151515, roughness: 0.8 });
+      const belt = new THREE.Mesh(new THREE.CylinderGeometry(0.25, 0.24, 0.09, 14), beltMat);
+      belt.scale.set(1.0, 1.0, 0.66);
+      belt.position.y = -0.19;
       belt.castShadow = true; belt.receiveShadow = true;
       body.add(belt);
-      // 4) 하부 골반/엉덩이 메쉬 (바지 색상과 연동하여 다리와 몸통을 연결)
-      const hips = new THREE.Mesh(new THREE.BoxGeometry(0.48, 0.18, 0.24), pantsMat);
-      hips.position.y = -0.32; // 로컬 위치 (월드 Y: 0.95 - 0.32 = 0.63, 다리가 붙은 0.60과 오버랩되어 틈새 방지)
+      const buckle = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.06, 0.02), new THREE.MeshStandardMaterial({ color: 0x777777, metalness: 0.8, roughness: 0.3 }));
+      buckle.position.set(0, -0.19, -0.165);
+      body.add(buckle);
+      // 4) 하부 골반/엉덩이 메쉬 (다리와 부드럽게 이어지는 둥근 둔부)
+      const hipsGeom = new THREE.CylinderGeometry(0.24, 0.21, 0.20, 14);
+      hipsGeom.scale(1.0, 1.0, 0.70);
+      const hips = new THREE.Mesh(hipsGeom, pantsMat);
+      hips.position.y = -0.31;
       hips.castShadow = true; hips.receiveShadow = true;
       body.add(hips);
       // 해커용 붉은 몸통 텍스처 등 외부 대입 호환을 위한 material 프로퍼티 재정의
@@ -1712,6 +1730,11 @@
           hips.material = m;
         }
       });
+      // 목 (Neck) - 머리와 몸통 사이를 자연스럽게 이어주는 경추 기둥 추가
+      const neck = new THREE.Mesh(new THREE.CylinderGeometry(0.085, 0.095, 0.14, 12), skinMat);
+      neck.position.set(0, 1.35, 0);
+      neck.castShadow = true;
+      group.add(neck);
       // 머리 & 헬멧
       const headGroup = new THREE.Group();
       headGroup.position.set(0, 1.45, 0);
@@ -1949,7 +1972,8 @@
         updateHelmetVisual: updateHelmetVisual,
         updateBagVisual: updateBagVisual,
         leftJoint: leftJoint,
-        rightJoint: rightJoint
+        rightJoint: rightJoint,
+        neck: neck
       };
     }
     function updateSoldierJoints(soldier) {
@@ -1958,6 +1982,9 @@
       }
       if (soldier.rightJoint && soldier.rightArm) {
         soldier.rightJoint.position.set(soldier.rightArm.position.x - 0.07, soldier.rightArm.position.y, soldier.rightArm.position.z);
+      }
+      if (soldier.neck && soldier.body) {
+        soldier.neck.position.y = soldier.body.position.y + 0.40;
       }
     }
     function createWeaponMesh(weapon, scope) {
@@ -4361,6 +4388,7 @@
         if (hitEnemy) {
           hitEnemy.hp -= currentWeapon.dmg;
           hitEnemy.lastHitTime = clock.getElapsedTime();
+          hitEnemy.lastHitByPlayerTime = clock.getElapsedTime();
           showNotice("🎯 적에게 타격을 입혔습니다! (-20 HP)");
           SoundSystem.playPunch(true);
           if (hitEnemy.hp <= 0) {
@@ -5612,8 +5640,8 @@
       enemies.forEach(e => {
         if(e.hp <= 0) return;
         let isEnemySwimming = false;
-        // 1. 머리 위 체력 게이지 투영 업데이트
-        if(e.state === 'PLAYING' && (clock.getElapsedTime() - e.lastHitTime < 5)) {
+        // 1. 머리 위 체력 게이지 투영 업데이트 (오직 플레이어가 직접 유효 타격을 가한 적군만 5초간 표시)
+        if(e.state === 'PLAYING' && e.lastHitByPlayerTime && (clock.getElapsedTime() - e.lastHitByPlayerTime < 5)) {
           const hpPos = e.mesh.position.clone().add(new THREE.Vector3(0, 2.2, 0));
           hpPos.project(camera);
           if(hpPos.z < 1) {
@@ -6353,6 +6381,9 @@
                     }
                     e.hp -= damage;
                     e.lastHitTime = clock.getElapsedTime();
+                    if (b.owner === 'PLAYER') {
+                      e.lastHitByPlayerTime = clock.getElapsedTime();
+                    }
                     if (b.shooterPos) {
                       e.lastAttackerPos = b.shooterPos.clone();
                     }
@@ -6474,6 +6505,7 @@
                   if (e.helmet) dmg *= (1 - e.helmet.reduction);
                   e.hp -= dmg;
                   e.lastHitTime = clock.getElapsedTime();
+                  e.lastHitByPlayerTime = clock.getElapsedTime();
                   if (e.hp <= 0) {
                     totalAlive--;
                     scene.remove(e.mesh);
