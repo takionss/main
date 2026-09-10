@@ -927,23 +927,25 @@
     scene.fog = new THREE.FogExp2(0x71a5d4, 0.003); 
     const camera = new THREE.PerspectiveCamera(65, window.innerWidth / window.innerHeight, 0.1, 2500);
     camera.position.set(0, 150, 0);
-    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-    scene.fog = new THREE.FogExp2(0xcce0ff, 0.0018);
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.08;
+    scene.fog = new THREE.FogExp2(0x9bc3eb, 0.0016);
     document.body.appendChild(renderer.domElement);
-    scene.add(new THREE.AmbientLight(0xffffff, 0.45));
-    const hemiLight = new THREE.HemisphereLight(0xddeeff, 0x4f6d4f, 0.6);
+    scene.add(new THREE.AmbientLight(0xd6e6ff, 0.5));
+    const hemiLight = new THREE.HemisphereLight(0xfff5e6, 0x3d5a3d, 0.7);
     scene.add(hemiLight);
-    const sun = new THREE.DirectionalLight(0xffeedd, 1.5);
-    sun.position.set(200, 300, 100); sun.castShadow = true;
-    sun.shadow.camera.left = -300; sun.shadow.camera.right = 300; sun.shadow.camera.top = 300; sun.shadow.camera.bottom = -300;
+    const sun = new THREE.DirectionalLight(0xfffaed, 1.8);
+    sun.position.set(220, 320, 120); sun.castShadow = true;
+    sun.shadow.camera.left = -320; sun.shadow.camera.right = 320; sun.shadow.camera.top = 320; sun.shadow.camera.bottom = -320;
     sun.shadow.camera.near = 0.5;
     sun.shadow.camera.far = 1000;
     sun.shadow.mapSize.width = 2048;
     sun.shadow.mapSize.height = 2048;
-    sun.shadow.bias = -0.0008;
+    sun.shadow.bias = -0.0006;
     scene.add(sun);
     // --- [건물 위치 사전 결정 및 지형 평탄화 설계] ---
     const buildingSpots = [];
@@ -1762,34 +1764,41 @@
       visor.visible = false;
       headGroup.add(visor);
       group.add(headGroup);
-      // 관절형 팔 (위팔 + 아래팔 구조)
+      // 관절형 팔 (부드러운 유선형 실린더와 힌지 관절)
       function createArm(mat, px, py, pz) {
         const armGroup = new THREE.Group();
         armGroup.position.set(px, py, pz);
-        // 위팔 (Upper Arm)
-        const upperArm = new THREE.Mesh(new THREE.BoxGeometry(0.12, 0.25, 0.12), mat);
-        upperArm.position.y = -0.125;
+        // 위팔 (Upper Arm) - 유선형 테이퍼 실린더
+        const upperArm = new THREE.Mesh(new THREE.CylinderGeometry(0.065, 0.055, 0.26, 12), mat);
+        upperArm.position.y = -0.13;
         upperArm.castShadow = true;
         upperArm.receiveShadow = true;
         armGroup.add(upperArm);
-        // 어깨 보호대 (Shoulder Pad) 추가
-        const padMat = new THREE.MeshStandardMaterial({ color: 0x181818, roughness: 0.8 });
-        const shoulderPad = new THREE.Mesh(new THREE.BoxGeometry(0.15, 0.07, 0.15), padMat);
-        shoulderPad.position.set(px < 0 ? -0.015 : 0.015, 0.02, 0);
-        upperArm.add(shoulderPad);
+        // 어깨 볼륨 패드 (곡면형 전술 견갑)
+        const padMat = new THREE.MeshStandardMaterial({ color: 0x1f231f, roughness: 0.7, metalness: 0.1 });
+        const shoulderPad = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.085, 0.09, 12), padMat);
+        shoulderPad.position.set(px < 0 ? -0.01 : 0.01, -0.02, 0);
+        shoulderPad.rotation.z = px < 0 ? -0.15 : 0.15;
+        armGroup.add(shoulderPad);
+        // 팔꿈치 관절 구체
+        const elbowJoint = new THREE.Mesh(new THREE.SphereGeometry(0.055, 10, 10), mat);
+        elbowJoint.position.set(0, -0.26, 0);
+        armGroup.add(elbowJoint);
         // 팔꿈치 관절 피벗 (위팔 아래 끝단)
         const elbowPivot = new THREE.Group();
-        elbowPivot.position.set(0, -0.25, 0);
+        elbowPivot.position.set(0, -0.26, 0);
         armGroup.add(elbowPivot);
         // 아래팔 (Forearm)
-        const forearm = new THREE.Mesh(new THREE.BoxGeometry(0.10, 0.25, 0.10), mat);
+        const forearm = new THREE.Mesh(new THREE.CylinderGeometry(0.055, 0.048, 0.25, 12), mat);
         forearm.position.y = -0.125;
         forearm.castShadow = true;
         forearm.receiveShadow = true;
         elbowPivot.add(forearm);
-        // 손 (Hand) 추가 - 손끝에 살색 손 메쉬 생성
-        const hand = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.08, 0.08), skinMat);
-        hand.position.set(0, -0.27, 0);
+        // 손목 관절 & 손 (Glove)
+        const gloveMat = new THREE.MeshStandardMaterial({ color: 0x222222, roughness: 0.8 });
+        const hand = new THREE.Mesh(new THREE.SphereGeometry(0.048, 10, 10), gloveMat);
+        hand.scale.set(1.0, 1.25, 0.85);
+        hand.position.set(0, -0.26, 0);
         hand.castShadow = true;
         hand.receiveShadow = true;
         elbowPivot.add(hand);
@@ -1798,51 +1807,64 @@
           elbow: elbowPivot
         };
       }
-      // 어깨 관절 구체 (Shoulder Joint Spheres)를 추가하여 몸통과 팔 사이의 이격된 공간을 자연스럽게 보강
+      // 어깨 관절 구체 (Shoulder Joint Spheres)
       const jointMat = new THREE.MeshStandardMaterial({ color: camoColorHex, roughness: 0.8 });
-      const leftJoint = new THREE.Mesh(new THREE.SphereGeometry(0.08, 12, 12), jointMat);
+      const leftJoint = new THREE.Mesh(new THREE.SphereGeometry(0.075, 12, 12), jointMat);
       leftJoint.position.set(-0.31, 1.25, 0);
       leftJoint.castShadow = true;
       group.add(leftJoint);
-      const rightJoint = new THREE.Mesh(new THREE.SphereGeometry(0.08, 12, 12), jointMat);
+      const rightJoint = new THREE.Mesh(new THREE.SphereGeometry(0.075, 12, 12), jointMat);
       rightJoint.position.set(0.31, 1.25, 0);
       rightJoint.castShadow = true;
       group.add(rightJoint);
-      const leftArm = createArm(camoMat, -0.38, 1.25, 0);
-      const rightArm = createArm(camoMat, 0.38, 1.25, 0);
+      const leftArm = createArm(camoMat, -0.36, 1.25, 0);
+      const rightArm = createArm(camoMat, 0.36, 1.25, 0);
       group.add(leftArm.group);
       group.add(rightArm.group);
-      // 양다리 (허벅지 + 무릎관절 구조 - 총 길이 0.6으로 축소하여 비율 수정 및 지면 뚫림 방지)
+      // 양다리 (인체 곡선형 허벅지 + 무릎 볼관절 + 정강이)
       function createLeg(mat, bootMat, px, py, pz) {
         const legGroup = new THREE.Group();
         legGroup.position.set(px, py, pz);
-        // 허벅지 (Thigh) - 골반 피벗 기준
-        const thigh = new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.26, 0.16), mat);
-        thigh.position.y = -0.13;
+        // 골반 힌지 볼
+        const hipJoint = new THREE.Mesh(new THREE.SphereGeometry(0.08, 10, 10), mat);
+        legGroup.add(hipJoint);
+        // 허벅지 (Thigh) - 위가 도톰하고 아래로 갈수록 날렵한 대퇴부
+        const thigh = new THREE.Mesh(new THREE.CylinderGeometry(0.082, 0.068, 0.27, 12), mat);
+        thigh.position.y = -0.135;
         thigh.castShadow = true;
         thigh.receiveShadow = true;
         legGroup.add(thigh);
-        // 무릎 관절 피벗 (허벅지 아래 끝단)
+        // 무릎 볼관절 구체
+        const kneeJoint = new THREE.Mesh(new THREE.SphereGeometry(0.068, 10, 10), mat);
+        kneeJoint.position.set(0, -0.27, 0);
+        legGroup.add(kneeJoint);
+        // 무릎 관절 피벗
         const kneePivot = new THREE.Group();
-        kneePivot.position.set(0, -0.26, 0);
+        kneePivot.position.set(0, -0.27, 0);
         legGroup.add(kneePivot);
         // 종아리 (Shin/Calf)
-        const shin = new THREE.Mesh(new THREE.BoxGeometry(0.14, 0.26, 0.14), mat);
+        const shin = new THREE.Mesh(new THREE.CylinderGeometry(0.066, 0.055, 0.26, 12), mat);
         shin.position.y = -0.13;
         shin.castShadow = true;
         shin.receiveShadow = true;
         kneePivot.add(shin);
-        // 무릎 보호대 (Knee Pad) 추가
-        const padMat = new THREE.MeshStandardMaterial({ color: 0x181818, roughness: 0.8 });
-        const kneePad = new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.08, 0.04), padMat);
-        kneePad.position.set(0, 0, -0.09);
+        // 인체공학적 무릎 보호대 (Knee Pad)
+        const padMat = new THREE.MeshStandardMaterial({ color: 0x181818, roughness: 0.7 });
+        const kneePad = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.065, 0.08, 10), padMat);
+        kneePad.position.set(0, 0, -0.065);
+        kneePad.rotation.x = Math.PI / 2;
         kneePivot.add(kneePad);
-        // 전투화 (발등이 앞쪽을 향하며 뒤꿈치 부분이 다리 끝단과 딱 맞도록 Z 좌표를 -0.05m로 보정)
-        const boot = new THREE.Mesh(new THREE.BoxGeometry(0.17, 0.08, 0.24), bootMat);
-        boot.position.set(0, -0.30, -0.05);
-        boot.castShadow = true;
-        boot.receiveShadow = true;
-        kneePivot.add(boot);
+        // 전술 부츠 (자연스러운 앞코와 뒤꿈치 곡면)
+        const bootGroup = new THREE.Group();
+        bootGroup.position.set(0, -0.27, 0);
+        const bootAnkle = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.065, 0.08, 10), bootMat);
+        bootAnkle.position.y = -0.02;
+        bootGroup.add(bootAnkle);
+        const bootFoot = new THREE.Mesh(new THREE.BoxGeometry(0.12, 0.07, 0.22), bootMat);
+        bootFoot.position.set(0, -0.045, -0.05);
+        bootFoot.castShadow = true;
+        bootGroup.add(bootFoot);
+        kneePivot.add(bootGroup);
         return {
           group: legGroup,
           knee: kneePivot
@@ -5376,28 +5398,32 @@
                 playerSoldier.leftArm.rotation.y = 0;
                 playerSoldier.rightArm.rotation.y = 0;
               }
-            } else {
-              playerSoldier.body.rotation.x = 0;
-              playerSoldier.body.position.set(0, 0.95, 0);
-              playerSoldier.headGroup.position.set(0, 1.45, 0);
-              playerSoldier.headGroup.rotation.x = 0;
-              playerSoldier.leftArm.position.set(-0.38, 1.25, 0);
-              playerSoldier.rightArm.position.set(0.38, 1.25, 0);
+              // 자연스러운 상체 보행 스웨이 및 척추 바운스 (Spine Sway & Bounce)
+              const spineSway = Math.sin(bobbingTime) * 0.05 * bobIntensity;
+              const spineBob = Math.abs(Math.cos(bobbingTime)) * 0.04 * bobIntensity;
+              playerSoldier.body.rotation.z = -spineSway * 0.6;
+              playerSoldier.body.rotation.x = isMoving ? 0.08 : 0; // 전진 시 자연스러운 전방 기울임
+              playerSoldier.body.position.set(0, 0.95 - spineBob, 0);
+              playerSoldier.headGroup.position.set(0, 1.45 - spineBob * 0.8, 0);
+              playerSoldier.headGroup.rotation.z = spineSway * 0.3;
+              playerSoldier.leftArm.position.set(-0.36, 1.25 - spineBob, 0);
+              playerSoldier.rightArm.position.set(0.36, 1.25 - spineBob, 0);
               playerSoldier.leftLeg.position.set(-0.16, 0.6, 0);
               playerSoldier.rightLeg.position.set(0.16, 0.6, 0);
               if(playerSoldier.backpackGroup) {
-                playerSoldier.backpackGroup.position.set(0, 0.95, 0.16);
-                playerSoldier.backpackGroup.rotation.x = 0;
+                playerSoldier.backpackGroup.position.set(0, 0.95 - spineBob, 0.16);
+                playerSoldier.backpackGroup.rotation.z = -spineSway * 0.6;
               }
               if(playerSoldier.parachuteBag) {
-                playerSoldier.parachuteBag.position.set(0, 0.95, 0.16);
-                playerSoldier.parachuteBag.rotation.x = 0;
+                playerSoldier.parachuteBag.position.set(0, 0.95 - spineBob, 0.16);
+                playerSoldier.parachuteBag.rotation.z = -spineSway * 0.6;
               }
-              const swing = Math.sin(bobbingTime) * 0.6 * bobIntensity;
+              const swing = Math.sin(bobbingTime) * 0.55 * bobIntensity;
               playerSoldier.leftThigh.rotation.x = -swing;
               playerSoldier.rightThigh.rotation.x = swing;
-              playerSoldier.leftKnee.rotation.x = swing > 0 ? -swing * 1.2 : 0;
-              playerSoldier.rightKnee.rotation.x = swing < 0 ? swing * 1.2 : 0;
+              // 인체 역학적 무릎 굽힘 (발이 뒤로 갈 때 무릎이 자연스럽게 접히는 곡선)
+              playerSoldier.leftKnee.rotation.x = swing > 0 ? -Math.sin(swing) * 1.35 : 0;
+              playerSoldier.rightKnee.rotation.x = swing < 0 ? Math.sin(-swing) * 1.35 : 0;
               if (playerRecoilTime > 0) playerRecoilTime -= delta;
               const recoilOffset = playerRecoilTime > 0 ? 0.3 : 0;
               if (playerPunchTime > 0) {
@@ -5681,14 +5707,7 @@
               checkVictory();
               return;
             }
-          }
-          // 다리 흔들기 애니메이션
-          const swing = Math.sin(clock.getElapsedTime() * 12) * 0.5;
-          e.soldier.leftThigh.rotation.x = swing;
-          e.soldier.rightThigh.rotation.x = -swing;
-          e.soldier.leftKnee.rotation.x = swing < 0 ? swing * 1.2 : 0;
-          e.soldier.rightKnee.rotation.x = -swing < 0 ? -swing * 1.2 : 0;
-          // 1. 목표 방향(desiredDir) 및 속도(moveSpeed) 결정
+          // 1. 목표 방향(desiredDir) 및 속도(moveSpeed) 변수 선언
           let desiredDir = null;
           let moveSpeed = 0;
           let lookTarget = null;
@@ -5840,7 +5859,7 @@
               }
             }
           }
-          // Priority 3: 무기가 있고 공격 대상이 감지된 경우 -> 조준 사격 및 전투
+          // Priority 3: 무기가 있고 공격 대상이 감지된 경우 -> 지능형 전술 사격 및 은폐/엄폐 기동
           else if (hasTarget) {
             const targetUpright = targetPos.clone();
             targetUpright.y = e.mesh.position.y;
@@ -5859,6 +5878,44 @@
               fireBullet(e.mesh.position.clone().add(new THREE.Vector3(0,1.2,0)), imperfectTarget, e.weapon, e.id);
               e.lastShot = clock.getElapsedTime();
             }
+
+            // [전술적 엄폐 및 은폐 판단 (Tactical Cover System)]
+            // 최근 데미지를 입었거나(lastHitTime 3.5초 이내) 체력이 45 미만일 때 엄폐물 검색 후 뒤로 숨기
+            const threatPos = e.lastAttackerPos || targetPos;
+            const needsCover = (threatPos && (clock.getElapsedTime() - (e.lastHitTime || 0) < 3.5 || e.hp < 45) && e.tier !== 'Noob');
+
+            if (needsCover) {
+              if (!e.coverTarget || clock.getElapsedTime() - (e.lastCoverCheck || 0) > 2.5) {
+                e.lastCoverCheck = clock.getElapsedTime();
+                let bestCoverPos = null;
+                let bestCoverDist = 28.0; // 반경 28m 내의 엄폐물 탐색
+                for (let obs of obstacles) {
+                  let obsPos = null;
+                  let obsRadius = 1.5;
+                  if (obs.type === 'TREE' || obs.type === 'ROCK') {
+                    obsPos = new THREE.Vector3(obs.x, e.mesh.position.y, obs.z);
+                    obsRadius = obs.radius || 1.6;
+                  } else if (obs.type === 'BUILDING') {
+                    obsPos = new THREE.Vector3(obs.spotX, e.mesh.position.y, obs.spotZ);
+                    obsRadius = Math.max(obs.w, obs.d) * 0.5 + 1.2;
+                  }
+                  if (obsPos) {
+                    const distToObs = e.mesh.position.distanceTo(obsPos);
+                    if (distToObs < bestCoverDist) {
+                      // 위협원(공격자)의 반대편 엄폐 위치 계산
+                      const threatToObs = new THREE.Vector3().subVectors(obsPos, threatPos).normalize();
+                      const coverSpot = obsPos.clone().add(threatToObs.multiplyScalar(obsRadius + 1.4));
+                      bestCoverPos = coverSpot;
+                      bestCoverDist = distToObs;
+                    }
+                  }
+                }
+                e.coverTarget = bestCoverPos;
+              }
+            } else {
+              e.coverTarget = null;
+            }
+
             // 전투 중에도 점진적으로 안전지대로 이동해야 한다면 사격하며 이동
             if (needsToMoveToSafeZone) {
               if (!e.safeZoneTarget || Math.sqrt(e.safeZoneTarget.x**2 + e.safeZoneTarget.z**2) > playZoneRadius * 0.8) {
@@ -5869,14 +5926,32 @@
               desiredDir = new THREE.Vector3().subVectors(e.safeZoneTarget, e.mesh.position).normalize();
               moveSpeed = e.tier === 'Noob' ? 3.5 : (e.tier === 'Pro' ? 4.5 : 5.5);
               lookTarget = targetPos;
+            } else if (e.coverTarget) {
+              // 엄폐물 뒤로 신속 질주 및 도착 시 앉기 엄폐
+              const distToCover = e.mesh.position.distanceTo(e.coverTarget);
+              if (distToCover > 1.2) {
+                desiredDir = new THREE.Vector3().subVectors(e.coverTarget, e.mesh.position);
+                desiredDir.y = 0;
+                desiredDir.normalize();
+                moveSpeed = e.tier === 'Pro' ? 4.6 : 5.4; // 신속히 엄폐물 뒤로 전력 질주
+                lookTarget = threatPos;
+                e.stance = 'STAND';
+              } else {
+                // 엄폐물 뒤 도착 완료 -> 앉기 자세로 피탄 면적 최소화
+                desiredDir = null;
+                moveSpeed = 0;
+                lookTarget = threatPos;
+                e.stance = 'CROUCH';
+              }
             } else {
               // 안전구역 내에 있고 전투 가능 거리일 때: 무조건 서서 쏘지 않고 지능적인 동적 무빙 사격 수행!
+              e.stance = 'STAND';
               if (e.combatMoveTimer === undefined) {
                 e.combatMoveTimer = 0;
                 e.combatMoveDir = 1;
               }
               if (e.combatMoveTimer <= 0) {
-                e.combatMoveTimer = 1.5 + Math.random() * 2.0;
+                e.combatMoveTimer = 1.2 + Math.random() * 1.8;
                 e.combatMoveDir = Math.random() > 0.5 ? 1 : -1;
               }
               e.combatMoveTimer -= delta;
@@ -5887,15 +5962,15 @@
               // 무기별 지능적 위치 잡기: 샷건은 돌격하고, 저격총/돌격소총은 너무 가까우면 뒤로 빠짐
               const pushPullDir = toTarget.clone();
               if (e.weapon === WEAPONS.SHOTGUN) {
-                pushPullDir.multiplyScalar(0.75); // 샷건은 적 방향으로 인파이팅 전진 사격
-              } else if (closestDist < 12.0) {
-                pushPullDir.multiplyScalar(-0.65); // 너무 가까우면 아웃복싱으로 거리 벌리기
+                pushPullDir.multiplyScalar(0.85); // 샷건은 적 방향으로 인파이팅 전진 사격
+              } else if (closestDist < 14.0) {
+                pushPullDir.multiplyScalar(-0.75); // 너무 가까우면 아웃복싱으로 거리 벌리기
               } else {
                 pushPullDir.multiplyScalar(0.0); // 적정 사거리에서는 좌우 와리가리 기동
               }
               desiredDir = strafeDir.add(pushPullDir).normalize();
               // 기민하게 사격하면서 움직이도록 이동 속도 밸런싱
-              moveSpeed = e.tier === 'Noob' ? 1.5 : (e.tier === 'Pro' ? 2.5 : 3.6);
+              moveSpeed = e.tier === 'Noob' ? 1.6 : (e.tier === 'Pro' ? 2.8 : 3.8);
               lookTarget = targetPos;
             }
           }
@@ -6116,14 +6191,44 @@
             e.soldier.rightKnee.rotation.set(rightKneeAngle, 0, 0);
           } else {
             e.mesh.position.y = enemyGroundY + getSlopeLift(e.mesh.position.x, e.mesh.position.z);
-            e.soldier.body.rotation.x = 0; // 서기 상태 초기화
-            e.soldier.body.position.set(0, 0.95, 0);
-            e.soldier.headGroup.position.set(0, 1.45, 0);
-            e.soldier.headGroup.rotation.set(0, 0, 0); // 수영 후 머리 회전 리셋
-            e.soldier.leftArm.position.set(-0.38, 1.25, 0);
-            e.soldier.rightArm.position.set(0.38, 1.25, 0);
-            e.soldier.leftLeg.position.set(-0.16, 0.6, 0);
-            e.soldier.rightLeg.position.set(0.16, 0.6, 0);
+            
+            // 앉기(CROUCH) 엄폐 상태와 서기/이동(STAND) 상태의 자세 및 애니메이션 분기
+            if (e.stance === 'CROUCH') {
+              e.soldier.body.rotation.x = 0;
+              e.soldier.body.position.set(0, 0.55, 0);
+              e.soldier.headGroup.position.set(0, 1.05, 0);
+              e.soldier.headGroup.rotation.set(0, 0, 0);
+              e.soldier.leftArm.position.set(-0.38, 0.85, 0);
+              e.soldier.rightArm.position.set(0.38, 0.85, 0);
+              e.soldier.leftLeg.position.set(-0.16, 0.3, 0);
+              e.soldier.rightLeg.position.set(0.16, 0.3, 0);
+              e.soldier.leftThigh.rotation.x = 1.0;
+              e.soldier.rightThigh.rotation.x = 1.0;
+              e.soldier.leftKnee.rotation.x = -1.5;
+              e.soldier.rightKnee.rotation.x = -1.5;
+            } else {
+              // 이동 속도에 비례한 유기적 보행/질주 애니메이션 (스웨이 & 무릎 굽힘)
+              const isMoving = (moveSpeed > 0.1);
+              const runCycleSpeed = isMoving ? Math.min(14, 6 + moveSpeed * 1.8) : 2.5;
+              const enemySwing = isMoving ? Math.sin(clock.getElapsedTime() * runCycleSpeed) * 0.55 : Math.sin(clock.getElapsedTime() * 2) * 0.05;
+              const enemySway = isMoving ? Math.sin(clock.getElapsedTime() * runCycleSpeed) * 0.05 : 0;
+              const enemyBob = isMoving ? Math.abs(Math.cos(clock.getElapsedTime() * runCycleSpeed)) * 0.035 : 0;
+
+              e.soldier.body.rotation.z = -enemySway * 0.6;
+              e.soldier.body.rotation.x = isMoving ? 0.07 : 0;
+              e.soldier.body.position.set(0, 0.95 - enemyBob, 0);
+              e.soldier.headGroup.position.set(0, 1.45 - enemyBob * 0.8, 0);
+              e.soldier.headGroup.rotation.set(0, 0, enemySway * 0.3);
+              e.soldier.leftArm.position.set(-0.36, 1.25 - enemyBob, 0);
+              e.soldier.rightArm.position.set(0.36, 1.25 - enemyBob, 0);
+
+              e.soldier.leftLeg.position.set(-0.16, 0.6, 0);
+              e.soldier.rightLeg.position.set(0.16, 0.6, 0);
+              e.soldier.leftThigh.rotation.x = -enemySwing;
+              e.soldier.rightThigh.rotation.x = enemySwing;
+              e.soldier.leftKnee.rotation.x = enemySwing > 0 ? -Math.sin(enemySwing) * 1.35 : 0;
+              e.soldier.rightKnee.rotation.x = enemySwing < 0 ? Math.sin(-enemySwing) * 1.35 : 0;
+            }
           }
           updateSoldierJoints(e.soldier);
         }
@@ -6245,9 +6350,9 @@
                       if (b.owner === 'PLAYER') showNotice("🎯 HIT!", 500);
                     }
                     e.hp -= damage;
-                    // 오직 플레이어가 직접 가한 유효 타격일 때만 5초 노출을 트리거하도록 수정
-                    if (b.owner === 'PLAYER') {
-                      e.lastHitTime = clock.getElapsedTime();
+                    e.lastHitTime = clock.getElapsedTime();
+                    if (b.shooterPos) {
+                      e.lastAttackerPos = b.shooterPos.clone();
                     }
                     if (e.hp <= 0) {
                       totalAlive--;
