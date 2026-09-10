@@ -120,6 +120,32 @@
         .ball-gray   { background: #aaaaaa; }
         .ball-green  { background: #b0d840; }
 
+        .plus-separator {
+            color: #66fcf1;
+            font-weight: 900;
+            font-size: 1.1em;
+            margin: 0 2px;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .extra-ball-wrap {
+            position: relative;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .extra-ball-tag {
+            font-size: 0.65em;
+            font-weight: bold;
+            color: #f1c40f;
+            line-height: 1;
+            margin-bottom: 2px;
+            text-shadow: 0 0 5px rgba(241, 196, 15, 0.6);
+            letter-spacing: -0.5px;
+        }
+
         @keyframes popIn {
             0% { opacity: 0; transform: scale(0.5); }
             100% { opacity: 1; transform: scale(1); }
@@ -557,6 +583,7 @@
             let extraMax = 0;
             let extraOffset = 1;
             let extraColor = "";
+            let extraLabel = "";
 
             if (currentLang === 'ko') {
                 maxNum = 45;
@@ -568,6 +595,7 @@
                 extraMax = 26;
                 extraOffset = 1;
                 extraColor = "ball-red";
+                extraLabel = "PB"; // Powerball
             } else if (currentLang === 'es') {
                 maxNum = 49;
                 selectCount = 6;
@@ -575,6 +603,7 @@
                 extraMax = 10; // 0 to 9
                 extraOffset = 0;
                 extraColor = "ball-yellow";
+                extraLabel = "R"; // Reintegro
             } else if (currentLang === 'ja') {
                 maxNum = 43;
                 selectCount = 6;
@@ -585,6 +614,7 @@
                 extraMax = 8;
                 extraOffset = 1;
                 extraColor = "ball-red";
+                extraLabel = "2區"; // 威力彩 第2區
             }
 
             let weights = new Array(maxNum).fill(1.0);
@@ -638,7 +668,13 @@
                 });
                 if (game.extraNum !== null) {
                     let delay = (game.mainNums.length * 0.1) + "s";
+                    ballsHTML += `<span class="plus-separator">+</span>`;
+                    ballsHTML += `<div class="extra-ball-wrap">`;
+                    if (extraLabel) {
+                        ballsHTML += `<span class="extra-ball-tag">${extraLabel}</span>`;
+                    }
                     ballsHTML += `<div class="ball ${extraColor}" style="animation-delay: ${delay}">${game.extraNum}</div>`;
+                    ballsHTML += `</div>`;
                 }
                 ballsHTML += `</div>`;
             });
