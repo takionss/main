@@ -923,8 +923,9 @@
     const recentGunshots = []; const liveChickens = [];
     // --- [1. 씬 생성] ---
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x71a5d4); 
-    scene.fog = new THREE.FogExp2(0x71a5d4, 0.003); 
+    // 배틀그라운드 에란겔 특유의 청명하고 맑은 하늘색 및 자연스러운 원경 안개 톤
+    scene.background = new THREE.Color(0x8bc3e8); 
+    scene.fog = new THREE.FogExp2(0x9fc8e6, 0.0014); 
     const camera = new THREE.PerspectiveCamera(65, window.innerWidth / window.innerHeight, 0.1, 2500);
     camera.position.set(0, 150, 0);
     const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
@@ -932,14 +933,13 @@
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1.08;
-    scene.fog = new THREE.FogExp2(0x9bc3eb, 0.0016);
+    renderer.toneMappingExposure = 1.15; // 야외 전장 채광 개선
     document.body.appendChild(renderer.domElement);
-    scene.add(new THREE.AmbientLight(0xd6e6ff, 0.5));
-    const hemiLight = new THREE.HemisphereLight(0xfff5e6, 0x3d5a3d, 0.7);
+    scene.add(new THREE.AmbientLight(0xcde1f5, 0.65)); // 맑은 하늘 산란광
+    const hemiLight = new THREE.HemisphereLight(0xfff7e8, 0x4d5f3a, 0.75); // 천장 웜톤 태양빛 + 지면 올리브빛 반사광
     scene.add(hemiLight);
-    const sun = new THREE.DirectionalLight(0xfffaed, 1.8);
-    sun.position.set(220, 320, 120); sun.castShadow = true;
+    const sun = new THREE.DirectionalLight(0xfffaea, 2.0); // 에란겔 정오 직사광선
+    sun.position.set(240, 340, 140); sun.castShadow = true;
     sun.shadow.camera.left = -320; sun.shadow.camera.right = 320; sun.shadow.camera.top = 320; sun.shadow.camera.bottom = -320;
     sun.shadow.camera.near = 0.5;
     sun.shadow.camera.far = 1000;
@@ -1100,33 +1100,41 @@
       const hD = getElevation(vx, vz - eps, false);
       const hU = getElevation(vx, vz + eps, false);
       const slope = Math.sqrt((hR - hL)*(hR - hL) + (hU - hD)*(hU - hD)) / (2 * eps);
-      // 기본 잔디 색상 (Rich Green)
-      let r = 0.22, g = 0.38, b = 0.16;
+      // 배틀그라운드 에란겔 특유의 올리브-카키빛 마른 풀밭 및 비포장 황토 흙길 색감
+      // 기본 에란겔 풀밭 색상 (Erangel Olive Grass: r=0.34, g=0.38, b=0.20)
+      let r = 0.33, g = 0.37, b = 0.20;
       if (vy < 0.0) {
-        // 물밑 지질: 짙은 흙/모래 색상
-        r = 0.28; g = 0.23; b = 0.16;
+        // 해안가/물밑: 짙은 젖은 모래흙
+        r = 0.32; g = 0.27; b = 0.18;
       } else if (slope > 0.45) {
-        // 급경사: 암석 절벽 색상 (Grey)
-        r = 0.35 + Math.sin(vx*0.5)*0.03;
-        g = 0.35 + Math.sin(vx*0.5)*0.03;
-        b = 0.35 + Math.sin(vx*0.5)*0.03;
-      } else if (slope > 0.15) {
-        // 중경사: 흙/언덕 색상 (Brownish Dirt)
-        r = 0.32 + Math.cos(vz*0.5)*0.02;
-        g = 0.27 + Math.cos(vz*0.5)*0.02;
-        b = 0.18 + Math.cos(vz*0.5)*0.02;
+        // 급경사 절벽: 거친 회갈색 암벽 (Rocky Outcrop)
+        r = 0.42 + Math.sin(vx*0.4)*0.04;
+        g = 0.39 + Math.sin(vx*0.4)*0.04;
+        b = 0.34 + Math.sin(vx*0.4)*0.04;
+      } else if (slope > 0.18) {
+        // 언덕 능선 및 경사지: 흙이 드러난 건조한 황토 흙길 (Erangel Dirt Path)
+        r = 0.42 + Math.cos(vz*0.3)*0.03;
+        g = 0.35 + Math.cos(vz*0.3)*0.03;
+        b = 0.24 + Math.cos(vz*0.3)*0.02;
       } else {
-        // 완만함: 잔디 톤 다양화 노이즈
-        const noise = Math.sin(vx * 0.08) * Math.cos(vz * 0.08) * 0.04;
-        r += noise;
-        g += noise * 1.2;
-        b += noise * 0.8;
+        // 평지/완만함: 풀밭과 비포장 흙길이 자연스럽게 섞인 얼룩 패턴
+        const pathNoise = Math.sin(vx * 0.05 + Math.sin(vz * 0.04) * 2.0);
+        if (Math.abs(pathNoise) < 0.28) {
+          // 비포장 흙길 (Dirt Track)
+          r = 0.40; g = 0.34; b = 0.22;
+        } else {
+          // 마른 잔디와 짙은 풀숲의 조화
+          const grassVar = Math.sin(vx * 0.12) * Math.cos(vz * 0.12) * 0.05;
+          r += grassVar;
+          g += grassVar * 1.1;
+          b += grassVar * 0.7;
+        }
         // 로비 센터 주변 (25m 반경): 연한 황토/베이지색 군사 진지 느낌으로 보정
         const distFromCenter = Math.sqrt(vx*vx + vz*vz);
         if (distFromCenter < 25) {
           const factor = Math.max(0, (25 - distFromCenter) / 25);
-          r = THREE.MathUtils.lerp(r, 0.44, factor);
-          g = THREE.MathUtils.lerp(g, 0.40, factor);
+          r = THREE.MathUtils.lerp(r, 0.46, factor);
+          g = THREE.MathUtils.lerp(g, 0.41, factor);
           b = THREE.MathUtils.lerp(b, 0.30, factor);
         }
       }
@@ -1142,32 +1150,47 @@
       colors[i * 3 + 2] = b;
     }
     groundGeo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-    function createNoiseTexture(width = 256, height = 256) {
+    function createErangelGrassTexture(width = 512, height = 512) {
       const canvas = document.createElement('canvas');
       canvas.width = width;
       canvas.height = height;
       const ctx = canvas.getContext('2d');
-      const imgData = ctx.createImageData(width, height);
+      // 배경 기본 흙/마른 풀 톤
+      ctx.fillStyle = '#6e6a4b';
+      ctx.fillRect(0, 0, width, height);
+      // 자연스러운 잔디 결 및 흙 알갱이 노이즈 렌더링
+      const imgData = ctx.getImageData(0, 0, width, height);
       const data = imgData.data;
       for (let i = 0; i < data.length; i += 4) {
-        const n = 185 + Math.random() * 70;
-        data[i] = n;
-        data[i+1] = n;
-        data[i+2] = n;
-        data[i+3] = 255;
+        const grain = (Math.random() - 0.5) * 45;
+        data[i] = Math.min(255, Math.max(0, data[i] + grain));
+        data[i+1] = Math.min(255, Math.max(0, data[i+1] + grain * 1.1));
+        data[i+2] = Math.min(255, Math.max(0, data[i+2] + grain * 0.8));
       }
       ctx.putImageData(imgData, 0, 0);
+      // 얇은 잔디 잎 블레이드 다발 레이어 (Grass Tufts)
+      ctx.strokeStyle = 'rgba(78, 92, 45, 0.35)';
+      ctx.lineWidth = 1.2;
+      for (let j = 0; j < 600; j++) {
+        const gx = Math.random() * width;
+        const gy = Math.random() * height;
+        const gLen = 4 + Math.random() * 6;
+        ctx.beginPath();
+        ctx.moveTo(gx, gy);
+        ctx.lineTo(gx + (Math.random() - 0.5) * 3, gy - gLen);
+        ctx.stroke();
+      }
       const texture = new THREE.CanvasTexture(canvas);
       texture.wrapS = THREE.RepeatWrapping;
       texture.wrapT = THREE.RepeatWrapping;
-      texture.repeat.set(160, 160);
+      texture.repeat.set(120, 120);
       return texture;
     }
-    const groundNoiseTex = createNoiseTexture();
+    const groundNoiseTex = createErangelGrassTexture();
     const ground = new THREE.Mesh(groundGeo, new THREE.MeshStandardMaterial({ 
       vertexColors: true, 
       map: groundNoiseTex,
-      roughness: 0.98,
+      roughness: 0.96,
       metalness: 0.02
     }));
     ground.receiveShadow = true; scene.add(ground);
@@ -1203,9 +1226,9 @@
     pond2Geo.rotateX(-Math.PI / 2);
     const pond2Water = new THREE.Mesh(pond2Geo, pondWaterMat);
     pond2Water.position.set(-80, 6.5, -60);
-    scene.add(pond2Water);
     const treeGeoCone = new THREE.ConeGeometry(2.5, 8, 8); const treeGeoTrunk = new THREE.CylinderGeometry(0.5, 0.5, 3);
-    const treeMatCone = new THREE.MeshStandardMaterial({ color: 0x243d18 }); const treeMatTrunk = new THREE.MeshStandardMaterial({ color: 0x3d2c18 });
+    const treeMatCone = new THREE.MeshStandardMaterial({ color: 0x3b5229, roughness: 0.92 }); // 에란겔 침엽수 톤
+    const treeMatTrunk = new THREE.MeshStandardMaterial({ color: 0x4a3b2b, roughness: 0.88 }); // 나무껍질 톤
     const houseMat = new THREE.MeshStandardMaterial({ color: 0xaaaaaa });
     // --- [건물 및 자연 장애물 스폰 엔진 (비중첩 설계)] ---
     const obstacles = [];
@@ -1572,7 +1595,7 @@
             leaves.add(leaves3);
           } else if (treeType === 1) {
             leaves = new THREE.Group();
-            const leafMat = new THREE.MeshStandardMaterial({ color: 0x2e5c1e, roughness: 0.9 });
+            const leafMat = new THREE.MeshStandardMaterial({ color: 0x476332, roughness: 0.92 }); // 에란겔 올리브 녹음 활엽수
             const centerSphere = new THREE.Mesh(new THREE.DodecahedronGeometry(1.8, 1), leafMat);
             centerSphere.position.set(0, 3.2, 0);
             centerSphere.castShadow = true;
@@ -1592,7 +1615,7 @@
             });
           } else {
             leaves = new THREE.Group();
-            const mapleMat = new THREE.MeshStandardMaterial({ color: 0xd3a03e, roughness: 0.9 });
+            const mapleMat = new THREE.MeshStandardMaterial({ color: 0x9b7d38, roughness: 0.92 }); // 에란겔 가을빛 브라운 단풍수
             const centerSphere = new THREE.Mesh(new THREE.DodecahedronGeometry(1.7, 1), mapleMat);
             centerSphere.position.set(0, 2.9, 0);
             centerSphere.castShadow = true;
@@ -1615,10 +1638,10 @@
           scene.add(trunk);
           obstacles.push({ type: 'TREE', x: x, z: z, radius: radius });
         } else if (obsType === 'BUSH') {
-          // 덤불 (BUSH) - 부드러운 장애물 (콜리전 미해결, 시각화만 적용 - 반투명 처리로 엄폐 불가 인지 개선)
+          // 덤불 (BUSH) - 에란겔 풀숲 색상
           const bushGroup = new THREE.Group();
           bushGroup.position.set(x, y, z);
-          const bushMat = new THREE.MeshStandardMaterial({ color: 0x1b4322, roughness: 0.95, transparent: true, opacity: 0.65 });
+          const bushMat = new THREE.MeshStandardMaterial({ color: 0x3d542b, roughness: 0.95, transparent: true, opacity: 0.72 });
           const numPuffs = 4 + Math.floor(Math.random() * 3);
           for (let p = 0; p < numPuffs; p++) {
             const pSize = radius * (0.5 + Math.random() * 0.5);
@@ -1664,62 +1687,98 @@
         }
       }
     }
-    // --- [3D 휴머노이드 캐릭터 & 총기 렌더링 시스템] ---
+    // --- [3D 휴머노이드 캐릭터 & 총기 렌더링 시스템 (PUBG 밀리터리 솔저 스타일)] ---
     function createSoldierModel(camoColorHex = 0x3d5c3d, skinColorHex = 0xffccaa) {
       const group = new THREE.Group();
       group.rotation.order = 'YXZ'; // YXZ 순서로 회전하여 낙하시 옆구리가 아닌 배가 바닥을 향하도록 설정
-      const camoMat = new THREE.MeshStandardMaterial({ color: camoColorHex, roughness: 0.8 });
-      const skinMat = new THREE.MeshStandardMaterial({ color: skinColorHex, roughness: 0.8 });
-      const helmetMat = new THREE.MeshStandardMaterial({ color: 0x1e2f1e, roughness: 0.9, side: THREE.DoubleSide });
-      const bootMat = new THREE.MeshStandardMaterial({ color: 0x111111 });
-      const pantsMat = new THREE.MeshStandardMaterial({ color: 0x2a3e2a });
-      // 몸통 세분화 그룹 (자연스러운 역사다리꼴 상체 + 전술 베스트 + 허리 + 전술 벨트)
+      
+      // PUBG 밀리터리 군복 질감 (카키/올리브 컴뱃셔츠 & 전투복 카고 팬츠)
+      const camoMat = new THREE.MeshStandardMaterial({ color: camoColorHex, roughness: 0.82, metalness: 0.05 });
+      const skinMat = new THREE.MeshStandardMaterial({ color: skinColorHex, roughness: 0.75 });
+      const helmetMat = new THREE.MeshStandardMaterial({ color: 0x2e382b, roughness: 0.45, metalness: 0.55 }); // 강철 철모 재질
+      const bootMat = new THREE.MeshStandardMaterial({ color: 0x181818, roughness: 0.85 }); // 전술 부츠
+      const pantsMat = new THREE.MeshStandardMaterial({ color: 0x2d3b2a, roughness: 0.85 }); // 카키 그린 카고바지
+      const strapMat = new THREE.MeshStandardMaterial({ color: 0x141414, roughness: 0.9 }); // 전술 웨빙 스트랩
+
+      // 몸통 세분화 그룹 (체격 좋은 밀리터리 상체 + 플레이트 캐리어 + 허리 듀티벨트)
       const body = new THREE.Group();
       body.position.y = 0.95;
       group.add(body);
-      // 1) 상부 가슴 메쉬 (곡선형 역사다리꼴 체형)
+
+      // 1) 상부 가슴 메쉬 (컴뱃 셔츠)
       const chestGeom = new THREE.CylinderGeometry(0.27, 0.23, 0.36, 16);
-      chestGeom.scale(1.0, 1.0, 0.65); // 앞뒤가 납작한 인체 단면 형성
+      chestGeom.scale(1.0, 1.0, 0.65);
       const chest = new THREE.Mesh(chestGeom, camoMat);
       chest.position.y = 0.18;
       chest.castShadow = true; chest.receiveShadow = true;
       body.add(chest);
-      // 입체적인 전술 방탄 조끼 (MOLLE 파우치 & 플레이트 캐리어 질감)
-      const vestMat = new THREE.MeshStandardMaterial({ color: 0x1f241f, roughness: 0.85, metalness: 0.1 });
-      const vestPlate = new THREE.Mesh(new THREE.BoxGeometry(0.38, 0.26, 0.06), vestMat);
-      vestPlate.position.set(0, 0.18, -0.12);
-      body.add(vestPlate);
-      // 가슴 앞 3연장 매거진 파우치 (Tactical Mag Pouches)
-      const pouchMat = new THREE.MeshStandardMaterial({ color: 0x181a18, roughness: 0.9 });
+
+      // 입체적인 전술 방탄 조끼 (Tactical Plate Carrier Vest - 앞뒤 볼륨 & 몰리 웨빙)
+      const vestMat = new THREE.MeshStandardMaterial({ color: 0x242823, roughness: 0.8, metalness: 0.15 });
+      const vestFront = new THREE.Mesh(new THREE.BoxGeometry(0.38, 0.27, 0.08), vestMat);
+      vestFront.position.set(0, 0.18, -0.13);
+      vestFront.castShadow = true;
+      body.add(vestFront);
+
+      const vestBack = new THREE.Mesh(new THREE.BoxGeometry(0.36, 0.26, 0.07), vestMat);
+      vestBack.position.set(0, 0.18, 0.12);
+      vestBack.castShadow = true;
+      body.add(vestBack);
+
+      // 어깨 조끼 숄더 스트랩 (양쪽 어깨를 감싸는 두터운 패드)
+      const vestStrapL = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.06, 0.28), vestMat);
+      vestStrapL.position.set(-0.16, 0.33, -0.01);
+      body.add(vestStrapL);
+      const vestStrapR = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.06, 0.28), vestMat);
+      vestStrapR.position.set(0.16, 0.33, -0.01);
+      body.add(vestStrapR);
+
+      // 가슴 앞 3연장 전술 매거진 파우치 (Triple AR Mag Pouches)
+      const pouchMat = new THREE.MeshStandardMaterial({ color: 0x1b1f1a, roughness: 0.88 });
       for (let pIdx = -1; pIdx <= 1; pIdx++) {
-        const pouch = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.13, 0.045), pouchMat);
-        pouch.position.set(pIdx * 0.105, 0.14, -0.165);
+        const pouch = new THREE.Mesh(new THREE.BoxGeometry(0.085, 0.13, 0.05), pouchMat);
+        pouch.position.set(pIdx * 0.105, 0.13, -0.18);
+        pouch.castShadow = true;
         body.add(pouch);
       }
-      // 2) 유연한 허리 및 복근 (Abdomen)
+
+      // 2) 허리 및 복근 (Abdomen)
       const waistGeom = new THREE.CylinderGeometry(0.23, 0.22, 0.16, 14);
       waistGeom.scale(1.0, 1.0, 0.62);
       const waist = new THREE.Mesh(waistGeom, pantsMat);
       waist.position.y = -0.07;
       waist.castShadow = true; waist.receiveShadow = true;
       body.add(waist);
-      // 3) 골반 및 전술 듀티 벨트 (버클 디테일 포함)
-      const beltMat = new THREE.MeshStandardMaterial({ color: 0x151515, roughness: 0.8 });
+
+      // 3) 골반 및 밀리터리 듀티 벨트 (Duty Belt with Tactical Buckle & Side Pouches)
+      const beltMat = new THREE.MeshStandardMaterial({ color: 0x161715, roughness: 0.75 });
       const belt = new THREE.Mesh(new THREE.CylinderGeometry(0.25, 0.24, 0.09, 14), beltMat);
       belt.scale.set(1.0, 1.0, 0.66);
       belt.position.y = -0.19;
       belt.castShadow = true; belt.receiveShadow = true;
       body.add(belt);
-      const buckle = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.06, 0.02), new THREE.MeshStandardMaterial({ color: 0x777777, metalness: 0.8, roughness: 0.3 }));
-      buckle.position.set(0, -0.19, -0.165);
+
+      // 버클 (금속 메탈릭 버클)
+      const buckle = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.06, 0.025), new THREE.MeshStandardMaterial({ color: 0x555555, metalness: 0.85, roughness: 0.25 }));
+      buckle.position.set(0, -0.19, -0.17);
       body.add(buckle);
-      // 4) 하부 골반/엉덩이 메쉬 (다리와 부드럽게 이어지는 둥근 둔부)
+
+      // 벨트 양옆 탄창/구급 파우치
+      const beltPouchL = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.09, 0.06), pouchMat);
+      beltPouchL.position.set(-0.25, -0.19, 0);
+      body.add(beltPouchL);
+      const beltPouchR = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.09, 0.06), pouchMat);
+      beltPouchR.position.set(0.25, -0.19, 0);
+      body.add(beltPouchR);
+
+      // 4) 하부 골반/엉덩이 메쉬 (군용 카고바지 둔부)
       const hipsGeom = new THREE.CylinderGeometry(0.24, 0.21, 0.20, 14);
       hipsGeom.scale(1.0, 1.0, 0.70);
       const hips = new THREE.Mesh(hipsGeom, pantsMat);
       hips.position.y = -0.31;
       hips.castShadow = true; hips.receiveShadow = true;
       body.add(hips);
+
       // 해커용 붉은 몸통 텍스처 등 외부 대입 호환을 위한 material 프로퍼티 재정의
       Object.defineProperty(body, 'material', {
         get() { return chest.material; },
@@ -1730,35 +1789,40 @@
           hips.material = m;
         }
       });
-      // 목 (Neck) - 머리와 몸통 사이를 자연스럽게 이어주는 경추 기둥 추가
+
+      // 목 (Neck)
       const neck = new THREE.Mesh(new THREE.CylinderGeometry(0.085, 0.095, 0.14, 12), skinMat);
       neck.position.set(0, 1.35, 0);
       neck.castShadow = true;
       group.add(neck);
+
       // 머리 & 헬멧
       const headGroup = new THREE.Group();
       headGroup.position.set(0, 1.45, 0);
       const head = new THREE.Mesh(new THREE.SphereGeometry(0.22, 16, 16), skinMat);
       head.castShadow = true;
       headGroup.add(head);
-      // 얼굴 이목구비 추가 (눈, 코, 입)
+
+      // 얼굴 이목구비 (눈, 코, 입)
       const eyeMat = new THREE.MeshBasicMaterial({ color: 0x111111 });
-      const mouthMat = new THREE.MeshBasicMaterial({ color: 0x992222 });
-      const leftEye = new THREE.Mesh(new THREE.SphereGeometry(0.025, 8, 8), eyeMat);
+      const mouthMat = new THREE.MeshBasicMaterial({ color: 0x882222 });
+      const leftEye = new THREE.Mesh(new THREE.SphereGeometry(0.024, 8, 8), eyeMat);
       leftEye.position.set(-0.07, 0.05, -0.19);
       headGroup.add(leftEye);
-      const rightEye = new THREE.Mesh(new THREE.SphereGeometry(0.025, 8, 8), eyeMat);
+      const rightEye = new THREE.Mesh(new THREE.SphereGeometry(0.024, 8, 8), eyeMat);
       rightEye.position.set(0.07, 0.05, -0.19);
       headGroup.add(rightEye);
-      // 코 원뿔 뾰족한 부분이 밖(정면: -Z)을 향하도록 회전값 -Math.PI / 2 로 수정
+
       const nose = new THREE.Mesh(new THREE.ConeGeometry(0.022, 0.07, 4), skinMat);
       nose.rotation.x = -Math.PI / 2;
       nose.position.set(0, 0.0, -0.23);
       headGroup.add(nose);
+
       const mouth = new THREE.Mesh(new THREE.BoxGeometry(0.07, 0.015, 0.006), mouthMat);
       mouth.position.set(0, -0.07, -0.208);
       headGroup.add(mouth);
-      // 귀(Ears) 추가
+
+      // 귀 (Ears)
       const leftEar = new THREE.Mesh(new THREE.BoxGeometry(0.035, 0.07, 0.025), skinMat);
       leftEar.position.set(-0.23, 0.02, 0);
       leftEar.rotation.y = 0.12;
@@ -1767,70 +1831,124 @@
       rightEar.position.set(0.23, 0.02, 0);
       rightEar.rotation.y = -0.12;
       headGroup.add(rightEar);
-      // 헤어캡/머리카락(Hair) 추가
-      const hairMat = new THREE.MeshStandardMaterial({ color: 0x221100, roughness: 0.85 });
-      const hair = new THREE.Mesh(new THREE.SphereGeometry(0.23, 16, 12, 0, Math.PI * 2, 0, Math.PI * 0.65), hairMat);
+
+      // 군용 짧은 스포츠 헤어 (Military Crew Cut)
+      const hairMat = new THREE.MeshStandardMaterial({ color: 0x1a1510, roughness: 0.9 });
+      const hair = new THREE.Mesh(new THREE.SphereGeometry(0.23, 16, 12, 0, Math.PI * 2, 0, Math.PI * 0.62), hairMat);
       hair.position.set(0, 0.03, 0.02);
-      hair.rotation.x = 0.18;
+      hair.rotation.x = 0.16;
       headGroup.add(hair);
-      // 헬멧 (눈을 가리지 않도록 후방으로 약간 밀고 뒤로 기울여 개방감 확보)
-      const helmet = new THREE.Mesh(new THREE.SphereGeometry(0.27, 16, 10, 0, Math.PI * 2, 0, Math.PI / 2), helmetMat);
-      helmet.position.set(0, 0.07, 0.02);
-      helmet.rotation.x = 0.12; // 양수값으로 회전하여 뒤쪽으로 비스듬히 기울임
-      helmet.castShadow = true;
-      helmet.visible = false; // 기본은 착용 안 함
-      headGroup.add(helmet);
-      // 레벨 3 헬멧 바이저 (기울어진 헬멧 각도에 연동하여 비스듬히 앞쪽으로 정렬)
-      const visor = new THREE.Mesh(new THREE.BoxGeometry(0.29, 0.11, 0.09), new THREE.MeshStandardMaterial({color: 0x111111, roughness: 0.2}));
-      visor.position.set(0, 0.06, -0.21);
-      visor.rotation.x = 0.12;
-      visor.visible = false;
-      headGroup.add(visor);
+
+      // --- [PUBG 스틸 헬멧 (Level 1, 2, 3 정밀 모델링)] ---
+      const helmetGroup = new THREE.Group();
+      helmetGroup.position.set(0, 0.06, 0.02);
+      helmetGroup.rotation.x = 0.10;
+      helmetGroup.visible = false; // 장착 시 표시
+      headGroup.add(helmetGroup);
+
+      // 1. 헬멧 돔 (Dome)
+      const helmetDome = new THREE.Mesh(new THREE.SphereGeometry(0.27, 20, 14, 0, Math.PI * 2, 0, Math.PI / 1.85), helmetMat);
+      helmetDome.castShadow = true;
+      helmetGroup.add(helmetDome);
+
+      // 2. 헬멧 외곽 림 (Steel Rim / Brim)
+      const helmetRimGeo = new THREE.TorusGeometry(0.265, 0.016, 8, 24);
+      helmetRimGeo.rotateX(Math.PI / 2);
+      const helmetRim = new THREE.Mesh(helmetRimGeo, helmetMat);
+      helmetRim.position.y = -0.04;
+      helmetGroup.add(helmetRim);
+
+      // 3. 턱끈 스트랩 (Chin Strap)
+      const chinStrapGeo = new THREE.CylinderGeometry(0.01, 0.01, 0.22, 6);
+      const chinStrapL = new THREE.Mesh(chinStrapGeo, strapMat);
+      chinStrapL.position.set(-0.21, -0.12, -0.05);
+      chinStrapL.rotation.z = -0.35;
+      chinStrapL.rotation.x = 0.2;
+      helmetGroup.add(chinStrapL);
+
+      const chinStrapR = new THREE.Mesh(chinStrapGeo, strapMat);
+      chinStrapR.position.set(0.21, -0.12, -0.05);
+      chinStrapR.rotation.z = 0.35;
+      chinStrapR.rotation.x = 0.2;
+      helmetGroup.add(chinStrapR);
+
+      // 4. 레벨 3 헬멧 시그니처 용접 안면 바이저 (Level 3 Spetsnaz Welder Visor)
+      const visorMat = new THREE.MeshStandardMaterial({ color: 0x1a1a1a, metalness: 0.85, roughness: 0.25 });
+      const visorGroup = new THREE.Group();
+      visorGroup.position.set(0, -0.01, -0.21);
+      visorGroup.visible = false;
+
+      const visorShield = new THREE.Mesh(new THREE.BoxGeometry(0.31, 0.13, 0.05), visorMat);
+      visorShield.castShadow = true;
+      visorGroup.add(visorShield);
+
+      // 시야 확인용 슬릿 창 (Black tinted vision slit)
+      const visorSlit = new THREE.Mesh(new THREE.BoxGeometry(0.18, 0.028, 0.06), new THREE.MeshBasicMaterial({ color: 0x050505 }));
+      visorSlit.position.set(0, 0.01, 0);
+      visorGroup.add(visorSlit);
+
+      helmetGroup.add(visorGroup);
       group.add(headGroup);
-      // 관절형 팔 (부드러운 유선형 실린더와 힌지 관절)
+
+      // 관절형 팔 (컴뱃셔츠 소매 + 팔꿈치 보호대 + 전술 글러브)
       function createArm(mat, px, py, pz) {
         const armGroup = new THREE.Group();
         armGroup.position.set(px, py, pz);
-        // 위팔 (Upper Arm) - 유선형 테이퍼 실린더
-        const upperArm = new THREE.Mesh(new THREE.CylinderGeometry(0.065, 0.055, 0.26, 12), mat);
+
+        // 위팔 (Upper Arm)
+        const upperArm = new THREE.Mesh(new THREE.CylinderGeometry(0.066, 0.056, 0.26, 12), mat);
         upperArm.position.y = -0.13;
-        upperArm.castShadow = true;
-        upperArm.receiveShadow = true;
+        upperArm.castShadow = true; upperArm.receiveShadow = true;
         armGroup.add(upperArm);
-        // 어깨 볼륨 패드 (곡면형 전술 견갑)
-        const padMat = new THREE.MeshStandardMaterial({ color: 0x1f231f, roughness: 0.7, metalness: 0.1 });
-        const shoulderPad = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.085, 0.09, 12), padMat);
-        shoulderPad.position.set(px < 0 ? -0.01 : 0.01, -0.02, 0);
-        shoulderPad.rotation.z = px < 0 ? -0.15 : 0.15;
-        armGroup.add(shoulderPad);
-        // 팔꿈치 관절 구체
+
+        // 어깨 부대 마크 패치 (Velcro Shoulder Patch)
+        const patchMat = new THREE.MeshStandardMaterial({ color: 0x222222, roughness: 0.9 });
+        const shoulderPatch = new THREE.Mesh(new THREE.BoxGeometry(0.015, 0.08, 0.07), patchMat);
+        shoulderPatch.position.set(px < 0 ? -0.062 : 0.062, -0.08, 0);
+        armGroup.add(shoulderPatch);
+
+        // 팔꿈치 관절 구체 & 엘보 패드 (Tactical Elbow Guard)
         const elbowJoint = new THREE.Mesh(new THREE.SphereGeometry(0.055, 10, 10), mat);
         elbowJoint.position.set(0, -0.26, 0);
         armGroup.add(elbowJoint);
+
+        const elbowGuardMat = new THREE.MeshStandardMaterial({ color: 0x161616, roughness: 0.7 });
+        const elbowGuard = new THREE.Mesh(new THREE.CylinderGeometry(0.062, 0.058, 0.07, 10), elbowGuardMat);
+        elbowGuard.position.set(0, -0.26, 0.03);
+        elbowGuard.rotation.x = Math.PI / 2;
+        armGroup.add(elbowGuard);
+
         // 팔꿈치 관절 피벗 (위팔 아래 끝단)
         const elbowPivot = new THREE.Group();
         elbowPivot.position.set(0, -0.26, 0);
         armGroup.add(elbowPivot);
+
         // 아래팔 (Forearm)
         const forearm = new THREE.Mesh(new THREE.CylinderGeometry(0.055, 0.048, 0.25, 12), mat);
         forearm.position.y = -0.125;
-        forearm.castShadow = true;
-        forearm.receiveShadow = true;
+        forearm.castShadow = true; forearm.receiveShadow = true;
         elbowPivot.add(forearm);
-        // 손목 관절 & 손 (Glove)
-        const gloveMat = new THREE.MeshStandardMaterial({ color: 0x222222, roughness: 0.8 });
-        const hand = new THREE.Mesh(new THREE.SphereGeometry(0.048, 10, 10), gloveMat);
+
+        // 전술 밀리터리 장갑 (Combat Glove with Knuckle Plate)
+        const gloveMat = new THREE.MeshStandardMaterial({ color: 0x1c1c1c, roughness: 0.8, metalness: 0.1 });
+        const hand = new THREE.Mesh(new THREE.SphereGeometry(0.05, 10, 10), gloveMat);
         hand.scale.set(1.0, 1.25, 0.85);
         hand.position.set(0, -0.26, 0);
-        hand.castShadow = true;
-        hand.receiveShadow = true;
+        hand.castShadow = true; hand.receiveShadow = true;
         elbowPivot.add(hand);
+
+        // 너클 보호대
+        const knuckle = new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.02, 0.06), new THREE.MeshStandardMaterial({ color: 0x0f0f0f, roughness: 0.5, metalness: 0.4 }));
+        knuckle.position.set(0, -0.27, -0.02);
+        elbowPivot.add(knuckle);
+
         return {
           group: armGroup,
           elbow: elbowPivot
         };
       }
-      // 어깨 관절 구체 (Shoulder Joint Spheres)
+
+      // 어깨 관절 구체
       const jointMat = new THREE.MeshStandardMaterial({ color: camoColorHex, roughness: 0.8 });
       const leftJoint = new THREE.Mesh(new THREE.SphereGeometry(0.075, 12, 12), jointMat);
       leftJoint.position.set(-0.31, 1.25, 0);
@@ -1840,100 +1958,191 @@
       rightJoint.position.set(0.31, 1.25, 0);
       rightJoint.castShadow = true;
       group.add(rightJoint);
+
       const leftArm = createArm(camoMat, -0.36, 1.25, 0);
       const rightArm = createArm(camoMat, 0.36, 1.25, 0);
       group.add(leftArm.group);
       group.add(rightArm.group);
-      // 양다리 (인체 곡선형 허벅지 + 무릎 볼관절 + 정강이)
+
+      // 양다리 (군용 카고바지 주머니 + 인체공학적 무릎보호대 + 군화)
       function createLeg(mat, bootMat, px, py, pz) {
         const legGroup = new THREE.Group();
         legGroup.position.set(px, py, pz);
+
         // 골반 힌지 볼
         const hipJoint = new THREE.Mesh(new THREE.SphereGeometry(0.08, 10, 10), mat);
         legGroup.add(hipJoint);
-        // 허벅지 (Thigh) - 위가 도톰하고 아래로 갈수록 날렵한 대퇴부
-        const thigh = new THREE.Mesh(new THREE.CylinderGeometry(0.082, 0.068, 0.27, 12), mat);
+
+        // 허벅지 (Thigh)
+        const thigh = new THREE.Mesh(new THREE.CylinderGeometry(0.083, 0.069, 0.27, 12), mat);
         thigh.position.y = -0.135;
-        thigh.castShadow = true;
-        thigh.receiveShadow = true;
+        thigh.castShadow = true; thigh.receiveShadow = true;
         legGroup.add(thigh);
+
+        // 카고 바지 옆주머니 (Side Cargo Pocket)
+        const cargoPocket = new THREE.Mesh(new THREE.BoxGeometry(0.04, 0.12, 0.09), mat);
+        cargoPocket.position.set(px < 0 ? -0.075 : 0.075, -0.135, 0);
+        cargoPocket.castShadow = true;
+        legGroup.add(cargoPocket);
+
         // 무릎 볼관절 구체
         const kneeJoint = new THREE.Mesh(new THREE.SphereGeometry(0.068, 10, 10), mat);
         kneeJoint.position.set(0, -0.27, 0);
         legGroup.add(kneeJoint);
+
         // 무릎 관절 피벗
         const kneePivot = new THREE.Group();
         kneePivot.position.set(0, -0.27, 0);
         legGroup.add(kneePivot);
+
         // 종아리 (Shin/Calf)
-        const shin = new THREE.Mesh(new THREE.CylinderGeometry(0.066, 0.055, 0.26, 12), mat);
+        const shin = new THREE.Mesh(new THREE.CylinderGeometry(0.067, 0.055, 0.26, 12), mat);
         shin.position.y = -0.13;
-        shin.castShadow = true;
-        shin.receiveShadow = true;
+        shin.castShadow = true; shin.receiveShadow = true;
         kneePivot.add(shin);
-        // 인체공학적 무릎 보호대 (Knee Pad)
-        const padMat = new THREE.MeshStandardMaterial({ color: 0x181818, roughness: 0.7 });
-        const kneePad = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.065, 0.08, 10), padMat);
+
+        // 배그 특유의 견고한 무릎 보호대 (PUBG Knee Guard)
+        const padMat = new THREE.MeshStandardMaterial({ color: 0x141414, roughness: 0.65, metalness: 0.2 });
+        const kneePad = new THREE.Mesh(new THREE.CylinderGeometry(0.072, 0.066, 0.09, 10), padMat);
         kneePad.position.set(0, 0, -0.065);
         kneePad.rotation.x = Math.PI / 2;
         kneePivot.add(kneePad);
-        // 전술 부츠 (자연스러운 앞코와 뒤꿈치 곡면)
+
+        // 전술 컴뱃 부츠 (군화 - 두꺼운 밑창과 발목 각반)
         const bootGroup = new THREE.Group();
         bootGroup.position.set(0, -0.27, 0);
-        const bootAnkle = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.065, 0.08, 10), bootMat);
+        const bootAnkle = new THREE.Mesh(new THREE.CylinderGeometry(0.062, 0.068, 0.08, 10), bootMat);
         bootAnkle.position.y = -0.02;
         bootGroup.add(bootAnkle);
-        const bootFoot = new THREE.Mesh(new THREE.BoxGeometry(0.12, 0.07, 0.22), bootMat);
+
+        const bootFoot = new THREE.Mesh(new THREE.BoxGeometry(0.125, 0.075, 0.22), bootMat);
         bootFoot.position.set(0, -0.045, -0.05);
         bootFoot.castShadow = true;
         bootGroup.add(bootFoot);
+
+        // 부츠 밑창 (Tread Sole)
+        const soleMat = new THREE.MeshStandardMaterial({ color: 0x0a0a0a, roughness: 0.95 });
+        const bootSole = new THREE.Mesh(new THREE.BoxGeometry(0.13, 0.02, 0.23), soleMat);
+        bootSole.position.set(0, -0.08, -0.05);
+        bootGroup.add(bootSole);
+
         kneePivot.add(bootGroup);
+
         return {
           group: legGroup,
           knee: kneePivot
         };
       }
+
       const leftLeg = createLeg(pantsMat, bootMat, -0.16, 0.6, 0);
       const rightLeg = createLeg(pantsMat, bootMat, 0.16, 0.6, 0);
       group.add(leftLeg.group);
       group.add(rightLeg.group);
-      // 전술 배낭 (가방 아이템 장착 시 표시)
+
+      // --- [PUBG 전술 배낭 (Level 1, 2, 3 Tactical Backpack)] ---
       const backpackGroup = new THREE.Group();
       backpackGroup.position.set(0, 0.95, 0.16);
       group.add(backpackGroup);
-      const backpackMesh = new THREE.Mesh(new THREE.BoxGeometry(0.32, 0.45, 0.15), camoMat);
+
+      const bagMat = new THREE.MeshStandardMaterial({ color: 0x4a4437, roughness: 0.85 }); // 카키/사막색 군용 배낭 톤
+      const backpackMesh = new THREE.Mesh(new THREE.BoxGeometry(0.33, 0.44, 0.16), bagMat);
       backpackMesh.castShadow = true;
       backpackGroup.add(backpackMesh);
+
+      // 배낭 외부 수납 포켓 (Outer Zipper Pocket)
+      const bagPocket = new THREE.Mesh(new THREE.BoxGeometry(0.26, 0.22, 0.07), bagMat);
+      bagPocket.position.set(0, -0.06, 0.10);
+      backpackMesh.add(bagPocket);
+
+      // 배낭 MOLLE 웨빙 스트랩 (3단 가로선)
+      for (let m = -1; m <= 1; m++) {
+        const molle = new THREE.Mesh(new THREE.BoxGeometry(0.24, 0.015, 0.01), strapMat);
+        molle.position.set(0, m * 0.06, 0.04);
+        bagPocket.add(molle);
+      }
       backpackGroup.visible = false;
+
+      // --- [PUBG 등뒤 사선 슬링 무기 (Back-Sling Weapon System)] ---
+      // 총기를 들고 있을 때 등 뒤에 비스듬히 거치된 보조 소총 (배틀그라운드 시그니처 룩)
+      const backWeaponGroup = new THREE.Group();
+      backWeaponGroup.position.set(0.08, 1.05, 0.22);
+      backWeaponGroup.rotation.z = Math.PI * 0.26; // 대각선으로 메어짐
+      backWeaponGroup.rotation.y = 0.15;
+      backWeaponGroup.rotation.x = -0.10;
+      group.add(backWeaponGroup);
+
+      const slingGunMat = new THREE.MeshStandardMaterial({ color: 0x1e1e1e, metalness: 0.75, roughness: 0.3 });
+      const slingWoodMat = new THREE.MeshStandardMaterial({ color: 0x4a2e18, roughness: 0.7 });
+
+      // 거치 소총 개머리판
+      const slingStock = new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.09, 0.20), slingWoodMat);
+      slingStock.position.set(0, -0.02, -0.10);
+      backWeaponGroup.add(slingStock);
+
+      // 거치 소총 몸통(리시버)
+      const slingReceiver = new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.075, 0.22), slingGunMat);
+      slingReceiver.position.set(0, 0.01, 0.06);
+      backWeaponGroup.add(slingReceiver);
+
+      // 탄창
+      const slingMag = new THREE.Mesh(new THREE.BoxGeometry(0.035, 0.13, 0.055), slingGunMat);
+      slingMag.position.set(0, -0.08, 0.08);
+      slingMag.rotation.x = -0.22;
+      backWeaponGroup.add(slingMag);
+
+      // 총열
+      const slingBarrel = new THREE.Mesh(new THREE.CylinderGeometry(0.014, 0.014, 0.38), slingGunMat);
+      slingBarrel.rotation.x = Math.PI / 2;
+      slingBarrel.position.set(0, 0.02, 0.32);
+      backWeaponGroup.add(slingBarrel);
+
+      // 대각선 멜빵 끈 (Sling Strap across chest)
+      const bodySling = new THREE.Mesh(new THREE.BoxGeometry(0.045, 0.015, 0.42), strapMat);
+      bodySling.position.set(-0.02, 0.04, -0.06);
+      bodySling.rotation.z = -0.4;
+      body.add(bodySling);
+
       // 낙하산용 배낭 (수송기/낙하/낙하산 모드에서 표시)
-      const parachuteBag = new THREE.Mesh(new THREE.BoxGeometry(0.3, 0.45, 0.18), new THREE.MeshStandardMaterial({color: 0x888888, roughness: 0.9}));
+      const parachuteBag = new THREE.Mesh(new THREE.BoxGeometry(0.32, 0.46, 0.18), new THREE.MeshStandardMaterial({color: 0x3d433b, roughness: 0.88}));
       parachuteBag.position.set(0, 0.95, 0.16);
       parachuteBag.castShadow = true;
       parachuteBag.visible = false;
       group.add(parachuteBag);
-      // 총기 마운트 포인트 (오른쪽 아래팔 하단(손)에 위치)
+
+      // 주무기 핸드 마운트 포인트 (오른쪽 아래팔 하단(손)에 위치)
       const weaponContainer = new THREE.Group();
       weaponContainer.position.set(0, -0.25, 0);
       rightArm.elbow.add(weaponContainer);
-      // 헬멧 레벨별 비주얼 업데이트 함수
+
+      // 헬멧 레벨별 비주얼 업데이트 함수 (PUBG 스타일 메탈릭/카모 텍스처)
       function updateHelmetVisual(level) {
         if (!level) {
-          helmet.visible = false;
-          visor.visible = false;
+          helmetGroup.visible = false;
+          visorGroup.visible = false;
         } else {
-          helmet.visible = true;
+          helmetGroup.visible = true;
           if (level.name.includes('1')) {
-            helmet.material.color.setHex(0x4caf50); // Level 1: Green
-            visor.visible = false;
+            // Level 1: 짙은 올리브 카모 그린 강철 방탄모
+            helmetMat.color.setHex(0x3a4833);
+            helmetMat.metalness = 0.45;
+            helmetMat.roughness = 0.55;
+            visorGroup.visible = false;
           } else if (level.name.includes('2')) {
-            helmet.material.color.setHex(0x009688); // Level 2: Teal
-            visor.visible = false;
+            // Level 2: 다크 챠콜/슬레이트 스틸 헬멧
+            helmetMat.color.setHex(0x283138);
+            helmetMat.metalness = 0.65;
+            helmetMat.roughness = 0.38;
+            visorGroup.visible = false;
           } else if (level.name.includes('3')) {
-            helmet.material.color.setHex(0x212121); // Level 3: Black
-            visor.visible = true; // Show visor
+            // Level 3: 시그니처 블랙 스페츠나츠 헬멧 + 전면 방탄 티타늄 바이저
+            helmetMat.color.setHex(0x191a1c);
+            helmetMat.metalness = 0.85;
+            helmetMat.roughness = 0.28;
+            visorGroup.visible = true;
           }
         }
       }
+
       // 가방 레벨별 비주얼 업데이트 함수
       function updateBagVisual(level) {
         if (!level) {
@@ -1941,17 +2150,18 @@
         } else {
           backpackGroup.visible = true;
           if (level.name.includes('1')) {
-            backpackMesh.scale.set(0.8, 0.8, 0.8);
-            backpackMesh.material.color.setHex(0x8d6e63); // Brown
+            backpackMesh.scale.set(0.85, 0.85, 0.85);
+            bagMat.color.setHex(0x5c5344); // Level 1: 밝은 카키
           } else if (level.name.includes('2')) {
             backpackMesh.scale.set(1.0, 1.0, 1.0);
-            backpackMesh.material.color.setHex(0x5d4037); // Dark Brown
+            bagMat.color.setHex(0x3d4233); // Level 2: 올리브 드랩 밀리터리
           } else if (level.name.includes('3')) {
-            backpackMesh.scale.set(1.2, 1.2, 1.2);
-            backpackMesh.material.color.setHex(0x3e2723); // Very Dark Brown
+            backpackMesh.scale.set(1.18, 1.18, 1.18);
+            bagMat.color.setHex(0x262923); // Level 3: 대용량 다크 카모
           }
         }
       }
+
       return {
         group: group,
         body: body,
@@ -1967,8 +2177,10 @@
         rightKnee: rightLeg.knee,
         weaponContainer: weaponContainer,
         headGroup: headGroup,
+        helmetGroup: helmetGroup,
         parachuteBag: parachuteBag,
         backpackGroup: backpackGroup,
+        backWeaponGroup: backWeaponGroup,
         updateHelmetVisual: updateHelmetVisual,
         updateBagVisual: updateBagVisual,
         leftJoint: leftJoint,
@@ -2101,6 +2313,10 @@
       if (weaponMesh) {
         weaponMesh.userData = { weaponName: weapon.name };
         soldierParts.weaponContainer.add(weaponMesh);
+      }
+      // 등 뒤 사선 슬링 무기: 주무기(소총/저격총/샷건)를 들고 있으면 보조 소총이 등에 걸쳐져 배틀그라운드 특유의 2총기 군인 실루엣 완성
+      if (soldierParts.backWeaponGroup) {
+        soldierParts.backWeaponGroup.visible = (weapon && weapon.name !== '맨주먹' && weapon.name !== '주먹');
       }
     }
     // Global muzzle flash resources to prevent GPU memory leaks
@@ -2541,6 +2757,10 @@
     let currentScope = SCOPES.X2;
     playerInventory.weapon = WEAPONS.RIFLE;
     playerInventory.scope = SCOPES.X2;
+    playerInventory.helmet = HELMETS.LV2;
+    playerInventory.bag = BAGS.LV2;
+    playerSoldier.updateHelmetVisual(playerInventory.helmet);
+    playerSoldier.updateBagVisual(playerInventory.bag);
     updateVisualEquip(playerSoldier, currentWeapon, currentScope);
     let isHealing = false;
     let healTimer = 0;
@@ -4522,6 +4742,10 @@
       playerPos.copy(planeGroup.position);
       playerInventory.weapon = WEAPONS.PUNCH;
       playerInventory.scope = SCOPES.NONE;
+      playerInventory.helmet = null;
+      playerInventory.bag = null;
+      playerSoldier.updateHelmetVisual(null);
+      playerSoldier.updateBagVisual(null);
       playerInventory.grenades = 0;
       playerInventory.smokes = 0;
       playerInventory.firstaids = 0;
