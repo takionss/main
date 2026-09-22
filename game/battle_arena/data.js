@@ -922,6 +922,7 @@
     const enemies = []; const lootBoxes = []; const enemyBullets = [];
     const recentGunshots = []; const liveChickens = [];
     // --- [1. 씬 생성] ---
+    const scene = new THREE.Scene();
     // 배틀그라운드 에란겔 특유의 청명하고 깊은 자연 하늘 돔 & 대기 안개 톤
     function createErangelSkyDome() {
       const skyGeo = new THREE.SphereGeometry(1400, 32, 16);
