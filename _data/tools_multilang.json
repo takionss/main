@@ -369,7 +369,7 @@
           "name": "eliminación del fondo de la imagen",
           "url": "web/background-removal/index.html",
           "icon": "images/generative-image.png",
-          "desc": "Eliminación y recorte de fondo de imágenes mediante inteligencia artificial."
+          "desc": "Eliminación y recorte de fondo de imágenes mediante IA"
         },
         {
           "name": "convertidor de GIF",
@@ -422,7 +422,7 @@
           "name": "Arena de batalla",
           "url": "game/battle_arena/index.html",
           "icon": "images/battle.png",
-          "desc": "Juego de acción y batalla de supervivencia en arena para 50 jugadores"
+          "desc": "Juego de acción y batalla de supervivencia para 50 jugadores"
         },
         {
           "name": "Stella Vanguard",
@@ -504,7 +504,7 @@
           "name": "Planificación de activos comunitarios FIRE",
           "url": "https://fire.smileslife.co.kr/",
           "icon": "images/icon_fire.png",
-          "desc": "Consejos de planificación patrimonial para la comunidad FIRE: Preparándose para la libertad financiera."
+          "desc": "Consejos de planificación patrimonial para la comunidad FIRE: Preparándose para la libertad financiera"
         },
         {
           "name": "Ingresos pasivos por automatización",
@@ -813,7 +813,7 @@
           "name": "聯絡我們",
           "url": "https://forms.gle/iGqkmrB7YYptoUgQA",
           "icon": "images/board.png",
-          "desc": "提交有關合作關係、錯誤等的查詢。"
+          "desc": "提交有關合作關係、錯誤等方面的查詢。"
         },
         {
           "name": "記事本",
