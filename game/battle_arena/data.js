@@ -922,10 +922,37 @@
     const enemies = []; const lootBoxes = []; const enemyBullets = [];
     const recentGunshots = []; const liveChickens = [];
     // --- [1. 씬 생성] ---
-    const scene = new THREE.Scene();
-    // 배틀그라운드 에란겔 특유의 청명하고 맑은 하늘색 및 자연스러운 원경 안개 톤
-    scene.background = new THREE.Color(0x8bc3e8); 
-    scene.fog = new THREE.FogExp2(0x9fc8e6, 0.0014); 
+    // 배틀그라운드 에란겔 특유의 청명하고 깊은 자연 하늘 돔 & 대기 안개 톤
+    function createErangelSkyDome() {
+      const skyGeo = new THREE.SphereGeometry(1400, 32, 16);
+      const canvas = document.createElement('canvas');
+      canvas.width = 16;
+      canvas.height = 256;
+      const ctx = canvas.getContext('2d');
+      // 상공(Zenith)에서 지평선(Horizon)으로 이어지는 에란겔 대기 그라데이션
+      const grad = ctx.createLinearGradient(0, 0, 0, 256);
+      grad.addColorStop(0.0, '#316ab2'); // 천정 진한 청명한 블루
+      grad.addColorStop(0.42, '#5e94c9'); // 중상공 소프트 스카이블루
+      grad.addColorStop(0.72, '#95bfe0'); // 하공 밝은 에어리 블루
+      grad.addColorStop(0.91, '#c8dce8'); // 지평선 안개 경계 (Hazy Horizon)
+      grad.addColorStop(1.0, '#dfebed');  // 지평선 수평선 블렌딩
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, 16, 256);
+
+      const skyTex = new THREE.CanvasTexture(canvas);
+      const skyMat = new THREE.MeshBasicMaterial({
+        map: skyTex,
+        side: THREE.BackSide,
+        depthWrite: false
+      });
+      const skyDome = new THREE.Mesh(skyGeo, skyMat);
+      return skyDome;
+    }
+    const skyDome = createErangelSkyDome();
+    scene.add(skyDome);
+
+    scene.background = new THREE.Color(0xb8d3e8); 
+    scene.fog = new THREE.FogExp2(0xb2cede, 0.00115); // 부드러운 원경 대기 산란
     const camera = new THREE.PerspectiveCamera(65, window.innerWidth / window.innerHeight, 0.1, 2500);
     camera.position.set(0, 150, 0);
     const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
@@ -933,19 +960,20 @@
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1.15; // 야외 전장 채광 개선
+    renderer.toneMappingExposure = 1.18; // 맑은 야외 전장 채광 최적화
     document.body.appendChild(renderer.domElement);
-    scene.add(new THREE.AmbientLight(0xcde1f5, 0.65)); // 맑은 하늘 산란광
-    const hemiLight = new THREE.HemisphereLight(0xfff7e8, 0x4d5f3a, 0.75); // 천장 웜톤 태양빛 + 지면 올리브빛 반사광
+
+    scene.add(new THREE.AmbientLight(0xd9e7f4, 0.70)); // 대기 하늘 산란광
+    const hemiLight = new THREE.HemisphereLight(0xfff5e3, 0x485834, 0.78); // 상공 웜 골든선 + 지면 카키 올리브 반사광
     scene.add(hemiLight);
-    const sun = new THREE.DirectionalLight(0xfffaea, 2.0); // 에란겔 정오 직사광선
-    sun.position.set(240, 340, 140); sun.castShadow = true;
+    const sun = new THREE.DirectionalLight(0xfffaea, 2.1); // 에란겔 정오 직사광선
+    sun.position.set(260, 360, 150); sun.castShadow = true;
     sun.shadow.camera.left = -320; sun.shadow.camera.right = 320; sun.shadow.camera.top = 320; sun.shadow.camera.bottom = -320;
     sun.shadow.camera.near = 0.5;
     sun.shadow.camera.far = 1000;
     sun.shadow.mapSize.width = 2048;
     sun.shadow.mapSize.height = 2048;
-    sun.shadow.bias = -0.0006;
+    sun.shadow.bias = -0.0005;
     scene.add(sun);
     // --- [건물 위치 사전 결정 및 지형 평탄화 설계] ---
     const buildingSpots = [];
@@ -1150,47 +1178,80 @@
       colors[i * 3 + 2] = b;
     }
     groundGeo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-    function createErangelGrassTexture(width = 512, height = 512) {
+    function createErangelGrassTexture(width = 1024, height = 1024) {
       const canvas = document.createElement('canvas');
       canvas.width = width;
       canvas.height = height;
       const ctx = canvas.getContext('2d');
-      // 배경 기본 흙/마른 풀 톤
-      ctx.fillStyle = '#6e6a4b';
+      // 1. 기본 에란겔 올리브/카키 토양 베이스
+      ctx.fillStyle = '#59563c';
       ctx.fillRect(0, 0, width, height);
-      // 자연스러운 잔디 결 및 흙 알갱이 노이즈 렌더링
+
+      // 2. 불규칙한 자연 얼룩 패치 (마른 황토, 올리브 들판, 짙은 흙)
+      const patchColors = [
+        'rgba(92, 102, 54, 0.45)',  // 올리브 잔디
+        'rgba(118, 110, 68, 0.40)', // 건초/마른 풀밭
+        'rgba(74, 68, 48, 0.50)',   // 마른 진흙
+        'rgba(50, 44, 32, 0.35)',   // 짙은 부식토
+        'rgba(110, 126, 66, 0.30)'  // 싱그러운 클러스터
+      ];
+      for (let p = 0; p < 320; p++) {
+        const px = Math.random() * width;
+        const py = Math.random() * height;
+        const pr = 18 + Math.random() * 55;
+        const grad = ctx.createRadialGradient(px, py, 2, px, py, pr);
+        const col = patchColors[Math.floor(Math.random() * patchColors.length)];
+        grad.addColorStop(0, col);
+        grad.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        ctx.arc(px, py, pr, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      // 3. 미세 토양 자갈 및 알갱이 노이즈 (High Frequency Dirt Noise)
       const imgData = ctx.getImageData(0, 0, width, height);
       const data = imgData.data;
       for (let i = 0; i < data.length; i += 4) {
-        const grain = (Math.random() - 0.5) * 45;
+        const grain = (Math.random() - 0.5) * 38;
         data[i] = Math.min(255, Math.max(0, data[i] + grain));
-        data[i+1] = Math.min(255, Math.max(0, data[i+1] + grain * 1.1));
-        data[i+2] = Math.min(255, Math.max(0, data[i+2] + grain * 0.8));
+        data[i+1] = Math.min(255, Math.max(0, data[i+1] + grain * 1.12));
+        data[i+2] = Math.min(255, Math.max(0, data[i+2] + grain * 0.78));
       }
       ctx.putImageData(imgData, 0, 0);
-      // 얇은 잔디 잎 블레이드 다발 레이어 (Grass Tufts)
-      ctx.strokeStyle = 'rgba(78, 92, 45, 0.35)';
-      ctx.lineWidth = 1.2;
-      for (let j = 0; j < 600; j++) {
-        const gx = Math.random() * width;
-        const gy = Math.random() * height;
-        const gLen = 4 + Math.random() * 6;
+
+      // 4. 세밀한 잔디 잎 블레이드 다발 레이어 (Crisp Grass Blades)
+      const bladeColors = [
+        'rgba(68, 86, 40, 0.55)',
+        'rgba(96, 114, 52, 0.45)',
+        'rgba(122, 118, 64, 0.40)',
+        'rgba(46, 58, 28, 0.60)'
+      ];
+      for (let b = 0; b < 2400; b++) {
+        const bx = Math.random() * width;
+        const by = Math.random() * height;
+        const bLen = 3 + Math.random() * 7;
+        const bCurve = (Math.random() - 0.5) * 4;
+        ctx.strokeStyle = bladeColors[Math.floor(Math.random() * bladeColors.length)];
+        ctx.lineWidth = 1.0 + Math.random() * 0.8;
         ctx.beginPath();
-        ctx.moveTo(gx, gy);
-        ctx.lineTo(gx + (Math.random() - 0.5) * 3, gy - gLen);
+        ctx.moveTo(bx, by);
+        ctx.quadraticCurveTo(bx + bCurve * 0.5, by - bLen * 0.5, bx + bCurve, by - bLen);
         ctx.stroke();
       }
+
       const texture = new THREE.CanvasTexture(canvas);
       texture.wrapS = THREE.RepeatWrapping;
       texture.wrapT = THREE.RepeatWrapping;
-      texture.repeat.set(120, 120);
+      texture.repeat.set(55, 55); // 타일링 반복 횟수를 최적화하여 패턴 반복감을 방지
+      texture.anisotropy = 4;
       return texture;
     }
     const groundNoiseTex = createErangelGrassTexture();
     const ground = new THREE.Mesh(groundGeo, new THREE.MeshStandardMaterial({ 
       vertexColors: true, 
       map: groundNoiseTex,
-      roughness: 0.96,
+      roughness: 0.94,
       metalness: 0.02
     }));
     ground.receiveShadow = true; scene.add(ground);
@@ -1687,6 +1748,104 @@
         }
       }
     }
+
+    // --- [에란겔 3D 잔디 풀덤불 인스턴스 (Field Foliage & Grass Tufts)] ---
+    // 평지와 언덕에 자연스럽게 흩뿌려져 전장의 입체감과 사실감을 극대화하는 배틀그라운드식 잔디 다발
+    (function createErangelGrassTufts() {
+      const tuftGeo = new THREE.BufferGeometry();
+      // 3장의 교차 평면(Crossed Quad)으로 풍성한 잔디 다발 생성
+      const w = 0.75, h = 0.85;
+      const vertices = [];
+      const uvs = [];
+      const angles = [0, Math.PI / 3, (Math.PI * 2) / 3];
+      angles.forEach(ang => {
+        const cos = Math.cos(ang) * (w / 2);
+        const sin = Math.sin(ang) * (w / 2);
+        // Quad 1: (v0, v1, v2) and (v2, v1, v3)
+        vertices.push(
+          -cos, 0, -sin,
+           cos, 0,  sin,
+          -cos, h, -sin,
+          -cos, h, -sin,
+           cos, 0,  sin,
+           cos, h,  sin
+        );
+        uvs.push(
+          0, 0,  1, 0,  0, 1,
+          0, 1,  1, 0,  1, 1
+        );
+      });
+      tuftGeo.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+      tuftGeo.setAttribute('uv', new THREE.Float32BufferAttribute(uvs, 2));
+      tuftGeo.computeVertexNormals();
+
+      // 알파 블렌딩된 자연스러운 잔디 다발 텍스처 캔버스
+      const tuftCanvas = document.createElement('canvas');
+      tuftCanvas.width = 128; tuftCanvas.height = 256;
+      const tctx = tuftCanvas.getContext('2d');
+      const tuftGrad = tctx.createLinearGradient(0, 256, 0, 0);
+      tuftGrad.addColorStop(0.0, '#364424'); // 밑동 진한 올리브
+      tuftGrad.addColorStop(0.65, '#5d753b'); // 중간 마른 풀잎
+      tuftGrad.addColorStop(0.95, '#859c4e'); // 끝부분 햇빛 받은 잔디 팁
+      tuftGrad.addColorStop(1.0, 'rgba(133, 156, 78, 0)');
+      tctx.fillStyle = tuftGrad;
+
+      for (let b = 0; b < 18; b++) {
+        const bx = 16 + Math.random() * 96;
+        const bTopX = bx + (Math.random() - 0.5) * 28;
+        const bH = 140 + Math.random() * 110;
+        tctx.beginPath();
+        tctx.moveTo(bx - 3, 256);
+        tctx.quadraticCurveTo(bx, 256 - bH * 0.5, bTopX, 256 - bH);
+        tctx.quadraticCurveTo(bx + 1, 256 - bH * 0.5, bx + 3, 256);
+        tctx.fill();
+      }
+
+      const tuftTex = new THREE.CanvasTexture(tuftCanvas);
+      const tuftMat = new THREE.MeshStandardMaterial({
+        map: tuftTex,
+        transparent: true,
+        alphaTest: 0.28,
+        roughness: 0.9,
+        side: THREE.DoubleSide
+      });
+
+      const tuftCount = 1400; // 지형 전반에 걸쳐 입체감 부여
+      const instancedTufts = new THREE.InstancedMesh(tuftGeo, tuftMat, tuftCount);
+      instancedTufts.castShadow = false;
+      instancedTufts.receiveShadow = true;
+
+      const dummy = new THREE.Object3D();
+      let placed = 0;
+      for (let i = 0; i < tuftCount * 2 && placed < tuftCount; i++) {
+        const gx = (Math.random() - 0.5) * 440;
+        const gz = (Math.random() - 0.5) * 440;
+        const dist = Math.sqrt(gx * gx + gz * gz);
+        if (dist > 220 || dist < 22) continue; // 로비 센터 및 바다 외곽 제외
+
+        const gy = getElevation(gx, gz, false);
+        if (gy < 0.3 || gy > 10.5) continue; // 물 밑이나 설산 꼭대기 제외
+
+        // 경사도 확인 (가파른 절벽에는 풀이 자라지 않음)
+        const eps = 0.5;
+        const slope = Math.sqrt(
+          (getElevation(gx + eps, gz, false) - getElevation(gx - eps, gz, false)) ** 2 +
+          (getElevation(gx, gz + eps, false) - getElevation(gx, gz - eps, false)) ** 2
+        ) / (2 * eps);
+        if (slope > 0.35) continue;
+
+        const s = 0.75 + Math.random() * 0.75;
+        dummy.position.set(gx, gy, gz);
+        dummy.scale.set(s, s * (0.8 + Math.random() * 0.4), s);
+        dummy.rotation.y = Math.random() * Math.PI * 2;
+        dummy.updateMatrix();
+        instancedTufts.setMatrixAt(placed, dummy.matrix);
+        placed++;
+      }
+      instancedTufts.count = placed;
+      instancedTufts.instanceMatrix.needsUpdate = true;
+      scene.add(instancedTufts);
+    })();
     // --- [3D 휴머노이드 캐릭터 & 총기 렌더링 시스템 (PUBG 밀리터리 솔저 스타일)] ---
     function createSoldierModel(camoColorHex = 0x3d5c3d, skinColorHex = 0xffccaa) {
       const group = new THREE.Group();
@@ -1838,6 +1997,36 @@
       hair.position.set(0, 0.03, 0.02);
       hair.rotation.x = 0.16;
       headGroup.add(hair);
+
+      // 배틀그라운드 시그니처 전술 선글라스 (Tactical Ballistic Shades)
+      const shadesFrameMat = new THREE.MeshStandardMaterial({ color: 0x111111, roughness: 0.3, metalness: 0.7 });
+      const shadesLensMat = new THREE.MeshStandardMaterial({ color: 0x1a2228, roughness: 0.1, metalness: 0.9 });
+      const shadesL = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.045, 0.02), shadesLensMat);
+      shadesL.position.set(-0.065, 0.05, -0.21);
+      shadesL.rotation.y = 0.06;
+      headGroup.add(shadesL);
+      const shadesR = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.045, 0.02), shadesLensMat);
+      shadesR.position.set(0.065, 0.05, -0.21);
+      shadesR.rotation.y = -0.06;
+      headGroup.add(shadesR);
+      const shadesBridge = new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.015, 0.02), shadesFrameMat);
+      shadesBridge.position.set(0, 0.065, -0.21);
+      headGroup.add(shadesBridge);
+
+      // 전술 헤드셋 (Tactical Comms Headset with Mic)
+      const headsetMat = new THREE.MeshStandardMaterial({ color: 0x222622, roughness: 0.7, metalness: 0.3 });
+      const earCupL = new THREE.Mesh(new THREE.CylinderGeometry(0.055, 0.055, 0.035, 12), headsetMat);
+      earCupL.position.set(-0.235, 0.02, 0);
+      earCupL.rotation.z = Math.PI / 2;
+      headGroup.add(earCupL);
+      const earCupR = new THREE.Mesh(new THREE.CylinderGeometry(0.055, 0.055, 0.035, 12), headsetMat);
+      earCupR.position.set(0.235, 0.02, 0);
+      earCupR.rotation.z = Math.PI / 2;
+      headGroup.add(earCupR);
+      const micBoom = new THREE.Mesh(new THREE.CylinderGeometry(0.008, 0.008, 0.16, 6), headsetMat);
+      micBoom.position.set(-0.18, -0.04, -0.12);
+      micBoom.rotation.set(0.4, 0.7, 0.2);
+      headGroup.add(micBoom);
 
       // --- [PUBG 스틸 헬멧 (Level 1, 2, 3 정밀 모델링)] ---
       const helmetGroup = new THREE.Group();
@@ -2062,46 +2251,6 @@
       }
       backpackGroup.visible = false;
 
-      // --- [PUBG 등뒤 사선 슬링 무기 (Back-Sling Weapon System)] ---
-      // 총기를 들고 있을 때 등 뒤에 비스듬히 거치된 보조 소총 (배틀그라운드 시그니처 룩)
-      const backWeaponGroup = new THREE.Group();
-      backWeaponGroup.position.set(0.08, 1.05, 0.22);
-      backWeaponGroup.rotation.z = Math.PI * 0.26; // 대각선으로 메어짐
-      backWeaponGroup.rotation.y = 0.15;
-      backWeaponGroup.rotation.x = -0.10;
-      group.add(backWeaponGroup);
-
-      const slingGunMat = new THREE.MeshStandardMaterial({ color: 0x1e1e1e, metalness: 0.75, roughness: 0.3 });
-      const slingWoodMat = new THREE.MeshStandardMaterial({ color: 0x4a2e18, roughness: 0.7 });
-
-      // 거치 소총 개머리판
-      const slingStock = new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.09, 0.20), slingWoodMat);
-      slingStock.position.set(0, -0.02, -0.10);
-      backWeaponGroup.add(slingStock);
-
-      // 거치 소총 몸통(리시버)
-      const slingReceiver = new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.075, 0.22), slingGunMat);
-      slingReceiver.position.set(0, 0.01, 0.06);
-      backWeaponGroup.add(slingReceiver);
-
-      // 탄창
-      const slingMag = new THREE.Mesh(new THREE.BoxGeometry(0.035, 0.13, 0.055), slingGunMat);
-      slingMag.position.set(0, -0.08, 0.08);
-      slingMag.rotation.x = -0.22;
-      backWeaponGroup.add(slingMag);
-
-      // 총열
-      const slingBarrel = new THREE.Mesh(new THREE.CylinderGeometry(0.014, 0.014, 0.38), slingGunMat);
-      slingBarrel.rotation.x = Math.PI / 2;
-      slingBarrel.position.set(0, 0.02, 0.32);
-      backWeaponGroup.add(slingBarrel);
-
-      // 대각선 멜빵 끈 (Sling Strap across chest)
-      const bodySling = new THREE.Mesh(new THREE.BoxGeometry(0.045, 0.015, 0.42), strapMat);
-      bodySling.position.set(-0.02, 0.04, -0.06);
-      bodySling.rotation.z = -0.4;
-      body.add(bodySling);
-
       // 낙하산용 배낭 (수송기/낙하/낙하산 모드에서 표시)
       const parachuteBag = new THREE.Mesh(new THREE.BoxGeometry(0.32, 0.46, 0.18), new THREE.MeshStandardMaterial({color: 0x3d433b, roughness: 0.88}));
       parachuteBag.position.set(0, 0.95, 0.16);
@@ -2180,7 +2329,6 @@
         helmetGroup: helmetGroup,
         parachuteBag: parachuteBag,
         backpackGroup: backpackGroup,
-        backWeaponGroup: backWeaponGroup,
         updateHelmetVisual: updateHelmetVisual,
         updateBagVisual: updateBagVisual,
         leftJoint: leftJoint,
@@ -2313,10 +2461,6 @@
       if (weaponMesh) {
         weaponMesh.userData = { weaponName: weapon.name };
         soldierParts.weaponContainer.add(weaponMesh);
-      }
-      // 등 뒤 사선 슬링 무기: 주무기(소총/저격총/샷건)를 들고 있으면 보조 소총이 등에 걸쳐져 배틀그라운드 특유의 2총기 군인 실루엣 완성
-      if (soldierParts.backWeaponGroup) {
-        soldierParts.backWeaponGroup.visible = (weapon && weapon.name !== '맨주먹' && weapon.name !== '주먹');
       }
     }
     // Global muzzle flash resources to prevent GPU memory leaks
