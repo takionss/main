@@ -124,193 +124,151 @@
         try {
           const masterGain = audioCtx.createGain();
           masterGain.gain.setValueAtTime(0, audioCtx.currentTime);
-          masterGain.gain.linearRampToValueAtTime(0.55, audioCtx.currentTime + 3.0);
+          masterGain.gain.linearRampToValueAtTime(0.52, audioCtx.currentTime + 2.5);
           masterGain.connect(audioCtx.destination);
-          // 드론 베이스 (웅장한 긴장감)
-          const droneOsc = audioCtx.createOscillator();
-          droneOsc.type = 'sawtooth';
-          droneOsc.frequency.setValueAtTime(41.20, audioCtx.currentTime); // E1
-          const droneFilter = audioCtx.createBiquadFilter();
-          droneFilter.type = 'lowpass';
-          droneFilter.frequency.value = 140;
-          const droneGain = audioCtx.createGain();
-          droneGain.gain.value = 0.35;
-          droneOsc.connect(droneFilter).connect(droneGain).connect(masterGain);
-          droneOsc.start();
-          bgmNodes.push(droneOsc, droneGain, droneFilter);
-          // 타악기 및 오케스트라 효과 재생기
-          const playImpact = (type = 'HIT', freq = 120) => {
+
+          // 1. 시네마틱 서브 서스펜스 드론 (Cinematic Sub Rumble - 40Hz)
+          const subDrone = audioCtx.createOscillator();
+          subDrone.type = 'sine';
+          subDrone.frequency.setValueAtTime(38.89, audioCtx.currentTime); // D#1
+          const subGain = audioCtx.createGain();
+          subGain.gain.value = 0.32;
+          subDrone.connect(subGain).connect(masterGain);
+          subDrone.start();
+          bgmNodes.push(subDrone, subGain);
+
+          // 2. 아날로그 첼로/베이스 오케스트라 패드 (Warm Saw Cello Swell with Stereo chorus)
+          const celloOsc1 = audioCtx.createOscillator();
+          const celloOsc2 = audioCtx.createOscillator();
+          celloOsc1.type = 'sawtooth';
+          celloOsc2.type = 'sawtooth';
+          celloOsc1.frequency.setValueAtTime(77.78, audioCtx.currentTime); // D#2
+          celloOsc2.frequency.setValueAtTime(78.20, audioCtx.currentTime); // Detuned chorus
+          const celloFilter = audioCtx.createBiquadFilter();
+          celloFilter.type = 'lowpass';
+          celloFilter.frequency.setValueAtTime(280, audioCtx.currentTime);
+          celloFilter.Q.value = 2.0;
+          const celloGain = audioCtx.createGain();
+          celloGain.gain.value = 0.22;
+          celloOsc1.connect(celloFilter);
+          celloOsc2.connect(celloFilter);
+          celloFilter.connect(celloGain).connect(masterGain);
+          celloOsc1.start();
+          celloOsc2.start();
+          bgmNodes.push(celloOsc1, celloOsc2, celloFilter, celloGain);
+
+          // 3. 배그 시그니처 오케스트라 브라스 & 퍼커션 제너레이터
+          const playPUBGHit = (type, pitch = 1.0) => {
             if (!audioCtx) return;
             const now = audioCtx.currentTime;
-            if (type === 'HIT') {
-                // 킥 드럼 펀치
-                const kickOsc = audioCtx.createOscillator();
-                kickOsc.type = 'sine';
-                kickOsc.frequency.setValueAtTime(freq, now);
-                kickOsc.frequency.exponentialRampToValueAtTime(10, now + 0.6);
-                const kickGain = audioCtx.createGain();
-                kickGain.gain.setValueAtTime(0.85, now);
-                kickGain.gain.exponentialRampToValueAtTime(0.001, now + 0.6);
-                kickOsc.connect(kickGain).connect(masterGain);
-                kickOsc.start(now); kickOsc.stop(now + 0.6);
-                // 브라스 찌르기 (Brass stab)
-                const brassOsc = audioCtx.createOscillator();
-                brassOsc.type = 'square';
-                brassOsc.frequency.setValueAtTime(freq * 0.66, now); 
-                const brassFilter = audioCtx.createBiquadFilter();
-                brassFilter.type = 'lowpass';
-                brassFilter.frequency.setValueAtTime(1800, now);
-                brassFilter.frequency.exponentialRampToValueAtTime(100, now + 0.5);
-                const brassGain = audioCtx.createGain();
-                brassGain.gain.setValueAtTime(0.2, now);
-                brassGain.gain.exponentialRampToValueAtTime(0.001, now + 0.5);
-                brassOsc.connect(brassFilter).connect(brassGain).connect(masterGain);
-                brassOsc.start(now); brassOsc.stop(now + 0.5);
-            } else if (type === 'PERC') {
-                // 노이즈 기반 타악기 (Snare/Rim)
-                const bufferSize = audioCtx.sampleRate * 0.1;
-                const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
-                const data = buffer.getChannelData(0);
-                for(let i=0; i<bufferSize; i++) data[i] = Math.random()*2-1;
-                const noise = audioCtx.createBufferSource();
-                noise.buffer = buffer;
-                const filter = audioCtx.createBiquadFilter();
-                filter.type = 'bandpass'; filter.frequency.value = 1400;
-                const g = audioCtx.createGain();
-                g.gain.setValueAtTime(0.12, now);
-                g.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
-                noise.connect(filter).connect(g).connect(masterGain);
-                noise.start(now);
-            } else if (type === 'HAT') {
-                // High-pass noise for hi-hat
-                const bufferSize = audioCtx.sampleRate * 0.04;
-                const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
-                const data = buffer.getChannelData(0);
-                for(let i=0; i<bufferSize; i++) data[i] = Math.random()*2-1;
-                const noise = audioCtx.createBufferSource();
-                noise.buffer = buffer;
-                const filter = audioCtx.createBiquadFilter();
-                filter.type = 'highpass'; filter.frequency.value = 8000;
-                const g = audioCtx.createGain();
-                g.gain.setValueAtTime(0.04, now);
-                g.gain.exponentialRampToValueAtTime(0.001, now + 0.03);
-                noise.connect(filter).connect(g).connect(masterGain);
-                noise.start(now);
-            } else if (type === 'CHORD') {
-                // 웅장한 패드 코드
-                [freq, freq*1.2, freq*1.5].forEach(f => {
-                    const osc = audioCtx.createOscillator();
-                    osc.type = 'sawtooth'; osc.frequency.value = f * 0.5;
-                    const lpf = audioCtx.createBiquadFilter();
-                    lpf.type = 'lowpass'; lpf.frequency.value = 450;
-                    const g = audioCtx.createGain();
-                    g.gain.setValueAtTime(0, now);
-                    g.gain.linearRampToValueAtTime(0.12, now + 0.6);
-                    g.gain.linearRampToValueAtTime(0, now + 2.8);
-                    osc.connect(lpf).connect(g).connect(masterGain);
-                    osc.start(now); osc.stop(now + 2.8);
-                });
+            if (type === 'TAIKO') {
+              // 웅장한 전쟁 타이코/워 드럼 (War Drum Impact + Sub boom)
+              const drumOsc = audioCtx.createOscillator();
+              drumOsc.type = 'sine';
+              drumOsc.frequency.setValueAtTime(85 * pitch, now);
+              drumOsc.frequency.exponentialRampToValueAtTime(24, now + 0.55);
+              const drumGain = audioCtx.createGain();
+              drumGain.gain.setValueAtTime(0.95, now);
+              drumGain.gain.exponentialRampToValueAtTime(0.001, now + 0.55);
+              drumOsc.connect(drumGain).connect(masterGain);
+              drumOsc.start(now); drumOsc.stop(now + 0.55);
+
+              // 드럼 림 어택 (Wood rim tap)
+              const rimSize = Math.floor(audioCtx.sampleRate * 0.06);
+              const rimBuf = audioCtx.createBuffer(1, rimSize, audioCtx.sampleRate);
+              const rimData = rimBuf.getChannelData(0);
+              for (let i = 0; i < rimSize; i++) rimData[i] = (Math.random() * 2 - 1) * Math.exp(-i / (rimSize * 0.2));
+              const rimSrc = audioCtx.createBufferSource();
+              rimSrc.buffer = rimBuf;
+              const rimFilt = audioCtx.createBiquadFilter();
+              rimFilt.type = 'bandpass';
+              rimFilt.frequency.setValueAtTime(450 * pitch, now);
+              const rimGain = audioCtx.createGain();
+              rimGain.gain.setValueAtTime(0.35, now);
+              rimGain.gain.exponentialRampToValueAtTime(0.001, now + 0.06);
+              rimSrc.connect(rimFilt).connect(rimGain).connect(masterGain);
+              rimSrc.start(now); rimSrc.stop(now + 0.06);
+            } else if (type === 'HORN') {
+              // PUBG 특유의 다크 프렌치 호른 브라스 (Epic French Horn Swell)
+              [1, 1.5, 2.0].forEach((harmonic, hIdx) => {
+                const hornOsc = audioCtx.createOscillator();
+                hornOsc.type = 'sawtooth';
+                hornOsc.frequency.setValueAtTime(116.54 * pitch * harmonic, now); // A#2
+                const hornFilt = audioCtx.createBiquadFilter();
+                hornFilt.type = 'lowpass';
+                hornFilt.frequency.setValueAtTime(400, now);
+                hornFilt.frequency.linearRampToValueAtTime(1400, now + 0.28);
+                hornFilt.frequency.exponentialRampToValueAtTime(300, now + 0.95);
+                const hornGain = audioCtx.createGain();
+                hornGain.gain.setValueAtTime(0, now);
+                hornGain.gain.linearRampToValueAtTime((0.28 / (hIdx + 1)), now + 0.15);
+                hornGain.gain.exponentialRampToValueAtTime(0.001, now + 0.95);
+                hornOsc.connect(hornFilt).connect(hornGain).connect(masterGain);
+                hornOsc.start(now); hornOsc.stop(now + 0.95);
+              });
+            } else if (type === 'HIHAT') {
+              // 틴/금속성 택티컬 쉐이커
+              const shkSize = Math.floor(audioCtx.sampleRate * 0.04);
+              const shkBuf = audioCtx.createBuffer(1, shkSize, audioCtx.sampleRate);
+              const shkData = shkBuf.getChannelData(0);
+              for (let i = 0; i < shkSize; i++) shkData[i] = (Math.random() * 2 - 1) * Math.exp(-i / (shkSize * 0.25));
+              const shkSrc = audioCtx.createBufferSource();
+              shkSrc.buffer = shkBuf;
+              const shkFilt = audioCtx.createBiquadFilter();
+              shkFilt.type = 'highpass';
+              shkFilt.frequency.setValueAtTime(7500, now);
+              const shkGain = audioCtx.createGain();
+              shkGain.gain.setValueAtTime(0.08, now);
+              shkGain.gain.exponentialRampToValueAtTime(0.001, now + 0.04);
+              shkSrc.connect(shkFilt).connect(shkGain).connect(masterGain);
+              shkSrc.start(now); shkSrc.stop(now + 0.04);
+            } else if (type === 'STRINGS') {
+              // 긴박한 마이너 스트링 스타카토 (Violin Staccato)
+              const strOsc = audioCtx.createOscillator();
+              strOsc.type = 'sawtooth';
+              strOsc.frequency.setValueAtTime(466.16 * pitch, now); // A#4
+              const strFilt = audioCtx.createBiquadFilter();
+              strFilt.type = 'bandpass';
+              strFilt.frequency.setValueAtTime(1800, now);
+              strFilt.Q.value = 2.5;
+              const strGain = audioCtx.createGain();
+              strGain.gain.setValueAtTime(0.12, now);
+              strGain.gain.exponentialRampToValueAtTime(0.001, now + 0.22);
+              strOsc.connect(strFilt).connect(strGain).connect(masterGain);
+              strOsc.start(now); strOsc.stop(now + 0.22);
             }
           };
-          // 멜로디/베이스/리드 재생 헬퍼
-          const playBass = (freq) => {
-            if (!audioCtx) return;
-            const now = audioCtx.currentTime;
-            const osc = audioCtx.createOscillator();
-            osc.type = 'sawtooth';
-            osc.frequency.setValueAtTime(freq * 2.0, now);
-            const filter = audioCtx.createBiquadFilter();
-            filter.type = 'lowpass';
-            filter.frequency.setValueAtTime(380, now);
-            filter.frequency.exponentialRampToValueAtTime(100, now + 0.18);
-            const gain = audioCtx.createGain();
-            gain.gain.setValueAtTime(0.18, now);
-            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
-            osc.connect(filter).connect(gain).connect(masterGain);
-            osc.start(now); osc.stop(now + 0.18);
-          };
-          const playLead = (freq) => {
-            if (!audioCtx) return;
-            const now = audioCtx.currentTime;
-            const osc1 = audioCtx.createOscillator();
-            const osc2 = audioCtx.createOscillator();
-            osc1.type = 'sawtooth';
-            osc1.frequency.setValueAtTime(freq, now);
-            osc2.type = 'triangle';
-            osc2.frequency.setValueAtTime(freq * 1.005, now);
-            const filter = audioCtx.createBiquadFilter();
-            filter.type = 'bandpass';
-            filter.frequency.setValueAtTime(1100, now);
-            filter.Q.value = 1.0;
-            const gain = audioCtx.createGain();
-            gain.gain.setValueAtTime(0.08, now);
-            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
-            osc1.connect(filter);
-            osc2.connect(filter);
-            filter.connect(gain).connect(masterGain);
-            osc1.start(now); osc1.stop(now + 0.35);
-            osc2.start(now); osc2.stop(now + 0.35);
-          };
-          const bassNotes = [
-            41.20, 41.20, 48.99, 41.20, 55.00, 41.20, 48.99, 41.20,
-            41.20, 41.20, 48.99, 41.20, 55.00, 41.20, 58.27, 41.20,
-            32.70, 32.70, 38.89, 32.70, 43.65, 32.70, 38.89, 32.70,
-            36.71, 36.71, 43.65, 36.71, 48.99, 36.71, 55.00, 48.99,
-            36.71, 36.71, 43.65, 36.71, 48.99, 36.71, 43.65, 36.71,
-            36.71, 36.71, 43.65, 36.71, 48.99, 36.71, 55.00, 36.71,
-            48.99, 48.99, 58.27, 48.99, 65.41, 48.99, 58.27, 48.99,
-            55.00, 55.00, 65.41, 55.00, 73.42, 65.41, 55.00, 41.20
+
+          // PUBG 오리지널 테마 특유의 4/4 박자 긴박한 배틀 모티프 (A# Minor, 130 BPM)
+          // Bar 1-4: Da-Da-Da-- Da-Da-Da-- 브라스 & 육중한 드럼 타격
+          let step = 0;
+          const pubgHornPattern = [
+            1.0, 0, 0, 1.0,  0, 0, 1.0, 0,  1.12, 0, 0, 1.0,  0, 0, 0, 0,
+            0.89, 0, 0, 0.89, 0, 0, 0.89, 0, 1.0, 0, 0, 0.89, 0, 0, 0, 0
           ];
-          const leadNotes = [
-            0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0,
-            164.81, 0, 196.00, 220.00, 0, 246.94, 220.00, 196.00,
-            164.81, 0, 196.00, 220.00, 0, 293.66, 246.94, 220.00,
-            261.63, 0, 293.66, 329.63, 0, 392.00, 329.63, 293.66,
-            293.66, 0, 329.63, 349.23, 0, 440.00, 392.00, 349.23
-          ];
-          let beatCount = 0;
+
           bgmInterval = setInterval(() => {
-            const cycle = beatCount % 64;
-            // 메인 킥 리듬
-            if (cycle === 0 || cycle === 3 || cycle === 4 || cycle === 8 || cycle === 11 || cycle === 12 || 
-                cycle === 16 || cycle === 19 || cycle === 20 || cycle === 24 || cycle === 27 || cycle === 28 ||
-                cycle === 32 || cycle === 35 || cycle === 36 || cycle === 40 || cycle === 43 || cycle === 44 ||
-                cycle === 48 || cycle === 51 || cycle === 52 || cycle === 56 || cycle === 59 || cycle === 60) {
-              playImpact('HIT', cycle >= 32 ? 95 : 110);
+            const beat = step % 32;
+            // 1. 드럼 비트 (박진감 넘치는 트레일러 타격)
+            if (beat === 0 || beat === 3 || beat === 6 || beat === 10 || beat === 16 || beat === 19 || beat === 22 || beat === 26) {
+              playPUBGHit('TAIKO', beat === 0 || beat === 16 ? 0.95 : 1.1);
             }
-            // 박자감을 주는 추가 타악기 (Snare/Rim)
-            if (cycle % 4 === 2 || cycle % 8 === 7) {
-              playImpact('PERC');
+            // 2. 택티컬 셰이커 / 림
+            if (beat % 2 === 1) {
+              playPUBGHit('HIHAT');
             }
-            // 하이햇 업비트
-            if (cycle % 2 === 1) {
-              playImpact('HAT');
+            // 3. 웅장한 브라스 테마 (PUBG 스타일 혼)
+            const hornPitch = pubgHornPattern[beat];
+            if (hornPitch > 0) {
+              playPUBGHit('HORN', hornPitch);
             }
-            // 드라이빙 베이스 런
-            const bNote = bassNotes[cycle];
-            if (bNote > 0) {
-              playBass(bNote);
+            // 4. 후반부 고조 스트링 스타카토
+            if (step >= 32 && (beat % 4 === 2 || beat % 4 === 3)) {
+              playPUBGHit('STRINGS', hornPitch > 0 ? hornPitch : 1.0);
             }
-            // 고조되는 부분의 리드 멜로디
-            const lNote = leadNotes[cycle];
-            if (lNote > 0) {
-              playLead(lNote);
-            }
-            // 코드 연출 (16박자마다 오케스트라 패드)
-            if (cycle === 0) playImpact('CHORD', 82.41);
-            if (cycle === 16) playImpact('CHORD', 65.41);
-            if (cycle === 32) playImpact('CHORD', 73.42);
-            if (cycle === 48) playImpact('CHORD', 98.00);
-            // 드론 피치 변주
-            if (cycle === 0) droneOsc.frequency.exponentialRampToValueAtTime(41.20, audioCtx.currentTime + 0.8);
-            if (cycle === 16) droneOsc.frequency.exponentialRampToValueAtTime(32.70, audioCtx.currentTime + 0.8);
-            if (cycle === 32) droneOsc.frequency.exponentialRampToValueAtTime(36.71, audioCtx.currentTime + 0.8);
-            if (cycle === 48) droneOsc.frequency.exponentialRampToValueAtTime(48.99, audioCtx.currentTime + 0.8);
-            beatCount++;
-          }, 240); // 240ms 간격으로 더 속도감 있고 힘찬 리듬
+            step++;
+            if (step >= 64) step = 0;
+          }, 230); // 130 BPM
         } catch (err) {}
       },
       stopBGM() {
@@ -534,89 +492,105 @@
           }
         } catch(e) {}
       },
+      // --- [PUBG 스타일 실감형 하이엔드 총기 격발 사운드 엔진] ---
+      // 단순 삐- 소리(Synthesizer tone)를 완전 배제하고, 화약 팽창 폭발 충격파 + 기계식 볼트 왕복 + 야외 원거리 지형 메아리(Tail Reverb) 3중 합성
       playGunshot(weaponId, volume = 1.0, pan = 0) {
         if (!sfxEnabled) return;
         initAudio();
         if (!audioCtx) return;
         const now = audioCtx.currentTime;
         try {
-          const osc = audioCtx.createOscillator();
-          const gain = audioCtx.createGain();
-          const filter = audioCtx.createBiquadFilter();
-          const bufferSize = audioCtx.sampleRate * 1.5;
-          const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
-          const data = buffer.getChannelData(0);
-          for (let i = 0; i < bufferSize; i++) {
-            data[i] = Math.random() * 2 - 1;
-          }
-          const noise = audioCtx.createBufferSource();
-          noise.buffer = buffer;
-          const nGain = audioCtx.createGain();
-          const nFilter = audioCtx.createBiquadFilter();
           const panner = audioCtx.createPanner();
           panner.panningModel = 'HRTF';
           panner.setPosition(pan, 0, -1);
-          if (weaponId === 'SNIPER') {
-            osc.type = 'sine';
-            osc.frequency.setValueAtTime(15, now);
-            osc.frequency.exponentialRampToValueAtTime(1, now + 1.2);
-            gain.gain.setValueAtTime(volume * 1.6, now);
-            gain.gain.exponentialRampToValueAtTime(0.001, now + 1.2);
-            nFilter.type = 'lowpass';
-            nFilter.frequency.setValueAtTime(2500, now);
-            nFilter.Q.setValueAtTime(1.5, now);
-            nGain.gain.setValueAtTime(volume * 1.5, now);
-            nGain.gain.exponentialRampToValueAtTime(0.001, now + 1.4);
-            osc.connect(gain).connect(panner);
-            noise.connect(nFilter).connect(nGain).connect(panner);
-            osc.start(now); osc.stop(now + 1.2);
-            noise.start(now); noise.stop(now + 1.4);
-          } else if (weaponId === 'SHOTGUN') {
-            osc.type = 'sawtooth';
-            osc.frequency.setValueAtTime(80, now);
-            osc.frequency.exponentialRampToValueAtTime(10, now + 0.35);
-            gain.gain.setValueAtTime(volume * 1.4, now);
-            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
-            nFilter.type = 'bandpass';
-            nFilter.frequency.setValueAtTime(1000, now);
-            nFilter.frequency.exponentialRampToValueAtTime(100, now + 0.45);
-            nGain.gain.setValueAtTime(volume * 1.6, now);
-            nGain.gain.exponentialRampToValueAtTime(0.001, now + 0.5);
-            osc.connect(gain).connect(panner);
-            noise.connect(nFilter).connect(nGain).connect(panner);
-            osc.start(now); osc.stop(now + 0.35);
-            noise.start(now); noise.stop(now + 0.5);
-          } else if (weaponId === 'RIFLE') {
-            osc.type = 'triangle';
-            osc.frequency.setValueAtTime(120, now);
-            osc.frequency.exponentialRampToValueAtTime(20, now + 0.18);
-            gain.gain.setValueAtTime(volume * 0.95, now);
-            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
-            nFilter.type = 'bandpass';
-            nFilter.frequency.setValueAtTime(2000, now);
-            nFilter.Q.setValueAtTime(1.0, now);
-            nGain.gain.setValueAtTime(volume * 0.85, now);
-            nGain.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
-            osc.connect(gain).connect(panner);
-            noise.connect(nFilter).connect(nGain).connect(panner);
-            osc.start(now); osc.stop(now + 0.18);
-            noise.start(now); noise.stop(now + 0.25);
-          } else if (weaponId === 'PISTOL') {
-            osc.type = 'triangle';
-            osc.frequency.setValueAtTime(280, now);
-            osc.frequency.exponentialRampToValueAtTime(50, now + 0.12);
-            gain.gain.setValueAtTime(volume * 0.7, now);
-            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
-            nFilter.type = 'bandpass';
-            nFilter.frequency.setValueAtTime(3200, now);
-            nGain.gain.setValueAtTime(volume * 0.45, now);
-            nGain.gain.exponentialRampToValueAtTime(0.001, now + 0.15);
-            osc.connect(gain).connect(panner);
-            noise.connect(nFilter).connect(nGain).connect(panner);
-            osc.start(now); osc.stop(now + 0.12);
-            noise.start(now); noise.stop(now + 0.15);
-          }
           panner.connect(getSfxDestination());
+
+          // 1. 초기 화약 격발 충격파 (Supersonic Crack / Initial Bang)
+          const bangLen = 0.045;
+          const bangBufSize = Math.floor(audioCtx.sampleRate * bangLen);
+          const bangBuf = audioCtx.createBuffer(1, bangBufSize, audioCtx.sampleRate);
+          const bangData = bangBuf.getChannelData(0);
+          for (let i = 0; i < bangBufSize; i++) {
+            bangData[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / bangBufSize, 1.8);
+          }
+          const bangSrc = audioCtx.createBufferSource();
+          bangSrc.buffer = bangBuf;
+          const bangFilt = audioCtx.createBiquadFilter();
+          bangFilt.type = 'highpass';
+          bangFilt.frequency.setValueAtTime(weaponId === 'SNIPER' ? 1200 : 1800, now);
+          const bangGain = audioCtx.createGain();
+          bangGain.gain.setValueAtTime(volume * 1.5, now);
+          bangGain.gain.exponentialRampToValueAtTime(0.001, now + bangLen);
+          bangSrc.connect(bangFilt).connect(bangGain).connect(panner);
+          bangSrc.start(now); bangSrc.stop(now + bangLen);
+
+          // 2. 묵직한 약실 화약 폭발 서브우퍼 (Sub-Bass Body Punch - 35~90Hz)
+          const subOsc = audioCtx.createOscillator();
+          subOsc.type = 'sine';
+          const subStartFreq = (weaponId === 'SNIPER') ? 110 : (weaponId === 'SHOTGUN') ? 95 : (weaponId === 'RIFLE') ? 130 : 160;
+          const subEndFreq = (weaponId === 'SNIPER') ? 22 : 32;
+          const subDuration = (weaponId === 'SNIPER') ? 0.38 : (weaponId === 'SHOTGUN') ? 0.32 : 0.22;
+          subOsc.frequency.setValueAtTime(subStartFreq, now);
+          subOsc.frequency.exponentialRampToValueAtTime(subEndFreq, now + subDuration);
+          const subGain = audioCtx.createGain();
+          subGain.gain.setValueAtTime(volume * ((weaponId === 'SNIPER' || weaponId === 'SHOTGUN') ? 1.8 : 1.3), now);
+          subGain.gain.exponentialRampToValueAtTime(0.001, now + subDuration);
+          subOsc.connect(subGain).connect(panner);
+          subOsc.start(now); subOsc.stop(now + subDuration);
+
+          // 3. 무기별 실탄 구경 특화 미드레인지 폭발음 (Mid-Frequency Explosive Body)
+          const midLen = (weaponId === 'SNIPER') ? 0.45 : (weaponId === 'SHOTGUN') ? 0.38 : (weaponId === 'RIFLE') ? 0.28 : 0.18;
+          const midBufSize = Math.floor(audioCtx.sampleRate * midLen);
+          const midBuf = audioCtx.createBuffer(1, midBufSize, audioCtx.sampleRate);
+          const midData = midBuf.getChannelData(0);
+          for (let i = 0; i < midBufSize; i++) {
+            midData[i] = (Math.random() * 2 - 1) * Math.exp(-i / (midBufSize * 0.18));
+          }
+          const midSrc = audioCtx.createBufferSource();
+          midSrc.buffer = midBuf;
+          const midFilt = audioCtx.createBiquadFilter();
+          midFilt.type = 'lowpass';
+          midFilt.frequency.setValueAtTime((weaponId === 'SNIPER') ? 950 : (weaponId === 'SHOTGUN') ? 700 : 1250, now);
+          const midGain = audioCtx.createGain();
+          midGain.gain.setValueAtTime(volume * 1.6, now);
+          midGain.gain.exponentialRampToValueAtTime(0.001, now + midLen);
+          midSrc.connect(midFilt).connect(midGain).connect(panner);
+          midSrc.start(now); midSrc.stop(now + midLen);
+
+          // 4. 에란겔 야외 전장 롱 테일 메아리 (Outdoor Battlefield Reverb Tail)
+          const tailLen = (weaponId === 'SNIPER') ? 1.8 : (weaponId === 'SHOTGUN') ? 1.2 : (weaponId === 'RIFLE') ? 1.0 : 0.65;
+          const tailBufSize = Math.floor(audioCtx.sampleRate * tailLen);
+          const tailBuf = audioCtx.createBuffer(1, tailBufSize, audioCtx.sampleRate);
+          const tailData = tailBuf.getChannelData(0);
+          for (let i = 0; i < tailBufSize; i++) {
+            tailData[i] = (Math.random() * 2 - 1) * Math.exp(-i / (tailBufSize * 0.28));
+          }
+          const tailSrc = audioCtx.createBufferSource();
+          tailSrc.buffer = tailBuf;
+          const tailFilt = audioCtx.createBiquadFilter();
+          tailFilt.type = 'bandpass';
+          tailFilt.frequency.setValueAtTime((weaponId === 'SNIPER') ? 500 : 750, now);
+          tailFilt.Q.value = 1.4;
+          const tailGain = audioCtx.createGain();
+          tailGain.gain.setValueAtTime(0, now);
+          tailGain.gain.linearRampToValueAtTime(volume * 0.45, now + 0.04);
+          tailGain.gain.exponentialRampToValueAtTime(0.001, now + tailLen);
+          tailSrc.connect(tailFilt).connect(tailGain).connect(panner);
+          tailSrc.start(now); tailSrc.stop(now + tailLen);
+
+          // 5. 기계식 노리쇠/슬라이드 왕복 금속음 (Mechanical Bolt Cycle Click)
+          if (weaponId === 'RIFLE' || weaponId === 'PISTOL') {
+            const boltTime = now + 0.055;
+            const boltOsc = audioCtx.createOscillator();
+            boltOsc.type = 'sine';
+            boltOsc.frequency.setValueAtTime(2200, boltTime);
+            boltOsc.frequency.exponentialRampToValueAtTime(800, boltTime + 0.03);
+            const boltGain = audioCtx.createGain();
+            boltGain.gain.setValueAtTime(volume * 0.22, boltTime);
+            boltGain.gain.exponentialRampToValueAtTime(0.001, boltTime + 0.03);
+            boltOsc.connect(boltGain).connect(panner);
+            boltOsc.start(boltTime); boltOsc.stop(boltTime + 0.03);
+          }
         } catch(e) {}
       },
       playPainSound() {
@@ -625,22 +599,32 @@
         if (!audioCtx) return;
         const now = audioCtx.currentTime;
         try {
-          const osc = audioCtx.createOscillator();
-          const gain = audioCtx.createGain();
-          osc.type = 'sawtooth';
-          // "윽" 소리: 낮은 주파수에서 급격히 떨어지는 음
-          osc.frequency.setValueAtTime(120, now);
-          osc.frequency.exponentialRampToValueAtTime(40, now + 0.15);
-          gain.gain.setValueAtTime(0.3, now);
-          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.2);
-          const filter = audioCtx.createBiquadFilter();
-          filter.type = 'lowpass';
-          filter.frequency.value = 400;
-          osc.connect(filter);
-          filter.connect(gain);
-          gain.connect(getSfxDestination());
-          osc.start(now);
-          osc.stop(now + 0.2);
+          // 실감나는 피격 타격음 (Flesh Impact Thud)
+          const thudOsc = audioCtx.createOscillator();
+          thudOsc.type = 'sine';
+          thudOsc.frequency.setValueAtTime(140, now);
+          thudOsc.frequency.exponentialRampToValueAtTime(35, now + 0.14);
+          const thudGain = audioCtx.createGain();
+          thudGain.gain.setValueAtTime(0.45, now);
+          thudGain.gain.exponentialRampToValueAtTime(0.001, now + 0.14);
+          thudOsc.connect(thudGain).connect(getSfxDestination());
+          thudOsc.start(now); thudOsc.stop(now + 0.14);
+
+          // 둔탁한 살점 파열 노이즈 (Impact Splat)
+          const bSize = Math.floor(audioCtx.sampleRate * 0.08);
+          const bBuf = audioCtx.createBuffer(1, bSize, audioCtx.sampleRate);
+          const bData = bBuf.getChannelData(0);
+          for (let i = 0; i < bSize; i++) bData[i] = (Math.random() * 2 - 1) * Math.exp(-i / (bSize * 0.2));
+          const bSrc = audioCtx.createBufferSource();
+          bSrc.buffer = bBuf;
+          const bFilt = audioCtx.createBiquadFilter();
+          bFilt.type = 'lowpass';
+          bFilt.frequency.setValueAtTime(600, now);
+          const bGain = audioCtx.createGain();
+          bGain.gain.setValueAtTime(0.25, now);
+          bGain.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
+          bSrc.connect(bFilt).connect(bGain).connect(getSfxDestination());
+          bSrc.start(now); bSrc.stop(now + 0.08);
         } catch(e) {}
       },
       playExplosion(volume = 1.0) {
@@ -758,23 +742,33 @@
         if (!audioCtx) return;
         const now = audioCtx.currentTime;
         try {
-          const dur = isSprinting ? 0.08 : 0.11;
-          const vol = isSprinting ? 0.045 : 0.025;
-          const bufferSize = audioCtx.sampleRate * dur;
+          // 군화 흙/잔디 지면 스탬프 (Tactical Combat Boot Thud)
+          const thud = audioCtx.createOscillator();
+          thud.type = 'sine';
+          thud.frequency.setValueAtTime(isSprinting ? 95 : 75, now);
+          thud.frequency.exponentialRampToValueAtTime(30, now + 0.09);
+          const thudGain = audioCtx.createGain();
+          thudGain.gain.setValueAtTime(isSprinting ? 0.22 : 0.12, now);
+          thudGain.gain.exponentialRampToValueAtTime(0.001, now + 0.09);
+          thud.connect(thudGain).connect(getSfxDestination());
+          thud.start(now); thud.stop(now + 0.09);
+
+          // 자갈/마른 풀 사각거리는 마찰음 (Gravel Crunch)
+          const dur = isSprinting ? 0.09 : 0.12;
+          const bufferSize = Math.floor(audioCtx.sampleRate * dur);
           const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
           const data = buffer.getChannelData(0);
           for (let i = 0; i < bufferSize; i++) {
-            data[i] = Math.random() * 2 - 1;
+            data[i] = (Math.random() * 2 - 1) * Math.exp(-i / (bufferSize * 0.35));
           }
           const noise = audioCtx.createBufferSource();
           noise.buffer = buffer;
           const filter = audioCtx.createBiquadFilter();
           filter.type = 'bandpass';
-          filter.frequency.setValueAtTime(3500, now);
-          filter.Q.setValueAtTime(3.0, now);
+          filter.frequency.setValueAtTime(1400, now);
+          filter.Q.setValueAtTime(1.5, now);
           const gain = audioCtx.createGain();
-          gain.gain.setValueAtTime(0.001, now);
-          gain.gain.linearRampToValueAtTime(vol, now + 0.02);
+          gain.gain.setValueAtTime(isSprinting ? 0.18 : 0.10, now);
           gain.gain.exponentialRampToValueAtTime(0.001, now + dur);
           noise.connect(filter).connect(gain).connect(getSfxDestination());
           noise.start(now); noise.stop(now + dur);
@@ -786,20 +780,35 @@
         if (!audioCtx) return;
         const now = audioCtx.currentTime;
         try {
-          const frequencies = [330, 440, 554, 659];
-          frequencies.forEach((freq, idx) => {
-            const osc = audioCtx.createOscillator();
-            const gain = audioCtx.createGain();
-            osc.type = 'sine';
-            osc.frequency.setValueAtTime(freq, now + idx * 0.12);
-            gain.gain.setValueAtTime(0, now + idx * 0.12);
-            gain.gain.linearRampToValueAtTime(0.08, now + idx * 0.12 + 0.03);
-            gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.12 + 0.3);
-            osc.connect(gain);
-            gain.connect(getSfxDestination());
-            osc.start(now + idx * 0.12);
-            osc.stop(now + idx * 0.12 + 0.3);
-          });
+          // 구급상자 붕대 지퍼 및 압박 붕대 사운드 (Bandage & Zipper Texture)
+          const zipSize = Math.floor(audioCtx.sampleRate * 0.45);
+          const zipBuf = audioCtx.createBuffer(1, zipSize, audioCtx.sampleRate);
+          const zipData = zipBuf.getChannelData(0);
+          for (let i = 0; i < zipSize; i++) {
+            zipData[i] = (Math.random() * 2 - 1) * (0.5 + 0.5 * Math.sin(i * 0.08));
+          }
+          const zipSrc = audioCtx.createBufferSource();
+          zipSrc.buffer = zipBuf;
+          const zipFilt = audioCtx.createBiquadFilter();
+          zipFilt.type = 'bandpass';
+          zipFilt.frequency.setValueAtTime(2400, now);
+          zipFilt.Q.value = 3.0;
+          const zipGain = audioCtx.createGain();
+          zipGain.gain.setValueAtTime(0.18, now);
+          zipGain.gain.exponentialRampToValueAtTime(0.001, now + 0.45);
+          zipSrc.connect(zipFilt).connect(zipGain).connect(getSfxDestination());
+          zipSrc.start(now); zipSrc.stop(now + 0.45);
+
+          // 주사기 투약 앰플 찰칵 (Syringe/Capsule Click)
+          const click = audioCtx.createOscillator();
+          click.type = 'sine';
+          click.frequency.setValueAtTime(1400, now + 0.22);
+          click.frequency.exponentialRampToValueAtTime(500, now + 0.29);
+          const cGain = audioCtx.createGain();
+          cGain.gain.setValueAtTime(0.15, now + 0.22);
+          cGain.gain.exponentialRampToValueAtTime(0.001, now + 0.29);
+          click.connect(cGain).connect(getSfxDestination());
+          click.start(now + 0.22); click.stop(now + 0.29);
         } catch (e) {}
       },
       playLootSound() {
@@ -808,17 +817,32 @@
         if (!audioCtx) return;
         const now = audioCtx.currentTime;
         try {
-          const osc = audioCtx.createOscillator();
-          const gain = audioCtx.createGain();
-          osc.type = 'triangle';
-          osc.frequency.setValueAtTime(550, now);
-          osc.frequency.exponentialRampToValueAtTime(850, now + 0.08);
-          gain.gain.setValueAtTime(0.05, now);
-          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
-          osc.connect(gain);
-          gain.connect(getSfxDestination());
-          osc.start(now);
-          osc.stop(now + 0.08);
+          // 군용 장비/총기 줍는 찰칵 금속성 사운드 (Tactical Item Pickup Click)
+          const metal = audioCtx.createOscillator();
+          metal.type = 'sine';
+          metal.frequency.setValueAtTime(1850, now);
+          metal.frequency.exponentialRampToValueAtTime(720, now + 0.06);
+          const mGain = audioCtx.createGain();
+          mGain.gain.setValueAtTime(0.24, now);
+          mGain.gain.exponentialRampToValueAtTime(0.001, now + 0.06);
+          metal.connect(mGain).connect(getSfxDestination());
+          metal.start(now); metal.stop(now + 0.06);
+
+          // 벨크로/천 파우치 스치는 소리
+          const rSize = Math.floor(audioCtx.sampleRate * 0.07);
+          const rBuf = audioCtx.createBuffer(1, rSize, audioCtx.sampleRate);
+          const rData = rBuf.getChannelData(0);
+          for (let i = 0; i < rSize; i++) rData[i] = (Math.random() * 2 - 1) * Math.exp(-i / (rSize * 0.3));
+          const rSrc = audioCtx.createBufferSource();
+          rSrc.buffer = rBuf;
+          const rFilt = audioCtx.createBiquadFilter();
+          rFilt.type = 'bandpass';
+          rFilt.frequency.setValueAtTime(3200, now);
+          const rGain = audioCtx.createGain();
+          rGain.gain.setValueAtTime(0.12, now);
+          rGain.gain.exponentialRampToValueAtTime(0.001, now + 0.07);
+          rSrc.connect(rFilt).connect(rGain).connect(getSfxDestination());
+          rSrc.start(now); rSrc.stop(now + 0.07);
         } catch (e) {}
       },
       playMatchEndSound(isVictory) {
@@ -828,23 +852,23 @@
         const now = audioCtx.currentTime;
         try {
           if (isVictory) {
-            const notes = [261.63, 329.63, 392.00, 523.25];
+            const notes = [233.08, 293.66, 349.23, 466.16];
             notes.forEach((freq, idx) => {
               const osc = audioCtx.createOscillator();
               const gain = audioCtx.createGain();
               osc.type = 'sawtooth';
-              osc.frequency.setValueAtTime(freq, now + idx * 0.14);
+              osc.frequency.setValueAtTime(freq, now + idx * 0.18);
               const filter = audioCtx.createBiquadFilter();
               filter.type = 'lowpass';
-              filter.frequency.setValueAtTime(750, now + idx * 0.14);
-              gain.gain.setValueAtTime(0, now + idx * 0.14);
-              gain.gain.linearRampToValueAtTime(0.07, now + idx * 0.14 + 0.05);
-              gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.14 + 0.7);
+              filter.frequency.setValueAtTime(1400, now + idx * 0.18);
+              gain.gain.setValueAtTime(0, now + idx * 0.18);
+              gain.gain.linearRampToValueAtTime(0.28, now + idx * 0.18 + 0.05);
+              gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.18 + (idx === 3 ? 1.4 : 0.6));
               osc.connect(filter);
               filter.connect(gain);
               gain.connect(getSfxDestination());
-              osc.start(now + idx * 0.14);
-              osc.stop(now + idx * 0.14 + 0.75);
+              osc.start(now + idx * 0.18);
+              osc.stop(now + idx * 0.18 + (idx === 3 ? 1.4 : 0.65));
             });
           } else {
             const osc = audioCtx.createOscillator();
